@@ -72,24 +72,26 @@ the truncated page title.
 
 ## Custom Link and Link Props
 
-The `customLink` prop allows apps with internal routers (Next.js, for example) to pass their custom link component into Breadcrumbs so the links can use client-side routing.
-To maximize these benefits, the `linkProps` prop on `breadcrumbsData` allows accompanying custom props on a link-by-link basis.
+The `customLink` prop allows apps with internal routers (Next.js, for example) to pass their custom link component
+into the `Breadcrumbs` component. This allows the `Breadcrumbs` links to use client-side routing, so users can navigate between pages without reloading the full page.
 
-Note: assigning a value for `href` in `linkProps` will override the `url` prop, so avoid this.
+Additionally, the `linkProps` prop on `breadcrumbsData` allows any of the framework's [custom props](https://nextjs.org/docs/app/api-reference/components/link) to be applied on a link-by-link basis.
+
+Note: assigning a value for `href` in `linkProps` will override the `url` prop, so we recommend against this.
 
 <Source
   code={`
-  // Example with Next.js Link and associated props.
-const breadcrumbsData = [
-  { url: "#", text: "Parent", linkProps: { replace: true, scroll: false }}
-  { url: "#", text: "Child", , linkProps: { replace: true }}
-  { url: "#", text: "Grandchild" },
+  // Example with Next.js Link and its associated custom props (scroll, replace, prefetch)
+import Link from "next/link";
+
+const breadcrumbsDataWithLinkProps = [
+{ url: "#", text: "Parent", linkProps: { replace: true, scroll: false }}
+{ url: "#", text: "Child", linkProps: { replace: true }}
+{ url: "#", text: "Grandchild" },
 ];
-// ...
-<Breadcrumbs customLink={Link} breadcrumbsData={breadcrumbsData} />
-`}
-  language="tsx"
-/>
+
+<Breadcrumbs customLink={Link} breadcrumbsData={breadcrumbsDataWithLinkProps} />
+`} language="tsx" />
 
 Below story uses the DS `Link` component.
 
