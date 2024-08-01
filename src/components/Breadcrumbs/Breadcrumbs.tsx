@@ -1,10 +1,10 @@
 import {
   Breadcrumb as ChakraBreadcrumb,
   BreadcrumbItem,
+  BreadcrumbLink,
   chakra,
   useStyleConfig,
   ChakraComponent,
-  BreadcrumbLink,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
