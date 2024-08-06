@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Adds span element around button text to allow CSS selection."],
+  },
+  {
     date: "2024-06-20",
     version: "3.1.6",
     type: "Update",
