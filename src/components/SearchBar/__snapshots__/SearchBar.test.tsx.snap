@@ -74,7 +74,11 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
   <div
@@ -289,7 +293,11 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
   <div
@@ -384,7 +392,11 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
 </div>
@@ -464,7 +476,11 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
   <div
@@ -568,7 +584,11 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
 </div>
@@ -648,7 +668,11 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
 </div>
@@ -729,7 +753,11 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
 </div>
@@ -810,7 +838,11 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
 </div>
@@ -871,7 +903,11 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
 </div>
@@ -931,7 +967,11 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
 </div>
@@ -997,7 +1037,11 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
 </div>
@@ -1077,7 +1121,11 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
   <div
@@ -1174,7 +1222,11 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
           />
         </g>
       </svg>
-      Search
+      <span
+        id="searchtext"
+      >
+        Search
+      </span>
     </button>
   </form>
   <div
