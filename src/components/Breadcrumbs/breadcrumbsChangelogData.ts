@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Functionality"],
     notes: [
-      "Adds `customLink` and `linkProps` props to allow clientside routing.",
+      "Adds `customLinkComponent` and `linkProps` props to allow clientside routing.",
     ],
   },
   {

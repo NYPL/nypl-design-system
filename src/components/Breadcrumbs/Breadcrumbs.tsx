@@ -40,7 +40,7 @@ export interface BreadcrumbProps {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Custom Link component for apps with internal routing, defaults to BreadcrumbLink if not passed */
-  customLink?: any;
+  customLinkComponent?: any;
 }
 
 const breadcrumbTextLength = 40;
@@ -52,7 +52,7 @@ const breadcrumbTextLength = 40;
 const tooltipWrapperOrText = (
   breadcrumbsData: BreadcrumbsDataProps,
   breadcrumbsID,
-  customLink,
+  customLinkComponent,
   renderIcon = false,
   isCurrentPage = false
 ) => {
@@ -65,7 +65,7 @@ const tooltipWrapperOrText = (
       : truncateText(breadcrumbsData.text as string, breadcrumbTextLength);
   const linkWrapper = (
     <BreadcrumbLink
-      as={customLink}
+      as={customLinkComponent}
       href={breadcrumbsData.url}
       aria-current={isCurrentPage ? "page" : undefined}
       {...breadcrumbsData.linkProps}
@@ -103,7 +103,7 @@ const tooltipWrapperOrText = (
 const getElementsFromData = (
   data: BreadcrumbsDataProps[],
   breadcrumbsID?: string,
-  customLink?: any
+  customLinkComponent?: any
 ) => {
   if (!data?.length) {
     return null;
@@ -121,7 +121,7 @@ const getElementsFromData = (
         {tooltipWrapperOrText(
           breadcrumbsData,
           breadcrumbsID,
-          customLink,
+          customLinkComponent,
           renderIcon,
           isCurrentPage
         )}
@@ -149,7 +149,7 @@ export const Breadcrumbs: ChakraComponent<
       breadcrumbsData,
       breadcrumbsType = "whatsOn",
       className,
-      customLink,
+      customLinkComponent,
       id,
       ...rest
     } = props;
@@ -166,7 +166,7 @@ export const Breadcrumbs: ChakraComponent<
     const breadcrumbItems = getElementsFromData(
       breadcrumbsData,
       id,
-      customLink
+      customLinkComponent
     );
 
     return (

@@ -70,9 +70,9 @@ the truncated page title.
 
 <Canvas of={BreadcrumbsStories.LongText} />
 
-## Custom Link and Link Props
+## Custom Link Component and Link Props
 
-The `customLink` prop allows apps with internal routers (Next.js, for example) to pass their custom link component
+The `customLinkComponent` prop allows apps with internal routers (Next.js, for example) to pass their custom link component
 into the `Breadcrumbs` component. This allows the `Breadcrumbs` links to use client-side routing, so users can navigate between pages without reloading the full page.
 
 Additionally, the `linkProps` prop on `breadcrumbsData` allows any of the framework's [custom props](https://nextjs.org/docs/app/api-reference/components/link) to be applied on a link-by-link basis.
@@ -90,7 +90,10 @@ const breadcrumbsDataWithLinkProps = [
 { url: "#", text: "Grandchild" },
 ];
 
-<Breadcrumbs customLink={Link} breadcrumbsData={breadcrumbsDataWithLinkProps} />
+<Breadcrumbs
+  customLinkComponent={Link}
+  breadcrumbsData={breadcrumbsDataWithLinkProps}
+/>
 `} language="tsx" />
 
 Below story uses the DS `Link` component.
