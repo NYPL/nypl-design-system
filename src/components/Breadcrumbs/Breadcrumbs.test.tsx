@@ -97,10 +97,10 @@ describe("Breadcrumbs", () => {
     );
   });
 
-  it("replaces BreadcrumbsLink when customLink is passed", () => {
+  it("replaces BreadcrumbsLink when customLinkComponent is passed", () => {
     render(
       <Breadcrumbs
-        customLink={Link}
+        customLinkComponent={Link}
         breadcrumbsData={breadcrumbsDataLinkProps}
       />
     );
