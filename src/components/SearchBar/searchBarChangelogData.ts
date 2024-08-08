@@ -14,7 +14,9 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Updates Searchbar style to remove stacking on mobile breakpoints."],
+    notes: [
+      "Updates Searchbar style to remove stacking on mobile breakpoints.",
+    ],
   },
   {
     date: "2024-06-20",
