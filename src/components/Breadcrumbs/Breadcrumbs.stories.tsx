@@ -34,7 +34,7 @@ const meta: Meta<typeof Breadcrumbs> = {
   component: Breadcrumbs,
   argTypes: {
     breadcrumbsData: { control: false },
-    customLink: { control: false },
+    customLinkComponent: { control: false },
     breadcrumbsType: {
       table: { defaultValue: { summary: "whatsOn" } },
       control: {
@@ -59,7 +59,7 @@ export const WithControls: Story = {
     breadcrumbsData,
     breadcrumbsType: "whatsOn",
     className: undefined,
-    customLink: undefined,
+    customLinkComponent: undefined,
     id: "breadcrumbs-id",
   },
   parameters: {
@@ -75,9 +75,12 @@ export const WithControls: Story = {
 export const LongText: Story = {
   render: () => <Breadcrumbs breadcrumbsData={breadcrumbsLongTextData} />,
 };
-export const CustomLink: Story = {
+export const CustomLinkComponent: Story = {
   render: () => (
-    <Breadcrumbs customLink={Link} breadcrumbsData={linkPropsBreadcrumbsData} />
+    <Breadcrumbs
+      customLinkComponent={Link}
+      breadcrumbsData={linkPropsBreadcrumbsData}
+    />
   ),
 };
 export const ColorVariations: Story = {
@@ -90,7 +93,7 @@ export const ColorVariations: Story = {
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
           breadcrumbsType="blogs"
-          customLink={Link}
+          customLinkComponent={Link}
         />
       </Box>
       <Box>
