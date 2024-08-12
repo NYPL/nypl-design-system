@@ -28,7 +28,7 @@ const SearchBar = defineMultiStyleConfig({
       },
     },
     select: {
-      paddingBottom: { base: "s", md: "unset" },
+      paddingBottom: { base: "xs", md: "unset" },
       flexShrink: "0",
       marginBottom: { base: "-1px", md: "0" },
       maxWidth: { base: undefined, md: "255px" },
