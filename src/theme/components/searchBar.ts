@@ -10,7 +10,9 @@ const SearchBar = defineMultiStyleConfig({
       base: "xs",
       md: "auto",
     },
-    flexGrow: 1,
+    ".textInput" :{
+      flexGrow: 1,
+    },
     flexFlow: { base: "column nowrap", md: "row" },
     button: {
       borderLeftRadius: "none",
