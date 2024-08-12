@@ -14,6 +14,7 @@ import Select, { SelectProps as InitialSelectProps } from "../Select/Select";
 import TextInput, {
   InputProps as InitialInputProps,
 } from "../TextInput/TextInput";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 interface SelectOptionsProps {
   text: string;
@@ -141,13 +142,8 @@ export const SearchBar: ChakraComponent<
       isRequired ? "(Required)" : ""
     }`;
     const buttonType = noBrandButtonType ? "noBrand" : "primary";
-    const searchBarButtonStyles = {
-      borderLeftRadius: "none",
-      borderRightRadius: { base: "none", md: "sm" },
-      lineHeight: "1.70",
-      marginBottom: "auto",
-      maxWidth: { base: "unset", md: "80px" },
-    };
+    const { isLargerThanMobile } = useNYPLBreakpoints();
+    const iconSize = isLargerThanMobile ? "small" : "medium";
 
     if (!id) {
       console.warn(
@@ -204,15 +200,15 @@ export const SearchBar: ChakraComponent<
         isDisabled={isDisabled}
         onClick={buttonOnClick}
         type="submit"
-        sx={searchBarButtonStyles}
+        sx={styles.button}
       >
         <Icon
           align="left"
           id={`searchbar-icon-${id}`}
           name="search"
-          size="small"
+          size={iconSize}
         />
-        Search
+        <span>Search</span>
       </Button>
     );
     // If a custom input element was passed, use that element
@@ -242,8 +238,10 @@ export const SearchBar: ChakraComponent<
           __css={styles}
         >
           {selectElem}
-          {textInputElem}
-          {buttonElem}
+          <Box sx={{ id: "hello", display: "flex", flexDirection: "row" }}>
+            {textInputElem}
+            {buttonElem}
+          </Box>
         </Box>
       </ComponentWrapper>
     );

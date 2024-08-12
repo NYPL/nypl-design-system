@@ -10,14 +10,23 @@ const SearchBar = defineMultiStyleConfig({
       base: "xs",
       md: "auto",
     },
-    flexFlow: {
-      base: "column nowrap",
-      md: "row nowrap",
-    },
-    ".textInput": {
-      flexGrow: "1",
+    flexGrow: 1,
+    flexFlow: { base: "column nowrap", md: "row"},
+    button: {
+      borderLeftRadius: "none",
+      lineHeight: "1.70",
+      marginBottom: "auto",
+      padding: "xs",
+      borderRightRadius: "sm",
+      " > span": {
+        display: { base: "none", md: "block"}
+      },
+      " > svg": {
+        margin: 0
+      }
     },
     select: {
+      paddingBottom: { base: "s",md: "unset"},
       flexShrink: "0",
       marginBottom: { base: "-1px", md: "0" },
       maxWidth: { base: undefined, md: "255px" },
