@@ -14,9 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: [
-      "Render HTML content when passed as a string in the `content` prop.",
-    ],
+    notes: ["Render HTML content when passed as a string in the `content` prop."],
   },
   {
     date: "2024-07-25",
