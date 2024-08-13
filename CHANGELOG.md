@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `FilterBarInline` component.
+- Adds the `FilterBarPopup` compoonent and `useFilterBarPopup` hook.
 - Adds refined `NewsletterSignup` component with updated props.
 - Adds refined `SocialMediaLinks` component with updated props
 
