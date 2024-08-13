@@ -98,6 +98,10 @@ The display of the `FilterBarInline` child components can be set to a `"row"` or
 `"column"` layout. On screen width under 600px width the `layout` is
 automatically set to `"column"`.
 
+**Note:** when `layout = "row"` is passed, `MultiSelect` components will have
+`closeOnBlur` set to `true` by default and when `layout = "column"` is passed,
+the `closeOnBlur` prop will be set to `false`.
+
 **Note:** when `layout = "column"` is passed, `MultiSelect` components will have
 `isBlockElement` set to `true` by default and the child components `width`
 will be set to `"full"`.
@@ -233,6 +237,8 @@ This callback prop function returns an object argument with three properties:
 
 - The `isBlockElement` argument value should be passed to the `isBlockElement`
   prop of `MultiSelect` children.
+- The `closeOnBlur` argument value should be passed to the `closeOnBlur`
+  prop of `MultiSelect` children.
 - The `layout` argument value should be passed to the `layout` prop of
   `CheckboxGroup`, `MultiSelectGroup`, and `RadioGroup` children.
 - The `width` argument value should be passed to the `multiSelectWidth` prop of
@@ -245,7 +251,7 @@ Here is an example of the shape of `FilterBarInline`:
 <FilterBarInline
   id="..."
   heading="..."
-  renderChildren={({ isBlockElement, layout, width }) => {
+  renderChildren={({ isBlockElement, closeOnBlur, layout, width }) => {
     return (...)
   }}
 />
@@ -320,22 +326,23 @@ prop functions:
 <Source
   code={`
 // function for renderMultiSelect prop of MultiSelectGroup 
-const renderMultiSelect = ({ isBlockElement, multiSelectWidth }) => {
+const renderMultiSelect = (closeOnBlur, { isBlockElement, multiSelectWidth }) => {
   return (
     shortMultiSelectItems &&
     shortMultiSelectItems.map((multiSelect) => (
       <MultiSelect
         buttonText={multiSelect.name}
-        key={multiSelect.id}
+        closeOnBlur={closeOnBlur}
         id={multiSelect.id}
-        items={multiSelect.items}
-        selectedItems={selectedItems}
         isBlockElement={isBlockElement}
+        items={multiSelect.items}
+        key={multiSelect.id}
+        onClear={() => onClear(multiSelect.id)}
         onChange={(e) => onChange(e.target.id, multiSelect.id)}
         onMixedStateChange={(e) => {
           return onMixedStateChange(e.target.id, multiSelect.id, multiSelect.items);
         }}
-        onClear={() => onClear(multiSelect.id)}
+        selectedItems={selectedItems}
         width={multiSelectWidth}
       />
     )) 
@@ -347,7 +354,7 @@ const renderMultiSelect = ({ isBlockElement, multiSelectWidth }) => {
 <Source
   code={`
 // function for renderChildren prop of FilterBar 
-const renderFilterComponents = ({ layout, width }) => {
+const renderFilterComponents = ({ closeOnBlur, layout, width }) => {
   return (
     <>
       <MultiSelectGroup
@@ -355,7 +362,7 @@ const renderFilterComponents = ({ layout, width }) => {
         labelText="MultiSelect Group"
         layout={layout}
         multiSelectWidth={width}
-        renderMultiSelect={renderMultiSelect}
+        renderMultiSelect={renderMultiSelect.bind(this, closeOnBlur)}
       />
       <CheckboxGroup
         id="checkbox-example"

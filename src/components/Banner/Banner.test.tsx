@@ -353,4 +353,15 @@ describe("Banner", () => {
 
     expect(container.querySelector("aside")).toBe(ref.current);
   });
+
+  it("renders string content as div with dangerouslySetInnerHTML", () => {
+    utils.rerender(
+      <Banner
+        id="bannerID"
+        content="<p data-testid='dangerous'>Dangerous HTML</p>"
+      />
+    );
+
+    expect(screen.getByTestId("dangerous")).toHaveTextContent("Dangerous HTML");
+  });
 });
