@@ -12,17 +12,8 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
-    type: "Update",
-    affects: ["Documentation", "Functionality"],
-    notes: [
-      "Adds closeOnBlur prop to the render prop function to apply closeOnBlur to MultiSelect children.",
-    ],
-  },
-  {
-    date: "2024-07-25",
-    version: "3.2.0",
     type: "New Feature",
     affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
-    notes: ["Adds FilterBarInline component."],
+    notes: ["Adds FilterBarPopup component."],
   },
 ];

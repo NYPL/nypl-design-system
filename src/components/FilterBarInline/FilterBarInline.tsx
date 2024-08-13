@@ -32,10 +32,12 @@ export interface FilterBarInlineProps {
   onSubmit?: () => void;
   /** Render prop function used to render child components with updated props. */
   renderChildren: ({
+    closeOnBlur,
     isBlockElement,
     layout,
     width,
   }: {
+    closeOnBlur?: boolean;
     isBlockElement?: boolean;
     layout?: LayoutTypes;
     width?: MultiSelectWidths;
@@ -110,6 +112,7 @@ export const FilterBarInline: ChakraComponent<
           >
             {renderChildren({
               isBlockElement: layout === "column",
+              closeOnBlur: layout === "row",
               layout: layout,
               width: finalWidth,
             })}
