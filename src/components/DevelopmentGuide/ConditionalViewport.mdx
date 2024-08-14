@@ -1,0 +1,45 @@
+import { Meta, Source } from "@storybook/blocks";
+
+import Link from "../Link/Link";
+
+<Meta title="Development Guide/Conditional Viewport" />
+
+# Conditional Viewport
+
+## Table of Contents
+
+- {<Link href="background-on-the-viewport-and-input-auto-zoom-issue" target="_self">Background on the viewport and input auto-zoom issue</Link>}
+- {<Link href="#how-to-resolve" target="_self">How to resolve</Link>}
+- {<Link href="#" target="_self">Approach for Next.js App Router apps</Link>}
+- {<Link href="#" target="_self">Approach for Next.js Pages Router apps</Link>}
+
+## Background on the viewport and input auto-zoom issue
+
+The viewport is the visible area of a web page, which varies from device to device.
+The user interacts with the viewport by scrolling or zooming in and out. The viewport's dimensions and initial scale can be set from the `<meta>` tag.
+
+On iOS devices, non-native websites will automatically zoom in when a user selects an input element (changing the scale of the viewport). This default is meant to ensure any input field is accessible for the visually impaired, but it generally forces users to zoom back out to continue viewing the page.
+
+This auto-zoom does not occur on Android mobile devices, so it requires a device-specific solution to be implemented by the consuming app (rather than, for example, changing the DS `TextInput` component to resist the zoom behavior).
+
+## How to resolve
+
+The general solution to prevent auto-zoom on iOS devices is to conditionally set the `<meta>` viewport tag.
+
+For iOS:
+
+```
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+```
+
+The `maximum scale` value prevents the auto-zoom from occurring on iOS, but when applied on Android, it prevents users from zooming in correctly at all (which is its own accessibility violation).
+
+So for everything else, the viewport tag should be:
+
+```
+<meta name="viewport" content="width=device-width">
+```
+
+## Approach for Next.js App Router apps
+
+## Approach for Next.js Pages Router apps
