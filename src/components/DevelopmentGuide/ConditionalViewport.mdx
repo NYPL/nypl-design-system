@@ -16,7 +16,7 @@ import Link from "../Link/Link";
 ## Background on the viewport and input auto-zoom issue
 
 The viewport is the visible area of a web page, which varies from device to device.
-The user interacts with the viewport by scrolling or zooming in and out. The viewport's dimensions and initial scale can be set from the `<meta>` tag.
+The user interacts with the viewport by scrolling or zooming in and out. The viewport's dimensions and scale can be set from the `<meta>` tag.
 
 On iOS devices, non-native websites will automatically zoom in when a user selects an input element (changing the scale of the viewport). This default is meant to ensure any input field is accessible for the visually impaired, but it generally forces users to zoom back out to continue viewing the page.
 
@@ -28,18 +28,53 @@ The general solution to prevent auto-zoom on iOS devices is to conditionally set
 
 For iOS:
 
-```
+<Source
+  code={`
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-```
+`}
+  language="html"
+/>
 
-The `maximum scale` value prevents the auto-zoom from occurring on iOS, but when applied on Android, it prevents users from zooming in correctly at all (which is its own accessibility violation).
+The `maximum-scale` value prevents the auto-zoom from occurring on iOS, but when
+applied on Android, it prevents users from zooming in correctly at all (which is
+its own accessibility violation).
 
 So for everything else, the viewport tag should be:
 
-```
+<Source
+  code={`
 <meta name="viewport" content="width=device-width">
-```
+`}
+  language="html"
+/>
 
-## Approach for Next.js App Router apps
+Setting the viewport conditionally requires capturing whether the device is iOS or not.
+How you do this will depend on your app– the below approaches are for Next.js apps (app or pages router).
 
-## Approach for Next.js Pages Router apps
+### Approach for Next.js App router apps
+
+Using the App router, you can customize the initial viewport with the dynamic [`generateViewport()`](https://nextjs.org/docs/app/api-reference/functions/generate-viewport) function. This only works in a server component, so most likely will be defined in your
+`page.tsx` or `layout.tsx` file.
+
+Then, you can access the [`userAgent`](https://nextjs.org/docs/app/api-reference/functions/userAgent) object from Next's [`headers()`](https://nextjs.org/docs/app/api-reference/functions/headers) function. If the current device is an iPhone, return the necessary viewport object.
+
+<Source
+  code={`
+
+// layout.tsx or page.tsx
+
+export async function generateViewport() {
+  const userAgent = headers().get("user-agent");
+  const isiPhone = /iphone/i.test(userAgent ?? "");
+  return isiPhone ? 
+  { width: "device-width", initialScale: 1, maximumScale: 1, userScalable: false }
+    : {};
+}
+    
+`}
+language="js"
+/>
+
+This approach is currently implemented on [Digital Collections](https://github.com/NYPL/digital-collections/blob/8758f1106af59c4a76015d978700ec8baba6deb4/app/layout.tsx#L45).
+
+### Approach for Next.js Pages router apps
