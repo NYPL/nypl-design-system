@@ -87,23 +87,25 @@ There are more ways to do this (and many packages), but here's an option:
 import { Helmet } from "react-helmet";
 
 const [isIOS, setIsIOS] = useState(false);
+
 useEffect(() => {
-const userAgent = typeof window !== "undefined" && navigator.userAgent;
-if (userAgent && /iPad|iPhone|iPod/.test(userAgent)) {
-setIsIOS(true);
-}
+  const userAgent = typeof window !== "undefined" && navigator.userAgent;
+  if (userAgent && /iPad|iPhone|iPod/.test(userAgent)) {
+    setIsIOS(true);
+  }
 }, []);
+
 const viewport = isIOS ?
 (<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>)
 : (<meta name="viewport" content="width=device-width" />);
 
 return(
-
 <>
   <Helmet>{viewport}</Helmet>
   ...
 </>
-) `} language="js" />
+) 
+`} language="js" />
 
 [`Helmet`](https://www.npmjs.com/package/react-helmet) is a React package that injects html into the `<header>` from the client component, necessary here because the `useEffect()` is reading
 `window.navigator` object to get `userAgent` above. Once the device is known, you set the state to `isIOS` and inject the viewport tag accordingly.
