@@ -53,8 +53,8 @@ How you do this will depend on your app– the below approaches are for Next.js 
 
 ### Approach for Next.js App router apps
 
-Using the App router, you can customize the initial viewport with the dynamic [`generateViewport()`](https://nextjs.org/docs/app/api-reference/functions/generate-viewport) function. This only works in a server component, so most likely will be defined in your
-`page.tsx` or `layout.tsx` file.
+Using the App router, you can customize the initial viewport with the dynamic [`generateViewport()`](https://nextjs.org/docs/app/api-reference/functions/generate-viewport) function. This only works in a server component, so most likely will be defined near the root of your project in
+the `page.tsx` or `layout.tsx` file.
 
 Then, you can access the [`userAgent`](https://nextjs.org/docs/app/api-reference/functions/userAgent) object from Next's [`headers()`](https://nextjs.org/docs/app/api-reference/functions/headers) function. If the current device is an iPhone, return the necessary viewport object.
 
@@ -78,3 +78,32 @@ language="js"
 This approach is currently implemented on [Digital Collections](https://github.com/NYPL/digital-collections/blob/8758f1106af59c4a76015d978700ec8baba6deb4/app/layout.tsx#L45).
 
 ### Approach for Next.js Pages router apps
+
+In a Pages router app, you need to find the `userAgent` object from a client component (again, probably near the root of your project).
+There are more ways to do this (and many packages), but here's an option:
+
+<Source
+  code={`
+import { Helmet } from "react-helmet";
+
+const [isIOS, setIsIOS] = useState(false);
+useEffect(() => {
+const userAgent = typeof window !== "undefined" && navigator.userAgent;
+if (userAgent && /iPad|iPhone|iPod/.test(userAgent)) {
+setIsIOS(true);
+}
+}, []);
+const viewport = isIOS ?
+(<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>)
+: (<meta name="viewport" content="width=device-width" />);
+
+return(
+
+<>
+  <Helmet>{viewport}</Helmet>
+  ...
+</>
+) `} language="js" />
+
+[`Helmet`](https://www.npmjs.com/package/react-helmet) is a React package that injects html into the `<header>` from the client component, necessary here because the `useEffect()` is reading
+`window.navigator` object to get `userAgent` above. Once the device is known, you set the state to `isIOS` and inject the viewport tag accordingly.
