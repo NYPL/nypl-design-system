@@ -189,16 +189,16 @@ const CardWrapper: React.FC<any> = chakra(
  * the `Card` component while still allowing links in the `CardActions` to be
  * clickable.
  */
-function CardLinkOverlay({
-  children,
-  mainActionLink,
-}: React.PropsWithChildren<CardWrapperProps>) {
-  return mainActionLink ? (
-    <ChakraLinkOverlay href={mainActionLink}>{children}</ChakraLinkOverlay>
-  ) : (
-    <>{children}</>
-  );
-}
+// function CardLinkOverlay({
+//   children,
+//   mainActionLink,
+// }: React.PropsWithChildren<CardWrapperProps>) {
+//   return mainActionLink ? (
+//     <ChakraLinkOverlay href={mainActionLink}>{children}</ChakraLinkOverlay>
+//   ) : (
+//     <>{children}</>
+//   );
+// }
 
 export const Card: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -240,7 +240,7 @@ export const Card: ChakraComponent<
       const customColors: CustomColorProps = {};
       const cardContents: JSX.Element[] = [];
       const cardRightContents: JSX.Element[] = [];
-      let cardHeadingCount = 0;
+      //let cardHeadingCount = 0;
 
       if (imageProps.component && imageProps.aspectRatio) {
         console.warn(
@@ -278,13 +278,13 @@ export const Card: ChakraComponent<
             // only done for the first `CardHeading` component but does not affect
             // the full-click feature.
             const newChildren =
-              cardHeadingCount === 0 ? (
-                <CardLinkOverlay mainActionLink={mainActionLink}>
-                  {child.props.children}
-                </CardLinkOverlay>
-              ) : (
-                child.props.children
-              );
+              // cardHeadingCount === 0 ? (
+              //   <CardLinkOverlay mainActionLink={mainActionLink}>
+              //     {child.props.children}
+              //   </CardLinkOverlay>
+              // );
+              // ) : (
+              child.props.children;
             const elem = React.cloneElement(child, {
               key,
               // Override the child text with the potential `CardLinkOverlay`.
@@ -293,7 +293,7 @@ export const Card: ChakraComponent<
               __css: styles.heading,
             });
             cardContents.push(elem);
-            cardHeadingCount++;
+            //cardHeadingCount++;
           } else if (
             child.type === CardContent ||
             child.props.mdxType === "CardContent"
@@ -326,20 +326,52 @@ export const Card: ChakraComponent<
           }}
           {...rest}
         >
-          {hasImage && (
-            <CardImage
-              alt={imageProps.alt}
-              aspectRatio={finalImageAspectRatio}
-              caption={imageProps.caption}
-              component={imageProps.component}
-              credit={imageProps.credit}
-              id={imageProps.id}
-              isAtEnd={imageProps.isAtEnd}
-              isLazy={imageProps.isLazy}
-              layout={layout}
-              size={imageProps.size}
-              src={imageProps.src ? imageProps.src : undefined}
-            />
+          {" "}
+          {mainActionLink ? (
+            <ChakraLinkOverlay href={mainActionLink}>
+              {hasImage && (
+                <CardImage
+                  alt={imageProps.alt}
+                  aspectRatio={finalImageAspectRatio}
+                  caption={imageProps.caption}
+                  component={imageProps.component}
+                  credit={imageProps.credit}
+                  id={imageProps.id}
+                  isAtEnd={imageProps.isAtEnd}
+                  isLazy={imageProps.isLazy}
+                  layout={layout}
+                  size={imageProps.size}
+                  src={imageProps.src ? imageProps.src : undefined}
+                />
+              )}
+              <Box className="card-body" __css={styles.body}>
+                {cardContents}
+              </Box>
+              {cardRightContents.length ? (
+                <Box
+                  className="card-right"
+                  __css={{ ...styles.body, ...styles.actions }}
+                >
+                  {cardRightContents}
+                </Box>
+              ) : null}
+            </ChakraLinkOverlay>
+          ) : (
+            hasImage && (
+              <CardImage
+                alt={imageProps.alt}
+                aspectRatio={finalImageAspectRatio}
+                caption={imageProps.caption}
+                component={imageProps.component}
+                credit={imageProps.credit}
+                id={imageProps.id}
+                isAtEnd={imageProps.isAtEnd}
+                isLazy={imageProps.isLazy}
+                layout={layout}
+                size={imageProps.size}
+                src={imageProps.src ? imageProps.src : undefined}
+              />
+            )
           )}
           <Box className="card-body" __css={styles.body}>
             {cardContents}

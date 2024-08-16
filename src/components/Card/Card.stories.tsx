@@ -9,6 +9,7 @@ import Link from "../Link/Link";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { layoutTypesArray } from "../../helpers/types";
 import { getPlaceholderImage } from "../../utils/utils";
+import Tooltip from "../Tooltip/Tooltip";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Basic Elements/Card",
@@ -727,6 +728,45 @@ export const CardFullClickTurbineExample: Story = {
   ),
   name: "Full-Click Turbine Example",
 };
+
+export const FullClickWithTooltip: Story = {
+  render: () => (
+    <Card
+      imageProps={{
+        alt: "Alt text",
+        aspectRatio: "twoByOne",
+        src: getPlaceholderImage("smaller"),
+      }}
+      mainActionLink="http://nypl.org"
+    >
+      <CardHeading
+        level="h3"
+        id="fullclick1-heading1"
+        size="heading5"
+        subtitle="Some other subtitle."
+      >
+        <Tooltip content={"Go to homepage"}>Go to NYPL home page.</Tooltip>
+      </CardHeading>
+      <CardContent>
+        This entire `Card` component is clickable, but the links below are still
+        accessible by tabbing through the `Card` and pressing `enter` or
+        clicking with a mouse.
+        <br />
+        <Tooltip content={"Tooltippable"}>Tooltippable text</Tooltip>
+      </CardContent>
+      <CardActions>
+        <Link href="#" type="buttonPrimary">
+          Link Button
+        </Link>
+        <Link href="#" type="buttonSecondary">
+          Other Link
+        </Link>
+      </CardActions>
+    </Card>
+  ),
+  name: "Full-Click Functionality",
+};
+
 export const CardWithRightSideCardActions: Story = {
   render: () => (
     <Card
