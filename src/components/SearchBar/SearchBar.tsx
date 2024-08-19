@@ -189,6 +189,11 @@ export const SearchBar: ChakraComponent<
         textInputType={selectElem ? "searchBarSelect" : "searchBar"}
         type="text"
         value={textInputProps?.value}
+        sx={{
+          "div > input": {
+            borderLeftRadius: isLargerThanMobile && selectElem ? 0 : "sm",
+          },
+        }}
         {...stateProps}
       />
     );

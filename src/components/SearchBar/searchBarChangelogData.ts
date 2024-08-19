@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Updates Searchbar style to remove stacking on mobile breakpoints, adds span element to text for CSS targeting.",
+      "Updates styles on mobile breakpoints, adds span element to text for CSS targeting.",
     ],
   },
   {
