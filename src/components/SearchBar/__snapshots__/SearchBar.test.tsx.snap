@@ -41,6 +41,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
         </div>
       </div>
       <button
+        aria-label="Search"
         className="chakra-button css-8bx9xp"
         id="searchbar-button-basic"
         type="submit"
@@ -262,6 +263,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
         </div>
       </div>
       <button
+        aria-label=""
         className="chakra-button css-8bx9xp"
         id="searchbar-button-withSelect"
         type="submit"
@@ -363,6 +365,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
         </div>
       </div>
       <button
+        aria-label="Search"
         className="chakra-button css-8bx9xp"
         id="searchbar-button-withoutHelperText"
         type="submit"
@@ -449,6 +452,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
         </div>
       </div>
       <button
+        aria-label=""
         className="chakra-button css-8bx9xp"
         id="searchbar-button-withClearButton"
         type="submit"
@@ -559,6 +563,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
         />
       </div>
       <button
+        aria-label="Search"
         className="chakra-button css-8bx9xp"
         id="searchbar-button-invalidState"
         type="submit"
@@ -644,6 +649,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
         </div>
       </div>
       <button
+        aria-label=""
         className="chakra-button css-8bx9xp"
         disabled={true}
         id="searchbar-button-disabledState"
@@ -731,6 +737,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
         </div>
       </div>
       <button
+        aria-label="Search"
         className="chakra-button css-8bx9xp"
         disabled={true}
         id="searchbar-button-requiredState"
@@ -818,6 +825,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
         </div>
       </div>
       <button
+        aria-label=""
         className="chakra-button css-8bx9xp"
         disabled={true}
         id="searchbar-button-noBrandButtonType"
@@ -886,6 +894,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
       className="css-1ik4laa"
     >
       <button
+        aria-label="Search"
         className="chakra-button css-8bx9xp"
         id="searchbar-button-withHeading"
         type="submit"
@@ -952,6 +961,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
       className="css-1ik4laa"
     >
       <button
+        aria-label=""
         className="chakra-button css-8bx9xp"
         id="searchbar-button-withDescription"
         type="submit"
@@ -1024,6 +1034,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
       className="css-1ik4laa"
     >
       <button
+        aria-label="Search"
         className="chakra-button css-8bx9xp"
         id="searchbar-button-withHeadingAndDescription"
         type="submit"
@@ -1110,6 +1121,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
         </div>
       </div>
       <button
+        aria-label=""
         className="chakra-button css-8bx9xp"
         id="searchbar-button-chakra"
         type="submit"
@@ -1213,6 +1225,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
         </div>
       </div>
       <button
+        aria-label="Search"
         className="chakra-button css-8bx9xp"
         id="searchbar-button-props"
         type="submit"
