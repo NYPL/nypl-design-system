@@ -115,6 +115,7 @@ export const FilterBarPopup: ChakraComponent<
             id={`filter-bar-${id}-show-filters`}
             buttonType="secondary"
             onClick={finalOnOpen}
+            width={{ base: "100%", md: "fit-content" }}
           >
             {`Show filters`}
           </Button>
