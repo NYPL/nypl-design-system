@@ -121,7 +121,7 @@ export const LayoutVariations: Story = {
           </div>
         }
         imageProps={{
-          alt: "",
+          alt: "Alt text",
           width: "default",
           position: "end",
           src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
