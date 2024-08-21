@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: [
+      "Defaults the `alt` attribute to an empty string if no value is passed.",
+    ],
+  },
+  {
     date: "2024-04-25",
     version: "3.1.1",
     type: "Update",
