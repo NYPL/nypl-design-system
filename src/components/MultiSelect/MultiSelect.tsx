@@ -359,6 +359,7 @@ export const MultiSelect: ChakraComponent<
       /** Components for accordionData */
       const accordionLabel = (
         <Box
+          as="span"
           title={buttonText}
           __css={selectedItemsCount > 0 ? styles.buttonTextLabel : null}
         >
@@ -392,7 +393,7 @@ export const MultiSelect: ChakraComponent<
                 layout="column"
                 isFullWidth
                 isRequired={false}
-                labelText="Multi select checkbox group label"
+                labelText={buttonText}
                 showLabel={false}
                 name="multi-select-checkbox-group"
               >

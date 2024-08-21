@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `FilterBarInline` component to apply `closeOnBlur` to `MultiSelect` components when `layout="row"`.
 - Updates `Breadcrumbs` component props to include `customLinkComponent` and `linkProps`.
 - Updates Banner component to allow for HTML content in the `content` prop when passed as a string.
+- Updates the legend in the `MultiSelect`'s `CheckboxGroup` to use the `buttonText` prop value for better accessibility context.
 
 ## 3.2.0 (July 25, 2024)
 
