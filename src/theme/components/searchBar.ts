@@ -27,7 +27,7 @@ const SearchBar = defineMultiStyleConfig({
       paddingLeft: { base: "xs", md: "s" },
       paddingBottom: { base: "xs", md: "xs" },
       paddingRight: { base: "xs", md: "s" },
-      gap: "xxs",
+      gap: "xs",
       borderRightRadius: "sm",
       " > span": {
         display: { base: "none", md: "block" },

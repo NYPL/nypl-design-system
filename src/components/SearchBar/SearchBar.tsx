@@ -206,7 +206,6 @@ export const SearchBar: ChakraComponent<
         isDisabled={isDisabled}
         onClick={buttonOnClick}
         type="submit"
-        sx={styles.button}
         aria-label={isLargerThanMobile ? "" : "Search"}
       >
         <Icon
