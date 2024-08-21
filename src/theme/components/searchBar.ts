@@ -17,14 +17,17 @@ const SearchBar = defineMultiStyleConfig({
       },
     },
     flexFlow: { base: "column nowrap", md: "row" },
-    button: {
+    ".searchButton": {
       minWidth: "44px",
       maxWidth: "80px",
       borderLeftRadius: "none",
       lineHeight: "1.70",
       marginBottom: "auto",
-      padding: { base: "xs", md: "s" },
-      gap: "xs",
+      paddingTop: { base: "xs", md: "xs" },
+      paddingLeft:{ base: "xs", md: "s" },
+      paddingBottom: { base: "xs", md: "xs" },
+      paddingRight: { base: "xs", md: "s" },
+      gap: "xxs",
       borderRightRadius: "sm",
       " > span": {
         display: { base: "none", md: "block" },
