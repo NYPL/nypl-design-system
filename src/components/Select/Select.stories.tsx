@@ -254,6 +254,7 @@ function SelectUncontrolledExample() {
     <Form id="form">
       <FormField>
         <Select
+          defaultValue="white"
           helperText="This is the helper text."
           id="example-2"
           labelText="What is your favorite color?"
