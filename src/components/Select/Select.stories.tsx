@@ -14,6 +14,7 @@ const meta: Meta<typeof Select> = {
   argTypes: {
     children: { table: { disable: true } },
     className: { control: false },
+    defaultValue: { control: false },
     helperText: { control: "text" },
     id: { control: false },
     invalidText: { control: "text" },
@@ -51,6 +52,7 @@ type Story = StoryObj<typeof Select>;
 export const WithControls: Story = {
   args: {
     className: undefined,
+    defaultValue: undefined,
     helperText: "This is the helper text.",
     id: "select-id",
     invalidText: "This is the error text :(",
@@ -61,6 +63,7 @@ export const WithControls: Story = {
     labelText: "What is your favorite color?",
     name: "color",
     onChange: undefined,
+    placeholder: undefined,
     showHelperInvalidText: undefined,
     showLabel: true,
     showRequiredLabel: true,
