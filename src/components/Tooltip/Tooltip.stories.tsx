@@ -42,6 +42,7 @@ export const WithControls: Story = {
     id: "tooltip-id",
     isDisabled: false,
     shouldWrapChildren: false,
+    placement: "top",
   },
   render: (args) => (
     <Tooltip {...args}>
@@ -146,6 +147,19 @@ export const OnLinkedIcons: Story = {
         <Icon decorative id="icon-id" name="search" size="xxlarge" />
       </Link>
     </Tooltip>
+  ),
+};
+
+export const VariousPlacements: Story = {
+  render: () => (
+    <SimpleGrid>
+      <Tooltip placement="bottom" content="This is the tooltip text">
+        <Text> Bottom tooltip </Text>
+      </Tooltip>
+      <Tooltip placement="left" content="This is the tooltip text">
+        <Text> Left tooltip </Text>
+      </Tooltip>
+    </SimpleGrid>
   ),
 };
 

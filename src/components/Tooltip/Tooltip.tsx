@@ -22,6 +22,8 @@ export interface TooltipProps {
   isDisabled?: boolean;
   /** Wraps the children of the tooltip in `ComponentWrapper` with `tabIndex=0` when true. */
   shouldWrapChildren?: boolean;
+  /** The placement of the tooltip relative to its children. */
+  placement?: "top" | "left" | "bottom" | "right";
 }
 
 export const Tooltip: ChakraComponent<
@@ -36,6 +38,7 @@ export const Tooltip: ChakraComponent<
       className,
       content,
       id,
+      placement = "top",
       isDisabled,
       shouldWrapChildren,
       ...rest
@@ -73,7 +76,7 @@ export const Tooltip: ChakraComponent<
         isDisabled={isDisabled}
         label={content}
         openDelay={500}
-        placement="top"
+        placement={placement}
         ref={ref}
         __css={styles}
         {...rest}
