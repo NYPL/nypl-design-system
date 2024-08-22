@@ -44,7 +44,7 @@ So for everything else, the viewport tag should be:
 
 <Source
   code={`
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 `}
   language="html"
 />
@@ -111,4 +111,4 @@ return(
 [`Helmet`](https://www.npmjs.com/package/react-helmet) is a React package that injects html into the `<header>` from the client component, necessary here because the `useEffect()` is reading
 `window.navigator` object to get `userAgent` above. Once the device is known, you set the state to `isIOS` and inject the viewport tag accordingly.
 
-This approach is currently implemented on [Turbine](https://github.com/NYPL/nypl-ds-test-app/blob/09258593a19e0650b1a3ddfddd4181a8096b796f/pages/_app.tsx#L60).
+This approach is currently implemented on [Turbine](https://github.com/NYPL/nypl-ds-test-app/blob/main/pages/_app.tsx).
