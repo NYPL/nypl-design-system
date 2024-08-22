@@ -4,14 +4,10 @@ import {
   ChakraComponent,
   useMultiStyleConfig,
   useStyleConfig,
-  // LinkBox as ChakraLinkBox,
-  // LinkOverlay as ChakraLinkOverlay,
-} from "@chakra-ui/react";
-import React, { forwardRef } from "react";
-import {
   LinkBox as ChakraLinkBox,
   LinkOverlay as ChakraLinkOverlay,
-} from "./LinkOverlay";
+} from "@chakra-ui/react";
+import React, { forwardRef } from "react";
 import { LayoutTypes } from "../../helpers/types";
 import Heading from "../Heading/Heading";
 import Image, { ComponentImageProps, ImageProps } from "../Image/Image";

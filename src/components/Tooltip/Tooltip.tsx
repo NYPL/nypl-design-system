@@ -24,6 +24,8 @@ export interface TooltipProps {
   shouldWrapChildren?: boolean;
   /** The placement of the tooltip relative to its children. */
   placement?: "top" | "left" | "bottom" | "right";
+  /** The marginTop of the tooltip. */
+  elevation?: number;
 }
 
 export const Tooltip: ChakraComponent<
@@ -39,6 +41,7 @@ export const Tooltip: ChakraComponent<
       content,
       id,
       placement = "top",
+      elevation = 0,
       isDisabled,
       shouldWrapChildren,
       ...rest
@@ -78,7 +81,7 @@ export const Tooltip: ChakraComponent<
         openDelay={500}
         placement={placement}
         ref={ref}
-        __css={styles}
+        sx={{ ...styles, marginTop: `${elevation}px` }}
         {...rest}
       >
         {newChildren}

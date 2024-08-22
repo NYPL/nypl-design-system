@@ -383,7 +383,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
 
 exports[`Card Renders the UI snapshot correctly 6`] = `
 <div
-  className="css-1o206a2"
+  className="chakra-linkbox css-2zg2m0"
   id="fullclick"
 >
   <div
@@ -410,32 +410,9 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
       layout="column"
     >
       <a
+        className="chakra-linkbox__overlay css-1hnz6hu"
         href="http://nypl.org"
-        style={
-          {
-            "display": "block",
-            "outline": "2px green solid",
-            "position": "relative",
-            "textDecoration": "none",
-          }
-        }
       >
-        <span
-          style={
-            {
-              "content": "''",
-              "cursor": "inherit",
-              "display": "block",
-              "height": "100%",
-              "left": 0,
-              "pointerEvents": "none",
-              "position": "absolute",
-              "top": 0,
-              "width": "100%",
-              "zIndex": 0,
-            }
-          }
-        />
         The Card Heading
       </a>
     </h3>

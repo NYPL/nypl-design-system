@@ -8,14 +8,11 @@ const Tooltip = defineStyleConfig({
   baseStyle: defineStyle({
     [$bg.variable]: "colors.ui.gray.xx-dark",
     borderRadius: "4px",
-    zIndex: 1000,
-    pointerEvents: "auto !important",
     boxShadow: "none",
     color: "ui.typography.inverse.body",
     fontSize: "desktop.caption",
     marginBottom: "xxs",
     maxWidth: "240px",
-    marginTop: "0px",
     px: "s",
     py: "xs",
     _dark: {
