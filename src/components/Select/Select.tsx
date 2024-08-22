@@ -139,7 +139,7 @@ export const Select: ChakraComponent<
 
       if (onChange && defaultValue) {
         console.warn(
-          "NYPL Reservoir Select: Both an `onChange` prop (used for controlled components) and a `defaultValue` prop (used for controlled components) were passed. `defaultValue` will be ignored."
+          "NYPL Reservoir Select: Both an `onChange` prop (used for controlled components) and a `defaultValue` prop (used for uncontrolled components) were passed. `defaultValue` will be ignored."
         );
       }
 
