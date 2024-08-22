@@ -17,7 +17,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `FilterBarInline` component to apply `closeOnBlur` to `MultiSelect` components when `layout="row"`.
 - Updates `Breadcrumbs` component props to include `customLinkComponent` and `linkProps`.
 - Updates Banner component to allow for HTML content in the `content` prop when passed as a string.
+- Updates `Searchbar` component styles on mobile breakpoints
 - Updates `Select` component to accept a `defaultValue` prop to set initial value of uncontrolled components.
+
+### Removes
+
+- Removes `imageProps.alt` missing warning message from `FeaturedContent` as the prop is not always required.
 
 ## 3.2.0 (July 25, 2024)
 
