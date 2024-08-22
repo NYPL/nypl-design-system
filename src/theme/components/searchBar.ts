@@ -19,7 +19,6 @@ const SearchBar = defineMultiStyleConfig({
     flexFlow: { base: "column nowrap", md: "row" },
     ".searchButton": {
       minWidth: "44px",
-      maxWidth: { base: "unset", md: "80px" },
       borderLeftRadius: "none",
       lineHeight: "1.70",
       marginBottom: "auto",
