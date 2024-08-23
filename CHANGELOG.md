@@ -10,7 +10,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds development guide for Conditional Viewport
 - Adds the `FilterBarPopup` compoonent and `useFilterBarPopup` hook.
+
 
 ### Updates
 
