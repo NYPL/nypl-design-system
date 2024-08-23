@@ -13,7 +13,7 @@ import Toggle from "../Toggle/Toggle";
 import Tooltip from "./Tooltip";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 import { getPlaceholderImage } from "../../utils/utils";
-import Card, { CardHeading } from "../Card/Card";
+import Card, { CardContent, CardHeading } from "../Card/Card";
 
 const meta: Meta<typeof Tooltip> = {
   title: "Components/Overlays & Switchers/Tooltip",
@@ -43,6 +43,8 @@ export const WithControls: Story = {
     id: "tooltip-id",
     isDisabled: false,
     shouldWrapChildren: false,
+    placement: "top",
+    offset: [0, 7.5],
   },
   render: (args) => (
     <Tooltip {...args}>
@@ -150,42 +152,6 @@ export const OnLinkedIcons: Story = {
   ),
 };
 
-export const VariousPlacements: Story = {
-  render: () => (
-    <SimpleGrid>
-      <Tooltip placement="bottom" content="This is the tooltip text">
-        <Text> Bottom tooltip </Text>
-      </Tooltip>
-      <Tooltip placement="left" content="This is the tooltip text">
-        <Text> Left tooltip </Text>
-      </Tooltip>
-
-      <Tooltip placement="top" content="This is the tooltip text">
-        <Card
-          id={`card-1`}
-          mainActionLink="https://digitalcollections.nypl.org/items/de9fb560-f93b-0139-7fd2-0242ac110002"
-          imageProps={{
-            alt: "",
-            id: `image-1`,
-            isLazy: true,
-            aspectRatio: "twoByOne",
-            src: "https://iiif.nypl.org/iiif/2/58270299/full/288,/0/default.jpg",
-          }}
-        >
-          <CardHeading
-            id={`row-card-heading-1`}
-            level="h3"
-            size="heading5"
-            noOfLines={3}
-          >
-            Hello I'm a card
-          </CardHeading>
-        </Card>
-      </Tooltip>
-    </SimpleGrid>
-  ),
-};
-
 export const UsingIconContent: Story = {
   render: () => (
     <Tooltip
@@ -209,6 +175,80 @@ export const UsingImageContent: Story = {
     <Tooltip content={<Image alt="" src={getPlaceholderImage("smaller")} />}>
       Hover to see image
     </Tooltip>
+  ),
+};
+
+export const TooltipPlacement: Story = {
+  render: () => (
+    <VStack align="stretch" spacing="l">
+      <Tooltip placement="top" content="This is the tooltip text">
+        <Text width="150px"> Top tooltip (default) </Text>
+      </Tooltip>
+      <Tooltip placement="bottom" content="This is the tooltip text">
+        <Text width="150px">Bottom tooltip </Text>
+      </Tooltip>
+      <Tooltip placement="left" content="This is the tooltip text">
+        <Text width="150px">Left tooltip </Text>
+      </Tooltip>
+      <Tooltip placement="right" content="This is the tooltip text">
+        <Text width="150px"> Right tooltip </Text>
+      </Tooltip>
+    </VStack>
+  ),
+};
+
+export const TooltipOffset: Story = {
+  render: () => (
+    <SimpleGrid>
+      <Tooltip content="This is the tooltip text">
+        <Card
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: "twoByOne",
+            isAtEnd: true,
+            src: getPlaceholderImage("smaller"),
+          }}
+          mainActionLink="http://nypl.org"
+        >
+          <CardHeading level="h3" id="fullclick2-heading1" size="heading5">
+            Tooltip default offset
+          </CardHeading>
+          <CardContent>I'm a card</CardContent>
+        </Card>
+      </Tooltip>
+      <Tooltip offset={[100, 100]} content="This is the tooltip text">
+        <Card
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: "twoByOne",
+            isAtEnd: true,
+            src: getPlaceholderImage("smaller"),
+          }}
+          mainActionLink="http://nypl.org"
+        >
+          <CardHeading level="h3" id="fullclick2-heading1" size="heading5">
+            Tooltip offset [100, 100]
+          </CardHeading>
+          <CardContent>I'm a card</CardContent>
+        </Card>
+      </Tooltip>
+      <Tooltip offset={[-100, -100]} content="This is the tooltip text">
+        <Card
+          imageProps={{
+            alt: "Alt text",
+            aspectRatio: "twoByOne",
+            isAtEnd: true,
+            src: getPlaceholderImage("smaller"),
+          }}
+          mainActionLink="http://nypl.org"
+        >
+          <CardHeading level="h3" id="fullclick2-heading1" size="heading5">
+            Tooltip offset [-100, -100]
+          </CardHeading>
+          <CardContent>I'm a card</CardContent>
+        </Card>
+      </Tooltip>
+    </SimpleGrid>
   ),
 };
 
