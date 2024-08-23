@@ -13,6 +13,7 @@ import Toggle from "../Toggle/Toggle";
 import Tooltip from "./Tooltip";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 import { getPlaceholderImage } from "../../utils/utils";
+import Card, { CardHeading } from "../Card/Card";
 
 const meta: Meta<typeof Tooltip> = {
   title: "Components/Overlays & Switchers/Tooltip",
@@ -152,26 +153,34 @@ export const OnLinkedIcons: Story = {
 export const VariousPlacements: Story = {
   render: () => (
     <SimpleGrid>
-      <Tooltip
-        placement="top"
-        elevation={100}
-        content="This is the tooltip text"
-      >
-        <Text>Top tooltip </Text>
-      </Tooltip>
-      <Tooltip
-        placement="bottom"
-        elevation={100}
-        content="This is the tooltip text"
-      >
+      <Tooltip placement="bottom" content="This is the tooltip text">
         <Text> Bottom tooltip </Text>
       </Tooltip>
-      <Tooltip
-        placement="left"
-        elevation={100}
-        content="This is the tooltip text"
-      >
+      <Tooltip placement="left" content="This is the tooltip text">
         <Text> Left tooltip </Text>
+      </Tooltip>
+
+      <Tooltip placement="top" content="This is the tooltip text">
+        <Card
+          id={`card-1`}
+          mainActionLink="https://digitalcollections.nypl.org/items/de9fb560-f93b-0139-7fd2-0242ac110002"
+          imageProps={{
+            alt: "",
+            id: `image-1`,
+            isLazy: true,
+            aspectRatio: "twoByOne",
+            src: "https://iiif.nypl.org/iiif/2/58270299/full/288,/0/default.jpg",
+          }}
+        >
+          <CardHeading
+            id={`row-card-heading-1`}
+            level="h3"
+            size="heading5"
+            noOfLines={3}
+          >
+            Hello I'm a card
+          </CardHeading>
+        </Card>
       </Tooltip>
     </SimpleGrid>
   ),

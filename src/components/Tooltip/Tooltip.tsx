@@ -23,9 +23,9 @@ export interface TooltipProps {
   /** Wraps the children of the tooltip in `ComponentWrapper` with `tabIndex=0` when true. */
   shouldWrapChildren?: boolean;
   /** The placement of the tooltip relative to its children. */
-  placement?: "top" | "left" | "bottom" | "right";
-  /** The marginTop of the tooltip. */
-  elevation?: number;
+  placement?: "top" | "left" | "bottom" | "right" | "auto";
+  /** The main and cross-axis offset to displace the tooltip from its children. */
+  offset?: [number, number];
 }
 
 export const Tooltip: ChakraComponent<
@@ -41,7 +41,7 @@ export const Tooltip: ChakraComponent<
       content,
       id,
       placement = "top",
-      elevation = 0,
+      offset = [0, 0],
       isDisabled,
       shouldWrapChildren,
       ...rest
@@ -80,8 +80,9 @@ export const Tooltip: ChakraComponent<
         label={content}
         openDelay={500}
         placement={placement}
+        offset={offset}
         ref={ref}
-        sx={{ ...styles, marginTop: `${elevation}px` }}
+        sx={styles}
         {...rest}
       >
         {newChildren}
