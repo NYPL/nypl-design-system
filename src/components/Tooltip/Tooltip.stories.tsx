@@ -43,7 +43,7 @@ export const WithControls: Story = {
     isDisabled: false,
     shouldWrapChildren: false,
     placement: "top",
-    offset: [0, 7.5],
+    offset: [0, 8],
   },
   render: (args) => (
     <Tooltip {...args}>

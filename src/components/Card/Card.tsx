@@ -2,10 +2,10 @@ import {
   Box,
   chakra,
   ChakraComponent,
-  useMultiStyleConfig,
-  useStyleConfig,
   LinkBox as ChakraLinkBox,
   LinkOverlay as ChakraLinkOverlay,
+  useMultiStyleConfig,
+  useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 import { LayoutTypes } from "../../helpers/types";
@@ -164,7 +164,13 @@ const CardWrapper: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<CardWrapperProps>>(
     ({ className, children, id, mainActionLink, styles, ...rest }, ref) =>
       mainActionLink ? (
-        <ChakraLinkBox id={id} className={className} ref={ref} {...rest}>
+        <ChakraLinkBox
+          id={id}
+          className={className}
+          ref={ref}
+          sx={styles}
+          {...rest}
+        >
           {children}
         </ChakraLinkBox>
       ) : (

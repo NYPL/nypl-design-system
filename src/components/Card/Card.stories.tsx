@@ -653,9 +653,6 @@ export const FullClick: Story = {
         </CardHeading>
         <CardContent>
           This `Card` component does not have any extra links.
-          <Tooltip content="hello">
-            <span>hello</span>
-          </Tooltip>
         </CardContent>
       </Card>
     </SimpleGrid>
