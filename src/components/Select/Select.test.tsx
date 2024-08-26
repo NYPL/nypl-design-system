@@ -234,6 +234,22 @@ describe("Select", () => {
     );
   });
 
+  it("logs a warning when both `onChange` and `defaultValue` are passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    let value = "defaultValue";
+    const changeCallback = (e: React.FormEvent) => {
+      value = (e.target as HTMLInputElement).value;
+    };
+    render(
+      <Select {...baseProps} onChange={changeCallback} defaultValue={value}>
+        {baseOptions}
+      </Select>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Select: Both an `onChange` prop (used for controlled components) and a `defaultValue` prop (used for uncontrolled components) were passed. `defaultValue` will be ignored."
+    );
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const siblings = ["Kendall", "Shiv", "Connor", "Roman", "Tom"];
     const options = siblings.map((sibling) => (
