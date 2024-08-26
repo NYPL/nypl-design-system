@@ -734,40 +734,42 @@ export const CardFullClickTurbineExample: Story = {
 
 export const FullClickWithTooltip: Story = {
   render: () => (
-    <Card
-      imageProps={{
-        alt: "Alt text",
-        aspectRatio: "twoByOne",
-        src: getPlaceholderImage("smaller"),
-      }}
-      mainActionLink="http://nypl.org"
-    >
-      <CardHeading
-        level="h3"
-        id="fullclick1-heading1"
-        size="heading5"
-        subtitle="Some other subtitle."
+    <Tooltip offset={[-350, -470]} content={"Tooltip text"}>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: getPlaceholderImage("smaller"),
+        }}
+        mainActionLink="http://nypl.org"
       >
-        <Tooltip content={"Go to homepage"}>Go to NYPL home page.</Tooltip>
-      </CardHeading>
-      <CardContent>
-        This entire `Card` component is clickable, but the links below are still
-        accessible by tabbing through the `Card` and pressing `enter` or
-        clicking with a mouse.
-        <br />
-        <Tooltip content={"Tooltippable"}>Tooltippable text</Tooltip>
-      </CardContent>
-      <CardActions>
-        <Link href="#" type="buttonPrimary">
-          Link Button
-        </Link>
-        <Link href="#" type="buttonSecondary">
-          Other Link
-        </Link>
-      </CardActions>
-    </Card>
+        <CardHeading
+          level="h3"
+          id="fullclick1-heading1"
+          size="heading5"
+          subtitle="Some other subtitle."
+        >
+          Tooltip displays over me
+        </CardHeading>
+        <CardContent>
+          This entire `Card` component is clickable, but the links below are
+          still accessible by tabbing through the `Card` and pressing `enter` or
+          clicking with a mouse.
+          <br />
+          <Tooltip content={"Tooltippable"}>Tooltippable text</Tooltip>
+        </CardContent>
+        <CardActions>
+          <Link href="#" type="buttonPrimary">
+            Link Button
+          </Link>
+          <Link href="#" type="buttonSecondary">
+            Other Link
+          </Link>
+        </CardActions>
+      </Card>
+    </Tooltip>
   ),
-  name: "Full-Click Functionality",
+  name: "Full-Click with Tooltip",
 };
 
 export const CardWithRightSideCardActions: Story = {

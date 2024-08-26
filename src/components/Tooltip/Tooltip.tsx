@@ -24,7 +24,7 @@ export interface TooltipProps {
   shouldWrapChildren?: boolean;
   /** The placement of the tooltip relative to its children. */
   placement?: "top" | "left" | "bottom" | "right" | "auto";
-  /** The main and cross-axis offset to displace the tooltip from the center of its children. */
+  /** The main and cross-axis offset to displace the tooltip from its reference element. */
   offset?: [number, number];
 }
 
@@ -41,7 +41,7 @@ export const Tooltip: ChakraComponent<
       content,
       id,
       placement = "top",
-      offset = [0, 7.5],
+      offset = [0, 8],
       isDisabled,
       shouldWrapChildren,
       ...rest
@@ -67,7 +67,6 @@ export const Tooltip: ChakraComponent<
     );
 
     const styles = useStyleConfig("Tooltip", {});
-    console.log(offset);
 
     return (
       <ChakraTooltip
@@ -80,8 +79,8 @@ export const Tooltip: ChakraComponent<
         isDisabled={isDisabled}
         label={content}
         openDelay={500}
-        placement={placement}
         offset={offset}
+        placement={placement}
         ref={ref}
         sx={styles}
         {...rest}

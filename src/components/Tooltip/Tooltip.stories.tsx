@@ -1,6 +1,4 @@
-import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
@@ -14,6 +12,7 @@ import Tooltip from "./Tooltip";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 import { getPlaceholderImage } from "../../utils/utils";
 import Card, { CardContent, CardHeading } from "../Card/Card";
+import { VStack } from "../..";
 
 const meta: Meta<typeof Tooltip> = {
   title: "Components/Overlays & Switchers/Tooltip",
@@ -216,7 +215,7 @@ export const TooltipOffset: Story = {
           <CardContent>I'm a card</CardContent>
         </Card>
       </Tooltip>
-      <Tooltip offset={[100, 100]} content="This is the tooltip text">
+      <Tooltip offset={[100, 0]} content="This is the tooltip text">
         <Card
           imageProps={{
             alt: "Alt text",
@@ -227,12 +226,12 @@ export const TooltipOffset: Story = {
           mainActionLink="http://nypl.org"
         >
           <CardHeading level="h3" id="fullclick2-heading1" size="heading5">
-            Tooltip offset [100, 100]
+            Tooltip offset [100, 0]
           </CardHeading>
           <CardContent>I'm a card</CardContent>
         </Card>
       </Tooltip>
-      <Tooltip offset={[-100, -100]} content="This is the tooltip text">
+      <Tooltip offset={[0, -100]} content="This is the tooltip text">
         <Card
           imageProps={{
             alt: "Alt text",
@@ -243,7 +242,7 @@ export const TooltipOffset: Story = {
           mainActionLink="http://nypl.org"
         >
           <CardHeading level="h3" id="fullclick2-heading1" size="heading5">
-            Tooltip offset [-100, -100]
+            Tooltip offset [0, -100]
           </CardHeading>
           <CardContent>I'm a card</CardContent>
         </Card>

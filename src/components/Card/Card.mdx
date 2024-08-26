@@ -24,6 +24,7 @@ import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 - {<Link href="#custom-image-component" target="_self">Custom Image Component</Link>}
 - {<Link href="#card-with-link-heading" target="_self">Card With Link Heading</Link>}
 - {<Link href="#card-with-full-click-functionality" target="_self">Card With Full-Click Functionality</Link>}
+- {<Link href="#card-with-full-click-functionality-and-tooltip" target="_self">Card With Full-Click Functionality and Tooltip</Link>}
 - {<Link href="#card-with-right-side-cardactions" target="_self">Card with Right Side CardActions</Link>}
 - {<Link href="#cards-in-a-grid" target="_self">Cards in a Grid</Link>}
 - {<Link href="#cards-in-a-stack" target="_self">Cards in a Stack</Link>}
@@ -209,6 +210,10 @@ This example can be found in the [Turbine homepage](https://nypl-ds-test-app.ver
 <Canvas of={CardStories.CardFullClickTurbineExample} />
 
 ## Card With Full-Click Functionality and Tooltip
+
+The `Tooltip` relies on pointer events that are overridden by the card's `LinkOverlay`.
+
+If you need a tooltip within a clickable `Card`, wrap the entire `Card` component inside the `Tooltip` and use the `placement` and `offset` props to move the `Tooltip` to display next to the intended reference. Keep in mind that `offset` is static pixel values, so check where the `Tooltip` displays on all breakpoints.
 
 <Canvas of={CardStories.FullClickWithTooltip} />
 
