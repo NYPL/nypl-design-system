@@ -78,7 +78,7 @@ const MultiSelectTestComponent = ({
   );
 };
 
-describe.skip("MultiSelect Accessibility", () => {
+describe("MultiSelect Accessibility", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
 
@@ -101,7 +101,7 @@ describe.skip("MultiSelect Accessibility", () => {
   });
 });
 
-describe.skip("MultiSelect", () => {
+describe("MultiSelect", () => {
   beforeAll(() => {
     window.resizeTo = function resizeTo(width, height) {
       Object.assign(this, {
@@ -134,7 +134,7 @@ describe.skip("MultiSelect", () => {
     expect(container.querySelector("#multiselect-test-id")).toBeInTheDocument();
   });
 
-  it("should initially render with a given button text ", () => {
+  it("should initially render with a given button text", () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
@@ -149,8 +149,29 @@ describe.skip("MultiSelect", () => {
         onClear={() => null}
       />
     );
-    expect(screen.getByText("Multiselect button text").textContent);
-    expect(screen.getByRole("button")).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /Multiselect button text/ })
+    ).toBeInTheDocument();
+  });
+
+  it("the CheckboxGroup legend should have the same button text", () => {
+    const { container } = render(
+      <MultiSelect
+        id="multiselect-test-id"
+        buttonText="Multiselect button text"
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
+        defaultItemsVisible={defaultItemsVisible}
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    expect(container.querySelector("legend")).toHaveTextContent(
+      "Multiselect button text"
+    );
   });
 
   it("should initially render with a closed menu when the isDefaultOpen is omitted or set to false", () => {

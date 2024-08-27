@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "New Feature",
+    affects: ["Accessibility"],
+    notes: [
+      "Renders the `buttonText` prop as the `CheckboxGroup`'s legend for more meaningful context.",
+    ],
+  },
+  {
     date: "2024-07-03",
     version: "3.1.7",
     type: "New Feature",
