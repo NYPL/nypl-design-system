@@ -13,7 +13,7 @@ import {
   useDisclosure,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading, { HeadingSizes } from "../Heading/Heading";
@@ -109,6 +109,17 @@ export const FilterBarPopup: ChakraComponent<
         finalOnClose();
       };
 
+      const showResultsButtonRef: React.RefObject<HTMLButtonElement> =
+        useRef<HTMLButtonElement>();
+
+      const onClearAndFocus = () => {
+        onClear();
+
+        setTimeout(() => {
+          showResultsButtonRef.current?.focus();
+        }, 1);
+      };
+
       return (
         <Box id={`filter-bar-${id}`} ref={ref} {...rest}>
           <Button
@@ -147,6 +158,7 @@ export const FilterBarPopup: ChakraComponent<
                     buttonType="primary"
                     type="submit"
                     onClick={onSubmit ? onSubmitAndClose : finalOnClose}
+                    ref={showResultsButtonRef}
                   >
                     {`Show ${totalResults ?? ""} results`}
                   </Button>
@@ -155,7 +167,7 @@ export const FilterBarPopup: ChakraComponent<
                       id={`filter-bar-${id}-clear`}
                       buttonType="text"
                       type="reset"
-                      onClick={onClear}
+                      onClick={onClearAndFocus}
                       textAlign="center"
                     >
                       Clear all filters
