@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
-import Table from "./Table";
+import Table, { tableBodyTextSizesArray } from "./Table";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 import { Stack } from "@chakra-ui/react";
 
@@ -13,6 +13,10 @@ const meta: Meta<typeof Table> = {
     columnHeaders: { control: { disable: true } },
     columnHeadersBackgroundColor: { control: { type: "color" } },
     columnHeadersTextColor: { control: { type: "color" } },
+    tableTextSize: {
+      options: tableBodyTextSizesArray,
+      defaultValue: { summary: "body1" },
+    },
     id: { control: false },
     isScrollable: { ...argsBooleanType(), defaultValue: { summary: "false" } },
     showRowDividers: {
@@ -120,6 +124,7 @@ export const WithControls: Story = {
     columnHeadersBackgroundColor: undefined,
     columnHeadersTextColor: undefined,
     columnStyles: undefined,
+    tableTextSize: "body2",
     id: undefined,
     isScrollable: false,
     showRowDividers: false,
@@ -135,6 +140,7 @@ export const WithControls: Story = {
       columnHeaders={args.useColumnStyles ? columnHeadersAlt : columnHeaders}
       columnStyles={args.useColumnStyles ? columnStyles : undefined}
       tableData={args.useColumnStyles ? tableDataAlt : tableData}
+      // fontSize="body2"
     ></Table>
   ),
   parameters: {

@@ -1,8 +1,10 @@
 import { useColorModeValue } from "@chakra-ui/react";
+import { TableBodyTextSizes } from "../../components/Table/Table";
 
 interface BaseStyleProps {
   columnHeadersBackgroundColor?: string;
   columnHeadersTextColor?: string;
+  tableTextSize?: TableBodyTextSizes;
   isScrollable?: boolean;
   showRowDividers?: boolean;
   useRowHeaders?: boolean;
@@ -54,6 +56,17 @@ export const fixedColumnStyles = (
   },
 });
 
+const tableTextSizes = (textSizeValue: string = "body1") => ({
+  // columnHeading: "desktop.caption.caption1",
+  // tableBody: "desktop.body.body2",
+  columnHeading:
+    textSizeValue === "body2"
+      ? "desktop.caption.caption1"
+      : "desktop.body.body2",
+  tableBody:
+    textSizeValue === "body2" ? "desktop.body.body2" : "desktop.body.body1",
+});
+
 export const baseTRStyles = (
   columnHeadersBackgroundColor = "",
   isScrollable = false,
@@ -86,6 +99,7 @@ export const baseTRStyles = (
 export const baseCellStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
+  tableTextSize = "",
   isScrollable = false,
   showRowDividers = false
   // useRowHeaders = false
@@ -94,7 +108,8 @@ export const baseCellStyles = (
   borderBottom: showRowDividers ? "1px solid" : "0",
   borderColor: CellBorderColorStyles(),
   display: isScrollable ? undefined : { base: "flex", md: "table-cell" },
-  fontSize: { base: "desktop.body.body2", md: "desktop.body.body1" },
+  // fontSize: { base: "desktop.body.body2", md: "desktop.body.body1" },
+  fontSize: tableTextSizes(tableTextSize).tableBody,
   gap: "s",
   letterSpacing: "0",
   lineHeight: 1.5,
@@ -167,6 +182,7 @@ export const baseCellStyles = (
 export const baseTHStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
+  tableTextSize = "",
   isScrollable = false,
   showRowDividers = false,
   useRowHeaders = false
@@ -174,6 +190,7 @@ export const baseTHStyles = (
   ...baseCellStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
+    tableTextSize,
     isScrollable,
     showRowDividers
     // useRowHeaders
@@ -182,7 +199,8 @@ export const baseTHStyles = (
     ? columnHeadersTextColor
     : "ui.typography.heading",
   fontWeight: "bold",
-  fontSize: "desktop.caption.caption1",
+  // fontSize: "desktop.caption.caption1",
+  fontSize: tableTextSizes(tableTextSize).columnHeading,
   textTransform: "uppercase",
   _first: {
     // paddingStart:
@@ -205,6 +223,7 @@ export const baseTHStyles = (
 export const baseTDStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
+  tableTextSize = "",
   isScrollable = false,
   showRowDividers = false
   // useRowHeaders = false
@@ -212,6 +231,7 @@ export const baseTDStyles = (
   ...baseCellStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
+    tableTextSize,
     isScrollable,
     showRowDividers
     // useRowHeaders
@@ -242,6 +262,7 @@ export const baseTDStyles = (
 export const baseStyle = ({
   columnHeadersBackgroundColor,
   columnHeadersTextColor,
+  tableTextSize,
   isScrollable,
   showRowDividers,
   useRowHeaders,
@@ -271,7 +292,8 @@ export const baseStyle = ({
           undefined,
       color: "ui.typography.heading",
       fontWeight: "medium",
-      fontSize: { base: "desktop.body.body2", md: "desktop.body.body1" },
+      // fontSize: { base: "desktop.body.body2", md: "desktop.body.body1" },
+      fontSize: tableTextSizes(tableTextSize).tableBody,
       textTransform: "capitalize",
       verticalAlign: "top",
       // ...fixedColumnStyles(columnHeadersBackgroundColor, useRowHeaders),
@@ -309,6 +331,7 @@ export const baseStyle = ({
   th: baseTHStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
+    tableTextSize,
     isScrollable,
     showRowDividers,
     useRowHeaders
@@ -316,6 +339,7 @@ export const baseStyle = ({
   td: baseTDStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
+    tableTextSize,
     isScrollable,
     showRowDividers
     // useRowHeaders
