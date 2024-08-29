@@ -82,11 +82,6 @@ export const FeaturedContent: ChakraComponent<
           `NYPL Reservoir FeaturedContent: A value for 'imageProps.src' is required.`
         );
       }
-      if (!imageProps.alt) {
-        console.warn(
-          `NYPL Reservoir FeaturedContent: A value for 'imageProps.alt' is required.`
-        );
-      }
       if (!textContent) {
         console.warn(
           `NYPL Reservoir FeaturedContent: The 'textContent' prop is required.`
