@@ -23,7 +23,7 @@ export const breadcrumbTypeArray = [
   "research",
   "whatsOn",
 ] as const;
-export type BreadcrumbsTypes = typeof breadcrumbTypeArray[number];
+export type BreadcrumbsTypes = (typeof breadcrumbTypeArray)[number];
 export interface BreadcrumbsDataProps {
   url: string;
   text: string | React.ReactNode;

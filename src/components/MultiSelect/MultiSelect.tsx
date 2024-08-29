@@ -20,10 +20,10 @@ export interface MultiSelectItem {
   children?: MultiSelectItem[];
 }
 export const multiSelectWidthsArray = ["fitContent", "full"] as const;
-export type MultiSelectWidths = typeof multiSelectWidthsArray[number];
+export type MultiSelectWidths = (typeof multiSelectWidthsArray)[number];
 export const multiSelectListOverflowArray = ["scroll", "expand"] as const;
 export type MultiSelectListOverflowTypes =
-  typeof multiSelectListOverflowArray[number];
+  (typeof multiSelectListOverflowArray)[number];
 export interface SelectedItems {
   [name: string]: { items: string[] };
 }
@@ -155,8 +155,8 @@ export const MultiSelect: ChakraComponent<
         listOverflow === "expand"
           ? "unset"
           : isSearchable
-          ? MAXIMUM_ITEMS_LIST_HEIGHT
-          : MINIMUM_ITEMS_LIST_HEIGHT;
+            ? MAXIMUM_ITEMS_LIST_HEIGHT
+            : MINIMUM_ITEMS_LIST_HEIGHT;
 
       const isOverflowExpand =
         items.length > defaultItemsVisible && listOverflow === "expand";

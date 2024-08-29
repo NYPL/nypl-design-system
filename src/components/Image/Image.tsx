@@ -31,9 +31,9 @@ export const imageSizesArray = [
   "large",
 ] as const;
 export const imageTypesArray = ["default", "circle"] as const;
-export type ImageRatios = typeof imageRatiosArray[number];
-export type ImageSizes = typeof imageSizesArray[number];
-export type ImageTypes = typeof imageTypesArray[number];
+export type ImageRatios = (typeof imageRatiosArray)[number];
+export type ImageSizes = (typeof imageSizesArray)[number];
+export type ImageTypes = (typeof imageTypesArray)[number];
 
 // Used for components that have an `imageProps` prop.
 export interface ComponentImageProps extends Partial<HTMLImageElement> {
