@@ -132,6 +132,7 @@ const Breadcrumb = defineStyleConfig({
       paddingEnd: "s",
     },
     a: {
+      _visited: { color: "unset" },
       _hover: {
         color: "ui.gray.light-cool",
         textDecoration: "none",

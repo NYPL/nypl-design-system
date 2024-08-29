@@ -102,6 +102,11 @@ export type {
   FilterBarItemsType,
   FilterBarInlineProps,
 } from "./components/FilterBarInline/FilterBarInline";
+export {
+  default as FilterBarPopup,
+  useFilterBarPopup,
+} from "./components/FilterBarPopup/FilterBarPopup";
+export type { FilterBarPopupProps } from "./components/FilterBarPopup/FilterBarPopup";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export type { FormProps } from "./components/Form/Form";
 export { default as Heading } from "./components/Heading/Heading";
@@ -298,10 +303,6 @@ export { default as Tooltip } from "./components/Tooltip/Tooltip";
 export type { TooltipProps } from "./components/Tooltip/Tooltip";
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
 export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
-/** The useFilterBar hooks will not be exported until the refactor of the v2
- * versions of the FilterBar component has been completed.
- * */
-// export { default as useFilterBar } from "./hooks/useFilterBar";
 export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
