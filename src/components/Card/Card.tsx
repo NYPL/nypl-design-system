@@ -1,3 +1,4 @@
+import React, { forwardRef } from "react";
 import {
   Box,
   chakra,
@@ -7,7 +8,6 @@ import {
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
 import { LayoutTypes } from "../../helpers/types";
 import Heading from "../Heading/Heading";
 import Image, { ComponentImageProps, ImageProps } from "../Image/Image";

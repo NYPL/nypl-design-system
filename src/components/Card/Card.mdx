@@ -211,9 +211,10 @@ This example can be found in the [Turbine homepage](https://nypl-ds-test-app.ver
 
 ## Card With Full-Click Functionality and Tooltip
 
-The `Tooltip` relies on pointer events that are overridden by the card's `LinkOverlay`.
+When the `Card` is fully clickable, an internal component wraps everything in a link, which in turn overrides the pointer events that trigger a `Tooltip`.
 
-If you need a tooltip within a clickable `Card`, wrap the entire `Card` component inside the `Tooltip` and use the `placement` and `offset` props to move the `Tooltip` to display next to the intended reference. Keep in mind that `offset` is static pixel values, so check where the `Tooltip` displays on all breakpoints.
+If you need a tooltip within a clickable `Card`, wrap the entire `Card` component inside the `Tooltip` and use the `placement` and `offset` props to move the `Tooltip` to display next to the intended reference.
+Keep in mind that `offset` is static pixel values, so check where the `Tooltip` displays on all breakpoints. You may need to keep track of the offset values through state, and update them conditionally with the `useNYPLBreakpoints` hook.
 
 <Canvas of={CardStories.FullClickWithTooltip} />
 

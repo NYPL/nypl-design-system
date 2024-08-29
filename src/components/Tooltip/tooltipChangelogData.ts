@@ -13,8 +13,8 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Adds placement and offset props."],
+    affects: ["Styles", "Functionality"],
+    notes: ["Adds `placement` and `offset` props."],
   },
   {
     date: "2024-03-14",
