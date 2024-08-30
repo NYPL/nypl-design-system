@@ -116,8 +116,9 @@ export const baseCellStyles = (
   paddingBottom: isScrollable ? "s" : { base: "0", md: "s" },
   // paddingStart: isScrollable ? "s" : { base: "0", md: "s" },
   // paddingEnd: isScrollable ? "s" : { base: "0", md: "s" },
-  paddingStart: "s",
   paddingEnd: "s",
+  // paddingStart: "s",
+  paddingStart: columnHeadersBackgroundColor ? { base: "0", md: "s" } : "s",
   paddingTop: isScrollable ? "s" : { base: "0", md: "s" },
   _first: {
     // paddingStart: showRowDividers
@@ -164,6 +165,7 @@ export const baseCellStyles = (
       //   : columnHeadersBackgroundColor || showRowDividers || useRowHeaders
       //   ? "s"
       //   : undefined,
+      paddingStart: columnHeadersBackgroundColor ? "s" : "s",
       _dark: {
         color: columnHeadersTextColor
           ? columnHeadersTextColor
@@ -202,6 +204,7 @@ export const baseTHStyles = (
   // fontSize: "desktop.caption.caption1",
   fontSize: tableTextSizes(tableTextSize).columnHeading,
   textTransform: "uppercase",
+
   _first: {
     // paddingStart:
     //   showRowDividers || columnHeadersBackgroundColor
@@ -213,6 +216,12 @@ export const baseTHStyles = (
     // boxShadow: useRowHeaders
     //   ? ".25rem 1rem  1rem  rgba( 0, 0, 0, 0.25 )"
     //   : undefined,
+
+    // THIS WORKS
+    // paddingStart: columnHeadersBackgroundColor ? { base: "0", md: "s" } : "s",
+    // "> span": {
+    //   paddingStart: columnHeadersBackgroundColor ? "s" : "s",
+    // },
   },
   _dark: {
     color: columnHeadersTextColor
