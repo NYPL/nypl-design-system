@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Fixes
+
+- Fixes a duplicate `id` issue in the `Image` component. This happened when an aspect ratio value rendered a wrapper div with the same `id` as the `img` element. This was not picked up by internal accessibility tests but in a consuming application.
+
 ## 3.3.0 (August 29, 2024)
 
 ### Adds
