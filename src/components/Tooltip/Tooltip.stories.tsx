@@ -24,7 +24,11 @@ const meta: Meta<typeof Tooltip> = {
     isDisabled: argsBooleanType(),
     offset: { control: false },
     shouldWrapChildren: argsBooleanType(),
-    placement: { control: false },
+    placement: {
+      control: "select",
+      options: ["top", "bottom", "left", "right", "auto"],
+      table: { defaultValue: { summary: "top" } },
+    },
   },
 };
 
