@@ -8,6 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
+
+
+## 3.3.0 (August 29, 2024)
+
 ### Adds
 
 - Adds development guide for Conditional Viewport
@@ -16,12 +23,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `FilterBarInline` component to apply `closeOnBlur` to `MultiSelect` components when `layout="row"`.
-- Updates `Breadcrumbs` component props to include `customLinkComponent` and `linkProps`.
-- Updates Banner component to allow for HTML content in the `content` prop when passed as a string.
-- Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
-- Updates `Searchbar` component styles on mobile breakpoints
-- Updates `Select` component to accept a `defaultValue` prop to set initial value of uncontrolled components.
+- Updates the `Breadcrumbs` component props to include `customLinkComponent` and `linkProps`.
+- Updates the `Banner` component to allow for HTML content in the `content` prop when passed as a string.
+- Updates the `SearchBar` component styles for mobile viewports.
+- Updates the `Select` component to accept a `defaultValue` prop to set initial value of uncontrolled components.
 - Updates the legend in the `MultiSelect`'s `CheckboxGroup` to use the `buttonText` prop value for better accessibility context.
+- Updates the `Menu` component to add the `showSelectionAsLabel` prop and improve the `aria-label` values.
+- Updates the `Image` component to default the `alt` attribute to an empty string if no value is passed.
 
 ### Removes
 
