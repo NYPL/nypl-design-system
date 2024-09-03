@@ -67,14 +67,14 @@ export const baseTRStyles = (
     showRowDividers || columnHeadersBackgroundColor
       ? 0
       : isScrollable
-      ? "0"
-      : { base: "s", md: "0" },
+        ? "0"
+        : { base: "s", md: "0" },
   paddingTop:
     showRowDividers || columnHeadersBackgroundColor || useRowHeaders
       ? 0
       : isScrollable
-      ? "0"
-      : { base: "s", md: "0" },
+        ? "0"
+        : { base: "s", md: "0" },
   _first: {
     borderTop: isScrollable ? "0" : { base: "2px solid", md: "0" },
     borderColor: "ui.gray.medium",
@@ -243,8 +243,8 @@ export const baseStyle = ({
         backgroundColor: columnHeadersBackgroundColor
           ? columnHeadersBackgroundColor
           : useRowHeaders
-          ? "ui.gray.x-light-cool"
-          : "ui.white",
+            ? "ui.gray.x-light-cool"
+            : "ui.white",
       },
     },
   },
