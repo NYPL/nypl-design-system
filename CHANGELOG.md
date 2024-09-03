@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
+
+
 ## 3.3.0 (August 29, 2024)
 
 ### Adds
@@ -29,6 +34,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removes
 
 - Removes `imageProps.alt` missing warning message from `FeaturedContent` as the prop is not always required.
+
 
 ## 3.2.0 (July 25, 2024)
 
