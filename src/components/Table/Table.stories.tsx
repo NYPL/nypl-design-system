@@ -140,7 +140,6 @@ export const WithControls: Story = {
       columnHeaders={args.useColumnStyles ? columnHeadersAlt : columnHeaders}
       columnStyles={args.useColumnStyles ? columnStyles : undefined}
       tableData={args.useColumnStyles ? tableDataAlt : tableData}
-      // fontSize="body2"
     ></Table>
   ),
   parameters: {

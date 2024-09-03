@@ -113,18 +113,6 @@ export const Table: ChakraComponent<
                   key={key}
                   scope="col"
                   sx={{ ...customColors, ...columnStyles[key] }}
-                  // sx={
-                  //   isScrollable
-                  //     ? { ...customColors, ...columnStyles[key] }
-                  //     : {
-                  //         base: { ...customColors, fontSize: "34px" },
-                  //         md: {
-                  //           ...customColors,
-                  //           ...columnStyles[key],
-                  //           bgColor: "red",
-                  //         },
-                  //       }
-                  // }
                 >
                   {child}
                 </ChakraTh>
