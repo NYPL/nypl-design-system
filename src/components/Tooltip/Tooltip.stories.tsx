@@ -23,12 +23,12 @@ const meta: Meta<typeof Tooltip> = {
     id: { control: false },
     isDisabled: argsBooleanType(),
     offset: { control: false },
-    shouldWrapChildren: argsBooleanType(),
     placement: {
       control: "select",
       options: ["top", "bottom", "left", "right", "auto"],
       table: { defaultValue: { summary: "top" } },
     },
+    shouldWrapChildren: argsBooleanType(),
   },
 };
 
@@ -48,8 +48,8 @@ export const WithControls: Story = {
     id: "tooltip-id",
     isDisabled: false,
     offset: undefined,
-    shouldWrapChildren: false,
     placement: undefined,
+    shouldWrapChildren: false,
   },
   render: (args) => (
     <Tooltip {...args}>
