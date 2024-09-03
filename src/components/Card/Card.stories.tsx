@@ -30,10 +30,10 @@ const meta: Meta<typeof Card> = {
     "imageProps.component": { control: false },
     "imageProps.credit": { control: false },
     "imageProps.isAtEnd": {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     "imageProps.isLazy": {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     "imageProps.size": {
       table: { defaultValue: { summary: "default" } },
@@ -42,13 +42,13 @@ const meta: Meta<typeof Card> = {
       table: { defaultValue: { summary: "" } },
     },
     isAlignedRightActions: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     isBordered: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     isCentered: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     layout: {
       control: { type: "select" },

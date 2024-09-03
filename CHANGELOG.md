@@ -8,17 +8,54 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.3.0 (August 29, 2024)
+
 ### Adds
 
-- Adds Storybook interaction tests for `CheckboxGroup`, `DatePicker`, `Slider`, and `FeedbackBox` components.
-- Adds `digitalCollections` color variant to `Breadcrumbs` component.
-- Adds `closeOnBlur` prop to `MultiSelect` component which, when set to true, closes the component if it loses focus.
+- Adds development guide for Conditional Viewport
+- Adds the `FilterBarPopup` compoonent and `useFilterBarPopup` hook.
+
+### Updates
+
+- Updates the `FilterBarInline` component to apply `closeOnBlur` to `MultiSelect` components when `layout="row"`.
+- Updates the `Breadcrumbs` component props to include `customLinkComponent` and `linkProps`.
+- Updates the `Banner` component to allow for HTML content in the `content` prop when passed as a string.
+- Updates the `SearchBar` component styles for mobile viewports.
+- Updates the `Select` component to accept a `defaultValue` prop to set initial value of uncontrolled components.
+- Updates the legend in the `MultiSelect`'s `CheckboxGroup` to use the `buttonText` prop value for better accessibility context.
+- Updates the `Menu` component to add the `showSelectionAsLabel` prop and improve the `aria-label` values.
+- Updates the `Image` component to default the `alt` attribute to an empty string if no value is passed.
+
+### Removes
+
+- Removes `imageProps.alt` missing warning message from `FeaturedContent` as the prop is not always required.
+
+## 3.2.0 (July 25, 2024)
+
+### Adds
+
+- Adds the `FilterBarInline` component.
+- Adds refined `NewsletterSignup` component with updated props.
+- Adds refined `SocialMediaLinks` component with updated props
+
+### Updates
+
+- Updates Storybook and related npm packages to version `8.1.11`. Does not affect any DS component.
+- Updates `Menu` component with new `showSelectionAsLabel` prop and `aria-label` behavior.
+- Updates the `Banner`, `Button`, `ButtonGroup`, `DatePicker`, `FeaturedContent`, `FeedbackBox`, `Fieldset`, `HelperErrorText`, `Label`, `SkipNavigation`, and `StyledList` components to export all types and prop interfaces.
+
+## 3.1.7 (July 3, 2024)
+
+### Adds
+
+- Adds Storybook interaction tests for the `CheckboxGroup`, `DatePicker`, `FeedbackBox`, and `Slider` components.
+- Adds `digitalCollections` color variant to the `Breadcrumbs` component.
+- Adds `closeOnBlur` prop to the `MultiSelect` component which, when set to true, closes the component if it loses focus.
 
 ### Updates
 
 - Updates base font stack to only `system-ui` and `sans-serif`.
-- Updates `Accordion` to close focused panel when "esc" key is pressed.
-- Updates `Accordion` to close panel when element within panel is focused and "esc" key is pressed.
+- Updates the `Accordion` component to close panel when element within panel is focused and "esc" key is pressed.
 
 ## 3.1.6 (June 20, 2024)
 
@@ -66,6 +103,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
+
+### Updates
+
+- Updates the `Accordion` component to close focused panel when "esc" key is pressed.
 
 ### Fixes
 

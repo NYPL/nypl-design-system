@@ -148,7 +148,7 @@ export const Image: ChakraComponent<
       additionalFigureStyles = {},
       additionalImageStyles = {},
       additionalWrapperStyles = {},
-      alt,
+      alt = "",
       aspectRatio = "original",
       caption,
       className = "",

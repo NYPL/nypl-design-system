@@ -206,22 +206,22 @@ const meta: Meta<typeof MultiSelect> = {
   component: MultiSelect,
   argTypes: {
     defaultItemsVisible: {
-      table: { defaultValue: { summary: 5 } },
+      table: { defaultValue: { summary: "5" } },
     },
     id: {
       control: false,
     },
     closeOnBlur: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     isBlockElement: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     isDefaultOpen: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     isSearchable: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     listOverflow: {
       control: "radio",
