@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Table` component to use the `isScrollable` prop to enable horizontal scrolling.
+- Updates the `Table` component to use the `customStyles` prop to allow for custom column styles (i.e. width, text alignment, etc.).
+- Updates the `Table` component to use the `tableTextSize` prop to set the size of the text within the table.
+
 ## 3.3.0 (August 29, 2024)
 
 ### Adds
