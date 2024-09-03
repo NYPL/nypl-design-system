@@ -22,7 +22,9 @@ const meta: Meta<typeof Tooltip> = {
     className: { control: false },
     id: { control: false },
     isDisabled: argsBooleanType(),
+    offset: { control: false },
     shouldWrapChildren: argsBooleanType(),
+    placement: { control: false },
   },
 };
 
@@ -41,9 +43,9 @@ export const WithControls: Story = {
       "This is a tooltip with information describing the hovered object.",
     id: "tooltip-id",
     isDisabled: false,
+    offset: undefined,
     shouldWrapChildren: false,
-    placement: "top",
-    offset: [0, 8],
+    placement: undefined,
   },
   render: (args) => (
     <Tooltip {...args}>

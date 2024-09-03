@@ -10,6 +10,7 @@ import SimpleGrid from "../Grid/SimpleGrid";
 import { layoutTypesArray } from "../../helpers/types";
 import { getPlaceholderImage } from "../../utils/utils";
 import Tooltip from "../Tooltip/Tooltip";
+import { useEffect, useState } from "react";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Basic Elements/Card",
@@ -729,9 +730,37 @@ export const CardFullClickTurbineExample: Story = {
   name: "Full-Click Turbine Example",
 };
 
-export const FullClickWithTooltip: Story = {
-  render: () => (
-    <Tooltip offset={[-350, -470]} content={"Tooltip text"}>
+function FullClickWithTooltipExample() {
+  const [currentOffset, setCurrentOffset] = useState<[number, number]>([
+    -350, -450,
+  ]);
+  const [tooltipText, setTooltipText] = useState("Default offset");
+
+  useEffect(() => {
+    const updateOffset = () => {
+      if (window.innerWidth < 600) {
+        setCurrentOffset([-200, -250]);
+        setTooltipText("Less than 600 offset");
+      } else if (window.innerWidth < 960) {
+        setCurrentOffset([-400, -375]);
+        setTooltipText("Less than 960 offset");
+      } else if (window.innerWidth < 1280) {
+        setCurrentOffset([-450, -450]);
+        setTooltipText("Less than 1280 offset");
+      } else {
+        setCurrentOffset([-850, -650]);
+        setTooltipText("Greater than 1280 offset");
+      }
+    };
+    updateOffset();
+    window.addEventListener("resize", updateOffset);
+    return () => {
+      window.removeEventListener("resize", updateOffset);
+    };
+  }, []);
+
+  return (
+    <Tooltip offset={currentOffset} content={tooltipText}>
       <Card
         imageProps={{
           alt: "Alt text",
@@ -765,8 +794,11 @@ export const FullClickWithTooltip: Story = {
         </CardActions>
       </Card>
     </Tooltip>
-  ),
-  name: "Full-Click with Tooltip",
+  );
+}
+export const FullClickWithTooltip: Story = {
+  name: "Full-Click With Tooltip",
+  render: () => <FullClickWithTooltipExample />,
 };
 
 export const CardWithRightSideCardActions: Story = {
