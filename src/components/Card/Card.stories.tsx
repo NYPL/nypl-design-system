@@ -100,6 +100,7 @@ export const WithControls: Story = {
         alt: args["imageProps.alt"],
         aspectRatio: args["imageProps.aspectRatio"],
         component: args["imageProps.component"],
+        id: "card-image-id",
         isAtEnd: args["imageProps.isAtEnd"],
         isLazy: args["imageProps.isLazy"],
         size: args["imageProps.size"],

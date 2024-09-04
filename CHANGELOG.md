@@ -12,6 +12,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
 
+### Fixes
+
+- Fixes a duplicate `id` issue in the `Image` component. This happened when an aspect ratio value rendered a wrapper div with the same `id` as the `img` element. This was not picked up by internal accessibility tests but in a consuming application.
 
 ## 3.3.0 (August 29, 2024)
 
@@ -34,7 +37,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removes
 
 - Removes `imageProps.alt` missing warning message from `FeaturedContent` as the prop is not always required.
-
 
 ## 3.2.0 (July 25, 2024)
 
