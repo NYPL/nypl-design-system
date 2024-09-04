@@ -13,10 +13,6 @@ const meta: Meta<typeof Table> = {
     columnHeaders: { control: { disable: true } },
     columnHeadersBackgroundColor: { control: { type: "color" } },
     columnHeadersTextColor: { control: { type: "color" } },
-    tableTextSize: {
-      options: tableBodyTextSizesArray,
-      defaultValue: { summary: "body1" },
-    },
     id: { control: false },
     isScrollable: { ...argsBooleanType(), defaultValue: { summary: "false" } },
     showRowDividers: {
@@ -25,6 +21,10 @@ const meta: Meta<typeof Table> = {
     },
     showTitleText: { ...argsBooleanType(), defaultValue: { summary: "false" } },
     tableData: { control: false },
+    tableTextSize: {
+      options: tableBodyTextSizesArray,
+      defaultValue: { summary: "body1" },
+    },
     useColumnStyles: {
       control: { type: "boolean" },
       description:
@@ -59,6 +59,35 @@ const tableData = [
     "NY",
     "09873",
   ],
+];
+
+const columnHeadersAltBasic = ["Name", "Description", "Salary (USD)"];
+const tableDataAltBasic = [
+  [
+    "Tom Nook",
+    "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue.",
+    "$225,000",
+  ],
+  [
+    "Isabelle",
+    "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Integer posuere erat a ante luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
+    "$228,500",
+  ],
+  [
+    "K.K. Slider",
+    "Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus.",
+    "$157,000",
+  ],
+  [
+    "Sonny Resetti",
+    "Pellentesque ornare sem lacinia quam venenatis vestibulum. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
+    "$89,000",
+  ],
+];
+const columnStylesBasic = [
+  { minWidth: "200px", width: "15%" },
+  { minWidth: "400px", width: "auto" },
+  { minWidth: "200px", width: "15%", textAlign: "right" },
 ];
 
 const columnHeadersAlt = [
@@ -103,8 +132,7 @@ const tableDataAlt = [
     "$89,000",
   ],
 ];
-
-const columnStyles = [
+const columnStylesComplex = [
   { minWidth: "200px", width: "15%" },
   { minWidth: "200px", width: "15%" },
   { minWidth: "200px", width: "15%" },
@@ -124,12 +152,12 @@ export const WithControls: Story = {
     columnHeadersBackgroundColor: undefined,
     columnHeadersTextColor: undefined,
     columnStyles: undefined,
-    tableTextSize: "body2",
     id: undefined,
     isScrollable: false,
     showRowDividers: false,
     showTitleText: false,
     tableData,
+    tableTextSize: "body1",
     titleText: undefined,
     useColumnStyles: false,
     useRowHeaders: false,
@@ -138,7 +166,7 @@ export const WithControls: Story = {
     <Table
       {...args}
       columnHeaders={args.useColumnStyles ? columnHeadersAlt : columnHeaders}
-      columnStyles={args.useColumnStyles ? columnStyles : undefined}
+      columnStyles={args.useColumnStyles ? columnStylesComplex : undefined}
       tableData={args.useColumnStyles ? tableDataAlt : tableData}
     ></Table>
   ),
@@ -211,15 +239,26 @@ export const CustomHeaderColors: Story = {
   ),
 };
 
-export const CustomColumnStyles: Story = {
+export const DefaultColumnStyles: Story = {
   render: () => (
     <Table
-      columnHeaders={columnHeadersAlt}
-      columnStyles={columnStyles}
+      columnHeaders={columnHeadersAltBasic}
+      id="columnWidth-table"
+      tableData={tableDataAltBasic}
+    />
+  ),
+};
+
+export const CustomColumnStylesBasic: Story = {
+  name: "Custom Column Styles",
+  render: () => (
+    <Table
+      columnHeaders={columnHeadersAltBasic}
+      columnStyles={columnStylesBasic}
       id="columnWidth-table"
       isScrollable
       showTitleText={false}
-      tableData={tableDataAlt}
+      tableData={tableDataAltBasic}
       titleText="Table with custom column styles"
     />
   ),
@@ -230,61 +269,67 @@ export const CustomColumnStylesWithRowHeaders: Story = {
   render: () => (
     <Stack spacing="xl">
       <div>
-        <Heading level="h4">Row Headers</Heading>
+        <Heading level="h4" size="heading6">
+          Row Headers
+        </Heading>
         <Table
-          columnHeaders={columnHeadersAlt}
-          columnStyles={columnStyles}
+          columnHeaders={columnHeadersAltBasic}
+          columnStyles={columnStylesBasic}
           id="columnWidth-table-without-row-headers"
           isScrollable
           showTitleText={false}
-          tableData={tableDataAlt}
+          tableData={tableDataAltBasic}
           titleText="Table with custom column styles and row headers"
           useRowHeaders
         />
       </div>
       <div>
-        <Heading level="h4">Row Headers and Row Dividers</Heading>
+        <Heading level="h4" size="heading6">
+          Row Headers and Row Dividers
+        </Heading>
         <Table
-          columnHeaders={columnHeadersAlt}
-          columnStyles={columnStyles}
+          columnHeaders={columnHeadersAltBasic}
+          columnStyles={columnStylesBasic}
           id="columnWidth-table-without-row-headers"
           isScrollable
           showRowDividers
           showTitleText={false}
-          tableData={tableDataAlt}
+          tableData={tableDataAltBasic}
           titleText="Table with custom column styles and row headers"
           useRowHeaders
         />
       </div>
       <div>
-        <Heading level="h4">Row Headers and Custom Header BG Color</Heading>
+        <Heading level="h4" size="heading6">
+          Row Headers and Custom Header BG Color
+        </Heading>
         <Table
-          columnHeaders={columnHeadersAlt}
+          columnHeaders={columnHeadersAltBasic}
           columnHeadersBackgroundColor="ui.error.secondary"
           columnHeadersTextColor="ui.white"
-          columnStyles={columnStyles}
+          columnStyles={columnStylesBasic}
           id="columnWidth-table-without-row-headers"
           isScrollable
           showTitleText={false}
-          tableData={tableDataAlt}
+          tableData={tableDataAltBasic}
           titleText="Table with custom column styles and row headers"
           useRowHeaders
         />
       </div>
       <div>
-        <Heading level="h4">
+        <Heading level="h4" size="heading6">
           Row Headers, Custom Header BG Color, and Row Dividers
         </Heading>
         <Table
-          columnHeaders={columnHeadersAlt}
+          columnHeaders={columnHeadersAltBasic}
           columnHeadersBackgroundColor="ui.success.secondary"
           columnHeadersTextColor="ui.white"
-          columnStyles={columnStyles}
+          columnStyles={columnStylesBasic}
           id="columnWidth-table-without-row-headers"
           isScrollable
           showRowDividers
           showTitleText={false}
-          tableData={tableDataAlt}
+          tableData={tableDataAltBasic}
           titleText="Table with custom column styles and row headers"
           useRowHeaders
         />
@@ -293,13 +338,40 @@ export const CustomColumnStylesWithRowHeaders: Story = {
   ),
 };
 
-export const DefaultColumnStyles: Story = {
+export const HorizontalScrolling: Story = {
   render: () => (
-    <Table
-      columnHeaders={columnHeadersAlt}
-      id="columnWidth-table"
-      tableData={tableDataAlt}
-    />
+    <Stack spacing="xl">
+      <div>
+        <Heading level="h4" size="heading5">
+          Without Row Headers
+        </Heading>
+        <Table
+          columnHeaders={columnHeadersAlt}
+          columnStyles={columnStylesComplex}
+          id="horizontal-scrolling-table-wo-row-headers"
+          isScrollable
+          showRowDividers
+          showTitleText={false}
+          tableData={tableDataAlt}
+          titleText="Table with horizontal scrolling and no row headers"
+        />
+      </div>
+      <div>
+        <Heading level="h4" size="heading5">
+          With Row Headers
+        </Heading>
+        <Table
+          columnHeaders={columnHeadersAlt}
+          columnStyles={columnStylesComplex}
+          id="horizontal-scrolling-table-w-row-headers"
+          isScrollable
+          showTitleText={false}
+          tableData={tableDataAlt}
+          titleText="Table with horizontal scrolling and row headers"
+          useRowHeaders
+        />
+      </div>
+    </Stack>
   ),
 };
 

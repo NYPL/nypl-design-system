@@ -23,9 +23,10 @@ import { changelogData } from "./tableChangelogData";
 - {<Link href="#row-dividers" target="_self">Row Dividers</Link>}
 - {<Link href="#row-headers" target="_self">Row Headers</Link>}
 - {<Link href="#custom-header-colors" target="_self">Custom Header Colors</Link>}
-- {<Link href="#custom-column-widths" target="_self">Custom Column Widths</Link>}
-- {<Link href="#jsx-elements" target="_self">JSX Elements</Link>}
+- {<Link href="#custom-column-styles" target="_self">Custom Column Styles</Link>}
+- {<Link href="#horizontal-scrolling" target="_self">Horizontal Scrolling</Link>}
 - {<Link href="#responsive-mobile-layout" target="_self">Responsive Mobile Layout</Link>}
+- {<Link href="#jsx-elements" target="_self">JSX Elements</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -127,22 +128,49 @@ color contrast.
 
 <Canvas of={TableStories.CustomHeaderColors} />
 
-## Custom Column Widths
+## Custom Column Styles
+
+### Native Column Widths
 
 Column widths in HTML `<table>` elements can be a bit confusing and
-unpredictable when relying on the default settings. The default settings will
-allow column widths to resize enough to let a table fit fully within a given
-width and with that all of the table content will be visible, but often the
+unpredictable when relying on the default styles. Default table styles allow
+column widths to resize enough to let a table fit fully within a given width.
+With that treatment, all of the table content will be visible, but often the
 resizing is unbalanced and text content within the columns becomes unreadable.
 
-Using the `columnStyles` prop, specific `width` and `min-width` values can
-be set for each column in a table. This will allow consuming apps to set column
-widths that make for better UX.
+<Canvas of={TableStories.DefaultColumnStyles} />
 
-Related to better UX, if the `min-width` values cause a table to exceed the
-width of a parent element, the table will allow for horizontal scrolling.
-Additionally in that same situation, if `useRowHeaders` is true, the first
-column will remain fixed as the subsequent columns scroll beneath it.
+### Custom Column Widths
+
+Using the `columnStyles` prop, specific `width` and `min-width` values can be
+set for each column in a table. Additional native table cell styles may also be
+set to format table content as needed. Using custom styles will allow consuming
+apps to format tables for better UX.
+
+<Source
+  code={`const columnStyles = [
+  { minWidth: "200px", width: "15%" },
+  { minWidth: "400px", width: "auto" },
+  { minWidth: "200px", width: "15%", textAlign: "right" },
+];`}
+  language="jsx"
+/>
+
+### Without Row Headers
+
+<Canvas of={TableStories.CustomColumnStylesBasic} />
+
+### With Row Headers
+
+<Canvas of={TableStories.CustomColumnStylesWithRowHeaders} />
+
+## Horizontal Scrolling
+
+When using `customStyles`, if the `min-width` values cause a table to exceed the
+width of its parent element, the `isScrollable` prop can be used to enable
+horizontal scrolling. Additionally, if `useRowHeaders` is true in that same
+situation, the first column will remain fixed as the subsequent columns scroll
+beneath it.
 
 <Source
   code={`const columnStyles = [
@@ -150,22 +178,29 @@ column will remain fixed as the subsequent columns scroll beneath it.
   { minWidth: "200px", width: "15%" },
   { minWidth: "200px", width: "15%" },
   { minWidth: "500px", width: "auto" },
+  { minWidth: "500px", width: "auto" },
   { minWidth: "200px", width: "15%", textAlign: "right" },
 ];`}
   language="jsx"
 />
 
-### Custom Column Styles without Row Headers
+<Canvas of={TableStories.HorizontalScrolling} />
 
-<Canvas of={TableStories.CustomColumnStyles} />
+## Responsive Mobile Layout
 
-### Custom Column Styles with Row Headers
+If the `isScrollable` prop is true, the layout of the `Table` component is the
+same for all viewports and horizontal scrolling will always be enabled. The only
+difference between desktop and mobile views is that the row headers column will
+not be locked in place for mobile viewports.
 
-<Canvas of={TableStories.CustomColumnStylesWithRowHeaders} />
+If the `isScrollable` prop is false (or omitred), the `Table` component layout
+will be responsive and the standard horizontal layout of an HTML table will be
+converted to a stacked vertical layout, with each "row" visually separated by a
+prominent horizontal rule. Despite the significant visual changes in the
+responsive layout, all component props are still functional.
 
-### Default Column Styles
-
-<Canvas of={TableStories.DefaultColumnStyles} />
+To view and test this in Storybook, go to the [With Controls](../?path=/story/components-page-layout-table--with-controls)
+Story and change the viewport in the Storybook toolbar at the top of the page.
 
 ## JSX Elements
 
@@ -207,17 +242,6 @@ export const charactersData = [
 />
 
 <Canvas of={TableStories.JSXElements} />
-
-## Responsive Mobile Layout
-
-The `Table` component is responsive. Please note that for a mobile viewport the
-standard horizontal layout of an HTML table is converted to a stacked vertical
-layout, with each "row" visually separated by a prominent horizontal rule. Despite
-the significant visual changes in the responsive layout, all component props are
-still functional.
-
-To view and test this in Storybook, go to the [With Controls](../?path=/story/components-page-layout-table--with-controls)
-Story and change the viewport in the Storybook toolbar at the top of the page.
 
 ## Changelog
 
