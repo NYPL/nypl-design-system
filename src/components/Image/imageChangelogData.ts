@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-09-05",
+    version: "3.3.1",
+    type: "Bug Fix",
+    affects: ["Accessibility"],
+    notes: [
+      "Fixes an issue where the `id` prop was being duplicated in the aspect ratio's wrapper div.",
+    ],
+  },
+  {
     date: "2024-08-29",
     version: "3.3.0",
     type: "Update",
