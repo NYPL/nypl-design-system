@@ -205,12 +205,9 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Custom helper text",
-        }
-      }
-    />
+    >
+      Custom helper text
+    </div>
   </div>
 </div>
 `;
@@ -259,12 +256,9 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "There is an error related to this field.",
-        }
-      }
-    />
+    >
+      There is an error related to this field.
+    </div>
   </div>
 </div>
 `;

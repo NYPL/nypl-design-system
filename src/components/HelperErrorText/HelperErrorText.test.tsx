@@ -31,7 +31,7 @@ describe("HelperErrorText", () => {
 
   it("renders the text passed as an HTML string", () => {
     render(<HelperErrorText text="<b>This text is bold</b>" />);
-    expect(screen.getByText("This text is bold")).toBeInTheDocument();
+    expect(screen.getByText("<b>This text is bold</b>")).toBeInTheDocument();
   });
 
   it("renders the text passed as HTML", () => {

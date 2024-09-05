@@ -68,12 +68,9 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
     >
       <div
         className="css-0"
-        dangerouslySetInnerHTML={
-          {
-            "__html": "VideoPlayer helper test.",
-          }
-        }
-      />
+      >
+        VideoPlayer helper test.
+      </div>
     </div>
   </div>
 </div>
@@ -120,12 +117,9 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     >
       <div
         className="css-0"
-        dangerouslySetInnerHTML={
-          {
-            "__html": "VideoPlayer helper test.",
-          }
-        }
-      />
+      >
+        VideoPlayer helper test.
+      </div>
     </div>
   </div>
 </div>

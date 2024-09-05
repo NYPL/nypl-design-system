@@ -28,12 +28,9 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "helper text",
-        }
-      }
-    />
+    >
+      helper text
+    </div>
   </div>
 </div>
 `;
@@ -77,12 +74,9 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "invalid text",
-        }
-      }
-    />
+    >
+      invalid text
+    </div>
   </div>
 </div>
 `;

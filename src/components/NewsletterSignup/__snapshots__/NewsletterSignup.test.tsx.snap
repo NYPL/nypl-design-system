@@ -120,12 +120,9 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
             >
               <div
                 className="css-0"
-                dangerouslySetInnerHTML={
-                  {
-                    "__html": "There was a problem. Please enter a valid email address.",
-                  }
-                }
-              />
+              >
+                There was a problem. Please enter a valid email address.
+              </div>
             </div>
           </div>
         </div>
@@ -607,9 +604,13 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               data-isinvalid={false}
               id="email-input-helperText"
             >
-              Ex: 
-              jdoe@domain.com
-              <br />
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+              </div>
             </div>
           </div>
         </div>
@@ -753,9 +754,13 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               data-isinvalid={false}
               id="email-input-helperText"
             >
-              Ex: 
-              jdoe@domain.com
-              <br />
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+              </div>
             </div>
           </div>
         </div>
@@ -894,10 +899,14 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               data-isinvalid={false}
               id="email-input-helperText"
             >
-              Ex: 
-              jdoe@domain.com
-              <br />
-              You need help.
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+                You need help.
+              </div>
             </div>
           </div>
         </div>
@@ -1036,9 +1045,13 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               data-isinvalid={false}
               id="email-input-helperText"
             >
-              Ex: 
-              jdoe@domain.com
-              <br />
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+              </div>
             </div>
           </div>
         </div>

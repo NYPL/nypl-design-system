@@ -179,12 +179,9 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component helper text.",
-        }
-      }
-    />
+    >
+      Component helper text.
+    </div>
   </div>
 </div>
 `;
@@ -386,12 +383,9 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component error text :(",
-        }
-      }
-    />
+    >
+      Component error text :(
+    </div>
   </div>
 </div>
 `;
@@ -580,12 +574,9 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component helper text.",
-        }
-      }
-    />
+    >
+      Component helper text.
+    </div>
   </div>
 </div>
 `;
@@ -771,12 +762,9 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component helper text.",
-        }
-      }
-    />
+    >
+      Component helper text.
+    </div>
   </div>
 </div>
 `;
@@ -1073,12 +1061,9 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component helper text.",
-        }
-      }
-    />
+    >
+      Component helper text.
+    </div>
   </div>
 </div>
 `;
@@ -1326,12 +1311,9 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component helper text.",
-        }
-      }
-    />
+    >
+      Component helper text.
+    </div>
   </div>
 </div>
 `;
@@ -1475,12 +1457,9 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component error text :(",
-        }
-      }
-    />
+    >
+      Component error text :(
+    </div>
   </div>
 </div>
 `;
@@ -1619,12 +1598,9 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component helper text.",
-        }
-      }
-    />
+    >
+      Component helper text.
+    </div>
   </div>
 </div>
 `;
@@ -1761,12 +1737,9 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component helper text.",
-        }
-      }
-    />
+    >
+      Component helper text.
+    </div>
   </div>
 </div>
 `;
@@ -1990,12 +1963,9 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component helper text.",
-        }
-      }
-    />
+    >
+      Component helper text.
+    </div>
   </div>
 </div>
 `;
@@ -2219,12 +2189,9 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component helper text.",
-        }
-      }
-    />
+    >
+      Component helper text.
+    </div>
   </div>
 </div>
 `;
@@ -2360,12 +2327,9 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Component helper text.",
-        }
-      }
-    />
+    >
+      Component helper text.
+    </div>
   </div>
 </div>
 `;

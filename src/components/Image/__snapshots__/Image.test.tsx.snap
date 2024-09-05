@@ -38,12 +38,9 @@ exports[`Image Renders the UI snapshot correctly 2`] = `
       >
         <div
           className="css-0"
-          dangerouslySetInnerHTML={
-            {
-              "__html": "Caption",
-            }
-          }
-        />
+        >
+          Caption
+        </div>
       </div>
     </figcaption>
   </figure>
@@ -74,12 +71,9 @@ exports[`Image Renders the UI snapshot correctly 3`] = `
       >
         <div
           className="css-0"
-          dangerouslySetInnerHTML={
-            {
-              "__html": "Credit",
-            }
-          }
-        />
+        >
+          Credit
+        </div>
       </div>
     </figcaption>
   </figure>
@@ -110,12 +104,9 @@ exports[`Image Renders the UI snapshot correctly 4`] = `
       >
         <div
           className="css-0"
-          dangerouslySetInnerHTML={
-            {
-              "__html": "Caption",
-            }
-          }
-        />
+        >
+          Caption
+        </div>
       </div>
       <div
         aria-atomic={false}
@@ -124,12 +115,9 @@ exports[`Image Renders the UI snapshot correctly 4`] = `
       >
         <div
           className="css-0"
-          dangerouslySetInnerHTML={
-            {
-              "__html": "Credit",
-            }
-          }
-        />
+        >
+          Credit
+        </div>
       </div>
     </figcaption>
   </figure>

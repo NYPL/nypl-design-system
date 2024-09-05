@@ -40,12 +40,9 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
         >
           <div
             className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image caption",
-              }
-            }
-          />
+          >
+            Image caption
+          </div>
         </div>
         <div
           aria-atomic={false}
@@ -54,12 +51,9 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
         >
           <div
             className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image credit",
-              }
-            }
-          />
+          >
+            Image credit
+          </div>
         </div>
       </figcaption>
     </figure>
@@ -115,12 +109,9 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
         >
           <div
             className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image caption",
-              }
-            }
-          />
+          >
+            Image caption
+          </div>
         </div>
         <div
           aria-atomic={false}
@@ -129,12 +120,9 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
         >
           <div
             className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image credit",
-              }
-            }
-          />
+          >
+            Image credit
+          </div>
         </div>
       </figcaption>
     </figure>
@@ -285,12 +273,9 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
         >
           <div
             className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image caption",
-              }
-            }
-          />
+          >
+            Image caption
+          </div>
         </div>
         <div
           aria-atomic={false}
@@ -299,12 +284,9 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
         >
           <div
             className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image credit",
-              }
-            }
-          />
+          >
+            Image credit
+          </div>
         </div>
       </figcaption>
     </figure>
@@ -382,12 +364,9 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
         >
           <div
             className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image caption",
-              }
-            }
-          />
+          >
+            Image caption
+          </div>
         </div>
         <div
           aria-atomic={false}
@@ -396,12 +375,9 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
         >
           <div
             className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image credit",
-              }
-            }
-          />
+          >
+            Image credit
+          </div>
         </div>
       </figcaption>
     </figure>
@@ -458,12 +434,9 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
         >
           <div
             className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image caption",
-              }
-            }
-          />
+          >
+            Image caption
+          </div>
         </div>
         <div
           aria-atomic={false}
@@ -472,12 +445,9 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
         >
           <div
             className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image credit",
-              }
-            }
-          />
+          >
+            Image credit
+          </div>
         </div>
       </figcaption>
     </figure>

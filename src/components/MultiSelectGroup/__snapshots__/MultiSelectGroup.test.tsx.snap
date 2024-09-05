@@ -279,7 +279,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                     className="css-1xdhyk6"
                     data-isinvalid={false}
                     id="multi-select-checkbox-group-colors-helperErrorText"
-                  />
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </fieldset>
               </div>
             </div>
@@ -712,7 +716,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                     className="css-1xdhyk6"
                     data-isinvalid={false}
                     id="multi-select-checkbox-group-pets-helperErrorText"
-                  />
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </fieldset>
               </div>
             </div>
@@ -1145,7 +1153,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                     className="css-1xdhyk6"
                     data-isinvalid={false}
                     id="multi-select-checkbox-group-tools-helperErrorText"
-                  />
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </fieldset>
               </div>
             </div>
@@ -1436,7 +1448,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                     className="css-1xdhyk6"
                     data-isinvalid={false}
                     id="multi-select-checkbox-group-colors-helperErrorText"
-                  />
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </fieldset>
               </div>
             </div>
@@ -1869,7 +1885,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                     className="css-1xdhyk6"
                     data-isinvalid={false}
                     id="multi-select-checkbox-group-pets-helperErrorText"
-                  />
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </fieldset>
               </div>
             </div>
@@ -2302,7 +2322,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                     className="css-1xdhyk6"
                     data-isinvalid={false}
                     id="multi-select-checkbox-group-tools-helperErrorText"
-                  />
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </fieldset>
               </div>
             </div>

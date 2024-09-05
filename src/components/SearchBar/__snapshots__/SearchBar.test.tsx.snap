@@ -93,12 +93,9 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
-        }
-      }
-    />
+    >
+      Search for items in Animal Crossing New Horizons
+    </div>
   </div>
 </div>
 `;
@@ -315,12 +312,9 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
-        }
-      }
-    />
+    >
+      Search for items in Animal Crossing New Horizons
+    </div>
   </div>
 </div>
 `;
@@ -504,12 +498,9 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
-        }
-      }
-    />
+    >
+      Search for items in Animal Crossing New Horizons
+    </div>
   </div>
 </div>
 `;
@@ -1173,12 +1164,9 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
-        }
-      }
-    />
+    >
+      Search for items in Animal Crossing New Horizons
+    </div>
   </div>
 </div>
 `;
@@ -1277,12 +1265,9 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
-        }
-      }
-    />
+    >
+      Search for items in Animal Crossing New Horizons
+    </div>
   </div>
 </div>
 `;

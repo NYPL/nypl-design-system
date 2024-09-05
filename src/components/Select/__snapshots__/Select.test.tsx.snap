@@ -294,12 +294,9 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Tom doesn't count as a sibling :(.",
-        }
-      }
-    />
+    >
+      Tom doesn't count as a sibling :(.
+    </div>
   </div>
 </div>
 `;
@@ -406,12 +403,9 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Remember, Logan will judge you no matter who you pick.",
-        }
-      }
-    />
+    >
+      Remember, Logan will judge you no matter who you pick.
+    </div>
   </div>
 </div>
 `;

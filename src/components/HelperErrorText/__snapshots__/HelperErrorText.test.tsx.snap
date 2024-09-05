@@ -10,12 +10,9 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
-      }
-    }
-  />
+  >
+    Text
+  </div>
 </div>
 `;
 
@@ -29,12 +26,9 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
-      }
-    }
-  />
+  >
+    Text
+  </div>
 </div>
 `;
 
@@ -48,12 +42,9 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "This helper text <b>contains HTML in the string</b>.",
-      }
-    }
-  />
+  >
+    This helper text &lt;b&gt;contains HTML in the string&lt;/b&gt;.
+  </div>
 </div>
 `;
 
@@ -65,11 +56,15 @@ exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
   data-isinvalid={true}
   id="invalid"
 >
-  This helper text 
-  <b>
-    contains HTML
-  </b>
-  .
+  <div
+    className="css-0"
+  >
+    This helper text 
+    <b>
+      contains HTML
+    </b>
+    .
+  </div>
 </div>
 `;
 
@@ -83,12 +78,9 @@ exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
-      }
-    }
-  />
+  >
+    Text
+  </div>
 </div>
 `;
 
@@ -103,11 +95,8 @@ exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
-      }
-    }
-  />
+  >
+    Text
+  </div>
 </div>
 `;
