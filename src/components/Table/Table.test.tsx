@@ -211,6 +211,17 @@ describe("Table", () => {
         />
       )
       .toJSON();
+    const withAriaLabel = renderer
+      .create(
+        <Table
+          columnHeaders={columnHeaders}
+          id="withCaption"
+          showTitleText={false}
+          tableData={tableData}
+          titleText="this is the caption"
+        />
+      )
+      .toJSON();
     const withHeaders = renderer
       .create(
         <Table
@@ -278,6 +289,7 @@ describe("Table", () => {
 
     expect(basic).toMatchSnapshot();
     expect(withCaption).toMatchSnapshot();
+    expect(withAriaLabel).toMatchSnapshot();
     expect(withHeaders).toMatchSnapshot();
     expect(withRowHeaders).toMatchSnapshot();
     expect(withCustomHeaderColors).toMatchSnapshot();

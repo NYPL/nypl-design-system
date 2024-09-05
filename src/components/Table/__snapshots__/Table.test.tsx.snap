@@ -846,14 +846,10 @@ exports[`Table renders the UI snapshot correctly 3`] = `
   className="chakra-table__container css-1abtqiu"
 >
   <table
+    aria-label="this is the caption"
     className="chakra-table css-1xdhyk6"
-    id="withHeaders"
+    id="withCaption"
   >
-    <caption
-      className="css-18i7bby"
-    >
-      this is the caption
-    </caption>
     <thead
       className="css-0"
     >
@@ -1333,6 +1329,429 @@ exports[`Table renders the UI snapshot correctly 4`] = `
       <tr
         className="css-0"
       >
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Tom
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Nook
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Tanukichi
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Main Street
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            23458
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
+        </td>
+      </tr>
+      <tr
+        className="css-0"
+      >
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Isabelle
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            -
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Shizue
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Walnut Street
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            23458
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
+        </td>
+      </tr>
+      <tr
+        className="css-0"
+      >
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            K.K.
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Slider
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Totakeke
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Niper Place
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            98765
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
+        </td>
+      </tr>
+      <tr
+        className="css-0"
+      >
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            First Name
+          </span>
+          <span>
+            Sonny
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Last Name
+          </span>
+          <span>
+            Resetti
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Nick Name
+          </span>
+          <span>
+            Risetto san
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Address1
+          </span>
+          <span>
+            Village Road
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            City
+          </span>
+          <span>
+            New York
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            Zipcode
+          </span>
+          <span>
+            09873
+          </span>
+        </td>
+        <td
+          className="css-0"
+        >
+          <span
+            className="css-dsyim5"
+          >
+            State
+          </span>
+          <span>
+            NY
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Table renders the UI snapshot correctly 5`] = `
+<div
+  className="chakra-table__container css-1abtqiu"
+>
+  <table
+    className="chakra-table css-1xdhyk6"
+    id="withHeaders"
+  >
+    <caption
+      className="css-18i7bby"
+    >
+      this is the caption
+    </caption>
+    <thead
+      className="css-0"
+    >
+      <tr
+        className="css-0"
+      >
+        <th
+          className="css-0"
+          scope="col"
+        >
+          First Name
+        </th>
+        <th
+          className="css-0"
+          scope="col"
+        >
+          Last Name
+        </th>
+        <th
+          className="css-0"
+          scope="col"
+        >
+          Nick Name
+        </th>
+        <th
+          className="css-0"
+          scope="col"
+        >
+          Address1
+        </th>
+        <th
+          className="css-0"
+          scope="col"
+        >
+          City
+        </th>
+        <th
+          className="css-0"
+          scope="col"
+        >
+          Zipcode
+        </th>
+        <th
+          className="css-0"
+          scope="col"
+        >
+          State
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="css-0"
+    >
+      <tr
+        className="css-0"
+      >
         <th
           className="css-0"
           scope="row"
@@ -1691,7 +2110,7 @@ exports[`Table renders the UI snapshot correctly 4`] = `
 </div>
 `;
 
-exports[`Table renders the UI snapshot correctly 5`] = `
+exports[`Table renders the UI snapshot correctly 6`] = `
 <div
   className="chakra-table__container css-1abtqiu"
 >
@@ -2118,7 +2537,7 @@ exports[`Table renders the UI snapshot correctly 5`] = `
 </div>
 `;
 
-exports[`Table renders the UI snapshot correctly 6`] = `
+exports[`Table renders the UI snapshot correctly 7`] = `
 <div
   className="chakra-table__container css-1abtqiu"
 >
@@ -2536,7 +2955,7 @@ exports[`Table renders the UI snapshot correctly 6`] = `
 </div>
 `;
 
-exports[`Table renders the UI snapshot correctly 7`] = `
+exports[`Table renders the UI snapshot correctly 8`] = `
 <div
   className="chakra-table__container css-1abtqiu"
 >
@@ -2955,7 +3374,7 @@ exports[`Table renders the UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`Table renders the UI snapshot correctly 8`] = `
+exports[`Table renders the UI snapshot correctly 9`] = `
 <div
   className="chakra-table__container css-1abtqiu"
 >
