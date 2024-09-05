@@ -15,7 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes a duplicate `id` issue in the `Image` component. This happened when an aspect ratio value rendered a wrapper div with the same `id` as the `img` element. This was not picked up by internal accessibility tests but in a consuming application.
-- Fixes issue with HelperErrorText where, if text value was not a string, necessary styles weren't applied.
+- Fixes issue with `HelperErrorText` where, if text value was not a string, necessary styles weren't applied.
 
 ## 3.3.0 (August 29, 2024)
 
