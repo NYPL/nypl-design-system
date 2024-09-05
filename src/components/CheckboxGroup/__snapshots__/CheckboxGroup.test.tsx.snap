@@ -809,7 +809,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
   <legend>
     required
     <span>
-       (Required)
+       (required)
     </span>
   </legend>
   <div
