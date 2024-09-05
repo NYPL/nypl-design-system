@@ -20,7 +20,7 @@ interface CustomColors {
 }
 
 export const tableBodyTextSizesArray = ["body1", "body2"] as const;
-export type TableBodyTextSizes = (typeof tableBodyTextSizesArray)[number];
+export type TableBodyTextSizes = typeof tableBodyTextSizesArray[number];
 
 export interface TableProps {
   /** Additional class name for the `Table` component. */
@@ -234,7 +234,6 @@ export const Table: ChakraComponent<
 
       const wrapperProps = isScrollable
         ? {
-            ariaLabel: titleText ? { titleText } : undefined,
             overflow: "auto",
             role: "region",
             tabIndex: 0,
@@ -248,6 +247,7 @@ export const Table: ChakraComponent<
       return (
         <TableContainer {...wrapperProps} {...wapperStyles}>
           <ChakraTable
+            aria-label={titleText && !showTitleText ? titleText : undefined}
             className={className}
             id={id}
             ref={ref}

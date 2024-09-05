@@ -72,8 +72,9 @@ Resources:
 
 ## Title Text
 
-The `titleText` prop can be used to add a visible title above the table and to
-add an appropriate `aria-label` attribute.
+The `titleText` prop can be used to add a visible title above the table or to
+add an `aria-label` attribute. If the `titleText` prop is passed, by default a
+visibel header will be rendered.
 
 **IMPORTANT:** While the `titleText` prop is not required, it is recommended to
 always use this prop for better accessibility.
@@ -81,9 +82,9 @@ always use this prop for better accessibility.
 <Source
   code={`<Table
   columnHeaders={columnHeaders}
-  id="title-table"
+  id="table-title-text"
   tableData={tableData}
-  titleText="Table with a visible title and an aria-label attribute"
+  titleText="Table with visible title"
 />`}
   language="jsx"
 />
@@ -91,16 +92,16 @@ always use this prop for better accessibility.
 <Canvas of={TableStories.ShowTitleText} />
 
 Use the `showTitleText` prop to control the visibility of the title. When
-`showTitleText` is set to `false`, the `aria-label` attribute will still be
-added.
+`showTitleText` is set to `false`, the `aria-label` attribute will be applied
+instead of rendering the visisble header.
 
 <Source
   code={`<Table
   columnHeaders={columnHeaders}
-  id="aria-label-table"
+  id="table-aria-label"
   showTitleText={false}
   tableData={tableData}
-  titleText="Table with only an aria-label"
+  titleText="Table with aria-label"
 />`}
   language="jsx"
 />
@@ -116,7 +117,7 @@ Use the `showRowDividers` prop to render a divider between each row.
 ## Row Headers
 
 Use the `useRowHeaders` prop to render the first cell in every row as a header.
-Notice that they turn bold.
+Notice that they are now bold and have a background color.
 
 <Canvas of={TableStories.RowHeaders} />
 
@@ -138,7 +139,7 @@ column widths to resize enough to let a table fit fully within a given width.
 With that treatment, all of the table content will be visible, but often the
 resizing is unbalanced and text content within the columns becomes unreadable.
 
-<Canvas of={TableStories.DefaultColumnStyles} />
+<Canvas of={TableStories.NativeColumnStyles} />
 
 ### Custom Column Widths
 
@@ -156,13 +157,7 @@ apps to format tables for better UX.
   language="jsx"
 />
 
-### Without Row Headers
-
-<Canvas of={TableStories.CustomColumnStylesBasic} />
-
-### With Row Headers
-
-<Canvas of={TableStories.CustomColumnStylesWithRowHeaders} />
+<Canvas of={TableStories.CustomColumnStyles} />
 
 ## Horizontal Scrolling
 

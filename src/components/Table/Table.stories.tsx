@@ -184,9 +184,9 @@ export const ShowTitleText: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeaders}
-      id="title-table"
+      id="table-title-text"
       tableData={tableData}
-      titleText="Table with a visible title and an aria-label attribute"
+      titleText="Table with visible title"
     />
   ),
 };
@@ -195,10 +195,10 @@ export const HideTitleText: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeaders}
-      id="aria-label-table"
+      id="table-aria-label"
       showTitleText={false}
       tableData={tableData}
-      titleText="Table with only an aria-label"
+      titleText="Table with aria-label"
     />
   ),
 };
@@ -207,9 +207,11 @@ export const RowDividers: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeaders}
-      id="showRowDividers-table"
+      id="table-row-dividers"
+      showTitleText={false}
       showRowDividers
       tableData={tableData}
+      titleText="Table with row dividers"
     />
   ),
 };
@@ -218,8 +220,10 @@ export const RowHeaders: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeaders}
-      id="rowHeaders-table"
+      id="table-row-headers"
+      showTitleText={false}
       tableData={tableData}
+      titleText="Table with row headers"
       useRowHeaders
     />
   ),
@@ -231,103 +235,54 @@ export const CustomHeaderColors: Story = {
       columnHeaders={columnHeaders}
       columnHeadersBackgroundColor="var(--nypl-colors-ui-link-secondary)"
       columnHeadersTextColor="var(--nypl-colors-ui-white)"
-      id="rowHeaders-table"
+      id="table-custom-header-colors"
       showRowDividers
+      showTitleText={false}
       tableData={tableData}
+      titleText="Table with custom header colors"
       useRowHeaders
     />
   ),
 };
 
-export const DefaultColumnStyles: Story = {
+export const NativeColumnStyles: Story = {
   render: () => (
     <Table
       columnHeaders={columnHeadersAltBasic}
-      id="columnWidth-table"
-      tableData={tableDataAltBasic}
-    />
-  ),
-};
-
-export const CustomColumnStylesBasic: Story = {
-  name: "Custom Column Styles",
-  render: () => (
-    <Table
-      columnHeaders={columnHeadersAltBasic}
-      columnStyles={columnStylesBasic}
-      id="columnWidth-table"
-      isScrollable
+      id="table-native-column-styles"
       showTitleText={false}
       tableData={tableDataAltBasic}
-      titleText="Table with custom column styles"
+      titleText="Table using native column styles"
     />
   ),
 };
 
-export const CustomColumnStylesWithRowHeaders: Story = {
-  name: "Custom Column Widths with Row Headers",
+export const CustomColumnStyles: Story = {
   render: () => (
     <Stack spacing="xl">
       <div>
         <Heading level="h4" size="heading6">
-          Row Headers
+          Withou Row Headers
         </Heading>
         <Table
           columnHeaders={columnHeadersAltBasic}
           columnStyles={columnStylesBasic}
-          id="columnWidth-table-without-row-headers"
+          id="table-custom-column-styles"
           isScrollable
           showTitleText={false}
           tableData={tableDataAltBasic}
-          titleText="Table with custom column styles and row headers"
-          useRowHeaders
+          titleText="Table with custom column styles"
         />
       </div>
       <div>
         <Heading level="h4" size="heading6">
-          Row Headers and Row Dividers
+          With Row Headers
         </Heading>
         <Table
           columnHeaders={columnHeadersAltBasic}
           columnStyles={columnStylesBasic}
-          id="columnWidth-table-without-row-headers"
+          id="table-custom-column-styles-row-headers"
           isScrollable
-          showRowDividers
-          showTitleText={false}
-          tableData={tableDataAltBasic}
-          titleText="Table with custom column styles and row headers"
-          useRowHeaders
-        />
-      </div>
-      <div>
-        <Heading level="h4" size="heading6">
-          Row Headers and Custom Header BG Color
-        </Heading>
-        <Table
-          columnHeaders={columnHeadersAltBasic}
-          columnHeadersBackgroundColor="ui.error.secondary"
-          columnHeadersTextColor="ui.white"
-          columnStyles={columnStylesBasic}
-          id="columnWidth-table-without-row-headers"
-          isScrollable
-          showTitleText={false}
-          tableData={tableDataAltBasic}
-          titleText="Table with custom column styles and row headers"
-          useRowHeaders
-        />
-      </div>
-      <div>
-        <Heading level="h4" size="heading6">
-          Row Headers, Custom Header BG Color, and Row Dividers
-        </Heading>
-        <Table
-          columnHeaders={columnHeadersAltBasic}
-          columnHeadersBackgroundColor="ui.success.secondary"
-          columnHeadersTextColor="ui.white"
-          columnStyles={columnStylesBasic}
-          id="columnWidth-table-without-row-headers"
-          isScrollable
-          showRowDividers
           showTitleText={false}
           tableData={tableDataAltBasic}
           titleText="Table with custom column styles and row headers"
@@ -348,7 +303,7 @@ export const HorizontalScrolling: Story = {
         <Table
           columnHeaders={columnHeadersAlt}
           columnStyles={columnStylesComplex}
-          id="horizontal-scrolling-table-wo-row-headers"
+          id="table-horizontal-scrolling-wo-row-headers"
           isScrollable
           showRowDividers
           showTitleText={false}
@@ -363,7 +318,7 @@ export const HorizontalScrolling: Story = {
         <Table
           columnHeaders={columnHeadersAlt}
           columnStyles={columnStylesComplex}
-          id="horizontal-scrolling-table-w-row-headers"
+          id="table-horizontal-scrolling-w-row-headers"
           isScrollable
           showTitleText={false}
           tableData={tableDataAlt}

@@ -18,6 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Added the `isScrollable` prop to enable horizontal scrolling.",
       "Added the `customStyles` prop to allow for custom column styles (i.e. width, text alignment, etc.).",
       "Added the `tableTextSize` prop to set the size of the text within the table.",
+      "Added the `titleText` and `showTitleText` props to control the <caption> element and arial-label attribute.",
     ],
   },
   {
