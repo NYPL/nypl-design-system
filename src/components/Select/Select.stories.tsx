@@ -135,7 +135,7 @@ export const LabellingVariations: Story = {
         <option value="white">White</option>
       </Select>
       <Select
-        helperText="Display the Required text"
+        helperText="Display the required text"
         id="label-example3"
         isRequired
         labelText="What is your favorite color?"
@@ -148,7 +148,7 @@ export const LabellingVariations: Story = {
         <option value="white">White</option>
       </Select>
       <Select
-        helperText="Do not display the Required text"
+        helperText="Do not display the required text"
         id="label-example4"
         isRequired
         labelText="What is your favorite color?"

@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
+- Lowercases the 'r' of '(required)' in labels and placeholders where necessary
 
 ### Fixes
 

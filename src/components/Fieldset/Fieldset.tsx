@@ -13,11 +13,11 @@ export interface FieldsetProps {
   id: string;
   /** Flag to show or hide the text in the `legend` element. False by default. */
   isLegendHidden?: boolean;
-  /** Flag to render "Required" in the `legend`. True by default. */
+  /** Flag to render "required" in the `legend`. True by default. */
   isRequired?: boolean;
   /** Text to display in the `legend` element. */
   legendText?: string;
-  /** Whether or not to display the "(Required)" text in the `legend` text.
+  /** Whether or not to display the "(required)" text in the `legend` text.
    * True by default. */
   showRequiredLabel?: boolean;
 }
@@ -69,7 +69,7 @@ export const Fieldset: ChakraComponent<
         >
           <legend>
             {legendText}
-            {showRequiredLabel && isRequired && <span> (Required)</span>}
+            {showRequiredLabel && isRequired && <span> (required)</span>}
           </legend>
           {children}
         </Box>
