@@ -9,6 +9,8 @@ import Link from "../Link/Link";
 import SimpleGrid from "../Grid/SimpleGrid";
 import { layoutTypesArray } from "../../helpers/types";
 import { getPlaceholderImage } from "../../utils/utils";
+import Tooltip from "../Tooltip/Tooltip";
+import { useEffect, useState } from "react";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Basic Elements/Card",
@@ -98,6 +100,7 @@ export const WithControls: Story = {
         alt: args["imageProps.alt"],
         aspectRatio: args["imageProps.aspectRatio"],
         component: args["imageProps.component"],
+        id: "card-image-id",
         isAtEnd: args["imageProps.isAtEnd"],
         isLazy: args["imageProps.isLazy"],
         size: args["imageProps.size"],
@@ -727,6 +730,78 @@ export const CardFullClickTurbineExample: Story = {
   ),
   name: "Full-Click Turbine Example",
 };
+
+function FullClickWithTooltipExample() {
+  const [currentOffset, setCurrentOffset] = useState<[number, number]>([
+    -350, -450,
+  ]);
+  const [tooltipText, setTooltipText] = useState("Default offset");
+
+  useEffect(() => {
+    const updateOffset = () => {
+      if (window.innerWidth < 600) {
+        setCurrentOffset([-200, -250]);
+        setTooltipText("Less than 600 offset");
+      } else if (window.innerWidth < 960) {
+        setCurrentOffset([-400, -375]);
+        setTooltipText("Less than 960 offset");
+      } else if (window.innerWidth < 1280) {
+        setCurrentOffset([-450, -450]);
+        setTooltipText("Less than 1280 offset");
+      } else {
+        setCurrentOffset([-850, -650]);
+        setTooltipText("Greater than 1280 offset");
+      }
+    };
+    updateOffset();
+    window.addEventListener("resize", updateOffset);
+    return () => {
+      window.removeEventListener("resize", updateOffset);
+    };
+  }, []);
+
+  return (
+    <Tooltip offset={currentOffset} content={tooltipText}>
+      <Card
+        imageProps={{
+          alt: "Alt text",
+          aspectRatio: "twoByOne",
+          src: getPlaceholderImage("smaller"),
+        }}
+        mainActionLink="http://nypl.org"
+      >
+        <CardHeading
+          level="h3"
+          id="fullclick1-heading1"
+          size="heading5"
+          subtitle="Some other subtitle."
+        >
+          Tooltip displays over me
+        </CardHeading>
+        <CardContent>
+          This entire `Card` component is clickable, but the links below are
+          still accessible by tabbing through the `Card` and pressing `enter` or
+          clicking with a mouse.
+          <br />
+          <Tooltip content={"Tooltippable"}>Tooltippable text</Tooltip>
+        </CardContent>
+        <CardActions>
+          <Link href="#" type="buttonPrimary">
+            Link Button
+          </Link>
+          <Link href="#" type="buttonSecondary">
+            Other Link
+          </Link>
+        </CardActions>
+      </Card>
+    </Tooltip>
+  );
+}
+export const FullClickWithTooltip: Story = {
+  name: "Full-Click With Tooltip",
+  render: () => <FullClickWithTooltipExample />,
+};
+
 export const CardWithRightSideCardActions: Story = {
   render: () => (
     <Card

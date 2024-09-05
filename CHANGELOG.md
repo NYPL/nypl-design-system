@@ -8,6 +8,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.3.1 (September 5, 2024)
+
+### Updates
+
+- Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
+
+### Fixes
+
+- Fixes a duplicate `id` issue in the `Image` component. This happened when an aspect ratio value rendered a wrapper div with the same `id` as the `img` element. This was not picked up by internal accessibility tests but in a consuming application.
+
 ## 3.3.0 (August 29, 2024)
 
 ### Adds
