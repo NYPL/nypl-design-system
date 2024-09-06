@@ -8,10 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Lowercases the 'r' of '(required)' in labels and placeholders where necessary in order to align with sentence case guidelines.
+
+## 3.3.1 (September 5, 2024)
+
 ### Updates
 
 - Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
-- Lowercases the 'r' of '(required)' in labels and placeholders where necessary in order to align with sentence case guidelines.
 
 ### Fixes
 
