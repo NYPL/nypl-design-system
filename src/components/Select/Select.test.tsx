@@ -86,21 +86,21 @@ describe("Select", () => {
     ).toHaveAttribute("aria-describedby", `${id}-helperText`);
   });
 
-  it("renders '(Required)' text in the label", () => {
+  it("renders '(required)' text in the label", () => {
     const { rerender } = render(
       <Select {...baseProps} isRequired>
         {baseOptions}
       </Select>
     );
 
-    expect(screen.getByText(/Required/i)).toBeInTheDocument();
+    expect(screen.getByText(/required/i)).toBeInTheDocument();
 
     rerender(
       <Select {...baseProps} isRequired showRequiredLabel={false}>
         {baseOptions}
       </Select>
     );
-    expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
   });
 
   it("renders required and aria-required attributes when 'showLabel' is false", () => {
@@ -124,7 +124,7 @@ describe("Select", () => {
         {baseOptions}
       </Select>
     );
-    expect(screen.queryByText(/Required/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
     expect(
       screen.getByLabelText(/What is your favorite color/i)
     ).toBeInTheDocument();
