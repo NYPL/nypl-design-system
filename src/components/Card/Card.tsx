@@ -86,11 +86,13 @@ function CardImage(
     caption,
     component,
     credit,
+    fallbackSrc,
     id,
     isAtEnd,
     isCentered,
     isLazy,
     layout,
+    onError,
     size,
     src,
   } = props;
@@ -110,8 +112,10 @@ function CardImage(
         caption={caption}
         component={component}
         credit={credit}
+        fallbackSrc={fallbackSrc}
         id={id}
         isLazy={isLazy}
+        onError={onError}
         size={size}
         src={src}
       />
@@ -219,9 +223,11 @@ export const Card: ChakraComponent<
           caption: undefined,
           component: undefined,
           credit: undefined,
+          fallbackSrc: undefined,
           id: undefined,
           isAtEnd: false,
           isLazy: false,
+          onError: undefined,
           size: "default",
           src: "",
         },
@@ -332,9 +338,11 @@ export const Card: ChakraComponent<
               caption={imageProps.caption}
               component={imageProps.component}
               credit={imageProps.credit}
+              fallbackSrc={imageProps.fallbackSrc}
               id={imageProps.id}
               isAtEnd={imageProps.isAtEnd}
               isLazy={imageProps.isLazy}
+              onError={imageProps.onError}
               layout={layout}
               size={imageProps.size}
               src={imageProps.src ? imageProps.src : undefined}
