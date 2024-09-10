@@ -539,9 +539,12 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
-    >
-      helper text
-    </div>
+      dangerouslySetInnerHTML={
+        {
+          "__html": "helper text",
+        }
+      }
+    />
   </div>
 </fieldset>
 `;

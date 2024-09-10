@@ -10,9 +10,12 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
 >
   <div
     className="css-0"
-  >
-    Text
-  </div>
+    dangerouslySetInnerHTML={
+      {
+        "__html": "Text",
+      }
+    }
+  />
 </div>
 `;
 
@@ -26,9 +29,12 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
 >
   <div
     className="css-0"
-  >
-    Text
-  </div>
+    dangerouslySetInnerHTML={
+      {
+        "__html": "Text",
+      }
+    }
+  />
 </div>
 `;
 
@@ -42,9 +48,12 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
 >
   <div
     className="css-0"
-  >
-    This helper text &lt;b&gt;contains HTML in the string&lt;/b&gt;.
-  </div>
+    dangerouslySetInnerHTML={
+      {
+        "__html": "This helper text <b>contains HTML in the string</b>.",
+      }
+    }
+  />
 </div>
 `;
 
@@ -78,9 +87,12 @@ exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
 >
   <div
     className="css-0"
-  >
-    Text
-  </div>
+    dangerouslySetInnerHTML={
+      {
+        "__html": "Text",
+      }
+    }
+  />
 </div>
 `;
 
@@ -95,8 +107,11 @@ exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
 >
   <div
     className="css-0"
-  >
-    Text
-  </div>
+    dangerouslySetInnerHTML={
+      {
+        "__html": "Text",
+      }
+    }
+  />
 </div>
 `;

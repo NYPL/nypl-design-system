@@ -497,9 +497,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               >
                 <div
                   className="css-0"
-                >
-                  Please select a valid date.
-                </div>
+                  dangerouslySetInnerHTML={
+                    {
+                      "__html": "Please select a valid date.",
+                    }
+                  }
+                />
               </div>
             </div>
           </div>
@@ -566,9 +569,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               >
                 <div
                   className="css-0"
-                >
-                  Please select a valid date.
-                </div>
+                  dangerouslySetInnerHTML={
+                    {
+                      "__html": "Please select a valid date.",
+                    }
+                  }
+                />
               </div>
             </div>
           </div>
@@ -584,9 +590,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
     >
       <div
         className="css-0"
-      >
-        Note that the Library may be closed on Sundays.
-      </div>
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Note that the Library may be closed on Sundays.",
+          }
+        }
+      />
     </div>
   </fieldset>
 </div>
@@ -726,9 +735,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
     >
       <div
         className="css-0"
-      >
-        Note that the Library may be closed on Sundays.
-      </div>
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Note that the Library may be closed on Sundays.",
+          }
+        }
+      />
     </div>
   </fieldset>
 </div>
@@ -1000,9 +1012,12 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
           >
             <div
               className="css-0"
-            >
-              Please select a valid date.
-            </div>
+              dangerouslySetInnerHTML={
+                {
+                  "__html": "Please select a valid date.",
+                }
+              }
+            />
           </div>
         </div>
       </div>
@@ -1083,9 +1098,12 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
           >
             <div
               className="css-0"
-            >
-              Note that the Library may be closed on Sundays.
-            </div>
+              dangerouslySetInnerHTML={
+                {
+                  "__html": "Note that the Library may be closed on Sundays.",
+                }
+              }
+            />
           </div>
         </div>
       </div>
@@ -1166,9 +1184,12 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
           >
             <div
               className="css-0"
-            >
-              Note that the Library may be closed on Sundays.
-            </div>
+              dangerouslySetInnerHTML={
+                {
+                  "__html": "Note that the Library may be closed on Sundays.",
+                }
+              }
+            />
           </div>
         </div>
       </div>
@@ -1250,9 +1271,12 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
           >
             <div
               className="css-0"
-            >
-              Note that the Library may be closed on Sundays.
-            </div>
+              dangerouslySetInnerHTML={
+                {
+                  "__html": "Note that the Library may be closed on Sundays.",
+                }
+              }
+            />
           </div>
         </div>
       </div>

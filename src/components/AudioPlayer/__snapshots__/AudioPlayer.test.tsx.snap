@@ -34,9 +34,12 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
   >
     <div
       className="css-0"
-    >
-      Audio Player helper text.
-    </div>
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Audio Player helper text.",
+        }
+      }
+    />
   </div>
 </div>
 `;

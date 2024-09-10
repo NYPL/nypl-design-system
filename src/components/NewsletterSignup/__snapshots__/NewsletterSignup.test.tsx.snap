@@ -120,9 +120,12 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
             >
               <div
                 className="css-0"
-              >
-                There was a problem. Please enter a valid email address.
-              </div>
+                dangerouslySetInnerHTML={
+                  {
+                    "__html": "There was a problem. Please enter a valid email address.",
+                  }
+                }
+              />
             </div>
           </div>
         </div>
