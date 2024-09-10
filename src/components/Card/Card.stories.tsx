@@ -1,5 +1,6 @@
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
+import { useEffect, useState } from "react";
 
 import Button from "../Button/Button";
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
@@ -10,7 +11,9 @@ import SimpleGrid from "../Grid/SimpleGrid";
 import { layoutTypesArray } from "../../helpers/types";
 import { getPlaceholderImage } from "../../utils/utils";
 import Tooltip from "../Tooltip/Tooltip";
-import { useEffect, useState } from "react";
+// The image file is in the repo but ts doesn't pick it up as a module.
+// @ts-ignore
+import imageFile from "../../../static/noImage.png";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Basic Elements/Card",
@@ -558,6 +561,35 @@ export const CustomImageComponent: Story = {
         odio, dapibus ac facilisis in, egestas eget quam. Sed posuere
         consectetur est at lobortis.
       </CardContent>
+    </Card>
+  ),
+};
+
+export const FallbackImage: Story = {
+  render: () => (
+    <Card
+      imageProps={{
+        alt: "Alt text",
+        fallbackSrc: imageFile,
+        onError: (_event) => console.log("Card fallback image loaded"),
+        src: "foobar.jpg",
+      }}
+    >
+      <CardHeading
+        level="h3"
+        id="img1-heading1"
+        size="heading5"
+        subtitle="Subtitle on the card"
+      >
+        Card component displaying a fallback image
+      </CardHeading>
+      <CardContent>
+        Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Aenean lacinia bibendum nulla sed
+        consectetur. Vestibulum id ligula porta felis euismod semper. Cras justo
+        odio, dapibus ac facilisis in, egestas eget quam. Sed posuere
+        consectetur est at lobortis.
+      </CardContent>
       <CardActions>
         <Link type="button" href="#">
           Reserve
@@ -569,6 +601,7 @@ export const CustomImageComponent: Story = {
     </Card>
   ),
 };
+
 export const HeadingAsLink: Story = {
   render: () => (
     <Card
