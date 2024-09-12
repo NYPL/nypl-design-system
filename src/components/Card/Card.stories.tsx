@@ -34,12 +34,14 @@ const meta: Meta<typeof Card> = {
     "imageProps.caption": { control: false },
     "imageProps.component": { control: false },
     "imageProps.credit": { control: false },
+    "imageProps.fallbackSrc": { control: false },
     "imageProps.isAtEnd": {
       table: { defaultValue: { summary: "false" } },
     },
     "imageProps.isLazy": {
       table: { defaultValue: { summary: "false" } },
     },
+    "imageProps.onError": { control: false },
     "imageProps.size": {
       table: { defaultValue: { summary: "default" } },
     },
