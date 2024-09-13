@@ -48,6 +48,9 @@ const global = {
   "*, *::before, &::after": {
     boxSizing: "inherit",
   },
+  ".chakra-modal__content-container": {
+    zIndex: "999999 !important",
+  },
 };
 
 export default global;
