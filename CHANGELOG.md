@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Lowercases the 'r' of '(required)' in labels and placeholders where necessary in order to align with sentence case guidelines.
+- Adds interaction tests to `Multiselect` component.
 
 ### Fixes
 

@@ -2,6 +2,7 @@ import { HStack, Stack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
+import { userEvent, within, expect } from "@storybook/test";
 
 import Heading from "../Heading/Heading";
 import MultiSelect, {
@@ -252,10 +253,10 @@ export const withControls: Story = {
   args: {
     buttonText: "MultiSelect",
     id: "multi-select-id",
-    closeOnBlur: false,
+    closeOnBlur: true,
     isBlockElement: true,
     isDefaultOpen: false,
-    isSearchable: false,
+    isSearchable: true,
     items: withItems,
     listOverflow: "scroll",
     onChange: undefined,
@@ -270,6 +271,26 @@ export const withControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
     },
     jest: ["MultiSelect.test.tsx"],
+  },
+  play: async ({ canvasElement }) => {
+    let multiselect = within(canvasElement).getByRole("button");
+    userEvent.click(multiselect);
+    const checkbox1Label = within(canvasElement).getByText(/Architecture/);
+    await userEvent.click(checkbox1Label);
+    const checkbox2Label = within(canvasElement).getByText(/Cartography/);
+    await userEvent.click(checkbox2Label);
+    let clearButton = within(canvasElement).getAllByRole("button")[1];
+    await userEvent.click(clearButton);
+    const searchBar = within(canvasElement).getAllByRole("textbox")[0];
+    await userEvent.type(searchBar, "Design");
+    await expect(checkbox2Label).not.toBeVisible();
+    const checkbox3Label = within(canvasElement).getByText(/Design/);
+    await userEvent.click(checkbox3Label);
+    const clearSearchBar = within(searchBar.parentElement).getAllByRole(
+      "button"
+    )[0];
+    await userEvent.click(clearSearchBar);
+    await userEvent.click(document.body);
   },
 };
 
