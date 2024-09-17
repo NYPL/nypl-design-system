@@ -227,7 +227,9 @@ export const SearchBar: ChakraComponent<
         headingText={headingText}
         helperText={helperText}
         id={id}
-        invalidText={`There was a problem. ${invalidText}`}
+        invalidText={
+          invalidText ? `There was a problem. ${invalidText}` : undefined
+        }
         isInvalid={isInvalid}
         ref={ref}
         {...rest}
