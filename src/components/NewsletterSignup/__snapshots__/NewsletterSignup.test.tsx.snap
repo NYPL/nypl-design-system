@@ -86,7 +86,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
             >
               Email Address
               <span>
-                 (Required)
+                 (required)
               </span>
             </label>
             <div
@@ -576,7 +576,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
             >
               Email Address
               <span>
-                 (Required)
+                 (required)
               </span>
             </label>
             <div
@@ -726,7 +726,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
             >
               Email Address
               <span>
-                 (Required)
+                 (required)
               </span>
             </label>
             <div
@@ -871,7 +871,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
             >
               Email Address
               <span>
-                 (Required)
+                 (required)
               </span>
             </label>
             <div
@@ -1017,7 +1017,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
             >
               Email Address
               <span>
-                 (Required)
+                 (required)
               </span>
             </label>
             <div
