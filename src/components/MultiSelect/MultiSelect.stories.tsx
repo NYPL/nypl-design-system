@@ -292,6 +292,7 @@ export const withControls: Story = {
     await userEvent.type(searchBar, "Design");
     await expect(checkbox2Label).not.toBeVisible();
     const checkbox3Label = within(canvasElement).getByText(/Design/);
+    await expect(checkbox3Label).toBeVisible();
     await userEvent.click(checkbox3Label);
     const clearSearchBar = within(searchBar.parentElement).getAllByRole(
       "button"
