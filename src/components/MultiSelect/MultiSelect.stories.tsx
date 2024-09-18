@@ -274,13 +274,20 @@ export const withControls: Story = {
   },
   play: async ({ canvasElement }) => {
     let multiselect = within(canvasElement).getByRole("button");
-    userEvent.click(multiselect);
+    await userEvent.click(multiselect);
+    await expect(multiselect).toHaveAttribute("aria-expanded", "true");
     const checkbox1Label = within(canvasElement).getByText(/Architecture/);
     await userEvent.click(checkbox1Label);
     const checkbox2Label = within(canvasElement).getByText(/Cartography/);
     await userEvent.click(checkbox2Label);
-    let clearButton = within(canvasElement).getAllByRole("button")[1];
-    await userEvent.click(clearButton);
+    let clearMultiselect = within(canvasElement).getByTestId(
+      "multi-select-close-button-testid"
+    );
+    await expect(clearMultiselect).toHaveAttribute(
+      "aria-label",
+      "remove 2 items selected from MultiSelect"
+    );
+    await userEvent.click(clearMultiselect);
     const searchBar = within(canvasElement).getAllByRole("textbox")[0];
     await userEvent.type(searchBar, "Design");
     await expect(checkbox2Label).not.toBeVisible();
@@ -290,7 +297,11 @@ export const withControls: Story = {
       "button"
     )[0];
     await userEvent.click(clearSearchBar);
+    await userEvent.click(clearMultiselect);
+    let checkboxes = within(canvasElement).getAllByRole("checkbox");
+    expect(checkboxes).not.toBeChecked;
     await userEvent.click(document.body);
+    await expect(multiselect).toHaveAttribute("aria-expanded", "false");
   },
 };
 
