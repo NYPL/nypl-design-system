@@ -81,7 +81,7 @@ export const HelperErrorText: ChakraComponent<
                 __css={styles.innerChild}
               />
             ) : (
-              text
+              <Box __css={styles.innerChild}>{text}</Box>
             )
           ) : null}
         </Box>
