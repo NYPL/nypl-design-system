@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Styles", "Functionality"],
     notes: [
       "Changes 'r' in '(required)' placeholder from upper- to lowercase",
-      "Adds 'There was a problem. ' prefix on invalid text in the SearchBar component",
+      "Updates invalid text in the SearchBar component to include 'There was a problem. ' prefix",
     ],
   },
   {
