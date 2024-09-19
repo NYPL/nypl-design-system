@@ -131,6 +131,12 @@ color contrast.
 
 ## Custom Column Styles
 
+The `columnStyles` prop can be used to apply custom styles to to each column.
+The most column use case for this is to control the column widths and/or text
+alignment for each column. Any style prop can be passed using the `columnStyles`
+prop, but it is recommended to use the default styles of the `Table` component
+as much as possible and to avoid excessive style overrides.
+
 ### Native Column Widths
 
 Column widths in HTML `<table>` elements can be a bit confusing and
@@ -144,9 +150,12 @@ resizing is unbalanced and text content within the columns becomes unreadable.
 ### Custom Column Widths
 
 Using the `columnStyles` prop, specific `width` and `min-width` values can be
-set for each column in a table. Additional native table cell styles may also be
-set to format table content as needed. Using custom styles will allow consuming
-apps to format tables for better UX.
+set for each column in a table. Additional styles may also be set to format
+table content as needed. Using custom styles will allow consuming apps to format
+tables for better UX.
+
+For improved UX, it is recommended to apply a `min-width` value of at least
+`"200px"` to each column in a table.
 
 <Source
   code={`const columnStyles = [
@@ -157,11 +166,25 @@ apps to format tables for better UX.
   language="jsx"
 />
 
+**IMPORTANT:** The length of the array that makes up the `columnStyles` prop
+must match the length of the arrays that make up the `tableData` and
+`columnHeaders` props. If a column does not require custom styles, an empty
+object must be included in the `columnStyles` array. See the `With Empty Style Object` example below.
+
+<Source
+  code={`const columnStyles = [
+  { minWidth: "200px", width: "15%" },
+  { },
+  { minWidth: "200px", width: "15%", textAlign: "right" },
+];`}
+  language="jsx"
+/>
+
 <Canvas of={TableStories.CustomColumnStyles} />
 
 ## Horizontal Scrolling
 
-When using `customStyles`, if the `min-width` values cause a table to exceed the
+When using `columnStyles`, if the `min-width` values cause a table to exceed the
 width of its parent element, the `isScrollable` prop can be used to enable
 horizontal scrolling. Additionally, if `useRowHeaders` is true in that same
 situation, the first column will remain fixed as the subsequent columns scroll
@@ -188,7 +211,7 @@ same for all viewports and horizontal scrolling will always be enabled. The only
 difference between desktop and mobile views is that the row headers column will
 not be locked in place for mobile viewports.
 
-If the `isScrollable` prop is false (or omitred), the `Table` component layout
+If the `isScrollable` prop is false (or omitted), the `Table` component layout
 will be responsive and the standard horizontal layout of an HTML table will be
 converted to a stacked vertical layout, with each "row" visually separated by a
 prominent horizontal rule. Despite the significant visual changes in the

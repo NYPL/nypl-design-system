@@ -90,6 +90,12 @@ const columnStylesBasic = [
   { minWidth: "200px", width: "15%", textAlign: "right" },
 ];
 
+const columnStylesEmpty = [
+  { minWidth: "200px", width: "15%" },
+  {},
+  { minWidth: "200px", width: "15%", textAlign: "right" },
+];
+
 const columnHeadersAlt = [
   "Name",
   "Nick Name",
@@ -262,7 +268,7 @@ export const CustomColumnStyles: Story = {
     <Stack spacing="xl">
       <div>
         <Heading level="h4" size="heading6">
-          Withou Row Headers
+          Without Row Headers
         </Heading>
         <Table
           columnHeaders={columnHeadersAltBasic}
@@ -287,6 +293,20 @@ export const CustomColumnStyles: Story = {
           tableData={tableDataAltBasic}
           titleText="Table with custom column styles and row headers"
           useRowHeaders
+        />
+      </div>
+      <div>
+        <Heading level="h4" size="heading6">
+          With Empty Style Object
+        </Heading>
+        <Table
+          columnHeaders={columnHeadersAltBasic}
+          columnStyles={columnStylesEmpty}
+          id="table-custom-column-styles"
+          isScrollable
+          showTitleText={false}
+          tableData={tableDataAltBasic}
+          titleText="Table with custom column styles"
         />
       </div>
     </Stack>

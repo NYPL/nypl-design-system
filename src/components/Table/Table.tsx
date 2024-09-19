@@ -1,6 +1,7 @@
 import {
   Box,
   chakra,
+  ChakraComponent,
   Table as ChakraTable,
   TableCaption as ChakraTableCaption,
   TableContainer,
@@ -10,9 +11,9 @@ import {
   Th as ChakraTh,
   Tr as ChakraTr,
   useMultiStyleConfig,
-  ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 interface CustomColors {
   backgroundColor?: string;
@@ -32,8 +33,9 @@ export interface TableProps {
   columnHeadersBackgroundColor?: string;
   /** Hex value to set the text color of the column headers. */
   columnHeadersTextColor?: string;
-  /** Array of style objects used to set custom width values for the table
-   * columns. Will accept "width" and "maxWidth" attributes. */
+  /** Array of style objects used to set custom styles for the table columns.
+   * Any style can be passed, but the most common use would be to pass "width"
+   * and "maxWidth" to set custom column widths. */
   columnStyles?: object[];
   /** The size of the table body text. */
   tableTextSize?: TableBodyTextSizes;
@@ -90,6 +92,8 @@ export const Table: ChakraComponent<
         (customColors["backgroundColor"] = columnHeadersBackgroundColor);
       columnHeadersTextColor &&
         (customColors["color"] = columnHeadersTextColor);
+
+      const { isLargerThanMobile } = useNYPLBreakpoints();
 
       const styles = useMultiStyleConfig("CustomTable", {
         columnHeadersBackgroundColor,
@@ -178,7 +182,9 @@ export const Table: ChakraComponent<
                       sx={
                         isScrollable
                           ? columnStyles[key]
-                          : { base: undefined, md: columnStyles[key] }
+                          : isLargerThanMobile
+                          ? columnStyles[key]
+                          : undefined
                       }
                     >
                       {cellContent(key, column)}
@@ -190,7 +196,9 @@ export const Table: ChakraComponent<
                       sx={
                         isScrollable
                           ? columnStyles[key]
-                          : { base: undefined, md: columnStyles[key] }
+                          : isLargerThanMobile
+                          ? columnStyles[key]
+                          : undefined
                       }
                     >
                       {cellContent(key, column)}

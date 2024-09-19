@@ -12,7 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
 - Updates the `Table` component to add the `isScrollable` prop to enable horizontal scrolling.
-- Updates the `Table` component to add the `customStyles` prop to allow for custom column styles (i.e. width, text alignment, etc.).
+- Updates the `Table` component to add the `columnStyles` prop to allow for custom column styles (i.e. width, text alignment, etc.).
 - Updates the `Table` component to add the `tableTextSize` prop to set the size of the text within the table.
 - Updates the `Table` component to add the `titleText` and `showTitleText` props to control the `<caption>` element and `aria-label` attribute.
 

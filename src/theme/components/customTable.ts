@@ -60,7 +60,7 @@ export const baseTRStyles = (
   showRowDividers = false,
   useRowHeaders = false
 ) => ({
-  borderBottom: isScrollable ? "0" : { base: "2px solid", md: "0" },
+  borderBottom: isScrollable ? 0 : { base: "2px solid", md: 0 },
   borderColor: "ui.gray.medium",
   display: isScrollable ? "table-row" : { base: "block", md: "table-row" },
   paddingBottom:
@@ -86,7 +86,7 @@ export const baseTRStyles = (
 export const baseCellStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
-  tableTextSize = "",
+  tableTextSize = null,
   isScrollable = false,
   showRowDividers = false
 ) => ({
