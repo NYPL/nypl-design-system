@@ -8,6 +8,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.3.2 (September 19, 2024)
+
+### Updates
+
+- Updates the `CheckboxGroup`, `DatePicker`, `FeedbackBox`, `Label`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, and `TextInput` component to use a lowercase 'r' for '(required)' in labels and placeholders in order to align with sentence case typography guidelines.
+
+### Fixes
+
+- Passes the `fallbackSrc` and `onError` properties to the `Card`'s `imageProps` prop object.
+- Fixes issue with `HelperErrorText` where, if text value was not a string, necessary styles weren't applied.
+
 ## 3.3.1 (September 5, 2024)
 
 ### Updates

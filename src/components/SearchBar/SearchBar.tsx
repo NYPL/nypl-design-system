@@ -139,7 +139,7 @@ export const SearchBar: ChakraComponent<
     const finalAriaLabel = footnote ? `${labelText} - ${footnote}` : labelText;
     const inputPlaceholder = textInputProps?.placeholder || "Search terms";
     const textInputPlaceholder = `${inputPlaceholder} ${
-      isRequired ? "(Required)" : ""
+      isRequired ? "(required)" : ""
     }`;
     const buttonType = noBrandButtonType ? "noBrand" : "primary";
     const { isLargerThanMobile } = useNYPLBreakpoints();

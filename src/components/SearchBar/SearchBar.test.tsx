@@ -381,7 +381,7 @@ describe("SearchBar", () => {
     );
 
     expect(
-      screen.queryByPlaceholderText("Item Search (Required)")
+      screen.queryByPlaceholderText("Item Search (required)")
     ).not.toBeInTheDocument();
 
     rerender(
@@ -395,7 +395,7 @@ describe("SearchBar", () => {
       />
     );
     expect(
-      screen.getByPlaceholderText("Item Search (Required)")
+      screen.getByPlaceholderText("Item Search (required)")
     ).toBeInTheDocument();
   });
 
