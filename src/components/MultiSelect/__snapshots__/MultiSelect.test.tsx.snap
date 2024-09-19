@@ -535,7 +535,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                 className="css-1xdhyk6"
                 data-isinvalid={false}
                 id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
-              />
+              >
+                <div
+                  className="css-0"
+                />
+              </div>
             </fieldset>
           </div>
         </div>
@@ -1080,7 +1084,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                 className="css-1xdhyk6"
                 data-isinvalid={false}
                 id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
-              />
+              >
+                <div
+                  className="css-0"
+                />
+              </div>
             </fieldset>
           </div>
         </div>
@@ -1670,7 +1678,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                 className="css-1xdhyk6"
                 data-isinvalid={false}
                 id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
-              />
+              >
+                <div
+                  className="css-0"
+                />
+              </div>
             </fieldset>
           </div>
         </div>
@@ -2299,7 +2311,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                 className="css-1xdhyk6"
                 data-isinvalid={false}
                 id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
-              />
+              >
+                <div
+                  className="css-0"
+                />
+              </div>
             </fieldset>
           </div>
         </div>

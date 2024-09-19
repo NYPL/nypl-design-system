@@ -239,7 +239,7 @@ export const OtherStates: Story = {
         Required State
       </Heading>
       <p>
-        The "Required" text in the legend in the date range, or the label in a
+        The "required" text in the legend in the date range, or the label in a
         normaldate input, can be hidden when `showRequiredLabel` is set to
         `false`.
       </p>
