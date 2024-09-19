@@ -13,17 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Styles", "Functionality"],
     notes: [
+      "Changes 'r' in '(required)' placeholder from upper- to lowercase",
       "Adds 'There was a problem. ' prefix on invalid text in the SearchBar component",
     ],
-  },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Update",
-    affects: ["Styles"],
-    notes: ["Changes 'r' in '(required)' placeholder from upper- to lowercase"],
   },
   {
     date: "2024-08-29",
