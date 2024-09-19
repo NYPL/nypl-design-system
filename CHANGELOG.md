@@ -10,12 +10,19 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Lowercases the 'r' of '(required)' in labels and placeholders where necessary in order to align with sentence case guidelines.
 - Updates invalid text in the `SearchBar` component to include "There was a problem. " prefix.
+
+## 3.3.2 (September 19, 2024)
+
+### Updates
+
+- Lowercases the 'r' of '(required)' in labels and placeholders where necessary in order to align with sentence case guidelines.
+- Updates the `CheckboxGroup`, `DatePicker`, `FeedbackBox`, `Label`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, and `TextInput` component to use a lowercase 'r' for '(required)' in labels and placeholders in order to align with sentence case typography guidelines.
 
 ### Fixes
 
 - Passes the `fallbackSrc` and `onError` properties to the `Card`'s `imageProps` prop object.
+- Fixes issue with `HelperErrorText` where, if text value was not a string, necessary styles weren't applied.
 
 ## 3.3.1 (September 5, 2024)
 
@@ -26,7 +33,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes a duplicate `id` issue in the `Image` component. This happened when an aspect ratio value rendered a wrapper div with the same `id` as the `img` element. This was not picked up by internal accessibility tests but in a consuming application.
-- Fixes issue with `HelperErrorText` where, if text value was not a string, necessary styles weren't applied.
 
 ## 3.3.0 (August 29, 2024)
 
