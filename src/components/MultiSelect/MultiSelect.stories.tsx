@@ -291,6 +291,8 @@ export const withControls: Story = {
     const searchBar = within(canvasElement).getAllByRole("textbox")[0];
     await userEvent.type(searchBar, "Design");
     await expect(checkbox2Label).not.toBeVisible();
+    let checkboxes = within(canvasElement).getAllByRole("checkbox");
+    expect(checkboxes.length).toBe(1);
     const checkbox3Label = within(canvasElement).getByText(/Design/);
     await expect(checkbox3Label).toBeVisible();
     await userEvent.click(checkbox3Label);
@@ -299,7 +301,6 @@ export const withControls: Story = {
     )[0];
     await userEvent.click(clearSearchBar);
     await userEvent.click(clearMultiselect);
-    let checkboxes = within(canvasElement).getAllByRole("checkbox");
     expect(checkboxes).not.toBeChecked;
     await userEvent.click(document.body);
     await expect(multiselect).toHaveAttribute("aria-expanded", "false");
