@@ -8,11 +8,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Adds interaction tests to `MultiSelect` component.
+
 ## 3.3.2 (September 19, 2024)
 
 ### Updates
 
+- Lowercases the 'r' of '(required)' in labels and placeholders where necessary in order to align with sentence case guidelines.
 - Updates the `CheckboxGroup`, `DatePicker`, `FeedbackBox`, `Label`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, and `TextInput` component to use a lowercase 'r' for '(required)' in labels and placeholders in order to align with sentence case typography guidelines.
+
 
 ### Fixes
 
