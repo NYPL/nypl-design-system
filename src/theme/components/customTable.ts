@@ -1,7 +1,12 @@
 import { useColorModeValue } from "@chakra-ui/react";
+import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+import { StyleFunctionProps } from "@chakra-ui/system";
 import { TableBodyTextSizes } from "../../components/Table/Table";
 
-interface BaseStyleProps {
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(["base", "innerTable"]);
+
+interface BaseStyleProps extends StyleFunctionProps {
   columnHeadersBackgroundColor?: string;
   columnHeadersTextColor?: string;
   tableTextSize?: TableBodyTextSizes;
@@ -191,106 +196,126 @@ export const baseTDStyles = (
     borderColor: `${CellBorderColorStyles()} !important`,
   },
 });
-export const baseStyle = ({
-  columnHeadersBackgroundColor,
-  columnHeadersTextColor,
-  tableTextSize,
-  isScrollable,
-  showRowDividers,
-  useRowHeaders,
-}: BaseStyleProps) => ({
-  borderCollapse: "separate",
-  borderSpacing: 0,
-  // Headers `th` can be rendered as the first cell in every row through the
-  // `useRowHeaders`. Whereas the header `th` in the `thead` can be rendered
-  // with a custom color, the row header `th` in the `tbody` should always have
-  // text color `ui.typography.heading` for light color mode and
-  // `dark.ui.typography.heading` for dark color mode.
-  tbody: {
-    th: {
-      backgroundColor: useRowHeaders
-        ? isScrollable
-          ? "ui.gray.xx-light-cool"
-          : {
-              base: "ui.gray.x-light-cool",
-              md: columnHeadersBackgroundColor
-                ? "ui.gray.xx-light-cool"
-                : "ui.white",
-            }
-        : undefined,
-      color: "ui.typography.heading",
-      fontWeight: "medium",
-      fontSize: tableTextSizes(tableTextSize).tableBody,
-      textTransform: "capitalize",
-      verticalAlign: "top",
-      _dark: {
-        backgroundColor: useRowHeaders
-          ? { base: "dark.ui.bg.default", md: "unset" }
-          : undefined,
-        color: "dark.ui.typography.heading",
-      },
-    },
-    td: {
-      verticalAlign: "top",
-    },
-  },
-  thead: {
-    display: isScrollable
-      ? undefined
-      : { base: "none", md: "table-header-group" },
-    th: {
-      _first: {
-        backgroundColor: columnHeadersBackgroundColor
-          ? columnHeadersBackgroundColor
-          : useRowHeaders
-          ? "ui.gray.x-light-cool"
-          : "ui.white",
-      },
-    },
-  },
-  tr: baseTRStyles(
-    columnHeadersBackgroundColor,
-    isScrollable,
-    showRowDividers,
-    useRowHeaders
-  ),
-  th: baseTHStyles(
+export const baseStyle = definePartsStyle(
+  ({
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
     tableTextSize,
     isScrollable,
     showRowDividers,
-    useRowHeaders
-  ),
-  td: baseTDStyles(
-    columnHeadersBackgroundColor,
-    columnHeadersTextColor,
-    tableTextSize,
-    isScrollable,
-    showRowDividers
-  ),
-  caption: {
-    captionSide: "top",
-    color: "ui.typography.heading",
-    fontSize: {
-      base: "mobile.heading.heading2",
-      md: "desktop.heading.heading2",
-    },
-    fontWeight: "heading.heading2",
-    marginBottom: "s",
-    marginStart: "0",
-    marginEnd: "0",
-    marginTop: "0",
-    padding: "0",
-    textAlign: "left",
-    _dark: {
-      color: "dark.ui.typography.heading",
-    },
-  },
-});
+    useRowHeaders,
+  }: BaseStyleProps) => ({
+    /* The table wrapper */
+    base: {
+      overflow: isScrollable ? "auto" : "hidden",
+      maxWidth: "100%",
+      whiteSpace: "wrap",
 
-const CustomTable = {
+      /** Show shadow to scroll */
+      background:
+        "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
+      backgroundRepeat: "no-repeat",
+      backgroundColor: "white",
+      backgroundSize: "40px 100%, 40px 100%, 14px 100%, 14px 100%",
+      backgroundPosition: "0 0, 100%, 0 0, 100%",
+      backgroundAttachment: "local, local, scroll, scroll",
+    },
+    /* The actual table element */
+    innerTable: {
+      borderCollapse: "separate",
+      borderSpacing: 0,
+      // Headers `th` can be rendered as the first cell in every row through the
+      // `useRowHeaders`. Whereas the header `th` in the `thead` can be rendered
+      // with a custom color, the row header `th` in the `tbody` should always have
+      // text color `ui.typography.heading` for light color mode and
+      // `dark.ui.typography.heading` for dark color mode.
+      tbody: {
+        th: {
+          backgroundColor: useRowHeaders
+            ? isScrollable
+              ? "ui.gray.xx-light-cool"
+              : {
+                  base: "ui.gray.x-light-cool",
+                  md: columnHeadersBackgroundColor
+                    ? "ui.gray.xx-light-cool"
+                    : "ui.white",
+                }
+            : undefined,
+          color: "ui.typography.heading",
+          fontWeight: "medium",
+          fontSize: tableTextSizes(tableTextSize).tableBody,
+          textTransform: "capitalize",
+          verticalAlign: "top",
+          _dark: {
+            backgroundColor: useRowHeaders
+              ? { base: "dark.ui.bg.default", md: "unset" }
+              : undefined,
+            color: "dark.ui.typography.heading",
+          },
+        },
+        td: {
+          verticalAlign: "top",
+        },
+      },
+      thead: {
+        display: isScrollable
+          ? undefined
+          : { base: "none", md: "table-header-group" },
+        th: {
+          _first: {
+            backgroundColor: columnHeadersBackgroundColor
+              ? columnHeadersBackgroundColor
+              : useRowHeaders
+              ? "ui.gray.x-light-cool"
+              : "ui.white",
+          },
+        },
+      },
+      tr: baseTRStyles(
+        columnHeadersBackgroundColor,
+        isScrollable,
+        showRowDividers,
+        useRowHeaders
+      ),
+      th: baseTHStyles(
+        columnHeadersBackgroundColor,
+        columnHeadersTextColor,
+        tableTextSize,
+        isScrollable,
+        showRowDividers,
+        useRowHeaders
+      ),
+      td: baseTDStyles(
+        columnHeadersBackgroundColor,
+        columnHeadersTextColor,
+        tableTextSize,
+        isScrollable,
+        showRowDividers
+      ),
+      caption: {
+        captionSide: "top",
+        color: "ui.typography.heading",
+        fontSize: {
+          base: "mobile.heading.heading2",
+          md: "desktop.heading.heading2",
+        },
+        fontWeight: "heading.heading2",
+        marginBottom: "s",
+        marginStart: "0",
+        marginEnd: "0",
+        marginTop: "0",
+        padding: "0",
+        textAlign: "left",
+        _dark: {
+          color: "dark.ui.typography.heading",
+        },
+      },
+    },
+  })
+);
+
+const CustomTable = defineMultiStyleConfig({
   baseStyle,
-};
+});
 
 export default CustomTable;

@@ -274,7 +274,6 @@ export const CustomColumnStyles: Story = {
           columnHeaders={columnHeadersAltBasic}
           columnStyles={columnStylesBasic}
           id="table-custom-column-styles"
-          isScrollable
           showTitleText={false}
           tableData={tableDataAltBasic}
           titleText="Table with custom column styles"
@@ -288,7 +287,6 @@ export const CustomColumnStyles: Story = {
           columnHeaders={columnHeadersAltBasic}
           columnStyles={columnStylesBasic}
           id="table-custom-column-styles-row-headers"
-          isScrollable
           showTitleText={false}
           tableData={tableDataAltBasic}
           titleText="Table with custom column styles and row headers"
@@ -303,7 +301,6 @@ export const CustomColumnStyles: Story = {
           columnHeaders={columnHeadersAltBasic}
           columnStyles={columnStylesEmpty}
           id="table-custom-column-styles"
-          isScrollable
           showTitleText={false}
           tableData={tableDataAltBasic}
           titleText="Table with custom column styles"

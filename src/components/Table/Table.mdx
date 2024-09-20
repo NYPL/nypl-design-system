@@ -63,6 +63,10 @@ Header cells are visually different from the standard table data. Use the
 table has two levels of headers (such as two levels of horizontal headers), break
 the data into two separate tables.
 
+When horizontal scrolling is enabled for the `Table` component, the scrolling
+element (the `table` container) should have a proper role defined using
+`role="region"` and it should be set as focusable using `tabindex="0"`.
+
 Resources:
 
 - [W3C Tables Tutorial](https://www.w3.org/WAI/tutorials/tables/)

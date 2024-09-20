@@ -225,41 +225,22 @@ export const Table: ChakraComponent<
         }
       }
 
-      const wapperStyles = isScrollable
+      /* Special props for better a11y when the table is scrollable */
+      const containerProps = isScrollable
         ? {
-            overflow: isScrollable ? "auto" : "hidden",
-            maxWidth: "100%",
-            /** Show shadow to scroll */
-            background:
-              "linear-gradient(to right, white 30%, rgba(255,255,255,0)), linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%, radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)), radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%",
-            backgroundRepeat: "no-repeat",
-            backgroundColor: "white",
-            backgroundSize: "40px 100%, 40px 100%, 14px 100%, 14px 100%",
-            backgroundPosition: "0 0, 100%, 0 0, 100%",
-            backgroundAttachment: "local, local, scroll, scroll",
+            role: "region",
+            tabIndex: 0,
           }
         : undefined;
 
-      const wrapperProps = isScrollable
-        ? {
-            overflow: "auto",
-            role: "region",
-            tabIndex: 0,
-            whiteSpace: "wrap",
-          }
-        : {
-            overflow: "hidden",
-            whiteSpace: "wrap",
-          };
-
       return (
-        <TableContainer {...wrapperProps} {...wapperStyles}>
+        <TableContainer {...containerProps} sx={styles.base}>
           <ChakraTable
             aria-label={titleText && !showTitleText ? titleText : undefined}
             className={className}
             id={id}
             ref={ref}
-            sx={styles}
+            sx={styles.innerTable}
             {...rest}
           >
             <>
