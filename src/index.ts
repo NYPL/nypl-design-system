@@ -249,7 +249,7 @@ export type {
   StyledListTextSizes,
 } from "./components/StyledList/StyledList";
 export { default as Table } from "./components/Table/Table";
-export type { TableProps } from "./components/Table/Table";
+export type { TableBodyTextSizes, TableProps } from "./components/Table/Table";
 export {
   default as Tabs,
   TabList,
