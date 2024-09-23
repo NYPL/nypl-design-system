@@ -793,7 +793,7 @@ function FullClickWithTooltipExample() {
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: getPlaceholderImage("smaller"),
+          src: "https://images.nypl.org/index.php?id=swope_243025&t=r",
         }}
         mainActionLink="http://nypl.org"
       >
