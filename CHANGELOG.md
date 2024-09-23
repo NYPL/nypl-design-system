@@ -10,11 +10,30 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
+- Adds interaction tests to `MultiSelect` component.
+- Increases the z-index of the `FeedbackBox`'s `Drawer` component so it displays above all other elements on a page.
 - Updates the `Table` component to add the `isScrollable` prop to enable horizontal scrolling.
 - Updates the `Table` component to add the `columnStyles` prop to allow for custom column styles (i.e. width, text alignment, etc.).
 - Updates the `Table` component to add the `tableTextSize` prop to set the size of the text within the table.
 - Updates the `Table` component to add the `titleText` and `showTitleText` props to control the `<caption>` element and `aria-label` attribute.
+
+## 3.3.2 (September 19, 2024)
+
+### Updates
+
+- Lowercases the 'r' of '(required)' in labels and placeholders where necessary in order to align with sentence case guidelines.
+- Updates the `CheckboxGroup`, `DatePicker`, `FeedbackBox`, `Label`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, and `TextInput` component to use a lowercase 'r' for '(required)' in labels and placeholders in order to align with sentence case typography guidelines.
+
+### Fixes
+
+- Passes the `fallbackSrc` and `onError` properties to the `Card`'s `imageProps` prop object.
+- Fixes issue with `HelperErrorText` where, if text value was not a string, necessary styles weren't applied.
+
+## 3.3.1 (September 5, 2024)
+
+### Updates
+
+- Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
 
 ### Fixes
 
