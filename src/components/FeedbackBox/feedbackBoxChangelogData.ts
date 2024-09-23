@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "3.3.2",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Changes 'r' in '(required)' label from upper- to lowercase"],
+    notes: [
+      "Changes 'r' in '(required)' label from upper- to lowercase",
+      "Increases the z-index of the `Drawer` component so it displays above all other elements on a page.",
+    ],
   },
   {
     date: "2024-07-25",
