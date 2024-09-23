@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates invalid text in the `SearchBar` component to include "There was a problem. " prefix.
 - Adds interaction tests to `MultiSelect` component.
 - Increases the z-index of the `FeedbackBox`'s `Drawer` component so it displays above all other elements on a page.
 - Updates the `Table` component to add the `isScrollable` prop to enable horizontal scrolling.

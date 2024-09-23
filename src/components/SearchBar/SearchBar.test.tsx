@@ -150,7 +150,9 @@ describe("SearchBar", () => {
         textInputProps={textInputProps}
       />
     );
-    expect(screen.getByText(invalidText)).toBeInTheDocument();
+    expect(
+      screen.getByText(`There was a problem. ${invalidText}`)
+    ).toBeInTheDocument();
     expect(screen.queryByText(helperText)).not.toBeInTheDocument();
   });
 
