@@ -316,12 +316,11 @@ export const Card: ChakraComponent<
       );
 
       return (
-        <Box __css={styles.base}>
+        <Box __css={styles.base} ref={ref}>
           <CardWrapper
             id={id}
             className={className}
             mainActionLink={mainActionLink}
-            ref={ref}
             styles={{
               ...styles.wrapper,
               ...customColors,

@@ -2,50 +2,57 @@
 
 exports[`Card Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1u8qly9"
-  id="regularCard"
+  className="css-0"
 >
   <div
-    className="css-0"
+    className="css-1u8qly9"
+    data-wrapper={true}
+    id="regularCard"
   >
     <div
       className="css-0"
+      data-image={true}
     >
-      <img
-        alt="Alt text"
+      <div
         className="css-0"
-        id="img-id-regularCard"
-        onError={[Function]}
-        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-      />
-    </div>
-  </div>
-  <div
-    className="card-body css-0"
-  >
-    <h3
-      className="chakra-heading css-1u8qly9"
-      id="heading1"
-      layout="column"
-    >
-      The Card Heading
-    </h3>
-    <div
-      className="css-1xdhyk6"
-    >
-      middle column content
-    </div>
-    <div
-      className="css-1xdhyk6"
-    >
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="button1"
-        onClick={[Function]}
-        type="submit"
       >
-        Example CTA
-      </button>
+        <img
+          alt="Alt text"
+          className="css-0"
+          id="img-id-regularCard"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
+        />
+      </div>
+    </div>
+    <div
+      className="card-body css-0"
+      data-body={true}
+    >
+      <h3
+        className="chakra-heading css-1u8qly9"
+        id="heading1"
+        layout="column"
+      >
+        The Card Heading
+      </h3>
+      <div
+        className="css-1xdhyk6"
+      >
+        middle column content
+      </div>
+      <div
+        className="css-1xdhyk6"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="button1"
+          onClick={[Function]}
+          type="submit"
+        >
+          Example CTA
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -53,100 +60,107 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
 
 exports[`Card Renders the UI snapshot correctly 2`] = `
 <div
-  className="edition-card css-1u8qly9"
-  id="cardWithExtendedStyles"
+  className="css-0"
 >
   <div
-    className="css-0"
+    className="edition-card css-1u8qly9"
+    data-wrapper={true}
+    id="cardWithExtendedStyles"
   >
     <div
       className="css-0"
+      data-image={true}
     >
-      <img
-        alt="Alt text"
+      <div
         className="css-0"
-        id="img-id-cardWithExtendedStyles"
-        onError={[Function]}
-        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-      />
-    </div>
-  </div>
-  <div
-    className="card-body css-0"
-  >
-    <h2
-      className="chakra-heading css-1u8qly9"
-      id="editioncardheading1"
-      layout="column"
-    >
-      The Card Heading
-    </h2>
-    <div
-      className="css-1xdhyk6"
-    >
-      <div>
-        Published in New York by Random House
-      </div>
-      <div>
-        Written in English
-      </div>
-      <div>
-        License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          id="img-id-cardWithExtendedStyles"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
+        />
       </div>
     </div>
     <div
-      className="css-1xdhyk6"
+      className="card-body css-0"
+      data-body={true}
     >
-      <a
-        className="chakra-link css-1xdhyk6"
-        href="online"
-        id="link-online"
-        rel={null}
-        target={null}
+      <h2
+        className="chakra-heading css-1u8qly9"
+        id="editioncardheading1"
+        layout="column"
       >
-        Read Online
-      </a>
-      <a
-        className="chakra-link css-1xdhyk6"
-        href="#url"
-        id="link-icon"
-        rel={null}
-        target={null}
+        The Card Heading
+      </h2>
+      <div
+        className="css-1xdhyk6"
       >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="icon-cardWithExtendedStyles"
-          role="img"
-          title="download icon"
-          viewBox="0 0 24 24"
+        <div>
+          Published in New York by Random House
+        </div>
+        <div>
+          Written in English
+        </div>
+        <div>
+          License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+        </div>
+      </div>
+      <div
+        className="css-1xdhyk6"
+      >
+        <a
+          className="chakra-link css-1xdhyk6"
+          href="online"
+          id="link-online"
+          rel={null}
+          target={null}
         >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+          Read Online
+        </a>
+        <a
+          className="chakra-link css-1xdhyk6"
+          href="#url"
+          id="link-icon"
+          rel={null}
+          target={null}
+        >
+          <svg
+            aria-hidden={true}
+            className="chakra-icon css-1grhd2q"
+            focusable={false}
+            id="icon-cardWithExtendedStyles"
+            role="img"
+            title="download icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-        Download
-      </a>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+          Download
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -154,46 +168,53 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
 
 exports[`Card Renders the UI snapshot correctly 3`] = `
 <div
-  className="edition-card css-1u8qly9"
-  id="cardWithNoCTAs"
+  className="css-0"
 >
   <div
-    className="css-0"
+    className="edition-card css-1u8qly9"
+    data-wrapper={true}
+    id="cardWithNoCTAs"
   >
     <div
       className="css-0"
+      data-image={true}
     >
-      <img
-        alt="Alt text"
+      <div
         className="css-0"
-        id="img-id-cardWithNoCTAs"
-        onError={[Function]}
-        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-      />
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          id="img-id-cardWithNoCTAs"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
+        />
+      </div>
     </div>
-  </div>
-  <div
-    className="card-body css-0"
-  >
-    <h2
-      className="chakra-heading css-1u8qly9"
-      id="editioncardheading1"
-      layout="column"
-    >
-      The Card Heading
-    </h2>
     <div
-      className="css-1xdhyk6"
+      className="card-body css-0"
+      data-body={true}
     >
-      <p>
-        Published in New York by Random House
-      </p>
-      <p>
-        Written in English
-      </p>
-      <p>
-        Under Creative Commons License
-      </p>
+      <h2
+        className="chakra-heading css-1u8qly9"
+        id="editioncardheading1"
+        layout="column"
+      >
+        The Card Heading
+      </h2>
+      <div
+        className="css-1xdhyk6"
+      >
+        <p>
+          Published in New York by Random House
+        </p>
+        <p>
+          Written in English
+        </p>
+        <p>
+          Under Creative Commons License
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -201,95 +222,102 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
 
 exports[`Card Renders the UI snapshot correctly 4`] = `
 <div
-  className="edition-card css-1u8qly9"
-  id="cardWithNoContent"
+  className="css-0"
 >
   <div
-    className="css-0"
+    className="edition-card css-1u8qly9"
+    data-wrapper={true}
+    id="cardWithNoContent"
   >
     <div
       className="css-0"
+      data-image={true}
     >
-      <img
-        alt="Alt text"
+      <div
         className="css-0"
-        id="img-id-cardWithNoContent"
-        onError={[Function]}
-        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-      />
+      >
+        <img
+          alt="Alt text"
+          className="css-0"
+          id="img-id-cardWithNoContent"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
+        />
+      </div>
     </div>
-  </div>
-  <div
-    className="card-body css-0"
-  >
-    <h2
-      className="chakra-heading css-1u8qly9"
-      id="editioncardheading1"
-      layout="column"
-    >
-      <a
-        className="chakra-link css-1xdhyk6"
-        href="#edition-link"
-        id="editioncardheading1-link"
-        rel={null}
-        target={null}
-      >
-        The Card Heading
-      </a>
-    </h2>
     <div
-      className="css-1xdhyk6"
+      className="card-body css-0"
+      data-body={true}
     >
-      <a
-        className="chakra-link css-1xdhyk6"
-        href="online"
-        id="link-online"
-        rel={null}
-        target={null}
+      <h2
+        className="chakra-heading css-1u8qly9"
+        id="editioncardheading1"
+        layout="column"
       >
-        Read Online
-      </a>
-      <a
-        className="chakra-link css-1xdhyk6"
-        href="#url"
-        id="link-icon"
-        rel={null}
-        target={null}
-      >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="icon-cardWithNoContent"
-          role="img"
-          title="download icon"
-          viewBox="0 0 24 24"
+        <a
+          className="chakra-link css-1xdhyk6"
+          href="#edition-link"
+          id="editioncardheading1-link"
+          rel={null}
+          target={null}
         >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+          The Card Heading
+        </a>
+      </h2>
+      <div
+        className="css-1xdhyk6"
+      >
+        <a
+          className="chakra-link css-1xdhyk6"
+          href="online"
+          id="link-online"
+          rel={null}
+          target={null}
+        >
+          Read Online
+        </a>
+        <a
+          className="chakra-link css-1xdhyk6"
+          href="#url"
+          id="link-icon"
+          rel={null}
+          target={null}
+        >
+          <svg
+            aria-hidden={true}
+            className="chakra-icon css-1grhd2q"
+            focusable={false}
+            id="icon-cardWithNoContent"
+            role="img"
+            title="download icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-        Download
-      </a>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+          Download
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -297,85 +325,91 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
 
 exports[`Card Renders the UI snapshot correctly 5`] = `
 <div
-  className="edition-card css-1u8qly9"
-  id="cardWithNoImage"
+  className="css-0"
 >
   <div
-    className="card-body css-0"
+    className="edition-card css-1u8qly9"
+    data-wrapper={true}
+    id="cardWithNoImage"
   >
-    <h2
-      className="chakra-heading css-1u8qly9"
-      id="editioncardheading1"
-      layout="column"
-    >
-      <a
-        className="chakra-link css-1xdhyk6"
-        href="#edition-link"
-        id="editioncardheading1-link"
-        rel={null}
-        target={null}
-      >
-        The Card Heading
-      </a>
-    </h2>
     <div
-      className="css-1xdhyk6"
+      className="card-body css-0"
+      data-body={true}
     >
-      middle column content
-    </div>
-    <div
-      className="css-1xdhyk6"
-    >
-      <a
-        className="chakra-link css-1xdhyk6"
-        href="online"
-        id="link-online"
-        rel={null}
-        target={null}
+      <h2
+        className="chakra-heading css-1u8qly9"
+        id="editioncardheading1"
+        layout="column"
       >
-        Read Online
-      </a>
-      <a
-        className="chakra-link css-1xdhyk6"
-        href="#url"
-        id="link-icon"
-        rel={null}
-        target={null}
-      >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon css-1grhd2q"
-          focusable={false}
-          id="icon-cardWithNoImage"
-          role="img"
-          title="download icon"
-          viewBox="0 0 24 24"
+        <a
+          className="chakra-link css-1xdhyk6"
+          href="#edition-link"
+          id="editioncardheading1-link"
+          rel={null}
+          target={null}
         >
-          <g
-            stroke="currentColor"
-            strokeWidth="1.5"
+          The Card Heading
+        </a>
+      </h2>
+      <div
+        className="css-1xdhyk6"
+      >
+        middle column content
+      </div>
+      <div
+        className="css-1xdhyk6"
+      >
+        <a
+          className="chakra-link css-1xdhyk6"
+          href="online"
+          id="link-online"
+          rel={null}
+          target={null}
+        >
+          Read Online
+        </a>
+        <a
+          className="chakra-link css-1xdhyk6"
+          href="#url"
+          id="link-icon"
+          rel={null}
+          target={null}
+        >
+          <svg
+            aria-hidden={true}
+            className="chakra-icon css-1grhd2q"
+            focusable={false}
+            id="icon-cardWithNoImage"
+            role="img"
+            title="download icon"
+            viewBox="0 0 24 24"
           >
-            <path
-              d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
-              fill="currentColor"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="12"
-              cy="12"
-              fill="none"
-              r="11.25"
-              strokeMiterlimit="10"
-            />
-          </g>
-        </svg>
-        Download
-      </a>
+            <g
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M9,9a3,3,0,1,1,4,2.829,1.5,1.5,0,0,0-1,1.415V14.25"
+                fill="none"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12,17.25a.375.375,0,1,0,.375.375A.375.375,0,0,0,12,17.25h0"
+                fill="currentColor"
+                strokeLinecap="round"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                fill="none"
+                r="11.25"
+                strokeMiterlimit="10"
+              />
+            </g>
+          </svg>
+          Download
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -383,55 +417,62 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
 
 exports[`Card Renders the UI snapshot correctly 6`] = `
 <div
-  className="chakra-linkbox css-2zg2m0"
-  id="fullclick"
+  className="css-0"
 >
   <div
-    className="css-0"
+    className="chakra-linkbox css-2zg2m0"
+    data-wrapper={true}
+    id="fullclick"
   >
     <div
       className="css-0"
+      data-image={true}
     >
-      <img
-        alt="Alt text"
+      <div
         className="css-0"
-        id="img-id-fullclick"
-        onError={[Function]}
-        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-      />
-    </div>
-  </div>
-  <div
-    className="card-body css-0"
-  >
-    <h3
-      className="chakra-heading css-1u8qly9"
-      id="heading1"
-      layout="column"
-    >
-      <a
-        className="chakra-linkbox__overlay css-1hnz6hu"
-        href="http://nypl.org"
       >
-        The Card Heading
-      </a>
-    </h3>
-    <div
-      className="css-1xdhyk6"
-    >
-      middle column content
+        <img
+          alt="Alt text"
+          className="css-0"
+          id="img-id-fullclick"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
+        />
+      </div>
     </div>
     <div
-      className="css-1xdhyk6"
+      className="card-body css-0"
+      data-body={true}
     >
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="button1"
-        onClick={[Function]}
-        type="submit"
+      <h3
+        className="chakra-heading css-1u8qly9"
+        id="heading1"
+        layout="column"
       >
-        Example CTA
-      </button>
+        <a
+          className="chakra-linkbox__overlay css-1hnz6hu"
+          href="http://nypl.org"
+        >
+          The Card Heading
+        </a>
+      </h3>
+      <div
+        className="css-1xdhyk6"
+      >
+        middle column content
+      </div>
+      <div
+        className="css-1xdhyk6"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="button1"
+          onClick={[Function]}
+          type="submit"
+        >
+          Example CTA
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -439,62 +480,69 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
 
 exports[`Card Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-1u8qly9"
-  id="cardID"
+  className="css-0"
 >
   <div
-    className="css-0"
+    className="css-1u8qly9"
+    data-wrapper={true}
+    id="cardID"
   >
     <div
       className="css-0"
+      data-image={true}
     >
-      <img
-        alt="Alt text"
+      <div
         className="css-0"
-        id="img-id-cardWithRightActions"
-        onError={[Function]}
-        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-      />
-    </div>
-  </div>
-  <div
-    className="card-body css-0"
-  >
-    <h3
-      className="chakra-heading css-1u8qly9"
-      id="heading1"
-      layout="column"
-    >
-      The Card Heading
-    </h3>
-    <div
-      className="css-1xdhyk6"
-    >
-      middle column content
-    </div>
-    <div
-      className="css-1xdhyk6"
-    >
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="button1"
-        onClick={[Function]}
-        type="submit"
       >
-        Example CTA
-      </button>
+        <img
+          alt="Alt text"
+          className="css-0"
+          id="img-id-cardWithRightActions"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
+        />
+      </div>
     </div>
     <div
-      className="css-1xdhyk6"
+      className="card-body css-0"
+      data-body={true}
     >
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="button2"
-        onClick={[Function]}
-        type="submit"
+      <h3
+        className="chakra-heading css-1u8qly9"
+        id="heading1"
+        layout="column"
       >
-        Example CTA
-      </button>
+        The Card Heading
+      </h3>
+      <div
+        className="css-1xdhyk6"
+      >
+        middle column content
+      </div>
+      <div
+        className="css-1xdhyk6"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="button1"
+          onClick={[Function]}
+          type="submit"
+        >
+          Example CTA
+        </button>
+      </div>
+      <div
+        className="css-1xdhyk6"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="button2"
+          onClick={[Function]}
+          type="submit"
+        >
+          Example CTA
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -502,50 +550,57 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
 
 exports[`Card Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-2bbtg1"
-  id="chakraProps"
+  className="css-0"
 >
   <div
-    className="css-0"
+    className="css-2bbtg1"
+    data-wrapper={true}
+    id="chakraProps"
   >
     <div
       className="css-0"
+      data-image={true}
     >
-      <img
-        alt="Alt text"
+      <div
         className="css-0"
-        id="img-id-chakraProps"
-        onError={[Function]}
-        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-      />
-    </div>
-  </div>
-  <div
-    className="card-body css-0"
-  >
-    <h3
-      className="chakra-heading css-1dti2w"
-      id="heading1"
-      layout="column"
-    >
-      The Card Heading
-    </h3>
-    <div
-      className="css-1rn2qcq"
-    >
-      middle column content
-    </div>
-    <div
-      className="css-1avkygu"
-    >
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="button1"
-        onClick={[Function]}
-        type="submit"
       >
-        Example CTA
-      </button>
+        <img
+          alt="Alt text"
+          className="css-0"
+          id="img-id-chakraProps"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
+        />
+      </div>
+    </div>
+    <div
+      className="card-body css-0"
+      data-body={true}
+    >
+      <h3
+        className="chakra-heading css-1dti2w"
+        id="heading1"
+        layout="column"
+      >
+        The Card Heading
+      </h3>
+      <div
+        className="css-1rn2qcq"
+      >
+        middle column content
+      </div>
+      <div
+        className="css-1avkygu"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="button1"
+          onClick={[Function]}
+          type="submit"
+        >
+          Example CTA
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -553,53 +608,60 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
 
 exports[`Card Renders the UI snapshot correctly 9`] = `
 <div
-  className="css-1u8qly9"
-  data-testid="card-testid"
-  id="otherProps"
+  className="css-0"
 >
   <div
-    className="css-0"
+    className="css-1u8qly9"
+    data-testid="card-testid"
+    data-wrapper={true}
+    id="otherProps"
   >
     <div
       className="css-0"
+      data-image={true}
     >
-      <img
-        alt="Alt text"
+      <div
         className="css-0"
-        id="img-id-otherProps"
-        onError={[Function]}
-        src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-      />
-    </div>
-  </div>
-  <div
-    className="card-body css-0"
-  >
-    <h3
-      className="chakra-heading css-1dti2w"
-      id="heading1"
-      layout="column"
-    >
-      The Card Heading
-    </h3>
-    <div
-      className="css-1xdhyk6"
-      data-testid="cardcontent-testid"
-    >
-      middle column content
-    </div>
-    <div
-      className="css-1xdhyk6"
-      data-testid="cardaction-testid"
-    >
-      <button
-        className="chakra-button css-1xdhyk6"
-        id="button1"
-        onClick={[Function]}
-        type="submit"
       >
-        Example CTA
-      </button>
+        <img
+          alt="Alt text"
+          className="css-0"
+          id="img-id-otherProps"
+          onError={[Function]}
+          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
+        />
+      </div>
+    </div>
+    <div
+      className="card-body css-0"
+      data-body={true}
+    >
+      <h3
+        className="chakra-heading css-1dti2w"
+        id="heading1"
+        layout="column"
+      >
+        The Card Heading
+      </h3>
+      <div
+        className="css-1xdhyk6"
+        data-testid="cardcontent-testid"
+      >
+        middle column content
+      </div>
+      <div
+        className="css-1xdhyk6"
+        data-testid="cardaction-testid"
+      >
+        <button
+          className="chakra-button css-1xdhyk6"
+          id="button1"
+          onClick={[Function]}
+          type="submit"
+        >
+          Example CTA
+        </button>
+      </div>
     </div>
   </div>
 </div>
