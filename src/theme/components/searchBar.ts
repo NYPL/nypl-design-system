@@ -9,7 +9,7 @@ const SearchBar = defineMultiStyleConfig({
     display: "flex",
     "@container (min-width: 0px)": {
       "&": { marginBottom: "xs", flexFlow: "column nowrap" },
-      " > select": { marginBottom: "-1px" },
+      "[data-select]": { marginBottom: "-1px" },
       "[data-button]": {
         borderRightRadius: "none",
         maxWidth: "unset",
@@ -17,7 +17,7 @@ const SearchBar = defineMultiStyleConfig({
     },
     [`@container (min-width: ${breakpoints.md})`]: {
       "&": { marginBottom: "auto", flexFlow: "row nowrap" },
-      " > select": {
+      "[data-select]": {
         marginBottom: "0",
         maxWidth: "255px",
         marginRight: "-1px",
