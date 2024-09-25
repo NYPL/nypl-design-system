@@ -2,6 +2,7 @@ import { HStack, Stack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
+import { userEvent, within, expect } from "@storybook/test";
 
 import Heading from "../Heading/Heading";
 import MultiSelect, {
@@ -206,19 +207,22 @@ const meta: Meta<typeof MultiSelect> = {
   component: MultiSelect,
   argTypes: {
     defaultItemsVisible: {
-      table: { defaultValue: { summary: 5 } },
+      table: { defaultValue: { summary: "5" } },
     },
     id: {
       control: false,
     },
+    closeOnBlur: {
+      table: { defaultValue: { summary: "false" } },
+    },
     isBlockElement: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     isDefaultOpen: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     isSearchable: {
-      table: { defaultValue: { summary: false } },
+      table: { defaultValue: { summary: "false" } },
     },
     listOverflow: {
       control: "radio",
@@ -249,9 +253,10 @@ export const withControls: Story = {
   args: {
     buttonText: "MultiSelect",
     id: "multi-select-id",
+    closeOnBlur: true,
     isBlockElement: true,
     isDefaultOpen: false,
-    isSearchable: false,
+    isSearchable: true,
     items: withItems,
     listOverflow: "scroll",
     onChange: undefined,
@@ -266,6 +271,39 @@ export const withControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=43593%3A24611",
     },
     jest: ["MultiSelect.test.tsx"],
+  },
+  play: async ({ canvasElement }) => {
+    let multiselect = within(canvasElement).getByRole("button");
+    await userEvent.click(multiselect);
+    await expect(multiselect).toHaveAttribute("aria-expanded", "true");
+    const checkbox1Label = within(canvasElement).getByText(/Architecture/);
+    await userEvent.click(checkbox1Label);
+    const checkbox2Label = within(canvasElement).getByText(/Cartography/);
+    await userEvent.click(checkbox2Label);
+    let clearMultiselect = within(canvasElement).getByTestId(
+      "multi-select-close-button-testid"
+    );
+    await expect(clearMultiselect).toHaveAttribute(
+      "aria-label",
+      "remove 2 items selected from MultiSelect"
+    );
+    await userEvent.click(clearMultiselect);
+    const searchBar = within(canvasElement).getAllByRole("textbox")[0];
+    await userEvent.type(searchBar, "Design");
+    await expect(checkbox2Label).not.toBeVisible();
+    let checkboxes = within(canvasElement).getAllByRole("checkbox");
+    expect(checkboxes.length).toBe(1);
+    const checkbox3Label = within(canvasElement).getByText(/Design/);
+    await expect(checkbox3Label).toBeVisible();
+    await userEvent.click(checkbox3Label);
+    const clearSearchBar = within(searchBar.parentElement).getAllByRole(
+      "button"
+    )[0];
+    await userEvent.click(clearSearchBar);
+    await userEvent.click(clearMultiselect);
+    expect(checkboxes).not.toBeChecked;
+    await userEvent.click(document.body);
+    await expect(multiselect).toHaveAttribute("aria-expanded", "false");
   },
 };
 
@@ -466,8 +504,19 @@ export const defaultOpenState: Story = {
   ),
 };
 
+export const closeOnBlurState: Story = {
+  render: () => (
+    <MultiSelectStory
+      id="multi-select-id-15"
+      closeOnBlur={true}
+      isBlockElement
+      items={withChildrenItems}
+    />
+  ),
+};
+
 export const InAGroup: Story = {
-  render: () => <MultiSelecGroupStory items={withItems} />,
+  render: () => <MultiSelectGroupStory items={withItems} />,
 };
 
 const MultiSelectWithControlsStory = (args) => {
@@ -510,6 +559,7 @@ const MultiSelectWithControlsStory = (args) => {
 
 const MultiSelectStory = ({
   id,
+  closeOnBlur = false,
   isBlockElement = false,
   isSearchable = false,
   isDefaultOpen,
@@ -537,6 +587,7 @@ const MultiSelectStory = ({
   return (
     <MultiSelect
       buttonText="MultiSelect"
+      closeOnBlur={closeOnBlur}
       defaultItemsVisible={defaultItemsVisible}
       id={id}
       isBlockElement={isBlockElement}
@@ -563,7 +614,7 @@ const MultiSelectStory = ({
 };
 
 // TODO: Replace with MultiSelectGroup once that component is done.
-const MultiSelecGroupStory = ({ items }: Partial<MultiSelectProps>) => {
+const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
   // Example with custom hook useMultiSelect.
   const { onChange, onMixedStateChange, onClear, onClearAll, selectedItems } =
     useMultiSelect();

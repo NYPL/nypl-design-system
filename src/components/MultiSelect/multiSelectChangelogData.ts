@@ -10,6 +10,31 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation"],
+    notes: ["Adds interaction tests for the Controls story."],
+  },
+  {
+    date: "2024-08-29",
+    version: "3.3.0",
+    type: "New Feature",
+    affects: ["Accessibility"],
+    notes: [
+      "Renders the `buttonText` prop as the `CheckboxGroup`'s legend for more meaningful context.",
+    ],
+  },
+  {
+    date: "2024-07-03",
+    version: "3.1.7",
+    type: "New Feature",
+    affects: ["Functionality"],
+    notes: [
+      "Adds `closeOnBlur` prop which, when set to true, closes the component if it loses focus.",
+    ],
+  },
+  {
     date: "2024-05-23",
     version: "3.1.4",
     type: "Bug Fix",

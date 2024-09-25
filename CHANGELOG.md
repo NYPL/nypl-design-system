@@ -8,13 +8,87 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates invalid text in the `SearchBar` component to include "There was a problem. " prefix.
+- Adds interaction tests to `MultiSelect` component.
+- Increases the z-index of the `FeedbackBox`'s `Drawer` component so it displays above all other elements on a page.
+- Updates the `Table` component to add the `isScrollable` prop to enable horizontal scrolling.
+- Updates the `Table` component to add the `columnStyles` prop to allow for custom column styles (i.e. width, text alignment, etc.).
+- Updates the `Table` component to add the `tableTextSize` prop to set the size of the text within the table.
+- Updates the `Table` component to add the `titleText` and `showTitleText` props to control the `<caption>` element and `aria-label` attribute.
+- Updates the styles for the `Template` component to use `overflow: "auto"` for the primary content area.
+
+## 3.3.2 (September 19, 2024)
+
+### Updates
+
+- Lowercases the 'r' of '(required)' in labels and placeholders where necessary in order to align with sentence case guidelines.
+- Updates the `CheckboxGroup`, `DatePicker`, `FeedbackBox`, `Label`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, and `TextInput` component to use a lowercase 'r' for '(required)' in labels and placeholders in order to align with sentence case typography guidelines.
+
+### Fixes
+
+- Passes the `fallbackSrc` and `onError` properties to the `Card`'s `imageProps` prop object.
+- Fixes issue with `HelperErrorText` where, if text value was not a string, necessary styles weren't applied.
+
+## 3.3.1 (September 5, 2024)
+
+### Updates
+
+- Updates `Tooltip` component with `placement` and `offset` props for custom positioning.
+
+### Fixes
+
+- Fixes a duplicate `id` issue in the `Image` component. This happened when an aspect ratio value rendered a wrapper div with the same `id` as the `img` element. This was not picked up by internal accessibility tests but in a consuming application.
+
+## 3.3.0 (August 29, 2024)
+
 ### Adds
 
-- Adds Storybook interaction tests for `CheckboxGroup`, `DatePicker`, and `Slider` components.
+- Adds development guide for Conditional Viewport
+- Adds the `FilterBarPopup` compoonent and `useFilterBarPopup` hook.
+
+### Updates
+
+- Updates the `FilterBarInline` component to apply `closeOnBlur` to `MultiSelect` components when `layout="row"`.
+- Updates the `Breadcrumbs` component props to include `customLinkComponent` and `linkProps`.
+- Updates the `Banner` component to allow for HTML content in the `content` prop when passed as a string.
+- Updates the `SearchBar` component styles for mobile viewports.
+- Updates the `Select` component to accept a `defaultValue` prop to set initial value of uncontrolled components.
+- Updates the legend in the `MultiSelect`'s `CheckboxGroup` to use the `buttonText` prop value for better accessibility context.
+- Updates the `Menu` component to add the `showSelectionAsLabel` prop and improve the `aria-label` values.
+- Updates the `Image` component to default the `alt` attribute to an empty string if no value is passed.
+
+### Removes
+
+- Removes `imageProps.alt` missing warning message from `FeaturedContent` as the prop is not always required.
+
+## 3.2.0 (July 25, 2024)
+
+### Adds
+
+- Adds the `FilterBarInline` component.
+- Adds refined `NewsletterSignup` component with updated props.
+- Adds refined `SocialMediaLinks` component with updated props
+
+### Updates
+
+- Updates Storybook and related npm packages to version `8.1.11`. Does not affect any DS component.
+- Updates `Menu` component with new `showSelectionAsLabel` prop and `aria-label` behavior.
+- Updates the `Banner`, `Button`, `ButtonGroup`, `DatePicker`, `FeaturedContent`, `FeedbackBox`, `Fieldset`, `HelperErrorText`, `Label`, `SkipNavigation`, and `StyledList` components to export all types and prop interfaces.
+
+## 3.1.7 (July 3, 2024)
+
+### Adds
+
+- Adds Storybook interaction tests for the `CheckboxGroup`, `DatePicker`, `FeedbackBox`, and `Slider` components.
+- Adds `digitalCollections` color variant to the `Breadcrumbs` component.
+- Adds `closeOnBlur` prop to the `MultiSelect` component which, when set to true, closes the component if it loses focus.
 
 ### Updates
 
 - Updates base font stack to only `system-ui` and `sans-serif`.
+- Updates the `Accordion` component to close panel when element within panel is focused and "esc" key is pressed.
 
 ## 3.1.6 (June 20, 2024)
 
@@ -25,6 +99,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates how links are styled within the `Heading` component.
+- Updates `jest` related npm packages for security patches.
 
 ### Fixes
 
@@ -54,15 +129,17 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Exports `useMediaQuery` and `chakra` from Chakra UI.
-- Updates `Accordion` to close focused panel when "esc" key is pressed.
 - Updates the `TextInput` and `SearchBar` components to better associate the input element to the entire component's helper text.
-- Updates `Accordion` to close panel when element within panel is focused and "esc" key is pressed.
 
 ## 3.1.4 (May 23, 2024)
 
 ### Adds
 
 - Adds `showRowDividers` prop to show/hide row dividers for the `List` `"dl"` variant.
+
+### Updates
+
+- Updates the `Accordion` component to close focused panel when "esc" key is pressed.
 
 ### Fixes
 
