@@ -61,19 +61,23 @@ const TemplateContentTopBottom = defineStyleConfig({
   }),
 });
 
+/** The display and overflow styles were added to deal with overflow issues
+ * related to the Table component. */
 const TemplateContentPrimary = defineStyleConfig({
   baseStyle: defineStyle({
-    gridColumn: { base: "1", md: "1 / span 2" },
-    overflow: "auto",
+    gridColumn: { base: "1 / 1", md: "1 / span 2" },
+    display: { base: "contents", md: "unset" },
   }),
   variants: {
     left: {
       gridColumn: { base: "1", md: "2" },
       marginEnd: { md: 0 },
       minWidth: { md: 0 },
+      overflow: { base: "unset", md: "hidden" },
     },
     right: {
       gridColumn: { base: "1", md: "1" },
+      overflow: { base: "unset", md: "hidden" },
     },
   },
 });
