@@ -74,7 +74,7 @@ export const highlightColorTypesArray = [
   "section.research-library.schwartzman",
   "section.whats-on.primary",
 ] as const;
-export type HighlightColorTypes = typeof highlightColorTypesArray[number];
+export type HighlightColorTypes = (typeof highlightColorTypesArray)[number];
 
 export type NewsletterSignupViewType =
   | "form"

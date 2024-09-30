@@ -30,7 +30,7 @@ interface ReactDatePickerAttrs {
 }
 
 export const datePickerTypesArray = ["full", "month", "year"] as const;
-export type DatePickerTypes = typeof datePickerTypesArray[number];
+export type DatePickerTypes = (typeof datePickerTypesArray)[number];
 
 // The object shape for the DatePicker's start and end date state values.
 export interface FullDateType {
@@ -303,13 +303,13 @@ export const DatePicker: ChakraComponent<
     const initStartDate = initialDate
       ? new Date(initialDate)
       : initialDate === ""
-      ? null
-      : new Date();
+        ? null
+        : new Date();
     const initEndDate = initialDateTo
       ? new Date(initialDateTo)
       : initialDateTo === ""
-      ? null
-      : new Date();
+        ? null
+        : new Date();
     const startDateInputRef = useRef(null);
     const endDateInputRef = useRef(null);
 

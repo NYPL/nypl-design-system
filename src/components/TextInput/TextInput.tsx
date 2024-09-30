@@ -74,7 +74,7 @@ export const autoCompleteValuesArray = [
   "url",
   "username",
 ] as const;
-export type AutoCompleteValues = typeof autoCompleteValuesArray[number];
+export type AutoCompleteValues = (typeof autoCompleteValuesArray)[number];
 
 export const textInputTypesArray = [
   "email",
@@ -87,7 +87,7 @@ export const textInputTypesArray = [
   "url",
 ] as const;
 // HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
-export type TextInputTypes = typeof textInputTypesArray[number];
+export type TextInputTypes = (typeof textInputTypesArray)[number];
 
 // Only used internally.
 export const TextInputFormats = {

@@ -16,8 +16,8 @@ import { getAriaAttrs } from "../../utils/utils";
 
 export const selectTypesArray = ["default", "searchbar"];
 export const labelPositionsArray = ["default", "inline"];
-export type SelectTypes = typeof selectTypesArray[number];
-export type LabelPositions = typeof labelPositionsArray[number];
+export type SelectTypes = (typeof selectTypesArray)[number];
+export type LabelPositions = (typeof labelPositionsArray)[number];
 
 export interface SelectProps {
   /** A class name for the `div` parent element. */
@@ -124,8 +124,8 @@ export const Select: ChakraComponent<
       const controlledOrUncontrolledProps = onChange
         ? { onChange, value }
         : defaultValue
-        ? { defaultValue }
-        : {};
+          ? { defaultValue }
+          : {};
 
       // The number of pixels between the label and select elements
       // when the labelPosition is inline (equivalent to --nypl-space-xs).

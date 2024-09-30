@@ -132,7 +132,7 @@ let counter = 0;
 function NewsletterSignupOnSubmitExampleComponent() {
   const [view, setView]: [
     NewsletterSignupViewType,
-    React.Dispatch<React.SetStateAction<NewsletterSignupViewType>>
+    React.Dispatch<React.SetStateAction<NewsletterSignupViewType>>,
   ] = React.useState("form");
   const [inputVal, setInputVal] = React.useState("");
 
