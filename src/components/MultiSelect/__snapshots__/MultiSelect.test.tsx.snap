@@ -4,6 +4,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
   id="multiselect-test-id"
+  onClick={[Function]}
 >
   <div
     className="chakra-accordion css-1xdhyk6"
@@ -28,12 +29,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
         <span
           className="css-1kmgev1"
         >
-          <div
+          <span
             className="css-0"
             title="multiselect-button-text"
           >
             multiselect-button-text
-          </div>
+          </span>
         </span>
         <svg
           aria-hidden={true}
@@ -93,7 +94,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
               id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
             >
               <legend>
-                Multi select checkbox group label
+                multiselect-button-text
               </legend>
               <div
                 className="chakra-stack css-19s3t1h"
@@ -534,7 +535,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                 className="css-1xdhyk6"
                 data-isinvalid={false}
                 id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
-              />
+              >
+                <div
+                  className="css-0"
+                />
+              </div>
             </fieldset>
           </div>
         </div>
@@ -548,6 +553,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
   id="multiselect-test-id"
+  onClick={[Function]}
 >
   <div
     className="chakra-accordion css-1xdhyk6"
@@ -572,12 +578,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
         <span
           className="css-1kmgev1"
         >
-          <div
+          <span
             className="css-0"
             title="multiselect-button-text"
           >
             multiselect-button-text
-          </div>
+          </span>
         </span>
         <svg
           aria-hidden={true}
@@ -637,7 +643,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
               id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
             >
               <legend>
-                Multi select checkbox group label
+                multiselect-button-text
               </legend>
               <div
                 className="chakra-stack css-19s3t1h"
@@ -1078,7 +1084,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                 className="css-1xdhyk6"
                 data-isinvalid={false}
                 id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
-              />
+              >
+                <div
+                  className="css-0"
+                />
+              </div>
             </fieldset>
           </div>
         </div>
@@ -1092,6 +1102,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
   id="multiselect-test-id"
+  onClick={[Function]}
 >
   <div
     className="chakra-accordion css-1xdhyk6"
@@ -1116,12 +1127,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
         <span
           className="css-1kmgev1"
         >
-          <div
+          <span
             className="css-0"
             title="multiselect-button-text"
           >
             multiselect-button-text
-          </div>
+          </span>
         </span>
         <svg
           aria-hidden={true}
@@ -1181,7 +1192,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
               id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
             >
               <legend>
-                Multi select checkbox group label
+                multiselect-button-text
               </legend>
               <div
                 className="chakra-stack css-19s3t1h"
@@ -1667,7 +1678,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                 className="css-1xdhyk6"
                 data-isinvalid={false}
                 id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
-              />
+              >
+                <div
+                  className="css-0"
+                />
+              </div>
             </fieldset>
           </div>
         </div>
@@ -1723,6 +1738,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
   id="multiselect-test-id"
+  onClick={[Function]}
 >
   <div
     className="chakra-accordion css-1xdhyk6"
@@ -1747,12 +1763,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
         <span
           className="css-1kmgev1"
         >
-          <div
+          <span
             className="css-0"
             title="multiselect-button-text"
           >
             multiselect-button-text
-          </div>
+          </span>
         </span>
         <svg
           aria-hidden={true}
@@ -1812,7 +1828,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
               id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
             >
               <legend>
-                Multi select checkbox group label
+                multiselect-button-text
               </legend>
               <div
                 className="chakra-stack css-19s3t1h"
@@ -2295,7 +2311,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                 className="css-1xdhyk6"
                 data-isinvalid={false}
                 id="multi-select-checkbox-group-multiselect-test-id-helperErrorText"
-              />
+              >
+                <div
+                  className="css-0"
+                />
+              </div>
             </fieldset>
           </div>
         </div>

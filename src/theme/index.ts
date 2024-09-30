@@ -25,6 +25,7 @@ import FeedbackBox from "./components/feedbackBox";
 import FeaturedContent from "./components/featuredContent";
 import Fieldset from "./components/fieldset";
 import FilterBar from "./components/filterBar";
+import FilterBarPopup from "./components/filterBarPopup";
 import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
@@ -111,6 +112,7 @@ const theme: any = {
     FeaturedContent,
     Fieldset,
     FilterBar,
+    FilterBarPopup,
     Heading,
     HelperErrorText,
     Hero,

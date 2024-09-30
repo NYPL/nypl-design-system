@@ -17,6 +17,7 @@ export const breadcrumbTypeArray = [
   "booksAndMore",
   "brand",
   "connect",
+  "digitalCollections",
   "education",
   "locations",
   "research",
@@ -26,6 +27,7 @@ export type BreadcrumbsTypes = typeof breadcrumbTypeArray[number];
 export interface BreadcrumbsDataProps {
   url: string;
   text: string | React.ReactNode;
+  linkProps?: any;
 }
 
 export interface BreadcrumbProps {
@@ -37,6 +39,8 @@ export interface BreadcrumbProps {
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
+  /** Custom Link component for apps with internal routing, defaults to BreadcrumbLink if not passed */
+  customLinkComponent?: any;
 }
 
 const breadcrumbTextLength = 40;
@@ -48,6 +52,7 @@ const breadcrumbTextLength = 40;
 const tooltipWrapperOrText = (
   breadcrumbsData: BreadcrumbsDataProps,
   breadcrumbsID,
+  customLinkComponent,
   renderIcon = false,
   isCurrentPage = false
 ) => {
@@ -60,8 +65,10 @@ const tooltipWrapperOrText = (
       : truncateText(breadcrumbsData.text as string, breadcrumbTextLength);
   const linkWrapper = (
     <BreadcrumbLink
+      as={customLinkComponent}
       href={breadcrumbsData.url}
       aria-current={isCurrentPage ? "page" : undefined}
+      {...breadcrumbsData.linkProps}
     >
       {renderIcon && (
         <Icon
@@ -95,7 +102,8 @@ const tooltipWrapperOrText = (
 
 const getElementsFromData = (
   data: BreadcrumbsDataProps[],
-  breadcrumbsID?: string
+  breadcrumbsID?: string,
+  customLinkComponent?: any
 ) => {
   if (!data?.length) {
     return null;
@@ -113,6 +121,7 @@ const getElementsFromData = (
         {tooltipWrapperOrText(
           breadcrumbsData,
           breadcrumbsID,
+          customLinkComponent,
           renderIcon,
           isCurrentPage
         )}
@@ -140,6 +149,7 @@ export const Breadcrumbs: ChakraComponent<
       breadcrumbsData,
       breadcrumbsType = "whatsOn",
       className,
+      customLinkComponent,
       id,
       ...rest
     } = props;
@@ -153,7 +163,11 @@ export const Breadcrumbs: ChakraComponent<
     const styles = useStyleConfig("CustomBreadcrumb", {
       variant: breadcrumbsType,
     });
-    const breadcrumbItems = getElementsFromData(breadcrumbsData, id);
+    const breadcrumbItems = getElementsFromData(
+      breadcrumbsData,
+      id,
+      customLinkComponent
+    );
 
     return (
       <ChakraBreadcrumb

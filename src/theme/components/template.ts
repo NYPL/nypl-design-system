@@ -64,6 +64,7 @@ const TemplateContentTopBottom = defineStyleConfig({
 const TemplateContentPrimary = defineStyleConfig({
   baseStyle: defineStyle({
     gridColumn: { base: "1", md: "1 / span 2" },
+    overflow: "auto",
   }),
   variants: {
     left: {

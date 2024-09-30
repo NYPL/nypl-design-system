@@ -434,7 +434,7 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
       >
         Which Succession sibling are you?
         <span>
-           (Required)
+           (required)
         </span>
       </label>
     </div>
@@ -533,7 +533,7 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
       >
         Which Succession sibling are you?
         <span>
-           (Required)
+           (required)
         </span>
       </label>
     </div>

@@ -4,7 +4,7 @@ import {
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 
 import Accordion from "./../Accordion/Accordion";
 import Button from "./../Button/Button";
@@ -31,6 +31,9 @@ export interface SelectedItems {
 export interface MultiSelectProps {
   /** The button text rendered within the MultiSelect. */
   buttonText: string;
+  /** Determines whether the component will toggle to the closed state
+   * when it loses focus. The default value is false. */
+  closeOnBlur?: boolean;
   /** The number of items that will be visible in the list when the component
    * first loads. */
   defaultItemsVisible?: number;
@@ -85,6 +88,7 @@ export const MultiSelect: ChakraComponent<
         items,
         listOverflow = "scroll",
         buttonText,
+        closeOnBlur = false,
         onChange,
         onClear,
         onMixedStateChange,
@@ -93,12 +97,57 @@ export const MultiSelect: ChakraComponent<
         ...rest
       } = props;
 
+      const [userClickedOutside, setUserClickedOutside] =
+        useState<boolean>(false);
+
       // Create a ref to hold a reference to the accordian button, enabling us
       // to programmatically focus it.
       const accordionButtonRef: React.RefObject<HTMLDivElement> =
         useRef<HTMLDivElement>();
+      const containerRef: React.RefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>();
       const expandToggleButtonRef: React.RefObject<HTMLButtonElement> =
         useRef<HTMLButtonElement>();
+
+      // Tells `Accordion` to close if open when user clicks outside of the container
+      const handleClickOutside = (e) => {
+        if (e.type === "mousedown") {
+          const multiSelect = containerRef.current;
+          if (multiSelect && !multiSelect.contains(e.target)) {
+            setUserClickedOutside(true);
+          } else {
+            setUserClickedOutside(false);
+          }
+        }
+      };
+
+      // Tells `Accordion` to close if open when user tabs outside of the container
+      const handleTabOutside = (e) => {
+        if (e.key === "Tab") {
+          const multiSelect = containerRef.current;
+
+          // setTimeout delays the check until after the focus change has occurred
+          setTimeout(() => {
+            if (multiSelect && !multiSelect.contains(document.activeElement)) {
+              setUserClickedOutside(true);
+            } else {
+              setUserClickedOutside(false);
+            }
+          }, 0);
+        }
+      };
+
+      useEffect(() => {
+        if (closeOnBlur) {
+          document.addEventListener("mousedown", handleClickOutside);
+          document.addEventListener("keydown", handleTabOutside);
+
+          return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("keydown", handleTabOutside);
+          };
+        }
+      }, [closeOnBlur]);
 
       const MINIMUM_ITEMS_LIST_HEIGHT = "215px";
       const MAXIMUM_ITEMS_LIST_HEIGHT = "270px";
@@ -310,6 +359,7 @@ export const MultiSelect: ChakraComponent<
       /** Components for accordionData */
       const accordionLabel = (
         <Box
+          as="span"
           title={buttonText}
           __css={selectedItemsCount > 0 ? styles.buttonTextLabel : null}
         >
@@ -343,7 +393,7 @@ export const MultiSelect: ChakraComponent<
                 layout="column"
                 isFullWidth
                 isRequired={false}
-                labelText="Multi select checkbox group label"
+                labelText={buttonText}
                 showLabel={false}
                 name="multi-select-checkbox-group"
               >
@@ -358,7 +408,13 @@ export const MultiSelect: ChakraComponent<
       );
 
       return (
-        <Box id={id} __css={styles.base} {...rest}>
+        <Box
+          id={id}
+          __css={styles.base}
+          {...rest}
+          ref={containerRef}
+          onClick={() => setUserClickedOutside(false)}
+        >
           <Accordion
             accordionData={[
               {
@@ -373,6 +429,7 @@ export const MultiSelect: ChakraComponent<
             id={`multi-select-accordion-${id}`}
             isDefaultOpen={isDefaultOpen}
             isAlwaysRendered
+            userClickedOutside={userClickedOutside}
             panelMaxHeight={listHeight}
             sx={{
               ...styles.accordionStyles,
