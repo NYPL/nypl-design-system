@@ -35,8 +35,8 @@ const TemplateContent = defineStyleConfig({
   baseStyle: defineStyle({
     // Set this element to start on the second 1280px grid column.
     gridColumn: "2",
-    // But this element also contains its own grid system within.
-    // display: "grid",
+    // This element also contains its own grid system within, but we use "flex"
+    // for mobile to deal with overflow issues related to the Table component.
     display: { base: "flex", md: "grid" },
     flexDirection: { base: "column", md: null },
     gridTemplateColumns: "1fr",
