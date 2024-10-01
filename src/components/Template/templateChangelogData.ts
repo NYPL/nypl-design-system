@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Updates the `display` and `overflow` styles for the primary content area to better accommodate the horizontal scrolling in the `Table` component.",
+      "Updates the styles to better accommodate the horizontal scrolling in the `Table` component.",
     ],
   },
   {
