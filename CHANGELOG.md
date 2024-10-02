@@ -10,6 +10,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+## 3.4.0 (October 2, 2024)
+
 - Updates invalid text in the `SearchBar` component to include "There was a problem. " prefix.
 - Adds interaction tests to `MultiSelect` component.
 - Increases the z-index of the `FeedbackBox`'s `Drawer` component so it displays above all other elements on a page.
