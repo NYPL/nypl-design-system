@@ -35,8 +35,10 @@ const TemplateContent = defineStyleConfig({
   baseStyle: defineStyle({
     // Set this element to start on the second 1280px grid column.
     gridColumn: "2",
-    // But this element also contains its own grid system within.
-    display: "grid",
+    // This element also contains its own grid system within, but we use "flex"
+    // for mobile to deal with overflow issues related to the Table component.
+    display: { base: "flex", md: "grid" },
+    flexDirection: { base: "column", md: null },
     gridTemplateColumns: "1fr",
     paddingY: 0,
     paddingX: "s",
@@ -61,6 +63,8 @@ const TemplateContentTopBottom = defineStyleConfig({
   }),
 });
 
+/** The overflow styles were added to deal with overflow issues related to the
+ * Table component. */
 const TemplateContentPrimary = defineStyleConfig({
   baseStyle: defineStyle({
     gridColumn: { base: "1", md: "1 / span 2" },
@@ -70,9 +74,11 @@ const TemplateContentPrimary = defineStyleConfig({
       gridColumn: { base: "1", md: "2" },
       marginEnd: { md: 0 },
       minWidth: { md: 0 },
+      overflow: { base: "unset", md: "hidden" },
     },
     right: {
       gridColumn: { base: "1", md: "1" },
+      overflow: { base: "unset", md: "hidden" },
     },
   },
 });
