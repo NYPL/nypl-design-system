@@ -246,8 +246,44 @@ This example can be found in the [Turbine homepage](https://nypl-ds-test-app.ver
 
 When the `Card` is fully clickable, an internal component wraps everything in a link, which in turn overrides the pointer events that trigger a `Tooltip`.
 
-If you need a tooltip within a clickable `Card`, wrap the entire `Card` component inside the `Tooltip` and use the `placement` and `offset` props to move the `Tooltip` to display next to the intended reference.
-Keep in mind that `offset` is static pixel values, so check where the `Tooltip` displays on all breakpoints. You may need to keep track of the offset values through state, and update them conditionally with the `useNYPLBreakpoints` hook.
+If you need a tooltip within a clickable `Card`, wrap the entire `Card` component inside the `Tooltip` and use the `Tooltip`'s `placement` and `offset` props to move the `Tooltip` to display next to the intended reference.
+Keep in mind that `offset` is static pixel values, so check where the `Tooltip` displays on all breakpoints.
+
+You may need to keep track of the offset values through state, and update accordingly– see below example.
+
+<Source
+  code={`
+  const [offset, setOffset] = useState<[number, number]>([0, 0]);
+const cardRef = useRef<HTMLDivElement>(null);
+const getOffset = () => {
+    if (cardRef.current) {
+      const image = cardRef.current.children[0] as HTMLElement;
+      const percentageHeightOffset = image.offsetHeight * 1.01;
+      const percentageWidthOffset = image.offsetWidth * 0.4;
+      setOffset([-percentageWidthOffset, -percentageHeightOffset]);
+    }
+  };
+useEffect(() => {
+  setTimeout(getOffset, 0);
+  window.addEventListener("resize", getOffset);
+  return () => {
+      window.removeEventListener("resize", getOffset);
+  }}
+[]);
+
+return (
+
+<Tooltip offset={offset} content={"Tooltip text"}>
+  <Card
+    ref={cardRef}
+    // ..
+  />
+</Tooltip>
+)
+
+`}
+language="tsx"
+/>
 
 <Canvas of={CardStories.FullClickWithTooltip} />
 

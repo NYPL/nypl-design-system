@@ -1,6 +1,6 @@
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Card, { CardHeading, CardContent, CardActions } from "./Card";
@@ -767,41 +767,33 @@ export const CardFullClickTurbineExample: Story = {
 };
 
 function FullClickWithTooltipExample() {
-  const [currentOffset, setCurrentOffset] = useState<[number, number]>([
-    -350, -450,
-  ]);
-  const [tooltipText, setTooltipText] = useState("Default offset");
-
+  const [offset, setOffset] = useState<[number, number]>([0, 0]);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const getOffset = () => {
+    if (cardRef.current) {
+      const image = cardRef.current.children[0] as HTMLElement;
+      const percentageHeightOffset = image.offsetHeight * 1.01;
+      const percentageWidthOffset = image.offsetWidth * 0.4;
+      setOffset([-percentageWidthOffset, -percentageHeightOffset]);
+    }
+  };
   useEffect(() => {
-    const updateOffset = () => {
-      if (window.innerWidth < 600) {
-        setCurrentOffset([-200, -250]);
-        setTooltipText("Less than 600 offset");
-      } else if (window.innerWidth < 960) {
-        setCurrentOffset([-400, -375]);
-        setTooltipText("Less than 960 offset");
-      } else if (window.innerWidth < 1280) {
-        setCurrentOffset([-450, -450]);
-        setTooltipText("Less than 1280 offset");
-      } else {
-        setCurrentOffset([-850, -650]);
-        setTooltipText("Greater than 1280 offset");
-      }
-    };
-    updateOffset();
-    window.addEventListener("resize", updateOffset);
+    setTimeout(getOffset, 0);
+    window.addEventListener("resize", getOffset);
+
     return () => {
-      window.removeEventListener("resize", updateOffset);
+      window.removeEventListener("resize", getOffset);
     };
   }, []);
 
   return (
-    <Tooltip offset={currentOffset} content={tooltipText}>
+    <Tooltip offset={offset} content={"Tooltip text"}>
       <Card
+        ref={cardRef}
         imageProps={{
           alt: "Alt text",
           aspectRatio: "twoByOne",
-          src: getPlaceholderImage("smaller"),
+          src: "https://images.nypl.org/index.php?id=swope_243025&t=r",
         }}
         mainActionLink="http://nypl.org"
       >

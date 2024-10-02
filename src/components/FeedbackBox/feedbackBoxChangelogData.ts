@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2024-10-02",
+    version: "3.4.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Increases the z-index of the `Drawer` component so it displays above all other elements on a page.",
+    ],
+  },
+  {
     date: "2024-09-19",
     version: "3.3.2",
     type: "Update",
