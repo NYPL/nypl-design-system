@@ -8,12 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### Updates
-
 ## 3.4.0 (October 2, 2024)
 
+### Updates
+
 - Updates invalid text in the `SearchBar` component to include "There was a problem. " prefix.
-- Adds interaction tests to `MultiSelect` component.
+- Updates the `MultiSelect` component to add interaction tests.
 - Increases the z-index of the `FeedbackBox`'s `Drawer` component so it displays above all other elements on a page.
 - Updates the `Table` component to add the `isScrollable` prop to enable horizontal scrolling.
 - Updates the `Table` component to add the `columnStyles` prop to allow for custom column styles (i.e. width, text alignment, etc.).
