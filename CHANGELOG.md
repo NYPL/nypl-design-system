@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates `Select` in the `SearchBar` component to allow long option titles before truncation.
+
 ## 3.4.0 (October 2, 2024)
 
 ### Updates
@@ -20,10 +24,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Table` component to add the `tableTextSize` prop to set the size of the text within the table.
 - Updates the `Table` component to add the `titleText` and `showTitleText` props to control the `<caption>` element and `aria-label` attribute.
 - Updates the styles for the `Template` component to better accommodate the horizontal scrolling in the `Table` component.
-
-### Fixes
-
-- Fixes issue with cut off `Select` options in the `SearchBar` component.
 
 ## 3.3.2 (September 19, 2024)
 
