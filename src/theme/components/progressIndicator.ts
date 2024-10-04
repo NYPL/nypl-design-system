@@ -20,7 +20,7 @@ const { defineMultiStyleConfig, definePartsStyle } =
 
 const ProgressIndicator = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({ darkMode, size }: ProgressIndicatorBaseStyle) => {
+    ({ darkMode, size, labelPlacement }: ProgressIndicatorBaseStyle) => {
       return {
         color: darkMode
           ? "dark.ui.typography.heading"
@@ -53,8 +53,12 @@ const ProgressIndicator = defineMultiStyleConfig({
         circularContainer: {
           alignItems: "center",
           display: "flex",
-          flexDirection: "column",
+          flexDirection: labelPlacement === "bottom" ? "column" : "row",
           width: "fit-content",
+        },
+        circularLabel: {
+          marginBottom: 0,
+          marginLeft: "xs",
         },
         linear: {
           // Hard to target this specific element without using

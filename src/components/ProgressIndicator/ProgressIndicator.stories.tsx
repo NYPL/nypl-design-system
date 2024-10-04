@@ -23,6 +23,11 @@ const meta: Meta<typeof ProgressIndicator> = {
     isIndeterminate: {
       table: { defaultValue: { summary: "false" } },
     },
+    labelPlacement: {
+      control: "select",
+      options: ["bottom", "right"],
+      table: { defaultValue: { summary: "bottom" } },
+    },
     showLabel: {
       table: { defaultValue: { summary: "true" } },
     },
@@ -49,6 +54,7 @@ export const WithControls: Story = {
     id: "progressIndicator-id",
     indicatorType: "linear",
     isIndeterminate: false,
+    labelPlacement: "bottom",
     labelText: "Progress",
     showLabel: true,
     size: "default",
@@ -141,6 +147,14 @@ export const Labels: Story = {
         indicatorType="circular"
         labelText="This label will be added through aria-label"
         showLabel={false}
+        value={50}
+      />
+      <ProgressIndicator
+        id="label-right"
+        indicatorType="circular"
+        labelPlacement="right"
+        labelText="This label will be displayed to the right of the indicator"
+        size="small"
         value={50}
       />
     </SimpleGrid>

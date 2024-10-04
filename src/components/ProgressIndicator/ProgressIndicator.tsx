@@ -27,6 +27,8 @@ export interface ProgressIndicatorProps {
   /** Whether the progress animation should display because the `value` prop is
    * not known. When this is set to `true`, the `value` prop will be ignored. */
   isIndeterminate?: boolean;
+  /** The placement of the label relative to a circular indicator. */
+  labelPlacement?: "bottom" | "right";
   /** The text to display in an HTML `label` element. */
   labelText: string;
   /** Visually show or hide the label text. When set to `false`, then the label
@@ -55,6 +57,7 @@ export const ProgressIndicator: ChakraComponent<
       id,
       indicatorType = "linear",
       isIndeterminate = false,
+      labelPlacement = "bottom",
       labelText,
       showLabel = true,
       size = "default",
@@ -64,6 +67,7 @@ export const ProgressIndicator: ChakraComponent<
     const styles = useMultiStyleConfig("ProgressIndicator", {
       darkMode,
       size,
+      labelPlacement,
     });
     let finalValue = value;
     if (!id) {
@@ -95,7 +99,7 @@ export const ProgressIndicator: ChakraComponent<
       if (indicatorType === "circular") {
         // For the small size, since the label won't be visible, we need to add
         // it to the parent component's `aria-label` attribute.
-        if (size === "small") {
+        if (size === "small" && labelPlacement !== "right") {
           progressProps["aria-label"] = labelText;
         }
         return (
@@ -107,8 +111,14 @@ export const ProgressIndicator: ChakraComponent<
                 </ChakraCircularProgressLabel>
               )}
             </ChakraCircularProgress>
-            {showLabel && size !== "small" && (
-              <Label id={`${id}-label`} htmlFor={id}>
+            {showLabel && (size !== "small" || labelPlacement === "right") && (
+              <Label
+                id={`${id}-label`}
+                htmlFor={id}
+                sx={
+                  labelPlacement === "right" ? styles.circularLabel : undefined
+                }
+              >
                 {labelText}
               </Label>
             )}
