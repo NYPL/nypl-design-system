@@ -11,6 +11,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `"decorativeBookBroken"` option (for error pages) to the `Icon` component.
+- Adds the `"xxxxlarge"` and `"xxxxxlarge"` size options for the `Icon` component.
+- Adds the `"2xlarge"`, `"3xlarge"`, `"4xlarge"`, and `"5xlarge"` sustainable size options for the `Icon` component.
 
 ### Updates
 
