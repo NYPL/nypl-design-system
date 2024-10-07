@@ -150,11 +150,24 @@ export const Labels: Story = {
         value={50}
       />
       <ProgressIndicator
-        id="label-right"
+        id="default-label-bottom"
+        indicatorType="circular"
+        labelText="This label will be displayed below the indicator"
+        value={50}
+      />
+      <ProgressIndicator
+        id="small-label-right"
         indicatorType="circular"
         labelPlacement="right"
-        labelText="This label will be displayed to the right of the indicator"
+        labelText="This label will be displayed to the right of the small sized indicator"
         size="small"
+        value={50}
+      />
+      <ProgressIndicator
+        id="default-label-right"
+        indicatorType="circular"
+        labelPlacement="right"
+        labelText="This label will be displayed to the right of the default sized indicator"
         value={50}
       />
     </SimpleGrid>

@@ -97,8 +97,9 @@ export const ProgressIndicator: ChakraComponent<
       // Only display the percentage text for the default size, not in the
       // indeterminate state, and when `showLabel` is true.
       if (indicatorType === "circular") {
-        // For the small size, since the label won't be visible, we need to add
-        // it to the parent component's `aria-label` attribute.
+        // For the small size and the label placement is on the bottom,
+        // since the label won't be visible, we need to add it to the parent
+        // component's `aria-label` attribute.
         if (size === "small" && labelPlacement !== "right") {
           progressProps["aria-label"] = labelText;
         }
