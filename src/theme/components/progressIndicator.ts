@@ -90,6 +90,10 @@ const ProgressIndicator = defineMultiStyleConfig({
           marginLeft: labelPlacement === "right" ? "xxs" : 0,
           marginRight: labelPlacement === "left" ? "xxs" : 0,
           marginTop: labelPlacement === "bottom" ? "xxs" : 0,
+          fontSize:
+            size === "default"
+              ? "desktop.label.label1"
+              : "desktop.label.label2",
         },
         linear: {
           // Hard to target this specific element without using
