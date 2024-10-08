@@ -103,11 +103,13 @@ Accessibility Note: when `showLabel` is false, the `aria-label` prop is set in
 the progress element to provide a description of the progress for screen
 readers.
 
-The `labelPlacement` prop can be used to set the placement of a label relative to
-the indicator. By default, the label will be displayed below the indicator. This
-prop only applies to circular indicator variants.
-
 <Canvas of={ProgressIndicatorStories.Labels} />
+
+For circular indicator variants, the `labelPlacement` prop can be used to set the
+placement of a label relative to the indicator. By default, the label will be
+displayed below the indicator.
+
+<Canvas of={ProgressIndicatorStories.LabelPlacements} />
 
 ## Indeterminate State
 

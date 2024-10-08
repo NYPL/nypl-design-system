@@ -2,10 +2,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useEffect, useState } from "react";
 
 import ProgressIndicator, {
+  progressIndicatorLabelPlacementsArray,
   progressIndicatorSizesArray,
   progressIndicatorTypesArray,
 } from "./ProgressIndicator";
 import SimpleGrid from "../Grid/SimpleGrid";
+import { HStack } from "@chakra-ui/react";
 
 const meta: Meta<typeof ProgressIndicator> = {
   title: "Components/Feedback/ProgressIndicator",
@@ -25,7 +27,7 @@ const meta: Meta<typeof ProgressIndicator> = {
     },
     labelPlacement: {
       control: "select",
-      options: ["bottom", "right"],
+      options: progressIndicatorLabelPlacementsArray,
       table: { defaultValue: { summary: "bottom" } },
     },
     showLabel: {
@@ -149,27 +151,76 @@ export const Labels: Story = {
         showLabel={false}
         value={50}
       />
-      <ProgressIndicator
-        id="default-label-bottom"
-        indicatorType="circular"
-        labelText="This label will be displayed below the indicator"
-        value={50}
-      />
-      <ProgressIndicator
-        id="small-label-right"
-        indicatorType="circular"
-        labelPlacement="right"
-        labelText="This label will be displayed to the right of the small sized indicator"
-        size="small"
-        value={50}
-      />
-      <ProgressIndicator
-        id="default-label-right"
-        indicatorType="circular"
-        labelPlacement="right"
-        labelText="This label will be displayed to the right of the default sized indicator"
-        value={50}
-      />
+    </SimpleGrid>
+  ),
+};
+
+export const LabelPlacements: Story = {
+  render: () => (
+    <SimpleGrid columns={1} gap="grid.m">
+      <HStack spacing="s">
+        <ProgressIndicator
+          id="default-label-bottom"
+          indicatorType="circular"
+          labelText="Bottom label (default size)"
+          value={50}
+        />
+        <ProgressIndicator
+          id="default-label-top"
+          indicatorType="circular"
+          labelPlacement="top"
+          labelText="Top label (default size)"
+          value={50}
+        />
+        <ProgressIndicator
+          id="default-label-left"
+          indicatorType="circular"
+          labelPlacement="left"
+          labelText="Left label (default size)"
+          value={50}
+        />
+        <ProgressIndicator
+          id="default-label-right"
+          indicatorType="circular"
+          labelPlacement="right"
+          labelText="Right label (default size)"
+          value={50}
+        />
+      </HStack>
+      <HStack spacing="s">
+        <ProgressIndicator
+          id="small-label-bottom"
+          indicatorType="circular"
+          labelPlacement="bottom"
+          labelText="Bottom label (small size)"
+          size="small"
+          value={50}
+        />
+        <ProgressIndicator
+          id="small-label-right"
+          indicatorType="circular"
+          labelPlacement="top"
+          labelText="Top label (small size)"
+          size="small"
+          value={50}
+        />
+        <ProgressIndicator
+          id="small-label-left"
+          indicatorType="circular"
+          labelPlacement="left"
+          labelText="Left label (small size)"
+          size="small"
+          value={50}
+        />
+        <ProgressIndicator
+          id="small-label-right"
+          indicatorType="circular"
+          labelPlacement="right"
+          labelText="Right label (small size)"
+          size="small"
+          value={50}
+        />
+      </HStack>
     </SimpleGrid>
   ),
 };

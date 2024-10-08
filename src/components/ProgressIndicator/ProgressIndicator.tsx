@@ -13,9 +13,17 @@ import Label from "../Label/Label";
 
 export const progressIndicatorSizesArray = ["default", "small"] as const;
 export const progressIndicatorTypesArray = ["circular", "linear"] as const;
+export const progressIndicatorLabelPlacementsArray = [
+  "bottom",
+  "right",
+  "top",
+  "left",
+] as const;
 
 export type ProgressIndicatorSizes = typeof progressIndicatorSizesArray[number];
 export type ProgressIndicatorTypes = typeof progressIndicatorTypesArray[number];
+export type ProgressIndicatorLabelPlacements =
+  typeof progressIndicatorLabelPlacementsArray[number];
 
 export interface ProgressIndicatorProps {
   /** The darkMode prop is deprecated and should no longer be used. */
@@ -28,7 +36,7 @@ export interface ProgressIndicatorProps {
    * not known. When this is set to `true`, the `value` prop will be ignored. */
   isIndeterminate?: boolean;
   /** The placement of the label relative to a circular indicator. */
-  labelPlacement?: "bottom" | "right";
+  labelPlacement?: "bottom" | "left" | "right" | "top";
   /** The text to display in an HTML `label` element. */
   labelText: string;
   /** Visually show or hide the label text. When set to `false`, then the label
@@ -83,6 +91,12 @@ export const ProgressIndicator: ChakraComponent<
       );
       finalValue = 0;
     }
+    if (indicatorType === "linear" && labelPlacement !== "bottom") {
+      console.warn(
+        "NYPL Reservoir Progress Indicator: The `labelPlacement` prop has been passed, " +
+          "but the `'linear'` `indicatorType` variant will not use it."
+      );
+    }
     const progressProps = {
       id,
       // If the label is visually shown, associate it with the progress indicator.
@@ -97,12 +111,6 @@ export const ProgressIndicator: ChakraComponent<
       // Only display the percentage text for the default size, not in the
       // indeterminate state, and when `showLabel` is true.
       if (indicatorType === "circular") {
-        // For the small size and the bottom label placement, since the
-        // label won't be visible, we need to add it to the parent
-        // component's `aria-label` attribute.
-        if (size === "small" && labelPlacement !== "right") {
-          progressProps["aria-label"] = labelText;
-        }
         return (
           <Box __css={styles.circularContainer}>
             <ChakraCircularProgress {...progressProps} sx={styles.circular}>
@@ -112,14 +120,8 @@ export const ProgressIndicator: ChakraComponent<
                 </ChakraCircularProgressLabel>
               )}
             </ChakraCircularProgress>
-            {showLabel && (size !== "small" || labelPlacement === "right") && (
-              <Label
-                id={`${id}-label`}
-                htmlFor={id}
-                sx={
-                  labelPlacement === "right" ? styles.circularLabel : undefined
-                }
-              >
+            {showLabel && (
+              <Label id={`${id}-label`} htmlFor={id} sx={styles.circularLabel}>
                 {labelText}
               </Label>
             )}

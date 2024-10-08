@@ -1,4 +1,7 @@
-import { ProgressIndicatorSizes } from "../../components/ProgressIndicator/ProgressIndicator";
+import {
+  ProgressIndicatorLabelPlacements,
+  ProgressIndicatorSizes,
+} from "../../components/ProgressIndicator/ProgressIndicator";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 
@@ -7,6 +10,7 @@ interface ProgressIndicatorBaseStyle extends StyleFunctionProps {
   // cause a breaking change for those apps that still use it.
   darkMode: boolean;
   size: ProgressIndicatorSizes;
+  labelPlacement: ProgressIndicatorLabelPlacements;
 }
 
 const { defineMultiStyleConfig, definePartsStyle } =
@@ -17,6 +21,31 @@ const { defineMultiStyleConfig, definePartsStyle } =
     "linearContainer",
     "linearPercentage",
   ]);
+
+const getCircularContainerFlexDir = (labelPlacement) => {
+  console.log(labelPlacement);
+  let flexDir;
+  switch (labelPlacement) {
+    case "bottom":
+    default: {
+      flexDir = "column";
+      break;
+    }
+    case "left": {
+      flexDir = "row-reverse";
+      break;
+    }
+    case "right": {
+      flexDir = "row";
+      break;
+    }
+    case "top": {
+      flexDir = "column-reverse";
+      break;
+    }
+  }
+  return flexDir;
+};
 
 const ProgressIndicator = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
@@ -53,12 +82,14 @@ const ProgressIndicator = defineMultiStyleConfig({
         circularContainer: {
           alignItems: "center",
           display: "flex",
-          flexDirection: labelPlacement === "bottom" ? "column" : "row",
+          flexDirection: getCircularContainerFlexDir(labelPlacement),
           width: "fit-content",
         },
         circularLabel: {
-          marginBottom: 0,
-          marginLeft: "xs",
+          marginBottom: labelPlacement === "top" ? "xxs" : 0,
+          marginLeft: labelPlacement === "right" ? "xxs" : 0,
+          marginRight: labelPlacement === "left" ? "xxs" : 0,
+          marginTop: labelPlacement === "bottom" ? "xxs" : 0,
         },
         linear: {
           // Hard to target this specific element without using
