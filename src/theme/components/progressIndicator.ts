@@ -23,7 +23,6 @@ const { defineMultiStyleConfig, definePartsStyle } =
   ]);
 
 const getCircularContainerFlexDir = (labelPlacement) => {
-  console.log(labelPlacement);
   let flexDir;
   switch (labelPlacement) {
     case "bottom":

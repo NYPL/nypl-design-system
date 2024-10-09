@@ -157,8 +157,8 @@ export const Labels: Story = {
 
 export const LabelPlacements: Story = {
   render: () => (
-    <SimpleGrid columns={1} gap="grid.m">
-      <HStack spacing="s">
+    <SimpleGrid columns={1} gap="grid.xl">
+      <HStack spacing="l">
         <ProgressIndicator
           id="default-label-bottom"
           indicatorType="circular"

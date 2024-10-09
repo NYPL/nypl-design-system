@@ -65,17 +65,18 @@ export const ProgressIndicator: ChakraComponent<
       id,
       indicatorType = "linear",
       isIndeterminate = false,
-      labelPlacement = "bottom",
+      labelPlacement,
       labelText,
       showLabel = true,
       size = "default",
       value = 0,
       ...rest
     } = props;
+    const finalLabelPlacement = labelPlacement ?? "bottom";
     const styles = useMultiStyleConfig("ProgressIndicator", {
       darkMode,
       size,
-      labelPlacement,
+      finalLabelPlacement,
     });
     let finalValue = value;
     if (!id) {
@@ -91,7 +92,7 @@ export const ProgressIndicator: ChakraComponent<
       );
       finalValue = 0;
     }
-    if (indicatorType === "linear" && labelPlacement !== "bottom") {
+    if (indicatorType === "linear" && labelPlacement) {
       console.warn(
         "NYPL Reservoir Progress Indicator: The `labelPlacement` prop has been passed, " +
           "but the `'linear'` `indicatorType` variant will not use it."
