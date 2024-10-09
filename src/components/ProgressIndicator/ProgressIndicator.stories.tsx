@@ -187,7 +187,7 @@ export const LabelPlacements: Story = {
           value={50}
         />
       </HStack>
-      <HStack spacing="s">
+      <HStack spacing="l">
         <ProgressIndicator
           id="small-label-bottom"
           indicatorType="circular"
