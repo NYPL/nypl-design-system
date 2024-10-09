@@ -29,11 +29,7 @@ export const heroSecondaryTypes = [
   "secondaryResearch",
   "secondaryWhatsOn",
 ];
-export interface HeroImageProps
-  extends Pick<
-    ComponentImageProps,
-    "alt" | "fallbackSrc" | "id" | "src" | "onError"
-  > {}
+
 export interface HeroProps {
   /**
    * Optional background color for the backdrop only in the `campaign` variant.
@@ -66,7 +62,7 @@ export interface HeroProps {
    * the "secondary", "fiftyFifty" and "campaign" `Hero` types; Note: `imageProps.src`
    * can only be used in conjunction with `backgroundImageSrc` for the "campaign"
    * `Hero` type. Note: not all `Hero` variations utilize this prop. */
-  imageProps?: HeroImageProps;
+  imageProps?: ComponentImageProps;
   /** Optional boolean used to toggle the default text color from light to dark.
    * Set isDarkText to `true` if the backgroundColor is set to a light color. */
   isDarkText?: boolean;
@@ -119,6 +115,12 @@ export const Hero: ChakraComponent<
         heading && React.cloneElement(heading, { __css: headingStyles });
       let backgroundImageStyle = {};
       let contentBoxStyling = {};
+
+      if (imageProps.component) {
+        const { src, id, alt, fallbackSrc, onError } =
+          imageProps.component.props;
+        Object.assign(imageProps, { src, id, alt, fallbackSrc, onError });
+      }
 
       if (imageProps.src && !imageProps.alt) {
         console.warn(
@@ -304,7 +306,6 @@ export const Hero: ChakraComponent<
           src={imageProps.src}
         />
       );
-
       const childrenToRender =
         heroType === "campaign" ? (
           <>
