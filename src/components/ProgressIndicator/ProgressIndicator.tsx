@@ -25,7 +25,7 @@ export type ProgressIndicatorTypes = typeof progressIndicatorTypesArray[number];
 export type ProgressIndicatorLabelPlacements =
   typeof progressIndicatorLabelPlacementsArray[number];
 
-export interface ProgressIndicatorProps {
+interface BaseProgressIndicatorProps {
   /** The darkMode prop is deprecated and should no longer be used. */
   darkMode?: boolean;
   /** ID that other components can cross reference for accessibility purposes. */
@@ -35,8 +35,6 @@ export interface ProgressIndicatorProps {
   /** Whether the progress animation should display because the `value` prop is
    * not known. When this is set to `true`, the `value` prop will be ignored. */
   isIndeterminate?: boolean;
-  /** The placement of the label relative to a circular indicator. */
-  circularLabelPlacement?: "bottom" | "left" | "right" | "top";
   /** The text to display in an HTML `label` element. */
   labelText: string;
   /** Visually show or hide the label text. When set to `false`, then the label
@@ -47,6 +45,21 @@ export interface ProgressIndicatorProps {
   /** A number between 0 to 100 that defines the progress' value. */
   value?: number;
 }
+
+interface LinearProgressIndicatorProps extends BaseProgressIndicatorProps {
+  indicatorType?: "linear";
+  labelPlacement?: never;
+}
+
+interface CircularProgressIndicatorProps extends BaseProgressIndicatorProps {
+  indicatorType?: "circular";
+  /** The placement of the label relative to a circular indicator. */
+  labelPlacement?: ProgressIndicatorLabelPlacements;
+}
+
+export type ProgressIndicatorProps =
+  | LinearProgressIndicatorProps
+  | CircularProgressIndicatorProps;
 
 /**
  * A component that displays a progress status for any task that takes a long
@@ -65,18 +78,18 @@ export const ProgressIndicator: ChakraComponent<
       id,
       indicatorType = "linear",
       isIndeterminate = false,
-      circularLabelPlacement,
+      labelPlacement,
       labelText,
       showLabel = true,
       size = "default",
       value = 0,
       ...rest
     } = props;
-    const finalLabelPlacement = circularLabelPlacement ?? "bottom";
+    const finalLabelPlacement = labelPlacement ?? "bottom";
     const styles = useMultiStyleConfig("ProgressIndicator", {
       darkMode,
       size,
-      circularLabelPlacement: finalLabelPlacement,
+      labelPlacement: finalLabelPlacement,
     });
     let finalValue = value;
     if (!id) {
@@ -91,12 +104,6 @@ export const ProgressIndicator: ChakraComponent<
           " between 0 and 100."
       );
       finalValue = 0;
-    }
-    if (indicatorType === "linear" && circularLabelPlacement) {
-      console.warn(
-        "NYPL Reservoir ProgressIndicator: The `circularLabelPlacement` prop has been passed, " +
-          "but the `'linear'` `indicatorType` variant will not use it."
-      );
     }
     const progressProps = {
       id,

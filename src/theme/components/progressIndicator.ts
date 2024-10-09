@@ -10,7 +10,7 @@ interface ProgressIndicatorBaseStyle extends StyleFunctionProps {
   // cause a breaking change for those apps that still use it.
   darkMode: boolean;
   size: ProgressIndicatorSizes;
-  circularLabelPlacement: ProgressIndicatorLabelPlacements;
+  labelPlacement: ProgressIndicatorLabelPlacements;
 }
 
 const { defineMultiStyleConfig, definePartsStyle } =
@@ -22,9 +22,9 @@ const { defineMultiStyleConfig, definePartsStyle } =
     "linearPercentage",
   ]);
 
-const getCircularContainerFlexDir = (circularLabelPlacement) => {
+const getCircularContainerFlexDir = (labelPlacement) => {
   let flexDir;
-  switch (circularLabelPlacement) {
+  switch (labelPlacement) {
     case "bottom":
     default: {
       flexDir = "column";
@@ -48,11 +48,7 @@ const getCircularContainerFlexDir = (circularLabelPlacement) => {
 
 const ProgressIndicator = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({
-      darkMode,
-      size,
-      circularLabelPlacement,
-    }: ProgressIndicatorBaseStyle) => {
+    ({ darkMode, size, labelPlacement }: ProgressIndicatorBaseStyle) => {
       return {
         color: darkMode
           ? "dark.ui.typography.heading"
@@ -85,14 +81,14 @@ const ProgressIndicator = defineMultiStyleConfig({
         circularContainer: {
           alignItems: "center",
           display: "flex",
-          flexDirection: getCircularContainerFlexDir(circularLabelPlacement),
+          flexDirection: getCircularContainerFlexDir(labelPlacement),
           width: "fit-content",
         },
         circularLabel: {
-          marginBottom: circularLabelPlacement === "top" ? "xxs" : 0,
-          marginLeft: circularLabelPlacement === "right" ? "xxs" : 0,
-          marginRight: circularLabelPlacement === "left" ? "xxs" : 0,
-          marginTop: circularLabelPlacement === "bottom" ? "xxs" : 0,
+          marginBottom: labelPlacement === "top" ? "xxs" : 0,
+          marginLeft: labelPlacement === "right" ? "xxs" : 0,
+          marginRight: labelPlacement === "left" ? "xxs" : 0,
+          marginTop: labelPlacement === "bottom" ? "xxs" : 0,
           fontSize:
             size === "default"
               ? "desktop.label.label1"
