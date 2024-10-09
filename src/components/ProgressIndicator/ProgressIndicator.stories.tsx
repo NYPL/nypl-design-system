@@ -25,7 +25,7 @@ const meta: Meta<typeof ProgressIndicator> = {
     isIndeterminate: {
       table: { defaultValue: { summary: "false" } },
     },
-    labelPlacement: {
+    circularLabelPlacement: {
       control: "select",
       options: progressIndicatorLabelPlacementsArray,
       table: { defaultValue: { summary: "bottom" } },
@@ -56,7 +56,7 @@ export const WithControls: Story = {
     id: "progressIndicator-id",
     indicatorType: "linear",
     isIndeterminate: false,
-    labelPlacement: "bottom",
+    circularLabelPlacement: "bottom",
     labelText: "Progress",
     showLabel: true,
     size: "default",
@@ -155,7 +155,7 @@ export const Labels: Story = {
   ),
 };
 
-export const LabelPlacements: Story = {
+export const CircularLabelPlacements: Story = {
   render: () => (
     <SimpleGrid columns={1} gap="grid.xl">
       <HStack spacing="l">
@@ -168,21 +168,21 @@ export const LabelPlacements: Story = {
         <ProgressIndicator
           id="default-label-top"
           indicatorType="circular"
-          labelPlacement="top"
+          circularLabelPlacement="top"
           labelText="Top label (default size)"
           value={50}
         />
         <ProgressIndicator
           id="default-label-left"
           indicatorType="circular"
-          labelPlacement="left"
+          circularLabelPlacement="left"
           labelText="Left label (default size)"
           value={50}
         />
         <ProgressIndicator
           id="default-label-right"
           indicatorType="circular"
-          labelPlacement="right"
+          circularLabelPlacement="right"
           labelText="Right label (default size)"
           value={50}
         />
@@ -191,7 +191,7 @@ export const LabelPlacements: Story = {
         <ProgressIndicator
           id="small-label-bottom"
           indicatorType="circular"
-          labelPlacement="bottom"
+          circularLabelPlacement="bottom"
           labelText="Bottom label (small size)"
           size="small"
           value={50}
@@ -199,7 +199,7 @@ export const LabelPlacements: Story = {
         <ProgressIndicator
           id="small-label-right"
           indicatorType="circular"
-          labelPlacement="top"
+          circularLabelPlacement="top"
           labelText="Top label (small size)"
           size="small"
           value={50}
@@ -207,7 +207,7 @@ export const LabelPlacements: Story = {
         <ProgressIndicator
           id="small-label-left"
           indicatorType="circular"
-          labelPlacement="left"
+          circularLabelPlacement="left"
           labelText="Left label (small size)"
           size="small"
           value={50}
@@ -215,7 +215,7 @@ export const LabelPlacements: Story = {
         <ProgressIndicator
           id="small-label-right"
           indicatorType="circular"
-          labelPlacement="right"
+          circularLabelPlacement="right"
           labelText="Right label (small size)"
           size="small"
           value={50}

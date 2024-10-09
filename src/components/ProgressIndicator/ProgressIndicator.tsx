@@ -36,7 +36,7 @@ export interface ProgressIndicatorProps {
    * not known. When this is set to `true`, the `value` prop will be ignored. */
   isIndeterminate?: boolean;
   /** The placement of the label relative to a circular indicator. */
-  labelPlacement?: "bottom" | "left" | "right" | "top";
+  circularLabelPlacement?: "bottom" | "left" | "right" | "top";
   /** The text to display in an HTML `label` element. */
   labelText: string;
   /** Visually show or hide the label text. When set to `false`, then the label
@@ -65,18 +65,18 @@ export const ProgressIndicator: ChakraComponent<
       id,
       indicatorType = "linear",
       isIndeterminate = false,
-      labelPlacement,
+      circularLabelPlacement,
       labelText,
       showLabel = true,
       size = "default",
       value = 0,
       ...rest
     } = props;
-    const finalLabelPlacement = labelPlacement ?? "bottom";
+    const finalLabelPlacement = circularLabelPlacement ?? "bottom";
     const styles = useMultiStyleConfig("ProgressIndicator", {
       darkMode,
       size,
-      labelPlacement: finalLabelPlacement,
+      circularLabelPlacement: finalLabelPlacement,
     });
     let finalValue = value;
     if (!id) {
@@ -92,9 +92,9 @@ export const ProgressIndicator: ChakraComponent<
       );
       finalValue = 0;
     }
-    if (indicatorType === "linear" && labelPlacement) {
+    if (indicatorType === "linear" && circularLabelPlacement) {
       console.warn(
-        "NYPL Reservoir Progress Indicator: The `labelPlacement` prop has been passed, " +
+        "NYPL Reservoir ProgressIndicator: The `circularLabelPlacement` prop has been passed, " +
           "but the `'linear'` `indicatorType` variant will not use it."
       );
     }

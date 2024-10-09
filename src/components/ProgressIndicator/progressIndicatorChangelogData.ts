@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Documentation", "Functionality"],
     notes: [
-      "Adds `labelPlacement` prop to allow for custom placement of a label for circular indicators.",
+      "Adds `circularLabelPlacement` prop to allow for custom placement of a label for circular indicators.",
     ],
   },
   {

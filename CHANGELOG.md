@@ -11,7 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates `Select` in the `SearchBar` component to allow long option titles before truncation.
-- Updates the `ProgressIndicator` component to add the `labelPlacement` prop to allow for custom placement of a label for circular indicators.
+- Updates the `ProgressIndicator` component to add the `circularLabelPlacement` prop to allow for custom placement of a label for circular indicators.
 
 ## 3.4.0 (October 2, 2024)
 
