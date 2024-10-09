@@ -76,7 +76,7 @@ export const ProgressIndicator: ChakraComponent<
     const styles = useMultiStyleConfig("ProgressIndicator", {
       darkMode,
       size,
-      finalLabelPlacement,
+      labelPlacement: finalLabelPlacement,
     });
     let finalValue = value;
     if (!id) {
