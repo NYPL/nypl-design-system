@@ -5,6 +5,7 @@ import Banner from "../Banner/Banner";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import Button from "../Button/Button";
 import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
+import FeaturedContent from "../FeaturedContent/FeaturedContent";
 import Form, { FormRow, FormField } from "../Form/Form";
 import Heading from "../Heading/Heading";
 import Hero from "../Hero/Hero";
@@ -194,7 +195,6 @@ export const WithControls: Story = {
         <Placeholder variant="short">More Content</Placeholder>
       </>
     ),
-    contentSidebar: <Placeholder>Left Sidebar</Placeholder>,
     contentTop: <Placeholder variant="short">Content Top</Placeholder>,
     footer: <Placeholder>Footer</Placeholder>,
     header: <Placeholder variant="short">Header</Placeholder>,
@@ -217,7 +217,12 @@ export const WithControls: Story = {
       table: { defaultValue: { summary: "none" } },
     },
   },
-  render: (args) => <TemplateAppContainer {...args} />,
+  render: (args) => (
+    <TemplateAppContainer
+      {...args}
+      contentSidebar={<Placeholder>Sidebar ({args.sidebar})</Placeholder>}
+    />
+  ),
   parameters: {
     design: {
       type: "figma",
@@ -382,12 +387,30 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
                 <Button id="submit">Submit</Button>
               </FormField>
             </Form>
+            <FeaturedContent
+              imageProps={{
+                alt: "",
+                src: getPlaceholderImage("smaller"),
+                position: "end",
+                width: "",
+              }}
+              isFullWidth
+              my="l"
+              textContent={
+                <>
+                  <Heading size="heading5">Sit Dapibus Elit</Heading>
+                  Donec id elit non mi porta gravida at eget metus. Nulla vitae
+                  elit libero, a pharetra augue. Cum sociis natoque penatibus et
+                  magnis dis parturient montes, nascetur ridiculus mus. Cras
+                  mattis consectetur purus sit amet fermentum.
+                </>
+              }
+            />
             <Table
               columnHeaders={columnHeadersAlt}
               columnStyles={columnStylesComplex}
               id="table-horizontal-scrolling-wo-row-headers"
               isScrollable
-              mt="l"
               showRowDividers
               showTitleText={false}
               tableData={tableDataAlt}

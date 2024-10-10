@@ -10,12 +10,12 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2024-10-02",
+    version: "3.4.0",
     type: "Update",
     affects: ["Styles"],
     notes: [
-      'Updates the styles for the primary content area to use `overflow: "auto"`.',
+      "Updates the styles to better accommodate the horizontal scrolling in the `Table` component.",
     ],
   },
   {
