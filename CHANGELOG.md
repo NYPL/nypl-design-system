@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `"decorativeBookBroken"` option (for error pages) to the `Icon` component.
+
 ### Updates
 
 - Updates `Select` in the `SearchBar` component to allow long option titles before truncation.
