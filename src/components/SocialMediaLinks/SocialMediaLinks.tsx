@@ -6,13 +6,13 @@ import { LayoutTypes } from "../../helpers/types";
 import React, { forwardRef } from "react";
 
 export const borderTypeArray = ["none", "circular", "straight"] as const;
-export type BorderType = typeof borderTypeArray[number];
+export type BorderType = (typeof borderTypeArray)[number];
 
 export const colorTypeArray = ["link", "textDefault", "textInverse"] as const;
-export type ColorType = typeof colorTypeArray[number];
+export type ColorType = (typeof colorTypeArray)[number];
 
 export const sizeTypeArray = ["small", "medium", "large"] as const;
-export type SizeType = typeof sizeTypeArray[number];
+export type SizeType = (typeof sizeTypeArray)[number];
 
 type IconNames =
   | "fileTypeGenericDoc"

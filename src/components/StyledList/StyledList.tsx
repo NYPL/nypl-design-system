@@ -11,7 +11,7 @@ export const textSizesArray = [
   "tag",
   "mini",
 ] as const;
-export type StyledListTextSizes = typeof textSizesArray[number];
+export type StyledListTextSizes = (typeof textSizesArray)[number];
 
 export interface StyledListProps {
   /** Any child node passed to the component. */

@@ -14,11 +14,12 @@ export const featuredContentWidthArray = [
   "twoThirds",
   "threeQuarters",
 ];
-export type FeaturedContentWidthType = typeof featuredContentWidthArray[number];
+export type FeaturedContentWidthType =
+  (typeof featuredContentWidthArray)[number];
 
 export const featuredContentPositionArray = ["start", "end"] as const;
 export type FeaturedContentPositionType =
-  typeof featuredContentPositionArray[number];
+  (typeof featuredContentPositionArray)[number];
 
 export interface FeaturedContentImageProps extends ImageProps {
   /** String value that specifies the width of the image rendered within the component. */

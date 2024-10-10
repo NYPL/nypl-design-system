@@ -21,9 +21,9 @@ export const buttonTypesArray = [
   "link",
 ] as const;
 
-export type ButtonElementType = typeof buttonElementTypeArray[number];
-export type ButtonSizes = typeof buttonSizesArray[number];
-export type ButtonTypes = typeof buttonTypesArray[number];
+export type ButtonElementType = (typeof buttonElementTypeArray)[number];
+export type ButtonSizes = (typeof buttonSizesArray)[number];
+export type ButtonTypes = (typeof buttonTypesArray)[number];
 
 export interface ButtonProps {
   /** The button variation to render based on the `ButtonTypes` type. */

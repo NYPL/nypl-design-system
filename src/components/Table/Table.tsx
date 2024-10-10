@@ -21,7 +21,7 @@ interface CustomColors {
 }
 
 export const tableBodyTextSizesArray = ["body1", "body2"] as const;
-export type TableBodyTextSizes = typeof tableBodyTextSizesArray[number];
+export type TableBodyTextSizes = (typeof tableBodyTextSizesArray)[number];
 
 export interface TableProps {
   /** Additional class name for the `Table` component. */
@@ -183,8 +183,8 @@ export const Table: ChakraComponent<
                         isScrollable
                           ? columnStyles[key]
                           : isLargerThanMobile
-                          ? columnStyles[key]
-                          : undefined
+                            ? columnStyles[key]
+                            : undefined
                       }
                     >
                       {cellContent(key, column)}
@@ -197,8 +197,8 @@ export const Table: ChakraComponent<
                         isScrollable
                           ? columnStyles[key]
                           : isLargerThanMobile
-                          ? columnStyles[key]
-                          : undefined
+                            ? columnStyles[key]
+                            : undefined
                       }
                     >
                       {cellContent(key, column)}

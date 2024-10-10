@@ -33,7 +33,7 @@ export const feedbackBoxViewTypeArray = [
   "confirmation",
   "error",
 ] as const;
-export type FeedbackBoxViewType = typeof feedbackBoxViewTypeArray[number];
+export type FeedbackBoxViewType = (typeof feedbackBoxViewTypeArray)[number];
 
 export interface FeedbackBoxProps {
   /** Additional class name to add. */

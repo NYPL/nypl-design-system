@@ -12,8 +12,14 @@ import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 
-export type FilterBarItemsType =
-  | (boolean | number | number[] | string | string[] | MultiSelectItems)[];
+export type FilterBarItemsType = (
+  | boolean
+  | number
+  | number[]
+  | string
+  | string[]
+  | MultiSelectItems
+)[];
 
 export interface FilterBarInlineProps {
   /** The className of the FilterBarInline. */
@@ -72,8 +78,8 @@ export const FilterBarInline: ChakraComponent<
       const finalWidth = !isLargerThanMobile
         ? "full"
         : layout === "row"
-        ? "fitContent"
-        : "full";
+          ? "fitContent"
+          : "full";
 
       const generalHeadingProps = {
         size: "heading5" as HeadingSizes,

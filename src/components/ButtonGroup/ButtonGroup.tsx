@@ -10,7 +10,7 @@ import Button from "../Button/Button";
 import { LayoutTypes } from "../../helpers/types";
 
 export const buttonGroupWidthsArray = ["default", "full"] as const;
-export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
+export type ButtonGroupWidths = (typeof buttonGroupWidthsArray)[number];
 
 export interface ButtonGroupProps {
   /** Sets the width to "default" (for "fit-content") or "full". */
