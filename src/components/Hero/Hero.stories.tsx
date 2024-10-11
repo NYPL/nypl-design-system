@@ -9,6 +9,7 @@ import Hero, { heroSecondaryTypes, heroTypesArray } from "./Hero";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
 import { getPlaceholderImage } from "../../utils/utils";
+import Image from "../Image/Image";
 
 const secondarySubHeaderText = (
   <>
@@ -70,6 +71,12 @@ const otherSubHeaderTextLong = (
 const imageProps = {
   alt: "Image example",
   src: getPlaceholderImage(),
+};
+
+const componentImageProps = {
+  component: (
+    <Image alt={"Custom Image component example"} src={getPlaceholderImage()} />
+  ),
 };
 
 const meta: Meta<typeof Hero> = {
@@ -321,6 +328,41 @@ export const Campaign: Story = {
     </Stack>
   ),
 };
+
+export const HeroTypesWithCustomImage: Story = {
+  render: () => (
+    <Stack spacing="l">
+      <Hero
+        backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
+        heading={
+          <Heading
+            id="primary-hero"
+            level="h1"
+            noSpace
+            overline="Hero Example"
+            subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
+            text="Hero Primary With DS Image Component"
+          />
+        }
+        heroType="primary"
+      />
+      <Hero
+        backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
+        heroType="campaign"
+        heading={
+          <Heading
+            level="h1"
+            id="campaign-hero-long-text-heading"
+            text="Hero Campaign With DS Image Component"
+          />
+        }
+        imageProps={componentImageProps}
+        subHeaderText={otherSubHeaderTextLong}
+      />
+    </Stack>
+  ),
+};
+
 export const CampaignDarkBackgroundImage: Story = {
   render: () => (
     <Hero
@@ -330,13 +372,10 @@ export const CampaignDarkBackgroundImage: Story = {
         <Heading
           level="h1"
           id="campaign-hero-default-heading"
-          text="Hero Campaign"
+          text="Hero Campaign with component"
         />
       }
-      imageProps={{
-        alt: "Image example",
-        src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
-      }}
+      imageProps={imageProps}
       isDarkBackgroundImage
       subHeaderText={otherSubHeaderText}
     />
@@ -454,10 +493,10 @@ export const TextColorStyles: Story = {
               id="campaign-hero-long-text-heading"
               overline="Example"
               subtitle="Donec id elit non mi porta gravida at eget metus."
-              text="Hero Campaign"
+              text="Hero Campaign with component"
             />
           }
-          imageProps={imageProps}
+          imageProps={componentImageProps}
           isDarkBackgroundImage
           isDarkText
           subHeaderText={otherSubHeaderTextLong}

@@ -32,7 +32,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
               role="alert"
             />
             <div
-              className=" css-1u8qly9"
+              className="css-1u8qly9"
               id="basic-start-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -86,7 +86,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
               role="alert"
             />
             <div
-              className=" css-1u8qly9"
+              className="css-1u8qly9"
               id="basic-end-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -172,7 +172,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
               role="alert"
             />
             <div
-              className=" css-1u8qly9"
+              className="css-1u8qly9"
               id="no-label-start-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -226,7 +226,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
               role="alert"
             />
             <div
-              className=" css-1u8qly9"
+              className="css-1u8qly9"
               id="no-label-end-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -312,7 +312,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
               role="alert"
             />
             <div
-              className=" css-1u8qly9"
+              className="css-1u8qly9"
               id="custom-format-start-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -366,7 +366,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
               role="alert"
             />
             <div
-              className=" css-1u8qly9"
+              className="css-1u8qly9"
               id="custom-format-end-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -452,7 +452,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               role="alert"
             />
             <div
-              className=" css-1u8qly9"
+              className="css-1u8qly9"
               id="invalid-start-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -524,7 +524,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               role="alert"
             />
             <div
-              className=" css-1u8qly9"
+              className="css-1u8qly9"
               id="invalid-end-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -633,7 +633,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               role="alert"
             />
             <div
-              className=" css-1u8qly9"
+              className="css-1u8qly9"
               id="disabled-start-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -687,7 +687,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               role="alert"
             />
             <div
-              className=" css-1u8qly9"
+              className="css-1u8qly9"
               id="disabled-end-wrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -767,7 +767,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
           role="alert"
         />
         <div
-          className=" css-1u8qly9"
+          className="css-1u8qly9"
           id="basic-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -836,7 +836,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
           role="alert"
         />
         <div
-          className=" css-1u8qly9"
+          className="css-1u8qly9"
           id="no-label-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -898,7 +898,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
           role="alert"
         />
         <div
-          className=" css-1u8qly9"
+          className="css-1u8qly9"
           id="custom-format-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -967,7 +967,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
           role="alert"
         />
         <div
-          className=" css-1u8qly9"
+          className="css-1u8qly9"
           id="invalid-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -1054,7 +1054,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
           role="alert"
         />
         <div
-          className=" css-1u8qly9"
+          className="css-1u8qly9"
           id="disabled-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -1140,7 +1140,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
           role="alert"
         />
         <div
-          className=" css-1u8qly9"
+          className="css-1u8qly9"
           id="chakra-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -1227,7 +1227,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
           role="alert"
         />
         <div
-          className=" css-1u8qly9"
+          className="css-1u8qly9"
           id="props-start-wrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}

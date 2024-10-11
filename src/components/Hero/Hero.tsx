@@ -55,14 +55,15 @@ export interface HeroProps {
   heroType?: HeroTypes;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
-  /** Object used to create and render the `Image` component. Note that only
-   * `alt`, `component`, and `src` are the available attributes to pass. If
-   * `imageProps.alt` is left blank, a warning will be logged to the console and
+  /** Object used to create and render the `Image` component. You can pass `component`
+   * (with its own internal props, which will override) or `src`, `alt`, `id`, `fallBackSrc`, and `onError`.
+   * If `imageProps.alt` is left blank, a warning will be logged to the console and
    * will cause accessibility issues. For `imageProps.src`, it will only work for
-   * the "secondary", "fiftyFifty" and "campaign" `Hero` types; Note: `imageProps.src`
-   * can only be used in conjunction with `backgroundImageSrc` for the "campaign"
-   * `Hero` type. Note: not all `Hero` variations utilize this prop. */
-  imageProps?: ComponentImageProps;
+   * the "secondary", "fiftyFifty" and "campaign" `Hero` types. */
+  imageProps?: Pick<
+    ComponentImageProps,
+    "src" | "alt" | "id" | "fallbackSrc" | "onError" | "component"
+  >;
   /** Optional boolean used to toggle the default text color from light to dark.
    * Set isDarkText to `true` if the backgroundColor is set to a light color. */
   isDarkText?: boolean;
@@ -116,10 +117,21 @@ export const Hero: ChakraComponent<
       let backgroundImageStyle = {};
       let contentBoxStyling = {};
 
+      const imageToRender = (
+        <Image
+          alt={imageProps.alt}
+          component={imageProps.component}
+          fallbackSrc={imageProps.fallbackSrc}
+          id={imageProps.id}
+          onError={imageProps.onError}
+          src={imageProps.src}
+        />
+      );
+
+      // Using the custom Image component's props to check requirements.
       if (imageProps.component) {
-        const { src, id, alt, fallbackSrc, onError } =
-          imageProps.component.props;
-        Object.assign(imageProps, { src, id, alt, fallbackSrc, onError });
+        const { src, alt } = imageProps.component.props;
+        Object.assign(imageProps, { src, alt });
       }
 
       if (imageProps.src && !imageProps.alt) {
@@ -297,15 +309,6 @@ export const Hero: ChakraComponent<
         );
       }
 
-      const imageToRender = (
-        <Image
-          alt={imageProps.alt}
-          fallbackSrc={imageProps.fallbackSrc}
-          id={imageProps.id}
-          onError={imageProps.onError}
-          src={imageProps.src}
-        />
-      );
       const childrenToRender =
         heroType === "campaign" ? (
           <>
