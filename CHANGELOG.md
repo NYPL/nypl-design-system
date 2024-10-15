@@ -21,7 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Removes
 
-- Removes unused dependencies, one of which was causing a dependabot warning.
+- Removes unused dependencies, two of which were causing npm vulnerabilities.
 
 ## 3.4.0 (October 2, 2024)
 
