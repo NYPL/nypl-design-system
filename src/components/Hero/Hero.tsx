@@ -30,6 +30,12 @@ export const heroSecondaryTypes = [
   "secondaryWhatsOn",
 ];
 
+export interface HeroImageProps
+  extends Pick<
+    ComponentImageProps,
+    "alt" | "fallbackSrc" | "id" | "src" | "onError" | "component"
+  > {}
+
 export interface HeroProps {
   /**
    * Optional background color for the backdrop only in the `campaign` variant.
@@ -60,10 +66,7 @@ export interface HeroProps {
    * If `imageProps.alt` is left blank, a warning will be logged to the console and
    * will cause accessibility issues. For `imageProps.src`, it will only work for
    * the "secondary", "fiftyFifty" and "campaign" `Hero` types. */
-  imageProps?: Pick<
-    ComponentImageProps,
-    "src" | "alt" | "id" | "fallbackSrc" | "onError" | "component"
-  >;
+  imageProps?: HeroImageProps;
   /** Optional boolean used to toggle the default text color from light to dark.
    * Set isDarkText to `true` if the backgroundColor is set to a light color. */
   isDarkText?: boolean;
@@ -129,10 +132,10 @@ export const Hero: ChakraComponent<
       );
 
       // Using the custom Image component's props to check requirements.
-      if (imageProps.component) {
-        const { src, alt } = imageProps.component.props;
-        Object.assign(imageProps, { src, alt });
-      }
+      // if (imageProps.component) {
+      //   const { src, alt } = imageProps.component.props;
+      //   Object.assign(imageProps, { src, alt });
+      // }
 
       if (imageProps.src && !imageProps.alt) {
         console.warn(
