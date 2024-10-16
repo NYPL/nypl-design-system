@@ -20,6 +20,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `ProgressIndicator` component to add the `labelPlacement` prop to allow for custom placement of a label for circular indicators.
 - Updates Vite from `5.2.8` to `5.2.14` to fix a security vulnerability.
 
+### Removes
+
+- Removes unused dependencies, two of which were causing npm vulnerabilities.
+
 ## 3.4.0 (October 2, 2024)
 
 ### Updates
