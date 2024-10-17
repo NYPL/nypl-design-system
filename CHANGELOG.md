@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates image props in the `Hero` component to allow custom components.
+- Updates image props in the `Hero` component to allow custom image components.
 
 ## 3.4.0 (October 2, 2024)
 
