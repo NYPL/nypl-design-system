@@ -29,6 +29,7 @@ import communicationEmail from "../../../icons/svg/communication-email.svg";
 import check from "../../../icons/svg/check.svg";
 import clock from "../../../icons/svg/clock.svg";
 import close from "../../../icons/svg/close.svg";
+import decorativeBookBroken from "../../../icons/svg/decorative-book-broken.svg";
 import decorativeEnvelope from "../../../icons/svg/decorative-envelope.svg";
 import decorativeLibraryCard from "../../../icons/svg/decorative-library-card.svg";
 import decorativeShoppingBag from "../../../icons/svg/decorative-shopping-bag.svg";
@@ -105,6 +106,7 @@ export default {
   communicationCall,
   communicationChatBubble,
   communicationEmail,
+  decorativeBookBroken,
   decorativeEnvelope,
   decorativeLibraryCard,
   decorativeShoppingBag,
