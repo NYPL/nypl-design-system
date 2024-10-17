@@ -9,6 +9,7 @@ import Hero, { heroSecondaryTypes, heroTypesArray } from "./Hero";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
 import { getPlaceholderImage } from "../../utils/utils";
+import Image from "../Image/Image";
 
 const secondarySubHeaderText = (
   <>
@@ -70,6 +71,12 @@ const otherSubHeaderTextLong = (
 const imageProps = {
   alt: "Image example",
   src: getPlaceholderImage(),
+};
+
+const componentImageProps = {
+  component: (
+    <Image alt={"Custom Image component example"} src={getPlaceholderImage()} />
+  ),
 };
 
 const meta: Meta<typeof Hero> = {
@@ -321,6 +328,25 @@ export const Campaign: Story = {
     </Stack>
   ),
 };
+
+export const HeroWithCustomImage: Story = {
+  render: () => (
+    <Hero
+      backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
+      heroType="campaign"
+      heading={
+        <Heading
+          level="h1"
+          id="campaign-hero-long-text-heading"
+          text="Hero Campaign With DS Image Component"
+        />
+      }
+      imageProps={componentImageProps}
+      subHeaderText={otherSubHeaderTextLong}
+    />
+  ),
+};
+
 export const CampaignDarkBackgroundImage: Story = {
   render: () => (
     <Hero
@@ -333,10 +359,7 @@ export const CampaignDarkBackgroundImage: Story = {
           text="Hero Campaign"
         />
       }
-      imageProps={{
-        alt: "Image example",
-        src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
-      }}
+      imageProps={imageProps}
       isDarkBackgroundImage
       subHeaderText={otherSubHeaderText}
     />
