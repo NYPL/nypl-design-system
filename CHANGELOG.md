@@ -13,13 +13,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `"decorativeBookBroken"` option (for error pages) to the `Icon` component.
 - Adds the `"xxxxlarge"` and `"xxxxxlarge"` size options for the `Icon` component.
 - Adds the `"2xlarge"`, `"3xlarge"`, `"4xlarge"`, and `"5xlarge"` sustainable size options for the `Icon` component.
+- Updates image props in the `Hero` component to allow custom image components.
 
 ### Updates
 
 - Updates `Select` in the `SearchBar` component to allow long option titles before truncation.
 - Updates the `ProgressIndicator` component to add the `labelPlacement` prop to allow for custom placement of a label for circular indicators.
 - Updates Vite from `5.2.8` to `5.2.14` to fix a security vulnerability.
-- Updates image props in the `Hero` component to allow custom image components.
 
 ### Removes
 
