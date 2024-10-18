@@ -19,7 +19,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Select` in the `SearchBar` component to allow long option titles before truncation.
 - Updates the `ProgressIndicator` component to add the `labelPlacement` prop to allow for custom placement of a label for circular indicators.
 - Updates Vite from `5.2.8` to `5.2.14` to fix a security vulnerability.
-- Updates image props in the `Hero` component to allow custom image components.
 
 ### Removes
 
