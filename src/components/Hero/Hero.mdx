@@ -16,10 +16,10 @@ import Link from "../Link/Link";
 
 # Hero
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.2.0`    |
-| Latest            | `3.1.2`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.2.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -28,6 +28,7 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#active-variants" target="_self">Active Variants</Link>}
 - {<Link href="#text-colors" target="_self">Text Colors</Link>}
+- {<Link href="#custom-image-component" target="_self">Custom Image Component</Link>}
 - {<Link href="#fallback-campaign-image" target="_self">Fallback Campaign Image</Link>}
 - {<Link href="#deprecated-variants" target="_self">Deprecated Variants</Link>}
 - {<Link href="#color-variations-for-secondary-hero" target="_self">Color Variations for Secondary Hero</Link>}
@@ -483,6 +484,47 @@ should not be used at the same time.
 `}
   language="jsx"
 />
+
+## Custom Image Component
+
+Instead of passing a path for the `imageProps.src` prop, you can pass a custom image component using the `imageProps.component` prop.
+Note that this only impacts the "campaign" variant, and the custom component will only replace the foreground image, since the background image is set using `background-image`.
+
+<Source
+  code={`
+import Image as NextImage from "next/image";
+
+const CampaignCustomImageExample = () => {
+return (
+
+  <Hero
+    heroType="campaign"
+    heading={
+      <Heading
+        level="h1"
+        id="campaign-custom-image"
+        text="Hero Campaign with Custom Image"
+      />
+    }
+    imageProps={{
+      component: (
+        <NextImage
+          alt={"Alt text"}
+          fill
+          src={"/image.jpg""}
+          onError={(\_event) => {
+          handleError(\_event);
+          }}
+        />
+      ),
+    }}
+    />
+  )
+`}
+  language="jsx"
+/>
+
+<Canvas of={HeroStories.HeroWithCustomImage} />
 
 ## Fallback Campaign Image
 
