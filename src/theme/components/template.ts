@@ -1,19 +1,13 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
-/**
- * Grid layout based on https://www.joshwcomeau.com/css/full-bleed/
- */
+
+export const responsiveGap = { base: "1rem", md: "1.5rem", xl: "1rem" };
+export const responsivePadding = { base: "1rem", md: "1.5rem", xl: "2rem" };
 
 const Template = defineStyleConfig({
   baseStyle: defineStyle({
     boxSizing: "border-box",
     color: "ui.typography.body",
-    display: "grid",
-    gridTemplateColumns: `
-      1fr
-      min(1280px, 100%)
-      1fr`,
-    rowGap: "grid.l",
     _dark: {
       color: "dark.ui.typography.body",
     },
@@ -21,83 +15,52 @@ const Template = defineStyleConfig({
   sizes: {},
   defaultProps: {},
 });
-// Elements that need to breakout will span outside
-// the center 1280px grid column.
-const TemplateBreakout = defineStyleConfig({
-  baseStyle: defineStyle({
-    width: "100%",
-    // This could be "1 / 4" and it would mean the same. This is
-    // "future-proof" the grid column assignment to the last column.
-    gridColumn: "1 / -1",
-  }),
-});
+
 const TemplateContent = defineStyleConfig({
   baseStyle: defineStyle({
-    // Set this element to start on the second 1280px grid column.
-    gridColumn: "2",
-    // This element also contains its own grid system within, but we use "flex"
-    // for mobile to deal with overflow issues related to the Table component.
-    display: { base: "flex", md: "grid" },
-    flexDirection: { base: "column", md: null },
-    gridTemplateColumns: "1fr",
-    paddingY: 0,
-    paddingX: "s",
-    gap: "grid.l",
+    display: "grid",
+    gridTemplateColumns: {
+      base: "repeat(1, minmax(100px, 1fr))",
+    },
+    gap: responsiveGap,
+    padding: responsivePadding,
   }),
-  // With left or right sidebars, we need to set two grid columns and
-  // the column for the sidebar is max 255px width.
+
   variants: {
     left: {
-      gridTemplateColumns: { md: "255px 1fr" },
+      gridTemplateColumns: {
+        md: "repeat(2, minmax(100px, 1fr))",
+        lg: "1fr 2fr",
+        xl: "1fr 3fr",
+      },
     },
     right: {
-      gridTemplateColumns: { md: "1fr 255px" },
+      gridTemplateColumns: {
+        md: "repeat(2, minmax(100px, 1fr))",
+        lg: "2fr 1fr",
+        xl: "3fr 1fr",
+      },
     },
   },
 });
 
 const TemplateContentTopBottom = defineStyleConfig({
   baseStyle: defineStyle({
-    gridColumn: { base: "1", md: "1 / span 2" },
-    height: "100%",
+    /** 1 / -1 ensures the item spans all columns,
+     * no matter how many there are. */
+    gridColumn: "1 / -1",
   }),
 });
 
-/** The overflow styles were added to deal with overflow issues related to the
- * Table component. */
 const TemplateContentPrimary = defineStyleConfig({
   baseStyle: defineStyle({
-    gridColumn: { base: "1", md: "1 / span 2" },
+    overflow: "hidden",
   }),
-  variants: {
-    left: {
-      gridColumn: { base: "1", md: "2" },
-      marginEnd: { md: 0 },
-      minWidth: { md: 0 },
-      overflow: { base: "unset", md: "hidden" },
-    },
-    right: {
-      gridColumn: { base: "1", md: "1" },
-      overflow: { base: "unset", md: "hidden" },
-    },
-  },
-});
-const TemplateContentSidebar = defineStyleConfig({
-  variants: {
-    left: {
-      gridColumn: "1",
-    },
-    right: {
-      gridColumn: { base: "1", md: "2" },
-    },
-  },
 });
 
 export default {
   Template,
-  TemplateBreakout,
   TemplateContent,
   TemplateContentTopBottom,
   TemplateContentPrimary,
-  TemplateContentSidebar,
 };

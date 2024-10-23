@@ -89,8 +89,7 @@ const Template: ChakraComponent<
 const TemplateAboveHeader: React.FC<any> = (
   props: React.PropsWithChildren<TemplateProps>
 ) => {
-  const styles = useStyleConfig("TemplateBreakout", {});
-  return <Box __css={styles}>{props.children}</Box>;
+  return <Box>{props.children}</Box>;
 };
 
 /**
@@ -104,8 +103,7 @@ const TemplateHeader: React.FC<any> = ({
   children,
   renderHeaderElement = true,
 }: React.PropsWithChildren<TemplateHeaderProps>) => {
-  const styles = useStyleConfig("TemplateBreakout", {});
-  let headerElement = <Box __css={styles}>{children}</Box>;
+  let headerElement = <Box>{children}</Box>;
 
   // The user wants to render the `header` HTML element.
   if (renderHeaderElement) {
@@ -120,11 +118,7 @@ const TemplateHeader: React.FC<any> = ({
         );
       }
     });
-    headerElement = (
-      <Box as="header" __css={styles}>
-        {children}
-      </Box>
-    );
+    headerElement = <Box as="header">{children}</Box>;
   }
   return headerElement;
 };
@@ -138,8 +132,7 @@ const TemplateHeader: React.FC<any> = ({
 const TemplateBreakout: React.FC<any> = (
   props: React.PropsWithChildren<TemplateProps>
 ) => {
-  const styles = useStyleConfig("TemplateBreakout", {});
-  return <Box __css={styles}>{props.children}</Box>;
+  return <Box>{props.children}</Box>;
 };
 
 /**
@@ -242,11 +235,7 @@ const TemplateContentPrimary: React.FC<any> = (
 const TemplateContentSidebar: React.FC<any> = (
   props: React.PropsWithChildren<TemplateContentProps>
 ) => {
-  const { sidebar } = props;
-  const styles = useStyleConfig("TemplateContentSidebar", {
-    variant: sidebar,
-  });
-  return <Box __css={styles}>{props.children}</Box>;
+  return <Box>{props.children}</Box>;
 };
 
 /**
@@ -259,8 +248,8 @@ const TemplateFooter: React.FC<any> = ({
   children,
   renderFooterElement = true,
 }: React.PropsWithChildren<TemplateFooterProps>) => {
-  const styles = useStyleConfig("TemplateBreakout", {});
-  let footerElement = <Box __css={styles}>{children}</Box>;
+  // const styles = useStyleConfig("TemplateBreakout", {});
+  let footerElement = <Box>{children}</Box>;
 
   // The user wants to render the `footer` HTML element.
   if (renderFooterElement) {
@@ -274,11 +263,7 @@ const TemplateFooter: React.FC<any> = ({
         );
       }
     });
-    footerElement = (
-      <Box as="footer" __css={styles}>
-        {children}
-      </Box>
-    );
+    footerElement = <Box as="footer">{children}</Box>;
   }
   return footerElement;
 };

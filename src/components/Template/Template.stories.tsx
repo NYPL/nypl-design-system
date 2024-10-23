@@ -230,7 +230,7 @@ export const WithControls: Story = {
     },
   },
 };
-// The following are additional Template example Stories.
+// The following are additional Template example stories.
 export const ChildrenComponentProps: Story = {
   args: {
     sidebar: "left",
@@ -341,7 +341,7 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
         <TemplateContent sidebar="right">
           <TemplateContentTop>
             <Banner
-              content="This is an the top content area!"
+              content="This is the top content area!"
               heading="Content Top"
               type="informative"
             />
@@ -440,7 +440,7 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
           </TemplateContentSidebar>
           <TemplateContentBottom>
             <Banner
-              content="This is an the bottom content area!"
+              content="This is the bottom content area!"
               heading="Content Bottom"
               type="informative"
             />
