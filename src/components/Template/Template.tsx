@@ -248,7 +248,6 @@ const TemplateFooter: React.FC<any> = ({
   children,
   renderFooterElement = true,
 }: React.PropsWithChildren<TemplateFooterProps>) => {
-  // const styles = useStyleConfig("TemplateBreakout", {});
   let footerElement = <Box>{children}</Box>;
 
   // The user wants to render the `footer` HTML element.
