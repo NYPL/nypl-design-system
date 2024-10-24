@@ -55,6 +55,14 @@ const TemplateContentTopBottom = defineStyleConfig({
 const TemplateContentPrimary = defineStyleConfig({
   baseStyle: defineStyle({
     overflow: "hidden",
+    // We need `overflow: hidden` to ensure larger elements passed to the template
+    // appear correctly, but it also cuts off the default focus ring. The following
+    // offset property ensures the focus ring is fully visible.
+    "*": {
+      _focus: {
+        outlineOffset: "-2px !important",
+      },
+    },
   }),
 });
 
