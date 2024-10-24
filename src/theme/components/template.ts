@@ -27,6 +27,9 @@ const TemplateContent = defineStyleConfig({
   }),
 
   variants: {
+    // If neither `left` nor `right` variants are used, we default to
+    // `none` and the grid will show 1 column only at any viewport
+    // width.
     left: {
       gridTemplateColumns: {
         md: "repeat(2, minmax(100px, 1fr))",
