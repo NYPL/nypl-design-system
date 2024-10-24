@@ -27,9 +27,8 @@ const TemplateContent = defineStyleConfig({
   }),
 
   variants: {
-    // If neither `left` nor `right` variants are used, we default to
-    // `none` and the grid will show 1 column only at any viewport
-    // width.
+    /** If neither `left` nor `right` variants are used, we default to `none` and
+     * the grid will show 1 column only at any viewport width. */
     left: {
       gridTemplateColumns: {
         md: "repeat(2, minmax(100px, 1fr))",
@@ -49,8 +48,7 @@ const TemplateContent = defineStyleConfig({
 
 const TemplateContentTopBottom = defineStyleConfig({
   baseStyle: defineStyle({
-    /** 1 / -1 ensures the item spans all columns,
-     * no matter how many there are. */
+    /** 1 / -1 ensures the item spans all columns, no matter how many there are. */
     gridColumn: "1 / -1",
   }),
 });
@@ -58,9 +56,9 @@ const TemplateContentTopBottom = defineStyleConfig({
 const TemplateContentPrimary = defineStyleConfig({
   baseStyle: defineStyle({
     overflow: "hidden",
-    // We need `overflow: hidden` to ensure larger elements passed to the template
-    // appear correctly, but it also cuts off the default focus ring. The following
-    // offset property ensures the focus ring is fully visible.
+    /**  We need `overflow: hidden` to ensure larger elements passed to the template
+     * appear correctly, but it also cuts off the default focus ring. The following
+     * offset property ensures the focus ring is fully visible. */
     "*": {
       _focus: {
         outlineOffset: "-2px !important",
