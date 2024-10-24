@@ -138,6 +138,7 @@ export const iconNamesArray = [
   "communicationCall",
   "communicationChatBubble",
   "communicationEmail",
+  "decorativeBookBroken",
   "decorativeEnvelope",
   "decorativeLibraryCard",
   "decorativeShoppingBag",
@@ -198,5 +199,11 @@ export const iconSizesArray = [
   "xlarge",
   "xxlarge",
   "xxxlarge",
+  "xxxxlarge",
+  "xxxxxlarge",
+  "2xlarge",
+  "3xlarge",
+  "4xlarge",
+  "5xlarge",
 ] as const;
 export const iconTypesArray = ["default", "breadcrumbs"] as const;
