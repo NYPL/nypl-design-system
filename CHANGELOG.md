@@ -8,9 +8,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### Adds
+### Updates
 
-- Adds the `labelFontSize` prop to the `StatusBadge` component.
+- Updates the `StatusBadge` component to support the `fontSize` style prop.
 
 ## 3.5.3 (January 30, 2025)
 

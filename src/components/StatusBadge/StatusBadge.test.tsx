@@ -90,21 +90,21 @@ describe("StatusBadge", () => {
       .toJSON();
     const body1 = renderer
       .create(
-        <StatusBadge id="body1" type="neutral">
+        <StatusBadge fontSize="desktop.body.body1" id="body1" type="neutral">
           Font size body1
         </StatusBadge>
       )
       .toJSON();
     const body2 = renderer
       .create(
-        <StatusBadge id="body2" type="neutral">
+        <StatusBadge fontSize="desktop.body.body2" id="body2" type="neutral">
           Font size body2
         </StatusBadge>
       )
       .toJSON();
     const caption = renderer
       .create(
-        <StatusBadge id="caption" type="neutral">
+        <StatusBadge fontSize="desktop.caption" id="caption" type="neutral">
           Font size caption
         </StatusBadge>
       )

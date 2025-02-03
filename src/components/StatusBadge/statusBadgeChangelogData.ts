@@ -14,7 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "New Feature",
     affects: ["Styles", "Functionality"],
-    notes: ["Adds the `labelFontSize` prop."],
+    notes: ["Adds support for the `fontSize` style prop."],
   },
   {
     date: "2024-04-25",

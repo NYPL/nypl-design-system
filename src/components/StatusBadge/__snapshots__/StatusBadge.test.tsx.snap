@@ -83,7 +83,7 @@ exports[`StatusBadge renders the UI snapshot correctly 9`] = `
 
 exports[`StatusBadge renders the UI snapshot correctly 10`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-8tjen4"
   id="body1"
 >
   Font size body1
@@ -92,7 +92,7 @@ exports[`StatusBadge renders the UI snapshot correctly 10`] = `
 
 exports[`StatusBadge renders the UI snapshot correctly 11`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1lkzcz8"
   id="body2"
 >
   Font size body2
@@ -101,7 +101,7 @@ exports[`StatusBadge renders the UI snapshot correctly 11`] = `
 
 exports[`StatusBadge renders the UI snapshot correctly 12`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1jsj0zc"
   id="caption"
 >
   Font size caption
