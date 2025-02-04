@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Checkbox` component to set the correct background color for all states.
+
 ## 3.5.3 (January 30, 2025)
 
 ### Adds
