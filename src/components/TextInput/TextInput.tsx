@@ -134,7 +134,7 @@ export interface InputProps
   isRequired?: boolean;
   /** Provides text for a `Label` component if `showLabel` is set to true;
    * populates an `aria-label` attribute if `showLabel` is set to false. */
-  labelText: string;
+  labelText: string | JSX.Element;
   /** The max number for a `number` TextInput type. */
   max?: number;
   /** The max length of the input field. This prop is for all input types

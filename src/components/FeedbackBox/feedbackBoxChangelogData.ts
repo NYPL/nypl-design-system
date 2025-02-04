@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      'Changes the font weight for the `(required)` label on the `Textarea` element to `"medium"`.',
+    ],
+  },
+  {
     date: "2024-10-02",
     version: "3.4.0",
     type: "Update",

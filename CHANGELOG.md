@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Label` component to set the font weight for the `(required)` label to `"medium"`.
+- Updates the `Fieldset` component to set the font weight for the `(required)` label to `"medium"`.
+- Updates the `FeedbackBox` component to set the font weight for the `(required)` label on the `Textarea` element to `"medium"`.
+
 ## 3.5.3 (January 30, 2025)
 
 ### Adds
