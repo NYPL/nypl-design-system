@@ -10,11 +10,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates the `Menu` compmonent to set the line height to 1.5 for menu options.
+- Updates the `Menu` component to set the line height to 1.5 for menu options.
 
 ### Fixes
 
-- Fixes the circulr styles for images in the `Menu` compmonent.
+- Fixes the circular styles for images in the `Menu` component.
 
 ## 3.5.3 (January 30, 2025)
 

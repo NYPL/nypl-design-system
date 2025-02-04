@@ -197,7 +197,6 @@ export const Menu: ChakraComponent<
               <Box w="1.5rem" h="1.5rem">
                 <Image
                   alt={media.alt}
-                  // size="xxxsmall"
                   src={media.src}
                   /** Using custom styles to handle the size and rounded shape
                    * because the complexity if the Image component is not
