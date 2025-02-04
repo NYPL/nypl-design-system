@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Updates the `FeedbackBox` compoenent to set the font weight for the popup header to `medium`.
+- Updates the `FeedbackBox` component to set the font weight for the popup header to `medium`.
 
 ## 3.5.3 (January 30, 2025)
 
