@@ -8,6 +8,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Menu` compmonent to set the line height to 1.5 for menu options.
+
+### Fixes
+
+- Fixes the circulr styles for images in the `Menu` compmonent.
+
 ## 3.5.3 (January 30, 2025)
 
 ### Adds
