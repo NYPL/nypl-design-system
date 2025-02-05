@@ -15,6 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
+      "Sets the font weight for the popup header to `medium`.",
       'Changes the font weight for the `(required)` label on the `Textarea` element to `"medium"`.',
     ],
   },

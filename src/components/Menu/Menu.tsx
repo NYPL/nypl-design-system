@@ -194,12 +194,21 @@ export const Menu: ChakraComponent<
             return <Icon name={media.name} size="medium" />;
           } else {
             return (
-              <Image
-                src={media.src}
-                alt={media.alt}
-                size="xxxsmall"
-                sx={{ borderRadius: "24px" }}
-              />
+              <Box w="1.5rem" h="1.5rem">
+                <Image
+                  alt={media.alt}
+                  src={media.src}
+                  /** Using custom styles to handle the size and rounded shape
+                   * because the complexity of the Image component is not
+                   * playing nice with the Menu component. */
+                  __css={{
+                    borderRadius: "1.5rem",
+                    height: "1.5rem",
+                    objectFit: "cover",
+                    width: "1.5rem",
+                  }}
+                />
+              </Box>
             );
           }
         }
