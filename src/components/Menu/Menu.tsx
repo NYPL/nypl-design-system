@@ -199,7 +199,7 @@ export const Menu: ChakraComponent<
                   alt={media.alt}
                   src={media.src}
                   /** Using custom styles to handle the size and rounded shape
-                   * because the complexity if the Image component is not
+                   * because the complexity of the Image component is not
                    * playing nice with the Menu component. */
                   __css={{
                     borderRadius: "1.5rem",
