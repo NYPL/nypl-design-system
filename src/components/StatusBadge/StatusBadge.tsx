@@ -1,8 +1,15 @@
 import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
+export const statusBadgeFontSizeArray = [
+  "desktop.body.body1",
+  "desktop.body.body2",
+  "desktop.caption",
+] as const;
+
 export const statusBadgeLevelArray = ["low", "medium", "high"] as const;
 export type StatusBadgeLevels = typeof statusBadgeLevelArray[number];
+
 export const statusBadgeTypeArray = [
   "informative",
   "negative",
@@ -34,17 +41,19 @@ export interface StatusBadgeProps {
  */
 export const StatusBadge: ChakraComponent<
   React.ForwardRefExoticComponent<
-    StatusBadgeProps & {
-      children?: React.ReactNode;
-    } & React.RefAttributes<HTMLDivElement>
+    React.PropsWithChildren<StatusBadgeProps> &
+      React.RefAttributes<HTMLDivElement>
   >,
-  StatusBadgeProps
+  React.PropsWithChildren<StatusBadgeProps>
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<StatusBadgeProps>>(
     (props, ref?) => {
       const { children, className, id, level, type, ...rest } = props;
       const finalVariant = level ? level : type ? type : "low";
-      const styles = useStyleConfig("StatusBadge", { variant: finalVariant });
+      const styles = useStyleConfig("StatusBadge", {
+        labelFontSize: rest["fontSize"],
+        variant: finalVariant,
+      });
 
       if (!children) {
         console.warn("NYPL Reservoir StatusBadge: No children were passed.");
