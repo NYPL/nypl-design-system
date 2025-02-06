@@ -15,8 +15,8 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Updates the `primary` variant of the `Hero` component to have appropriate padding for desktop and mobile, and `max-width` of 860px",
-      "Updates the `campaign` variant of the `Hero component to have consistent padding.",
+      "Updates the `primary` variant to have appropriate padding for desktop and mobile, and `max-width` of 860px",
+      "Updates the `campaign` variant to have consistent padding.",
     ],
   },
   {

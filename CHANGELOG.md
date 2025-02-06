@@ -11,7 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `primary` variant of the `Hero` component to have appropriate padding for desktop and mobile, and `max-width` of 860px
-- Updates the `campaign` variant of the `Hero component to have consistent padding.
+- Updates the `campaign` variant of the `Hero` component to have consistent padding.
 
 ## 3.5.3 (January 30, 2025)
 
