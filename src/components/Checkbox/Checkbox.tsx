@@ -2,7 +2,6 @@ import {
   chakra,
   ChakraComponent,
   Checkbox as ChakraCheckbox,
-  Icon,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -10,6 +9,7 @@ import React, { forwardRef } from "react";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
+import Icon from "../Icons/Icon";
 
 interface CheckboxIconProps {
   /** When using the Checkbox as a "controlled" form element, you can specify
@@ -60,15 +60,10 @@ function CheckboxIcon(props: CheckboxIconProps) {
   // We don't need the `isIndeterminate` or `isChecked` props but it
   // causes rendering issues on the SVG element, so we remove them
   // before passing all the props to the `Icon` component.
-  const { isIndeterminate, isChecked, ...rest } = props;
+  const { isIndeterminate, isChecked } = props;
 
   return isChecked || isIndeterminate ? (
-    <Icon viewBox="0 0 24 24" {...rest}>
-      <path
-        fill="currentColor"
-        d="M8.795 15.875l-4.17-4.17-1.42 1.41 5.59 5.59 12-12-1.41-1.41-10.59 10.58z"
-      />
-    </Icon>
+    <Icon name="check" size="large" sx={{ fill: "currentColor" }} />
   ) : null;
 }
 
