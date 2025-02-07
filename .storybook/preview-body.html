@@ -4,7 +4,7 @@
 <style>
   /* Set base font size */
   .sbdocs
-    :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled
+    :where(p:not(.chakra-text, .sb-anchor, .sb-unstyled, .sb-unstyled
         p), li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
     font-family: system-ui, sans-serif;
     font-size: 18px;
@@ -13,7 +13,8 @@
   .sbdocs :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) code {
     font-size: 15px;
   }
-  .sbdocs :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) {
+  .sbdocs
+    :where(p:not(.chakra-text, .sb-anchor, .sb-unstyled, .sb-unstyled p)) {
     margin-block-start: 1.25rem;
     margin-block-end: 1.25rem;
   }

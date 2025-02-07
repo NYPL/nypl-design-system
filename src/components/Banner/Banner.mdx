@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as BannerStories from "./Banner.stories";
+import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./bannerChangelogData";
 
 <Meta of={BannerStories} />
-
-# Banner
-
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `3.1.0`    |
-| Latest            | `3.3.0`    |
+{
+  <Heading
+    level="h1"
+    overline="Feedback component"
+    size="display1"
+    subtitle="Provides contextual messages about page content and user actions"
+  >
+    Banner
+  </Heading>
+}
 
 ## Table of Contents
 
@@ -32,6 +36,8 @@ import { changelogData } from "./bannerChangelogData";
 
 <Description of={BannerStories} />
 
+<Canvas of={BannerStories.WithControls} />
+
 **IMPORTANT:** The `Banner` component is similar in form and function to the
 `Notification` component. However, the `Notification` component should be used
 for global messaging located at the top of the site, above the NYPL header,
@@ -39,8 +45,6 @@ while the `Banner` component should be used for all messaging that sits within
 the flow of the page.
 
 ## Component Props
-
-<Canvas of={BannerStories.WithControls} />
 
 <ArgTypes of={BannerStories.WithControls} />
 
@@ -252,5 +256,10 @@ HTML content passed as a string is rendered as HTML, useful in cases where HTML 
 <Canvas of={BannerStories.StringContentWithHTML} />
 
 ## Changelog
+
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `3.1.0`    |
+| Latest            | `3.3.0`    |
 
 <ComponentChangelogTable changelogData={changelogData} />
