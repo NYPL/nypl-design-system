@@ -2,7 +2,7 @@ import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 import { wrapperStyles } from "./global";
 import { screenreaderOnly } from "./globalMixins";
-import breakpoints from "../foundations/breakpoints";
+import { setContainerStyles } from "../../utils/setContainerStyles";
 
 // This function creates a set of function that helps us
 // create multipart component styles.
@@ -48,34 +48,40 @@ const FeaturedContent = defineMultiStyleConfig({
           },
           img: screenreaderOnly(),
           containerType: "inline-size",
-          "@container (min-width: 0px)": {
-            "[data-wrapper]": {
-              flexDirection: imageAtEnd ? "column-reverse" : "column",
+          ...setContainerStyles({
+            breakpoint: "base",
+            styles: {
+              "[data-imageWrapper]": {
+                flexDirection: imageAtEnd ? "column-reverse" : "column",
+              },
+              "[data-image]": {
+                height: "320px",
+                width: "100%",
+              },
             },
-            "[data-image]": {
-              height: "320px",
-              width: "100%",
+          }),
+          ...setContainerStyles({
+            breakpoint: "md",
+            styles: {
+              "[data-imageWrapper]": {
+                flexDirection: imageAtEnd ? "row-reverse" : "row",
+                paddingLeft: full ? "s" : null,
+                paddingRight: full ? "s" : null,
+              },
+              "[data-image]": {
+                height: "auto",
+                width: wrapperWidth,
+              },
+              "[data-text]": {
+                /** The `paddingLeft` attribute is used to adjust the spacing around the
+                 * text when the image is positioned at the end. For aesthetic reasons,
+                 * we opted to not adjust the spacing around the text when the image is
+                 * positioned at the start.
+                 * */
+                paddingStart: full && imageAtEnd ? 0 : null,
+              },
             },
-          },
-          [`@container (min-width: ${breakpoints.md})`]: {
-            "[data-wrapper]": {
-              flexDirection: imageAtEnd ? "row-reverse" : "row",
-              paddingLeft: full ? "s" : null,
-              paddingRight: full ? "s" : null,
-            },
-            "[data-image]": {
-              height: "auto",
-              width: wrapperWidth,
-            },
-            "[data-text]": {
-              /** The `paddingLeft` attribute is used to adjust the spacing around the
-               * text when the image is positioned at the end. For aesthetic reasons,
-               * we opted to not adjust the spacing around the text when the image is
-               * positioned at the start.
-               * */
-              paddingStart: full && imageAtEnd ? 0 : null,
-            },
-          },
+          }),
         },
         wrapper: {
           ...wrapperStyles,

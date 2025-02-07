@@ -1,7 +1,7 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { defineStyle, StyleFunctionProps } from "@chakra-ui/system";
-import breakpoints from "../foundations/breakpoints";
+import { setContainerStyles } from "../../utils/setContainerStyles";
 import { baseLinkStyles } from "./link";
 
 const { defineMultiStyleConfig, definePartsStyle } =
@@ -133,60 +133,69 @@ const ReservoirCard = defineMultiStyleConfig({
       return {
         base: {
           containerType: "inline-size",
-          "@container (min-width: 0px)": {
-            "[data-wrapper]": {
-              flexFlow: isRow ? "column nowrap" : null,
-            },
-            "[data-actions]": {
-              flexShrink: isAlignedRightActions ? "0" : null,
-              marginStart: "0",
-              marginTop: "xs",
-              maxWidth: "100%",
-            },
-            "[data-body]": {
-              width: "100%",
-            },
-            ...(isRow && {
-              "[data-image]": {
+          ...setContainerStyles({
+            breakpoint: "base",
+            styles: {
+              "[data-imageWrapper]": {
+                flexFlow: isRow ? "column nowrap" : null,
+              },
+              "[data-actions]": {
+                flexShrink: isAlignedRightActions ? "0" : null,
+                marginStart: "0",
+                marginTop: "xs",
                 maxWidth: "100%",
-                margin: imageIsAtEnd ? "var(--nypl-space-m) 0 0" : null,
+              },
+              "[data-body]": {
                 width: "100%",
-                ...imageSizesMinWidth0[imageSize],
               },
-            }),
-          },
-          [`@container (min-width: ${breakpoints.sm})`]: {
-            "[data-body]": {
-              flexBasis: isRow ? "100%" : null,
+              ...(isRow && {
+                "[data-image]": {
+                  maxWidth: "100%",
+                  margin: imageIsAtEnd ? "var(--nypl-space-m) 0 0" : null,
+                  width: "100%",
+                  ...imageSizesMinWidth0[imageSize],
+                },
+              }),
             },
-          },
-          [`@container (min-width: ${breakpoints.md})`]: {
-            "[data-wrapper]": {
-              flexFlow: isRow ? "row" : null,
-            },
-            "[data-actions]": {
-              flexShrink: "0",
-              marginStart: "m",
-              marginTop: "0",
-              maxWidth: "180px",
-            },
-            "[data-body]": {
-              display: "block",
-              flexFlow: "row nowrap",
-              width: "auto",
-            },
-            ...(isRow && {
-              "[data-image]": {
-                maxWidth: "50%",
-                flex: "0 0 225px",
-                margin: imageIsAtEnd
-                  ? "0 0 0 var(--nypl-space-m)"
-                  : "0 var(--nypl-space-m) 0 0",
-                width: null,
-                ...imageSizesMinWidth600[imageSize],
+          }),
+          ...setContainerStyles({
+            breakpoint: "sm",
+            styles: {
+              "[data-body]": {
+                flexBasis: isRow ? "100%" : null,
               },
-            }),
-          },
+            },
+          }),
+          ...setContainerStyles({
+            breakpoint: "md",
+            styles: {
+              "[data-imageWrapper]": {
+                flexFlow: isRow ? "row" : null,
+              },
+              "[data-actions]": {
+                flexShrink: "0",
+                marginStart: "m",
+                marginTop: "0",
+                maxWidth: "180px",
+              },
+              "[data-body]": {
+                display: "block",
+                flexFlow: "row nowrap",
+                width: "auto",
+              },
+              ...(isRow && {
+                "[data-image]": {
+                  maxWidth: "50%",
+                  flex: "0 0 225px",
+                  margin: imageIsAtEnd
+                    ? "0 0 0 var(--nypl-space-m)"
+                    : "0 var(--nypl-space-m) 0 0",
+                  width: null,
+                  ...imageSizesMinWidth600[imageSize],
+                },
+              }),
+            },
+          }),
           width: "100%",
         },
         wrapper: {

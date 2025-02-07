@@ -330,7 +330,7 @@ export const Card: ChakraComponent<
               ...styles.wrapper,
               ...customColors,
             }}
-            data-wrapper
+            data-imageWrapper
             {...rest}
           >
             {hasImage && (

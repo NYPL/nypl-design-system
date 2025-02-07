@@ -1,5 +1,5 @@
-import breakpoints from "../foundations/breakpoints";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
+import { setContainerStyles } from "../../utils/setContainerStyles";
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["button", "select"]);
@@ -7,39 +7,45 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const SearchBar = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
     display: "flex",
-    "@container (min-width: 0px)": {
-      "&": { marginBottom: "xs", flexFlow: "column nowrap" },
-      "[data-select]": {
-        maxWidth: undefined,
-        marginBottom: "-1px",
-        paddingBottom: "xs",
-      },
-      "[data-button]": {
-        padding: "xs",
-        " > span": {
-          display: "none",
+    ...setContainerStyles({
+      breakpoint: "base",
+      styles: {
+        "&": { marginBottom: "xs", flexFlow: "column nowrap" },
+        "[data-select]": {
+          maxWidth: undefined,
+          marginBottom: "-1px",
+          paddingBottom: "xs",
+        },
+        "[data-button]": {
+          padding: "xs",
+          " > span": {
+            display: "none",
+          },
         },
       },
-    },
-    [`@container (min-width: ${breakpoints.md})`]: {
-      "&": { marginBottom: "auto", flexFlow: "row" },
-      "[data-select]": {
-        marginBottom: "0",
-        maxWidth: "255px",
-        paddingBottom: "unset",
-      },
-      "[data-button]": {
-        borderRightRadius: "sm",
-        maxWidth: "80px",
-        paddingTop: "xs",
-        paddingLeft: "s",
-        paddingBottom: "xs",
-        paddingRight: "s",
-        " > span": {
-          display: "block",
+    }),
+    ...setContainerStyles({
+      breakpoint: "md",
+      styles: {
+        "&": { marginBottom: "auto", flexFlow: "row" },
+        "[data-select]": {
+          marginBottom: "0",
+          maxWidth: "255px",
+          paddingBottom: "unset",
+        },
+        "[data-button]": {
+          borderRightRadius: "sm",
+          maxWidth: "80px",
+          paddingTop: "xs",
+          paddingLeft: "s",
+          paddingBottom: "xs",
+          paddingRight: "s",
+          " > span": {
+            display: "block",
+          },
         },
       },
-    },
+    }),
     ".textInput": {
       flexGrow: 1,
       "div > input": {
