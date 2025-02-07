@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Checkbox` component to set the correct background color for all states.
 - Updates the `Menu` component to set the line height to 1.5 for menu options.
 - Updates the `FeedbackBox` component to set the font weight for the popup header to `medium`.
+- Updates the Storybook font styles.
 
 ### Fixes
 
