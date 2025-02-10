@@ -17,6 +17,7 @@ import { Box } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
+import List from "../List/List";
 import Text from "../Text/Text";
 
 import templateBreakout from "/static/template/templateBreakout.png";
@@ -27,6 +28,7 @@ import templateMainWide from "/static/template/templateMainWide.png";
 import templateSidebarLeft from "/static/template/templateSidebarLeft.png";
 import templateSidebarRight from "/static/template/templateSidebarRight.png";
 import templateTop from "/static/template/templateTop.png";
+import DocsWithImage from "../../utils/DocsWithImage";
 import { exampleWrapperStyles } from "../../utils/utils.ts";
 
 <Meta of={TemplateStories} />
@@ -50,6 +52,7 @@ import { exampleWrapperStyles } from "../../utils/utils.ts";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#child-components" target="_self">Child Components</Link>}
 - {<Link href="#sidebar-configuration" target="_self">Sidebar Configuration</Link>}
+- {<Link href="#full-page-layout" target="_self">Full Page Layout</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -140,124 +143,211 @@ offered:
 
 ### TemplateBreakout
 
-<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+{
 
-  <Box>
-    - Positioned directly below the NYPL universal header and above any other `Template` child components
-    - Not contained by the central content area and spans the full width of the viewport
-    - Ideal for `Breadcrumbs`, `FilterbarInline`, `Hero`, and `SubNav` components
-    - Also recommended for custom UI that spans the full width of the viewport
-  </Box>
-  <Image
-    alt="Template breakout region"
-    border="1px solid var(--nypl-colors-ui-border-default)"
-    caption="Breakout region"
-    src={templateBreakout}
-    {...exampleWrapperStyles}
-  />
-</Box>
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>
+        Positioned directly below the NYPL universal header and above any other
+        <code>Template</code> child components
+      </li>
+      <li>
+        Not contained by the central content area and spans the full width of
+        the viewport
+      </li>
+      <li>
+        Ideal for <code>Breadcrumbs</code>, <code>FilterbarInline</code>,{" "}
+        <code>Hero</code>, and <code>SubNav</code> components
+      </li>
+      <li>
+        Also recommended for custom UI that spans the full width of the viewport
+      </li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template breakout region",
+    caption: "Breakout region",
+    src: "/static/template/templateBreakout.png",
+  }}
+/>
+}
 
 ### TemplateTop
 
-<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+{
 
-  <Box>
-    - Positioned directly below `TemplateBreakout` and above `TemplateSidebar` and `TemplateMainContent`
-    - Contained by the central content area
-    - Always spans the full width of the central content area
-    - Ideal for `Banner` and `FilterbarInline` components
-    - Also recommendaed for custom "announcement" elements
-  </Box>
-  <Image
-    alt="Template top region"
-    border="1px solid var(--nypl-colors-ui-border-default)"
-    caption="Top region"
-    src={templateTop}
-    {...exampleWrapperStyles}
-  />
-</Box>
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>
+        Positioned directly below <code>TemplateBreakout</code> and above{" "}
+        <code>TemplateSidebar</code> and <code>TemplateMainContent</code>
+      </li>
+      <li>Contained by the central content area</li>
+      <li>Always spans the full width of the central content area</li>
+      <li>
+        Ideal for <code>Banner</code> and <code>FilterbarInline</code>{" "}
+        components
+      </li>
+      <li>Also recommendaed for custom "announcement" elements</li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template top region",
+    caption: "Top region",
+    src: "/static/template/templateTop.png",
+  }}
+/>
+}
 
 ### TemplateSidebar
 
-<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+{
 
-  <Box>
-    - Positioned below `TemplateTop` and to either the left or right of `TemplateMainContent`
-    - Not recommended for use with `TemplateMainNarrow`
-    - Spans a perecentage of the central content area based on the current breakpoint
-    - Ideal for filtering elements and secondary menus
-  </Box>
-  <Image
-    alt="Template sidebar region"
-    border="1px solid var(--nypl-colors-ui-border-default)"
-    caption="Sidebar region (left)"
-    src={templateSidebarLeft}
-    {...exampleWrapperStyles}
-  />
-</Box>
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>
+        Positioned below <code>TemplateTop</code> and to either the left or
+        right of <code>TemplateMain</code>
+      </li>
+      <li>
+        Not recommended for use with <code>TemplateMainNarrow</code>
+      </li>
+      <li>
+        Spans a perecentage of the central content area based on the current
+        breakpoint
+      </li>
+      <li>Ideal for filtering elements and secondary menus</li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template sidebar region",
+    caption: "Sidebar region",
+    src: "/static/template/templateSidebarLeft.png",
+  }}
+/>
+}
 
 ### TemplateMain
 
-<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+{
 
-  <Box>
-    - Positioned below `TemplateTop` and to either the left or right of `TemplateSidebar`, when it is rendered
-    - May be used in conjunction with `TemplateSidebar`
-    - Spans a perecentage of the central content area when the sidebar is rendered
-    - Spans the full width of the central content area when the sidebar is not rendered
-    - Content in this region should align with the [responsive grid recommendations](/?path=/docs/style-guide-responsive-grid--docs)
-
-  </Box>
-  <Image
-    alt="Template main content region"
-    border="1px solid var(--nypl-colors-ui-border-default)"
-    caption="Main content region"
-    src={templateMain}
-    {...exampleWrapperStyles}
-  />
-</Box>
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>
+        Positioned below <code>TemplateTop</code> and to either the left or
+        right of
+        <code>TemplateSidebar</code>, when it is rendered
+      </li>
+      <li>
+        May be used in conjunction with <code>TemplateSidebar</code>
+      </li>
+      <li>
+        Spans a perecentage of the central content area when the sidebar is
+        rendered
+      </li>
+      <li>
+        Spans the full width of the central content area when the sidebar is not
+        rendered
+      </li>
+      <li>
+        Content in this region should align with the{" "}
+        <Link href="/?path=/docs/style-guide-responsive-grid--docs">
+          responsive grid
+        </Link>{" "}
+        recommendations
+      </li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template main region",
+    caption: "Main region",
+    src: "/static/template/templateMain.png",
+  }}
+/>
+}
 
 ### TemplateMainNarrow
 
-<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+{
 
-  <Box>
-    - Positioned below `TemplateTop` and to either the left or right of `TemplateSidebar`, when it is rendered
-    - Should not be used in conjunction with `TemplateSidebar`
-    - Contained by the central content area
-    - Max width of `720px`
-    - Ideal for displaying content that is primarily text
-  </Box>
-  <Image
-    alt="Template main narrow region"
-    border="1px solid var(--nypl-colors-ui-border-default)"
-    caption="Main narrow region"
-    src={templateMainNarrow}
-    {...exampleWrapperStyles}
-  />
-</Box>
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>
+        Positioned below <code>TemplateTop</code> and to either the left or
+        right of
+        <code>TemplateSidebar</code>, when it is rendered
+      </li>
+      <li>
+        Should not be used in conjunction with <code>TemplateSidebar</code>
+      </li>
+      <li>Contained by the central content area</li>
+      <li>
+        Max width of <code>720px</code>
+      </li>
+      <li>Ideal for displaying content that is primarily text</li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template main narrow region",
+    caption: "Main narrow region",
+    src: "/static/template/templateMainNarrow.png",
+  }}
+/>
+}
 
 ### TemplateBottom
 
-<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+{
 
-  <Box>
-    - Positioned directly below `TemplateSidebar` and `TemplateMainContent` and above the NYPL universal footer
-    - Contained by the central content area
-    - Always spans the full width of the central content area
-    - Ideal for `Banner`, `FeaturedContent`, `NewsletterSignup` components
-    - Also recommended for custom "announcement" elements
-  </Box>
-  <Image
-    alt="Template bottom region"
-    border="1px solid var(--nypl-colors-ui-border-default)"
-    caption="Bottom region"
-    src={templateBottom}
-    {...exampleWrapperStyles}
-  />
-</Box>
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>
+        Positioned directly below <code>TemplateSidebar</code> and{" "}
+        <code>TemplateMainContent</code>
+        and above the NYPL universal footer
+      </li>
+      <li>Contained by the central content area</li>
+      <li>Always spans the full width of the central content area</li>
+      <li>
+        Ideal for <code>Banner</code>, <code>FeaturedContent</code>,{" "}
+        <code>NewsletterSignup</code> components
+      </li>
+      <li>Also recommended for custom "announcement" elements</li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template bottom region",
+    caption: "Bottom region",
+    src: "/static/template/templateBottom.png",
+  }}
+/>
+}
 
-## Building a full page
+## Sidebar Configuration
+
+In order to render a sidebar, the `Template` component needs to be aware of it.
+Pass the location of the sidebar to the `sidebar` prop as either "left" or "right".
+
+For accessibility purposes, you should also structure the DOM logically. This means
+if you are using `sidebar="left"`, place the `TemplateSidebar` before `TemplateMain`.
+If you are using `sidebar="right"`, place the `TemplateSidebar` after.
+
+<Source
+  code={`
+<Template sidebar="left">
+  ...
+</Template>
+`}
+  language="jsx"
+/>
+
+## Full Page Layout
 
 Using the `Template` with the `Header` and `Footer`
 
@@ -297,24 +387,6 @@ import {
   <TemplateBottom>...</TemplateBottom>
 </Template>
 `} language="jsx" />
-
-## Template Sidebar Configuration
-
-In order to render a sidebar, the `Template` component needs to be aware of it.
-Pass the location of the sidebar to the `sidebar` prop as either "left" or "right".
-
-For accessibility purposes, you should also structure the DOM logically. This means
-if you are using `sidebar="left"`, place the `TemplateSidebar` before `TemplateMain`.
-If you are using `sidebar="right"`, place the `TemplateSidebar` after.
-
-<Source
-  code={`
-<Template sidebar="left">
-  ...
-</Template>
-`}
-  language="jsx"
-/>
 
 ## TemplateBreakout
 
