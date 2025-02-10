@@ -13,27 +13,255 @@ import {
   TemplateBottom,
 } from "./Template";
 import Banner from "../Banner/Banner";
+import { Box } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
+import Image from "../Image/Image";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
 
-<Meta of={TemplateStories} />
+import templateBreakout from "/static/template/templateBreakout.png";
+import templateBottom from "/static/template/templateBottom.png";
+import templateMain from "/static/template/templateMain.png";
+import templateMainNarrow from "/static/template/templateMainNarrow.png";
+import templateMainWide from "/static/template/templateMainWide.png";
+import templateSidebarLeft from "/static/template/templateSidebarLeft.png";
+import templateSidebarRight from "/static/template/templateSidebarRight.png";
+import templateTop from "/static/template/templateTop.png";
+import { exampleWrapperStyles } from "../../utils/utils.ts";
 
-<Heading level="h1" overline="Page layout" size="display1" subtitle="A structural skelton for composing a standard page layout.">Template</Heading>
+<Meta of={TemplateStories} />
+{
+  <Heading
+    level="h1"
+    overline="Page layout component"
+    size="display1"
+    subtitle="A structural skelton for composing a standard page layout"
+  >
+    Template
+  </Heading>
+}
+
+<Canvas of={TemplateStories.WithControls} />
 
 ## Table of Contents
 
-- {<Link href="#template-overview" target="_self">Template Overview</Link>}
-- {<Link href="#template-props" target="_self">Template Props</Link>}
-- {<Link href="#template-components" target="_self">Template Components</Link>}
-- {<Link href="#template-accessibility" target="_self">Template Accessibility</Link>}
-- {<Link href="#template-sidebar-configuration" target="_self">Template Sidebar Configuration</Link>}
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#child-components" target="_self">Child Components</Link>}
+- {<Link href="#sidebar-configuration" target="_self">Sidebar Configuration</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
-The Reservoir Design System provides a set of "template" components
-that work together to render a consistent mobile and desktop layout.
+- The `Template` component is used to render the general structure of a page.
+- The `Template` child components should be used to compose the basic page
+  layout.
+- The child components adhere to NYPL design standards and provide a consistent
+  mobile and desktop layout.
+
+<Source
+  code={`
+import {
+  Template,
+  TemplateBreakout,
+  TemplateTop,
+  TemplateSidebar,
+  TemplateMain,
+  TemplateBottom
+} from "@nypl/design-system-react-components";
+//...
+<Template sidebar="...">
+  <TemplateBreakout>...</TemplateBreakout>
+  <TemplateTop>...</TemplateTop>
+  <TemplateSidebar>...</TemplateSidebar>
+  <TemplateMain>...</TemplateMain>
+  <TemplateBottom>...</TemplateBottom>
+</Template>
+`}
+  language="jsx"
+/>
+
+## Component Props
+
+<ArgTypes of={TemplateStories.WithControls} />
+
+## Accessibility
+
+Wide lines of text are difficult to read and are proven to make it harder for
+people to focus, while short lines of text force the eye to travel back too
+often, breaking a reader's rhythm. The `TemplateMain` component has a max width
+of 1280px, which is too wide for text. If your content includes long chunks of
+text, you should use the `TemplateMainNarrow` component instead. Note that
+`TemplateMainNarrow` is not meant to be used in conjunction with a sidebar.
+
+This means you may use `TemplateMain` or `TemplateMainNarrow` depending on your
+needs, but the two should not be used in conjunction.
+
+The `TemplateMain` and `TemplateMainNarrow` components render the content as a
+`<main>` element with a default `id` of `"mainContent"`. This should be used as
+the anchor element that the skip navigation link points to. If your application
+is using the current Header, it already contains the skip navigation feature but
+make sure it is pointing to the correct anchor element.
+
+Resources
+
+- [WebAim Skip Navigation Link](https://webaim.org/techniques/skipnav/)
+- [A11ymatters Skip Navigation Link](https://www.a11ymatters.com/pattern/skip-link/)
+
+## Child Components
+
+In addition to the root `Template` component, the following child components are
+offered:
+
+- `TemplateBreakout`
+- `TemplateTop`
+- `TemplateSidebar`
+- `TemplateMain` or `TemplateMainNarrow`
+- `TemplateBottom`
+
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The DOM order of the child components should
+      match the structure of the rendered page in the browser.
+      <Text noSpace>
+        If the sidebar is to be rendered on the left side of the page,{" "}
+        <code>TemplateSidebar</code> should come before{" "}
+        <code>TemplateMain</code> in the DOM. If the sidebar is to be rendered
+        on the right side of the page, <code>TemplateSidebar</code> should come
+        after <code>TemplateMain</code> in the DOM.
+      </Text>
+    </>
+  }
+  mb="s"
+  type="recommendation"
+/>
+
+### TemplateBreakout
+
+<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+
+  <Box>
+    - Positioned directly below the NYPL universal header and above any other `Template` child components
+    - Not contained by the central content area and spans the full width of the viewport
+    - Ideal for `Breadcrumbs`, `FilterbarInline`, `Hero`, and `SubNav` components
+    - Also recommended for custom UI that spans the full width of the viewport
+  </Box>
+  <Image
+    alt="Template breakout region"
+    border="1px solid var(--nypl-colors-ui-border-default)"
+    caption="Breakout region"
+    src={templateBreakout}
+    {...exampleWrapperStyles}
+  />
+</Box>
+
+### TemplateTop
+
+<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+
+  <Box>
+    - Positioned directly below `TemplateBreakout` and above `TemplateSidebar` and `TemplateMainContent`
+    - Contained by the central content area
+    - Always spans the full width of the central content area
+    - Ideal for `Banner` and `FilterbarInline` components
+    - Also recommendaed for custom "announcement" elements
+  </Box>
+  <Image
+    alt="Template top region"
+    border="1px solid var(--nypl-colors-ui-border-default)"
+    caption="Top region"
+    src={templateTop}
+    {...exampleWrapperStyles}
+  />
+</Box>
+
+### TemplateSidebar
+
+<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+
+  <Box>
+    - Positioned below `TemplateTop` and to either the left or right of `TemplateMainContent`
+    - Not recommended for use with `TemplateMainNarrow`
+    - Spans a perecentage of the central content area based on the current breakpoint
+    - Ideal for filtering elements and secondary menus
+  </Box>
+  <Image
+    alt="Template sidebar region"
+    border="1px solid var(--nypl-colors-ui-border-default)"
+    caption="Sidebar region (left)"
+    src={templateSidebarLeft}
+    {...exampleWrapperStyles}
+  />
+</Box>
+
+### TemplateMain
+
+<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+
+  <Box>
+    - Positioned below `TemplateTop` and to either the left or right of `TemplateSidebar`, when it is rendered
+    - May be used in conjunction with `TemplateSidebar`
+    - Spans a perecentage of the central content area when the sidebar is rendered
+    - Spans the full width of the central content area when the sidebar is not rendered
+    - Content in this region should align with the [responsive grid recommendations](/?path=/docs/style-guide-responsive-grid--docs)
+
+  </Box>
+  <Image
+    alt="Template main content region"
+    border="1px solid var(--nypl-colors-ui-border-default)"
+    caption="Main content region"
+    src={templateMain}
+    {...exampleWrapperStyles}
+  />
+</Box>
+
+### TemplateMainNarrow
+
+<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+
+  <Box>
+    - Positioned below `TemplateTop` and to either the left or right of `TemplateSidebar`, when it is rendered
+    - Should not be used in conjunction with `TemplateSidebar`
+    - Contained by the central content area
+    - Max width of `720px`
+    - Ideal for displaying content that is primarily text
+  </Box>
+  <Image
+    alt="Template main narrow region"
+    border="1px solid var(--nypl-colors-ui-border-default)"
+    caption="Main narrow region"
+    src={templateMainNarrow}
+    {...exampleWrapperStyles}
+  />
+</Box>
+
+### TemplateBottom
+
+<Box display={{base: "block", md: "grid"}} gridTemplateColumns="2fr 1fr" gap="l">
+
+  <Box>
+    - Positioned directly below `TemplateSidebar` and `TemplateMainContent` and above the NYPL universal footer
+    - Contained by the central content area
+    - Always spans the full width of the central content area
+    - Ideal for `Banner`, `FeaturedContent`, `NewsletterSignup` components
+    - Also recommended for custom "announcement" elements
+  </Box>
+  <Image
+    alt="Template bottom region"
+    border="1px solid var(--nypl-colors-ui-border-default)"
+    caption="Bottom region"
+    src={templateBottom}
+    {...exampleWrapperStyles}
+  />
+</Box>
+
+## Building a full page
+
+Using the `Template` with the `Header` and `Footer`
+
+TBD.
 
 <Banner
   content={
@@ -50,6 +278,7 @@ that work together to render a consistent mobile and desktop layout.
 <Source
   code={`
 import {
+  SkipNavigation,
   Template,
   TemplateBreakout,
   TemplateTop,
@@ -59,62 +288,15 @@ import {
 } from "@nypl/design-system-react-components";
 //...
 
-<>
-  <SkipNavigation />
-  <Template sidebar="...">
-    <TemplateBreakout>...</TemplateBreakout>
-    <TemplateTop>...</TemplateTop>
-    <TemplateSidebar>...</TemplateSidebar>
-    <TemplateMain>...</TemplateMain>
-    <TemplateBottom>...</TemplateBottom>
-  </Template>
-</>
+<SkipNavigation />
+<Template sidebar="...">
+  <TemplateBreakout>...</TemplateBreakout>
+  <TemplateTop>...</TemplateTop>
+  <TemplateSidebar>...</TemplateSidebar>
+  <TemplateMain>...</TemplateMain>
+  <TemplateBottom>...</TemplateBottom>
+</Template>
 `} language="jsx" />
-
-## Template Props
-
-{/* <Canvas of={TemplateStories.WithControls} /> */}
-
-<ArgTypes of={TemplateStories.WithControls} />
-
-## Template Components
-
-The components consist of, listed in DOM structure order:
-
-- `Template`
-- `TemplateBreakout`
-- `TemplateTop`
-- `TemplateSidebar` (if meant to render on left)
-- `TemplateMain` or `TemplateMainNarrow`
-- `TemplateSidebar` (if meant to render on right)
-- `TemplateBottom`
-
-### Using the `Template` with the `Header` and `Footer`
-
-TBD.
-
-## Template Accessibility
-
-Wide lines of text are difficult to read and are proven to make it harder for
-people to focus, while short lines of text force the eye to travel back too often,
-breaking a reader's rhythm. The `TemplateMain` component has a max width of 1280px,
-which is too wide for text. If your content includes long chunks of text, you
-should use the `TemplateMainNarrow` component instead. Note that `TemplateMainNarrow`
-is not meant to be used in conjunction with a sidebar.
-
-This means you may use `TemplateMain` or `TemplateMainNarrow` depending on your needs,
-but the two should not be used in conjunction.
-
-The `TemplateMain` and `TemplateMainNarrow` components render the content as a
-`<main>` element with a default `id` of `"mainContent"`. This should be used as
-the anchor element that the skip navigation link points to. If your application
-is using the current Header, it already contains the skip navigation feature but
-make sure it is pointing to the correct anchor element.
-
-Resources
-
-- [WebAim Skip Navigation Link](https://webaim.org/techniques/skipnav/)
-- [A11ymatters Skip Navigation Link](https://www.a11ymatters.com/pattern/skip-link/)
 
 ## Template Sidebar Configuration
 
@@ -136,7 +318,7 @@ If you are using `sidebar="right"`, place the `TemplateSidebar` after.
 
 ## TemplateBreakout
 
-Note: All components that go above the main content TemplateContent component
+Note: All components that go above the main content `TemplateMain` component
 should be wrapped in a `<div>` element or a `<Box>` component.
 
 ## Changelog
