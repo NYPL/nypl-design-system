@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates the `AlphabetFilter` component to correct the font weight.
 - Updates the `StatusBadge` component to support the `fontSize` style prop.
 - Updates the `Checkbox` component to set the correct background color for all states.
 - Updates the `Menu` component to set the line height to 1.5 for menu options.
