@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `"utilityCheck"` option to the `Icon` component.
+
 ### Updates
 
 - Updates the `Checkbox` component to use the DS icon.
