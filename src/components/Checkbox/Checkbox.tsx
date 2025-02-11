@@ -63,7 +63,7 @@ function CheckboxIcon(props: CheckboxIconProps) {
   const { isIndeterminate, isChecked } = props;
 
   return isChecked || isIndeterminate ? (
-    <Icon name="check" size="large" sx={{ fill: "currentColor" }} />
+    <Icon name="utilityCheck" sx={{ fill: "currentColor" }} />
   ) : null;
 }
 
