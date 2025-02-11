@@ -183,6 +183,7 @@ export const iconNamesArray = [
   "sunFull",
   "utilityAccountFilled",
   "utilityAccountUnfilled",
+  "utilityCheck",
   "utilityHamburger",
   "utilitySearch",
 ] as const;

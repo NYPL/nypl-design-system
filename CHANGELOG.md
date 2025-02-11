@@ -8,8 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `"utilityCheck"` option to the `Icon` component.
+
 ### Updates
 
+- Updates the `Checkbox` component to use the DS `utilityCheck` icon.
 - Updates the `AlphabetFilter` component to correct the font weight.
 - Updates the `StatusBadge` component to support the `fontSize` style prop.
 - Updates the `Checkbox` component to set the correct background color for all states.
