@@ -157,6 +157,10 @@ offered:
         the viewport
       </li>
       <li>
+        All components that go in <code>TemplateTop</code> component should be
+        wrapped in a <code>div</code> element or a <code>Box</code> component
+      </li>
+      <li>
         Ideal for <code>Breadcrumbs</code>, <code>FilterbarInline</code>,{" "}
         <code>Hero</code>, and <code>SubNav</code> components
       </li>
@@ -182,7 +186,7 @@ offered:
     <List type="ul">
       <li>
         Positioned directly below <code>TemplateBreakout</code> and above{" "}
-        <code>TemplateSidebar</code> and <code>TemplateMainContent</code>
+        <code>TemplateSidebar</code> and <code>TemplateMain</code>
       </li>
       <li>Contained by the central content area</li>
       <li>Always spans the full width of the central content area</li>
@@ -309,8 +313,7 @@ offered:
     <List type="ul">
       <li>
         Positioned directly below <code>TemplateSidebar</code> and{" "}
-        <code>TemplateMainContent</code>
-        and above the NYPL universal footer
+        <code>TemplateMain</code> and above the NYPL universal footer
       </li>
       <li>Contained by the central content area</li>
       <li>Always spans the full width of the central content area</li>
@@ -331,12 +334,11 @@ offered:
 
 ## Sidebar Configuration
 
-In order to render a sidebar, the `Template` component needs to be aware of it.
-Pass the location of the sidebar to the `sidebar` prop as either "left" or "right".
+Use the `sidebar` prop to set the sidebar
 
-For accessibility purposes, you should also structure the DOM logically. This means
-if you are using `sidebar="left"`, place the `TemplateSidebar` before `TemplateMain`.
-If you are using `sidebar="right"`, place the `TemplateSidebar` after.
+- `left`
+- `right`
+- `none` (default)
 
 <Source
   code={`
@@ -347,23 +349,82 @@ If you are using `sidebar="right"`, place the `TemplateSidebar` after.
   language="jsx"
 />
 
+{
+
+<Box
+  display={{ base: "block", md: "grid" }}
+  gridTemplateColumns="1fr 1fr 1fr"
+  gap="l"
+>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Left
+    </Heading>
+    <Image
+      alt="Template with left sidebar"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/static/template/templateSidebarLeft.png"
+      {...exampleWrapperStyles}
+    />
+  </Box>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Right
+    </Heading>
+    <Image
+      alt="Template with right sidebar"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/static/template/templateSidebarRight.png"
+      {...exampleWrapperStyles}
+    />
+  </Box>
+  <Box>
+    <Heading level="h3" size="heading7">
+      None
+    </Heading>
+    <Image
+      alt="Template without sidebar"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/static/template/templateSidebarNone.png"
+      {...exampleWrapperStyles}
+    />
+  </Box>
+</Box>
+
+}
+
 ## Full Page Layout
 
-Using the `Template` with the `Header` and `Footer`
+{
 
-TBD.
-
-<Banner
-  content={
+<DocsWithImage
+  docs={
     <>
-      <strong>IMPORTANT:</strong> If you need to render the{" "}
-      <code>SkipNavigation</code> component, you need to explicitly render it
-      immediately before the <code>Template</code> component.
+      The `Tempate` component should be used with the NYPL universal `Header`
+      and `Footer` to compose a pages aligned with NYPL design and application
+      standards
+
+      <Banner
+        content={
+          <>
+            <strong>IMPORTANT:</strong> If an app needs to render the{" "}
+            <code>SkipNavigation</code> component, it needs to be explicitly rendered
+            immediately before the <code>Template</code> component.
+          </>
+        }
+        mt="s"
+        type="informative"
+      />
+      
     </>
-  }
-  mb="s"
-  type="informative"
+
+}
+imageProps={{
+    alt: "Full page layout",
+    src: "/static/template/templateFullPageLayout.png",
+  }}
 />
+}
 
 <Source
   code={`
@@ -377,7 +438,25 @@ import {
   TemplateBottom
 } from "@nypl/design-system-react-components";
 //...
-
+<style>
+  #header-placeholder {
+    min-height: 70px;
+  }
+  @media screen and (min-width: 1024px) {
+    #header-placeholder {
+      min-height: 230px;
+    }
+  }
+</style>
+<!-- .... -->
+<div id="header-placeholder">
+  <div id="nypl-header"></div>
+  <script
+    type="module"
+    src="https://ds-header.nypl.org/header.min.js?containerId=nypl-header"
+    async
+  ></script>
+</div>
 <SkipNavigation />
 <Template sidebar="...">
   <TemplateBreakout>...</TemplateBreakout>
@@ -386,12 +465,9 @@ import {
   <TemplateMain>...</TemplateMain>
   <TemplateBottom>...</TemplateBottom>
 </Template>
+<div id="nypl-footer"></div>
+<script type="module" src="https://ds-header.nypl.org/footer.min.js?containerId=nypl-footer" async></script>
 `} language="jsx" />
-
-## TemplateBreakout
-
-Note: All components that go above the main content `TemplateMain` component
-should be wrapped in a `<div>` element or a `<Box>` component.
 
 ## Changelog
 
