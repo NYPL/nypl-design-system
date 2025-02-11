@@ -1,8 +1,8 @@
 import { Box } from "@chakra-ui/react";
 import Image, {
   ImageProps as InitialImageProps,
-} from "../components/Image/Image";
-import { exampleWrapperStyles } from "./utils";
+} from "../../components/Image/Image";
+import { exampleWrapperStyles } from "../utils";
 
 export type ImageProps = Partial<
   Pick<InitialImageProps, "alt" | "caption" | "src">

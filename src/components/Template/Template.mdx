@@ -18,6 +18,7 @@ import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import List from "../List/List";
+import Table from "../Table/Table";
 import Text from "../Text/Text";
 
 import templateBreakout from "/static/template/templateBreakout.png";
@@ -28,20 +29,20 @@ import templateMainWide from "/static/template/templateMainWide.png";
 import templateSidebarLeft from "/static/template/templateSidebarLeft.png";
 import templateSidebarRight from "/static/template/templateSidebarRight.png";
 import templateTop from "/static/template/templateTop.png";
-import DocsWithImage from "../../utils/DocsWithImage";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import ComponentVersion from "../../utils/components/ComponentVersionTable";
+import DocsWithImage from "../../utils/components/DocsWithImage";
 import { exampleWrapperStyles } from "../../utils/utils.ts";
 
 <Meta of={TemplateStories} />
-{
-  <Heading
-    level="h1"
-    overline="Page layout component"
-    size="display1"
-    subtitle="A structural skelton for composing a standard page layout"
-  >
-    Template
-  </Heading>
-}
+
+<ComponentDocsHeader
+  category="Page layout component"
+  componentName="Template"
+  summary="A structural skelton for composing a standard page layout"
+  versionAdded="0.3.6"
+  versionLatest="Prerelease"
+/>
 
 <Canvas of={TemplateStories.WithControls} />
 
@@ -415,7 +416,7 @@ Use the `sidebar` prop to set the sidebar
         mt="s"
         type="informative"
       />
-      
+
     </>
 
 }
@@ -470,10 +471,5 @@ import {
 `} language="jsx" />
 
 ## Changelog
-
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.3.6`      |
-| Latest            | `Prerelease` |
 
 <ComponentChangelogTable changelogData={changelogData} />

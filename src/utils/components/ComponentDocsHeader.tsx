@@ -1,0 +1,41 @@
+import { Box } from "@chakra-ui/react";
+import ComponentVersion from "./ComponentVersionTable";
+import Heading from "../../components/Heading/Heading";
+
+export interface ComponentDocsHeaderProps {
+  /** The component's DS category */
+  category: string;
+  /** The name of the component */
+  componentName: string;
+  /** A brief summary of the component */
+  summary: string;
+  /** The DS version when the component was added */
+  versionAdded: string;
+  /** The DS version with the most recent version of the component */
+  versionLatest: string;
+}
+
+export const ComponentDocsHeader = (props: ComponentDocsHeaderProps) => {
+  const { category, componentName, summary, versionAdded, versionLatest } =
+    props;
+
+  return (
+    <Box display={{ base: "block", md: "grid" }} gridTemplateColumns="3fr 1fr">
+      {
+        <Heading
+          level="h1"
+          overline={category}
+          size="display1"
+          subtitle={summary}
+        >
+          {componentName}
+        </Heading>
+      }
+      <Box display="flex" justifyContent={{ base: undefined, md: "right" }}>
+        <ComponentVersion added={versionAdded} latest={versionLatest} />
+      </Box>
+    </Box>
+  );
+};
+
+export default ComponentDocsHeader;
