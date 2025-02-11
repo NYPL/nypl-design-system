@@ -7,11 +7,11 @@ exports[`Renders the UI snapshot correctly 1`] = `
 >
   <div
     className="css-0"
-    data-imageWrapper={true}
+    data-wrapper={true}
   >
     <div
       className="css-1xwqty0"
-      data-image={true}
+      data-imageWrapper={true}
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -72,11 +72,11 @@ exports[`Renders the UI snapshot correctly 2`] = `
 >
   <div
     className="css-0"
-    data-imageWrapper={true}
+    data-wrapper={true}
   >
     <div
       className="css-1xwqty0"
-      data-image={true}
+      data-imageWrapper={true}
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -137,11 +137,11 @@ exports[`Renders the UI snapshot correctly 3`] = `
 >
   <div
     className="css-0"
-    data-imageWrapper={true}
+    data-wrapper={true}
   >
     <div
       className="css-1xwqty0"
-      data-image={true}
+      data-imageWrapper={true}
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -202,11 +202,11 @@ exports[`Renders the UI snapshot correctly 4`] = `
 >
   <div
     className="css-0"
-    data-imageWrapper={true}
+    data-wrapper={true}
   >
     <div
       className="css-1xwqty0"
-      data-image={true}
+      data-imageWrapper={true}
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -267,11 +267,11 @@ exports[`Renders the UI snapshot correctly 5`] = `
 >
   <div
     className="css-0"
-    data-imageWrapper={true}
+    data-wrapper={true}
   >
     <div
       className="css-1xwqty0"
-      data-image={true}
+      data-imageWrapper={true}
       data-testid="featuredcontent-bg-image"
     >
       <div
@@ -332,11 +332,11 @@ exports[`Renders the UI snapshot correctly 6`] = `
 >
   <div
     className="css-0"
-    data-imageWrapper={true}
+    data-wrapper={true}
   >
     <div
       className="css-1xwqty0"
-      data-image={true}
+      data-imageWrapper={true}
       data-testid="featuredcontent-bg-image"
     >
       <div

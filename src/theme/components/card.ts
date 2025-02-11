@@ -136,7 +136,7 @@ const ReservoirCard = defineMultiStyleConfig({
           ...setContainerStyles({
             breakpoint: "base",
             styles: {
-              "[data-imageWrapper]": {
+              "[data-cardWrapper]": {
                 flexFlow: isRow ? "column nowrap" : null,
               },
               "[data-actions]": {
@@ -149,7 +149,7 @@ const ReservoirCard = defineMultiStyleConfig({
                 width: "100%",
               },
               ...(isRow && {
-                "[data-image]": {
+                "[data-imageWrapper]": {
                   maxWidth: "100%",
                   margin: imageIsAtEnd ? "var(--nypl-space-m) 0 0" : null,
                   width: "100%",
@@ -169,7 +169,7 @@ const ReservoirCard = defineMultiStyleConfig({
           ...setContainerStyles({
             breakpoint: "md",
             styles: {
-              "[data-imageWrapper]": {
+              "[data-wrapper]": {
                 flexFlow: isRow ? "row" : null,
               },
               "[data-actions]": {
@@ -184,7 +184,7 @@ const ReservoirCard = defineMultiStyleConfig({
                 width: "auto",
               },
               ...(isRow && {
-                "[data-image]": {
+                "[data-imageWrapper]": {
                   maxWidth: "50%",
                   flex: "0 0 225px",
                   margin: imageIsAtEnd

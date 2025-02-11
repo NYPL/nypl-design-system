@@ -6,12 +6,12 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
 >
   <div
     className="css-1u8qly9"
-    data-imageWrapper={true}
+    data-cardWrapper={true}
     id="regularCard"
   >
     <div
       className="css-0"
-      data-image={true}
+      data-imageWrapper={true}
     >
       <div
         className="css-0"
@@ -63,12 +63,12 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
 >
   <div
     className="edition-card css-1u8qly9"
-    data-imageWrapper={true}
+    data-cardWrapper={true}
     id="cardWithExtendedStyles"
   >
     <div
       className="css-0"
-      data-image={true}
+      data-imageWrapper={true}
     >
       <div
         className="css-0"
@@ -147,12 +147,12 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
 >
   <div
     className="edition-card css-1u8qly9"
-    data-imageWrapper={true}
+    data-cardWrapper={true}
     id="cardWithNoCTAs"
   >
     <div
       className="css-0"
-      data-image={true}
+      data-imageWrapper={true}
     >
       <div
         className="css-0"
@@ -200,12 +200,12 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
 >
   <div
     className="edition-card css-1u8qly9"
-    data-imageWrapper={true}
+    data-cardWrapper={true}
     id="cardWithNoContent"
   >
     <div
       className="css-0"
-      data-image={true}
+      data-imageWrapper={true}
     >
       <div
         className="css-0"
@@ -279,7 +279,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
 >
   <div
     className="edition-card css-1u8qly9"
-    data-imageWrapper={true}
+    data-cardWrapper={true}
     id="cardWithNoImage"
   >
     <div
@@ -348,12 +348,12 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
 >
   <div
     className="chakra-linkbox css-2zg2m0"
-    data-imageWrapper={true}
+    data-cardWrapper={true}
     id="fullclick"
   >
     <div
       className="css-0"
-      data-image={true}
+      data-imageWrapper={true}
     >
       <div
         className="css-0"
@@ -410,12 +410,12 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
 >
   <div
     className="css-1u8qly9"
-    data-imageWrapper={true}
+    data-cardWrapper={true}
     id="cardID"
   >
     <div
       className="css-0"
-      data-image={true}
+      data-imageWrapper={true}
     >
       <div
         className="css-0"
@@ -479,12 +479,12 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
 >
   <div
     className="css-2bbtg1"
-    data-imageWrapper={true}
+    data-cardWrapper={true}
     id="chakraProps"
   >
     <div
       className="css-0"
-      data-image={true}
+      data-imageWrapper={true}
     >
       <div
         className="css-0"
@@ -536,13 +536,13 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
 >
   <div
     className="css-1u8qly9"
-    data-imageWrapper={true}
+    data-cardWrapper={true}
     data-testid="card-testid"
     id="otherProps"
   >
     <div
       className="css-0"
-      data-image={true}
+      data-imageWrapper={true}
     >
       <div
         className="css-0"

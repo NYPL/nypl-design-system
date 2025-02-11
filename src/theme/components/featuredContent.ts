@@ -51,10 +51,10 @@ const FeaturedContent = defineMultiStyleConfig({
           ...setContainerStyles({
             breakpoint: "base",
             styles: {
-              "[data-imageWrapper]": {
+              "[data-wrapper]": {
                 flexDirection: imageAtEnd ? "column-reverse" : "column",
               },
-              "[data-image]": {
+              "[data-imageWrapper]": {
                 height: "320px",
                 width: "100%",
               },
@@ -63,12 +63,12 @@ const FeaturedContent = defineMultiStyleConfig({
           ...setContainerStyles({
             breakpoint: "md",
             styles: {
-              "[data-imageWrapper]": {
+              "[data-wrapper]": {
                 flexDirection: imageAtEnd ? "row-reverse" : "row",
                 paddingLeft: full ? "s" : null,
                 paddingRight: full ? "s" : null,
               },
-              "[data-image]": {
+              "[data-imageWrapper]": {
                 height: "auto",
                 width: wrapperWidth,
               },
