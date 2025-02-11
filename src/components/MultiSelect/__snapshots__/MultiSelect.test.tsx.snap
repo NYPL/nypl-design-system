@@ -1426,10 +1426,10 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                       <svg
                         aria-hidden={true}
                         className="chakra-icon css-12vjkgh"
-                        data-file-name="SvgCheck"
+                        data-file-name="SvgUtilityCheck"
                         focusable={false}
                         role="img"
-                        title="check icon"
+                        title="utilityCheck icon"
                       />
                     </span>
                     <span
@@ -1930,10 +1930,10 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       <svg
                         aria-hidden={true}
                         className="chakra-icon css-12vjkgh"
-                        data-file-name="SvgCheck"
+                        data-file-name="SvgUtilityCheck"
                         focusable={false}
                         role="img"
-                        title="check icon"
+                        title="utilityCheck icon"
                       />
                     </span>
                     <span
@@ -1995,10 +1995,10 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       <svg
                         aria-hidden={true}
                         className="chakra-icon css-12vjkgh"
-                        data-file-name="SvgCheck"
+                        data-file-name="SvgUtilityCheck"
                         focusable={false}
                         role="img"
-                        title="check icon"
+                        title="utilityCheck icon"
                       />
                     </span>
                     <span
@@ -2060,10 +2060,10 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                       <svg
                         aria-hidden={true}
                         className="chakra-icon css-12vjkgh"
-                        data-file-name="SvgCheck"
+                        data-file-name="SvgUtilityCheck"
                         focusable={false}
                         role="img"
-                        title="check icon"
+                        title="utilityCheck icon"
                       />
                     </span>
                     <span
