@@ -8,11 +8,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## 4.0.0 (TBD)
 
+### Adds
+
+- Adds docs for `Responsive Grid` Style Guide.
+
 ### Updates
 
 - [Updates `Template` component(s)](https://newyorkpubliclibrary.atlassian.net/browse/DSD-1884) and styles per TAD.
 - Updates the values for the breakpoints and the associated docs.
 - Updates the `viewport` preview options in Storybook to align with the Reservoir breakpoints.
+- Updates the docs for the `Template` component.
 
 ## Prerelease
 
