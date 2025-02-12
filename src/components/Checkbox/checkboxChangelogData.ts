@@ -14,6 +14,13 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
+    notes: ["Updates the check icon to use DS icon."],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
     notes: ["Sets the correct background color for all states"],
   },
   {
