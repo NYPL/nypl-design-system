@@ -138,7 +138,11 @@ export const LabellingVariations: Story = {
       />
       <TextInput
         id="textInput-2"
-        labelText="What is your favorite color?"
+        labelText={
+          <>
+            What is your favorite color? <span>(required)</span>
+          </>
+        }
         placeholder="i.e. blue, green, etc."
         showLabel={false}
       />

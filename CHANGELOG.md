@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `getTextFromElement` utility function.
+
 ### Updates
 
 - Updates the `Label` component to set the font weight for the `(required)` label to `"medium"`.

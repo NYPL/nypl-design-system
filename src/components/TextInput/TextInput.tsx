@@ -13,7 +13,7 @@ import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
-import { getAriaAttrs } from "../../utils/utils";
+import { getAriaAttrs, getTextFromElement } from "../../utils/utils";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 
@@ -278,7 +278,7 @@ export const TextInput: ChakraComponent<
           additionalHelperTextIds,
           footnote,
           id,
-          labelText,
+          labelText: getTextFromElement(labelText), // Make sure this is plain text
           name: "TextInput",
           showLabel,
         }),
