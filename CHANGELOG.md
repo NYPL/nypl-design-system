@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.5.4 (February 13, 2025)
+
 ### Adds
 
 - Adds the `"utilityCheck"` option to the `Icon` component.
@@ -15,9 +17,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `Checkbox` component to use the DS `utilityCheck` icon.
+- Updates the `Checkbox` component to set the correct background color for all states.
 - Updates the `AlphabetFilter` component to correct the font weight.
 - Updates the `StatusBadge` component to support the `fontSize` style prop.
-- Updates the `Checkbox` component to set the correct background color for all states.
 - Updates the `Menu` component to set the line height to 1.5 for menu options.
 - Updates the `FeedbackBox` component to set the font weight for the popup header to `medium`.
 - Updates the `primary` variant of the `Hero` component to have appropriate padding for desktop and mobile, and `max-width` of 860px
