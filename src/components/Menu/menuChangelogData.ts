@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-02-13",
+    version: "3.5.4",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Sets the line height to 1.5 for menu options.",
+      "Fixes the rounded styles for menu option images.",
+    ],
+  },
+  {
     date: "2024-08-29",
     version: "3.3.0",
     type: "Update",

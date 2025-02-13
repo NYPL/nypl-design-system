@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-02-13",
+    version: "3.5.4",
+    type: "New Feature",
+    affects: ["Styles", "Functionality"],
+    notes: ["Adds support for the `fontSize` style prop."],
+  },
+  {
     date: "2024-04-25",
     version: "3.1.1",
     type: "Update",
