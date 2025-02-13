@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-02-13",
+    version: "3.5.4",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updates the check icon to use DS icon.",
+      "Sets the correct background color for all states",
+    ],
+  },
+  {
     date: "2024-05-23",
     version: "3.1.4",
     type: "Update",
