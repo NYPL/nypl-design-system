@@ -10,8 +10,8 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2025-02-13",
+    version: "3.5.4",
     type: "New Feature",
     affects: ["Styles", "Functionality"],
     notes: ["Adds support for the `fontSize` style prop."],

@@ -13,15 +13,9 @@ export const changelogData: ChangelogData[] = [
     date: "2025-01-30",
     version: "3.5.3",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Updates arrow to be center aligned vertically."],
-  },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Update",
-    affects: ["Accessibility"],
+    affects: ["Styles", "Accessibility"],
     notes: [
+      "Updates arrow to be center aligned vertically.",
       "Adds screenreaderOnly styles to span inside breadcrumb so link has descriptive text on mobile.",
     ],
   },
