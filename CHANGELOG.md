@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `Container Query Guide` page to the `Development Guide` section of Storybook.
+
 ## 3.5.4 (February 13, 2025)
 
 ### Adds
