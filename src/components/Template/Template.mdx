@@ -53,16 +53,17 @@ import { exampleWrapperStyles } from "../../utils/utils.ts";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#child-components" target="_self">Child Components</Link>}
 - {<Link href="#sidebar-configuration" target="_self">Sidebar Configuration</Link>}
-- {<Link href="#full-page-layout" target="_self">Full Page Layout</Link>}
+- {<Link href="#understanding-the-fluid-layout" target="_self">Understanding the Fluid Layout</Link>}
+- {<Link href="#full-page-composition" target="_self">Full Page Composition</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
-- The `Template` component is used to render the general structure of a page.
+- The `Template` component is used to render the general structure of a page
 - The `Template` child components should be used to compose the basic page
-  layout.
+  layout
 - The child components adhere to NYPL design standards and provide a consistent
-  mobile and desktop layout.
+  mobile and desktop layout
 
 <Source
   code={`
@@ -259,7 +260,7 @@ offered:
         rendered
       </li>
       <li>
-        Content in this region should align with the{" "}
+        Content in this region should adhere to the{" "}
         <Link href="/?path=/docs/style-guide-responsive-grid--docs">
           responsive grid
         </Link>{" "}
@@ -394,31 +395,118 @@ Use the `sidebar` prop to set the sidebar
 
 }
 
-## Full Page Layout
+## Understanding the Fluid Layout
+
+- `TemplateSidebar` and `TemplateMain` use fluid sizing where each fills a
+  fraction of the full width
+- Size fractions are dependent on viewport
+- Content in `TemplateMain`, especially grids, should adhere
+  to the <Link href="/?path=/docs/style-guide-responsive-grid--docs">
+  responsive grid</Link> recommendations and patterns
+
+**NOTE:** In the examples below, `TemplateSidebar` is highlighted in blue and
+`TemplateMain` is highlighted in purple.
 
 {
+
+<Box
+  display={{ base: "block", md: "grid" }}
+  gridTemplateColumns="1fr 1fr 1fr 1fr"
+  gap="l"
+>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Small Mobile
+    </Heading>
+    <Image
+      alt="Fluid layout, 1 column"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateFluidColumns1.png"
+      {...exampleWrapperStyles}
+      mb="s"
+    />
+    <Box>
+      <strong>Sidebar:</strong> 1/1 (100%))
+      <br />
+      <strong>Main:</strong> 1/1 (100%))
+    </Box>
+  </Box>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Large Mobile
+    </Heading>
+    <Image
+      alt="Fluid layout, 2 columns"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateFluidColumns2.png"
+      {...exampleWrapperStyles}
+      mb="s"
+    />
+    <Box>
+      <strong>Sidebar:</strong> 1/2 (50%)
+      <br />
+      <strong>Main:</strong> 1/2 (50%)
+    </Box>
+  </Box>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Small Tablet
+    </Heading>
+    <Image
+      alt="Fluid layout, 3 columns"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateFluidColumns3.png"
+      {...exampleWrapperStyles}
+      mb="s"
+    />
+    <Box>
+      <strong>Sidebar:</strong> 1/3 (33.3%)
+      <br />
+      <strong>Main:</strong> 2/3 (66.6%)
+    </Box>
+  </Box>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Large Tablet and up
+    </Heading>
+    <Image
+      alt="Fluid layout, 4 columns"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateFluidColumns4.png"
+      {...exampleWrapperStyles}
+      mb="s"
+    />
+    <Box>
+      <strong>Sidebar:</strong> 1/4 (25%)
+      <br />
+      <strong>Main:</strong> 3/4 (75%)
+    </Box>
+  </Box>
+</Box>
+}
+
+## Full Page Composition
+
+{
+
 <DocsWithImage
   docs={
     <>
-      The <code>Tempate</code> component should be used with the NYPL universal <code>Header</code>
-      and <code>Footer</code> to compose a pages aligned with NYPL design and application
-      standards
-      <Banner
-        content={
-          <>
-            <strong>IMPORTANT:</strong> If an app needs to render the{" "}
-            <code>SkipNavigation</code> component, it needs to be explicitly rendered
-            immediately before the <code>Template</code> component.
-          </>
-        }
-        mt="s"
-        type="informative"
-      />
-
+      <List type="ul">
+        <li>
+          The <code>Tempate</code> component should be used with the NYPL
+          universal <code>Header</code> and <code>Footer</code> to compose pages
+          aligned with NYPL design and application standards
+        </li>
+        <li>
+          If an app needs to render the <code>SkipNavigation</code> component,
+          it should be to be explicitly rendered immediately before the{" "}
+          <code>Template</code> component
+        </li>
+      </List>
     </>
-
-}
-imageProps={{
+  }
+  imageProps={{
     alt: "Full page layout",
     src: "/template/templateFullPageLayout.png",
   }}
