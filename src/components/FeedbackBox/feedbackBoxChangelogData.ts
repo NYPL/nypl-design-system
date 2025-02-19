@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-02-13",
+    version: "3.5.4",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Sets the font weight for the popup header to `medium`."],
+  },
+  {
     date: "2024-10-02",
     version: "3.4.0",
     type: "Update",

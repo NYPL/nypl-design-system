@@ -55,6 +55,7 @@ const FeedbackBox = defineMultiStyleConfig({
       color: "ui.typography.heading",
       display: "flex",
       fontSize: "desktop.body.body1",
+      fontWeight: "medium",
       px: "m",
       paddingTop: "s",
       paddingBottom: "s",
