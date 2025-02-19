@@ -1,5 +1,6 @@
 import { Meta, Source } from "@storybook/blocks";
 
+import Banner from "../Banner/Banner";
 import Link from "../Link/Link";
 
 <Meta title="Development Guide/Container Query Guide" />
@@ -12,10 +13,6 @@ import Link from "../Link/Link";
 - {<Link href="#updating-a-component-to-use-container-queries" target="_self">Updating a component to use container queries</Link>}
 - {<Link href="#full-componentexample" target="_self">Full component example</Link>}
 
-The `setContainerStyles` function helps you generate container query styles based
-on the provided breakpoint and styles. This function is useful for applying
-responsive styles within a container.
-
 ## General Information
 
 This guide will walk you through updating a component in Reservoir to replace
@@ -24,6 +21,10 @@ media queries with container queries.
 Container queries allow you to apply styles to an element based on the size of
 its container, rather than the size of the viewport. This is useful for creating
 responsive designs that adapt to the size of individual components.
+
+The `setContainerStyles` function helps you generate container query styles based
+on the provided breakpoint and styles. This function is useful for applying
+responsive styles within a container.
 
 ## Updating a component to use container queries
 
@@ -41,8 +42,16 @@ sx={{ containerType: "inline-size" }}
 `}
 />
 
-**Note**: A container cannot change its own styles, so if the top most element has responsive
-styles applied, you will need to wrap it with a `Box` to define the container.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> A container cannot change its own styles, so if the
+      top-most element has responsive styles applied, you will need to wrap it
+      with a `Box` to define the container.
+    </>
+  }
+  type="warning"
+/>
 
 ### Defining child elements
 
@@ -196,8 +205,8 @@ be targeted in the container query styles:
             data-imageWrapper
         >
             <Image
-            alt={imageProps.alt}
-            src={imageProps.src ? imageProps.src : undefined}
+              alt={imageProps.alt}
+              src={imageProps.src ? imageProps.src : undefined}
             />
         </Box>
         <Box __css={styles.text} data-text>
