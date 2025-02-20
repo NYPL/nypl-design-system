@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import ComponentVersion from "./ComponentVersionTable";
+import ComponentVersionTable from "./ComponentVersionTable";
 import Heading from "../../components/Heading/Heading";
 
 export interface ComponentDocsHeaderProps {
@@ -15,10 +15,13 @@ export interface ComponentDocsHeaderProps {
   versionLatest: string;
 }
 
-export const ComponentDocsHeader = (props: ComponentDocsHeaderProps) => {
-  const { category, componentName, summary, versionAdded, versionLatest } =
-    props;
-
+export const ComponentDocsHeader = ({
+  category,
+  componentName,
+  summary,
+  versionAdded,
+  versionLatest,
+}: ComponentDocsHeaderProps) => {
   return (
     <Box display={{ base: "block", md: "grid" }} gridTemplateColumns="3fr 1fr">
       {
@@ -32,7 +35,7 @@ export const ComponentDocsHeader = (props: ComponentDocsHeaderProps) => {
         </Heading>
       }
       <Box display="flex" justifyContent={{ base: undefined, md: "right" }}>
-        <ComponentVersion added={versionAdded} latest={versionLatest} />
+        <ComponentVersionTable added={versionAdded} latest={versionLatest} />
       </Box>
     </Box>
   );

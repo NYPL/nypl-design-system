@@ -55,11 +55,11 @@ breakpoints and from that we will define five breakpoint ranges:
 
 #### Breakpoint ranges
 
-- Small mobile (base): less than 480px (see Appendix Section I: Small Mobile)
-- Large mobile (s): 480px - 767px (see Appendix Section I: Large Mobile)
-- Small tablet (m): 768px - 1023px (see Appendix Section I: Small Tablet)
-- Large tablet (l): 1024px - 1279px (see Appendix Section I: Large Tablet)
-- Desktop (xl): 1280px and greater (see Appendix Section I: Desktop)
+- Small mobile (base): less than 480px (see the <Link href="#small-mobile-less-than-480px" target="_self">small mobile visual reference</Link>)
+- Large mobile (s): 480px - 767px (see the <Link href="#large-mobile-480px---767px" target="_self">large mobile visual reference</Link>)
+- Small tablet (m): 768px - 1023px (see the <Link href="#small-tablet-768px---1023px" target="_self">small tablet visual reference</Link>)
+- Large tablet (l): 1024px - 1279px (see the <Link href="#large-tablet-1024px---1279px" target="_self">large tablet visual reference</Link>)
+- Desktop (xl): 1280px and greater (see the <Link href="#desktop-1280px" target="_self">desktop visual reference</Link>)
 
 ### Grid anatomy
 
@@ -172,33 +172,26 @@ system as the device and viewport increases from small to large.
 ### General
 
 - Use white space created by the grid system &ndash; too much dense information can be
-  disorienting and overwhelming.
+  disorienting and overwhelming
 - Avoid breaking alignment or slightly oversizing a container to stick out for
   visual interest or to add emphasis
 - Create relationships and hierarchy between content elements by using the margins
   and gutters in the grid shared by the page layout
-- Avoid cramming content into small column widths. Based on the NYPL typography
-  recommendations, the width of a text block should be at least 300px. That being
-  said, some viewport width edge cases will fall below the 300px width
-  recommendation and that is okay.
+- Avoid rendering too much content in narrow column widths &ndash; based on the
+  NYPL typography recommendations, the width of a text block should be at least
+  300px (**NOTE:** some viewport width edge cases will be less than the 300px
+  width recommendation and that is okay)
 
 ### Cards
 
-- Each breakpoint range has a recommended "perceived columns" value. This is the
-  recommended number of columns that should be used for a card grid.
-- The card variant (row vs. column) will determine how the cards are situated in
-  the card grid.
-
-#### Small mobile
-
-- The `Card` component should always use the "column" variant (vertical).
-
-#### Large mobile
-
-- The `Card` component "row" variant (horizontal) should be displayed in a stack
-  using one perceived column.
-- The `Card` component "column" variant (vertical) should be displayed in a grid
-  using two perceived columns.
+- The desired card layout (`"row"` vs. `"column"`) should be considered when
+  setting the structure of a card grid
+- The number of columns in a card grid should align with the recommended
+  "perceived columns" for a breakpoint range
+- For card grid layout recommendations, refer to the <Link
+  href="https://www.figma.com/design/qShodlfNCJHb8n03IFyApM/Main?node-id=91252-91410&t=WPK9UR9vJDTPfzUr-11"
+  target="_blank">Responsive Grid System</Link> page in the Reservoir Visual
+  Design Library
 
 ### Mobile first
 

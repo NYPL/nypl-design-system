@@ -30,7 +30,7 @@ import templateSidebarLeft from "/template/templateSidebarLeft.png";
 import templateSidebarRight from "/template/templateSidebarRight.png";
 import templateTop from "/template/templateTop.png";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import ComponentVersion from "../../utils/components/ComponentVersionTable";
+import ComponentVersionTable from "../../utils/components/ComponentVersionTable";
 import DocsWithImage from "../../utils/components/DocsWithImage";
 import { exampleWrapperStyles } from "../../utils/utils.ts";
 
@@ -39,7 +39,7 @@ import { exampleWrapperStyles } from "../../utils/utils.ts";
 <ComponentDocsHeader
   category="Page layout component"
   componentName="Template"
-  summary="A structural skelton for composing a standard page layout"
+  summary="A structural skeleton for composing a standard page layout"
   versionAdded="0.3.6"
   versionLatest="Prerelease"
 />
@@ -151,6 +151,13 @@ offered:
   docs={
     <List type="ul">
       <li>
+        Ideal for <code>Breadcrumbs</code>, <code>FilterbarInline</code>,{" "}
+        <code>Hero</code>, and <code>SubNav</code> components
+      </li>
+      <li>
+        Also recommended for custom UI that spans the full width of the viewport
+      </li>
+      <li>
         Positioned directly below the NYPL universal header and above any other
         <code>Template</code> child components
       </li>
@@ -161,13 +168,6 @@ offered:
       <li>
         All components that go in <code>TemplateTop</code> component should be
         wrapped in a <code>div</code> element or a <code>Box</code> component
-      </li>
-      <li>
-        Ideal for <code>Breadcrumbs</code>, <code>FilterbarInline</code>,{" "}
-        <code>Hero</code>, and <code>SubNav</code> components
-      </li>
-      <li>
-        Also recommended for custom UI that spans the full width of the viewport
       </li>
     </List>
   }
@@ -187,16 +187,16 @@ offered:
   docs={
     <List type="ul">
       <li>
+        Ideal for <code>Banner</code> and <code>FilterbarInline</code>{" "}
+        components
+      </li>
+      <li>Also recommended for custom "announcement" elements</li>
+      <li>
         Positioned directly below <code>TemplateBreakout</code> and above{" "}
         <code>TemplateSidebar</code> and <code>TemplateMain</code>
       </li>
       <li>Contained by the central content area</li>
       <li>Always spans the full width of the central content area</li>
-      <li>
-        Ideal for <code>Banner</code> and <code>FilterbarInline</code>{" "}
-        components
-      </li>
-      <li>Also recommendaed for custom "announcement" elements</li>
     </List>
   }
   imageProps={{
@@ -214,6 +214,7 @@ offered:
 <DocsWithImage
   docs={
     <List type="ul">
+      <li>Ideal for filtering elements and secondary menus</li>
       <li>
         Positioned below <code>TemplateTop</code> and to either the left or
         right of <code>TemplateMain</code>
@@ -222,10 +223,9 @@ offered:
         Not recommended for use with <code>TemplateMainNarrow</code>
       </li>
       <li>
-        Spans a perecentage of the central content area based on the current
+        Spans a percentage of the central content area based on the current
         breakpoint
       </li>
-      <li>Ideal for filtering elements and secondary menus</li>
     </List>
   }
   imageProps={{
@@ -243,6 +243,7 @@ offered:
 <DocsWithImage
   docs={
     <List type="ul">
+      <li>Should be used for the main content of a page</li>
       <li>
         Positioned below <code>TemplateTop</code> and to either the left or
         right of
@@ -283,6 +284,7 @@ offered:
 <DocsWithImage
   docs={
     <List type="ul">
+      <li>Ideal for displaying content that is primarily text</li>
       <li>
         Positioned below <code>TemplateTop</code> and to either the left or
         right of
@@ -295,7 +297,6 @@ offered:
       <li>
         Max width of <code>720px</code>
       </li>
-      <li>Ideal for displaying content that is primarily text</li>
     </List>
   }
   imageProps={{
@@ -314,16 +315,16 @@ offered:
   docs={
     <List type="ul">
       <li>
+        Ideal for <code>Banner</code>, <code>FeaturedContent</code>,{" "}
+        <code>NewsletterSignup</code> components
+      </li>
+      <li>Also recommended for persistent or custom "announcement" elements</li>
+      <li>
         Positioned directly below <code>TemplateSidebar</code> and{" "}
         <code>TemplateMain</code> and above the NYPL universal footer
       </li>
       <li>Contained by the central content area</li>
       <li>Always spans the full width of the central content area</li>
-      <li>
-        Ideal for <code>Banner</code>, <code>FeaturedContent</code>,{" "}
-        <code>NewsletterSignup</code> components
-      </li>
-      <li>Also recommended for custom "announcement" elements</li>
     </List>
   }
   imageProps={{
@@ -494,7 +495,7 @@ Use the `sidebar` prop to set the sidebar
     <>
       <List type="ul">
         <li>
-          The <code>Tempate</code> component should be used with the NYPL
+          The <code>Template</code> component should be used with the NYPL
           universal <code>Header</code> and <code>Footer</code> to compose pages
           aligned with NYPL design and application standards
         </li>
@@ -513,6 +514,21 @@ Use the `sidebar` prop to set the sidebar
 />
 }
 
+{
+
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> This is the general recommended shape of the
+      DOM, but it will differ based on each individual app's framework
+      architecture.
+    </>
+  }
+  mb="s"
+  type="recommendation"
+/>
+}
+
 <Source
   code={`
 import {
@@ -527,11 +543,11 @@ import {
 //...
 <style>
   #header-placeholder {
-    min-height: 70px;
+    min-height: 62px;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 832px) {
     #header-placeholder {
-      min-height: 230px;
+      min-height: 130px;
     }
   }
 </style>
@@ -544,14 +560,16 @@ import {
     async
   ></script>
 </div>
-<SkipNavigation />
-<Template sidebar="...">
-  <TemplateBreakout>...</TemplateBreakout>
-  <TemplateTop>...</TemplateTop>
-  <TemplateSidebar>...</TemplateSidebar>
-  <TemplateMain>...</TemplateMain>
-  <TemplateBottom>...</TemplateBottom>
-</Template>
+<DSProvider>
+  <SkipNavigation />
+  <Template sidebar="...">
+    <TemplateBreakout>...</TemplateBreakout>
+    <TemplateTop>...</TemplateTop>
+    <TemplateSidebar>...</TemplateSidebar>
+    <TemplateMain>...</TemplateMain>
+    <TemplateBottom>...</TemplateBottom>
+  </Template>
+</DSProvider>
 <div id="nypl-footer"></div>
 <script type="module" src="https://ds-header.nypl.org/footer.min.js?containerId=nypl-footer" async></script>
 `} language="jsx" />

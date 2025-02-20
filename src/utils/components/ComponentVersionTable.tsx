@@ -1,21 +1,21 @@
 import Text from "../../components/Text/Text";
 
-export interface ComponentVersionProps {
+export interface ComponentVersionTableProps {
   /** The DS version when the component was added*/
   added: string;
   /** The DS version with the most recent version of the component */
   latest: string;
 }
 
-export const ComponentVersion = (props: ComponentVersionProps) => {
+export const ComponentVersionTable = (props: ComponentVersionTableProps) => {
   const { added, latest } = props;
   const finalLatest = latest !== "Prerelease" ? `v${latest}` : latest;
 
   return (
     <Text
-      bg="var(--nypl-colors-ui-gray-xx-light-cool)"
+      bg="ui.bg.default"
       border="1px solid"
-      borderColor="var(--nypl-colors-ui-gray-semi-medium)"
+      borderColor="ui.border.default"
       borderRadius="4px"
       height="fit-content"
       noSpace
@@ -30,4 +30,4 @@ export const ComponentVersion = (props: ComponentVersionProps) => {
   );
 };
 
-export default ComponentVersion;
+export default ComponentVersionTable;
