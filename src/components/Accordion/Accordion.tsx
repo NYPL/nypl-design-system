@@ -92,11 +92,14 @@ const getElementsFromData = (
       };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
+  const numAccordionItems = data?.length;
+
   const multipleFontSize =
-    data?.length > 1 ? "desktop.body.body1" : "desktop.body.body2";
-  const multiplePadding = data?.length > 1 ? "s" : "xs s";
+    numAccordionItems > 1 ? "desktop.body.body1" : "desktop.body.body2";
+  const multiplePadding = numAccordionItems > 1 ? "s" : "xs s";
 
   return data.map((content, index) => {
+    const isLast = index !== numAccordionItems - 1;
     // This is done to support both string and DOM element input.
     const panel =
       typeof content.panel === "string" ? (
@@ -129,20 +132,7 @@ const getElementsFromData = (
     }
 
     return (
-      <AccordionItem
-        id={`${id}-item-${index}`}
-        key={index}
-        // Override border color styles in container to use :last-of-type selector to resolve double-border issue
-        sx={{ button: { borderBottomColor: "transparent" } }}
-        _last={{
-          button: {
-            borderBottomColor: isDarkMode
-              ? "dark.ui.border.default"
-              : "ui.gray.medium",
-            _hover: { borderBottomColor: "ui.gray.dark" },
-          },
-        }}
-      >
+      <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
         {({ isExpanded }) => {
           const bgColorByAccordionType = colorMap[content.accordionType];
@@ -153,6 +143,13 @@ const getElementsFromData = (
                 id={`${id}-button-${index}`}
                 borderColor={
                   isDarkMode ? "dark.ui.border.default" : "ui.gray.medium"
+                }
+                borderBottomColor={
+                  !isLast
+                    ? isDarkMode
+                      ? "dark.ui.border.default"
+                      : "ui.gray.medium"
+                    : "transparent"
                 }
                 padding={multiplePadding}
                 ref={content.buttonInteractionRef}
