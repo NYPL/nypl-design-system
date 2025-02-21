@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the spacing between heading and content in `Banner` component.
 
+### Fixes
+
+- Fixes `Accordion` styles on active hover state and replaces non-standard hardcoded padding value with `s` spacing.
+
 ## 3.5.4 (February 13, 2025)
 
 ### Adds
