@@ -36,7 +36,7 @@ const baseStyleControl = defineStyle({
   border: "2px solid",
   borderRadius: "sm",
   borderColor: "ui.gray.dark",
-  backgroundColor: "ui.gray.xx-light-cool",
+  bg: "ui.gray.xx-light-cool",
   color: "ui.black",
   cursor: "pointer",
   outline: "none",
@@ -44,7 +44,6 @@ const baseStyleControl = defineStyle({
   transitionDuration: "normal",
 
   _checked: {
-    bg: "ui.white",
     borderColor: "ui.focus",
     color: "ui.focus",
     _hover: {

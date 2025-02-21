@@ -8,10 +8,40 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.5.4 (February 13, 2025)
+
+### Adds
+
+- Adds the `"utilityCheck"` option to the `Icon` component.
+
+### Updates
+
+- Updates the `Checkbox` component to use the DS `utilityCheck` icon.
+- Updates the `Checkbox` component to set the correct background color for all states.
+- Updates the `AlphabetFilter` component to correct the font weight.
+- Updates the `StatusBadge` component to support the `fontSize` style prop.
+- Updates the `Menu` component to set the line height to 1.5 for menu options.
+- Updates the `FeedbackBox` component to set the font weight for the popup header to `medium`.
+- Updates the `primary` variant of the `Hero` component to have appropriate padding for desktop and mobile, and `max-width` of 860px
+- Updates the `campaign` variant of the `Hero` component to have consistent padding.
+
+### Fixes
+
+- Fixes the circular styles for images in the `Menu` component.
+
+## 3.5.3 (January 30, 2025)
+
+### Adds
+
+- Adds the `useFormatNumber` hook.
+
 ### Updates
 
 - Updates the `Pagination` component to handle 4 digit page counts.
 - Updates the `Heading` component to add `line-height` styles for mobile.
+- Updates the `Breadcrumbs` component to make link text screen readable on mobile breakpoints
+- Updates the `Breadcrumbs` component to center align arrow on mobile breakpoints
+- Updates the `MultiSelect` component to adjust the text and size styles for the search input field.
 
 ## 3.5.2 (January 16, 2025)
 

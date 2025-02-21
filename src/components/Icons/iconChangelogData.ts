@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-02-13",
+    version: "3.5.4",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Added the `utilityCheck` icon."],
+  },
+  {
     date: "2024-11-07",
     version: "3.4.2",
     type: "Update",

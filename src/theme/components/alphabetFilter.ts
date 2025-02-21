@@ -11,7 +11,6 @@ const AlphabetFilter = defineMultiStyleConfig({
       height: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
       padding: "1px 4px",
       margin: "2px 1px",
-      fontWeight: "bold",
       fontSize: {
         base: "mobile.subtitle.subtitle1",
         md: "desktop.subtitle.subtitle1",
