@@ -129,7 +129,20 @@ const getElementsFromData = (
     }
 
     return (
-      <AccordionItem id={`${id}-item-${index}`} key={index}>
+      <AccordionItem
+        id={`${id}-item-${index}`}
+        key={index}
+        // Override border color styles in container to use :last-of-type selector to resolve double-border issue
+        sx={{ button: { borderBottomColor: "transparent" } }}
+        _last={{
+          button: {
+            borderBottomColor: isDarkMode
+              ? "dark.ui.border.default"
+              : "ui.gray.medium",
+            _hover: { borderBottomColor: "ui.gray.dark" },
+          },
+        }}
+      >
         {/* Get the current state to render the correct icon. */}
         {({ isExpanded }) => {
           const bgColorByAccordionType = colorMap[content.accordionType];
