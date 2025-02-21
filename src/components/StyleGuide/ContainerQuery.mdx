@@ -11,7 +11,7 @@ import Link from "../Link/Link";
 
 - {<Link href="#general-information" target="_self">General Information</Link>}
 - {<Link href="#updating-a-component-to-use-container-queries" target="_self">Updating a component to use container queries</Link>}
-- {<Link href="#full-componentexample" target="_self">Full component example</Link>}
+- {<Link href="#full-component-example" target="_self">Full component example</Link>}
 
 ## General Information
 
@@ -25,6 +25,11 @@ responsive designs that adapt to the size of individual components.
 The `setContainerStyles` function helps you generate container query styles based
 on the provided breakpoint and styles. This function is useful for applying
 responsive styles within a container.
+
+### Resources
+
+- [MDN container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+- [CSS Tricks container queries](https://css-tricks.com/css-container-queries/)
 
 ## Updating a component to use container queries
 
@@ -47,7 +52,7 @@ sx={{ containerType: "inline-size" }}
     <>
       <strong>NOTE:</strong> A container cannot change its own styles, so if the
       top-most element has responsive styles applied, you will need to wrap it
-      with a `Box` to define the container.
+      with a <code>Box</code> to define the container.
     </>
   }
   type="warning"
@@ -55,7 +60,7 @@ sx={{ containerType: "inline-size" }}
 
 ### Defining child elements
 
-To minimize css selectors, we recommend to specify child elements with data-\*
+To minimize CSS selectors, we recommend to specify child elements with data-\*
 attributes to style them.
 
 ### Convert media query styles to container query styles
