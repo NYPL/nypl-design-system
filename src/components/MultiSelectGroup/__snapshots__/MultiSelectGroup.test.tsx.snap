@@ -24,7 +24,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1fsnuue"
+          className="chakra-accordion__item css-1hxvt59"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
@@ -279,7 +279,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1fsnuue"
+          className="chakra-accordion__item css-1hxvt59"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
@@ -693,7 +693,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1fsnuue"
+          className="chakra-accordion__item css-1hxvt59"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
@@ -1124,7 +1124,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1fsnuue"
+          className="chakra-accordion__item css-1hxvt59"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
@@ -1379,7 +1379,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1fsnuue"
+          className="chakra-accordion__item css-1hxvt59"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
@@ -1793,7 +1793,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1fsnuue"
+          className="chakra-accordion__item css-1hxvt59"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-tools-item-0"

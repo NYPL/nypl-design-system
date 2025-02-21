@@ -7,7 +7,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
   onKeyDown={[Function]}
 >
   <div
-    className="chakra-accordion__item css-1fsnuue"
+    className="chakra-accordion__item css-1hxvt59"
   >
     <button
       aria-controls="accordion-panel-accordian-item-0"
@@ -46,7 +46,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
   onKeyDown={[Function]}
 >
   <div
-    className="chakra-accordion__item css-1fsnuue"
+    className="chakra-accordion__item css-1hxvt59"
   >
     <button
       aria-controls="accordion-panel-accordian-item-0"
@@ -85,7 +85,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
   onKeyDown={[Function]}
 >
   <div
-    className="chakra-accordion__item css-1fsnuue"
+    className="chakra-accordion__item css-1hxvt59"
   >
     <button
       aria-controls="accordion-panel-accordian-item-0"
@@ -125,7 +125,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
   onKeyDown={[Function]}
 >
   <div
-    className="chakra-accordion__item css-1fsnuue"
+    className="chakra-accordion__item css-1hxvt59"
   >
     <button
       aria-controls="accordion-panel-accordian-item-0"
@@ -164,7 +164,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
   onKeyDown={[Function]}
 >
   <div
-    className="chakra-accordion__item css-1fsnuue"
+    className="chakra-accordion__item css-1hxvt59"
   >
     <button
       aria-controls="accordion-panel-accordian-item-0"
@@ -203,7 +203,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
   onKeyDown={[Function]}
 >
   <div
-    className="chakra-accordion__item css-1fsnuue"
+    className="chakra-accordion__item css-1hxvt59"
   >
     <button
       aria-controls="accordion-panel-accordian-item-0"
@@ -242,7 +242,7 @@ exports[`Accordion Renders the UI snapshot correctly 7`] = `
   onKeyDown={[Function]}
 >
   <div
-    className="chakra-accordion__item css-1fsnuue"
+    className="chakra-accordion__item css-1hxvt59"
   >
     <button
       aria-controls="accordion-panel-accordian-item-0"
