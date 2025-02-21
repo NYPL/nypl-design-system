@@ -99,7 +99,7 @@ const getElementsFromData = (
   const multiplePadding = numAccordionItems > 1 ? "s" : "xs s";
 
   return data.map((content, index) => {
-    const isLast = index !== numAccordionItems - 1;
+    const isLast = index === numAccordionItems - 1;
     // This is done to support both string and DOM element input.
     const panel =
       typeof content.panel === "string" ? (
@@ -116,7 +116,7 @@ const getElementsFromData = (
           key={index}
           maxHeight={panelMaxHeight}
           overflow="auto"
-          borderBottomColor={!isLast ? "default" : "transparent"}
+          borderBottomColor={isLast ? "default" : "transparent"}
         >
           {content.panel}
         </AccordionPanel>
@@ -146,7 +146,7 @@ const getElementsFromData = (
                   isDarkMode ? "dark.ui.border.default" : "ui.gray.medium"
                 }
                 borderBottomColor={
-                  !isLast
+                  isLast
                     ? isDarkMode
                       ? "dark.ui.border.default"
                       : "ui.gray.medium"
