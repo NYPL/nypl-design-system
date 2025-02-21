@@ -24,13 +24,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1hxvt59"
+          className="chakra-accordion__item css-1fsnuue"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-h5m7h6"
+            className="chakra-accordion__button css-1ux2uhk"
             disabled={false}
             id="accordion-button-multi-select-accordion-colors-item-0"
             onClick={[Function]}
@@ -71,7 +71,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
           >
             <div
               aria-labelledby="accordion-button-multi-select-accordion-colors-item-0"
-              className="chakra-accordion__panel css-e7ng5h"
+              className="chakra-accordion__panel css-mk3zn9"
               id="accordion-panel-multi-select-accordion-colors-item-0"
               role="region"
             >
@@ -279,13 +279,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1hxvt59"
+          className="chakra-accordion__item css-1fsnuue"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-h5m7h6"
+            className="chakra-accordion__button css-1ux2uhk"
             disabled={false}
             id="accordion-button-multi-select-accordion-pets-item-0"
             onClick={[Function]}
@@ -326,7 +326,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
           >
             <div
               aria-labelledby="accordion-button-multi-select-accordion-pets-item-0"
-              className="chakra-accordion__panel css-e7ng5h"
+              className="chakra-accordion__panel css-mk3zn9"
               id="accordion-panel-multi-select-accordion-pets-item-0"
               role="region"
             >
@@ -693,13 +693,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1hxvt59"
+          className="chakra-accordion__item css-1fsnuue"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-h5m7h6"
+            className="chakra-accordion__button css-1ux2uhk"
             disabled={false}
             id="accordion-button-multi-select-accordion-tools-item-0"
             onClick={[Function]}
@@ -740,7 +740,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
           >
             <div
               aria-labelledby="accordion-button-multi-select-accordion-tools-item-0"
-              className="chakra-accordion__panel css-e7ng5h"
+              className="chakra-accordion__panel css-mk3zn9"
               id="accordion-panel-multi-select-accordion-tools-item-0"
               role="region"
             >
@@ -1124,13 +1124,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1hxvt59"
+          className="chakra-accordion__item css-1fsnuue"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-h5m7h6"
+            className="chakra-accordion__button css-1ux2uhk"
             disabled={false}
             id="accordion-button-multi-select-accordion-colors-item-0"
             onClick={[Function]}
@@ -1171,7 +1171,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
           >
             <div
               aria-labelledby="accordion-button-multi-select-accordion-colors-item-0"
-              className="chakra-accordion__panel css-e7ng5h"
+              className="chakra-accordion__panel css-mk3zn9"
               id="accordion-panel-multi-select-accordion-colors-item-0"
               role="region"
             >
@@ -1379,13 +1379,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1hxvt59"
+          className="chakra-accordion__item css-1fsnuue"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-h5m7h6"
+            className="chakra-accordion__button css-1ux2uhk"
             disabled={false}
             id="accordion-button-multi-select-accordion-pets-item-0"
             onClick={[Function]}
@@ -1426,7 +1426,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
           >
             <div
               aria-labelledby="accordion-button-multi-select-accordion-pets-item-0"
-              className="chakra-accordion__panel css-e7ng5h"
+              className="chakra-accordion__panel css-mk3zn9"
               id="accordion-panel-multi-select-accordion-pets-item-0"
               role="region"
             >
@@ -1793,13 +1793,13 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
         onKeyDown={[Function]}
       >
         <div
-          className="chakra-accordion__item css-1hxvt59"
+          className="chakra-accordion__item css-1fsnuue"
         >
           <button
             aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-h5m7h6"
+            className="chakra-accordion__button css-1ux2uhk"
             disabled={false}
             id="accordion-button-multi-select-accordion-tools-item-0"
             onClick={[Function]}
@@ -1840,7 +1840,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
           >
             <div
               aria-labelledby="accordion-button-multi-select-accordion-tools-item-0"
-              className="chakra-accordion__panel css-e7ng5h"
+              className="chakra-accordion__panel css-mk3zn9"
               id="accordion-panel-multi-select-accordion-tools-item-0"
               role="region"
             >

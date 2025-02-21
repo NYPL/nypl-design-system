@@ -12,13 +12,13 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
     onKeyDown={[Function]}
   >
     <div
-      className="chakra-accordion__item css-1hxvt59"
+      className="chakra-accordion__item css-1fsnuue"
     >
       <button
         aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
-        className="chakra-accordion__button css-h5m7h6"
+        className="chakra-accordion__button css-1ux2uhk"
         disabled={false}
         id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
@@ -59,7 +59,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
       >
         <div
           aria-labelledby="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
-          className="chakra-accordion__panel css-e7ng5h"
+          className="chakra-accordion__panel css-mk3zn9"
           id="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
           role="region"
         >
@@ -538,13 +538,13 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
     onKeyDown={[Function]}
   >
     <div
-      className="chakra-accordion__item css-1hxvt59"
+      className="chakra-accordion__item css-1fsnuue"
     >
       <button
         aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
-        className="chakra-accordion__button css-h5m7h6"
+        className="chakra-accordion__button css-1ux2uhk"
         disabled={false}
         id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
@@ -585,7 +585,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
       >
         <div
           aria-labelledby="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
-          className="chakra-accordion__panel css-e7ng5h"
+          className="chakra-accordion__panel css-mk3zn9"
           id="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
           role="region"
         >
@@ -1064,13 +1064,13 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
     onKeyDown={[Function]}
   >
     <div
-      className="chakra-accordion__item css-1hxvt59"
+      className="chakra-accordion__item css-1fsnuue"
     >
       <button
         aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 1 item currently selected"
-        className="chakra-accordion__button css-h5m7h6"
+        className="chakra-accordion__button css-1ux2uhk"
         disabled={false}
         id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
@@ -1111,7 +1111,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
       >
         <div
           aria-labelledby="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
-          className="chakra-accordion__panel css-e7ng5h"
+          className="chakra-accordion__panel css-mk3zn9"
           id="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
           role="region"
         >
@@ -1652,13 +1652,13 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
     onKeyDown={[Function]}
   >
     <div
-      className="chakra-accordion__item css-1hxvt59"
+      className="chakra-accordion__item css-1fsnuue"
     >
       <button
         aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 2 items currently selected"
-        className="chakra-accordion__button css-h5m7h6"
+        className="chakra-accordion__button css-1ux2uhk"
         disabled={false}
         id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
@@ -1699,7 +1699,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
       >
         <div
           aria-labelledby="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
-          className="chakra-accordion__panel css-e7ng5h"
+          className="chakra-accordion__panel css-mk3zn9"
           id="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
           role="region"
         >
