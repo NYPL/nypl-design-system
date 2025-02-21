@@ -171,7 +171,7 @@ const getElementsFromData = (
                     content.accordionType === "default"
                       ? "transparent"
                       : bgColorByAccordionType,
-                  borderColor: "ui.gray.dark",
+                  borderColor: isDarkMode ? "ui.gray.dark" : "ui.gray.medium",
                 }}
                 _dark={{
                   _expanded: {
