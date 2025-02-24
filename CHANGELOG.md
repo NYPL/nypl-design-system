@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates the spacing on `Modal`.
 - Updates the spacing between heading and content in `Banner` component.
 
 ## 3.5.4 (February 13, 2025)
