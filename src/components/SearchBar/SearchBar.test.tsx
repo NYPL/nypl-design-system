@@ -186,7 +186,7 @@ describe("SearchBar", () => {
         textInputProps={textInputProps}
       />
     );
-    const input = screen.getByLabelText(textInputProps.labelText);
+    const input = screen.getByLabelText(textInputProps.labelText.toString());
     expect(textInputProps.onChange).toHaveBeenCalledTimes(0);
 
     userEvent.type(input, "search!");

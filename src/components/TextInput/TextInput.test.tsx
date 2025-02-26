@@ -1,4 +1,5 @@
 import { render, RenderResult, screen, waitFor } from "@testing-library/react";
+import { Box } from "@chakra-ui/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
@@ -275,6 +276,38 @@ describe("TextInput", () => {
     expect(screen.getByRole("textbox")).toHaveAttribute(
       "aria-label",
       "Custom Input Label"
+    );
+  });
+
+  it("uses a valid string value for the aria-label attribute even when labelText is a JSX.Element", () => {
+    utils.rerender(
+      <TextInput
+        id="myTextInput"
+        labelText={
+          <>
+            Custom Input Label{" "}
+            <span>
+              (using nested{" "}
+              <Box as="span" color="red">
+                tags
+              </Box>
+              )
+            </span>
+          </>
+        }
+        onChange={changeHandler}
+        placeholder="Input Placeholder"
+        showLabel={false}
+        type="text"
+      />
+    );
+
+    expect(
+      screen.queryByText(/Custom Input Label (using nested tags)/i)
+    ).not.toBeInTheDocument();
+    expect(screen.getByRole("textbox")).toHaveAttribute(
+      "aria-label",
+      "Custom Input Label (using nested tags)"
     );
   });
 
