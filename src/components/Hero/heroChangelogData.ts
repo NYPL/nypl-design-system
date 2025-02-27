@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-02-13",
+    version: "3.5.4",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updates the `primary` variant to have appropriate padding for desktop and mobile, and `max-width` of 860px",
+      "Updates the `campaign` variant to have consistent padding.",
+    ],
+  },
+  {
     date: "2024-10-24",
     version: "3.4.1",
     type: "Update",

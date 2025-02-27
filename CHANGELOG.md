@@ -6,15 +6,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## Prerelease
+## 4.0.0 (TBD)
+
+### Adds
+
+- Adds the `useResponsiveSpacing` hook.
 
 ### Updates
 
-- Updates the `StatusBadge` component to support the `fontSize` style prop.
+- [Updates `Template` component(s)](https://newyorkpubliclibrary.atlassian.net/browse/DSD-1884) and styles per TAD.
+- Updates the values for the breakpoints and the associated docs.
+- Updates the `viewport` preview options in Storybook to align with the Reservoir breakpoints.
+- Updates the Storybook font styles.
+
+## Prerelease
+
+## 3.5.4 (February 13, 2025)
+
+### Adds
+
+- Adds the `"utilityCheck"` option to the `Icon` component.
+
+### Updates
+
+- Updates the `Checkbox` component to use the DS `utilityCheck` icon.
 - Updates the `Checkbox` component to set the correct background color for all states.
+- Updates the `AlphabetFilter` component to correct the font weight.
+- Updates the `StatusBadge` component to support the `fontSize` style prop.
 - Updates the `Menu` component to set the line height to 1.5 for menu options.
 - Updates the `FeedbackBox` component to set the font weight for the popup header to `medium`.
-- Updates the Storybook font styles.
+- Updates the `primary` variant of the `Hero` component to have appropriate padding for desktop and mobile, and `max-width` of 860px
+- Updates the `campaign` variant of the `Hero` component to have consistent padding.
 
 ### Fixes
 
