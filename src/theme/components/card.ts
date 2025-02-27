@@ -169,7 +169,7 @@ const ReservoirCard = defineMultiStyleConfig({
           ...setContainerStyles({
             breakpoint: "md",
             styles: {
-              "[data-wrapper]": {
+              "[data-cardWrapper]": {
                 flexFlow: isRow ? "row" : null,
               },
               "[data-actions]": {
