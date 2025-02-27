@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "3.5.4",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Sets the font weight for the popup header to `medium`."],
+    notes: [
+      "Sets the font weight for the popup header to `medium`.",
+      'Changes the font weight for the `(required)` label on the `Textarea` element to `"medium"`.',
+    ],
   },
   {
     date: "2024-10-02",

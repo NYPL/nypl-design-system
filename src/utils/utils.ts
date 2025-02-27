@@ -195,3 +195,20 @@ export const exampleWrapperStyles = {
   overflow: "hidden",
   width: "100%",
 };
+
+/** Return just the text from within a JSX.Element */
+export const getTextFromElement = (
+  elem: React.ReactElement | string
+): string => {
+  if (!elem) {
+    return "";
+  }
+  if (typeof elem === "string") {
+    return elem;
+  }
+  const children = elem.props && elem.props.children;
+  if (children instanceof Array) {
+    return children.map(getTextFromElement).join("");
+  }
+  return getTextFromElement(children);
+};
