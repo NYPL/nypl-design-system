@@ -17,8 +17,7 @@ const Modal = defineMultiStyleConfig({
       _dark: {
         bg: "dark.ui.bg.default",
       },
-      paddingBottom: "l",
-      borderRadius: "6px",
+      borderRadius: "4px",
     },
     header: {
       color: "ui.typography.heading",
@@ -45,7 +44,7 @@ const Modal = defineMultiStyleConfig({
     },
     footer: {
       paddingTop: 0,
-      paddingBottom: 0,
+      paddingBottom: "l",
       paddingLeft: "l",
       paddingRight: "l",
     },
