@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Documentation", "Accessibility"],
     notes: [
-      "Updated `TagSetFilter` to remove button wrapper on each tag when `isDismissible` is false.",
+      "Updated `TagSetFilter` to remove button wrapper on each tag when `isDismissible` is false and no `onClick` is passed.",
     ],
   },
   {

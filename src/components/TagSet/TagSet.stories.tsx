@@ -219,9 +219,6 @@ export const FormattingExamples: Story = {
         type="explore"
       />
       <TagSet
-        onClick={(tagLabel) =>
-          console.log(`Clicked from the onClick props: ${tagLabel}`)
-        }
         tagSetData={[
           { id: "red", label: "Red" },
           { id: "orange", label: "Orange" },
