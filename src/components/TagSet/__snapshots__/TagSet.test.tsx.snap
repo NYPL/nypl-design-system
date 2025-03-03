@@ -461,74 +461,151 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
   className="css-1xdhyk6"
 >
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Red, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-red-0"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Red
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Orange, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-orange-1"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Orange
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Yellow, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-yellow-2"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Yellow
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Green, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-green-3"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Green
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Blue, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-blue-4"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Blue
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Indigo, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-indigo-5"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Indigo
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Violet, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-violet-6"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Violet
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
 </div>
 `;
@@ -538,9 +615,11 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   className="css-1xdhyk6"
 >
   <button
+    aria-label="Red, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-red-0"
+    onClick={[Function]}
     type="button"
   >
     <svg
@@ -555,11 +634,22 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     <span>
       Red
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
+    aria-label="Orange, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-orange-1"
+    onClick={[Function]}
     type="button"
   >
     <svg
@@ -574,11 +664,22 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     <span>
       Orange
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
+    aria-label="Yellow, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-yellow-2"
+    onClick={[Function]}
     type="button"
   >
     <svg
@@ -593,11 +694,22 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     <span>
       Yellow
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
+    aria-label="Green, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-green-3"
+    onClick={[Function]}
     type="button"
   >
     <svg
@@ -612,11 +724,22 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     <span>
       Green
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
+    aria-label="Blue, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-blue-4"
+    onClick={[Function]}
     type="button"
   >
     <svg
@@ -631,11 +754,22 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     <span>
       Blue
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
+    aria-label="Indigo, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-indigo-5"
+    onClick={[Function]}
     type="button"
   >
     <svg
@@ -650,11 +784,22 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     <span>
       Indigo
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
+    aria-label="Violet, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-violet-6"
+    onClick={[Function]}
     type="button"
   >
     <svg
@@ -669,6 +814,15 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     <span>
       Violet
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
 </div>
 `;
@@ -841,74 +995,151 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
   className="css-1t0bvx9"
 >
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Red, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-red-0"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Red
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Orange, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-orange-1"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Orange
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Yellow, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-yellow-2"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Yellow
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Green, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-green-3"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Green
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Blue, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-blue-4"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Blue
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Indigo, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-indigo-5"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Indigo
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Violet, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-violet-6"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Violet
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
 </div>
 `;
@@ -919,74 +1150,151 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
   data-testid="testid"
 >
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Red, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-red-0"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Red
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Orange, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-orange-1"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Orange
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Yellow, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-yellow-2"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Yellow
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Green, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-green-3"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Green
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Blue, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-blue-4"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Blue
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Indigo, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-indigo-5"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Indigo
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
   <button
-    className="chakra-button css-1xdhyk6"
+    aria-label="Violet, click to remove filter"
+    className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
     id="ts-filter-violet-6"
+    onClick={[Function]}
     type="button"
   >
     <span>
       Violet
     </span>
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-14pq4bw"
+      data-file-name="SvgClose"
+      data-testid="filter-close-icon"
+      focusable={false}
+      role="img"
+      title="close icon"
+    />
   </button>
 </div>
 `;

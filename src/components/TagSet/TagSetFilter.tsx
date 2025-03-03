@@ -73,7 +73,7 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
 
           return (
             <TooltipWrapper key={key} label={tagSet.label}>
-              {isDismissible ? (
+              {isDismissible || onClick ? (
                 <Button
                   aria-label={`${tagSet.label}, click to remove filter`}
                   data-testid="filter-tags"
@@ -81,6 +81,15 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                   onClick={() => finalOnClick(tagSet)}
                   sx={styles.base}
                 >
+                  {!isDismissible && tagSet.iconName ? (
+                    <Icon
+                      align="left"
+                      color={iconColor}
+                      data-testid="ts-icon"
+                      name={tagSet.iconName}
+                      size="small"
+                    />
+                  ) : null}
                   <span>{tagSet.label}</span>
                   <Icon
                     data-testid="filter-close-icon"
