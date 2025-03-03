@@ -170,6 +170,12 @@ describe("Image", () => {
     const ratioThreeByFour = renderer
       .create(<Image src="test.png" alt="" aspectRatio="threeByFour" />)
       .toJSON();
+    const ratioFourByOne = renderer
+      .create(<Image src="test.png" alt="" aspectRatio="fourByOne" />)
+      .toJSON();
+    const ratioTwoByThree = renderer
+      .create(<Image src="test.png" alt="" aspectRatio="twoByThree" />)
+      .toJSON();
     const ratioThreeByTwo = renderer
       .create(<Image src="test.png" alt="" aspectRatio="threeByTwo" />)
       .toJSON();
@@ -206,6 +212,8 @@ describe("Image", () => {
     expect(sizeBasedOnHeight).toMatchSnapshot();
     expect(ratioFourByThree).toMatchSnapshot();
     expect(ratioOneByTwo).toMatchSnapshot();
+    expect(ratioFourByOne).toMatchSnapshot();
+    expect(ratioTwoByThree).toMatchSnapshot();
     expect(ratioOriginal).toMatchSnapshot();
     expect(ratioSixteenByNine).toMatchSnapshot();
     expect(ratioSquare).toMatchSnapshot();

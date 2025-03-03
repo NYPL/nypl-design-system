@@ -13,6 +13,8 @@ import { DimensionTypes } from "../../helpers/types";
 
 export const imageRatiosArray = [
   "fourByThree",
+  "fourByOne",
+  "twoByThree",
   "oneByTwo",
   "original",
   "sixteenByNine",
