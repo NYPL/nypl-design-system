@@ -1,9 +1,9 @@
 import {
+  Box,
   chakra,
   useColorModeValue,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/Icon";
@@ -73,28 +73,15 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
 
           return (
             <TooltipWrapper key={key} label={tagSet.label}>
-              <Button
-                aria-label={
-                  isDismissible
-                    ? `${tagSet.label}, click to remove filter`
-                    : undefined
-                }
-                data-testid="filter-tags"
-                id={`ts-filter-${tagSet.id}-${key}`}
-                onClick={isDismissible ? () => finalOnClick(tagSet) : undefined}
-                sx={styles.base}
-              >
-                {!isDismissible && tagSet.iconName ? (
-                  <Icon
-                    align="left"
-                    color={iconColor}
-                    data-testid="ts-icon"
-                    name={tagSet.iconName}
-                    size="small"
-                  />
-                ) : null}
-                <span>{tagSet.label}</span>
-                {isDismissible ? (
+              {isDismissible ? (
+                <Button
+                  aria-label={`${tagSet.label}, click to remove filter`}
+                  data-testid="filter-tags"
+                  id={`ts-filter-${tagSet.id}-${key}`}
+                  onClick={() => finalOnClick(tagSet)}
+                  sx={styles.base}
+                >
+                  <span>{tagSet.label}</span>
                   <Icon
                     data-testid="filter-close-icon"
                     align="right"
@@ -103,8 +90,31 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                     color={dismissButtonColor}
                     width="12px"
                   />
-                ) : null}
-              </Button>
+                </Button>
+              ) : (
+                <Box
+                  data-testid="filter-tags"
+                  id={`ts-filter-${tagSet.id}-${key}`}
+                  sx={styles.base}
+                >
+                  {tagSet.iconName ? (
+                    <Icon
+                      align="left"
+                      color={iconColor}
+                      data-testid="ts-icon"
+                      name={tagSet.iconName}
+                      size="small"
+                    />
+                  ) : null}
+                  <span
+                    style={{
+                      fontWeight: "var(--nypl-fontWeights-button-default)",
+                    }}
+                  >
+                    {tagSet.label}
+                  </span>
+                </Box>
+              )}
             </TooltipWrapper>
           );
         })}
