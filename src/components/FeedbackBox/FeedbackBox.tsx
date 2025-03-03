@@ -385,7 +385,11 @@ export const FeedbackBox: ChakraComponent<
                             invalidText="There was a problem. Please fill out this field."
                             isDisabled={isSubmitted}
                             isInvalid={finalIsInvalidComment}
-                            labelText="Comment (required)"
+                            labelText={
+                              <>
+                                Comment <span>(required)</span>
+                              </>
+                            }
                             maxLength={maxCommentCharacters}
                             name={`${id}-comment`}
                             onChange={(e) => setComment(e.target.value)}
