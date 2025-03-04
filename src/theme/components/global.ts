@@ -119,7 +119,7 @@ const labelLegendText = {
   marginBottom: "xs",
   width: "100%",
   span: {
-    fontWeight: "regular",
+    fontWeight: "light",
   },
   _dark: {
     color: "dark.ui.typography.heading",
