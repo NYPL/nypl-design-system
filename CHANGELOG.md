@@ -16,7 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the spacing between heading and content in `Banner` component.
 - Updates the `Card`, `FeaturedContent`, and `SearchBar` components to use container queries.
-- Updated `TagSetFilter` to remove tag button wrapper when `isDismissible` and `onClick` are false.
+- Updated the `"filter"` variant of `TagSet` to remove tag button wrapper when `isDismissible` and `onClick` are false.
 
 ## 3.5.4 (February 13, 2025)
 
