@@ -104,7 +104,10 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                 <Box
                   data-testid="filter-tags"
                   id={`ts-filter-${tagSet.id}-${key}`}
-                  sx={styles.base}
+                  sx={{
+                    ...styles.base,
+                    fontWeight: "regular",
+                  }}
                 >
                   {tagSet.iconName ? (
                     <Icon
@@ -115,13 +118,8 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                       size="small"
                     />
                   ) : null}
-                  <span
-                    style={{
-                      fontWeight: "var(--nypl-fontWeights-button-default)",
-                    }}
-                  >
-                    {tagSet.label}
-                  </span>
+
+                  {tagSet.label}
                 </Box>
               )}
             </TooltipWrapper>
