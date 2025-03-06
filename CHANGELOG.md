@@ -14,9 +14,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates the spacing on `Modal`.
 - Updates the spacing between heading and content in `Banner` component.
 - Updates the `Card`, `FeaturedContent`, and `SearchBar` components to use container queries.
 - Updated the `"filter"` variant of `TagSet` to remove tag button wrapper when `isDismissible` and `onClick` are false.
+- Updates `Image` to include 'fourByOne' and 'twoByThree' aspect ratio options.
+
 
 ## 3.5.4 (February 13, 2025)
 
