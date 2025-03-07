@@ -114,7 +114,7 @@ export const colorContrastData = {
     },
   },
 };
-export const cssVars = {
+export const colorCardsData = {
   brand: [
     {
       name: "brand.primary",
@@ -590,6 +590,57 @@ export const cssVars = {
       textColor: colorContrastData.ui.gray.xLightWarm.textColor,
     },
   ],
+  highlighter: [
+    {
+      name: "ui.highlighter.red",
+      // dataBlackColor: colorContrastData.ui.gray.lightWarm.dataBlackColor,
+      // dataWhiteColor: colorContrastData.ui.gray.lightWarm.dataWhiteColor,
+      showColorDataTable: false,
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.highlighter.burgundy",
+      dataBlackColor: colorContrastData.ui.gray.xLightWarm.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xLightWarm.dataWhiteColor,
+      showColorDataTable: false,
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.highlighter.orange",
+      dataBlackColor: colorContrastData.ui.gray.xLightWarm.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xLightWarm.dataWhiteColor,
+      showColorDataTable: false,
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.highlighter.yellow",
+      dataBlackColor: colorContrastData.ui.gray.xLightWarm.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xLightWarm.dataWhiteColor,
+      showColorDataTable: false,
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.highlighter.green",
+      dataBlackColor: colorContrastData.ui.gray.xLightWarm.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xLightWarm.dataWhiteColor,
+      showColorDataTable: false,
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.highlighter.blue",
+      dataBlackColor: colorContrastData.ui.gray.xLightWarm.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xLightWarm.dataWhiteColor,
+      showColorDataTable: false,
+      textColor: "ui.black",
+    },
+    {
+      name: "ui.highlighter.purple",
+      dataBlackColor: colorContrastData.ui.gray.xLightWarm.dataBlackColor,
+      dataWhiteColor: colorContrastData.ui.gray.xLightWarm.dataWhiteColor,
+      showColorDataTable: false,
+      textColor: "ui.black",
+    },
+  ],
   dark: [
     {
       colorSource: "ui.gray.xxxx-dark",
@@ -836,6 +887,43 @@ export const cssVars = {
       textColor: "ui.black",
     },
   ],
+  darkHighlighter: [
+    {
+      name: "dark.ui.highlighter.red",
+      showColorDataTable: false,
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.highlighter.burgundy",
+      showColorDataTable: false,
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.highlighter.orange",
+      showColorDataTable: false,
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.highlighter.yellow",
+      showColorDataTable: false,
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.highlighter.green",
+      showColorDataTable: false,
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.highlighter.blue",
+      showColorDataTable: false,
+      textColor: "ui.white",
+    },
+    {
+      name: "dark.ui.highlighter.purple",
+      showColorDataTable: false,
+      textColor: "ui.white",
+    },
+  ],
 };
 
 export const makeColorCard = function (data) {
@@ -853,6 +941,7 @@ export const makeColorCard = function (data) {
     dataBodyColor,
     name,
     notes,
+    showColorDataTable,
     textColor,
   } = data;
   const card = (
@@ -871,6 +960,7 @@ export const makeColorCard = function (data) {
       dataBrandPrimaryColor={dataBrandPrimaryColor}
       dataBrandSecondaryColor={dataBrandSecondaryColor}
       notes={notes}
+      showColorDataTable={showColorDataTable}
       textColor={textColor}
       key={name}
     />
@@ -879,7 +969,7 @@ export const makeColorCard = function (data) {
 };
 export const getColorCards = (category) => {
   const cards = [];
-  const catArr = cssVars[category];
+  const catArr = colorCardsData[category];
   if (category === "researchLibraries") {
     console.log(catArr);
   }
@@ -965,6 +1055,8 @@ export interface ColorCardProps extends DataTableProps {
   colorName: string;
   /** The name of the color that the current color is based on. */
   colorSource: string;
+  /** Show or hide the data table */
+  showColorDataTable: boolean;
   /** Details on how a color should be used. */
   notes?: string;
 }
@@ -1287,6 +1379,7 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
     dataBrandPrimaryColor,
     dataBrandSecondaryColor,
     notes,
+    showColorDataTable = true,
     textColor = "ui.white",
   } = props;
   const cssVarName = `--nypl-colors-${colorName.replace(/\./g, "-")}`;
@@ -1351,19 +1444,21 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
             </Text>
           )}
         </Box>
-        <DataTable
-          dataBgPageColor={dataBgPageColor}
-          dataBgDefaultColor={dataBgDefaultColor}
-          dataDarkBgPageColor={dataDarkBgPageColor}
-          dataDarkBgDefaultColor={dataDarkBgDefaultColor}
-          dataBlackColor={dataBlackColor}
-          dataDarkHeadingColor={dataDarkHeadingColor}
-          dataDarkBodyColor={dataDarkBodyColor}
-          dataWhiteColor={dataWhiteColor}
-          dataBrandPrimaryColor={dataBrandPrimaryColor}
-          dataBrandSecondaryColor={dataBrandSecondaryColor}
-          textColor={textColor}
-        />
+        {showColorDataTable && (
+          <DataTable
+            dataBgPageColor={dataBgPageColor}
+            dataBgDefaultColor={dataBgDefaultColor}
+            dataDarkBgPageColor={dataDarkBgPageColor}
+            dataDarkBgDefaultColor={dataDarkBgDefaultColor}
+            dataBlackColor={dataBlackColor}
+            dataDarkHeadingColor={dataDarkHeadingColor}
+            dataDarkBodyColor={dataDarkBodyColor}
+            dataWhiteColor={dataWhiteColor}
+            dataBrandPrimaryColor={dataBrandPrimaryColor}
+            dataBrandSecondaryColor={dataBrandSecondaryColor}
+            textColor={textColor}
+          />
+        )}
       </HStack>
     </Box>
   );

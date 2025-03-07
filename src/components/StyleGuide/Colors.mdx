@@ -20,7 +20,10 @@ import { getColorCards } from "./ColorCard";
 - {<Link href="#ui-colors" target="_self">UI Colors</Link>}
   - {<Link href="#semantic-colors" target="_self">Semantic Colors</Link>}
   - {<Link href="#grayscale-colors" target="_self">Grayscale Colors</Link>}
-- {<Link href="#dark-mode-ui-colors" target="_self">Dark Mode UI Colors</Link>}
+  - {<Link href="#highlighter-colors" target="_self">Highlighter Colors</Link>}
+- {<Link href="#dark-mode" target="_self">Dark Mode</Link>}
+  - {<Link href="#dark-mode-ui-colors" target="_self">UI Colors</Link>}
+  - {<Link href="#dark-mode-highlighter-colors" target="_self">Highlighter Colors</Link>}
 - {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
 
 ## Overview
@@ -248,7 +251,26 @@ and coding.
   </SimpleGrid>
 </Box>
 
-## Dark Mode UI Colors
+### Highlighter Colors
+
+The `highlighter` colors should be used to highlight text which is of special
+interest, comparable to using a highlighter pen.
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <SimpleGrid columns={1} gap="s">
+    {getColorCards("highlighter")}
+  </SimpleGrid>
+</Box>
+
+## Dark Mode
+
+### Dark Mode UI Colors
 
 The following "dark mode" color fills are used for body copy and to communicate
 component and/or application state in dark mode.
@@ -264,6 +286,24 @@ These colors are not connected to the NYPL brand, but are intended to be generic
 >
   <SimpleGrid columns={1} gap="s" bg="dark.ui.bg.page" p="m">
     {getColorCards("dark")}
+  </SimpleGrid>
+</Box>
+
+### Dark Mode Highlighter Colors
+
+The dark mode `highlighter` colors should be used in a dark mode situation to
+highlight text which is of special interest, comparable to using a highlighter
+pen.
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <SimpleGrid columns={1} gap="s" bg="dark.ui.bg.page" p="m">
+    {getColorCards("darkHighlighter")}
   </SimpleGrid>
 </Box>
 
