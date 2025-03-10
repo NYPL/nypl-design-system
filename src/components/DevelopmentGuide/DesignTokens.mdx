@@ -352,37 +352,59 @@ The semantic `color` tokens have both light and dark mode values.
 
 ##### Light Mode
 
-|                | JS Token                      | CSS Token                                   | Value                |
-| -------------- | :---------------------------- | :------------------------------------------ | :------------------- |
-| **Background** | ui.bg.page                    | --nypl-colors-ui-bg-page                    | ui.white             |
-|                | ui.bg.default                 | --nypl-colors-ui-bg-default                 | ui.gray.x-light-cool |
-|                | ui.bg.hover                   | --nypl-colors-ui-bg-hover                   | ui.gray.light-cool   |
-|                | ui.bg.active                  | --nypl-colors-ui-bg-active                  | ui.gray.medium       |
-|                |                               |                                             |                      |
-| **Border**     | ui.border.default             | --nypl-colors-ui-border-default             | ui.gray.medium       |
-|                | ui.border.hover               | --nypl-colors-ui-order-hover                | ui.gray.dark         |
-|                |                               |                                             |                      |
-| **Typography** | ui.typography.heading         | --nypl-colors-ui-typography-heading         | ui.black             |
-|                | ui.typography.body            | --nypl-colors-ui-typography-body            | ui.black             |
-|                | ui.inverse.typography.heading | --nypl-colors-ui-inverse-typography-heading | ui.white             |
-|                | ui.inverse.typography.body    | --nypl-colors-ui-inverse-typography-body    | ui.white             |
+|                 | JS Token                      | CSS Token                                   | Value                            |
+| --------------- | :---------------------------- | :------------------------------------------ | :------------------------------- |
+| **Background**  | ui.bg.page                    | --nypl-colors-ui-bg-page                    | ui.white                         |
+|                 | ui.bg.default                 | --nypl-colors-ui-bg-default                 | ui.gray.x-light-cool             |
+|                 | ui.bg.hover                   | --nypl-colors-ui-bg-hover                   | ui.gray.light-cool               |
+|                 | ui.bg.active                  | --nypl-colors-ui-bg-active                  | ui.gray.medium                   |
+|                 |                               |                                             |                                  |
+| **Border**      | ui.border.default             | --nypl-colors-ui-border-default             | ui.gray.medium                   |
+|                 | ui.border.hover               | --nypl-colors-ui-order-hover                | ui.gray.dark                     |
+|                 |                               |                                             |                                  |
+| **Typography**  | ui.typography.heading         | --nypl-colors-ui-typography-heading         | ui.black                         |
+|                 | ui.typography.body            | --nypl-colors-ui-typography-body            | ui.black                         |
+|                 | ui.inverse.typography.heading | --nypl-colors-ui-inverse-typography-heading | ui.white                         |
+|                 | ui.inverse.typography.body    | --nypl-colors-ui-inverse-typography-body    | ui.white                         |
+|                 |                               |                                             |                                  |
+| **Highlighter** | ui.highlighter.red            | --nypl-colors-ui-highlighter-red            | primatives.nyplBrand[100] \*     |
+|                 | ui.highlighter.pink           | --nypl-colors-ui-highlighter-pink           | primatives.fluorescenctPink[100] |
+|                 | ui.highlighter.burgundy       | --nypl-colors-ui-highlighter-burgundy       | primatives.vividBurgundy[100]    |
+|                 | ui.highlighter.orange         | --nypl-colors-ui-highlighter-orange         | primatives.carrotOrange[100]     |
+|                 | ui.highlighter.yellow         | --nypl-colors-ui-highlighter-yellow         | primatives.flavescent[100]       |
+|                 | ui.highlighter.green          | --nypl-colors-ui-highlighter-green          | primatives.treeGreen[100]        |
+|                 | ui.highlighter.blue           | --nypl-colors-ui-highlighter-blue           | primatives.scienceBlue[100]      |
+|                 | ui.highlighter.purple         | --nypl-colors-ui-highlighter-purple         | primatives.irisPurple[100]       |
+
+\* Primitive values are not available as design tokens
 
 ##### Dark Mode
 
-|                | JS Token                           | CSS Token                                        | Value               |
-| -------------- | :--------------------------------- | :----------------------------------------------- | :------------------ |
-| **Background** | dark.ui.bg.page                    | --nypl-colors-dark-ui-bg-page                    | ui.gray.xxxx-dark   |
-|                | dark.ui.bg.default                 | --nypl-colors-dark-ui-bg-default                 | ui.gray.xxx-dark    |
-|                | dark.ui.bg.hover                   | --nypl-colors-dark-ui-bg-hover                   | ui.gray.xx-dark     |
-|                | dark.ui.bg.active                  | --nypl-colors-dark-ui-bg-active                  | ui.gray.x-dark      |
-|                |                                    |                                                  |                     |
-| **Border**     | dark.ui.border.default             | --nypl-colors-dark-ui-border-default             | ui.gray.semi-dark   |
-|                | dark.ui.border.hover               | --nypl-colors-dark-ui-order-hover                | ui.gray.semi-medium |
-|                |                                    |                                                  |                     |
-| **Typography** | dark.ui.typography.heading         | --nypl-colors-dark-ui-typography-heading         | ui.gray.light-cool  |
-|                | dark.ui.typography.body            | --nypl-colors-dark-ui-typography-body            | ui.gray.medium      |
-|                | dark.ui.inverse.typography.heading | --nypl-colors-dark-ui-inverse-typography-heading | ui.gray.xxx-dark    |
-|                | dark.ui.inverse.typography.body    | --nypl-colors-dark-ui-inverse-typography-body    | ui.gray.xxx-dark    |
+|                 | JS Token                           | CSS Token                                        | Value                            |
+| --------------- | :--------------------------------- | :----------------------------------------------- | :------------------------------- |
+| **Background**  | dark.ui.bg.page                    | --nypl-colors-dark-ui-bg-page                    | ui.gray.xxxx-dark                |
+|                 | dark.ui.bg.default                 | --nypl-colors-dark-ui-bg-default                 | ui.gray.xxx-dark                 |
+|                 | dark.ui.bg.hover                   | --nypl-colors-dark-ui-bg-hover                   | ui.gray.xx-dark                  |
+|                 | dark.ui.bg.active                  | --nypl-colors-dark-ui-bg-active                  | ui.gray.x-dark                   |
+|                 |                                    |                                                  |                                  |
+| **Border**      | dark.ui.border.default             | --nypl-colors-dark-ui-border-default             | ui.gray.semi-dark                |
+|                 | dark.ui.border.hover               | --nypl-colors-dark-ui-order-hover                | ui.gray.semi-medium              |
+|                 |                                    |                                                  |                                  |
+| **Typography**  | dark.ui.typography.heading         | --nypl-colors-dark-ui-typography-heading         | ui.gray.light-cool               |
+|                 | dark.ui.typography.body            | --nypl-colors-dark-ui-typography-body            | ui.gray.medium                   |
+|                 | dark.ui.inverse.typography.heading | --nypl-colors-dark-ui-inverse-typography-heading | ui.gray.xxx-dark                 |
+|                 | dark.ui.inverse.typography.body    | --nypl-colors-dark-ui-inverse-typography-body    | ui.gray.xxx-dark                 |
+|                 |                                    |                                                  |                                  |
+| **Highlighter** | dark.ui.highlighter.red            | --nypl-colors-dark-ui-highlighter-red            | primatives.nyplBrand[800] \*     |
+|                 | dark.ui.highlighter.pink           | --nypl-colors-dark-ui-highlighter-pink           | primatives.fluorescenctPink[800] |
+|                 | dark.ui.highlighter.burgundy       | --nypl-colors-dark-ui-highlighter-burgundy       | primatives.vividBurgundy[800]    |
+|                 | dark.ui.highlighter.orange         | --nypl-colors-dark-ui-highlighter-orange         | primatives.carrotOrange[800]     |
+|                 | dark.ui.highlighter.yellow         | --nypl-colors-dark-ui-highlighter-yellow         | primatives.flavescent[800]       |
+|                 | dark.ui.highlighter.green          | --nypl-colors-dark-ui-highlighter-green          | primatives.treeGreen[800]        |
+|                 | dark.ui.highlighter.blue           | --nypl-colors-dark-ui-highlighter-blue           | primatives.scienceBlue[800]      |
+|                 | dark.ui.highlighter.purple         | --nypl-colors-dark-ui-highlighter-purple         | primatives.irisPurple[800]       |
+
+\* Primitive values are not available as design tokens
 
 ### Radii
 
