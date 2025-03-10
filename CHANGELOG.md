@@ -11,6 +11,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `Container Query Guide` page to the `Development Guide` section of Storybook.
+- Adds the `primitives` color object.
+- Adds the `highlighter` colors to the `colors` theme object.
 
 ### Updates
 
