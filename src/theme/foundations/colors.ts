@@ -22,7 +22,7 @@ import { hexToRGB } from "../../utils/utils";
 
 /** Reusable variables: */
 // Primitives
-const primivites = {
+export const primitives = {
   nyplRed: {
     DEFAULT: "#C60917",
     "25": "#FCF3F3",
@@ -175,16 +175,16 @@ const grayLightCool = "#E9E9E9";
 const grayxLightCool = "#F5F5F5";
 const grayxxLightCool = "#FAFAFA";
 // semantic
-const errorPrimary = primivites.nyplRed.DEFAULT;
+const errorPrimary = primitives.nyplRed.DEFAULT;
 const errorSecondary = "#6F0106";
-const linkPrimary = primivites.scienceBlue.DEFAULT;
+const linkPrimary = primitives.scienceBlue.DEFAULT;
 const linkSecondary = "#004B98";
-const linkTertiary = primivites.irisPurple.DEFAULT;
-const statusPrimary = primivites.flavescent.DEFAULT;
+const linkTertiary = primitives.irisPurple.DEFAULT;
+const statusPrimary = primitives.flavescent.DEFAULT;
 const statusSecondary = "#FBE7E1";
-const successPrimary = primivites.treeGreen.DEFAULT;
+const successPrimary = primitives.treeGreen.DEFAULT;
 const successSecondary = "#095212";
-const warningPrimary = primivites.carrotOrange.DEFAULT;
+const warningPrimary = primitives.carrotOrange.DEFAULT;
 const warningSecondary = "#E36D17";
 const warningTertiary = "#CD4D05";
 const errorPrimaryDark = "#E1767B";
@@ -199,7 +199,7 @@ const successSecondaryDark = "#81C88A";
 const warningPrimaryDark = "#DC8034";
 const warningSecondaryDark = "#EC7B1F";
 // brand
-const brandPrimary = primivites.nyplRed.DEFAULT;
+const brandPrimary = primitives.nyplRed.DEFAULT;
 const brandSecondary = "#760000";
 const blogsPrimary = grayLightCool;
 const blogsSecondary = grayMedium;
@@ -362,16 +362,16 @@ const colors: Colors = {
       "primary-10": hexToRGB(errorPrimary, 0.1),
       secondary: errorSecondary,
     },
-    focus: primivites.blueberry.DEFAULT,
+    focus: primitives.blueberry.DEFAULT,
     highlighter: {
-      red: primivites.nyplRed[100],
-      pink: primivites.fluorescentPink[100],
-      burgundy: primivites.vividBurgundy[100],
-      orange: primivites.carrotOrange[100],
-      yellow: primivites.flavescent[100],
-      green: primivites.treeGreen[100],
-      blue: primivites.scienceBlue[100],
-      purple: primivites.irisPurple[100],
+      red: primitives.nyplRed[100],
+      pink: primitives.fluorescentPink[100],
+      burgundy: primitives.vividBurgundy[100],
+      orange: primitives.carrotOrange[100],
+      yellow: primitives.flavescent[100],
+      green: primitives.treeGreen[100],
+      blue: primitives.scienceBlue[100],
+      purple: primitives.irisPurple[100],
     },
     link: {
       primary: linkPrimary,
@@ -466,14 +466,14 @@ const colors: Colors = {
       },
       focus: "#6090E3",
       highlighter: {
-        red: primivites.nyplRed[800],
-        pink: primivites.fluorescentPink[800],
-        burgundy: primivites.vividBurgundy[800],
-        orange: primivites.carrotOrange[800],
-        yellow: primivites.flavescent[800],
-        green: primivites.treeGreen[800],
-        blue: primivites.scienceBlue[800],
-        purple: primivites.irisPurple[800],
+        red: primitives.nyplRed[800],
+        pink: primitives.fluorescentPink[800],
+        burgundy: primitives.vividBurgundy[800],
+        orange: primitives.carrotOrange[800],
+        yellow: primitives.flavescent[800],
+        green: primitives.treeGreen[800],
+        blue: primitives.scienceBlue[800],
+        purple: primitives.irisPurple[800],
       },
       link: {
         primary: linkPrimaryDark,

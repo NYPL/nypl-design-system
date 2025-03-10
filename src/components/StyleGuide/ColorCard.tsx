@@ -6,6 +6,7 @@ import Icon, { IconColors } from "../Icons/Icon";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
 import { checkContrast } from "../../utils/colorUtils";
+import { primitives } from "../../theme/foundations/colors";
 
 export const colorContrastData = {
   brand: {
@@ -593,8 +594,6 @@ export const colorCardsData = {
   highlighter: [
     {
       name: "ui.highlighter.red",
-      // dataBlackColor: colorContrastData.ui.gray.lightWarm.dataBlackColor,
-      // dataWhiteColor: colorContrastData.ui.gray.lightWarm.dataWhiteColor,
       showColorDataTable: false,
       textColor: "ui.black",
     },
@@ -967,17 +966,14 @@ export const makeColorCard = function (data) {
   );
   return card;
 };
-export const getColorCards = (category) => {
+export const getColorCards = (category: string) => {
   const cards = [];
   const catArr = colorCardsData[category];
-  if (category === "researchLibraries") {
-    console.log(catArr);
-  }
-  for (let i = 0; i < catArr.length; i++) {
-    const colorData = catArr[i];
+  catArr.map((color: any) => {
+    const colorData = color;
     const card = makeColorCard(colorData);
     cards.push(card);
-  }
+  });
   return cards;
 };
 
@@ -1059,6 +1055,35 @@ export interface ColorCardProps extends DataTableProps {
   showColorDataTable: boolean;
   /** Details on how a color should be used. */
   notes?: string;
+}
+
+export const colorNamesArray = [
+  "nyplRed",
+  "fluorescentPink",
+  "vividBurgundy",
+  "carrotOrange",
+  "flavescent",
+  "treeGreen",
+  "scienceBlue",
+  "blueberry",
+  "irisPurple",
+] as const;
+export type ColorNames = typeof colorNamesArray[number];
+
+export interface ColorBoxProps {
+  /** The backgroundColor of the color card. */
+  backgroundColor: string;
+  /** The name of a color's javascript theme object. */
+  colorName: ColorNames;
+  /** The name of a color's javascript theme object. */
+  colorOption: string;
+  /** The color to use for text in the color card. */
+  textColor?: IconColors;
+}
+
+export interface ColorScaleProps {
+  /** The name of a color's javascript theme object. */
+  colorName: ColorNames;
 }
 
 export const DataTable = (props: PropsWithChildren<DataTableProps>) => {
@@ -1360,6 +1385,78 @@ export const DataTable = (props: PropsWithChildren<DataTableProps>) => {
       tableData={tableData}
       useRowHeaders
     />
+  );
+};
+
+export const ColorBox = (props: ColorBoxProps) => {
+  const { backgroundColor, colorOption, textColor = "ui.black" } = props;
+  return (
+    <Box
+      alignItems="top"
+      bg={backgroundColor}
+      color={textColor}
+      display="flex"
+      flexDirection="column"
+      fontSize="10px !important"
+      fontWeight="bold"
+      h="100px"
+      justifyContent="space-between"
+    >
+      <Box
+        bg="dark.ui.bg.default"
+        borderBottom="1px solid white"
+        display="flex"
+        h="fit-content"
+        justifyContent="center"
+        px="xxs"
+        width="100%"
+      >
+        {colorOption}
+      </Box>
+      <Box
+        bg="dark.ui.bg.default"
+        borderTop="1px solid white"
+        display="flex"
+        h="fit-content"
+        justifyContent="center"
+        px="xxs"
+        width="100%"
+      >
+        {backgroundColor}
+      </Box>
+    </Box>
+  );
+};
+export const ColorScale = (props: ColorScaleProps) => {
+  const { colorName } = props;
+  const colorOptionsArray = [
+    "DEFAULT",
+    "25",
+    "50",
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+    "900",
+    "950",
+  ];
+  const boxes = colorOptionsArray.map((colorOption) => (
+    <ColorBox
+      backgroundColor={primitives[colorName][colorOption]}
+      colorName={colorName}
+      colorOption={colorOption}
+      key={`${colorName}-${colorOption}`}
+      textColor="ui.white"
+    />
+  ));
+  return (
+    <Box display="grid" gap="1px" gridTemplateColumns="repeat(13, 1fr)">
+      {boxes}
+    </Box>
   );
 };
 
