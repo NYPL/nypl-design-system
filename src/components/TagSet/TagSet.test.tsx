@@ -329,6 +329,14 @@ describe("TagSet Filter", () => {
     expect(screen.getByText("Clear filters")).toBeInTheDocument();
   });
 
+  it("it does not render tags as buttons when isDismissible is false", () => {
+    const tagSetData = [{ id: "red", label: "Red" }];
+    render(
+      <TagSet isDismissible={false} tagSetData={tagSetData} type="filter" />
+    );
+    expect(screen.queryByRole("button")).not.toBeInTheDocument;
+  });
+
   it("returns correct meta data when the 'Clear filters' button is clicked", () => {
     let currentTag = {};
     const onClick = (tagSet) => {
