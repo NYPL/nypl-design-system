@@ -21,11 +21,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `Container Query Guide` page to the `Development Guide` section of Storybook.
+
+### Updates
+
+- Updates the spacing between heading and content in `Banner` component.
+- Updates the `Card`, `FeaturedContent`, and `SearchBar` components to use container queries.
+
 ## 3.5.4 (February 13, 2025)
 
 ### Adds
 
 - Adds the `"utilityCheck"` option to the `Icon` component.
+- Adds the `getTextFromElement` utility function.
 
 ### Updates
 
@@ -37,6 +47,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `FeedbackBox` component to set the font weight for the popup header to `medium`.
 - Updates the `primary` variant of the `Hero` component to have appropriate padding for desktop and mobile, and `max-width` of 860px
 - Updates the `campaign` variant of the `Hero` component to have consistent padding.
+- Updates the `Label` component to set the font weight for the `(required)` label to `"medium"`.
+- Updates the `Fieldset` component to set the font weight for the `(required)` label to `"medium"`.
+- Updates the `FeedbackBox` component to set the font weight for the `(required)` label on the `Textarea` element to `"medium"`.
 
 ### Fixes
 

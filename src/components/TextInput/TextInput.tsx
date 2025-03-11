@@ -13,7 +13,7 @@ import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
-import { getAriaAttrs } from "../../utils/utils";
+import { getAriaAttrs, getTextFromElement } from "../../utils/utils";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 
@@ -134,7 +134,7 @@ export interface InputProps
   isRequired?: boolean;
   /** Provides text for a `Label` component if `showLabel` is set to true;
    * populates an `aria-label` attribute if `showLabel` is set to false. */
-  labelText: string;
+  labelText: string | JSX.Element;
   /** The max number for a `number` TextInput type. */
   max?: number;
   /** The max length of the input field. This prop is for all input types
@@ -278,7 +278,7 @@ export const TextInput: ChakraComponent<
           additionalHelperTextIds,
           footnote,
           id,
-          labelText,
+          labelText: getTextFromElement(labelText), // Make sure this is plain text
           name: "TextInput",
           showLabel,
         }),
