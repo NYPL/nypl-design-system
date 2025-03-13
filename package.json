@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "3.5.4",
+  "version": "3.5.5-rc4",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",

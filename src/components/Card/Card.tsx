@@ -105,7 +105,7 @@ function CardImage(
   });
 
   return (
-    <Box __css={styles} data-imageWrapper>
+    <Box __css={styles} data-imagewrapper>
       <Image
         alt={alt}
         aspectRatio={aspectRatio}
@@ -330,7 +330,7 @@ export const Card: ChakraComponent<
               ...styles.wrapper,
               ...customColors,
             }}
-            data-cardWrapper
+            data-cardwrapper
             {...rest}
           >
             {hasImage && (

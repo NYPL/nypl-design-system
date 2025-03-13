@@ -32,6 +32,10 @@ const SearchBar = defineMultiStyleConfig({
           marginBottom: "0",
           maxWidth: "255px",
           paddingBottom: "unset",
+          select: {
+            borderRightColor: { md: "transparent" },
+            borderRightRadius: { md: "none" },
+          },
         },
         "[data-button]": {
           borderRightRadius: "sm",

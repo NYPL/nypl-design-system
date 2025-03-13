@@ -102,7 +102,7 @@ export const FeaturedContent: ChakraComponent<
                 ...styles.imgWrapper,
                 backgroundImage: `/**/url(${imageProps.src})`,
               }}
-              data-imageWrapper
+              data-imagewrapper
             >
               <FeaturedContentImage
                 alt={imageProps.alt}

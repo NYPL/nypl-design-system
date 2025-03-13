@@ -80,8 +80,6 @@ const Select = defineMultiStyleConfig({
     searchbar: definePartsStyle({
       select: {
         flex: "1 1 20%",
-        borderRightColor: { md: "transparent" },
-        borderRightRadius: { md: "none" },
       },
     }),
   },
