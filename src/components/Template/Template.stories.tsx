@@ -184,12 +184,6 @@ export const WithControls: Story = {
     id: "template",
     sidebar: "left",
   },
-  argTypes: {
-    id: { control: false },
-    sidebar: {
-      table: { defaultValue: { summary: "none" } },
-    },
-  },
   render: (args) => {
     const { sidebar } = args;
     return (
