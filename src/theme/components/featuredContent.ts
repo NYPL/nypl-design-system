@@ -54,7 +54,7 @@ const FeaturedContent = defineMultiStyleConfig({
               "[data-wrapper]": {
                 flexDirection: imageAtEnd ? "column-reverse" : "column",
               },
-              "[data-imageWrapper]": {
+              "[data-imagewrapper]": {
                 height: "320px",
                 width: "100%",
               },
@@ -68,7 +68,7 @@ const FeaturedContent = defineMultiStyleConfig({
                 paddingLeft: full ? "s" : null,
                 paddingRight: full ? "s" : null,
               },
-              "[data-imageWrapper]": {
+              "[data-imagewrapper]": {
                 height: "auto",
                 width: wrapperWidth,
               },

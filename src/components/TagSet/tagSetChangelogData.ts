@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation", "Accessibility"],
+    notes: [
+      "Updated the `'filter'` variant to remove button wrapper on each tag when `isDismissible` is false and no `onClick` is passed.",
+    ],
+  },
+  {
     date: "2024-04-25",
     version: "3.1.1",
     type: "Update",

@@ -96,7 +96,7 @@ broken out into individual container queries:
     "[data-wrapper]": {
       flexDirection: imageAtEnd ? "column-reverse" : "column",
     },
-    "[data-imageWrapper]": {
+    "[data-imagewrapper]": {
       height: "320px",
       width: "100%",
     },
@@ -107,7 +107,7 @@ broken out into individual container queries:
       paddingLeft: full ? "s" : null,
       paddingRight: full ? "s" : null,
     },
-    "[data-imageWrapper]": {
+    "[data-imagewrapper]": {
       height: "auto",
       width: wrapperWidth,
     },
@@ -127,7 +127,7 @@ be used to generate the container query code with existing breakpoints in the sy
     "[data-wrapper]": {
       flexDirection: imageAtEnd ? "column-reverse" : "column",
     },
-    "[data-imageWrapper]": {
+    "[data-imagewrapper]": {
       height: "320px",
       width: "100%",
     },
@@ -207,7 +207,7 @@ be targeted in the container query styles:
             __css={{
             ...styles.imgWrapper,
             }}
-            data-imageWrapper
+            data-imagewrapper
         >
             <Image
               alt={imageProps.alt}
@@ -242,7 +242,7 @@ const componentStyles = {
     ...setContainerStyles({
       breakpoint: "mobile",
       styles: {
-        "[data-imageWrapper]": {
+        "[data-imagewrapper]": {
           flexFlow: "row",
         },
         "[data-actions]": {
