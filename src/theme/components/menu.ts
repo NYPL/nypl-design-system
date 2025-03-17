@@ -41,7 +41,7 @@ const Menu = defineMultiStyleConfig({
           paddingY: "xs",
           paddingX: "s",
           lineHeight: "18px",
-          fontWeight: "510",
+          fontWeight: "medium",
           fontSize: "desktop.caption",
           textColor: "ui.typography.heading",
           margin: "0px",
@@ -58,40 +58,41 @@ const Menu = defineMultiStyleConfig({
           },
         },
         actionItem: {
-          outline: "none !important",
-          textColor: "ui.typography.body",
-          paddingY: "xs",
-          paddingX: "s",
           fontSize: "desktop.body.body2",
           fontWeight: "body.body2",
+          lineHeight: "1.5",
+          outline: "none !important",
+          paddingX: "s",
+          paddingY: "xs",
+          textColor: "ui.typography.body",
           _hover: {
-            fontWeight: 510,
             bg: "ui.bg.hover",
+            fontWeight: "medium",
           },
           _focus: {
-            fontWeight: 510,
             bg: "ui.bg.hover",
+            fontWeight: "medium",
           },
           _dark: {
-            textColor: "dark.ui.typography.body",
             bg: "dark.ui.bg.default",
+            textColor: "dark.ui.typography.body",
             "> div > svg": {
               fill: "dark.ui.typography.body",
             },
             _hover: {
-              textColor: "dark.ui.typography.heading",
-              fontWeight: 510,
               bg: "dark.ui.bg.active",
+              fontWeight: "medium",
+              textColor: "dark.ui.typography.heading",
             },
             _focus: {
-              textColor: "dark.ui.typography.heading",
-              fontWeight: 510,
               bg: "dark.ui.bg.active",
+              fontWeight: "medium",
+              textColor: "dark.ui.typography.heading",
             },
           },
         },
         selected: {
-          fontWeight: 510,
+          fontWeight: "medium",
           borderLeftColor:
             highlightColor === "blogs"
               ? "dark.ui.border.default"
@@ -109,13 +110,13 @@ const Menu = defineMultiStyleConfig({
             textColor: "dark.ui.typography.heading",
             _hover: {
               textColor: "dark.ui.typography.heading",
-              fontWeight: 510,
+              fontWeight: "medium",
               background:
                 highlightColor === "blogs" ? "ui.bg.hover" : lightSectionColor,
             },
             _focus: {
               textColor: "dark.ui.typography.heading",
-              fontWeight: 510,
+              fontWeight: "medium",
               bg: "dark.ui.bg.active",
             },
             background:
