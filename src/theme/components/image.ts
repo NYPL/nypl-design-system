@@ -96,6 +96,12 @@ const imageRatios = {
   fourByThree: {
     paddingBottom: "75%",
   },
+  fourByOne: {
+    paddingBottom: "400%",
+  },
+  twoByThree: {
+    paddingBottom: "150%",
+  },
   oneByTwo: {
     paddingBottom: "200%",
   },
@@ -123,6 +129,12 @@ const imageWidthsBasedOnHeight = (height: number) => {
     },
     oneByTwo: {
       maxWidth: `${height / 2}px`,
+    },
+    fourByOne: {
+      maxWidth: `${4 * height}px`,
+    },
+    twoByThree: {
+      maxWidth: `${(2 / 3) * height}px`,
     },
     original: {},
     sixteenByNine: {

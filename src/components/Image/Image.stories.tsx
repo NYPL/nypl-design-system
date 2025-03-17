@@ -209,6 +209,22 @@ export const AspectRatios: Story = {
         />
       </Box>
       <Box style={imageBlockStyles}>
+        <Heading id="fourbyone" level="h4" size="heading6" text="fourByOne" />
+        <Image
+          alt="Alt text"
+          aspectRatio="fourByOne"
+          src={getPlaceholderImage()}
+        />
+      </Box>
+      <Box style={imageBlockStyles}>
+        <Heading id="twobythree" level="h4" size="heading6" text="twoByThree" />
+        <Image
+          alt="Alt text"
+          aspectRatio="twoByThree"
+          src={getPlaceholderImage()}
+        />
+      </Box>
+      <Box style={imageBlockStyles}>
         <Heading id="onebytwo" level="h4" size="heading6" text="oneByTwo" />
         <Image
           alt="Alt text"
