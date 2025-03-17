@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import Text from "../../components/Text/Text";
 
 export interface ComponentVersionTableProps {
@@ -19,13 +20,18 @@ export const ComponentVersionTable = (props: ComponentVersionTableProps) => {
       borderRadius="4px"
       height="fit-content"
       noSpace
-      px="xs"
+      px="s"
       py="xxs"
       size="caption"
+      width={{ base: "100%", md: "fit-content" }}
     >
-      <strong>Added:</strong> <code>v{added}</code>
+      <Box as="span" fontSize="12px !important">
+        <strong>Added:</strong> v{added}
+      </Box>
       <br />
-      <strong>Latest:</strong> <code>{finalLatest}</code>
+      <Box as="span" fontSize="12px !important">
+        <strong>Latest:</strong> {finalLatest}
+      </Box>
     </Text>
   );
 };
