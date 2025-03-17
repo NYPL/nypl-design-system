@@ -159,13 +159,6 @@ const getElementsFromData = (
                     ? colorMap.default
                     : bgColorByAccordionType
                 }
-                _expanded={{
-                  bg:
-                    !content.accordionType ||
-                    content.accordionType === "default"
-                      ? "ui.gray.light-cool"
-                      : bgColorByAccordionType,
-                }}
                 _hover={{
                   bg:
                     !content.accordionType ||
@@ -173,6 +166,21 @@ const getElementsFromData = (
                       ? "transparent"
                       : bgColorByAccordionType,
                   borderColor: "ui.gray.dark",
+                }}
+                _expanded={{
+                  bg:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "ui.gray.light-cool"
+                      : bgColorByAccordionType,
+                  _hover: {
+                    bg:
+                      !content.accordionType ||
+                      content.accordionType === "default"
+                        ? "ui.gray.light-cool"
+                        : bgColorByAccordionType,
+                    borderColor: "ui.gray.dark",
+                  },
                 }}
                 _dark={{
                   _expanded: {
