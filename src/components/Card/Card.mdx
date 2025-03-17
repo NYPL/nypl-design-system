@@ -4,15 +4,19 @@ import * as CardStories from "./Card.stories";
 import Link from "../Link/Link";
 import { changelogData } from "./cardChangelogData";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Meta of={CardStories} />
 
-# Card
+<ComponentDocsHeader
+  category="Basic Element"
+  componentName="Card"
+  summary="A flexible container used to group single-subject content in a self-contained format"
+  versionAdded="0.24.0"
+  versionLatest="3.3.2"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.24.0`   |
-| Latest            | `3.3.2`    |
+<Canvas of={CardStories.WithControls} />
 
 ## Table of Contents
 
@@ -105,8 +109,6 @@ rendered in the `Card` component through its `imageProps` prop.
 />
 
 ## Component Props
-
-<Canvas of={CardStories.WithControls} />
 
 <ArgTypes of={CardStories.WithControls} />
 
