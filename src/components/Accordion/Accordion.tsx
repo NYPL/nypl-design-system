@@ -116,6 +116,7 @@ const getElementsFromData = (
           key={index}
           maxHeight={panelMaxHeight}
           overflow="auto"
+          borderBottom={!isLast && "transparent"}
         >
           {content.panel}
         </AccordionPanel>
