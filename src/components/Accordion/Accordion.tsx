@@ -77,7 +77,9 @@ const getElementsFromData = (
   id: string,
   isAlwaysRendered: boolean = false,
   isDarkMode: boolean,
-  panelMaxHeight: string
+  panelMaxHeight: string,
+  hoveredButtonIndex: number,
+  setHoveredButtonIndex: React.Dispatch<React.SetStateAction<number>>
 ) => {
   const colorMap = isDarkMode
     ? {
@@ -131,9 +133,8 @@ const getElementsFromData = (
           "be used, so the value in the accordionData prop will be used."
       );
     }
-
     return (
-      <AccordionItem id={`${id}-item-${index}`} key={index} sx={{}}>
+      <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
         {({ isExpanded }) => {
           const bgColorByAccordionType = colorMap[content.accordionType];
@@ -144,8 +145,17 @@ const getElementsFromData = (
                 id={`${id}-button-${index}`}
                 padding={multiplePadding}
                 ref={content.buttonInteractionRef}
+                // Fix for double border issue in non-hovered state
+                // i.e. Hide the bottom border unless the accordion is last or expanded
                 borderBottomColor={
                   isLast || isExpanded ? "ui.gray.medium" : "transparent"
+                }
+                // Fix for double border issue on hover
+                // i.e. Hide the top border on the next button after the hovered button unless it's first
+                borderTopColor={
+                  !(index === 0) &&
+                  index === hoveredButtonIndex + 1 &&
+                  "transparent"
                 }
                 bg={
                   !content.accordionType
@@ -158,6 +168,7 @@ const getElementsFromData = (
                     content.accordionType === "default"
                       ? "transparent"
                       : bgColorByAccordionType,
+                  borderColor: "ui.gray.dark",
                 }}
                 _expanded={{
                   bg:
@@ -189,6 +200,15 @@ const getElementsFromData = (
                     isLast || isExpanded
                       ? "dark.ui.border.default"
                       : "transparent",
+                  _hover: {
+                    borderColor: "dark.ui.border.hover",
+                  },
+                }}
+                onMouseEnter={() => {
+                  setHoveredButtonIndex(index);
+                }}
+                onMouseLeave={() => {
+                  setHoveredButtonIndex(-1);
                 }}
               >
                 <Box
@@ -250,6 +270,10 @@ export const Accordion: ChakraComponent<
       buttonInteractionRef: item.buttonInteractionRef || React.createRef(),
     }));
 
+    // Used for fix a double border issue on hover for users with JS enabled
+    // Necessary due to Chakra's internal wrapping of the AccordionButton in a div
+    const [hoveredButtonIndex, setHoveredButtonIndex] = useState<number>(-1);
+
     const handleKeyDown = (e) => {
       // If the 'esc' key is pressed, find the panel the
       // user is focused on or within, and remove it as
@@ -303,7 +327,9 @@ export const Accordion: ChakraComponent<
           id,
           isAlwaysRendered,
           isDarkMode,
-          panelMaxHeight
+          panelMaxHeight,
+          hoveredButtonIndex,
+          setHoveredButtonIndex
         )}
       </ChakraAccordion>
     );
