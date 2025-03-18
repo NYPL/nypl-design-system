@@ -20,10 +20,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updated the `"filter"` variant of `TagSet` to remove tag button wrapper when `isDismissible` and `onClick` are false.
 - Updates `Image` to include 'fourByOne' and 'twoByThree' aspect ratio options.
 
-
 ### Fixes
 
-- Fixes `Accordion` styles, including padding, active hover state, and double-border issue.
+- Fixes `Accordion` styles, including padding and active hover state on the accordion button.
 
 ## 3.5.4 (February 13, 2025)
 

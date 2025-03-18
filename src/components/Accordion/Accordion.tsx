@@ -116,7 +116,6 @@ const getElementsFromData = (
           key={index}
           maxHeight={panelMaxHeight}
           overflow="auto"
-          borderBottomColor={isLast ? "default" : "transparent"}
         >
           {content.panel}
         </AccordionPanel>
@@ -133,7 +132,7 @@ const getElementsFromData = (
     }
 
     return (
-      <AccordionItem id={`${id}-item-${index}`} key={index}>
+      <AccordionItem id={`${id}-item-${index}`} key={index} sx={{}}>
         {/* Get the current state to render the correct icon. */}
         {({ isExpanded }) => {
           const bgColorByAccordionType = colorMap[content.accordionType];
@@ -165,7 +164,10 @@ const getElementsFromData = (
                     content.accordionType === "default"
                       ? "transparent"
                       : bgColorByAccordionType,
-                  borderColor: "ui.gray.dark",
+                  borderBottomColor: "transparent",
+                  boxShadow: isDarkMode
+                    ? "inset 0 0 0 1px var(--nypl-colors-dark-ui-border-hover)"
+                    : "inset 0 0 0 1px var(--nypl-colors-ui-gray-dark)",
                 }}
                 _expanded={{
                   bg:
@@ -179,7 +181,6 @@ const getElementsFromData = (
                       content.accordionType === "default"
                         ? "ui.gray.light-cool"
                         : bgColorByAccordionType,
-                    borderColor: "ui.gray.dark",
                   },
                 }}
                 _dark={{
