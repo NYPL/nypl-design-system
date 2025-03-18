@@ -141,18 +141,11 @@ const getElementsFromData = (
               <AccordionButton
                 aria-label={finalAriaLabel}
                 id={`${id}-button-${index}`}
-                borderColor={
-                  isDarkMode ? "dark.ui.border.default" : "ui.gray.medium"
-                }
-                borderBottomColor={
-                  isLast
-                    ? isDarkMode
-                      ? "dark.ui.border.default"
-                      : "ui.gray.medium"
-                    : "transparent"
-                }
                 padding={multiplePadding}
                 ref={content.buttonInteractionRef}
+                borderBottomColor={
+                  isLast || isExpanded ? "ui.gray.medium" : "transparent"
+                }
                 bg={
                   !content.accordionType
                     ? colorMap.default
@@ -164,10 +157,6 @@ const getElementsFromData = (
                     content.accordionType === "default"
                       ? "transparent"
                       : bgColorByAccordionType,
-                  borderBottomColor: "transparent",
-                  boxShadow: isDarkMode
-                    ? "inset 0 0 0 1px var(--nypl-colors-dark-ui-border-hover)"
-                    : "inset 0 0 0 1px var(--nypl-colors-ui-gray-dark)",
                 }}
                 _expanded={{
                   bg:
@@ -195,6 +184,10 @@ const getElementsFromData = (
                     content.accordionType === "default"
                       ? "dark.ui.border.hover"
                       : bgColorByAccordionType,
+                  borderBottomColor:
+                    isLast || isExpanded
+                      ? "dark.ui.border.default"
+                      : "transparent",
                 }}
               >
                 <Box
