@@ -1,0 +1,125 @@
+import { Meta, Source } from "@storybook/blocks";
+import { Box } from "@chakra-ui/react";
+import Link from "../Link/Link";
+
+<Meta title="Accessibility Guide/Highlighting Text" />
+
+# Highlighting Text
+
+## Table of Contents
+
+- {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#nypl-recommendations" target="_self">NYPL Recommendations</Link>}
+- {<Link href="#resources" target="_self">Resources</Link>}
+
+## General Information
+
+The `<mark>` HTML element is intended to represent text which is marked or
+highlighted for reference or notation purposes. The element can be used to
+implement highlighted text for semantic coding purposes.
+
+From a visual perspective, highlighting text in the UI requires more than a just
+a color indicator, as color should not be used as the only visual means of
+distinguishing a visual element.
+
+By combining the semantic meaning of the `<mark>` element and layering on an
+additional visual indicator beside color, the highlight will fulfill the
+requirements of both the relevant WCAG 2.1 AA success criteria.
+
+## NYPL Recommendations
+
+The NYPL Reservoir Design System (DS) provides semantic design tokens for a
+range of colors that can be used for highlighting text. It is recommended to
+use `yellow` to highlight text, but other colors may be used based on the use
+case.
+
+To meet WCAG 2.1 AA requirements, the full implementation of the `highlight`
+requires the addition of at least one of the following styles.
+
+### Heavier Font Weight
+
+Set the font weight to `medium` (500).
+
+#### Examples
+
+{
+
+<p>
+  This{" "}
+  <Box
+    as="mark"
+    __css={{
+      bgColor: "ui.highlighter.yellow",
+      fontWeight: "medium",
+      px: "xxxs",
+    }}
+  >
+    word
+  </Box>{" "}
+  is highlighted with yellow.
+</p>
+}
+{
+
+<p>
+  This{" "}
+  <Box
+    as="mark"
+    __css={{
+      bgColor: "ui.highlighter.blue",
+      fontWeight: "medium",
+      px: "xxxs",
+    }}
+  >
+    word
+  </Box>{" "}
+  is highlighted with blue.
+</p>
+}
+
+### Border
+
+Add a 1px border using a contrast compliant color.
+
+#### Examples
+
+{
+
+<p>
+  This <Box
+    as="mark"
+    __css={{
+      bgColor: "ui.highlighter.yellow",
+      border: "1px solid",
+      borderColor: "ui.gray.semi-dark",
+      px: "xxxs",
+    }}
+  >
+    word
+  </Box> is highlighted with yellow.
+</p>
+}
+{
+
+<p>
+  This{" "}
+  <Box
+    as="mark"
+    __css={{
+      bgColor: "ui.highlighter.blue",
+      border: "1px solid",
+      borderColor: "ui.gray.semi-dark",
+      px: "xxxs",
+    }}
+  >
+    word
+  </Box>{" "}
+  is highlighted with blue.
+</p>
+}
+
+## Resources
+
+- [WCAG Success Criterion 1.4.1 Use of Color](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html)
+- [NYPL Reservoir Design System Color Palette: Highlighter Colors](http://localhost:6006/?path=/docs/style-guide-colors--docs#highlighter-colors)
+- [The Mark Text element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark)
