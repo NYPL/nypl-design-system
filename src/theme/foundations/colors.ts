@@ -21,6 +21,145 @@ import { hexToRGB } from "../../utils/utils";
  */
 
 /** Reusable variables: */
+// Primitives
+export const primitives = {
+  nyplRed: {
+    DEFAULT: "#C60917",
+    "25": "#FCF3F3",
+    "50": "#F9E6E8",
+    "100": "#F4CED1",
+    "200": "#E89DA2",
+    "300": "#DD6B74",
+    "400": "#D13A45",
+    "500": "#C60917",
+    "600": "#A20410",
+    "700": "#7C000A",
+    "800": "#540005",
+    "900": "#2B0002",
+    "950": "#160001",
+  },
+  fluorescentPink: {
+    DEFAULT: "#FF389C",
+    "25": "#FFF5FA",
+    "50": "#FFE8F4",
+    "100": "#FFCFE7",
+    "200": "#FF9DCE",
+    "300": "#FF6AB5",
+    "400": "#FF389C",
+    "500": "#D52C83",
+    "600": "#AC2169",
+    "700": "#82174F",
+    "800": "#580E36",
+    "900": "#2E071C",
+    "950": "#1A0410",
+  },
+  vividBurgundy: {
+    DEFAULT: "#97272C",
+    "25": "#FAF4F4",
+    "50": "#F6EBEC",
+    "100": "#EDD9DA",
+    "200": "#DCB6B7",
+    "300": "#CB9295",
+    "400": "#B96E72",
+    "500": "#A84B4F",
+    "600": "#97272C",
+    "700": "#731B1F",
+    "800": "#4D1013",
+    "900": "#250708",
+    "950": "#100303",
+  },
+  carrotOrange: {
+    DEFAULT: "#F88820",
+    "25": "#FFF9F4",
+    "50": "#FEF2E6",
+    "100": "#FDE2CA",
+    "200": "#FCC491",
+    "300": "#FAA659",
+    "400": "#F88820",
+    "500": "#D37218",
+    "600": "#AC5B10",
+    "700": "#82450A",
+    "800": "#582F06",
+    "900": "#2E1902",
+    "950": "#1A0E01",
+  },
+  flavescent: {
+    DEFAULT: "#F9E08E",
+    "25": "#FFFEF9",
+    "50": "#FEF9EA",
+    "100": "#FCF1CB",
+    "200": "#F9E08E",
+    "300": "#DCC67C",
+    "400": "#BFAB6A",
+    "500": "#A29158",
+    "600": "#847647",
+    "700": "#665B36",
+    "800": "#474025",
+    "900": "#292515",
+    "950": "#1A170D",
+  },
+  treeGreen: {
+    DEFAULT: "#077719",
+    "25": "#F3F8F4",
+    "50": "#E6F1E8",
+    "100": "#CDE4D1",
+    "200": "#9CC9A3",
+    "300": "#6AAD75",
+    "400": "#399247",
+    "500": "#077719",
+    "600": "#046113",
+    "700": "#014A0D",
+    "800": "#003308",
+    "900": "#001A04",
+    "950": "#000D02",
+  },
+  scienceBlue: {
+    DEFAULT: "#0069BF",
+    "25": "#F2F8FC",
+    "50": "#E6F0F9",
+    "100": "#CCE1F2",
+    "200": "#99C3E5",
+    "300": "#66A5D9",
+    "400": "#3387CC",
+    "500": "#0069BF",
+    "600": "#00549C",
+    "700": "#004078",
+    "800": "#002B52",
+    "900": "#00152A",
+    "950": "#000B15",
+  },
+  blueberry: {
+    DEFAULT: "#4181F1",
+    "25": "#F6F9FE",
+    "50": "#ECF2FE",
+    "100": "#D9E6FC",
+    "200": "#B3CDF9",
+    "300": "#8DB3F7",
+    "400": "#679AF4",
+    "500": "#4181F1",
+    "600": "#3166C4",
+    "700": "#224C95",
+    "800": "#153265",
+    "900": "#0A1933",
+    "950": "#050C1A",
+  },
+  irisPurple: {
+    DEFAULT: "#551A8B",
+    "25": "#F7F4F9",
+    "50": "#F0EAF4",
+    "100": "#E1D7EB",
+    "200": "#C5B1D8",
+    "300": "#A98CC5",
+    "400": "#8D66B1",
+    "500": "#71409E",
+    "600": "#551A8B",
+    "700": "#3F116A",
+    "800": "#290A47",
+    "900": "#140422",
+    "950": "#09020F",
+  },
+};
+
 // grayscale
 const black = "#000";
 const white = "#fff";
@@ -36,16 +175,16 @@ const grayLightCool = "#E9E9E9";
 const grayxLightCool = "#F5F5F5";
 const grayxxLightCool = "#FAFAFA";
 // semantic
-const errorPrimary = "#97272C";
+const errorPrimary = primitives.nyplRed.DEFAULT;
 const errorSecondary = "#6F0106";
-const linkPrimary = "#0069BF";
+const linkPrimary = primitives.scienceBlue.DEFAULT;
 const linkSecondary = "#004B98";
-const linkTertiary = "#551A8B";
-const statusPrimary = "#F9E08E";
+const linkTertiary = primitives.irisPurple.DEFAULT;
+const statusPrimary = primitives.flavescent.DEFAULT;
 const statusSecondary = "#FBE7E1";
-const successPrimary = "#077719";
+const successPrimary = primitives.treeGreen.DEFAULT;
 const successSecondary = "#095212";
-const warningPrimary = "#F88820";
+const warningPrimary = primitives.carrotOrange.DEFAULT;
 const warningSecondary = "#E36D17";
 const warningTertiary = "#CD4D05";
 const errorPrimaryDark = "#E1767B";
@@ -60,7 +199,7 @@ const successSecondaryDark = "#81C88A";
 const warningPrimaryDark = "#DC8034";
 const warningSecondaryDark = "#EC7B1F";
 // brand
-const brandPrimary = "#C60917";
+const brandPrimary = primitives.nyplRed.DEFAULT;
 const brandSecondary = "#760000";
 const blogsPrimary = grayLightCool;
 const blogsSecondary = grayMedium;
@@ -223,7 +362,17 @@ const colors: Colors = {
       "primary-10": hexToRGB(errorPrimary, 0.1),
       secondary: errorSecondary,
     },
-    focus: "#4181F1",
+    focus: primitives.blueberry.DEFAULT,
+    highlighter: {
+      red: primitives.nyplRed[100],
+      pink: primitives.fluorescentPink[100],
+      burgundy: primitives.vividBurgundy[100],
+      orange: primitives.carrotOrange[100],
+      yellow: primitives.flavescent[100],
+      green: primitives.treeGreen[100],
+      blue: primitives.scienceBlue[100],
+      purple: primitives.irisPurple[100],
+    },
     link: {
       primary: linkPrimary,
       "primary-05": hexToRGB(linkPrimary, 0.05),
@@ -316,6 +465,16 @@ const colors: Colors = {
         secondary: errorSecondaryDark,
       },
       focus: "#6090E3",
+      highlighter: {
+        red: primitives.nyplRed[800],
+        pink: primitives.fluorescentPink[800],
+        burgundy: primitives.vividBurgundy[800],
+        orange: primitives.carrotOrange[800],
+        yellow: primitives.flavescent[800],
+        green: primitives.treeGreen[800],
+        blue: primitives.scienceBlue[800],
+        purple: primitives.irisPurple[800],
+      },
       link: {
         primary: linkPrimaryDark,
         "primary-05": hexToRGB(linkPrimaryDark, 0.05),

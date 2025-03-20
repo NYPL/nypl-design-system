@@ -8,11 +8,31 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.5.5 (March 20, 2025)
+
+### Adds
+
+- Adds the `Container Query Guide` page to the `Development Guide` section of Storybook.
+- Adds the `primitives` color object.
+- Adds the `highlighter` colors to the `colors` theme object.
+
+### Updates
+
+- Updates the spacing on the `Modal` component.
+- Updates the spacing between heading and content in the `Banner` component.
+- Updates the `Card`, `FeaturedContent`, and `SearchBar` components to use container queries.
+- Updated the `"filter"` variant of the `TagSet` component to remove tag button wrapper when `isDismissible` and `onClick` are false.
+- Updates the `Image` component to include `"fourByOne"` and `"twoByThree"` aspect ratio options.
+- Updates the `Label` component to set the font weight for the `(required)` label to `"light"`.
+- Updates the `Fieldset` component to set the font weight for the `(required)` label to `"light"`.
+- Updates the `FeedbackBox` component to set the font weight for the `(required)` label on the `Textarea` element to `"light"`.
+
 ## 3.5.4 (February 13, 2025)
 
 ### Adds
 
 - Adds the `"utilityCheck"` option to the `Icon` component.
+- Adds the `getTextFromElement` utility function.
 
 ### Updates
 

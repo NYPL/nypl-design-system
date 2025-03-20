@@ -172,6 +172,7 @@ export const Banner: ChakraComponent<
       _dark: {
         color: type === "negative" ? "dark.ui.error.primary" : null,
       },
+      paddingBottom: "xs",
     };
     // If `heading is a string, then we want the default heading,
     // otherwise, use whatever the user passed in.

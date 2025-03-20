@@ -1,11 +1,13 @@
 import { Box } from "@chakra-ui/react";
 import { Meta } from "@storybook/blocks";
 
+import Banner from "../Banner/Banner";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import SimpleGrid from "../Grid/SimpleGrid";
 import Text from "../Text/Text";
-import { getColorCards } from "./ColorCard";
+import { getColorCards, ColorBox, ColorScale } from "./ColorCard";
+import { primitives } from "../../theme/foundations/colors";
 
 <Meta title="Style Guide/Colors" />
 
@@ -14,13 +16,17 @@ import { getColorCards } from "./ColorCard";
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#primitives" target="_self">Primitives</Link>}
 - {<Link href="#brand-colors" target="_self">Brand Colors</Link>}
   - {<Link href="#nypl-brand-colors" target="_self">NYPL Brand Colors</Link>}
   - {<Link href="#nypl-section-colors" target="_self">NYPL Section Colors</Link>}
 - {<Link href="#ui-colors" target="_self">UI Colors</Link>}
   - {<Link href="#semantic-colors" target="_self">Semantic Colors</Link>}
   - {<Link href="#grayscale-colors" target="_self">Grayscale Colors</Link>}
-- {<Link href="#dark-mode-ui-colors" target="_self">Dark Mode UI Colors</Link>}
+  - {<Link href="#highlighter-colors" target="_self">Highlighter Colors</Link>}
+- {<Link href="#dark-mode" target="_self">Dark Mode</Link>}
+  - {<Link href="#dark-mode-ui-colors" target="_self">UI Colors</Link>}
+  - {<Link href="#dark-mode-highlighter-colors" target="_self">Highlighter Colors</Link>}
 - {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
 
 ## Overview
@@ -45,6 +51,59 @@ NOTE: There are a handful of colors that are semi-transpararent. Colors that use
 transparency are tough to talk about when it comes to color combinations and
 color contrast. That being the case, we have used question marks for the
 contrast values and WCAG status.
+
+## Primitives
+
+The primitive colors and the related color scales were reverse engineered using
+the legacy semantic color palette. Because of that, the primitive colors are not
+used extensively throughout the semantic color values.
+
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> Primitive color values are not available to
+      consuming apps.
+    </>
+  }
+  mb="s"
+  type="warning"
+/>
+
+### NYPL red
+
+{<ColorScale colorName="nyplRed" />}
+
+### Fluorescent pink
+
+{<ColorScale colorName="fluorescentPink" />}
+
+### Vivid burgundy (error)
+
+{<ColorScale colorName="vividBurgundy" />}
+
+### Carrot orange (warning)
+
+{<ColorScale colorName="carrotOrange" />}
+
+### Flavescent (status)
+
+{<ColorScale colorName="flavescent" />}
+
+### Tree green (success)
+
+{<ColorScale colorName="treeGreen" />}
+
+### Science blue (link)
+
+{<ColorScale colorName="scienceBlue" />}
+
+### Blueberry (focus)
+
+{<ColorScale colorName="blueberry" />}
+
+### Iris purple (link tertiary)
+
+{<ColorScale colorName="irisPurple" />}
 
 ## Brand Colors
 
@@ -248,7 +307,26 @@ and coding.
   </SimpleGrid>
 </Box>
 
-## Dark Mode UI Colors
+### Highlighter Colors
+
+The `highlighter` colors should be used to highlight text which is of special
+interest, comparable to using a highlighter pen.
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <SimpleGrid columns={1} gap="s">
+    {getColorCards("highlighter")}
+  </SimpleGrid>
+</Box>
+
+## Dark Mode
+
+### Dark Mode UI Colors
 
 The following "dark mode" color fills are used for body copy and to communicate
 component and/or application state in dark mode.
@@ -264,6 +342,24 @@ These colors are not connected to the NYPL brand, but are intended to be generic
 >
   <SimpleGrid columns={1} gap="s" bg="dark.ui.bg.page" p="m">
     {getColorCards("dark")}
+  </SimpleGrid>
+</Box>
+
+### Dark Mode Highlighter Colors
+
+The dark mode `highlighter` colors should be used in a dark mode situation to
+highlight text which is of special interest, comparable to using a highlighter
+pen.
+
+<Box
+  border="1px"
+  borderColor="ui.border.default"
+  borderRadius="5px"
+  mb="m"
+  p="s"
+>
+  <SimpleGrid columns={1} gap="s" bg="dark.ui.bg.page" p="m">
+    {getColorCards("darkHighlighter")}
   </SimpleGrid>
 </Box>
 
