@@ -12,12 +12,14 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-h5m7h6"
+      className="chakra-accordion__button css-1rvudez"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       type="button"
     >
       <span
@@ -51,12 +53,14 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-h5m7h6"
+      className="chakra-accordion__button css-1rvudez"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       type="button"
     >
       <span
@@ -90,12 +94,14 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-h5m7h6"
+      className="chakra-accordion__button css-1rvudez"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       type="button"
     >
       <span
@@ -130,12 +136,14 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-h5m7h6"
+      className="chakra-accordion__button css-1rvudez"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       type="button"
     >
       <span
@@ -169,12 +177,14 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-h5m7h6"
+      className="chakra-accordion__button css-1rvudez"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       type="button"
     >
       <span
@@ -208,12 +218,14 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-1sdpt8p"
+      className="chakra-accordion__button css-20zg6l"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       type="button"
     >
       <span
@@ -247,12 +259,14 @@ exports[`Accordion Renders the UI snapshot correctly 7`] = `
     <button
       aria-controls="accordion-panel-accordian-item-0"
       aria-expanded={false}
-      className="chakra-accordion__button css-2zrpsj"
+      className="chakra-accordion__button css-k7suym"
       disabled={false}
       id="accordion-button-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       type="button"
     >
       <span
