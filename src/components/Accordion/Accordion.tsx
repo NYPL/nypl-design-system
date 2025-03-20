@@ -118,7 +118,7 @@ const getElementsFromData = (
           key={index}
           maxHeight={panelMaxHeight}
           overflow="auto"
-          borderBottom={!isLast && "transparent"}
+          borderBottom={!isLast ? "transparent" : undefined}
         >
           {content.panel}
         </AccordionPanel>
@@ -153,9 +153,9 @@ const getElementsFromData = (
                 // Fix for double border issue on hover
                 // i.e. Hide the top border on the next button after the hovered button unless it's first
                 borderTopColor={
-                  !(index === 0) &&
-                  index === hoveredButtonIndex + 1 &&
-                  "transparent"
+                  !(index === 0) && index === hoveredButtonIndex + 1
+                    ? "transparent"
+                    : undefined
                 }
                 bg={
                   !content.accordionType
