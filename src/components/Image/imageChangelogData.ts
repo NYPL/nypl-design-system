@@ -10,8 +10,8 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2025-03-20",
+    version: "3.5.5",
     type: "Update",
     affects: ["Styles", "Functionality"],
     notes: ["Adds 'fourByOne' and 'twoByThree' aspect ratios."],

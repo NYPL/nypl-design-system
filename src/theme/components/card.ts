@@ -138,6 +138,7 @@ const ReservoirCard = defineMultiStyleConfig({
             styles: {
               "[data-cardwrapper]": {
                 flexFlow: isRow ? "column nowrap" : null,
+                height: "100%",
               },
               "[data-actions]": {
                 flexShrink: isAlignedRightActions ? "0" : null,
