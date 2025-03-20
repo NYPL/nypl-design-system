@@ -263,16 +263,16 @@ export const Accordion: ChakraComponent<
       isDefaultOpen ? [0] : []
     );
 
+    // Used for fix a double border issue on hover for users with JS enabled
+    // Necessary due to Chakra's internal wrapping of the AccordionButton in a div
+    const [hoveredButtonIndex, setHoveredButtonIndex] = useState<number>(-1);
+
     // If the accordionData doesn't already contain refs for the panel
     // buttons, add them now.
     const updatedAccordionData = accordionData.map((item) => ({
       ...item,
       buttonInteractionRef: item.buttonInteractionRef || React.createRef(),
     }));
-
-    // Used for fix a double border issue on hover for users with JS enabled
-    // Necessary due to Chakra's internal wrapping of the AccordionButton in a div
-    const [hoveredButtonIndex, setHoveredButtonIndex] = useState<number>(-1);
 
     const handleKeyDown = (e) => {
       // If the 'esc' key is pressed, find the panel the
