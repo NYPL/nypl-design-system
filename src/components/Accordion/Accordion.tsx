@@ -153,7 +153,7 @@ const getElementsFromData = (
                 // Fix for double border issue on hover
                 // i.e. Hide the top border on the next button after the hovered button unless it's first
                 borderTopColor={
-                  !(index === 0) && index === hoveredButtonIndex + 1
+                  index !== 0 && index === hoveredButtonIndex + 1
                     ? "transparent"
                     : undefined
                 }
