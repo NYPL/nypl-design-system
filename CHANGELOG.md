@@ -20,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `viewport` preview options in Storybook to align with the Reservoir breakpoints.
 - Updates the Storybook font styles.
 - Updates the docs for the `Template` component.
+- Replaces the error thrown with a console.warn for the `Breadcrumbs`, `Heading`, and `Image` components.
 
 ## Prerelease
 
@@ -34,7 +35,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Card`, `FeaturedContent`, and `SearchBar` components to use container queries.
 - Updated the `"filter"` variant of `TagSet` to remove tag button wrapper when `isDismissible` and `onClick` are false.
 - Updates `Image` to include 'fourByOne' and 'twoByThree' aspect ratio options.
-
 
 ## 3.5.4 (February 13, 2025)
 
