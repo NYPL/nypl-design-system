@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `TextInput` component so that the clearable button will not
+  render when `isDisabled` is true, and updates the placeholder text color
+  for dark mode.
+
 ### Fixes
 
 - Fixes `Accordion` styles, including padding and active hover state, and double-border issue.

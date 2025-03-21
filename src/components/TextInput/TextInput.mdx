@@ -1,8 +1,10 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import Banner from "../Banner/Banner";
+import Link from "../Link/Link";
+import List from "../List/List";
 import * as TextInputStories from "./TextInput.stories";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import Link from "../Link/Link";
 import { changelogData } from "./textInputChangelogData";
 
 <Meta of={TextInputStories} />
@@ -131,7 +133,21 @@ This button has visually hidden text, a "close" icon, and renders on top
 of the input field on the right side. This clear button does not render when
 the `type` prop is set to `"textarea"`.
 
-Note: This works best when the `TextInput` is used as an uncontrolled component.
+<Banner
+  content={
+    <List noStyling mb="0">
+      <li>
+        <strong>Note:</strong> This works best when the `TextInput` is used as
+        an uncontrolled component.
+      </li>
+      <li>
+        <strong>Note:</strong> The clearable button will not render when
+        `isDisabled` is set to `true`.
+      </li>
+    </List>
+  }
+  type="informative"
+/>
 
 <Canvas of={TextInputStories.isClearableButton} />
 
