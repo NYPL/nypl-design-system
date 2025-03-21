@@ -316,7 +316,6 @@ describe("Hero", () => {
         heroType="secondary"
         heading={heading}
         imageProps={imageProps}
-        locationDetails={<>Some location details.</>}
         subHeaderText={subHeaderText}
       />
     );
@@ -366,7 +365,6 @@ describe("Hero", () => {
         heroType="tertiary"
         heading={heading}
         subHeaderText={otherSubHeaderText}
-        locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -412,7 +410,6 @@ describe("Hero", () => {
         heroType="campaign"
         heading={heading}
         imageProps={imageProps}
-        locationDetails={<>Some location details.</>}
         subHeaderText={otherSubHeaderText}
       />
     );
@@ -427,7 +424,6 @@ describe("Hero", () => {
         heading={heading}
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
-        locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -442,7 +438,6 @@ describe("Hero", () => {
         heading={heading}
         subHeaderText={otherSubHeaderText}
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-        locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -538,7 +533,6 @@ describe("Hero", () => {
         heroType="fiftyFifty"
         subHeaderText={otherSubHeaderText}
         imageProps={imageProps}
-        locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
