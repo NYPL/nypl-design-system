@@ -155,22 +155,19 @@ const primary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
     alignItems: "center",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    display: "flex",
-    flexFlow: {
-      base: "column nowrap",
-      md: "row nowrap",
+    display: "grid",
+    gridTemplateColumns: { base: "100%", md: "repeat(6, 1fr)" },
+    gridTemplateAreas: {
+      base: `"content"`,
+      md: `".  content content content content ."`,
     },
-    justifyContent: "center",
     minHeight: "352px",
     p: "l",
   },
   content: {
     bg: "ui.black",
     color: getTextColor("body", "light", foregroundColor, isDarkText),
-    flex: {
-      base: "0 0 100%",
-      md: "0 0 60%",
-    },
+    gridArea: "content",
     maxWidth: { md: "860px" },
     padding: { base: "inset.default", lg: "inset.wide" },
     paddingEnd: { lg: "inset.wide" },

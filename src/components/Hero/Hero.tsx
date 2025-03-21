@@ -74,9 +74,6 @@ export interface HeroProps {
    * the "campaign" variant. If true, the background image will be converted to
    * black & white and darkened to 60% black. */
   isDarkBackgroundImage?: boolean;
-  /** Optional details area that contains location data.
-   * Note: not all `Hero` variations utilize this prop. */
-  locationDetails?: JSX.Element;
   /** Optional string used for the subheader that displays
    * underneath the heading element. */
   subHeaderText?: string | JSX.Element;
@@ -105,7 +102,6 @@ export const Hero: ChakraComponent<
         },
         isDarkText,
         isDarkBackgroundImage = false,
-        locationDetails,
         subHeaderText,
       } = props;
       const styles = useMultiStyleConfig("Hero", {
@@ -157,11 +153,6 @@ export const Hero: ChakraComponent<
               "passed, but the `'primary'` `heroType` variant will not use it."
           );
         }
-      } else if (locationDetails) {
-        console.warn(
-          "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
-            "with the `'primary'` `heroType` variant."
-        );
       }
       if (heroSecondaryTypes.includes(heroType) && backgroundImageSrc) {
         console.warn(
