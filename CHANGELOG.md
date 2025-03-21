@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `ProgressIndicator` component's label margin to be consistent with VDL.
+
 ### Fixes
 
 - Fixes `Accordion` styles, including padding and active hover state, and double-border issue.
