@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as BreadcrumbsStories from "./Breadcrumbs.stories";
-import { changelogData } from "./breadcrumbsChangelogData";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./breadcrumbsChangelogData";
 
 <Meta of={BreadcrumbsStories} />
 
-# Breadcrumbs
+<ComponentDocsHeader
+  category="Navigation component"
+  componentName="Breadcrumbs"
+  summary="Navigational component that displays the current page's location within a hierarchy of pages."
+  versionAdded="0.0.3"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.0.3`      |
-| Latest            | `Prerelease` |
+<Canvas of={BreadcrumbsStories.WithControls} />
 
 ## Table of Contents
 
@@ -42,8 +46,6 @@ const breadcrumbsData = [
 />
 
 ## Component Props
-
-<Canvas of={BreadcrumbsStories.WithControls} />
 
 <ArgTypes of={BreadcrumbsStories.WithControls} />
 
