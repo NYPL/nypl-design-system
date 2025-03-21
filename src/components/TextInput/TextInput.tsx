@@ -16,7 +16,7 @@ import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import { getAriaAttrs, getTextFromElement } from "../../utils/utils";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
-import { AutoCompleteValues } from "../../utils/constantValues";
+import type { AutoCompleteValues } from "../../utils/constantValues";
 
 export const textInputTypesArray = [
   "email",
