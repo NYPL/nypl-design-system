@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality", "Accessibility"],
+    notes: [
+      "Add the `autoComplete` prop to the select element.",
+      "Adds `requiredLabelText` prop to allow customization of the '(required)' text.",
+    ],
+  },
+  {
     date: "2024-09-19",
     version: "3.3.2",
     type: "Update",

@@ -8,6 +8,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Add the `autoComplete` prop to the `Select` element.
+- Adds `requiredLabelText` prop to allow customization of the '(required)' text in the `Select` component.
+
 ### Fixes
 
 - Fixes `Accordion` styles, including padding and active hover state, and double-border issue.
