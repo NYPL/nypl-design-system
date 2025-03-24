@@ -13,6 +13,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Add the `autoComplete` prop to the `Select` element.
 - Adds `requiredLabelText` prop to allow customization of the '(required)' text in the `Select` component.
 
+### Updates
+
+- Updates the `Notification` component's styles to sync with its VDL.
+- Updates the `ProgressIndicator` component's label margin to be consistent with VDL.
+
 ### Fixes
 
 - Fixes `Accordion` styles, including padding and active hover state, and double-border issue.
