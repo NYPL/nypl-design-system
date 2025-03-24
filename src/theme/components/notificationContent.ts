@@ -26,10 +26,9 @@ const baseStyle = definePartsStyle(
       content: {
         color:
           notificationType === "warning" ? "brand.primary" : "currentColor",
-        marginTop: showIcon ? "xxxs" : "0",
         paddingStart:
           !isCentered && showIcon ? (notificationHeading ? "l" : "xs") : "0",
-        pt: !isCentered && notificationHeading ? "xxs" : "0",
+        pt: !isCentered ? "xxs" : "0",
         w: "100%",
         _dark: {
           borderLeftColor:
