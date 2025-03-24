@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `Notification` component's styles to sync with its VDL.
+- Updates the `ProgressIndicator` component's label margin to be consistent with VDL.
 
 ### Fixes
 
