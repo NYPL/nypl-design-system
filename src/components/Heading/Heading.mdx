@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as HeadingStories from "./Heading.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./headingChangelogData";
 
 <Meta of={HeadingStories} />
 
-# Heading
+<ComponentDocsHeader
+  category="Typography & styles component"
+  componentName="Heading"
+  summary="Component that renders a standard HTML heading element with DS styles."
+  versionAdded="0.0.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `3.5.3`    |
+<Canvas of={HeadingStories.WithControls} />
 
 ## Table of Contents
 
@@ -36,8 +40,6 @@ text can be passed in through a `text` prop or as a child. Default styles for
 semantic elements can be overwritten using the `size` prop.
 
 ## Component Props
-
-<Canvas of={HeadingStories.WithControls} />
 
 <ArgTypes of={HeadingStories.WithControls} />
 

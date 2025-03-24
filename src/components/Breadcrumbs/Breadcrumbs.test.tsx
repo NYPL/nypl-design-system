@@ -76,8 +76,11 @@ describe("Breadcrumbs", () => {
     expect(container.querySelector(".breadcrumbs-icon")).toBeInTheDocument();
   });
 
-  it("Throws error when nothing is passed into Breadcrumb", () => {
-    expect(() => render(<Breadcrumbs breadcrumbsData={[]} />)).toThrowError(
+  it("logs a warning when nothing is passed into Breadcrumb", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Breadcrumbs breadcrumbsData={[]} />);
+
+    expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
     );
   });

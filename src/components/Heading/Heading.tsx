@@ -138,14 +138,14 @@ export const Heading: ChakraComponent<
       const asHeading: any = finalLevel;
 
       if (!props.children && !text) {
-        throw new Error(
+        console.warn(
           "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
         );
       }
 
       if (React.Children.count(props.children) > 1) {
         // Catching the error because React's error isn't as helpful.
-        throw new Error(
+        console.warn(
           "NYPL Reservoir Heading: Only pass one child into Heading."
         );
       }
