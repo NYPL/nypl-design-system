@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `Notification` component's styles to sync with its VDL.
 - Updates the `ProgressIndicator` component's label margin to be consistent with VDL.
+- Updates the DS default font weight from `light` (300) to `regular` (400).
+- Updates the `Typography` Style Guide and the `Design Tokens` Development Guide to use `regular` (400) as the default font weight.
+- Updates all `Form` components to set the font weight for the `(required)` label to `"regular"`.
+- Updates the `Menu` component to set the font weight for the `group` headings to `"bold"`.
 
 ### Fixes
 
