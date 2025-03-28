@@ -140,7 +140,7 @@ const reservoirSpacingTokens = {
     vstack: reservoirSpacingValues["l"],
   },
   table: {
-    column: reservoirSpacingValues["m"],
+    column: reservoirSpacingValues["l"],
     row: reservoirSpacingValues["l"],
   },
 };
