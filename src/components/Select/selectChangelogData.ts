@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Functionality", "Accessibility"],
     notes: [
-      "Add the `autoComplete` prop to the select element.",
+      "Adds the `autoComplete` prop to the select element.",
       "Adds `requiredLabelText` prop to allow customization of the '(required)' text.",
     ],
   },

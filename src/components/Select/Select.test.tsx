@@ -87,15 +87,17 @@ describe("Select", () => {
   });
 
   it("renders an autoComplete attribute", () => {
+    baseProps.labelText = "What's your country of residence?";
     render(
       <Select {...baseProps} autoComplete="country-name">
         {baseOptions}
       </Select>
     );
 
-    expect(
-      screen.getByLabelText(/What is your favorite color/i)
-    ).toHaveAttribute("autoComplete", "country-name");
+    expect(screen.getByLabelText(/your country of residence/i)).toHaveAttribute(
+      "autoComplete",
+      "country-name"
+    );
   });
 
   it("renders '(required)' text in the label", () => {

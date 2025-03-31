@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Add the `autoComplete` prop to the `Select` element.
+- Adds the `autoComplete` prop to the `Select` element.
 - Adds `requiredLabelText` prop to allow customization of the '(required)' text in the `Select` component.
 
 ### Updates
