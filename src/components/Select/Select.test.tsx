@@ -87,9 +87,12 @@ describe("Select", () => {
   });
 
   it("renders an autoComplete attribute", () => {
-    baseProps.labelText = "What's your country of residence?";
+    const newProps = {
+      ...baseProps,
+      labelText: "What's your country of residence?",
+    };
     render(
-      <Select {...baseProps} autoComplete="country-name">
+      <Select {...newProps} autoComplete="country-name">
         {baseOptions}
       </Select>
     );
