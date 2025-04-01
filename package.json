@@ -87,7 +87,7 @@
     "@storybook/addon-links": "8.1.11",
     "@storybook/blocks": "8.3.6",
     "@storybook/react": "8.3.6",
-    "@storybook/react-vite": "8.3.6",
+    "@storybook/react-vite": "8.6.11",
     "@storybook/test": "8.3.6",
     "@testing-library/dom": "9.2.0",
     "@testing-library/jest-dom": "5.14.1",
@@ -101,7 +101,7 @@
     "@types/testing-library__jest-dom": "5.14.1",
     "@typescript-eslint/eslint-plugin": "5.57.0",
     "@typescript-eslint/parser": "5.57.0",
-    "@vitejs/plugin-react": "4.2.1",
+    "@vitejs/plugin-react": "4.3.4",
     "eslint": "7.31.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-jsx-a11y": "6.7.1",
@@ -124,12 +124,12 @@
     "react-test-renderer": "18.2.0",
     "remark-gfm": "4.0.0",
     "sass": "1.60.0",
-    "storybook": "8.3.6",
+    "storybook": "8.6.11",
     "ts-jest": "29.1.5",
     "tslib": "2.3.0",
     "typescript": "4.9.5",
-    "vite": "5.2.14",
+    "vite": "6.2.4",
     "vite-plugin-dts": "2.1.0",
-    "vite-plugin-svgr": "4.2.0"
+    "vite-plugin-svgr": "4.3.0"
   }
 }
