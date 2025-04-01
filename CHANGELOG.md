@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `"navigationSubdirectoryArrowLeft"` and `"navigationSubdirectoryArrowRight"` options to the `Icon` component.
 - Adds the `autoComplete` prop to the `Select` element.
 - Adds `requiredLabelText` prop to allow customization of the '(required)' text in the `Select` component.
 
