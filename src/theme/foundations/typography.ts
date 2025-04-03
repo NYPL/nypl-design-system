@@ -69,6 +69,7 @@ const fontWeightValues = {
   thin: 200,
   light: 300,
   regular: 400,
+  regularImportant: "400 !important",
   medium: 500,
   semibold: 600,
   bold: 700,
@@ -223,9 +224,9 @@ const typography: Typography = {
     bold: fontWeightValues["bold"],
     // semantic tokens
     body: {
-      default: fontWeightValues["regular"],
-      body1: fontWeightValues["regular"],
-      body2: fontWeightValues["regular"],
+      default: fontWeightValues["regularImportant"],
+      body1: fontWeightValues["regularImportant"],
+      body2: fontWeightValues["regularImportant"],
     },
     breadcrumbs: {
       default: fontWeightValues["regular"],
@@ -235,7 +236,7 @@ const typography: Typography = {
       default: fontWeightValues["regular"],
     },
     caption: fontWeightValues["regular"],
-    default: fontWeightValues["regular"],
+    default: fontWeightValues["regularImportant"],
     heading: {
       display1: fontWeightValues["thin"],
       heading1: fontWeightValues["thin"],
@@ -253,7 +254,7 @@ const typography: Typography = {
       callout: fontWeightValues["medium"],
     },
     helper: {
-      default: fontWeightValues["regular"],
+      default: fontWeightValues["regularImportant"],
     },
     label: {
       default: fontWeightValues["medium"],
@@ -268,8 +269,8 @@ const typography: Typography = {
       subtitle2: fontWeightValues["regular"],
     },
     text: {
-      default: fontWeightValues["regular"],
-      caption: fontWeightValues["regular"],
+      default: fontWeightValues["regularImportant"],
+      caption: fontWeightValues["regularImportant"],
       tag: fontWeightValues["regular"],
       mini: fontWeightValues["regular"],
     },
