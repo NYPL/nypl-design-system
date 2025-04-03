@@ -41,7 +41,6 @@ const baseStyle = definePartsStyle(
       heading: {
         color,
         ml: icon && !isCentered ? "xs" : "0",
-        mt: icon ? "xxxs" : "0",
         _dark: {
           borderLeftColor:
             notificationType === "standard"
