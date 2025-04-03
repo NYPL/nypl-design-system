@@ -135,16 +135,22 @@ the `type` prop is set to `"textarea"`.
 
 <Banner
   content={
-    <List noStyling mb="0">
-      <li>
-        <strong>Note:</strong> This works best when the `TextInput` is used as
-        an uncontrolled component.
-      </li>
-      <li>
-        <strong>Note:</strong> The clearable button will not render when
-        `isDisabled` is set to `true`.
-      </li>
-    </List>
+    <>
+      <strong>RECOMMENDATION:</strong> The clear button works best when the
+      `TextInput` is used as an uncontrolled component.
+    </>
+  }
+  type="recommendation"
+/>
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The clear button will not render when...
+      <List noStyling mb="0">
+        <li>- the `type` prop is set to `"textarea"`</li>
+        <li>- the `isDisabled` prop is set to `true`</li>
+      </List>
+    </>
   }
   type="informative"
 />
