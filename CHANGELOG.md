@@ -8,11 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `"navigationSubdirectoryArrowLeft"` and `"navigationSubdirectoryArrowRight"` options to the `Icon` component.
+- Adds the `autoComplete` prop to the `Select` element.
+- Adds `requiredLabelText` prop to allow customization of the '(required)' text in the `Select` component.
+
 ### Updates
 
-- Updates the `TextInput` component so that the clearable button will not
-  render when `isDisabled` is true, and updates the placeholder text color
-  for dark mode.
+- Updates the `Notification` component's styles to sync with its VDL.
+- Updates the `ProgressIndicator` component's label margin to be consistent with VDL.
+- Updates the `TextInput` component so that the clearable button will not render when `isDisabled` is true.
+- Updates the `TextInput` placeholder text color for dark mode.
 
 ### Fixes
 

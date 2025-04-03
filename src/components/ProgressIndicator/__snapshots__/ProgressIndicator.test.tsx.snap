@@ -5,7 +5,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
   className="css-1xdhyk6"
 >
   <label
-    className="css-1xdhyk6"
+    className="css-e3ddnr"
     htmlFor="linearBasic"
     id="linearBasic-label"
   >
@@ -173,7 +173,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
   className="css-1xdhyk6"
 >
   <label
-    className="css-1xdhyk6"
+    className="css-e3ddnr"
     htmlFor="linearIndeterminate"
     id="linearIndeterminate-label"
   >
@@ -256,7 +256,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
   className="css-10g9ftz"
 >
   <label
-    className="css-1xdhyk6"
+    className="css-e3ddnr"
     htmlFor="chakra"
     id="chakra-label"
   >
@@ -299,7 +299,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
   data-testid="props"
 >
   <label
-    className="css-1xdhyk6"
+    className="css-e3ddnr"
     htmlFor="props"
     id="props-label"
   >
