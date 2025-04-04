@@ -308,7 +308,7 @@ export const MultiSelect: ChakraComponent<
       const getItemLabelText = (
         item: MultiSelectItem
       ): string | JSX.Element => {
-        return item.itemCount ? (
+        return item.itemCount >= 0 ? (
           <Flex gap="s" justify="space-between">
             <Box>{item.name}</Box>
             <Box>{item.itemCount}</Box>

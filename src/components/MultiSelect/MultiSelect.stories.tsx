@@ -237,6 +237,16 @@ const withItemCountItems = [
         name: "Home",
         itemCount: 1,
       },
+      {
+        id: "shopping_mall",
+        name: "Shopping Mall",
+        itemCount: 0,
+      },
+      {
+        id: "school",
+        name: "School",
+        itemCount: 0,
+      },
     ],
     itemCount: 11,
   },
