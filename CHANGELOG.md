@@ -23,6 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes `Accordion` styles, including padding and active hover state, and double-border issue.
+- Fixes an overflow bug in the `filter` variant of the `TagSet` component when `isDismissible` is false.
 
 ## 3.5.5 (March 20, 2025)
 
