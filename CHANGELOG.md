@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Notification` component's styles to sync with its VDL.
 - Updates the `ProgressIndicator` component's label margin to be consistent with VDL.
 - Updates the `"dl"` variant of the `List` component to use `2rem` for column spacing and to set the width of the `term` columnm to be a full `"250px"` for `tablet` and `desktop` viewports.
+- Updates the `Checkbox` component to sync the focus color styles with the VDL.
 
 ### Fixes
 
