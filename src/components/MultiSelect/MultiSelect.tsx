@@ -241,7 +241,7 @@ export const MultiSelect: ChakraComponent<
 
       // Additional components for isSearchable
       const NoSearchResults = (): JSX.Element => {
-        return <Box marginTop="xs">No options found</Box>;
+        return <Box>No options found</Box>;
       };
 
       const onChangeSearch = (event) => {
@@ -384,27 +384,41 @@ export const MultiSelect: ChakraComponent<
         </Box>
       );
 
+      const searchInput = (
+        <TextInput
+          id={`multi-select-text-input-${id}`}
+          labelText={`Search ${buttonText}`}
+          isClearable
+          isClearableCallback={clearSearchKeyword}
+          placeholder="Search"
+          onChange={onChangeSearch}
+          showLabel={false}
+          showRequiredLabel={false}
+          type="text"
+          __css={styles.menuSearchInputBox}
+          marginBottom={isOverflowExpand ? "12px" : 0}
+        />
+      );
+
       const accordionPanel = (
-        <Box>
-          {isSearchable && (
-            <TextInput
-              id={`multi-select-text-input-${id}`}
-              labelText={`Search ${buttonText}`}
-              isClearable={true}
-              isClearableCallback={clearSearchKeyword}
-              placeholder="Search"
-              onChange={onChangeSearch}
-              showLabel={false}
-              showRequiredLabel={false}
-              type="text"
-              __css={styles.menuSearchInputBox}
-              marginBottom="s"
-            />
-          )}
-          {itemsList.length === 0 ? (
-            <NoSearchResults />
-          ) : (
-            <>
+        <Box position="relative">
+          {isSearchable && !isOverflowExpand ? (
+            <Box position="sticky" top="0" marginBottom="12px" zIndex="999">
+              {searchInput}
+            </Box>
+          ) : isSearchable && isOverflowExpand ? (
+            searchInput
+          ) : null}
+
+          <Box
+            maxHeight={listHeight}
+            overflowY="auto"
+            paddingTop="xxs"
+            paddingLeft="xxs"
+          >
+            {itemsList.length === 0 ? (
+              <NoSearchResults />
+            ) : (
               <CheckboxGroup
                 id={`multi-select-checkbox-group-${id}`}
                 layout="column"
@@ -418,9 +432,10 @@ export const MultiSelect: ChakraComponent<
                   <>{getMultiSelectCheckboxItem(item)}</>
                 ))}
               </CheckboxGroup>
-              {isOverflowExpand && <ExpandToggleButton />}
-            </>
-          )}
+            )}
+          </Box>
+
+          {isOverflowExpand && <ExpandToggleButton />}
         </Box>
       );
 

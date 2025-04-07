@@ -440,6 +440,10 @@ export const disabledListItemsAllChildren: Story = {
 };
 
 export const searchInputField: Story = {
+  args: {
+    listOverflow: "expand"
+  },
+
   render: () => (
     <MultiSelectStory
       id="multi-select-id-7"
@@ -448,7 +452,7 @@ export const searchInputField: Story = {
       isSearchable
       items={withChildrenItems}
     />
-  ),
+  )
 };
 
 export const itemCountListItems: Story = {

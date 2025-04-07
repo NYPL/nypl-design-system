@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+Fixes the search input field to the top of the panel so it remains visible on scroll.
+
+### Updates
+
+- Updates the `Multiselect` search input field to remain visible on scroll.
+
 ## 3.5.4 (February 13, 2025)
 
 ### Adds
