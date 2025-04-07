@@ -80,46 +80,6 @@ const moreLink = definePartsStyle(
     },
   })
 );
-// The "button" variant is deprecated.
-const button = definePartsStyle({
-  base: {
-    width: "100px",
-    borderRadius: "sm",
-    lineHeight: "1.5",
-    display: "flex",
-    cursor: "pointer",
-    color: "ui.white",
-    justifyContent: "center",
-    py: "xs",
-    px: "xs",
-    textDecoration: "none",
-    fontWeight: "button.default",
-    bg: "ui.link.primary",
-    _dark: {
-      color: "ui.gray.xxx-dark",
-      bg: "dark.ui.link.primary",
-    },
-    _hover: {
-      color: "ui.white",
-      bg: "ui.link.secondary",
-      textDecoration: "underline",
-      textDecorationStyle: "dotted !important",
-      textDecorationThickness: "1px !important",
-      _dark: {
-        color: "ui.gray.xxx-dark",
-        bg: "dark.ui.link.secondary",
-      },
-    },
-    _visited: {
-      color: "ui.white",
-      _dark: {
-        _visited: {
-          color: "ui.gray.xxx-dark",
-        },
-      },
-    },
-  },
-});
 
 const buttonPrimary = definePartsStyle(
   ({ hasVisitedState }: CustomLinkStyleProps) => ({
@@ -310,7 +270,6 @@ const Link = defineMultiStyleConfig({
     })
   ),
   variants: {
-    button,
     buttonCallout,
     buttonDisabled,
     buttonNoBrand,

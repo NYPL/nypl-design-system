@@ -14,9 +14,6 @@ import { sanitizeStringForAttribute } from "../../utils/utils";
 export const linkTypesArray = [
   "action",
   "backwards",
-  // The "button" type is deprecated as of 1.2.x.
-  "button",
-  // Instead, use the following "buttonX" types.
   "buttonPrimary",
   "buttonSecondary",
   "buttonPill",
@@ -51,7 +48,7 @@ export interface LinkProps extends ChakraLinkProps {
   screenreaderOnlyText?: string;
   /** Prop that sets the HTML attribute to target where the link should go. */
   target?: "_blank" | "_parent" | "_self" | "_top";
-  /** Controls the link visuals: action, button, backwards, forwards,
+  /** Controls the link visuals: action, backwards, forwards,
    * standalone, or default. */
   type?: LinkTypes;
 }

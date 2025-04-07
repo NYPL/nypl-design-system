@@ -106,9 +106,6 @@ export const AllLinkTypes: Story = {
       <Link type="buttonDisabled" href="#buttonDisabled-link-example">
         Button Disabled
       </Link>
-      <Link type="button" href="#button-deprecated" width="auto">
-        Button (deprecated)
-      </Link>
     </VStack>
   ),
 };

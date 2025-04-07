@@ -3,40 +3,13 @@
 exports[`StatusBadge renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="low"
->
-  Registration Required
-</div>
-`;
-
-exports[`StatusBadge renders the UI snapshot correctly 2`] = `
-<div
-  className="css-1xdhyk6"
-  id="medium"
->
-  Registration Required
-</div>
-`;
-
-exports[`StatusBadge renders the UI snapshot correctly 3`] = `
-<div
-  className="css-1xdhyk6"
-  id="high"
->
-  Registration Required
-</div>
-`;
-
-exports[`StatusBadge renders the UI snapshot correctly 4`] = `
-<div
-  className="css-1xdhyk6"
   id="neutral"
 >
   Neutral type
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 5`] = `
+exports[`StatusBadge renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
   id="informative"
@@ -45,7 +18,7 @@ exports[`StatusBadge renders the UI snapshot correctly 5`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 6`] = `
+exports[`StatusBadge renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
   id="positive"
@@ -54,7 +27,7 @@ exports[`StatusBadge renders the UI snapshot correctly 6`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 7`] = `
+exports[`StatusBadge renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
   id="negative"
@@ -63,7 +36,7 @@ exports[`StatusBadge renders the UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 8`] = `
+exports[`StatusBadge renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
   id="warning"
@@ -72,7 +45,7 @@ exports[`StatusBadge renders the UI snapshot correctly 8`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 9`] = `
+exports[`StatusBadge renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
   id="recommendation"
@@ -81,7 +54,7 @@ exports[`StatusBadge renders the UI snapshot correctly 9`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 10`] = `
+exports[`StatusBadge renders the UI snapshot correctly 7`] = `
 <div
   className="css-8tjen4"
   id="body1"
@@ -90,7 +63,7 @@ exports[`StatusBadge renders the UI snapshot correctly 10`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 11`] = `
+exports[`StatusBadge renders the UI snapshot correctly 8`] = `
 <div
   className="css-1lkzcz8"
   id="body2"
@@ -99,7 +72,7 @@ exports[`StatusBadge renders the UI snapshot correctly 11`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 12`] = `
+exports[`StatusBadge renders the UI snapshot correctly 9`] = `
 <div
   className="css-1jsj0zc"
   id="caption"
@@ -108,7 +81,7 @@ exports[`StatusBadge renders the UI snapshot correctly 12`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 13`] = `
+exports[`StatusBadge renders the UI snapshot correctly 10`] = `
 <div
   className="css-kle7zy"
   id="chakra"
@@ -117,7 +90,7 @@ exports[`StatusBadge renders the UI snapshot correctly 13`] = `
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 14`] = `
+exports[`StatusBadge renders the UI snapshot correctly 11`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"

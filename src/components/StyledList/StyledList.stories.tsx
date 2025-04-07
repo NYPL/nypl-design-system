@@ -98,21 +98,3 @@ export const FontSizes: Story = {
     </VStack>
   ),
 };
-export const DeprecatedFontSizes: Story = {
-  render: () => (
-    <VStack align="stretch" spacing="l">
-      <Box>
-        <Heading level="h3" size="heading6">
-          Tag
-        </Heading>
-        <StyledList textSize="tag" listItems={listItems} />
-      </Box>
-      <Box>
-        <Heading level="h3" size="heading6">
-          Mini
-        </Heading>
-        <StyledList textSize="mini" listItems={listItems} />
-      </Box>
-    </VStack>
-  ),
-};

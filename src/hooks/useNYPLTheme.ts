@@ -45,7 +45,6 @@ function useNYPLTheme() {
       "3": theme.fontSizes["3"],
       "4": theme.fontSizes["4"],
       // default
-      breadcrumbs: theme.fontSizes.breadcrumbs,
       // small, default, large
       button: theme.fontSizes.button,
       // body, breadcrumbs, button, caption, default
@@ -79,7 +78,6 @@ function useNYPLTheme() {
       default: theme.fontWeights.default,
       // display1, heading1, heading2, heading3, heading4,
       // heading5, heading6
-      // deprecated: primary, secondary, tertiary, callout
       heading: theme.fontWeights.heading,
       // default
       helper: theme.fontWeights.helper,

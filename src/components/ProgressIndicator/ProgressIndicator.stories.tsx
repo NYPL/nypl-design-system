@@ -13,9 +13,6 @@ const meta: Meta<typeof ProgressIndicator> = {
   title: "Components/Feedback/ProgressIndicator",
   component: ProgressIndicator,
   argTypes: {
-    darkMode: {
-      control: false,
-    },
     id: { control: false },
     indicatorType: {
       controls: { type: "select" },

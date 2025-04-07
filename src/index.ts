@@ -128,7 +128,6 @@ export type {
   IconColors,
   IconNames,
   IconRotations,
-  IconRotationTypes,
   IconSizes,
   IconTypes,
   IconProps,
@@ -232,7 +231,6 @@ export { default as SocialMediaLinks } from "./components/SocialMediaLinks/Socia
 export type { SocialMediaLinkDataProps } from "./components/SocialMediaLinks/SocialMediaLinks";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export type {
-  StatusBadgeLevels,
   StatusBadgeProps,
   StatusBadgeTypes,
 } from "./components/StatusBadge/StatusBadge";

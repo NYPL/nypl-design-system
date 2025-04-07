@@ -95,9 +95,6 @@ const typography: Typography = {
         body1: fontSizeValues.desktop["body1"],
         body2: fontSizeValues.desktop["body2"],
       },
-      breadcrumbs: {
-        default: fontSizeValues.desktop["body2"],
-      },
       button: {
         small: fontSizeValues.desktop["buttonSmall"],
         default: fontSizeValues.desktop["buttonDefault"],
@@ -137,9 +134,6 @@ const typography: Typography = {
         body1: fontSizeValues.mobile["body1"],
         body2: fontSizeValues.mobile["body2"],
       },
-      breadcrumbs: {
-        default: fontSizeValues.mobile["body2"],
-      },
       button: {
         small: fontSizeValues.mobile["buttonSmall"],
         default: fontSizeValues.mobile["buttonDefault"],
@@ -174,12 +168,6 @@ const typography: Typography = {
         subtitle2: fontSizeValues.mobile["subtitle2"],
       },
     },
-    // deprecated semantic tokens
-    breadcrumbs: {
-      // The deprecated value is "caption" but we should use body2 instead
-      // for backwards compatibility
-      default: fontSizeValues.desktop["body2"],
-    },
     button: {
       small: {
         base: fontSizeValues.desktop["buttonSmall"],
@@ -194,24 +182,8 @@ const typography: Typography = {
         md: fontSizeValues.mobile["buttonLarge"],
       },
     },
-    heading: {
-      primary: fontSizeValues["4"],
-      secondary: fontSizeValues["3"],
-      tertiary: fontSizeValues["2"],
-      callout: fontSizeValues["1"],
-    },
     helper: {
       default: fontSizeValues["-2"],
-    },
-    label: {
-      default: fontSizeValues["-1"],
-      secondary: fontSizeValues["-2"],
-    },
-    text: {
-      default: fontSizeValues["0"],
-      caption: fontSizeValues["-1"],
-      tag: fontSizeValues["-2"],
-      mini: fontSizeValues["-3"],
     },
   },
   fontWeights: {
@@ -246,11 +218,6 @@ const typography: Typography = {
       heading6: fontWeightValues["medium"],
       heading7: fontWeightValues["medium"],
       heading8: fontWeightValues["medium"],
-      // deprecated tokens
-      primary: fontWeightValues["light"],
-      secondary: fontWeightValues["medium"],
-      tertiary: fontWeightValues["medium"],
-      callout: fontWeightValues["medium"],
     },
     helper: {
       default: fontWeightValues["light"],
@@ -266,12 +233,6 @@ const typography: Typography = {
     subtitle: {
       subtitle1: fontWeightValues["regular"],
       subtitle2: fontWeightValues["regular"],
-    },
-    text: {
-      default: fontWeightValues["light"],
-      caption: fontWeightValues["light"],
-      tag: fontWeightValues["regular"],
-      mini: fontWeightValues["regular"],
     },
   },
 };
