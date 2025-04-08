@@ -19,6 +19,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Notification` component's styles to sync with its VDL.
 - Updates the `ProgressIndicator` component's label margin to be consistent with VDL.
 - Updates the `"dl"` variant of the `List` component to use `2rem` for column spacing and to set the width of the `term` columnm to be a full `"250px"` for `tablet` and `desktop` viewports.
+- Updates the DS default font weight from `light` (300) to `regular` (400).
+- Updates the `Typography` Style Guide and the `Design Tokens` Development Guide to use `regular` (400) as the default font weight.
+- Updates all `Form` components to set the font weight for the `(required)` label to `"regular"`.
+- Updates the `Menu` component to set the font weight for the `group` headings to `"bold"`.
 - Updates the `TextInput` component so that the clearable button will not render when `isDisabled` is true.
 - Updates the `TextInput` placeholder text color for dark mode.
 
@@ -26,6 +30,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Fixes `Accordion` styles, including padding and active hover state, and double-border issue.
 - Fixes an overflow bug in the `filter` variant of the `TagSet` component when `isDismissible` is false.
+- Fixes the vertical alignment of the label for the `inline` variant of the `Select` component.
 
 ## 3.5.5 (March 20, 2025)
 
