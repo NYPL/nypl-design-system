@@ -25,6 +25,7 @@ const meta: Meta<typeof Select> = {
       controls: { type: "select" },
       options: labelPositionsArray,
       table: { defaultValue: { summary: "default" } },
+      control: { type: "radio" },
     },
     name: { control: false },
     onChange: { control: false },
