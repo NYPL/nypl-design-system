@@ -41,7 +41,7 @@ const Menu = defineMultiStyleConfig({
           paddingY: "xs",
           paddingX: "s",
           lineHeight: "18px",
-          fontWeight: "medium",
+          fontWeight: "bold",
           fontSize: "desktop.caption",
           textColor: "ui.typography.heading",
           margin: "0px",
