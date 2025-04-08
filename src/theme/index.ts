@@ -4,6 +4,7 @@ import breakpoints from "./foundations/breakpoints";
 import colors from "./foundations/colors";
 import radii from "./foundations/radii";
 import shadows from "./foundations/shadows";
+import sizes from "./foundations/sizes";
 import { spacing } from "./foundations/spacing";
 import typography from "./foundations/typography";
 /** Component styles */
@@ -100,6 +101,7 @@ const theme: any = {
   breakpoints,
   colors,
   radii,
+  sizes,
   shadows,
   space: spacing,
   ...typography,
