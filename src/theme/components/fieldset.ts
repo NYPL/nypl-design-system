@@ -19,7 +19,7 @@ const Fieldset = defineStyleConfig({
         ...labelLegendText,
         ...screenreaderStyles,
         span: {
-          fontWeight: "light",
+          fontWeight: "regular",
         },
         _dark: {
           color: "dark.ui.typography.heading",
