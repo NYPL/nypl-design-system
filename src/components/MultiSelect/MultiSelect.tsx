@@ -403,7 +403,7 @@ export const MultiSelect: ChakraComponent<
       const accordionPanel = (
         <Box position="relative">
           {isSearchable && !isOverflowExpand ? (
-            <Box position="sticky" top="0" marginBottom="12px" zIndex="999">
+            <Box position="sticky" top="0" marginBottom="12px" zIndex="1">
               {searchInput}
             </Box>
           ) : isSearchable && isOverflowExpand ? (
@@ -414,28 +414,30 @@ export const MultiSelect: ChakraComponent<
             maxHeight={listHeight}
             overflowY="auto"
             paddingTop="xxs"
-            paddingLeft="xxs"
+            paddingLeft="xs"
+            paddingBottom="xxs"
           >
             {itemsList.length === 0 ? (
               <NoSearchResults />
             ) : (
-              <CheckboxGroup
-                id={`multi-select-checkbox-group-${id}`}
-                layout="column"
-                isFullWidth
-                isRequired={false}
-                labelText={buttonText}
-                showLabel={false}
-                name="multi-select-checkbox-group"
-              >
-                {itemsList.map((item: MultiSelectItem) => (
-                  <>{getMultiSelectCheckboxItem(item)}</>
-                ))}
-              </CheckboxGroup>
+              <>
+                <CheckboxGroup
+                  id={`multi-select-checkbox-group-${id}`}
+                  layout="column"
+                  isFullWidth
+                  isRequired={false}
+                  labelText={buttonText}
+                  showLabel={false}
+                  name="multi-select-checkbox-group"
+                >
+                  {itemsList.map((item: MultiSelectItem) => (
+                    <>{getMultiSelectCheckboxItem(item)}</>
+                  ))}
+                </CheckboxGroup>
+                {isOverflowExpand && <ExpandToggleButton />}
+              </>
             )}
           </Box>
-
-          {isOverflowExpand && <ExpandToggleButton />}
         </Box>
       );
 
