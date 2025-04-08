@@ -24,6 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Fixes `Accordion` styles, including padding and active hover state, and double-border issue.
 - Fixes an overflow bug in the `filter` variant of the `TagSet` component when `isDismissible` is false.
+- Fixes the vertical alignment of the label for the `inline` variant of the `Select` component.
 
 ## 3.5.5 (March 20, 2025)
 
