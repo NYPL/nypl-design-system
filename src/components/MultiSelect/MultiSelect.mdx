@@ -405,6 +405,9 @@ child checkbox will not be clickable and its state will not change.
 When `isSearchable` is set to `true`, a text input field will be enabled within
 the component to allow users to search the available checkbox items.
 
+If the number of items in the checkbox list exceeds 20 items, it is recommended to enable the component's search functionality.
+It is also recommended to use scroll for overflow with over 20 items.
+
 <Canvas of={MultiSelectStories.searchInputField} />
 
 <Source

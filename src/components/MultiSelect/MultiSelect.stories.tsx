@@ -463,6 +463,24 @@ export const searchInputField: Story = {
           items={withChildrenItems}
         />
       </div>
+      <div>
+        <Heading
+          level="h3"
+          size="heading6"
+          text="Search (over 20 items = scrollable)"
+        />
+        <MultiSelectStory
+          id="multi-select-id-8"
+          isBlockElement
+          isDefaultOpen={false}
+          isSearchable
+          items={[
+            ...withChildrenItems,
+            ...withChildrenItems,
+            ...withChildrenItems,
+          ]}
+        />
+      </div>
     </Stack>
   ),
 };
