@@ -29,6 +29,7 @@ describe("useNYPLTheme", () => {
       "fontWeights",
       "fonts",
       "radii",
+      "sizes",
       "space",
     ]);
     expect(colorsKeys).toEqual([
