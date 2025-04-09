@@ -27,6 +27,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `NewsletterSignup` component's left border width and wrapper's `gap` value.
 - Updates the `TextInput` component so that the clearable button will not render when `isDisabled` is true.
 - Updates the `TextInput` placeholder text color for dark mode.
+- Updates the `Checkbox` component to sync the focus color styles with the VDL.
 
 ### Fixes
 
