@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Adds the `autoComplete` prop to the select element.",
       "Adds `requiredLabelText` prop to allow customization of the '(required)' text.",
+      "Fixes the vertical alignment of the label for the `inline` variant.",
     ],
   },
   {

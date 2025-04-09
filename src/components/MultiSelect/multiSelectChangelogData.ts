@@ -12,10 +12,10 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
-    type: "Bug Fix",
-    affects: ["Styles"],
+    type: "Update",
+    affects: ["Functionality"],
     notes: [
-      "Fixes the vertical alignment of the label for the `inline` variant.",
+      "Updates condition and now allows 0 to be rendered for `itemsCount`.",
     ],
   },
   {
