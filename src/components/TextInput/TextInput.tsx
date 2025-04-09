@@ -299,7 +299,7 @@ export const TextInput: ChakraComponent<
       if (!isTextArea) {
         options = { type, value: finalValue, ...options } as any;
         fieldOutput = <ChakraInput {...options} __css={styles.input} />;
-        if (isClearable && !isHidden) {
+        if (isClearable && !isDisabled && !isHidden) {
           clearButtonOutput = (
             <Button
               buttonType="text"

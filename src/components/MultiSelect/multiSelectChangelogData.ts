@@ -16,6 +16,15 @@ export const changelogData: ChangelogData[] = [
     affects: ["Styles"],
     notes: [
       "Fixes the search input field to the top of the panel so it remains visible on scroll.",
+      ],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Bug Fix",
+    affects: ["Styles"],
+    notes: [
+      "Fixes the vertical alignment of the label for the `inline` variant.",
     ],
   },
   {

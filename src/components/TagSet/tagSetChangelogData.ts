@@ -13,9 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Functionality", "Styles"],
     notes: [
       "Fixes an overflow bug in the `filter` variant when `isDismissible` is false.",
+      "Syncs the border colors styles with the VDL.",
     ],
   },
   {
