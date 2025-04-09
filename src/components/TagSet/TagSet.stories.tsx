@@ -124,7 +124,7 @@ const FilterVariantStory = () => {
 
   return (
     <TagSet
-      id="tagSet-id-filter"
+      id="tagSet-id-filter-dismissible"
       isDismissible
       onClick={handleOnClick}
       tagSetData={tagSetData}
@@ -133,8 +133,17 @@ const FilterVariantStory = () => {
   );
 };
 
-export const FilterVariant: Story = {
+export const FilterVariantDismiss: Story = {
   render: (_args) => <FilterVariantStory />,
+};
+export const FilterVariant: Story = {
+  render: (_args) => (
+    <TagSet
+      id="tagSet-id-filter"
+      tagSetData={defaultTagSetData}
+      type="filter"
+    />
+  ),
 };
 
 // The following are additional TagSet example Stories.
@@ -219,9 +228,6 @@ export const FormattingExamples: Story = {
         type="explore"
       />
       <TagSet
-        onClick={(tagLabel) =>
-          console.log(`Clicked from the onClick props: ${tagLabel}`)
-        }
         tagSetData={[
           { id: "red", label: "Red" },
           { id: "orange", label: "Orange" },

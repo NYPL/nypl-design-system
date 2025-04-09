@@ -11,6 +11,9 @@ const Label = defineStyleConfig({
     ...labelLegendText,
     flex: props.isInlined ? "1" : null,
     whiteSpace: props.isInlined ? "nowrap" : null,
+    span: {
+      fontWeight: "regular",
+    },
   })),
 });
 

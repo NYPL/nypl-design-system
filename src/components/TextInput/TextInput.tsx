@@ -13,68 +13,10 @@ import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Label from "../Label/Label";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
-import { getAriaAttrs } from "../../utils/utils";
+import { getAriaAttrs, getTextFromElement } from "../../utils/utils";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
-
-export const autoCompleteValuesArray = [
-  "on",
-  "off",
-  "additional-name",
-  "address-level1",
-  "address-level2",
-  "address-level3",
-  "address-level4",
-  "address-line1",
-  "address-line2",
-  "address-line3",
-  "bday-day",
-  "bday-month",
-  "bday-year",
-  "bday",
-  "cc-additional-name",
-  "cc-csc",
-  "cc-exp-month",
-  "cc-exp-year",
-  "cc-exp",
-  "cc-family-name",
-  "cc-given-name",
-  "cc-name",
-  "cc-number",
-  "cc-type",
-  "country-name",
-  "country",
-  "current-password",
-  "email",
-  "family-name",
-  "given-name",
-  "honorific-prefix",
-  "honorific-suffix",
-  "impp",
-  "language",
-  "name",
-  "new-password",
-  "nickname",
-  "organization-title",
-  "organization",
-  "photo",
-  "postal-code",
-  "sex",
-  "street-address",
-  "tel-area-code",
-  "tel-country-code",
-  "tel-extension",
-  "tel-local-prefix",
-  "tel-local-suffix",
-  "tel-local",
-  "tel-national",
-  "tel",
-  "transaction-amount",
-  "transaction-currency",
-  "url",
-  "username",
-] as const;
-export type AutoCompleteValues = typeof autoCompleteValuesArray[number];
+import type { AutoCompleteValues } from "../../utils/constantValues";
 
 export const textInputTypesArray = [
   "email",
@@ -134,7 +76,7 @@ export interface InputProps
   isRequired?: boolean;
   /** Provides text for a `Label` component if `showLabel` is set to true;
    * populates an `aria-label` attribute if `showLabel` is set to false. */
-  labelText: string;
+  labelText: string | JSX.Element;
   /** The max number for a `number` TextInput type. */
   max?: number;
   /** The max length of the input field. This prop is for all input types
@@ -244,7 +186,7 @@ export const TextInput: ChakraComponent<
       });
       const isTextArea = type === "textarea";
       const isHidden = type === "hidden";
-      let hasAutocomplete = autoComplete ? true : false;
+      let hasAutocomplete = !!autoComplete;
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
@@ -278,7 +220,7 @@ export const TextInput: ChakraComponent<
           additionalHelperTextIds,
           footnote,
           id,
-          labelText,
+          labelText: getTextFromElement(labelText), // Make sure this is plain text
           name: "TextInput",
           showLabel,
         }),

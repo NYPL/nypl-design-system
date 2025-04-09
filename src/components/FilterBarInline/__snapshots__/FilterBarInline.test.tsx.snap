@@ -42,12 +42,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-colors-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -301,12 +303,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-pets-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -719,12 +723,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-tools-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -1168,12 +1174,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-colors-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -1427,12 +1435,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-pets-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -1845,12 +1855,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-tools-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -2306,12 +2318,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-colors-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -2565,12 +2579,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-pets-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -2983,12 +2999,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-tools-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -3444,12 +3462,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-colors-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -3703,12 +3723,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-pets-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span
@@ -4121,12 +4143,14 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-h5m7h6"
+                className="chakra-accordion__button css-1rvudez"
                 disabled={false}
                 id="accordion-button-multi-select-accordion-tools-item-0"
                 onClick={[Function]}
                 onFocus={[Function]}
                 onKeyDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 type="button"
               >
                 <span

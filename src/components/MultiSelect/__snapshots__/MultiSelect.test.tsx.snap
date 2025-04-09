@@ -18,12 +18,14 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
         aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
-        className="chakra-accordion__button css-h5m7h6"
+        className="chakra-accordion__button css-1rvudez"
         disabled={false}
         id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         type="button"
       >
         <span
@@ -548,12 +550,14 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
         aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
-        className="chakra-accordion__button css-h5m7h6"
+        className="chakra-accordion__button css-1rvudez"
         disabled={false}
         id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         type="button"
       >
         <span
@@ -1078,12 +1082,14 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
         aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 1 item currently selected"
-        className="chakra-accordion__button css-h5m7h6"
+        className="chakra-accordion__button css-1rvudez"
         disabled={false}
         id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         type="button"
       >
         <span
@@ -1670,12 +1676,14 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
         aria-controls="accordion-panel-multi-select-accordion-multiselect-test-id-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 2 items currently selected"
-        className="chakra-accordion__button css-h5m7h6"
+        className="chakra-accordion__button css-1rvudez"
         disabled={false}
         id="accordion-button-multi-select-accordion-multiselect-test-id-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         type="button"
       >
         <span

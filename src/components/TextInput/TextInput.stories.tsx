@@ -5,10 +5,8 @@ import { useRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
-import TextInput, {
-  autoCompleteValuesArray,
-  textInputTypesArray,
-} from "./TextInput";
+import TextInput, { textInputTypesArray } from "./TextInput";
+import { autoCompleteValuesArray } from "../../utils/constantValues";
 import type { TextInputRefType } from "./TextInput";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
@@ -138,7 +136,11 @@ export const LabellingVariations: Story = {
       />
       <TextInput
         id="textInput-2"
-        labelText="What is your favorite color?"
+        labelText={
+          <>
+            What is your favorite color? <span>(required)</span>
+          </>
+        }
         placeholder="i.e. blue, green, etc."
         showLabel={false}
       />

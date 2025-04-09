@@ -8,17 +8,53 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-Fixes the search input field to the top of the panel so it remains visible on scroll.
+### Adds
+
+- Adds the `"navigationSubdirectoryArrowLeft"` and `"navigationSubdirectoryArrowRight"` options to the `Icon` component.
+- Adds the `autoComplete` prop to the `Select` element.
+- Adds `requiredLabelText` prop to allow customization of the '(required)' text in the `Select` component.
 
 ### Updates
 
+- Updates the `Notification` component's styles to sync with its VDL.
+- Updates the `ProgressIndicator` component's label margin to be consistent with VDL.
+- Updates the `"dl"` variant of the `List` component to use `2rem` for column spacing and to set the width of the `term` columnm to be a full `"250px"` for `tablet` and `desktop` viewports.
+- Updates the DS default font weight from `light` (300) to `regular` (400).
+- Updates the `Typography` Style Guide and the `Design Tokens` Development Guide to use `regular` (400) as the default font weight.
+- Updates all `Form` components to set the font weight for the `(required)` label to `"regular"`.
+- Updates the `Menu` component to set the font weight for the `group` headings to `"bold"`.
 - Updates the `Multiselect` search input field to remain visible on scroll.
+
+### Fixes
+
+- Fixes `Accordion` styles, including padding and active hover state, and double-border issue.
+- Fixes an overflow bug in the `filter` variant of the `TagSet` component when `isDismissible` is false.
+
+## 3.5.5 (March 20, 2025)
+
+### Adds
+
+- Adds the `Container Query Guide` page to the `Development Guide` section of Storybook.
+- Adds the `primitives` color object.
+- Adds the `highlighter` colors to the `colors` theme object.
+
+### Updates
+
+- Updates the spacing on the `Modal` component.
+- Updates the spacing between heading and content in the `Banner` component.
+- Updates the `Card`, `FeaturedContent`, and `SearchBar` components to use container queries.
+- Updated the `"filter"` variant of the `TagSet` component to remove tag button wrapper when `isDismissible` and `onClick` are false.
+- Updates the `Image` component to include `"fourByOne"` and `"twoByThree"` aspect ratio options.
+- Updates the `Label` component to set the font weight for the `(required)` label to `"light"`.
+- Updates the `Fieldset` component to set the font weight for the `(required)` label to `"light"`.
+- Updates the `FeedbackBox` component to set the font weight for the `(required)` label on the `Textarea` element to `"light"`.
 
 ## 3.5.4 (February 13, 2025)
 
 ### Adds
 
 - Adds the `"utilityCheck"` option to the `Icon` component.
+- Adds the `getTextFromElement` utility function.
 
 ### Updates
 

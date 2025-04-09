@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-03-20",
+    version: "3.5.5",
+    type: "Update",
+    affects: ["Styles", "Functionality"],
+    notes: ["Adds 'fourByOne' and 'twoByThree' aspect ratios."],
+  },
+  {
     date: "2025-01-16",
     version: "3.5.2",
     type: "Bug Fix",

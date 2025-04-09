@@ -89,7 +89,6 @@ export const descriptionStyles = (showRowDividers = true) => ({
     fontWeight: "label.default",
     paddingBottom: { base: "0", md: "s" },
     paddingTop: "s",
-    paddingEnd: { md: "table.column" },
     _dark: {
       borderColor: "dark.ui.border.default",
       color: "dark.ui.typography.heading",
@@ -100,6 +99,7 @@ export const descriptionStyles = (showRowDividers = true) => ({
     paddingBottom: "s",
     borderTop: { base: "none", md: showRowDividers ? "1px solid" : "none" },
     borderColor: { md: "ui.border.default" },
+    paddingStart: { md: "table.column" },
     paddingTop: { md: "s" },
     _dark: {
       borderColor: { md: "dark.ui.border.default" },

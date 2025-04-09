@@ -140,7 +140,7 @@ export const ProgressIndicator: ChakraComponent<
       return (
         <>
           {showLabel && (
-            <Label id={`${id}-label`} htmlFor={id}>
+            <Label id={`${id}-label`} htmlFor={id} mb="xxs">
               {labelText}
             </Label>
           )}
