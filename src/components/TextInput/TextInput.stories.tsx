@@ -194,6 +194,7 @@ export const BrowserStates: Story = {
           isDisabled
           labelText="What is your favorite color?"
           placeholder="i.e. blue, green, etc."
+          value="blue"
         />
       </Box>
     </VStack>
