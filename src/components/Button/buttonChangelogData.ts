@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Explicitly assigns the height value for each size option to align with VDL.",
+    ],
+  },
+  {
     date: "2024-07-25",
     version: "3.2.0",
     type: "Update",

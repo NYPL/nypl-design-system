@@ -71,7 +71,6 @@ const baseStyle = {
     _focus: {
       ...activeFocus(),
       boxShadow: "outline",
-      borderColor: "ui.focus",
     },
     _invalid: {
       borderColor: "ui.error.primary",
@@ -108,7 +107,6 @@ const baseStyle = {
 
       _focus: {
         boxShadow: "none",
-        outlineColor: "dark.ui.focus",
       },
 
       _invalid: {

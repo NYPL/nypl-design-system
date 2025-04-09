@@ -410,6 +410,24 @@ describe("TextInput", () => {
     );
   });
 
+  it("does not render a clear button when isDisabled is true", () => {
+    const onChangeSpy = jest.fn();
+
+    utils.rerender(
+      <TextInput
+        id="isDisabled-clear-button"
+        isClearable
+        isDisabled
+        labelText="Input Label"
+        onChange={onChangeSpy}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    const clearButton = screen.queryByRole("button");
+    expect(clearButton).not.toBeInTheDocument();
+  });
+
   it("renders a `clear` button and clears the input field when clicked", () => {
     const onChangeSpy = jest.fn();
 
