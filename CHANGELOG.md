@@ -24,6 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Typography` Style Guide and the `Design Tokens` Development Guide to use `regular` (400) as the default font weight.
 - Updates all `Form` components to set the font weight for the `(required)` label to `"regular"`.
 - Updates the `Menu` component to set the font weight for the `group` headings to `"bold"`.
+- Updates the `Multiselect` search input field to remain visible on scroll.
 - Updates the `NewsletterSignup` component's left border width and wrapper's `gap` value.
 - Updates the `TextInput` component so that the clearable button will not render when `isDisabled` is true.
 - Updates the `TextInput` placeholder text color for dark mode.
