@@ -70,7 +70,7 @@ const Select = defineMultiStyleConfig({
       inline: {
         display: { md: "flex" },
         gap: { md: "xs" },
-        alignItems: { md: "flex-end" },
+        alignItems: { md: "center" },
       },
       label: labelLegendTextSpecialSpacing,
       select: select(labelPosition),
