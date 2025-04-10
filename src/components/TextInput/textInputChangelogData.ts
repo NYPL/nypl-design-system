@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-04-10",
+    version: "3.6.0",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Does not render the clearable button if `isDisabled` is true.",
+      "Updates placeholder text color for dark mode.",
+    ],
+  },
+  {
     date: "2025-03-20",
     version: "3.5.5",
     type: "Update",

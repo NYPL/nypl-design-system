@@ -209,6 +209,7 @@ The DS design tokens are broken into the following categories:
 - {<Link href="#breakpoints" target="_self">Breakpoints</Link>}
 - {<Link href="#color" target="_self">Color</Link>}
 - {<Link href="#radii" target="_self">Radii</Link>}
+- {<Link href="#sizes" target="_self">Sizes</Link>}
 - {<Link href="#space" target="_self">Space</Link>}
 - {<Link href="#typography" target="_self">Typography</Link>}
 
@@ -429,6 +430,17 @@ The `radii` design tokens can be used for the `borderRadius` (js) and
 |                   |                |                             |        |
 | **Round**         | round          | --nypl-radii-round          | 100%   |
 
+### Sizes
+
+The `sizes` design tokens can be used for the `height` (css/js) attribute.
+
+|            | JS Token              | CSS Token                          | Value |
+| ---------- | :-------------------- | :--------------------------------- | :---- |
+| **Button** | button.default.height | --nypl-sizes-button-default-height | 40px  |
+|            | button.small.height   | --nypl-sizes-button-small-height   | 26px  |
+|            | button.medium.height  | --nypl-sizes-button-medium-height  | 40px  |
+|            | button.large.height   | --nypl-sizes-button-large-height   | 56px  |
+
 ### Space
 
 The `space` design tokens can be used for any styles related to space or size:
@@ -609,16 +621,16 @@ The following tokens can be used with the `fontWeight` (js) and `font-weight`
 | **Overline**    | overline.overline1    | --nypl-fontWeights-overline-overline1    | semibold |            |
 |                 | overline.overline2    | --nypl-fontWeights-overline-overline2    | semibold |            |
 |                 |                       |                                          |          |            |
-| **Helper**      | helper.default        | --nypl-fontWeights-helper-default        | light    |            |
+| **Helper**      | helper.default        | --nypl-fontWeights-helper-default        | regular  |            |
 |                 |                       |                                          |          |            |
 | **Label**       | label.default         | --nypl-fontWeights-label-default         | medium   |            |
 |                 | label.secondary       | --nypl-fontWeights-label-secondary       | regular  |            |
 |                 |                       |                                          |          |            |
-| **Text**        | default               | --nypl-fontWeights-default               | light    |            |
-|                 | body.body1            | --nypl-fontWeights-body-body1            | light    |            |
-|                 | body.body2            | --nypl-fontWeights-body-body2            | light    |            |
+| **Text**        | default               | --nypl-fontWeights-default               | regular  |            |
+|                 | body.body1            | --nypl-fontWeights-body-body1            | regular  |            |
+|                 | body.body2            | --nypl-fontWeights-body-body2            | regular  |            |
 |                 | caption               | --nypl-fontWeights-caption               | regular  |            |
-|                 | text.default          | --nypl-fontWeights-text-default          | light    | x          |
-|                 | text.caption          | --nypl-fontWeights-text-caption          | light    | x          |
+|                 | text.default          | --nypl-fontWeights-text-default          | regular  | x          |
+|                 | text.caption          | --nypl-fontWeights-text-caption          | regular  | x          |
 |                 | text.tag              | --nypl-fontWeights-text-tag              | regular  | x          |
 |                 | text.mini             | --nypl-fontWeights-text-mini             | regular  | x          |

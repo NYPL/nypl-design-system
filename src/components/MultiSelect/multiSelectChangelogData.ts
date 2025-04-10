@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-04-10",
+    version: "3.6.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updates the styles for the search input field to fix it to the top of the panel and remain visible on scroll.",
+      "Fixes the vertical alignment of the label for the `inline` variant.",
+    ],
+  },
+  {
     date: "2025-01-30",
     version: "3.5.3",
     type: "Update",

@@ -5,10 +5,8 @@ import { useRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
-import TextInput, {
-  autoCompleteValuesArray,
-  textInputTypesArray,
-} from "./TextInput";
+import TextInput, { textInputTypesArray } from "./TextInput";
+import { autoCompleteValuesArray } from "../../utils/constantValues";
 import type { TextInputRefType } from "./TextInput";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
@@ -196,6 +194,7 @@ export const BrowserStates: Story = {
           isDisabled
           labelText="What is your favorite color?"
           placeholder="i.e. blue, green, etc."
+          value="blue"
         />
       </Box>
     </VStack>

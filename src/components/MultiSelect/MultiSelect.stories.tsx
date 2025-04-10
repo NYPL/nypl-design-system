@@ -441,13 +441,33 @@ export const disabledListItemsAllChildren: Story = {
 
 export const searchInputField: Story = {
   render: () => (
-    <MultiSelectStory
-      id="multi-select-id-7"
-      isBlockElement
-      isDefaultOpen={false}
-      isSearchable
-      items={withChildrenItems}
-    />
+    <Stack direction="row" align="left" spacing="xl">
+      <div>
+        <Heading level="h3" size="heading6" text="Search (scrollable)" />
+        <MultiSelectStory
+          id="multi-select-id-7"
+          isBlockElement
+          isDefaultOpen={false}
+          isSearchable
+          items={[
+            ...withChildrenItems,
+            ...withChildrenItems,
+            ...withChildrenItems,
+          ]}
+        />
+      </div>
+      <div>
+        <Heading level="h3" size="heading6" text="Search (expands)" />
+        <MultiSelectStory
+          id="multi-select-id-8"
+          isBlockElement
+          isDefaultOpen={false}
+          isSearchable
+          listOverflow="expand"
+          items={withChildrenItems}
+        />
+      </div>
+    </Stack>
   ),
 };
 
