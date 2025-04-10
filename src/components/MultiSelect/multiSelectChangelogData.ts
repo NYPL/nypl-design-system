@@ -13,9 +13,18 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Styles"],
     notes: [
-      "Updates condition and now allows 0 to be rendered for `itemsCount`.",
+      "Fixes the search input field to the top of the panel so it remains visible on scroll.",
+      ],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Bug Fix",
+    affects: ["Styles"],
+    notes: [
+      "Fixes the vertical alignment of the label for the `inline` variant.",
     ],
   },
   {
