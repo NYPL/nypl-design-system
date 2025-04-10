@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.6.0 (April 10, 2025)
+
 ### Adds
 
 - Adds the `"navigationSubdirectoryArrowLeft"` and `"navigationSubdirectoryArrowRight"` options to the `Icon` component.
