@@ -10,11 +10,11 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2025-04-10",
+    version: "3.6.0",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Updates styles to better match the component's VDL."],
+    notes: ["Updates styles to match the VDL."],
   },
   {
     date: "2024-07-25",
