@@ -14,7 +14,9 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Updates the styles to make the button placeholder look more like a button."],
+    notes: [
+      "Updates the styles to make the button placeholder look more like a button.",
+    ],
   },
   {
     date: "2024-05-09",
