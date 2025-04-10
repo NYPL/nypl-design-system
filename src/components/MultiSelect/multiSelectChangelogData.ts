@@ -19,11 +19,13 @@ export const changelogData: ChangelogData[] = [
     ],
   },
   {
-    date: "2025-01-30",
-    version: "3.5.3",
-    type: "Update",
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Bug Fix",
     affects: ["Styles"],
-    notes: ["Updates the text and size styles for the search input field."],
+    notes: [
+      "Fixes the vertical alignment of the label for the `inline` variant.",
+    ],
   },
   {
     date: "2024-12-05",
