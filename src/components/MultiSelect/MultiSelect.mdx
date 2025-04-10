@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as MultiSelectStories from "./MultiSelect.stories";
 import Link from "../Link/Link";
+import Banner from "../Banner/Banner";
 import { changelogData } from "./multiSelectChangelogData";
 
 <Meta of={MultiSelectStories} />
@@ -413,6 +414,16 @@ child checkbox will not be clickable and its state will not change.
 
 When `isSearchable` is set to `true`, a text input field will be enabled within
 the component to allow users to search the available checkbox items.
+
+<Banner
+  content={
+    <>
+      <strong>RECOMMENDATION:</strong> When the number of list items is 20 or
+      greater, enable the search functionality and use scroll for the overflow.
+    </>
+  }
+  type="recommendation"
+/>
 
 <Canvas of={MultiSelectStories.searchInputField} />
 
