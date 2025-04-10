@@ -140,7 +140,7 @@ export const SkeletonLoader: ChakraComponent<
             )}
             {showButton && (
               <Box __css={{ ...styles.section, ...styles.button }}>
-                <ChakraSkeleton borderRadius="16px" sx={styles.loader}>
+                <ChakraSkeleton sx={styles.loader} borderRadius="20px">
                   <Box __css={styles.button} />
                 </ChakraSkeleton>
               </Box>
