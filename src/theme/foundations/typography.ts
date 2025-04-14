@@ -95,6 +95,9 @@ const typography: Typography = {
         body1: fontSizeValues.desktop["body1"],
         body2: fontSizeValues.desktop["body2"],
       },
+      breadcrumbs: {
+        default: fontSizeValues.desktop["body2"],
+      },
       button: {
         small: fontSizeValues.desktop["buttonSmall"],
         default: fontSizeValues.desktop["buttonDefault"],
@@ -134,6 +137,9 @@ const typography: Typography = {
         body1: fontSizeValues.mobile["body1"],
         body2: fontSizeValues.mobile["body2"],
       },
+      breadcrumbs: {
+        default: fontSizeValues.mobile["body2"],
+      },
       button: {
         small: fontSizeValues.mobile["buttonSmall"],
         default: fontSizeValues.mobile["buttonDefault"],
@@ -167,6 +173,11 @@ const typography: Typography = {
         subtitle1: fontSizeValues.mobile["subtitle1"],
         subtitle2: fontSizeValues.mobile["subtitle2"],
       },
+    },
+    breadcrumbs: {
+      // The deprecated value is "caption" but we should use body2 instead
+      // for backwards compatibility
+      default: fontSizeValues.desktop["body2"],
     },
     button: {
       small: {

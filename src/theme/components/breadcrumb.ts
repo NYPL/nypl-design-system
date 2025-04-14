@@ -115,7 +115,7 @@ const Breadcrumb = defineStyleConfig({
   baseStyle: defineStyle({
     bg: "ui.black",
     color: "ui.white",
-    fontSize: "desktop.body2",
+    fontSize: "desktop.breadcrumbs.default",
     fontWeight: "breadcrumbs.default",
     paddingBottom: "xs",
     paddingTop: "xs",

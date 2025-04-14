@@ -45,6 +45,7 @@ function useNYPLTheme() {
       "3": theme.fontSizes["3"],
       "4": theme.fontSizes["4"],
       // default
+      breadcrumbs: theme.fontSizes.breadcrumbs,
       // small, default, large
       button: theme.fontSizes.button,
       // body, breadcrumbs, button, caption, default
