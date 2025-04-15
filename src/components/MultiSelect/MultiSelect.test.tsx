@@ -58,7 +58,6 @@ const itemsWithCount = [
   { id: "home", name: "Home", itemCount: 0 },
 ];
 
-
 const defaultItemsVisible = 5;
 
 const MultiSelectTestComponent = ({
