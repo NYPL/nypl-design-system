@@ -28,15 +28,6 @@ export const changelogData: ChangelogData[] = [
     ],
   },
   {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Bug Fix",
-    affects: ["Styles"],
-    notes: [
-      "Fixes the vertical alignment of the label for the `inline` variant.",
-    ],
-  },
-  {
     date: "2024-12-05",
     version: "3.5.0",
     type: "Update",

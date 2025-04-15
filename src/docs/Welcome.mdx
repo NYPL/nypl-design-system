@@ -19,14 +19,14 @@ export const versionsHeadersData = [
 export const versionsData = [
   [
     <Text size="body2" whiteSpace="nowrap">
-      Reservoir 3.x (latest)
+      Reservoir 3.x
     </Text>,
     <Text size="body2" whiteSpace="nowrap">
-      March 2024
+      ongoing
     </Text>,
     <Text size="body2">
-      Reservoir v3 updated the design system's foundations to use React 18 and
-      Chakra 2.8.
+      Reservoir is constantly undergoing improvements with a new version
+      published ever two weeks.
     </Text>,
     <Text size="body2" whiteSpace="nowrap">
       <Link
@@ -48,6 +48,57 @@ export const versionsData = [
         type="default"
       >
         latest stable branch
+      </Link>
+    </Text>,
+  ],
+  [
+    <Text size="body2" whiteSpace="nowrap">
+      Reservoir 3.6.0
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      April 2025
+    </Text>,
+    <Text size="body2">
+      Reservoir v3.6.0 updated the default font weight for the base styles. All
+      components were impacted by the update.
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      --
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      <Link
+        href="https://github.com/NYPL/nypl-design-system/releases/tag/v3.6.0"
+        rel="nofollow noopener noreferrer"
+        screenreaderOnlyText="Github release for Reservoir v3.6.0"
+        target="_blank"
+        type="default"
+      >
+        tag
+      </Link>
+    </Text>,
+  ],
+  [
+    <Text size="body2" whiteSpace="nowrap">
+      Reservoir 3.0.0
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      March 2024
+    </Text>,
+    <Text size="body2">
+      Reservoir v3.0.0 updated the foundations to use React 18 and Chakra 2.8.
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      --
+    </Text>,
+    <Text size="body2" whiteSpace="nowrap">
+      <Link
+        href="https://github.com/NYPL/nypl-design-system/releases/tag/v3.0.0"
+        rel="nofollow noopener noreferrer"
+        screenreaderOnlyText="Github release for Reservoir v3.0"
+        target="_blank"
+        type="default"
+      >
+        tag
       </Link>
     </Text>,
   ],
@@ -304,21 +355,36 @@ export const versionsData = [
         borderRight: "0 !important",
         borderTop: "0 !important",
       },
+      thead: {
+        th: {
+          borderTop:
+            "1px solid var(--nypl-colors-ui-border-default) !important",
+          fontSize: "10px",
+          textTransform: "uppercase !important",
+        },
+      },
       th: {
         borderBottom:
           "1px solid var(--nypl-colors-ui-border-default) !important",
         borderLeft: "0 !important",
         borderRight: "0 !important",
-        borderTop: "1px solid var(--nypl-colors-ui-border-default) !important",
+        borderTop: "0 !important",
         paddingInline: "1rem !important",
         textTransform: "none !important",
+        p: {
+          fontSize: "12px !important",
+        },
       },
       td: {
         borderBottom:
           "1px solid var(--nypl-colors-ui-border-default) !important",
         borderLeft: "0 !important",
         borderRight: "0 !important",
+        borderTop: "0 !important",
         paddingInline: "1rem !important",
+        p: {
+          fontSize: "12px !important",
+        },
       },
     }}
   />

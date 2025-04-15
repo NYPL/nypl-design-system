@@ -25,7 +25,7 @@ const baseStyle = definePartsStyle(
       justifyContent: "center",
       content: {
         color:
-          notificationType === "warning" ? "brand.primary" : "currentColor",
+          notificationType === "warning" ? "ui.error.primary" : "currentColor",
         paddingStart:
           !isCentered && showIcon ? (notificationHeading ? "l" : "xs") : "0",
         pt: !isCentered ? "xxs" : "0",

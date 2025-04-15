@@ -14,6 +14,13 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
+    notes: ["Variant font colors updated to sync with the VDL."],
+  },
+  {
+    date: "2025-04-10",
+    version: "3.6.0",
+    type: "Update",
+    affects: ["Styles"],
     notes: ["Style updates to sync with the VDL."],
   },
   {

@@ -10,11 +10,11 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2025-04-10",
+    version: "3.6.0",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Synced the focus color styles with the VDL."],
+    notes: ["Syncs the focus color styles with the VDL."],
   },
   {
     date: "2024-03-14",
