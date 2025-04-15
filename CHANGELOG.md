@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates `Tooltip` text color.
 - Updates the `SearchBar` component to remove the text input right border.
 - Updates the `SkeletonLoader` component to make the button placeholder look more like a button.
 
