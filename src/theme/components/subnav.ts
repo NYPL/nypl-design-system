@@ -55,19 +55,30 @@ const ulStyles = {
 const SubNav = subNavDefineMultiStyleConfig({
   baseStyle: subNavDefinePartsStyle(
     ({ backgroundColor, highlightColor }: SubNavStyleProps) => {
-      const defaultLabelColor = "ui.typography.body";
-      const highlightOrDefaultColor = highlightColor
-        ? highlightColor
-        : `${defaultLabelColor}`;
+      // const defaultLabelColor = "ui.typography.body";
+      const defaultLabelColor = "red";
+      const defaultLabelColorDark = "blue";
+      const highlightOrDefaultColor = (colorMode: string = "light") => {
+        const finalColor =
+          colorMode === "dark" ? defaultLabelColorDark : defaultLabelColor;
+        return highlightColor ? highlightColor : finalColor;
+      };
       const highlightOrLinkColor = highlightColor
         ? highlightColor
         : "ui.link.primary";
-      const highlightOrBorderColor = highlightColor
-        ? highlightColor
-        : "ui.border.default";
-      const finalBackgroundColor = backgroundColor
-        ? backgroundColor
-        : "ui.link.primary-05";
+      const highlightOrBorderColor = (colorMode: string = "light") => {
+        const finalPrefix = colorMode === "dark" ? `${colorMode}.` : "";
+        return highlightColor
+          ? highlightColor
+          : `${finalPrefix}ui.border.default`;
+      };
+      const finalBackgroundColor = (colorMode: string = "light") => {
+        const basedOnColorMode =
+          colorMode === "dark"
+            ? "var(--nypl-colors-dark-ui-link-primary-10)"
+            : "var(--nypl-colors-ui-link-primary-05)";
+        return backgroundColor ? backgroundColor : basedOnColorMode;
+      };
       const primaryActionsStyles = {
         ...commonStyles(),
         svg: {
@@ -78,8 +89,11 @@ const SubNav = subNavDefineMultiStyleConfig({
           },
         },
         _hover: {
-          backgroundColor: finalBackgroundColor,
+          backgroundColor: finalBackgroundColor("light"),
           color: highlightOrDefaultColor,
+          _dark: {
+            backgroundColor: finalBackgroundColor("dark"),
+          },
           svg: {
             fill: highlightOrDefaultColor,
             _dark: {
@@ -104,7 +118,7 @@ const SubNav = subNavDefineMultiStyleConfig({
           },
         },
         _hover: {
-          background: finalBackgroundColor,
+          background: finalBackgroundColor("light"),
           color: highlightOrLinkColor,
           svg: {
             fill: highlightOrLinkColor,
@@ -121,15 +135,18 @@ const SubNav = subNavDefineMultiStyleConfig({
           ".selectedItem": {
             color: highlightOrLinkColor,
             fontWeight: "bold",
-            backgroundColor: finalBackgroundColor,
+            backgroundColor: finalBackgroundColor("light"),
             "&:hover": {
               color: highlightOrLinkColor,
             },
           },
           borderBottom: "1px solid",
-          borderColor: highlightOrBorderColor,
+          borderColor: highlightOrBorderColor("light"),
           display: "flex",
           justifyContent: "center",
+          _dark: {
+            borderColor: highlightOrBorderColor("dark"),
+          },
         },
         container: {
           maxWidth: "1280px",
