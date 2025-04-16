@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updates the styles to make the button placeholder look more like a button.",
+    ],
+  },
+  {
     date: "2024-05-09",
     version: "3.1.2",
     type: "Update",
