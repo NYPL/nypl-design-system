@@ -55,77 +55,97 @@ const ulStyles = {
 const SubNav = subNavDefineMultiStyleConfig({
   baseStyle: subNavDefinePartsStyle(
     ({ backgroundColor, highlightColor }: SubNavStyleProps) => {
-      // const defaultLabelColor = "ui.typography.body";
-      const defaultLabelColor = "red";
-      const defaultLabelColorDark = "blue";
-      const highlightOrDefaultColor = (colorMode: string = "light") => {
-        const finalColor =
+      const defaultLabelColor = "var(--nypl-colors-ui-typography-body)";
+      const defaultLabelColorDark =
+        "var(--nypl-colors-dark-ui-typography-body)";
+      const defaultColor = (colorMode: string = "light") => {
+        const finalForColorMode =
           colorMode === "dark" ? defaultLabelColorDark : defaultLabelColor;
-        return highlightColor ? highlightColor : finalColor;
+        return `${finalForColorMode} !important`;
       };
-      const highlightOrLinkColor = highlightColor
-        ? highlightColor
-        : "ui.link.primary";
+      const highlightOrDefaultColor = (colorMode: string = "light") => {
+        const finalForColorMode =
+          colorMode === "dark" ? defaultLabelColorDark : defaultLabelColor;
+        return highlightColor
+          ? `${highlightColor} !important`
+          : `${finalForColorMode} !important`;
+      };
+
+      const defaultLinkColor = "var(--nypl-colors-ui-link-primary)";
+      const defaultLinkColorDark = "var(--nypl-colors-dark-ui-link-primary)";
+      const highlightOrLinkColor = (colorMode: string = "light") => {
+        const finalForColorMode =
+          colorMode === "dark" ? defaultLinkColorDark : defaultLinkColor;
+        return highlightColor
+          ? `${highlightColor} !important`
+          : `${finalForColorMode} !important`;
+      };
+
       const highlightOrBorderColor = (colorMode: string = "light") => {
         const finalPrefix = colorMode === "dark" ? `${colorMode}.` : "";
         return highlightColor
           ? highlightColor
           : `${finalPrefix}ui.border.default`;
       };
+
+      const defaultBgColor = "var(--nypl-colors-ui-link-primary-05)";
+      const defaultBgColorDark = "var(--nypl-colors-dark-ui-link-primary-10)";
       const finalBackgroundColor = (colorMode: string = "light") => {
-        const basedOnColorMode =
-          colorMode === "dark"
-            ? "var(--nypl-colors-dark-ui-link-primary-10)"
-            : "var(--nypl-colors-ui-link-primary-05)";
-        return backgroundColor ? backgroundColor : basedOnColorMode;
+        const finalForColorMode =
+          colorMode === "dark" ? defaultBgColorDark : defaultBgColor;
+        return backgroundColor
+          ? backgroundColor
+          : `${finalForColorMode} !important`;
       };
+
       const primaryActionsStyles = {
         ...commonStyles(),
         svg: {
-          fill: defaultLabelColor,
+          fill: defaultColor("light"),
           margin: { base: "0", md: null },
           _dark: {
-            fill: "ui.white",
+            fill: defaultColor("dark"),
           },
         },
         _hover: {
           backgroundColor: finalBackgroundColor("light"),
-          color: highlightOrDefaultColor,
+          color: defaultColor("light"),
           _dark: {
             backgroundColor: finalBackgroundColor("dark"),
+            color: defaultColor("dark"),
           },
           svg: {
-            fill: highlightOrDefaultColor,
+            fill: highlightOrDefaultColor("light"),
             _dark: {
-              fill:
-                backgroundColor !== undefined
-                  ? `${backgroundColor} `
-                  : "ui.white",
+              fill: highlightOrDefaultColor("dark"),
             },
           },
         },
       };
       const secondaryActionsStyles = {
         ...commonStyles(),
-        color: highlightOrLinkColor,
+        color: highlightOrLinkColor("light"),
+        _dark: {
+          color: highlightOrLinkColor("dark"),
+        },
         svg: {
-          fill: highlightOrLinkColor,
+          fill: highlightOrLinkColor("light"),
           margin: { base: "0", md: null },
           _dark: {
-            fill: backgroundColor
-              ? `${backgroundColor} !important`
-              : "dark.ui.link.primary-05 !important",
+            fill: highlightOrLinkColor("dark"),
           },
         },
         _hover: {
           background: finalBackgroundColor("light"),
-          color: highlightOrLinkColor,
+          color: highlightOrLinkColor("light"),
+          _dark: {
+            backgroundColor: finalBackgroundColor("dark"),
+            color: highlightOrLinkColor("dark"),
+          },
           svg: {
-            fill: highlightOrLinkColor,
+            fill: highlightOrLinkColor("light"),
             _dark: {
-              fill: backgroundColor
-                ? `${backgroundColor}`
-                : "dark.ui.link.primary-05",
+              fill: highlightOrLinkColor("dark"),
             },
           },
         },
@@ -133,11 +153,17 @@ const SubNav = subNavDefineMultiStyleConfig({
       return {
         base: {
           ".selectedItem": {
-            color: highlightOrLinkColor,
+            color: highlightOrLinkColor("light"),
             fontWeight: "bold",
             backgroundColor: finalBackgroundColor("light"),
             "&:hover": {
-              color: highlightOrLinkColor,
+              color: highlightOrLinkColor("light"),
+            },
+            _dark: {
+              color: highlightOrLinkColor("dark"),
+              "&:hover": {
+                color: highlightOrLinkColor("dark"),
+              },
             },
           },
           borderBottom: "1px solid",
@@ -164,18 +190,17 @@ const SubNav = subNavDefineMultiStyleConfig({
           ...ulStyles,
           width: "100%",
           button: {
-            color: highlightOrDefaultColor,
+            color: defaultColor("light"),
             ...primaryActionsStyles,
+            _dark: {
+              color: defaultColor("dark"),
+            },
           },
           a: {
-            color: `${highlightOrDefaultColor}`,
+            color: defaultColor("light"),
             ...primaryActionsStyles,
-            svg: {
-              fill: `${highlightOrDefaultColor}`,
-              margin: { base: "0", md: null },
-              _dark: {
-                fill: "ui.white !important",
-              },
+            _dark: {
+              color: defaultColor("dark"),
             },
           },
         },
@@ -183,8 +208,20 @@ const SubNav = subNavDefineMultiStyleConfig({
           ...ulStyles,
           width: "fit-content",
           whiteSpace: "nowrap",
-          button: secondaryActionsStyles,
-          a: secondaryActionsStyles,
+          button: {
+            color: highlightOrLinkColor("light"),
+            ...secondaryActionsStyles,
+            _dark: {
+              color: highlightOrLinkColor("dark"),
+            },
+          },
+          a: {
+            color: highlightOrLinkColor("light"),
+            ...secondaryActionsStyles,
+            _dark: {
+              color: highlightOrLinkColor("dark"),
+            },
+          },
         },
         fadeEffect: {
           position: "absolute",
@@ -196,6 +233,10 @@ const SubNav = subNavDefineMultiStyleConfig({
             "linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)",
           pointerEvents: "none",
           zIndex: 1,
+          _dark: {
+            background:
+              "linear-gradient(to left, rgba(25, 25, 25, 1) 0%, rgba(25, 25, 25, 0) 100%)",
+          },
         },
         primaryList: {
           position: "relative",

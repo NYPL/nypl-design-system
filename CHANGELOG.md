@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `SubNav` component to add dark mode color styles.
+
 ## 3.6.0 (April 10, 2025)
 
 ### Adds
