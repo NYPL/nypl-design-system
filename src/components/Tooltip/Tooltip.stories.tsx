@@ -115,32 +115,47 @@ export const OnImageComponents: Story = {
         this.
       </Text>
       <SimpleGrid>
-        <Tooltip content="square aspect ratio" shouldWrapChildren>
-          <Image
-            alt="Alt text"
-            aspectRatio="square"
-            caption="Square"
-            size="large"
-            src={getPlaceholderImage("smaller")}
-          />
+        <Tooltip
+          content="Sed posuere consectetur est at lobortis."
+          shouldWrapChildren
+        >
+          <Link href="http://nypl.org">
+            <Image
+              alt="Alt text"
+              aspectRatio="square"
+              caption="Square"
+              size="large"
+              src={getPlaceholderImage("smaller")}
+            />
+          </Link>
         </Tooltip>
-        <Tooltip content="fourByThree aspect ratio" shouldWrapChildren>
-          <Image
-            alt="Alt text"
-            aspectRatio="fourByThree"
-            caption="Four by Three"
-            size="default"
-            src={getPlaceholderImage("smaller")}
-          />
+        <Tooltip
+          content="Sed posuere consectetur est at lobortis."
+          shouldWrapChildren
+        >
+          <Link href="http://nypl.org">
+            <Image
+              alt="Alt text"
+              aspectRatio="fourByThree"
+              caption="Four by Three"
+              size="default"
+              src={getPlaceholderImage("smaller")}
+            />
+          </Link>
         </Tooltip>
-        <Tooltip content="threeByFour aspect ratio" shouldWrapChildren>
-          <Image
-            alt="Alt text"
-            aspectRatio="threeByFour"
-            caption="Three by Four"
-            size="default"
-            src={getPlaceholderImage("smaller")}
-          />
+        <Tooltip
+          content="Sed posuere consectetur est at lobortis."
+          shouldWrapChildren
+        >
+          <Link href="http://nypl.org">
+            <Image
+              alt="Alt text"
+              aspectRatio="threeByFour"
+              caption="Three by Four"
+              size="default"
+              src={getPlaceholderImage("smaller")}
+            />
+          </Link>
         </Tooltip>
       </SimpleGrid>
     </VStack>
@@ -151,39 +166,48 @@ export const OnLinkedIcons: Story = {
   render: () => (
     <Tooltip content="This is the tooltip text">
       <Link type="action" href="#passed-in-link">
-        <Icon decorative id="icon-id" name="search" size="xxlarge" />
+        <Icon decorative id="icon-id" name="search" size="large" />
       </Link>
     </Tooltip>
   ),
 };
 
-export const UsingIconContent: Story = {
+export const IconAndImageContent: Story = {
+  name: "Icon and Image Content",
   render: () => (
-    <Tooltip
-      content={
-        <Icon
-          color="ui.white"
-          decorative
-          id="icon-id"
-          name="search"
-          size="xxlarge"
-        />
-      }
-    >
-      Hover to see search icon
-    </Tooltip>
+    <>
+      <p>
+        Hover to see{" "}
+        <Tooltip
+          content={
+            <Icon
+              color="ui.white"
+              decorative
+              id="icon-id"
+              name="search"
+              size="xxlarge"
+            />
+          }
+        >
+          <Link href="https://nypl.org">search icon</Link>
+        </Tooltip>
+      </p>
+
+      <p>
+        Hover to see{" "}
+        <Tooltip
+          content={
+            <Image alt="Example image" src={getPlaceholderImage("smaller")} />
+          }
+        >
+          <Link href="https://nypl.org">image</Link>
+        </Tooltip>
+      </p>
+    </>
   ),
 };
 
-export const UsingImageContent: Story = {
-  render: () => (
-    <Tooltip content={<Image alt="" src={getPlaceholderImage("smaller")} />}>
-      Hover to see image
-    </Tooltip>
-  ),
-};
-
-export const TooltipPlacement: Story = {
+export const Placement: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Tooltip placement="top" content="This is the tooltip text">
@@ -202,7 +226,7 @@ export const TooltipPlacement: Story = {
   ),
 };
 
-export const TooltipOffset: Story = {
+export const Offset: Story = {
   render: () => (
     <SimpleGrid>
       <Tooltip content="This is the tooltip text">

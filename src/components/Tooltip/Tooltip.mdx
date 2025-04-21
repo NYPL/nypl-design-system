@@ -19,6 +19,7 @@ import Link from "../Link/Link";
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#best-practices" target="_self">Best Practices</Link>}
 - {<Link href="#examples" target="_self">Examples</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
@@ -53,6 +54,26 @@ Resources:
 - [MDN ARIA: tooltip role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role)
 - [Chakra UI Tooltip](https://chakra-ui.com/docs/components/overlay/tooltip)
 
+## Best Practices
+
+Tooltips are often misunderstood and therefore not used correctly. To implement
+a tooltiip correctly, start by following the recommendations below.
+
+- **Only interactive elements should trigger tooltips.** (ex. form fields, links,
+  etc.)
+- Tooltips should directly describe the UI control that triggers them. (i.e. do
+  not create a control purely to trigger a tooltip that describes something
+  else)
+- Do not put essential information in tooltips. (i.e. always assume tooltip text
+  may never be read)
+- Write concise tooltip text.
+- Avoid rich text formatting and images.
+- Do not add interactive content. (no links or buttons)
+
+Resources:
+
+- [Tooltips in the time of WCAG 2.1](https://sarahmhigley.com/writing/tooltips-in-wcag-21)
+
 ## Examples
 
 ### Tooltips on form options
@@ -77,13 +98,12 @@ aspect ratio to not render properly.
 
 <Canvas of={TooltipStories.OnLinkedIcons} />
 
-### Tooltip with Icon Content
+### Icon and Image Content
 
-<Canvas of={TooltipStories.UsingIconContent} />
+While the Reservoir Tooltip component does allow icons and images to be included
+in tooltip content, this practice should be avoided.
 
-### Tooltip with Image Content
-
-<Canvas of={TooltipStories.UsingImageContent} />
+<Canvas of={TooltipStories.IconAndImageContent} />
 
 ### Disabling Tooltip
 
@@ -102,7 +122,7 @@ The `placement` prop adjusts where the tooltip is displayed relative to its chil
 While it is possible to set the placement of the tooltip, it is
 recommended to use the default "top" placement.
 
-<Canvas of={TooltipStories.TooltipPlacement} />
+<Canvas of={TooltipStories.Placement} />
 
 ### Offset
 
@@ -112,7 +132,7 @@ The `offset` prop sets the distance along the main and cross axis between the to
 While it is possible to set the offset of the tooltip, it is recommended to not set custom offset values unless there
 are extenuating circumstances.
 
-<Canvas of={TooltipStories.TooltipOffset} />
+<Canvas of={TooltipStories.Offset} />
 
 ## Changelog
 
