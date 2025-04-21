@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Tooltip` text color.
 - Updates the `SearchBar` component to remove the text input right border.
 - Updates the `SkeletonLoader` component to make the button placeholder look more like a button.
+- Updates the Storybook docs for the `Tabs` component to improve details about the mobile carousel and horizontal scrolling.
 
 ## 3.6.0 (April 10, 2025)
 
