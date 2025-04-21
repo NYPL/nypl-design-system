@@ -29,7 +29,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   - `Button`'s `link` value in `buttonTypesArray`
   - `Heading`'s "primary", "secondary", "tertiary", "callout" sizes
   - `Heading`'s "one", "two", "three", "four", "five", "six" levels
-  - `Hero`'s "secondary", "secondaryBooksAndMore", "secondaryLocations", "secondaryResearch", "secondaryWhatsOn", "fiftyFifty"
+  - `Hero`'s "secondary", "secondaryBooksAndMore", "secondaryLocations", "secondaryResearch", "secondaryWhatsOn", "fiftyFifty" types
   - `Icon`'s `IconRotationTypes` type
   - `Link`'s `button` value in `linkTypesArray`
   - `Notifications`' `noMargin` prop; this is now the default style
