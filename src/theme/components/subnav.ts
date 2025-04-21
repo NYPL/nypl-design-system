@@ -83,9 +83,7 @@ const SubNav = subNavDefineMultiStyleConfig({
 
       const highlightOrBorderColor = (colorMode: string = "light") => {
         const finalPrefix = colorMode === "dark" ? `${colorMode}.` : "";
-        return highlightColor
-          ? highlightColor
-          : `${finalPrefix}ui.border.default`;
+        return highlightColor || `${finalPrefix}ui.border.default`;
       };
 
       const defaultBgColor = "var(--nypl-colors-ui-link-primary-05)";
@@ -93,9 +91,7 @@ const SubNav = subNavDefineMultiStyleConfig({
       const finalBackgroundColor = (colorMode: string = "light") => {
         const finalForColorMode =
           colorMode === "dark" ? defaultBgColorDark : defaultBgColor;
-        return backgroundColor
-          ? backgroundColor
-          : `${finalForColorMode} !important`;
+        return backgroundColor || `${finalForColorMode} !important`;
       };
 
       const primaryActionsStyles = {
