@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `SkeletonLoader` component to make the button placeholder look more like a button.
 - Updates the `Tabs` component to sync the border color with the VDL.
 - Updates the `SubNav` component to add dark mode color styles.
+- Updates the `Heading` component to increase the font weight for the `size` styles.
 
 ## 3.6.0 (April 10, 2025)
 
