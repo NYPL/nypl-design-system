@@ -14,6 +14,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Tooltip` text color.
 - Updates the `SearchBar` component to remove the text input right border.
 - Updates the `SkeletonLoader` component to make the button placeholder look more like a button.
+- Updates the `Tabs` component to sync the border color with the VDL.
+- Updates the `SubNav` component to add dark mode color styles.
 
 ## 3.6.0 (April 10, 2025)
 
