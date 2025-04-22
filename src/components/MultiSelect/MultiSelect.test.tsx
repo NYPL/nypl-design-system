@@ -55,6 +55,7 @@ const itemsWithCount = [
   },
   { id: "plants", name: "Plants", itemCount: 4 },
   { id: "furniture", name: "Furniture", itemCount: 6 },
+  { id: "home", name: "Home", itemCount: 0 },
 ];
 
 const defaultItemsVisible = 5;
@@ -253,11 +254,12 @@ describe("MultiSelect", () => {
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
       "true"
     );
-    expect(screen.getAllByRole("checkbox")).toHaveLength(8);
+    expect(screen.getAllByRole("checkbox")).toHaveLength(9);
     expect(screen.getByLabelText("Dogs5")).toBeInTheDocument();
     expect(screen.getByLabelText("Cats11")).toBeInTheDocument();
     expect(screen.getByLabelText("Cars7")).toBeInTheDocument();
     expect(screen.getByLabelText("Red8")).toBeInTheDocument();
+    expect(screen.getByLabelText("Home0")).toBeInTheDocument();
   });
 
   it("should initially render with open menu if isDefaultOpen prop is true", () => {
