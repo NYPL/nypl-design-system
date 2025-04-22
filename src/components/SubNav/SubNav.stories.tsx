@@ -310,8 +310,8 @@ export const CustomColors: Story = {
   render: () => (
     <>
       <SubNav
-        actionBackgroundColor="brand.primary-05"
-        highlightColor="brand.primary"
+        actionBackgroundColor="section.research.primary-05"
+        highlightColor="ui.warning.tertiary"
         id="subnav-colors"
         primaryActions={
           <>
