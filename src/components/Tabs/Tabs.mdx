@@ -76,8 +76,9 @@ Resources:
 
 _Note: this is the recommended approach._
 
-- It is recommended touse the `tabsData` prop to populate the component. This allows
-  the consumer to pass in well-formed data and always generate the correct DOM.
+- It is recommended to use the `tabsData` prop to populate the component. This
+  ensures the consumer passes well-formed data and always generate the correct
+  DOM.
 - The `Tabs` component will map through the `tabsData` array and generate the
   appropriate components needed for the layout.
 - The `Tabs` component will add the carousel feature for the mobile view.
@@ -86,7 +87,7 @@ _Note: this is the recommended approach._
   content={
     <>
       <strong>IMPORTANT:</strong> HTML is allowed in the <code>content</code>{" "}
-      property in each object as part of the string or as straight HTML.
+      property in each object as part of a string or as straight HTML.
     </>
   }
   type="informative"
@@ -141,17 +142,14 @@ viewport in the Storybook toolbar at the top of the page.
 - When the width of the full tab set is greater than the available horizontal
   space, the overflow will be hidden and horizontal scrolling will be enabled.
 - This functionality is the same for desktop, tablet, and mobile.
-- Horizontal scrolling can be accomplished by using the trackpad, by using the
-  `shift + scroll wheel` combination, or by using the keyboard to tab through
-  the available tabs.
+- Horizontal scrolling can be accomplished by using the trackpad, the `shift + scroll wheel` combination, or the keyboard to tab through the available tabs.
 
 <Canvas of={TabsStories.ExtendedTabSetExample} />
 
 ## Callback Event Function
 
-If you need to keep track of the index of current tab that was selected, pass an
-`onChange` event handler to the `onChange` prop. This will return the index
-(0-based) of the tab selected.
+- The index (0-based) of the current tab will be returned to an event handler
+  passed via the `onChange` prop.
 
 <Source
   code={`
@@ -167,8 +165,8 @@ export const onChange = (value) => {
 
 ## URL Hash Option
 
-In some situations, each selected tab should update the URL with a hash value.
-To enable this, set the `useHash` prop to true.
+- Set the `useHash` prop to true to have selected tabs update the URL with a
+  hash value.
 
 <Canvas of={TabsStories.URLHashOption} />
 
@@ -177,15 +175,23 @@ To enable this, set the `useHash` prop to true.
 _Note: not recommended but available._
 
 There are five components that make up the Design System `Tabs` component:
-`Tabs`, `TabList`, `Tab`, `TabPanels`, `TabPanel`. The general layout is always
-the same such that the `Tabs` component has `TabList` and `TabPanels` as
-children.
 
-`TabList` only takes `Tab` components as children and `TabPanels` only take
-`TabPanel` as children. While you can compose the DS `Tabs` components with
-these available components, you will probably have to iterate or map through an
-array to get the desired outcome. The DS `Tabs` component does this internally
-for you, so this should be a last resort option.
+- `Tabs`
+- `TabList`
+- `Tab`
+- `TabPanels`
+- `TabPanel`
+
+DOM structure:
+
+- The `Tabs` component only takes `TabList` and `TabPanels` as children.
+- The `TabList` component only takes `Tab` components as children.
+- The `TabPanels` component only take `TabPanel` component as children.
+
+While you can compose the `Tabs` components with these available components, you
+will probably have to iterate or map through an array to get the desired
+outcome. The `Tabs` component does this internally when using the `tabsData`
+prop, so using the child components method should be a last resort option.
 
 Make sure that:
 
@@ -196,7 +202,7 @@ Make sure that:
 <Banner
   content={
     <>
-      <strong>IMPORTANT:</strong> For the children component approach, the
+      <strong>IMPORTANT:</strong> For the children component approach, the{" "}
       <code>Tabs</code> component expects a <code>TabList</code> component to be
       passed or else the mobile carousel will <strong>not</strong> be built.
     </>
