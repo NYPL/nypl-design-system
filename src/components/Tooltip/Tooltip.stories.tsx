@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { VStack } from "@chakra-ui/react";
 import Button from "../Button/Button";
+import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
@@ -110,10 +111,9 @@ export const OnFormElements: Story = {
 export const OnImageComponents: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
-      <Text>
-        Images with aspect ratios but Tooltips use shouldWrapChildren. Don't do
-        this.
-      </Text>
+      <Heading level="h4" size="heading7" subtitle="Don't do this!">
+        aspectRatio with shouldWrapChildren
+      </Heading>
       <SimpleGrid>
         <Tooltip
           content="Sed posuere consectetur est at lobortis."
@@ -123,8 +123,8 @@ export const OnImageComponents: Story = {
             <Image
               alt="Alt text"
               aspectRatio="square"
-              caption="Square"
-              size="large"
+              caption="square and medium"
+              size="medium"
               src={getPlaceholderImage("smaller")}
             />
           </Link>
@@ -137,8 +137,8 @@ export const OnImageComponents: Story = {
             <Image
               alt="Alt text"
               aspectRatio="fourByThree"
-              caption="Four by Three"
-              size="default"
+              caption="fourByThree and medium"
+              size="medium"
               src={getPlaceholderImage("smaller")}
             />
           </Link>
@@ -151,8 +151,46 @@ export const OnImageComponents: Story = {
             <Image
               alt="Alt text"
               aspectRatio="threeByFour"
-              caption="Three by Four"
-              size="default"
+              caption="threeByFour and medium"
+              size="medium"
+              src={getPlaceholderImage("smaller")}
+            />
+          </Link>
+        </Tooltip>
+      </SimpleGrid>
+      <Heading level="h4" size="heading7" subtitle="Do this!">
+        aspectRatio without shouldWrapChildren
+      </Heading>
+      <SimpleGrid>
+        <Tooltip content="Sed posuere consectetur est at lobortis.">
+          <Link href="http://nypl.org">
+            <Image
+              alt="Alt text"
+              aspectRatio="square"
+              caption="square and medium"
+              size="medium"
+              src={getPlaceholderImage("smaller")}
+            />
+          </Link>
+        </Tooltip>
+        <Tooltip content="Sed posuere consectetur est at lobortis.">
+          <Link href="http://nypl.org">
+            <Image
+              alt="Alt text"
+              aspectRatio="fourByThree"
+              caption="fourByThree and medium"
+              size="medium"
+              src={getPlaceholderImage("smaller")}
+            />
+          </Link>
+        </Tooltip>
+        <Tooltip content="Sed posuere consectetur est at lobortis.">
+          <Link href="http://nypl.org">
+            <Image
+              alt="Alt text"
+              aspectRatio="threeByFour"
+              caption="threeByFour and medium"
+              size="medium"
               src={getPlaceholderImage("smaller")}
             />
           </Link>
@@ -180,6 +218,7 @@ export const IconAndImageContent: Story = {
         Hover to see{" "}
         <Tooltip
           content={
+            // It is not recommended to include an icon in tooltip content.
             <Icon
               color="ui.white"
               decorative
@@ -197,6 +236,7 @@ export const IconAndImageContent: Story = {
         Hover to see{" "}
         <Tooltip
           content={
+            // It is not recommended to include an image in tooltip content.
             <Image alt="Example image" src={getPlaceholderImage("smaller")} />
           }
         >

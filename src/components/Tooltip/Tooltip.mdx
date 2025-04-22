@@ -57,7 +57,7 @@ Resources:
 ## Best Practices
 
 Tooltips are often misunderstood and therefore not used correctly. To implement
-a tooltiip correctly, start by following the recommendations below.
+a tooltip correctly, start by following the recommendations below.
 
 - **Only interactive elements should trigger tooltips.** (ex. form fields, links,
   etc.)
@@ -88,9 +88,10 @@ in sync with the rendered visual control.
 
 ### Tooltip on Image component
 
-When using the `Tooltip` component on an `Image` component, the
-`shouldWrapChildren` prop should _not_ be used. This causes the `Image`'s
-aspect ratio to not render properly.
+When using the `Tooltip` component on an `Image` component wrapped in a `Link`
+component, the `shouldWrapChildren` prop should **not** be used if the `Image`
+component's `aspectRatio` prop is applied. This combination of props will cause
+the `Image` component's `size` prop to not function properly.
 
 <Canvas of={TooltipStories.OnImageComponents} />
 
@@ -100,8 +101,8 @@ aspect ratio to not render properly.
 
 ### Icon and Image Content
 
-While the Reservoir Tooltip component does allow icons and images to be included
-in tooltip content, this practice should be avoided.
+While the Reservoir `Tooltip` component does allow icons and images to be
+included in its content, this practice should be avoided.
 
 <Canvas of={TooltipStories.IconAndImageContent} />
 
