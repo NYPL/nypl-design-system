@@ -96,10 +96,10 @@ An `aria-label` may also be passed in on the component level:
   language="tsx"
 />
 
-Doing the above will be apply the `aria-label` to all accordions in the group.
-Please note, however, that if an `ariaLabel` is also present as a key in
-the `accordionData` entries, the key will override the `aria-label` passed to
-the `Accordion`.
+Doing the above will be apply the `aria-label` to all accordion buttons
+in the group. Please note, however, that if an `ariaLabel` is also
+present as a key in the `accordionData` entries, the key will override
+the `aria-label` passed to the `Accordion`.
 
 ## Component Props
 
@@ -124,9 +124,9 @@ the `Accordion`.
   - You may add an `aria-label` directly to the `Accordion` which will apply
     the same value to all accordions within an accordion group.
   - Or you may set a unique value for each accordion by adding
-    an `aria-label` key to each entry in the `accordionData` array
-  - If you add an `aria-label` to the `Accordion` directly and to a particular
-    entry, the latter will take precedence.
+    an `ariaLabel` key to each entry in the `accordionData` array
+  - If you add both an `aria-label` to the `Accordion` directly and an
+    `ariaLabel` to a particular entry, the latter will take precedence.
 - If the user presses the 'esc' key and focus is on an open accordion panel,
   that panel will close and focus will return to the accordion's button.
 
@@ -230,7 +230,7 @@ export const faqContent: AccordionDataProps[] = [
 
 ## Examples with panelMaxHeight Prop
 
-Example with **image** and text
+Example with image and text
 
 <Canvas of={AccordionStories.PanelMaxHeightExample} />
 
