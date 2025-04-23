@@ -214,9 +214,21 @@ const withItemCountItems = [
     itemCount: 20,
   },
   {
+    id: "creativity",
+    name: "Creativity",
+    isDisabled: true,
+    itemCount: 0,
+  },
+  {
     id: "design",
     name: "Design",
     children: [
+      {
+        id: "bauhaus",
+        name: "Bauhaus",
+        isDisabled: true,
+        itemCount: 0,
+      },
       {
         id: "fashion",
         name: "Fashion",
@@ -228,14 +240,15 @@ const withItemCountItems = [
         itemCount: 5,
       },
       {
-        id: "architecture_design",
-        name: "Architecture",
-        itemCount: 3,
-      },
-      {
         id: "home",
         name: "Home",
         itemCount: 1,
+      },
+      {
+        id: "standards",
+        name: "Standards",
+        isDisabled: true,
+        itemCount: 0,
       },
     ],
     itemCount: 11,
