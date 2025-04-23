@@ -12,7 +12,6 @@ const meta: Meta<typeof SearchBar> = {
   component: SearchBar,
   argTypes: {
     action: { control: false },
-    ariaLabel: { control: false },
     buttonOnClick: {
       control: false,
       table: { defaultValue: { summary: "null" } },
