@@ -87,7 +87,7 @@ const accordionData = [
 <Accordion accordionData={accordionData} />
 `} language="tsx" />
 
-Consuming apps may also pass an `aria-label` in on the component level:
+An `aria-label` may also be passed in on the component level:
 
 <Source
   code={`
@@ -96,10 +96,10 @@ Consuming apps may also pass an `aria-label` in on the component level:
   language="tsx"
 />
 
-When this value is set, the same `aria-label` will be applied on all accordions
-in the group. Please note, however, that if an `ariaLabel` is present as a key
-in the `accordionData` entries, it will override the `aria-label` passed to the
-`Accordion`.
+If this value is set, it will be applied to all accordions in the group.
+Please note, however, that if an `ariaLabel` is also present as a key in
+the `accordionData` entries, it will override the `aria-label` passed to
+the `Accordion`.
 
 ## Component Props
 
