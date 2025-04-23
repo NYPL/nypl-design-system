@@ -1,6 +1,7 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as TabsStories from "./Tabs.stories";
+import Banner from "../Banner/Banner";
 import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./tabsChangelogData";
@@ -21,7 +22,7 @@ import { changelogData } from "./tabsChangelogData";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#composing-with-a-data-object" target="_self">Composing with a Data Object</Link>}
 - {<Link href="#responsive-mobile-carousel" target="_self">Responsive Mobile Carousel</Link>}
-- {<Link href="#scrollable-desktop-tab-set" target="_self">Scrollable Desktop Tab Set</Link>}
+- {<Link href="#horizontal-scrolling" target="_self">Horizontal Scrolling</Link>}
 - {<Link href="#callback-event-function" target="_self">Callback Event Function</Link>}
 - {<Link href="#url-hash-option" target="_self">URL Hash Option</Link>}
 - {<Link href="#children-components" target="_self">Children Components</Link>}
@@ -75,18 +76,22 @@ Resources:
 
 _Note: this is the recommended approach._
 
-We recommended passing in the data for the `Tabs` component through the `data`
-prop. This allows the consumer to pass in well-formed data and always generate
-the correct DOM.
+- It is recommended to use the `tabsData` prop to populate the component. This
+  ensures the consumer passes well-formed data and always generate the correct
+  DOM.
+- The `Tabs` component will map through the `tabsData` array and generate the
+  appropriate components needed for the layout.
+- The `Tabs` component will add the carousel feature for the mobile view.
 
-Internally in the Reservoir Design System (DS) `Tabs` component:
-
-- we map through the data array and generate the appropriate components needed
-  for the layout.
-- adds the carousel feature for the mobile view.
-
-Note that HTML is allowed in the `content` property in each object as part of
-the string or as straight HTML.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> HTML is allowed in the <code>content</code>{" "}
+      property in each object as part of a string or as straight HTML.
+    </>
+  }
+  type="informative"
+/>
 
 <Source
   code={`
@@ -94,7 +99,12 @@ import { Tabs } from "@nypl/design-system-react-components";
 const animalCrossingData = [
   {
     label: "Tom Nook",
-    content: <p>Tom Nook, <b>known in Japan as Tanukichi</b>, is a ...,
+    content: (
+      <p>
+        Tom Nook, <b>known in Japan as Tanukichi</b>, is a...
+      </p>
+    ),
+  },
   {
     label: "Isabelle",
     content: "Isabelle, known as Shizue in Japan, is a fictional ...",
@@ -120,32 +130,28 @@ const animalCrossingData = [
 
 ## Responsive Mobile Carousel
 
-For both, the `tabsData` prop approach and the children component approach
-(described below in this document), the mobile carousel feature is built. This
-adds "previous" and "next" arrows in the tab list for users to scroll through
-all the tabs while the panel stays static.
-
-Note that for the children component approach, we expect a `TabList` component
-to be passed or else the mobile carousel will _not_ be built. More on this in
-the <Link href="#children-components" target="_self">Children Components</Link> section.
+- For mobile viewports, the `Tabs` component will generate a carousel feature.
+- The carousel feature adds `"previous"` and `"next"` buttons that can be used to scroll through
+  all tabs while the panel stays static.
 
 To view and test this in Storybook, go to the "Canvas" tab and change the
 viewport in the Storybook toolbar at the top of the page.
 
-## Scrollable Desktop Tab Set
+## Horizontal Scrolling
 
-For desktop viewports (600px and greater), the full tab set scrolls left/right when
-the width of the tab set is greater than the width of the viewport.
-
-To scroll horizontally, use the `shift + scroll wheel` combination.
+- When the width of the full tab set is greater than the available horizontal
+  space, the overflow will be hidden and horizontal scrolling will be enabled.
+- This functionality is the same for desktop, tablet, and mobile.
+- Horizontal scrolling can be accomplished by using the trackpad, the
+  `shift + scroll wheel` combination, or the keyboard to tab through the available
+  tabs.
 
 <Canvas of={TabsStories.ExtendedTabSetExample} />
 
 ## Callback Event Function
 
-If you need to keep track of the index of current tab that was selected, pass an
-`onChange` event handler to the `onChange` prop. This will return the index
-(0-based) of the tab selected.
+- The index (0-based) of the current tab will be returned to an event handler
+  passed via the `onChange` prop.
 
 <Source
   code={`
@@ -161,8 +167,8 @@ export const onChange = (value) => {
 
 ## URL Hash Option
 
-In some situations, each selected tab should update the URL with a hash value.
-To enable this, set the `useHash` prop to true.
+- Set the `useHash` prop to true to have selected tabs update the URL with a
+  hash value.
 
 <Canvas of={TabsStories.URLHashOption} />
 
@@ -171,21 +177,40 @@ To enable this, set the `useHash` prop to true.
 _Note: not recommended but available._
 
 There are five components that make up the Design System `Tabs` component:
-`Tabs`, `TabList`, `Tab`, `TabPanels`, `TabPanel`. The general layout is always
-the same such that the `Tabs` component has `TabList` and `TabPanels` as
-children.
 
-`TabList` only takes `Tab` components as children and `TabPanels` only take
-`TabPanel` as children. While you can compose the DS `Tabs` components with
-these available components, you will probably have to iterate or map through an
-array to get the desired outcome. The DS `Tabs` component does this internally
-for you so this should be a last resort option.
+- `Tabs`
+- `TabList`
+- `Tab`
+- `TabPanels`
+- `TabPanel`
+
+DOM structure:
+
+- The `Tabs` component only takes `TabList` and `TabPanels` as children.
+- The `TabList` component only takes `Tab` components as children.
+- The `TabPanels` component only take `TabPanel` component as children.
+
+While you can compose the `Tabs` components with these available components, you
+will probably have to iterate or map through an array to get the desired
+outcome. The `Tabs` component does this internally when using the `tabsData`
+prop, so using the child components method should be a last resort option.
 
 Make sure that:
 
 - all five components are imported to use this approach.
 - the structure follows the example below for the mobile carousel to render
   properly.
+
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> For the children component approach, the{" "}
+      <code>Tabs</code> component expects a <code>TabList</code> component to be
+      passed or else the mobile carousel will <strong>not</strong> be built.
+    </>
+  }
+  type="informative"
+/>
 
 <Source
   code={`
