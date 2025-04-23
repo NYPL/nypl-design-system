@@ -215,6 +215,7 @@ export const Accordion: ChakraComponent<
   forwardRef<HTMLDivElement, ExtendedAccordionProps>((props, ref?) => {
     const {
       accordionData,
+      "aria-label": ariaLabel,
       id,
       isDefaultOpen = false,
       isAlwaysRendered = false,
@@ -222,11 +223,6 @@ export const Accordion: ChakraComponent<
       userClickedOutside,
       ...rest
     } = props;
-
-    // We remove the aria-label from `rest` so that we can pass the value
-    // to the `AccordionButton` rather than letting it apply to the
-    // `ChakraAccordion` component as it would by default
-    const { ["aria-label"]: ariaLabel, ...restWithoutAria } = rest;
 
     const isDarkMode = useColorMode().colorMode === "dark";
     // Pass `0` to open the first accordion in the 0-index based array.
@@ -286,7 +282,7 @@ export const Accordion: ChakraComponent<
         onKeyDown={handleKeyDown}
         id={id}
         ref={ref}
-        {...restWithoutAria}
+        {...rest}
       >
         {getElementsFromData(
           updatedAccordionData,
