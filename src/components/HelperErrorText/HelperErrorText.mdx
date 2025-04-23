@@ -67,9 +67,9 @@ removals will be read by assistive technologies.
 ### ARIA Live
 
 By default, `aria-live` is set to `polite` for the `HelperErrorText` component.
-`aria-live` determines when text updates in the component should be read to users
-by assistive technologies. The `"polite"` value indicates that updates will be
-announced at the next available time slot.
+`aria-live` determines when text updates should be read by assistive technologies
+and the `"polite"` value indicates that updates should be read whenever the user
+is next idle (important, but not requiring immediate attention).
 
 If desired, you can pass `aria-live="off"` or `aria-live="assertive"` instead.
 
@@ -77,7 +77,8 @@ The `"off"` value indicates that updates should not be announced. When this
 value is passed, the `aria-live` attribute will not be added at all.
 
 The `"assertive"` value indicates that updates should be announced
-immediately. This is not recommended as it can interruptive to the user.
+immediately. This is generally not recommended as it can interruptive
+to the user.
 
 In order to meet the accessibility guidelines for dynamic content updates, this
 attribute is set in the wrapper `<div>` element that is always rendered by the
