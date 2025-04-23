@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: [
+      "Removes `ariaLabel` prop and instructs developers to use the native HTML attribute instead.",
+    ],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",

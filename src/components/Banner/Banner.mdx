@@ -14,7 +14,7 @@ import { changelogData } from "./bannerChangelogData";
   componentName="Banner"
   summary="Provides contextual messages about page content and user actions"
   versionAdded="3.1.0"
-  versionLatest="3.3.0"
+  versionLatest="Prerelease"
 />
 
 <Canvas of={BannerStories.WithControls} />
@@ -58,7 +58,7 @@ landmark element is acceptable.
 
 ### ARIA Label
 
-If an `aria-label` is needed, it can be set through the `ariaLabel` prop. If
+If an `aria-label` is needed, one may be passed to the `Banner` component. If
 there are multiple `Banner` components on a page, they must each have unique
 `aria-label` attributes. A unique `aria-label` value, along with the
 `<aside>` HTML landmark element, helps screen readers better navigate a page

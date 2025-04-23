@@ -264,15 +264,15 @@ export const Image: ChakraComponent<
             <Box as="figcaption" __css={styles.figcaption}>
               {caption && (
                 <HelperErrorText
-                  ariaLive="off"
-                  ariaAtomic={false}
+                  aria-live="off"
+                  aria-atomic={false}
                   text={caption}
                 />
               )}
               {credit && (
                 <HelperErrorText
-                  ariaLive="off"
-                  ariaAtomic={false}
+                  aria-live="off"
+                  aria-atomic={false}
                   text={credit}
                 />
               )}

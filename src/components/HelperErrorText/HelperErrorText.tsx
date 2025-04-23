@@ -6,21 +6,9 @@ import {
 } from "@chakra-ui/react";
 import { forwardRef } from "react";
 
-export type AriaLiveValues = "assertive" | "off" | "polite" | undefined;
 export type HelperErrorTextType = string | JSX.Element;
 
 export interface HelperErrorTextProps {
-  /** Aria attribute. When true, assistive technologies will read the entire
-   * DOM element. When false, only changes (additionals or removals) will be
-   * read. True by default. */
-  ariaAtomic?: boolean;
-  /** Aria attribute used to handle live updates for the helper and error text.
-   * This indicates the priority of the text and when it should be presented to
-   * users using screen readers; "off" indicates that the content should not be
-   * presented, "polite" that it will be announced at the next available time
-   * slot, and "assertive" that it should be announced immediately. This is set
-   * to "polite" by default. */
-  ariaLive?: AriaLiveValues;
   /** Additional className to add. */
   className?: string;
   /** Unique ID for accessibility purposes. */
@@ -39,17 +27,19 @@ export interface HelperErrorTextProps {
  * This pattern guarantees accessibility guidelines are met if the text content
  * is dynamically updated by the app or component that implements it.
  */
+
+type ExtendedHelperErrorTextProps = HelperErrorTextProps &
+  React.HTMLAttributes<HTMLDivElement>;
+
 export const HelperErrorText: ChakraComponent<
   React.ForwardRefExoticComponent<
-    HelperErrorTextProps & React.RefAttributes<HTMLDivElement>
+    ExtendedHelperErrorTextProps & React.RefAttributes<HTMLDivElement>
   >,
   HelperErrorTextProps
 > = chakra(
-  forwardRef<HTMLDivElement, HelperErrorTextProps>(
+  forwardRef<HTMLDivElement, ExtendedHelperErrorTextProps>(
     (
       {
-        ariaAtomic = true,
-        ariaLive = "polite",
         className = "",
         id,
         isInvalid = false,
@@ -60,15 +50,26 @@ export const HelperErrorText: ChakraComponent<
       ref?
     ) => {
       const styles = useMultiStyleConfig("HelperErrorText", { isInvalid });
+      // We remove the aria attributes from `rest` so that we can manipulate
+      // them and add defaults as needed
+      const {
+        ["aria-atomic"]: ariaAtomic,
+        ["aria-live"]: ariaLive,
+        ...restWithoutAria
+      } = rest;
       const props = {
-        "aria-atomic": ariaAtomic,
-        "aria-live": ariaLive === "off" ? undefined : ariaLive,
+        "aria-atomic": ariaAtomic === false ? false : true,
+        "aria-live": !ariaLive
+          ? "polite"
+          : ariaLive === "off"
+          ? undefined
+          : ariaLive,
         className,
         "data-isinvalid": isInvalid,
         id,
         ref,
         __css: styles,
-        ...rest,
+        ...restWithoutAria,
       };
 
       // Always render the wrapper div element with the proper aria attributes.

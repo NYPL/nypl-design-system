@@ -18,7 +18,6 @@ const meta: Meta<typeof Banner> = {
   title: "Components/Feedback/Banner",
   component: Banner,
   argTypes: {
-    ariaLabel: { control: { type: "text" } },
     backgroundColor: {
       control: { type: "select" },
       options: bannerBgColorsArray,
@@ -50,7 +49,6 @@ type Story = StoryObj<typeof Banner>;
  */
 export const WithControls: Story = {
   args: {
-    ariaLabel: "Banner label",
     backgroundColor: undefined,
     className: undefined,
     content: `Cras mattis consectetur purus sit amet fermentum. Maecenas

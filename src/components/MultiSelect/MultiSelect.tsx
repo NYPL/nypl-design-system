@@ -442,7 +442,7 @@ export const MultiSelect: ChakraComponent<
                 panel: accordionPanel,
               },
             ]}
-            ariaLabel={ariaLabelValue}
+            aria-label={ariaLabelValue}
             id={`multi-select-accordion-${id}`}
             isDefaultOpen={isDefaultOpen}
             isAlwaysRendered

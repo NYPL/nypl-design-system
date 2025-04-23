@@ -71,8 +71,6 @@ export const bannerHighlightColorsArray = [
 export type BannerHighlightColors = typeof bannerHighlightColorsArray[number];
 
 export interface BannerProps {
-  /** Label used to describe the `Banner`'s aside HTML element. */
-  ariaLabel?: string;
   /** Used to set the color of the background for the full component.
    * Refer to how color values are defined and typed in the DS Icon component. */
   backgroundColor?: BannerBgColors;
@@ -141,7 +139,6 @@ export const Banner: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, BannerProps>((props, ref?) => {
     const {
-      ariaLabel,
       backgroundColor,
       className,
       content,
@@ -232,7 +229,6 @@ export const Banner: ChakraComponent<
 
     return (
       <Box
-        aria-label={ariaLabel}
         as="aside"
         className={className}
         data-type={type}

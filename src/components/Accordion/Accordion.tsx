@@ -24,9 +24,6 @@ export interface AccordionDataProps {
 export interface AccordionProps {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
-  /** Global aria-label value that is applied to all accordions if individual
-   * ariaLabel props are not included with accordionData entries. */
-  ariaLabel?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
@@ -122,9 +119,9 @@ const getElementsFromData = (
 
     if (content.ariaLabel && ariaLabel) {
       console.warn(
-        "NYPL Reservoir Accordion: An ariaLabel value has been passed for the " +
+        "NYPL Reservoir Accordion: An aria-label value has been passed for the " +
           "overall component and as part of the accordionData prop. Both can not " +
-          "be used, so the value in the accordionData prop will be used."
+          "be used, so the value in the accordionData prop will take precedence."
       );
     }
 
@@ -205,16 +202,19 @@ const getElementsFromData = (
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
+
+type ExtendedAccordionProps = AccordionProps &
+  Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">;
+
 export const Accordion: ChakraComponent<
   React.ForwardRefExoticComponent<
-    AccordionProps & React.RefAttributes<HTMLDivElement>
+    ExtendedAccordionProps & React.RefAttributes<HTMLDivElement>
   >,
-  AccordionProps
+  ExtendedAccordionProps
 > = chakra(
-  forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
+  forwardRef<HTMLDivElement, ExtendedAccordionProps>((props, ref?) => {
     const {
       accordionData,
-      ariaLabel,
       id,
       isDefaultOpen = false,
       isAlwaysRendered = false,
@@ -222,6 +222,11 @@ export const Accordion: ChakraComponent<
       userClickedOutside,
       ...rest
     } = props;
+
+    // We remove the aria-label from `rest` so that we can pass the value
+    // to the `AccordionButton` rather than letting it apply to the
+    // `ChakraAccordion` component as it would by default
+    const { ["aria-label"]: ariaLabel, ...restWithoutAria } = rest;
 
     const isDarkMode = useColorMode().colorMode === "dark";
     // Pass `0` to open the first accordion in the 0-index based array.
@@ -281,7 +286,7 @@ export const Accordion: ChakraComponent<
         onKeyDown={handleKeyDown}
         id={id}
         ref={ref}
-        {...rest}
+        {...restWithoutAria}
       >
         {getElementsFromData(
           updatedAccordionData,
