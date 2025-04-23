@@ -68,9 +68,10 @@ export const Button: ChakraComponent<
       onClick,
       screenreaderOnlyText,
       size = "medium",
-      type,
+      type = "button",
       ...rest
     } = props;
+
     const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
     let childCount = 0;
     let hasIcon = false;

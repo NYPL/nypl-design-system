@@ -75,7 +75,6 @@ export const WithControls: Story = {
     onClick: undefined,
     screenreaderOnlyText: "Screenreader only text",
     size: undefined,
-    type: "button",
   },
   parameters: {
     design: {
