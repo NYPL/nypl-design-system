@@ -40,6 +40,8 @@ export const HelperErrorText: ChakraComponent<
   forwardRef<HTMLDivElement, ExtendedHelperErrorTextProps>(
     (
       {
+        ["aria-atomic"]: ariaAtomic = true,
+        ["aria-live"]: ariaLive = "polite",
         className = "",
         id,
         isInvalid = false,
@@ -50,26 +52,16 @@ export const HelperErrorText: ChakraComponent<
       ref?
     ) => {
       const styles = useMultiStyleConfig("HelperErrorText", { isInvalid });
-      // We remove the aria attributes from `rest` so that we can manipulate
-      // them and add defaults as needed
-      const {
-        ["aria-atomic"]: ariaAtomic,
-        ["aria-live"]: ariaLive,
-        ...restWithoutAria
-      } = rest;
+
       const props = {
-        "aria-atomic": ariaAtomic === false ? false : true,
-        "aria-live": !ariaLive
-          ? "polite"
-          : ariaLive === "off"
-          ? undefined
-          : ariaLive,
+        "aria-atomic": ariaAtomic,
+        "aria-live": ariaLive === "off" ? undefined : ariaLive,
         className,
         "data-isinvalid": isInvalid,
         id,
         ref,
         __css: styles,
-        ...restWithoutAria,
+        ...rest,
       };
 
       // Always render the wrapper div element with the proper aria attributes.
