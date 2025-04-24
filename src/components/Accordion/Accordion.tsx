@@ -8,7 +8,7 @@ import {
   useColorMode,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { ComponentProps, forwardRef, useEffect, useState } from "react";
 
 import Icon, { IconColors } from "../Icons/Icon";
 
@@ -204,7 +204,7 @@ const getElementsFromData = (
  */
 
 type ExtendedAccordionProps = AccordionProps &
-  Omit<React.HTMLAttributes<HTMLDivElement>, "onChange">;
+  Pick<ComponentProps<typeof AccordionButton>, "aria-label">;
 
 export const Accordion: ChakraComponent<
   React.ForwardRefExoticComponent<
