@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-04-24",
+    version: "3.6.1",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Variant font colors updated to sync with the VDL."],
+  },
+  {
     date: "2025-04-10",
     version: "3.6.0",
     type: "Update",
