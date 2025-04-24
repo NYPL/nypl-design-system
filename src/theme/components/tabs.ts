@@ -110,7 +110,7 @@ const tablistWrapper = {
   alignItems: "center",
   borderBottom: {
     base: "0",
-    md: "1px solid black",
+    md: "1px solid var(--nypl-colors-ui-gray-xx-dark)",
   },
   height: { base: "58px", md: "auto" },
   margin: "0",

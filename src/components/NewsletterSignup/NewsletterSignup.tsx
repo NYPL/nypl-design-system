@@ -149,6 +149,7 @@ export const NewsletterSignup: ChakraComponent<
           ref={ref}
           __css={styles}
           {...rest}
+          gap="0"
         >
           <VStack
             __css={styles.pitch}

@@ -121,41 +121,38 @@
     border: 1px solid var(--nypl-colors-ui-gray-medium);
   }
 
-  .sb-show-main
-    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
-        table.storybook-colors-example)) {
-    border: none;
+  /* Styles for the contrast data table within the ColorCard component. */
+  .chakra-table__container:has(table.storybook-colors-example) {
+    background-color: transparent;
+    overflow: visible;
   }
-  /* .sb-show-main
-    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
-        table.storybook-colors-example))
-    tr
-    td,
-  .sb-show-main table.storybook-colors-example td > span:first-of-type {
-    color: unset;
-  } */
-  .sb-show-main
-    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
-        table.storybook-colors-example))
-    tr
-    span {
-    font-size: 12px;
+  table.storybook-colors-example th:first-of-type,
+  table.storybook-colors-example tr:nth-of-type(2n) {
+    background-color: transparent;
   }
-  .sb-show-main
-    :where(table.storybook-colors-example:not(.sb-anchor, .sb-unstyled, .sb-unstyled
-        table.storybook-colors-example))
-    tr:nth-of-type(2n) {
-    background-color: unset;
+  table.storybook-colors-example thead th {
+    font-size: 10px;
+    font-weight: bold;
   }
-  .sb-show-main table.storybook-colors-example thead tr,
-  .sb-show-main table.storybook-colors-example thead th,
-  .sb-show-main table.storybook-colors-example thead th:last-of-type,
-  .sb-show-main table.storybook-colors-example thead td:last-of-type,
-  .sb-show-main table.storybook-colors-example tbody tr,
-  .sb-show-main table.storybook-colors-example tbody th,
-  .sb-show-main table.storybook-colors-example tbody td,
-  .sb-show-main table.storybook-colors-example tbody th:last-of-type,
-  .sb-show-main table.storybook-colors-example tbody td:last-of-type {
+  table.storybook-colors-example thead th,
+  table.storybook-colors-example tbody th,
+  table.storybook-colors-example td {
+    min-width: 100px;
+    white-space: nowrap;
+  }
+  table.storybook-colors-example thead tr,
+  table.storybook-colors-example thead th,
+  table.storybook-colors-example thead th:first-of-type,
+  table.storybook-colors-example thead th:last-of-type,
+  table.storybook-colors-example thead td:first-of-type,
+  table.storybook-colors-example thead td:last-of-type,
+  table.storybook-colors-example tbody tr,
+  table.storybook-colors-example tbody th,
+  table.storybook-colors-example tbody td,
+  table.storybook-colors-example tbody th:first-of-type,
+  table.storybook-colors-example tbody th:last-of-type,
+  table.storybook-colors-example tbody td:first-of-type,
+  table.storybook-colors-example tbody td:last-of-type {
     border: unset;
   }
 </style>

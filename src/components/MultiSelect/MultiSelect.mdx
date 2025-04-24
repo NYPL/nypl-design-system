@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as MultiSelectStories from "./MultiSelect.stories";
 import Link from "../Link/Link";
@@ -12,7 +13,7 @@ import { changelogData } from "./multiSelectChangelogData";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `1.4.0`    |
-| Latest            | `3.5.3`    |
+| Latest            | `3.6.1`    |
 
 ## Table of Contents
 
@@ -24,7 +25,7 @@ import { changelogData } from "./multiSelectChangelogData";
 - {<Link href="#nested-list-items" target="_self">Nested List Items</Link>}
 - {<Link href="#disabled-list-items" target="_self">Disabled List Items</Link>}
 - {<Link href="#search-input-field" target="_self">Search Input Field</Link>}
-- {<Link href="#show-item-count" target="_self">Show Item Count</Link>}
+- {<Link href="#item-count" target="_self">Item Count</Link>}
 - {<Link href="#block-element-or-float" target="_self">Block Element or Float</Link>}
 - {<Link href="#width" target="_self">Width</Link>}
 - {<Link href="#default-open-state" target="_self">Default Open State</Link>}
@@ -183,7 +184,15 @@ will be visible when the list is first opened. The default value is `5`.
 When there are nested list items, only the parent items will be considered when
 counting the items to display.
 
-**IMPORTANT:** This prop can only be used with `listOverflow="expand"`.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> This prop can only be used with{" "}
+      <code>listOverflow="expand"</code>.
+    </>
+  }
+  type="informative"
+/>
 
 <Canvas of={MultiSelectStories.visibleListItems} />
 
@@ -405,6 +414,16 @@ child checkbox will not be clickable and its state will not change.
 When `isSearchable` is set to `true`, a text input field will be enabled within
 the component to allow users to search the available checkbox items.
 
+<Banner
+  content={
+    <>
+      <strong>RECOMMENDATION:</strong> When the number of list items is 20 or
+      greater, enable the search functionality and use scroll for the overflow.
+    </>
+  }
+  type="recommendation"
+/>
+
 <Canvas of={MultiSelectStories.searchInputField} />
 
 <Source
@@ -444,11 +463,24 @@ the component to allow users to search the available checkbox items.
   language="jsx"
 />
 
-## Show Item Count
+## Item Count
 
 The recommended UX pattern for filtering is to include an item count associated
 with each option in a `MultiSelect` component. The item counts can be rendered
 by passing the `itemCount` data property to the `items` prop.
+
+<Banner
+  content={
+    <>
+      <strong>RECOMMENDATION:</strong> When the <code>itemCount</code> data
+      property is set as 0, the <code>isDisabled</code> data property should be
+      used to disable the option.
+    </>
+  }
+  type="recommendation"
+/>
+
+<Canvas of={MultiSelectStories.itemCountListItems} />
 
 <Source
   code={`
@@ -468,29 +500,27 @@ by passing the `itemCount` data property to the `items` prop.
           itemCount: 20,
         },
         {
+          id: "creativity",
+          name: "Creativity",
+          isDisabled: true,
+          itemCount: 0,
+        },
+        {
           id: "design",
           name: "Design",
           children: [
+            {
+              id: "bauhaus",
+              name: "Bauhaus",
+              isDisabled: true,
+              itemCount: 0,
+            },
             {
               id: "fashion",
               name: "Fashion",
               itemCount: 2,
             },
-            {
-              id: "ux",
-              name: "User Experience",
-              itemCount: 5,
-            },
-            {
-              id: "architecture_design",
-              name: "Architecture",
-              itemCount: 3,
-            },
-            {
-              id: "home",
-              name: "Home",
-              itemCount: 1,
-            },
+            ...
           ],
           itemCount: 11,
         },
@@ -507,8 +537,6 @@ by passing the `itemCount` data property to the `items` prop.
 `}
   language="jsx"
 />
-
-<Canvas of={MultiSelectStories.itemCountListItems} />
 
 ## Block Element or Float
 
@@ -572,8 +600,15 @@ When `width` is set to `full`, the button and list elements will expand to fill
 the full width of the component's parent element and the width of the two
 elements will always be identical.
 
-**IMPORTANT:** For a mobile viewport, the component will always render with
-`width` set to `full`.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> For a mobile viewport, the component will
+      always render with <code>width</code> set to <code>full</code>.
+    </>
+  }
+  type="informative"
+/>
 
 <Canvas of={MultiSelectStories.width} />
 
@@ -709,7 +744,15 @@ The `MultiSelect` component does _NOT_ have an `onClearAll` prop. Instead, the
 Alternatively, use the `MultiSelectGroup` or `FilterBar` (name TBD) components
 in future releases.
 
-**IMPORTANT**: Make sure to give each `MultiSelect` component a unique `id`.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> Make sure to give each{" "}
+      <code>MultiSelect</code> component a unique <code>id</code>.
+    </>
+  }
+  type="informative"
+/>
 
 <Canvas of={MultiSelectStories.InAGroup} />
 

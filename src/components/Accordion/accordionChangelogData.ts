@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-02-21",
+    version: "3.5.4",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Fixes styles including padding, active hover state, and double-border issue.",
+    ],
+  },
+  {
     date: "2024-07-03",
     version: "3.1.7",
     type: "Update",

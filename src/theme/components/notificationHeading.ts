@@ -15,9 +15,9 @@ const baseStyle = definePartsStyle(
   ({ icon, isCentered, notificationType }: NotificationHeadingBaseStyle) => {
     let color = "ui.typography.heading";
     if (notificationType === "announcement") {
-      color = "section.research.secondary";
+      color = "ui.success.primary";
     } else if (notificationType === "warning") {
-      color = "brand.primary";
+      color = "ui.error.primary";
     }
     return {
       display: "flex",
@@ -41,7 +41,6 @@ const baseStyle = definePartsStyle(
       heading: {
         color,
         ml: icon && !isCentered ? "xs" : "0",
-        mt: icon ? "xxxs" : "0",
         _dark: {
           borderLeftColor:
             notificationType === "standard"

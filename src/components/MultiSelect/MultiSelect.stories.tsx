@@ -214,9 +214,21 @@ const withItemCountItems = [
     itemCount: 20,
   },
   {
+    id: "creativity",
+    name: "Creativity",
+    isDisabled: true,
+    itemCount: 0,
+  },
+  {
     id: "design",
     name: "Design",
     children: [
+      {
+        id: "bauhaus",
+        name: "Bauhaus",
+        isDisabled: true,
+        itemCount: 0,
+      },
       {
         id: "fashion",
         name: "Fashion",
@@ -228,14 +240,15 @@ const withItemCountItems = [
         itemCount: 5,
       },
       {
-        id: "architecture_design",
-        name: "Architecture",
-        itemCount: 3,
-      },
-      {
         id: "home",
         name: "Home",
         itemCount: 1,
+      },
+      {
+        id: "standards",
+        name: "Standards",
+        isDisabled: true,
+        itemCount: 0,
       },
     ],
     itemCount: 11,
@@ -441,13 +454,33 @@ export const disabledListItemsAllChildren: Story = {
 
 export const searchInputField: Story = {
   render: () => (
-    <MultiSelectStory
-      id="multi-select-id-7"
-      isBlockElement
-      isDefaultOpen={false}
-      isSearchable
-      items={withChildrenItems}
-    />
+    <Stack direction="row" align="left" spacing="xl">
+      <div>
+        <Heading level="h3" size="heading6" text="Search (scrollable)" />
+        <MultiSelectStory
+          id="multi-select-id-7"
+          isBlockElement
+          isDefaultOpen={false}
+          isSearchable
+          items={[
+            ...withChildrenItems,
+            ...withChildrenItems,
+            ...withChildrenItems,
+          ]}
+        />
+      </div>
+      <div>
+        <Heading level="h3" size="heading6" text="Search (expands)" />
+        <MultiSelectStory
+          id="multi-select-id-8"
+          isBlockElement
+          isDefaultOpen={false}
+          isSearchable
+          listOverflow="expand"
+          items={withChildrenItems}
+        />
+      </div>
+    </Stack>
   ),
 };
 
