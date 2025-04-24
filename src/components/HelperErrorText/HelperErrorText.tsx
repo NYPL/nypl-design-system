@@ -40,8 +40,8 @@ export const HelperErrorText: ChakraComponent<
   forwardRef<HTMLDivElement, ExtendedHelperErrorTextProps>(
     (
       {
-        ["aria-atomic"]: ariaAtomic = true,
-        ["aria-live"]: ariaLive = "polite",
+        "aria-atomic": ariaAtomic = true,
+        "aria-live": ariaLive = "polite",
         className = "",
         id,
         isInvalid = false,
