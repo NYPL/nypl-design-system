@@ -12,13 +12,14 @@ import Link from "../Link/Link";
 | Component Version | DS Version |
 | ----------------- | ---------- |
 | Added             | `1.1.0`    |
-| Latest            | `3.3.1`    |
+| Latest            | `3.6.1`    |
 
 ## Table of Contents
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#best-practices" target="_self">Best Practices</Link>}
 - {<Link href="#examples" target="_self">Examples</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
@@ -26,8 +27,8 @@ import Link from "../Link/Link";
 
 <Description of={TooltipStories} />
 
-The `Tooltip` component shows contextual help or information about a specific
-component when a user hovers or focuses on the component.
+A brief, informative message that appears when a user hovers or focuses on an
+element.
 
 ## Component Props
 
@@ -53,23 +54,45 @@ Resources:
 - [MDN ARIA: tooltip role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role)
 - [Chakra UI Tooltip](https://chakra-ui.com/docs/components/overlay/tooltip)
 
+## Best Practices
+
+Tooltips are often misunderstood and therefore not used correctly. To implement
+a tooltip correctly, start by following the recommendations below.
+
+- **Only interactive elements should trigger tooltips.** (ex. form fields, links,
+  etc.)
+- Tooltips should directly describe the UI control that triggers them. (i.e. do
+  not create a control purely to trigger a tooltip that describes something
+  else)
+- Do not put essential information in tooltips. (i.e. always assume tooltip text
+  may never be read)
+- Write concise tooltip text.
+- Avoid rich text formatting and images.
+- Do not add interactive content. (no links or buttons)
+
+Resources:
+
+- [Tooltips in the time of WCAG 2.1](https://sarahmhigley.com/writing/tooltips-in-wcag-21)
+
 ## Examples
 
 ### Tooltips on form options
 
-When using the `Tooltip` component in forms containing `Checkbox`, `Radio`, and `Toggle`,
-the `shouldWrapChildren` prop needs to be included to correctly position the tooltip in
-relation to it's child. The underlying `ref` of these components point to the visually hidden
-input element. `shouldWrapChildren` ensures that the size of the visually hidden element is
-in sync with the rendered visual control.
+- For correctly positioning, use the `shouldWrapChildren` prop when adding a
+  tooltip to the `Checkbox`, `Radio`, and `Toggle` components.
+- The underlying `ref` of the `Checkbox`, `Radio`, and `Toggle` components point
+  to a visually hidden input element.
+- Using `shouldWrapChildren` ensures that the size of the visually hidden element is
+  in sync with the rendered visual control.
 
 <Canvas of={TooltipStories.OnFormElements} />
 
 ### Tooltip on Image component
 
-When using the `Tooltip` component on an `Image` component, the
-`shouldWrapChildren` prop should _not_ be used. This causes the `Image`'s
-aspect ratio to not render properly.
+- Do not use the `shouldWrapChildren` prop when adding a tooltip to an `Image`
+  component using the `aspectRatio` prop.
+- This combination of props will cause the `Image` component's `size` prop to
+  not function properly.
 
 <Canvas of={TooltipStories.OnImageComponents} />
 
@@ -77,42 +100,43 @@ aspect ratio to not render properly.
 
 <Canvas of={TooltipStories.OnLinkedIcons} />
 
-### Tooltip with Icon Content
+### Icon and Image Content
 
-<Canvas of={TooltipStories.UsingIconContent} />
+- It is not recommended to use icons and images in tooltip content.
 
-### Tooltip with Image Content
-
-<Canvas of={TooltipStories.UsingImageContent} />
+<Canvas of={TooltipStories.IconAndImageContent} />
 
 ### Disabling Tooltip
 
-A tooltip can be disabled by passing the `isDisabled` prop.
+- A tooltip can be disabled by passing the `isDisabled` prop.
 
 <Canvas of={TooltipStories.DisablingTooltip} />
 
-By default, the `Tooltip` is not shown for a disabled `Button`. To show the `Tooltip`
-on a disabled `Button`, pass the `shouldWrapChildren` prop.
+### Disabled Buttons
+
+- By default, the `Tooltip` is not shown for a disabled `Button`.
+- To show the `Tooltip` on a disabled `Button`, pass the `shouldWrapChildren` prop.
 
 <Canvas of={TooltipStories.DisablingTooltipButton} />
 
 ### Placement
 
-The `placement` prop adjusts where the tooltip is displayed relative to its children: "top", "bottom", "left", or "right".
-While it is possible to set the placement of the tooltip, it is
-recommended to use the default "top" placement.
+- The `placement` prop can be used to adjust the tooltip's location relative to
+  its children: `"top"`, `"bottom"`, `"left"`, or `"right"`.
+- It is recommended to use the default `"top"` placement.
 
-<Canvas of={TooltipStories.TooltipPlacement} />
+<Canvas of={TooltipStories.Placement} />
 
 ### Offset
 
-The `offset` prop sets the distance along the main and cross axis between the tooltip and its reference element.
-`offset` is just static pixel values, such as [100, 100], so be careful to check where your tooltip displays on all breakpoints.
+- The `offset` prop sets the XY coordinate position of the tooltip in relation
+  to its reference element.
+- The values of the `offset` prop are static pixel values, so make sure to check
+  where the tooltip displays on all breakpoints.
+- It is **not** recommended to set custom `offset` values unless there are
+  extenuating circumstances.
 
-While it is possible to set the offset of the tooltip, it is recommended to not set custom offset values unless there
-are extenuating circumstances.
-
-<Canvas of={TooltipStories.TooltipOffset} />
+<Canvas of={TooltipStories.Offset} />
 
 ## Changelog
 

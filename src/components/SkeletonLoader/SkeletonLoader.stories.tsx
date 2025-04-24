@@ -88,3 +88,46 @@ export const ListExample: Story = {
     </SimpleGrid>
   ),
 };
+export const WithButtons: Story = {
+  render: () => (
+    <SimpleGrid columns={1}>
+      <SimpleGrid columns={3}>
+        <SkeletonLoader
+          contentSize={2}
+          imageAspectRatio="landscape"
+          showButton
+        />
+        <SkeletonLoader
+          contentSize={2}
+          imageAspectRatio="landscape"
+          showButton
+        />
+        <SkeletonLoader
+          contentSize={2}
+          imageAspectRatio="landscape"
+          showButton
+        />
+      </SimpleGrid>
+      <SimpleGrid columns={1}>
+        <SkeletonLoader
+          contentSize={4}
+          imageAspectRatio="square"
+          layout="row"
+          showButton
+        />
+        <SkeletonLoader
+          contentSize={4}
+          imageAspectRatio="square"
+          layout="row"
+          showButton
+        />
+        <SkeletonLoader
+          contentSize={4}
+          imageAspectRatio="square"
+          layout="row"
+          showButton
+        />
+      </SimpleGrid>
+    </SimpleGrid>
+  ),
+};

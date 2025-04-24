@@ -9,7 +9,7 @@ const Tooltip = defineStyleConfig({
     [$bg.variable]: "colors.ui.gray.xx-dark",
     borderRadius: "4px",
     boxShadow: "none",
-    color: "ui.typography.inverse.body",
+    color: "ui.typography.inverse.heading",
     fontSize: "desktop.caption",
     marginBottom: "xxs",
     maxWidth: "240px",

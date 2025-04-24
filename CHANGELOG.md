@@ -8,6 +8,24 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.6.1 (April 24, 2025)
+
+### Updates
+
+- Updates `Notification` variant font colors to sync with VDL.
+- Updates `Tooltip` text color.
+- Updates the `SearchBar` component to remove the text input right border.
+- Updates the `SkeletonLoader` component to make the button placeholder look more like a button.
+- Updates the `Tabs` component to sync the border color with the VDL.
+- Updates the `SubNav` component to add dark mode color styles.
+- Updates the `Heading` component to increase the font weight for the `size` styles.
+- Updates the Storybook docs for the `Tooltip` component to clarify how a tooltip should be used.
+- Updates the Storybook docs for the `Tabs` component to improve details about the mobile carousel and horizontal scrolling.
+
+### Fixes
+
+- Fixes the `MultiSelect` component so that the `itemCount` prop displays even when `0` is passed as a value.
+
 ## 3.6.0 (April 10, 2025)
 
 ### Adds
@@ -35,6 +53,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `ProgressIndicator` component's label margin to be consistent with the VDL.
 - Updates the `"dl"` variant of the `List` component to use `2rem` for column spacing and to set the width of the `term` columnm to be a full `"250px"` for `tablet` and `desktop` viewports.
 - Updates the `TagSet` component to sync the border color styles with the VDL.
+- Updates the `MultiSelect` component to now allow 0 to be rendered for `itemCount`.
 
 ### Fixes
 
