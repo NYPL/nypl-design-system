@@ -25,10 +25,8 @@ const baseStyle = definePartsStyle(
     }
     return {
       bg,
-      borderRadius: "0",
       display: "flex",
       fontSize: "desktop.body.body2", // slightly smaller than the default size
-      m: "0",
       position: "relative",
       p: "inset.default",
       textAlign: isCentered ? "center" : null,

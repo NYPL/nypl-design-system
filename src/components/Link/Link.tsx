@@ -48,8 +48,8 @@ export interface LinkProps extends ChakraLinkProps {
   screenreaderOnlyText?: string;
   /** Prop that sets the HTML attribute to target where the link should go. */
   target?: "_blank" | "_parent" | "_self" | "_top";
-  /** Controls the link visuals: action, backwards, forwards,
-   * standalone, or default. */
+  /** Controls the link's styles based on the value: action, backwards, default,
+   * external, forwards, standalone, and all "button" types. */
   type?: LinkTypes;
 }
 
