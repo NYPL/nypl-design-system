@@ -72,7 +72,7 @@ export const WithControls: Story = {
     labelText: "Standard Checkbox Group",
     layout: "column",
     name: "checkbox-story",
-    onChange: undefined,
+    onChange: (data) => console.log(data),
     showHelperInvalidText: true,
     showLabel: true,
     showRequiredLabel: true,

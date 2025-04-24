@@ -23,7 +23,6 @@ const meta: Meta<typeof Checkbox> = {
     onChange: { control: false },
     showHelperInvalidText: argsBooleanType("true"),
     showLabel: argsBooleanType("true"),
-    value: { control: { type: "text" } },
   },
 };
 
@@ -50,7 +49,6 @@ export const WithControls: Story = {
     onChange: undefined,
     showHelperInvalidText: true,
     showLabel: true,
-    value: "1",
   },
   parameters: {
     design: {

@@ -2,10 +2,9 @@ import {
   chakra,
   ChakraComponent,
   Checkbox as ChakraCheckbox,
-  CheckboxProps as ChakraCheckboxProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { ComponentProps, forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -43,9 +42,6 @@ export interface CheckboxProps extends CheckboxIconProps {
   /** The checkbox's label. This will serve as the text content for a `<label>`
    * element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
   labelText: string | JSX.Element;
-  /** The name prop indicates into which group of checkboxes this checkbox
-   * belongs. If none is specified, 'default' will be used */
-  name?: string;
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Offers the ability to hide the helper/invalid text. */
@@ -66,7 +62,8 @@ function CheckboxIcon(props: CheckboxIconProps) {
   ) : null;
 }
 
-type ExtendedCheckboxProps = CheckboxProps & ChakraCheckboxProps;
+type ExtendedCheckboxProps = CheckboxProps &
+  Pick<ComponentProps<typeof ChakraCheckbox>, "name" | "value">;
 
 export const Checkbox: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -86,7 +83,7 @@ export const Checkbox: ChakraComponent<
       isInvalid = false,
       isRequired = false,
       labelText,
-      name,
+      name = "default",
       onChange,
       showHelperInvalidText = true,
       showLabel = true,
@@ -129,7 +126,7 @@ export const Checkbox: ChakraComponent<
           isIndeterminate={isIndeterminate}
           isInvalid={isInvalid}
           isRequired={isRequired}
-          name={name || "default"}
+          name={name}
           ref={ref}
           value={value}
           {...(isChecked !== undefined

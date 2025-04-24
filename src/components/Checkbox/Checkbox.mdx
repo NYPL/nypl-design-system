@@ -1,4 +1,4 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as CheckboxStories from "./Checkbox.stories";
@@ -9,10 +9,10 @@ import { changelogData } from "./checkboxChangelogData";
 
 # Checkbox
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.1.0`    |
-| Latest            | `3.5.4`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.1.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -77,6 +77,23 @@ now be controlled and removed by the parent component in order to remove this st
 ## Additional States
 
 <Canvas of={CheckboxStories.AdditionalStates} />
+
+## Name and Value
+
+For a checked `Checkbox` to be submitted as form data, a `name` attribute is required.
+If you are using the `CheckboxGroup` wrapper (recommended) this `name` should be passed
+to the `CheckboxGroup` and will automatically be applied to all children `Checkbox`es.
+If you are using the `Checkbox` in isolation, you will need to pass the `name` directly
+to the `Checkbox`. The `value` attribute is optional, but is recommended because it is
+needed by the `CheckboxGroup`'s `onChange` function.
+
+<Source
+  code={`
+// This would submit library=SASB in form data if checked
+<Checkbox name="library" value="SASB"/> 
+`}
+  language="tsx"
+/>
 
 ## Label Using JSX Elements
 
