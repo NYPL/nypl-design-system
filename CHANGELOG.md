@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.6.1 (April 24, 2025)
+
 ### Updates
 
 - Updates `Notification` variant font colors to sync with VDL.
@@ -19,6 +21,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Heading` component to increase the font weight for the `size` styles.
 - Updates the Storybook docs for the `Tooltip` component to clarify how a tooltip should be used.
 - Updates the Storybook docs for the `Tabs` component to improve details about the mobile carousel and horizontal scrolling.
+
+### Fixes
+
+- Fixes the `MultiSelect` component so that the `itemCount` prop displays even when `0` is passed as a value.
 
 ## 3.6.0 (April 10, 2025)
 

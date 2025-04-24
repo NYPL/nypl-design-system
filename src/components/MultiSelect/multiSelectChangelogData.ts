@@ -10,20 +10,21 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2025-04-24",
+    version: "3.6.1",
+    type: "Bug Fix",
+    affects: ["Functionality"],
+    notes: [
+      "Fixes the `itemCount` prop so that the value displays even when `0` is passed.",
+    ],
+  },
+  {
+    date: "2025-04-10",
+    version: "3.6.0",
     type: "Update",
     affects: ["Styles"],
     notes: [
       "Fixes the search input field to the top of the panel so it remains visible on scroll.",
-    ],
-  },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "Bug Fix",
-    affects: ["Styles"],
-    notes: [
       "Fixes the vertical alignment of the label for the `inline` variant.",
     ],
   },
