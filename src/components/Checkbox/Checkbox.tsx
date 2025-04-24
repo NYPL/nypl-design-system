@@ -2,6 +2,7 @@ import {
   chakra,
   ChakraComponent,
   Checkbox as ChakraCheckbox,
+  CheckboxProps as ChakraCheckboxProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -52,8 +53,6 @@ export interface CheckboxProps extends CheckboxIconProps {
   /** Offers the ability to show the checkbox's label onscreen or hide it.
    * Refer to the `labelText` property for more information. */
   showLabel?: boolean;
-  /** Populates the value of the input */
-  value?: string;
 }
 
 function CheckboxIcon(props: CheckboxIconProps) {
@@ -67,13 +66,15 @@ function CheckboxIcon(props: CheckboxIconProps) {
   ) : null;
 }
 
+type ExtendedCheckboxProps = CheckboxProps & ChakraCheckboxProps;
+
 export const Checkbox: ChakraComponent<
   React.ForwardRefExoticComponent<
-    CheckboxProps & React.RefAttributes<HTMLInputElement>
+    ExtendedCheckboxProps & React.RefAttributes<HTMLInputElement>
   >,
-  CheckboxProps
+  ExtendedCheckboxProps
 > = chakra(
-  forwardRef<HTMLInputElement, CheckboxProps>((props, ref?) => {
+  forwardRef<HTMLInputElement, ExtendedCheckboxProps>((props, ref?) => {
     const {
       className,
       helperText,

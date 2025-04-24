@@ -1,11 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Button, {
-  buttonElementTypeArray,
-  buttonSizesArray,
-  buttonTypesArray,
-} from "./Button";
+import Button, { buttonSizesArray, buttonTypesArray } from "./Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
 import { iconNamesArray } from "../Icons/iconVariables";
@@ -45,11 +41,6 @@ const meta: Meta<typeof Button> = {
       control: { type: "radio" },
       options: buttonSizesArray,
       table: { defaultValue: { summary: "medium" } },
-    },
-    type: {
-      control: { type: "radio" },
-      options: buttonElementTypeArray,
-      table: { defaultValue: { summary: "button" } },
     },
   },
 };

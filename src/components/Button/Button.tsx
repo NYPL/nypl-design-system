@@ -9,7 +9,6 @@ import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
-export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
 export const buttonSizesArray = ["small", "medium", "large"] as const;
 export const buttonTypesArray = [
   "primary",
@@ -21,7 +20,6 @@ export const buttonTypesArray = [
   "link",
 ] as const;
 
-export type ButtonElementType = typeof buttonElementTypeArray[number];
 export type ButtonSizes = typeof buttonSizesArray[number];
 export type ButtonTypes = typeof buttonTypesArray[number];
 
