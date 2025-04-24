@@ -9,10 +9,10 @@ import Link from "../Link/Link";
 
 # Form
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.23.2`   |
-| Latest            | `3.5.2`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.23.2`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -32,9 +32,12 @@ handle layout and spacing for child input fields. `FormRow` and `FormField`
 components should be used to build the `<form>` structure and to arrange input
 fields as needed.
 
+You may pass `action` and `method` attributes to declare the URL to process
+the form and the method by which form will be submitted ("get" or "post").
+
 <Source
   code={`
-<Form id="form-id">
+<Form id="form-id" action="/end/point" method="get">
   <FormRow>
     <FormField>{/* ... */}</FormField>
   </FormRow>

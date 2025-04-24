@@ -19,12 +19,7 @@ const meta: Meta<typeof Form> = {
   title: "Components/Form Elements/Form",
   component: Form,
   argTypes: {
-    action: { control: false },
     id: { control: false },
-    method: {
-      control: { type: "radio" },
-      options: ["get", "post"],
-    },
     gap: {
       control: { type: "select" },
       table: { defaultValue: { summary: "grid.l" } },
@@ -42,10 +37,8 @@ type Story = StoryObj<typeof Form>;
  */
 export const WithControls: Story = {
   args: {
-    action: "/end/point",
     className: undefined,
     id: "form-id",
-    method: "get",
     gap: "grid.l",
   },
   parameters: {
@@ -56,7 +49,7 @@ export const WithControls: Story = {
     jest: "Form.test.tsx",
   },
   render: (args) => (
-    <Form {...args} id="form-id">
+    <Form {...args} action="/end/point" method="get" id="form-id">
       <FormRow>
         <FormField>
           <TextInput

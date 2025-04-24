@@ -17,10 +17,6 @@ interface FormBaseProps {
 export interface FormChildProps extends Partial<FormBaseProps> {}
 
 export interface FormProps extends FormBaseProps {
-  /** Optional form `action` attribute */
-  action?: string;
-  /** Optional form `method` attribute */
-  method?: "get" | "post";
   /** Function to call for the `onSubmit` form event. */
   onSubmit?: (e: React.FormEvent<any>) => void;
 }
@@ -77,68 +73,61 @@ export const FormField: ChakraComponent<
   );
 });
 
+type ExtendedFormProps = React.PropsWithChildren<FormProps> &
+  Omit<React.FormHTMLAttributes<HTMLFormElement>, "method"> & {
+    method?: "get" | "post";
+  };
+
 /** Main Form component */
 export const Form: ChakraComponent<
   React.ForwardRefExoticComponent<
-    React.PropsWithChildren<FormProps> &
-      React.RefAttributes<HTMLDivElement & HTMLFormElement>
+    ExtendedFormProps & React.RefAttributes<HTMLDivElement & HTMLFormElement>
   >,
-  React.PropsWithChildren<FormProps>
+  ExtendedFormProps
 > = chakra(
-  forwardRef<
-    HTMLDivElement & HTMLFormElement,
-    React.PropsWithChildren<FormProps>
-  >((props, ref?) => {
-    const {
-      action,
-      children,
-      className,
-      gap = "grid.l",
-      id,
-      method,
-      onSubmit,
-      ...rest
-    } = props;
+  forwardRef<HTMLDivElement & HTMLFormElement, ExtendedFormProps>(
+    (props, ref?) => {
+      const {
+        children,
+        className,
+        gap = "grid.l",
+        id,
+        onSubmit,
+        ...rest
+      } = props;
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Form: This component's required `id` prop was not passed."
-      );
-    }
-
-    const attributes: Partial<FormProps> = {};
-    action && (attributes["action"] = action);
-
-    method &&
-      (method === "get" || method === "post") &&
-      (attributes["method"] = method);
-
-    const alteredChildren = React.Children.map(
-      children as JSX.Element,
-      (child: React.ReactElement, i) => {
-        return (
-          child && React.cloneElement(child, { gap, id: `${id}-child${i}` })
+      if (!id) {
+        console.warn(
+          "NYPL Reservoir Form: This component's required `id` prop was not passed."
         );
       }
-    );
 
-    return (
-      <Box
-        as="form"
-        className={className}
-        data-testid="ds-form"
-        id={id}
-        onSubmit={onSubmit}
-        ref={ref}
-        {...attributes}
-        {...rest}
-      >
-        <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
-          {alteredChildren}
-        </SimpleGrid>
-      </Box>
-    );
-  }),
+      const alteredChildren = React.Children.map(
+        children as JSX.Element,
+        (child: React.ReactElement, i) => {
+          return (
+            child && React.cloneElement(child, { gap, id: `${id}-child${i}` })
+          );
+        }
+      );
+
+      return (
+        <Box
+          as="form"
+          className={className}
+          data-testid="ds-form"
+          id={id}
+          onSubmit={onSubmit}
+          ref={ref}
+          {...rest}
+        >
+          <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
+            {alteredChildren}
+          </SimpleGrid>
+        </Box>
+      );
+    }
+  ),
   { shouldForwardProp: () => true }
 );
 

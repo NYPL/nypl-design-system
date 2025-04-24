@@ -53,7 +53,6 @@ export type {
 } from "./components/Breadcrumbs/Breadcrumbs";
 export { default as Button } from "./components/Button/Button";
 export type {
-  ButtonElementType,
   ButtonProps,
   ButtonSizes,
   ButtonTypes,

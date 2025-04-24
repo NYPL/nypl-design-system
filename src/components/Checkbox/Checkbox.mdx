@@ -22,6 +22,7 @@ import { changelogData } from "./checkboxChangelogData";
 - {<Link href="#checked" target="_self">Checked</Link>}
 - {<Link href="#indeterminate" target="_self">Indeterminate</Link>}
 - {<Link href="#additional-states" target="_self">Additional States</Link>}
+- {<Link href="#name-and-value" target="_self">Name and Value</Link>}
 - {<Link href="#label-using-jsx-elements" target="_self">Label Using JSX Elements</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
@@ -90,7 +91,7 @@ function.
 
 <Source
   code={`
-// This would submit library=SASB in form data if checked
+// If checked, this would add library=SASB to form data
 <Checkbox name="library" value="SASB"/> 
 `}
   language="tsx"
