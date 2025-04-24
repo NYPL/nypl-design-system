@@ -26,6 +26,9 @@ export {
   useMultiStyleConfig,
   VStack,
 } from "@chakra-ui/react";
+// Chakra-related exports
+export { default as DSProvider } from "./theme/provider";
+// Components
 export { default as Accordion } from "./components/Accordion/Accordion";
 export type {
   AccordionTypes,
@@ -79,7 +82,6 @@ export type {
   CustomTextInputProps,
   DatePickerProps,
 } from "./components/DatePicker/DatePicker";
-export { default as DSProvider } from "./theme/provider";
 export { default as FeaturedContent } from "./components/FeaturedContent/FeaturedContent";
 export type {
   FeaturedContentImageProps,
@@ -165,7 +167,6 @@ export type {
   ListItemsData,
   MenuProps,
 } from "./components/Menu/Menu";
-
 export { ModalTrigger, useModal } from "./components/Modal/Modal";
 export type {
   BaseModalProps,
@@ -281,7 +282,6 @@ export { default as Text } from "./components/Text/Text";
 export type { TextProps, TextSizes } from "./components/Text/Text";
 export { default as TextInput } from "./components/TextInput/TextInput";
 export type {
-  AutoCompleteValues,
   InputProps,
   TextInputRefType,
   TextInputTypes,
@@ -290,6 +290,13 @@ export { default as Toggle } from "./components/Toggle/Toggle";
 export type { ToggleProps, ToggleSizes } from "./components/Toggle/Toggle";
 export { default as Tooltip } from "./components/Tooltip/Tooltip";
 export type { TooltipProps } from "./components/Tooltip/Tooltip";
+export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
+export type {
+  VideoPlayerAspectRatios,
+  VideoPlayerProps,
+  VideoPlayerTypes,
+} from "./components/VideoPlayer/VideoPlayer";
+// Hooks
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
 export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
 export { default as useFormatNumber } from "./hooks/useFormatNumber";
@@ -299,9 +306,5 @@ export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as useResponsiveSpacing } from "./hooks/useResponsiveSpacing";
 export { default as useScrollFadeStyles } from "./hooks/useScrollFadeStyles";
 export { default as useWindowSize } from "./hooks/useWindowSize";
-export { default as VideoPlayer } from "./components/VideoPlayer/VideoPlayer";
-export type {
-  VideoPlayerAspectRatios,
-  VideoPlayerProps,
-  VideoPlayerTypes,
-} from "./components/VideoPlayer/VideoPlayer";
+// Utils
+export type { AutoCompleteValues } from "./utils/constantValues";

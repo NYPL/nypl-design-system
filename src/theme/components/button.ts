@@ -69,14 +69,13 @@ const generalSizeValues = (size = "medium", isPill = false) => {
   const sizes = {
     small: {
       fontSize: "desktop.button.small",
-      height: "fit-content",
-      minHeight: "auto",
+      height: isPill ? "fit-content" : "button.small.height",
       px: isPill ? "s" : "button.small.px",
       py: isPill ? "xxxs" : "button.small.py",
     },
     medium: {
       fontSize: "desktop.button.default",
-      height: isPill ? "fit-content" : undefined,
+      height: isPill ? "fit-content" : "button.medium.height",
       minHeight: isPill
         ? "auto"
         : { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
@@ -85,8 +84,7 @@ const generalSizeValues = (size = "medium", isPill = false) => {
     },
     large: {
       fontSize: "desktop.button.large",
-      height: "fit-content",
-      minHeight: "auto",
+      height: isPill ? "fit-content" : "button.large.height",
       px: isPill ? "l" : "button.large.px",
       py: isPill ? "xxs" : "button.large.py",
     },

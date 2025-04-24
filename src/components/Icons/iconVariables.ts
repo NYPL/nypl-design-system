@@ -166,6 +166,8 @@ export const iconNamesArray = [
   "minus",
   "moonCrescent",
   "navigationMoreVert",
+  "navigationSubdirectoryArrowLeft",
+  "navigationSubdirectoryArrowRight",
   "plus",
   "search",
   "socialFacebook",

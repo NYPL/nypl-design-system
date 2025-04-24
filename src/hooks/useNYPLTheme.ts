@@ -96,6 +96,7 @@ function useNYPLTheme() {
       heading: theme.fonts.heading,
     },
     radii: theme.radii,
+    sizes: theme.sizes,
     space: {
       xxs: theme.space.xxs,
       xs: theme.space.xs,

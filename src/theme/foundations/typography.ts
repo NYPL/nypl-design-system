@@ -65,13 +65,18 @@ const fontSizeValues = {
   },
 };
 
+/** The !important rule is being applied to the font weight values so that
+ * font-weight attributes applied in consuming apps are not overridden by CSS
+ * var values coming out of the NYPL Header and Footer app. The NYPL Header and
+ * Footer app is using Reservoir v2, which has differing font weight values from
+ * Reservoir v3. */
 const fontWeightValues = {
-  thin: 200,
-  light: 300,
-  regular: 400,
-  medium: 500,
-  semibold: 600,
-  bold: 700,
+  thin: "200 !important",
+  light: "300 !important",
+  regular: "400 !important",
+  medium: "500 !important",
+  semibold: "600 !important",
+  bold: "700 !important",
 };
 
 const typography: Typography = {
@@ -206,9 +211,9 @@ const typography: Typography = {
     bold: fontWeightValues["bold"],
     // semantic tokens
     body: {
-      default: fontWeightValues["light"],
-      body1: fontWeightValues["light"],
-      body2: fontWeightValues["light"],
+      default: fontWeightValues["regular"],
+      body1: fontWeightValues["regular"],
+      body2: fontWeightValues["regular"],
     },
     breadcrumbs: {
       default: fontWeightValues["regular"],
@@ -218,20 +223,20 @@ const typography: Typography = {
       default: fontWeightValues["regular"],
     },
     caption: fontWeightValues["regular"],
-    default: fontWeightValues["light"],
+    default: fontWeightValues["regular"],
     heading: {
-      display1: fontWeightValues["thin"],
-      heading1: fontWeightValues["thin"],
-      heading2: fontWeightValues["thin"],
-      heading3: fontWeightValues["light"],
-      heading4: fontWeightValues["regular"],
-      heading5: fontWeightValues["medium"],
-      heading6: fontWeightValues["medium"],
-      heading7: fontWeightValues["medium"],
-      heading8: fontWeightValues["medium"],
+      display1: fontWeightValues["light"],
+      heading1: fontWeightValues["light"],
+      heading2: fontWeightValues["light"],
+      heading3: fontWeightValues["regular"],
+      heading4: fontWeightValues["medium"],
+      heading5: fontWeightValues["semibold"],
+      heading6: fontWeightValues["semibold"],
+      heading7: fontWeightValues["bold"],
+      heading8: fontWeightValues["bold"],
     },
     helper: {
-      default: fontWeightValues["light"],
+      default: fontWeightValues["regular"],
     },
     label: {
       default: fontWeightValues["medium"],
@@ -244,6 +249,12 @@ const typography: Typography = {
     subtitle: {
       subtitle1: fontWeightValues["regular"],
       subtitle2: fontWeightValues["regular"],
+    },
+    text: {
+      default: fontWeightValues["regular"],
+      caption: fontWeightValues["regular"],
+      tag: fontWeightValues["regular"],
+      mini: fontWeightValues["regular"],
     },
   },
 };

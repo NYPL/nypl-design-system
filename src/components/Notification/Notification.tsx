@@ -207,7 +207,7 @@ export const Notification: ChakraComponent<
           color:
             colorMode === "dark"
               ? "dark.ui.success.primary"
-              : "section.research.secondary",
+              : "ui.success.primary",
           name: "speakerNotes",
           title: "Notification announcement icon",
         } as IconProps,
@@ -218,7 +218,7 @@ export const Notification: ChakraComponent<
         } as IconProps,
         warning: {
           color:
-            colorMode === "dark" ? "dark.ui.error.primary" : "brand.primary",
+            colorMode === "dark" ? "dark.ui.error.primary" : "ui.error.primary",
           name: "errorFilled",
           title: "Notification warning icon",
         } as IconProps,

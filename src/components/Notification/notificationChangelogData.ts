@@ -17,6 +17,20 @@ export const changelogData: ChangelogData[] = [
     notes: ["Removes deprecated `noMargin` prop."],
   },
   {
+    date: "2025-04-24",
+    version: "3.6.1",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Variant font colors updated to sync with the VDL."],
+  },
+  {
+    date: "2025-04-10",
+    version: "3.6.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Style updates to sync with the VDL."],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",

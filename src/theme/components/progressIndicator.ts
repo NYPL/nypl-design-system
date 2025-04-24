@@ -46,6 +46,7 @@ const getCircularContainerFlexDir = (labelPlacement) => {
 const ProgressIndicator = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
     ({ size, labelPlacement }: ProgressIndicatorBaseStyle) => {
+      const circularLabelMargin = size === "default" ? "xs" : "xxs";
       return {
         color: "ui.typography.heading",
         fontSize: "desktop.body.body2",
@@ -80,10 +81,10 @@ const ProgressIndicator = defineMultiStyleConfig({
           width: "fit-content",
         },
         circularLabel: {
-          marginBottom: labelPlacement === "top" ? "xxs" : 0,
-          marginLeft: labelPlacement === "right" ? "xxs" : 0,
-          marginRight: labelPlacement === "left" ? "xxs" : 0,
-          marginTop: labelPlacement === "bottom" ? "xxs" : 0,
+          marginBottom: labelPlacement === "top" ? circularLabelMargin : 0,
+          marginLeft: labelPlacement === "right" ? circularLabelMargin : 0,
+          marginRight: labelPlacement === "left" ? circularLabelMargin : 0,
+          marginTop: labelPlacement === "bottom" ? circularLabelMargin : 0,
           fontSize:
             size === "default"
               ? "desktop.label.label1"

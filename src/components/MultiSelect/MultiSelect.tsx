@@ -241,7 +241,7 @@ export const MultiSelect: ChakraComponent<
 
       // Additional components for isSearchable
       const NoSearchResults = (): JSX.Element => {
-        return <Box marginTop="xs">No options found</Box>;
+        return <Box>No options found</Box>;
       };
 
       const onChangeSearch = (event) => {
@@ -308,7 +308,7 @@ export const MultiSelect: ChakraComponent<
       const getItemLabelText = (
         item: MultiSelectItem
       ): string | JSX.Element => {
-        return item.itemCount ? (
+        return item.itemCount >= 0 ? (
           <Flex gap="s" justify="space-between">
             <Box>{item.name}</Box>
             <Box>{item.itemCount}</Box>
@@ -384,43 +384,60 @@ export const MultiSelect: ChakraComponent<
         </Box>
       );
 
+      const searchInput = (
+        <TextInput
+          id={`multi-select-text-input-${id}`}
+          labelText={`Search ${buttonText}`}
+          isClearable
+          isClearableCallback={clearSearchKeyword}
+          placeholder="Search"
+          onChange={onChangeSearch}
+          showLabel={false}
+          showRequiredLabel={false}
+          type="text"
+          __css={styles.menuSearchInputBox}
+          marginBottom={isOverflowExpand ? "12px" : 0}
+        />
+      );
+
       const accordionPanel = (
-        <Box>
-          {isSearchable && (
-            <TextInput
-              id={`multi-select-text-input-${id}`}
-              labelText={`Search ${buttonText}`}
-              isClearable={true}
-              isClearableCallback={clearSearchKeyword}
-              placeholder="Search"
-              onChange={onChangeSearch}
-              showLabel={false}
-              showRequiredLabel={false}
-              type="text"
-              __css={styles.menuSearchInputBox}
-              marginBottom="s"
-            />
-          )}
-          {itemsList.length === 0 ? (
-            <NoSearchResults />
-          ) : (
-            <>
-              <CheckboxGroup
-                id={`multi-select-checkbox-group-${id}`}
-                layout="column"
-                isFullWidth
-                isRequired={false}
-                labelText={buttonText}
-                showLabel={false}
-                name="multi-select-checkbox-group"
-              >
-                {itemsList.map((item: MultiSelectItem) => (
-                  <>{getMultiSelectCheckboxItem(item)}</>
-                ))}
-              </CheckboxGroup>
-              {isOverflowExpand && <ExpandToggleButton />}
-            </>
-          )}
+        <Box position="relative">
+          {isSearchable && !isOverflowExpand ? (
+            <Box position="sticky" top="0" marginBottom="12px" zIndex="1">
+              {searchInput}
+            </Box>
+          ) : isSearchable && isOverflowExpand ? (
+            searchInput
+          ) : null}
+
+          <Box
+            maxHeight={listHeight}
+            overflowY="auto"
+            paddingTop="xxs"
+            paddingLeft="xs"
+            paddingBottom="xxs"
+          >
+            {itemsList.length === 0 ? (
+              <NoSearchResults />
+            ) : (
+              <>
+                <CheckboxGroup
+                  id={`multi-select-checkbox-group-${id}`}
+                  layout="column"
+                  isFullWidth
+                  isRequired={false}
+                  labelText={buttonText}
+                  showLabel={false}
+                  name="multi-select-checkbox-group"
+                >
+                  {itemsList.map((item: MultiSelectItem) => (
+                    <>{getMultiSelectCheckboxItem(item)}</>
+                  ))}
+                </CheckboxGroup>
+                {isOverflowExpand && <ExpandToggleButton />}
+              </>
+            )}
+          </Box>
         </Box>
       );
 

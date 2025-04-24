@@ -20,6 +20,13 @@ export const changelogData: ChangelogData[] = [
     ],
   },
   {
+    date: "2025-04-24",
+    version: "3.6.1",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Increase the font weight for the `size` styles."],
+  },
+  {
     date: "2025-01-30",
     version: "3.5.3",
     type: "Update",
