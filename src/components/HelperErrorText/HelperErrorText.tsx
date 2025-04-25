@@ -8,7 +8,12 @@ import { forwardRef } from "react";
 
 export type HelperErrorTextType = string | JSX.Element;
 
-export interface HelperErrorTextProps {
+type HTMLDivAttributes = Pick<
+  React.HTMLAttributes<HTMLDivElement>,
+  "aria-atomic" | "aria-live"
+>;
+
+export interface HelperErrorTextProps extends HTMLDivAttributes {
   /** Additional className to add. */
   className?: string;
   /** Unique ID for accessibility purposes. */
@@ -28,16 +33,13 @@ export interface HelperErrorTextProps {
  * is dynamically updated by the app or component that implements it.
  */
 
-type ExtendedHelperErrorTextProps = HelperErrorTextProps &
-  React.HTMLAttributes<HTMLDivElement>;
-
 export const HelperErrorText: ChakraComponent<
   React.ForwardRefExoticComponent<
-    ExtendedHelperErrorTextProps & React.RefAttributes<HTMLDivElement>
+    HelperErrorTextProps & React.RefAttributes<HTMLDivElement>
   >,
   HelperErrorTextProps
 > = chakra(
-  forwardRef<HTMLDivElement, ExtendedHelperErrorTextProps>(
+  forwardRef<HTMLDivElement, HelperErrorTextProps>(
     (
       {
         "aria-atomic": ariaAtomic = true,
