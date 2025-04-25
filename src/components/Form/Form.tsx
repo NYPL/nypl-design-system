@@ -18,7 +18,7 @@ export interface FormChildProps extends Partial<FormBaseProps> {}
 
 type HTMLFormAttributes = Omit<
   React.FormHTMLAttributes<HTMLFormElement>,
-  "method"
+  "id" | "method"
 > & {
   method?: "get" | "post";
 };
