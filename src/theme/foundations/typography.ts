@@ -179,28 +179,6 @@ const typography: Typography = {
         subtitle2: fontSizeValues.mobile["subtitle2"],
       },
     },
-    breadcrumbs: {
-      // The deprecated value is "caption" but we should use body2 instead
-      // for backwards compatibility
-      default: fontSizeValues.desktop["body2"],
-    },
-    button: {
-      small: {
-        base: fontSizeValues.desktop["buttonSmall"],
-        md: fontSizeValues.mobile["buttonSmall"],
-      },
-      default: {
-        base: fontSizeValues.desktop["buttonDefault"],
-        md: fontSizeValues.mobile["buttonDefault"],
-      },
-      large: {
-        base: fontSizeValues.desktop["buttonLarge"],
-        md: fontSizeValues.mobile["buttonLarge"],
-      },
-    },
-    helper: {
-      default: fontSizeValues["-2"],
-    },
   },
   fontWeights: {
     // generic tokens
