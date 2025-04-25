@@ -21,7 +21,12 @@ export interface AccordionDataProps {
   label: string | JSX.Element;
   panel: string | React.ReactNode;
 }
-export interface AccordionProps {
+
+type AccordionButtonAttributes = Pick<
+  ComponentProps<typeof AccordionButton>,
+  "aria-label"
+>;
+export interface AccordionProps extends AccordionButtonAttributes {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
@@ -203,16 +208,13 @@ const getElementsFromData = (
  * multiple accordion items together.
  */
 
-type ExtendedAccordionProps = AccordionProps &
-  Pick<ComponentProps<typeof AccordionButton>, "aria-label">;
-
 export const Accordion: ChakraComponent<
   React.ForwardRefExoticComponent<
-    ExtendedAccordionProps & React.RefAttributes<HTMLDivElement>
+    AccordionProps & React.RefAttributes<HTMLDivElement>
   >,
-  ExtendedAccordionProps
+  AccordionProps
 > = chakra(
-  forwardRef<HTMLDivElement, ExtendedAccordionProps>((props, ref?) => {
+  forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
     const {
       accordionData,
       "aria-label": ariaLabel,
