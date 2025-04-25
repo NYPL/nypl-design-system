@@ -1,11 +1,9 @@
 import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, LabelHTMLAttributes } from "react";
 
-export interface LabelProps {
+export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /** Additional CSS class name to render in the `label` element. */
   className?: string;
-  /** The id of the html element that this `Label` is describing. */
-  htmlFor: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Controls whether the label should be inline with the input it goes with.
@@ -36,7 +34,6 @@ export const Label: ChakraComponent<
     const {
       children,
       className,
-      htmlFor,
       id,
       isInlined = false,
       isRequired = false,
@@ -56,7 +53,6 @@ export const Label: ChakraComponent<
         as="label"
         id={id}
         className={className}
-        htmlFor={htmlFor}
         ref={ref}
         __css={styles}
         {...rest}

@@ -13,10 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles", "Functionality"],
+    affects: ["Documentation", "Styles", "Functionality"],
     notes: [
       "Adds 'fourByOne' and 'twoByThree' aspect ratios.",
       "Replaces the error thrown with a console.warn.",
+      "Removes `alt` and `src` props (as HTML equivalents may be used) and updates docs.",
     ],
   },
   {

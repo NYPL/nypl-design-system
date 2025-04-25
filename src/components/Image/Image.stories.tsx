@@ -19,11 +19,6 @@ const meta: Meta<typeof Image> = {
     additionalFigureStyles: { control: false },
     additionalImageStyles: { control: false },
     additionalWrapperStyles: { control: false },
-    alt: {
-      control: false,
-      description:
-        "Alternate text description of the image. Needed for accessibility purposes.",
-    },
     aspectRatio: {
       control: { type: "select" },
       options: imageRatiosArray,
@@ -55,10 +50,6 @@ const meta: Meta<typeof Image> = {
       control: { type: "radio" },
       options: dimensionTypeArray,
       table: { defaultValue: { summary: "width" } },
-    },
-    src: {
-      description:
-        "The src attribute is required, and contains the path to the image you want to embed.",
     },
   },
 };
@@ -135,7 +126,6 @@ export const WithControls: Story = {
     additionalFigureStyles: undefined,
     additionalImageStyles: undefined,
     additionalWrapperStyles: undefined,
-    alt: "Alt text",
     aspectRatio: "twoByOne",
     caption: "Image caption",
     className: undefined,
@@ -144,9 +134,10 @@ export const WithControls: Story = {
     imageType: "default",
     size: "medium",
     sizeBasedOn: "width",
-    src: getPlaceholderImage(),
   },
-  render: (args) => <Image {...args} id="image-id" />,
+  render: (args) => (
+    <Image {...args} alt="Alt text" id="image-id" src={getPlaceholderImage()} />
+  ),
   parameters: {
     design: {
       type: "figma",
@@ -159,13 +150,11 @@ export const WithControls: Story = {
 // The following are additional Image example Stories.
 export const FigureAndFigcaption: Story = {
   args: {
-    alt: "Alt text",
     aspectRatio: "threeByTwo",
     caption: "Image caption",
     credit: "Image credit",
     imageType: "default",
     size: "medium",
-    src: getPlaceholderImage("smaller"),
   },
   argTypes: {
     aspectRatio: { table: { disable: true } },
@@ -176,7 +165,9 @@ export const FigureAndFigcaption: Story = {
     src: { table: { disable: true } },
   },
   name: "Credit and Caption",
-  render: (args) => <Image {...args} />,
+  render: (args) => (
+    <Image {...args} alt="Alt text" src={getPlaceholderImage("smaller")} />
+  ),
 };
 export const Sizes: Story = {
   render: () => allVStack(sizes),
