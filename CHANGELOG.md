@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Update Storybook and related npm packages to `v8.6.12`.
+
 ## 3.6.1 (April 24, 2025)
 
 ### Updates
