@@ -192,14 +192,18 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
     id="mainContent"
   >
     <div
-      className="placeholder placeholder--undefined"
+      className="css-7f64us"
     >
-      Main Content
-    </div>
-    <div
-      className="placeholder placeholder--short"
-    >
-      More Content
+      <div
+        className="placeholder placeholder--undefined"
+      >
+        Main Content
+      </div>
+      <div
+        className="placeholder placeholder--short"
+      >
+        More Content
+      </div>
     </div>
   </main>
   <div

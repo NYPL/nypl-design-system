@@ -14,7 +14,12 @@ const Template = defineStyleConfig({
       minWidth: "288px",
       m: "0 auto",
       p: responsiveMargin,
-      gridTemplateAreas: `"breakout" "top" "main" "bottom"`,
+      gridTemplateAreas: `
+        "breakout"
+        "top"
+        "main"
+        "bottom"
+      `,
       gridTemplateColumns: "100%",
       gridTemplateRows: "auto",
       columnGap: responsiveGap,
@@ -24,27 +29,64 @@ const Template = defineStyleConfig({
   variants: {
     left: {
       gridTemplateAreas: {
-        base: `"breakout" "top" "sidebar" "main" "bottom"`,
-        md: `"breakout breakout" "top top" "sidebar main" "bottom bottom"`,
+        base: `
+          "breakout"
+          "top"
+          "sidebar"
+          "main"
+          "bottom"
+        `,
+        sm: `
+          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
+          "top top top top top top top top top top top top" 
+          "sidebar sidebar sidebar sidebar sidebar sidebar main main main main main main" 
+          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
+        `,
+        md: `
+          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
+          "top top top top top top top top top top top top" 
+          "sidebar sidebar sidebar sidebar main main main main main main main main" 
+          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
+        `,
+        lg: `
+          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
+          "top top top top top top top top top top top top" 
+          "sidebar sidebar sidebar main main main main main main main main main" 
+          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
+        `,
       },
-      gridTemplateColumns: {
-        base: "100%",
-        md: "repeat(2, minmax(100px, 1fr))",
-        lg: "minmax(100px, 1fr) minmax(200px, 2fr)",
-        xl: "minmax(100px, 1fr) minmax(300px, 3fr)",
-      },
+      gridTemplateColumns: { sm: "repeat(12, 1fr)" },
     },
     right: {
       gridTemplateAreas: {
-        base: `"breakout" "top" "main" "sidebar" "bottom"`,
-        md: `"breakout breakout" "top top" "main sidebar" "bottom bottom"`,
+        base: `
+          "breakout"
+          "top"
+          "sidebar"
+          "main"
+          "bottom"
+        `,
+        sm: `
+          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
+          "top top top top top top top top top top top top" 
+          "main main main main main main sidebar sidebar sidebar sidebar sidebar sidebar" 
+          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
+        `,
+        md: `
+          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
+          "top top top top top top top top top top top top" 
+          "main main main main main main main main sidebar sidebar sidebar sidebar" 
+          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
+        `,
+        lg: `
+          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
+          "top top top top top top top top top top top top" 
+          "main main main main main main main main main sidebar sidebar sidebar" 
+          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
+        `,
       },
-      gridTemplateColumns: {
-        base: "100%",
-        md: "repeat(2, minmax(100px, 1fr))",
-        lg: "minmax(200px, 2fr) minmax(100px, 1fr)",
-        xl: "minmax(300px, 3fr) minmax(100px, 1fr)",
-      },
+      gridTemplateColumns: { sm: "repeat(12, 1fr)" },
+      gridTemplateRows: "auto",
     },
   },
 });
@@ -61,9 +103,20 @@ const TemplateBreakout = defineStyleConfig({
 });
 
 const TemplateMainNarrow = defineStyleConfig({
-  baseStyle: defineStyle({
-    maxWidth: "720px",
-    m: "0 auto",
+  baseStyle: defineStyle(() => {
+    const { responsiveGap } = useResponsiveSpacing();
+    return {
+      columnGap: responsiveGap,
+      display: "grid",
+      gridTemplateAreas: {
+        base: `"mainNarrow"`,
+        md: `". mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow ."`,
+        lg: `". . mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow . ."`,
+      },
+      gridTemplateColumns: { base: "100%", md: "repeat(12, 1fr)" },
+      // maxWidth: "720px",
+      // m: "0 auto",
+    };
   }),
 });
 

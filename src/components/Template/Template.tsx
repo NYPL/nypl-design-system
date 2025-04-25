@@ -94,7 +94,7 @@ const TemplateMainNarrow: React.FC<React.PropsWithChildren<TemplateMainProps>> =
 
     return (
       <Box as="main" id={id} gridArea="main" __css={styles}>
-        {children}
+        <Box gridArea="mainNarrow">{children}</Box>
       </Box>
     );
   };
