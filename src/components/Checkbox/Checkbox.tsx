@@ -21,7 +21,12 @@ interface CheckboxIconProps {
   isIndeterminate?: boolean;
 }
 
-export interface CheckboxProps extends CheckboxIconProps {
+type ChakraCheckboxProps = Pick<
+  ComponentProps<typeof ChakraCheckbox>,
+  "name" | "value"
+>;
+
+export interface CheckboxProps extends CheckboxIconProps, ChakraCheckboxProps {
   /** className you can add in addition to 'input' */
   className?: string;
   /** Optional string to populate the HelperErrorText for standard state */
@@ -62,16 +67,13 @@ function CheckboxIcon(props: CheckboxIconProps) {
   ) : null;
 }
 
-type ExtendedCheckboxProps = CheckboxProps &
-  Pick<ComponentProps<typeof ChakraCheckbox>, "name" | "value">;
-
 export const Checkbox: ChakraComponent<
   React.ForwardRefExoticComponent<
-    ExtendedCheckboxProps & React.RefAttributes<HTMLInputElement>
+    CheckboxProps & React.RefAttributes<HTMLInputElement>
   >,
-  ExtendedCheckboxProps
+  CheckboxProps
 > = chakra(
-  forwardRef<HTMLInputElement, ExtendedCheckboxProps>((props, ref?) => {
+  forwardRef<HTMLInputElement, CheckboxProps>((props, ref?) => {
     const {
       className,
       helperText,
