@@ -2,6 +2,7 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as SearchBarStories from "../SearchBar/SearchBar.stories";
 import Link from "../Link/Link";
+import Banner from "../Banner/Banner";
 
 <Meta title="Accessibility Guide/ARIA Landmarks" />
 
@@ -9,23 +10,19 @@ import Link from "../Link/Link";
 
 ## Table of Contents
 
-- {<Link href="#ARIA-roles" target="_self">ARIA roles</Link>}
-- {<Link href="#ARIA-landmarks" target="_self">ARIA landmarks</Link>}
+- {<Link href="#Landmarks-overview" target="_self">Landmarks overview</Link>}
 - {<Link href="#banner" target="_self">banner</Link>}
 - {<Link href="#complementary" target="_self">complementary</Link>}
 - {<Link href="#contentinfo" target="_self">contentinfo</Link>}
 - {<Link href="#form" target="_self">form</Link>}
 - {<Link href="#main" target="_self">main</Link>}
-- {<Link href="#navigation" target="_self">navigationr</Link>}
+- {<Link href="#navigation" target="_self">navigation</Link>}
+- {<Link href="#region" target="_self">region</Link>}
 - {<Link href="#search" target="_self">search</Link>}
 
-## ARIA roles
+## Landmarks overview
 
-ARIA roles on a web page add meaning to content, particularly non-semantic HTML elements like `div` or `span`. For example, a `form` element does not need `role="form"`, but a `div` might need `role="main"` or `role="input"` to distinguish what it represents on the page.
-
-## ARIA landmarks
-
-Landmarks can be a useful tool for people who use screen readers to orient themselves to important areas of a web page, and help quickly navigate to these areas within a website or application.
+Landmarks are a useful tool for people who use screen readers to orient themselves to important areas of a web page, and help quickly navigate to these areas within a website or application.
 
 ARIA’s 8 landmark roles are specifically meant to describe page organization and structure, providing keyboard navigation to each larger section. Each of these roles has a corresponding native HTML element:
 
@@ -40,24 +37,77 @@ ARIA’s 8 landmark roles are specifically meant to describe page organization a
 | region        | `<section>`         |
 | search        | `<search>`          |
 
+Landmarks can be indicated with `role="landmark"` or by using the landmark's HTML element.
+
+**Some Reservoir components already define their own landmark roles, and some landmarks must be defined by the consuming app since they could wrap many components.**
+
 ### banner
 
-The DS `Header` is actually
+The `Header` is Reservoir's only component that falls under the `banner` category: an area that has global, rather than page-specific, information or actionable elements.
+For example, a website's logo and primary navigation would be expected child elements of a `banner` landmark. There should only be a single `banner` landmark per interface.
+
+Our `Header` contains other landmarks: `complementary` for temporary sitewide alerts, `navigation` for the site navigation. (The DS `Banner` is a `complementary` landmark).
 
 ### complementary
 
+The `complementary` landmark indicates an area that contains additional information that "complements" the main content. Though complementary, the content it represents should also be understandable on its own.
+
+The `Banner`, `StatusBadge`, `Notification` , `Hero`, and `FeaturedContent` components could all be `complementary` landmarks.
+
+### contentinfo
+
+`contentinfo` is another globally repeating landmark, like `banner`, with information about the parent document. If `banner` is usually the site's header, `contentinfo` is usually the footer.
+
+The DS `Footer` uses the `contentinfo` role.
+
 ### form
+
+The `form` landmark identifies a region that contains a collection of elements that combine to create a form: usually `button`, `input`,
+`select`, and `textarea`.
+
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> Use the search landmark instead of the form
+      landmark when the form is used for search functionality.
+    </>
+  }
+  type="warning"
+/>
+
+Interfaces can have multiple `form` regions, and each should be identified with a unique label.
+
+Elements under [Form Elements](../?path=/docs/components-form-elements) should be wrapped by the `form` landmark.
 
 ### main
 
+The `main` landmark is meant to designate the primary content of a page. In most browsers, it's natively conveyed by use of the `<main>` HTML element.
+
+There should only be a single `main` landmark per interface. Since `main` represents the primary content of a page, it is the most important destination for [skip links](../?path=/docs/accessibility-guide-skip-navigation--docs), bypassing recurring elements like the header or navigation.
+
+The `Template` [component](../?path=/docs/components-page-layout-template--docs) renders the `main` landmark (and the `header` and `footer`).
+
 ### navigation
+
+The `navigation` landmark identifies groups (e.g. lists) of links that are intended to be used for website or page content navigation.
+There can be multiple `navigation`s on a page, but if a `navigation` landmark has the same set of links as another `navigation` landmark on the page (think mobile versus desktop), use the same label for both.
+
+Elements under [Navigation](../?path=/docs/components-navigation) should be wrapped by the `navigation` landmark.
 
 ### region
 
+The `region` landmark is sort of a catch-all: a perceivable section containing content that is sufficiently important that users may want to be able to navigate to the section directly, and to have it listed in a summary of the page.
+
+Since `region` is for content that doesn't fit under other landmarks, it has no default corresponding HTML element. A `<section>` element can become a `region` landmark if it is provided an accessible name (for instance, by giving it an `aria-label` or `aria-labelledby` attribute).
+
+`region` should always be applied by the consuming app, since it is specific to the content being presented.
+
 ### search
 
-The `<search>` HTML element is a container for the search/filter functionality, and defines a search landmark.
+The `search` landmark contains the page's search and filter functionality, which will likely include form controls (such as an `input type="search"`).
 
-Inspect the below Story to see `<search>` in the DOM– notice that it wraps the `Heading`, the `Searchbar`, and the `Checkbox`:
+Inspect below to see `<search>` in the DOM– notice that it wraps the `Heading`, the `Searchbar`, and the `Checkbox`, not just the `Searchbar`:
 
 <Canvas of={SearchBarStories.WithSearchElement} />
+
+Interfaces can have multiple `search` regions, and each should be identified with a unique label.
