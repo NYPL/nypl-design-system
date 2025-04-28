@@ -7,19 +7,23 @@ import {
   Story,
 } from "@storybook/blocks";
 
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as HeroStories from "./Hero.stories";
-import { changelogData } from "./heroChangelogData";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import { changelogData } from "./heroChangelogData";
 
 <Meta of={HeroStories} />
 
-# Hero
+<ComponentDocsHeader
+  category="Basic Elements"
+  componentName="Hero"
+  summary="The `Hero` component is used to display a full width banner at the top of a page"
+  versionAdded="0.2.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.2.0`    |
-| Latest            | `3.4.1`    |
+<Canvas of={HeroStories.WithControls} />
 
 ## Table of Contents
 
@@ -35,9 +39,6 @@ import Link from "../Link/Link";
 
 ## Overview
 
-<Description of={HeroStories} />
-
-The `Hero` component is used to display a full width banner at the top of a page.
 The `Hero` will contain a required `h1` page title and may also include optional
 descriptive text and images.
 
@@ -71,8 +72,6 @@ check the <Link href="#active-variants" target="_self">Active Variants</Link>
 section.
 
 ## Component Props
-
-<Canvas of={HeroStories.WithControls} />
 
 <ArgTypes of={HeroStories.WithControls} />
 
@@ -527,5 +526,10 @@ const CampaignFallBackExample = () => {
 <Canvas of={HeroStories.CampaignFallbackImage} />
 
 ## Changelog
+
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.2.0`      |
+| Latest            | `Prerelease` |
 
 <ComponentChangelogTable changelogData={changelogData} />
