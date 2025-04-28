@@ -552,92 +552,74 @@ Guide](../?path=/docs/style-guide-typography--docs) page.
 The following tokens can be used with the `fontSize` (js) and `font-size` (css)
 style attribute.
 
-|                 | JS Token                    | CSS Token                                    | Value           | Deprecated |
-| --------------- | :-------------------------- | :------------------------------------------- | :-------------- | :--------- |
-| **Breadcrumbs** | desktop.breadcrumbs.default | --nypl-fontSizes-desktop-breadcrumbs-default | .875rem / 14px  |            |
-|                 |                             |                                              |                 |            |
-| **Button**      | desktop.button.small        | --nypl-fontSizes-desktop-button-small        | .75rem / 12px   |            |
-|                 | desktop.button.default      | --nypl-fontSizes-desktop-button-default      | .875rem / 14px  |            |
-|                 | desktop.button.large        | --nypl-fontSizes-desktop-button-large        | 1rem / 16px     |            |
-|                 |                             |                                              |                 |            |
-| **Heading**     | heading.display1            | --nypl-fontSizes-desktop-heading-display1    | 4.25rem / 68px  |            |
-|                 | heading.heading1            | --nypl-fontSizes-desktop-heading-heading1    | 3.375rem / 54px |            |
-|                 | heading.heading2            | --nypl-fontSizes-desktop-heading-heading2    | 2.625rem / 42px |            |
-|                 | heading.heading3            | --nypl-fontSizes-desktop-heading-heading3    | 2rem / 32px     |            |
-|                 | heading.heading4            | --nypl-fontSizes-desktop-heading-heading4    | 1.625rem / 26px |            |
-|                 | heading.heading5            | --nypl-fontSizes-desktop-heading-heading5    | 1.375rem / 22px |            |
-|                 | heading.heading6            | --nypl-fontSizes-desktop-heading-heading6    | 1.25rem / 20px  |            |
-|                 | heading.heading7            | --nypl-fontSizes-desktop-heading-heading7    | 1.125rem / 18px |            |
-|                 | heading.heading8            | --nypl-fontSizes-desktop-heading-heading8    | 1rem / 16px     |            |
-|                 | heading.primary             | --nypl-fontSizes-heading-primary             | 4               | x          |
-|                 | heading.secondary           | --nypl-fontSizes-heading-secondary           | 3               | x          |
-|                 | heading.tertiary            | --nypl-fontSizes-heading-tertiary            | 2               | x          |
-|                 | heading.callout             | --nypl-fontSizes-heading-callout             | 1               | x          |
-|                 |                             |                                              |                 |            |
-| **Subtitle**    | desktop.subtitle.subtitle1  | --nypl-fontSizes-desktop-subtitle-subtitle1  | 1.125rem / 18px |            |
-|                 | desktop.subtitle.subtitle2  | --nypl-fontSizes-desktop-subtitle-subtitle2  | 1rem / 16px     |            |
-|                 |                             |                                              |                 |            |
-| **Overline**    | desktop.overline.overline1  | --nypl-fontSizes-desktop-overline-overline1  | .75rem / 12px   |            |
-|                 | desktop.overline.overline2  | --nypl-fontSizes-desktop-overline-overline2  | .625rem / 10px  |            |
-|                 |                             |                                              |                 |            |
-| **Helper**      | desktop.helper.default      | --nypl-fontSizes-desktop-helper-default      | .75rem / 12px   |            |
-|                 |                             |                                              |                 |            |
-| **Label**       | desktop.label.label1        | --nypl-fontSizes-desktop-label-label1        | .875rem / 14px  |            |
-|                 | desktop.label.label2        | --nypl-fontSizes-desktop-label-label2        | .75rem / 12px   |            |
-|                 | label.default               | --nypl-fontSizes-label-default               | -1              | x          |
-|                 | label.secondary             | --nypl-fontSizes-label-secondary             | -2              | x          |
-|                 |                             |                                              |                 |            |
-| **Text**        | desktop.default             | --nypl-fontSizes-desktop-default             | 1rem / 16px     |            |
-|                 | desktop.body.body1          | --nypl-fontSizes-desktop-body-body1          | 1rem / 16px     |            |
-|                 | desktop.body.body2          | --nypl-fontSizes-desktop-body-body2          | .875rem / 14px  |            |
-|                 | desktop.caption             | --nypl-fontSizes-desktop-caption             | .75rem / 12px   |            |
-|                 | text.default                | --nypl-fontSizes-text-default                | 0               | x          |
-|                 | text.caption                | --nypl-fontSizes-text-caption                | -1              | x          |
-|                 | text.tag                    | --nypl-fontSizes-text-tag                    | -2              | x          |
-|                 | text.mini                   | --nypl-fontSizes-text-mini                   | -3              | x          |
+|                 | JS Token                    | CSS Token                                    | Value           |
+| --------------- | :-------------------------- | :------------------------------------------- | :-------------- |
+| **Breadcrumbs** | desktop.breadcrumbs.default | --nypl-fontSizes-desktop-breadcrumbs-default | .875rem / 14px  |
+|                 |                             |                                              |                 |
+| **Button**      | desktop.button.small        | --nypl-fontSizes-desktop-button-small        | .75rem / 12px   |
+|                 | desktop.button.default      | --nypl-fontSizes-desktop-button-default      | .875rem / 14px  |
+|                 | desktop.button.large        | --nypl-fontSizes-desktop-button-large        | 1rem / 16px     |
+|                 |                             |                                              |                 |
+| **Heading**     | heading.display1            | --nypl-fontSizes-desktop-heading-display1    | 4.25rem / 68px  |
+|                 | heading.heading1            | --nypl-fontSizes-desktop-heading-heading1    | 3.375rem / 54px |
+|                 | heading.heading2            | --nypl-fontSizes-desktop-heading-heading2    | 2.625rem / 42px |
+|                 | heading.heading3            | --nypl-fontSizes-desktop-heading-heading3    | 2rem / 32px     |
+|                 | heading.heading4            | --nypl-fontSizes-desktop-heading-heading4    | 1.625rem / 26px |
+|                 | heading.heading5            | --nypl-fontSizes-desktop-heading-heading5    | 1.375rem / 22px |
+|                 | heading.heading6            | --nypl-fontSizes-desktop-heading-heading6    | 1.25rem / 20px  |
+|                 | heading.heading7            | --nypl-fontSizes-desktop-heading-heading7    | 1.125rem / 18px |
+|                 | heading.heading8            | --nypl-fontSizes-desktop-heading-heading8    | 1rem / 16px     |
+|                 |                             |                                              |                 |
+| **Subtitle**    | desktop.subtitle.subtitle1  | --nypl-fontSizes-desktop-subtitle-subtitle1  | 1.125rem / 18px |
+|                 | desktop.subtitle.subtitle2  | --nypl-fontSizes-desktop-subtitle-subtitle2  | 1rem / 16px     |
+|                 |                             |                                              |                 |
+| **Overline**    | desktop.overline.overline1  | --nypl-fontSizes-desktop-overline-overline1  | .75rem / 12px   |
+|                 | desktop.overline.overline2  | --nypl-fontSizes-desktop-overline-overline2  | .625rem / 10px  |
+|                 |                             |                                              |                 |
+| **Helper**      | desktop.helper.default      | --nypl-fontSizes-desktop-helper-default      | .75rem / 12px   |
+|                 |                             |                                              |                 |
+| **Label**       | desktop.label.label1        | --nypl-fontSizes-desktop-label-label1        | .875rem / 14px  |
+|                 | desktop.label.label2        | --nypl-fontSizes-desktop-label-label2        | .75rem / 12px   |
+|                 |                             |                                              |                 |
+| **Text**        | desktop.default             | --nypl-fontSizes-desktop-default             | 1rem / 16px     |
+|                 | desktop.body.body1          | --nypl-fontSizes-desktop-body-body1          | 1rem / 16px     |
+|                 | desktop.body.body2          | --nypl-fontSizes-desktop-body-body2          | .875rem / 14px  |
+|                 | desktop.caption             | --nypl-fontSizes-desktop-caption             | .75rem / 12px   |
 
 #### Font Weight Semantic Tokens
 
 The following tokens can be used with the `fontWeight` (js) and `font-weight`
 (css) style attribute.
 
-|                 | JS Token              | CSS Token                                | Value    | Deprecated |
-| --------------- | :-------------------- | :--------------------------------------- | :------- | :--------- |
-| **Breadcrumbs** | breadcrumbs.default   | --nypl-fontWeights-breadcrumbs-default   | regular  |            |
-|                 | breadcrumbs.lastChild | --nypl-fontWeights-breadcrumbs-lastChild | bold     |            |
-|                 |                       |                                          |          |            |
-| **Button**      | button.default        | --nypl-fontWeights-button-default        | regular  |            |
-|                 |                       |                                          |          |            |
-| **Heading**     | heading.display1      | --nypl-fontWeights-heading-display1      | light    |            |
-|                 | heading.heading1      | --nypl-fontWeights-heading-heading1      | light    |            |
-|                 | heading.heading2      | --nypl-fontWeights-heading-heading2      | light    |            |
-|                 | heading.heading3      | --nypl-fontWeights-heading-heading3      | regular  |            |
-|                 | heading.heading4      | --nypl-fontWeights-heading-heading4      | medium   |            |
-|                 | heading.heading5      | --nypl-fontWeights-heading-heading5      | semibold |            |
-|                 | heading.heading6      | --nypl-fontWeights-heading-heading6      | semibold |            |
-|                 | heading.heading7      | --nypl-fontWeights-heading-heading7      | bold     |            |
-|                 | heading.heading8      | --nypl-fontWeights-heading-heading8      | bold     |            |
-|                 | heading.primary       | --nypl-fontWeights-heading-primary       | light    | x          |
-|                 | heading.secondary     | --nypl-fontWeights-heading-secondary     | medium   | x          |
-|                 | heading.tertiary      | --nypl-fontWeights-heading-tertiary      | medium   | x          |
-|                 | heading.callout       | --nypl-fontWeights-heading-callout       | medium   | x          |
-|                 |                       |                                          |          |            |
-| **Subtitle**    | subtitle.subtitle1    | --nypl-fontWeights-subtitle-subtitle1    | regular  |            |
-|                 | subtitle.subtitle2    | --nypl-fontWeights-subtitle-subtitle2    | regular  |            |
-|                 |                       |                                          |          |            |
-| **Overline**    | overline.overline1    | --nypl-fontWeights-overline-overline1    | semibold |            |
-|                 | overline.overline2    | --nypl-fontWeights-overline-overline2    | semibold |            |
-|                 |                       |                                          |          |            |
-| **Helper**      | helper.default        | --nypl-fontWeights-helper-default        | regular  |            |
-|                 |                       |                                          |          |            |
-| **Label**       | label.default         | --nypl-fontWeights-label-default         | medium   |            |
-|                 | label.secondary       | --nypl-fontWeights-label-secondary       | regular  |            |
-|                 |                       |                                          |          |            |
-| **Text**        | default               | --nypl-fontWeights-default               | regular  |            |
-|                 | body.body1            | --nypl-fontWeights-body-body1            | regular  |            |
-|                 | body.body2            | --nypl-fontWeights-body-body2            | regular  |            |
-|                 | caption               | --nypl-fontWeights-caption               | regular  |            |
-|                 | text.default          | --nypl-fontWeights-text-default          | regular  | x          |
-|                 | text.caption          | --nypl-fontWeights-text-caption          | regular  | x          |
-|                 | text.tag              | --nypl-fontWeights-text-tag              | regular  | x          |
-|                 | text.mini             | --nypl-fontWeights-text-mini             | regular  | x          |
+|                 | JS Token              | CSS Token                                | Value    |
+| --------------- | :-------------------- | :--------------------------------------- | :------- |
+| **Breadcrumbs** | breadcrumbs.default   | --nypl-fontWeights-breadcrumbs-default   | regular  |
+|                 | breadcrumbs.lastChild | --nypl-fontWeights-breadcrumbs-lastChild | bold     |
+|                 |                       |                                          |          |
+| **Button**      | button.default        | --nypl-fontWeights-button-default        | regular  |
+|                 |                       |                                          |          |
+| **Heading**     | heading.display1      | --nypl-fontWeights-heading-display1      | light    |
+|                 | heading.heading1      | --nypl-fontWeights-heading-heading1      | light    |
+|                 | heading.heading2      | --nypl-fontWeights-heading-heading2      | light    |
+|                 | heading.heading3      | --nypl-fontWeights-heading-heading3      | regular  |
+|                 | heading.heading4      | --nypl-fontWeights-heading-heading4      | medium   |
+|                 | heading.heading5      | --nypl-fontWeights-heading-heading5      | semibold |
+|                 | heading.heading6      | --nypl-fontWeights-heading-heading6      | semibold |
+|                 | heading.heading7      | --nypl-fontWeights-heading-heading7      | bold     |
+|                 | heading.heading8      | --nypl-fontWeights-heading-heading8      | bold     |
+|                 |                       |                                          |          |
+| **Subtitle**    | subtitle.subtitle1    | --nypl-fontWeights-subtitle-subtitle1    | regular  |
+|                 | subtitle.subtitle2    | --nypl-fontWeights-subtitle-subtitle2    | regular  |
+|                 |                       |                                          |          |
+| **Overline**    | overline.overline1    | --nypl-fontWeights-overline-overline1    | semibold |
+|                 | overline.overline2    | --nypl-fontWeights-overline-overline2    | semibold |
+|                 |                       |                                          |          |
+| **Helper**      | helper.default        | --nypl-fontWeights-helper-default        | regular  |
+|                 |                       |                                          |          |
+| **Label**       | label.default         | --nypl-fontWeights-label-default         | medium   |
+|                 | label.secondary       | --nypl-fontWeights-label-secondary       | regular  |
+|                 |                       |                                          |          |
+| **Text**        | default               | --nypl-fontWeights-default               | regular  |
+|                 | body.body1            | --nypl-fontWeights-body-body1            | regular  |
+|                 | body.body2            | --nypl-fontWeights-body-body2            | regular  |
+|                 | caption               | --nypl-fontWeights-caption               | regular  |

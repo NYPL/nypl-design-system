@@ -185,7 +185,6 @@ export const FeedbackBox: ChakraComponent<
         isFormView && notificationText ? (
           <Notification
             isCentered
-            noMargin
             notificationContent={notificationText}
             showIcon={false}
             p="0"

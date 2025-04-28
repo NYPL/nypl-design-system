@@ -593,7 +593,7 @@ export const FallbackImage: Story = {
         consectetur est at lobortis.
       </CardContent>
       <CardActions>
-        <Link type="button" href="#">
+        <Link type="buttonPrimary" href="#">
           Reserve
         </Link>
         <Link href="#url" type="forwards">
@@ -632,7 +632,7 @@ export const HeadingAsLink: Story = {
         clicking with a mouse.
       </CardContent>
       <CardActions>
-        <Link href="#" type="button">
+        <Link href="#" type="buttonPrimary">
           Button
         </Link>
         <Link href="#" type="forwards">

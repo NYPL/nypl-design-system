@@ -5,7 +5,6 @@ import { customFocusColor } from "./global";
 
 interface NotificationBaseStyle extends StyleFunctionProps {
   isCentered: boolean;
-  noMargin: boolean;
   notificationHeading: string;
   notificationType: NotificationTypes;
   showIcon: boolean;
@@ -17,7 +16,6 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const baseStyle = definePartsStyle(
   ({
     isCentered,
-    noMargin,
     notificationHeading,
     notificationType,
   }: NotificationBaseStyle) => {
@@ -27,10 +25,8 @@ const baseStyle = definePartsStyle(
     }
     return {
       bg,
-      borderRadius: noMargin ? "0" : "4px",
       display: "flex",
       fontSize: "desktop.body.body2", // slightly smaller than the default size
-      m: noMargin ? "0" : "s",
       position: "relative",
       p: "inset.default",
       textAlign: isCentered ? "center" : null,

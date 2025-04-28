@@ -123,20 +123,6 @@ describe("Link", () => {
     expect(screen.getByRole("link")).toHaveAttribute("target", "_self");
   });
 
-  /** This deprecation warning is temporarily being removed, but it will be
-   * reinstated once teams are able to update their `Link`s appropriately. */
-  // it("logs a deprecated warning if 'button' `type` passed", () => {
-  //   const warn = jest.spyOn(console, "warn");
-  //   render(
-  //     <Link href="#test" type="button">
-  //       Test
-  //     </Link>
-  //   );
-  //   expect(warn).toHaveBeenCalledWith(
-  //     `NYPL Reservoir Link: The "button" type is deprecated. Instead, use either "buttonPrimary", "buttonSecondary", "buttonPill", "buttonCallout", "buttonNoBrand", or "buttonDisabled".`
-  //   );
-  // });
-
   it("renders the UI snapshot correctly", () => {
     const standard = renderer
       .create(
@@ -175,42 +161,42 @@ describe("Link", () => {
       .toJSON();
     const typeButtonPrimary = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" type="buttonPrimary">
           Button Primary
         </Link>
       )
       .toJSON();
     const typeButtonSecondary = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" type="buttonSecondary">
           Button Secondary
         </Link>
       )
       .toJSON();
     const typeButtonPill = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" type="buttonPill">
           Button Pill
         </Link>
       )
       .toJSON();
     const typeButtonCallout = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" type="buttonCallout">
           Button Callout
         </Link>
       )
       .toJSON();
     const typeButtonNoBrand = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" type="buttonNoBrand">
           Button No Brand
         </Link>
       )
       .toJSON();
     const typeButtonDisabled = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" type="buttonDisabled">
           Button Disabled
         </Link>
       )

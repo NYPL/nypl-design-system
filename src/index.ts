@@ -111,7 +111,6 @@ export {
 export type { FilterBarPopupProps } from "./components/FilterBarPopup/FilterBarPopup";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export type { FormProps } from "./components/Form/Form";
-export { default as Header } from "./components/Header/Header";
 export { default as Heading } from "./components/Heading/Heading";
 export type {
   HeadingLevels,
@@ -130,7 +129,6 @@ export type {
   IconColors,
   IconNames,
   IconRotations,
-  IconRotationTypes,
   IconSizes,
   IconTypes,
   IconProps,
@@ -233,7 +231,6 @@ export { default as SocialMediaLinks } from "./components/SocialMediaLinks/Socia
 export type { SocialMediaLinkDataProps } from "./components/SocialMediaLinks/SocialMediaLinks";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export type {
-  StatusBadgeLevels,
   StatusBadgeProps,
   StatusBadgeTypes,
 } from "./components/StatusBadge/StatusBadge";

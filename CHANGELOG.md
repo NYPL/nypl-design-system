@@ -22,6 +22,22 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the docs for the `Template` component.
 - Replaces the error thrown with a console.warn for the `Breadcrumbs`, `Heading`, and `Image` components.
 
+### Removals
+
+- Removes the NYPL Header component.
+- Removes the following deprecated props and typed and style values:
+  - `Button`'s `link` value in `buttonTypesArray`
+  - `Heading`'s "primary", "secondary", "tertiary", "callout" sizes
+  - `Heading`'s "one", "two", "three", "four", "five", "six" levels
+  - `Hero`'s "secondary", "secondaryBooksAndMore", "secondaryLocations", "secondaryResearch", "secondaryWhatsOn", "fiftyFifty" types
+  - `Icon`'s `IconRotationTypes` type
+  - `Link`'s `button` value in `linkTypesArray`
+  - `Notifications`' `noMargin` prop; this is now the default style
+  - `ProgressIndicator`'s `darkMode` prop
+  - `StatusBadge`'s "low", "medium", "high" values from `statusBadgeTypeArray`
+  - `StatusBadge`'s `level` prop
+  - `StyledList`'s "tag", "mini" values in `textSizesArray`
+
 ## Prerelease
 
 ## 3.6.1 (April 24, 2025)

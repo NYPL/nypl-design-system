@@ -99,11 +99,3 @@ export const RecommendedOptions: Story = {
     </>
   ),
 };
-export const DeprecatedOptions: Story = {
-  render: () => (
-    <>
-      <Text size="tag">Tag text (deprecated)</Text>
-      <Text size="mini">Mini text (deprecated)</Text>
-    </>
-  ),
-};
