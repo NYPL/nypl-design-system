@@ -25,29 +25,29 @@ import Banner from "../Banner/Banner";
 
 Landmarks are a useful tool for people who use screen readers to orient themselves to important areas of a web page, and help quickly navigate to these areas within a website or application.
 
-ARIA’s 8 landmark roles are specifically meant to describe page organization and structure, providing keyboard navigation to each larger section. Each of these roles has a corresponding native HTML element:
+ARIA’s eight landmark roles are specifically meant to describe page organization and structure, providing keyboard navigation to each larger section. Each of these roles has a corresponding native HTML element:
 
-| Landmark role | HTML element        |
-| ------------- | ------------------- |
-| banner        | document `<header>` |
-| complementary | `<aside>`           |
-| contentinfo   | document `<footer>` |
-| form          | `<form>`            |
-| main          | `<main>`            |
-| navigation    | `<nav>`             |
-| region        | `<section>`         |
-| search        | `<search>`          |
+| Landmark role | HTML element |
+| ------------- | ------------ |
+| banner        | `<header>`   |
+| complementary | `<aside>`    |
+| contentinfo   | `<footer>`   |
+| form          | `<form>`     |
+| main          | `<main>`     |
+| navigation    | `<nav>`      |
+| region        | `<section>`  |
+| search        | `<search>`   |
 
 Landmarks can be indicated with `role="landmark"` or by using the landmark's HTML element.
 
-**Some Reservoir components already define their own landmark roles, and some landmarks must be defined by the consuming app since they could wrap many components.**
+**Some Reservoir components already internally set their own landmark roles, but some landmarks must be set by the consuming app since they could wrap many components.**
 
 ### banner
 
 The `Header` is Reservoir's only component that falls under the `banner` category: an area that has global, rather than page-specific, information or actionable elements.
 For example, a website's logo and primary navigation would be expected child elements of a `banner` landmark. There should only be a single `banner` landmark per interface.
 
-Our `Header` contains other landmarks: `complementary` for temporary sitewide alerts, `navigation` for the site navigation. (The DS `Banner` is a `complementary` landmark).
+Our `Header` contains other landmarks: `complementary` for temporary sitewide alerts, `navigation` for the site navigation. The DS `Banner` is a `complementary` landmark, despite its title matching `banner`.
 
 ### complementary
 
