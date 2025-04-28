@@ -6,6 +6,8 @@ import SearchBar from "./SearchBar";
 import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
 import Heading from "../Heading/Heading";
 import { argsBooleanType } from "../../helpers/storybookUtils";
+import { Box } from "../..";
+import Checkbox from "../Checkbox/Checkbox";
 
 const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",
@@ -244,6 +246,28 @@ export const DisabledState: Story = {
       }}
     />
   ),
+};
+
+export const WithSearchElement: Story = {
+  render: () => (
+    <search>
+      <SearchBar
+        headingText={<Heading level="h4">Item search</Heading>}
+        id="with-search-element"
+        labelText="With search element example"
+        onSubmit={() => {}}
+        textInputProps={{
+          labelText: "Item Search",
+          name: "textInputName",
+          placeholder: "Item Search",
+        }}
+      />
+      <Box sx={{ marginTop: "s" }}>
+        <Checkbox id={"public-domain"} labelText={"Only public domain"} />
+      </Box>
+    </search>
+  ),
+  name: "Search Landmark Element Example",
 };
 
 export const WithCustomHeading: Story = {

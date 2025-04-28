@@ -1,0 +1,63 @@
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
+import * as SearchBarStories from "../SearchBar/SearchBar.stories";
+import Link from "../Link/Link";
+
+<Meta title="Accessibility Guide/ARIA Landmarks" />
+
+# ARIA Landmarks
+
+## Table of Contents
+
+- {<Link href="#ARIA-roles" target="_self">ARIA roles</Link>}
+- {<Link href="#ARIA-landmarks" target="_self">ARIA landmarks</Link>}
+- {<Link href="#banner" target="_self">banner</Link>}
+- {<Link href="#complementary" target="_self">complementary</Link>}
+- {<Link href="#contentinfo" target="_self">contentinfo</Link>}
+- {<Link href="#form" target="_self">form</Link>}
+- {<Link href="#main" target="_self">main</Link>}
+- {<Link href="#navigation" target="_self">navigationr</Link>}
+- {<Link href="#search" target="_self">search</Link>}
+
+## ARIA roles
+
+ARIA roles on a web page add meaning to content, particularly non-semantic HTML elements like `div` or `span`. For example, a `form` element does not need `role="form"`, but a `div` might need `role="main"` or `role="input"` to distinguish what it represents on the page.
+
+## ARIA landmarks
+
+Landmarks can be a useful tool for people who use screen readers to orient themselves to important areas of a web page, and help quickly navigate to these areas within a website or application.
+
+ARIA’s 8 landmark roles are specifically meant to describe page organization and structure, providing keyboard navigation to each larger section. Each of these roles has a corresponding native HTML element:
+
+| Landmark role | HTML element        |
+| ------------- | ------------------- |
+| banner        | document `<header>` |
+| complementary | `<aside>`           |
+| contentinfo   | document `<footer>` |
+| form          | `<form>`            |
+| main          | `<main>`            |
+| navigation    | `<nav>`             |
+| region        | `<section>`         |
+| search        | `<search>`          |
+
+### banner
+
+The DS `Header` is actually
+
+### complementary
+
+### form
+
+### main
+
+### navigation
+
+### region
+
+### search
+
+The `<search>` HTML element is a container for the search/filter functionality, and defines a search landmark.
+
+Inspect the below Story to see `<search>` in the DOM– notice that it wraps the `Heading`, the `Searchbar`, and the `Checkbox`:
+
+<Canvas of={SearchBarStories.WithSearchElement} />
