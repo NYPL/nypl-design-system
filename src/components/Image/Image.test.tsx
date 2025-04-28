@@ -93,10 +93,10 @@ describe("Image", () => {
     expect(screen.getByText("credit")).toBeInTheDocument();
   });
 
-  it("throws error when alt text is too long", () => {
-    expect(() =>
-      render(<Image src="test.png" alt={tooManyChars} />)
-    ).toThrowError(
+  it("logs an error when alt text is too long", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Image src="test.png" alt={tooManyChars} />);
+    expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Image: Alt text must be less than 300 characters."
     );
   });

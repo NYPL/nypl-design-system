@@ -59,8 +59,6 @@ export interface NotificationProps extends BasePropsWithoutAlignText {
   dismissible?: boolean;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
-  /** Optional prop to control the margin around the `Notification` component. */
-  noMargin?: boolean;
   /** Content to be rendered in a `NotificationContent` component. */
   notificationContent: string | JSX.Element;
 }
@@ -168,7 +166,6 @@ export const Notification: ChakraComponent<
       icon,
       id,
       isCentered = false,
-      noMargin = false,
       notificationContent,
       notificationHeading,
       notificationType = "standard",
@@ -180,7 +177,6 @@ export const Notification: ChakraComponent<
     const handleClose = () => setIsOpen(false);
     const styles = useMultiStyleConfig("Notification", {
       isCentered,
-      noMargin,
       notificationHeading,
       notificationType,
       showIcon,
@@ -211,7 +207,7 @@ export const Notification: ChakraComponent<
           color:
             colorMode === "dark"
               ? "dark.ui.success.primary"
-              : "section.research.secondary",
+              : "ui.success.primary",
           name: "speakerNotes",
           title: "Notification announcement icon",
         } as IconProps,
@@ -222,7 +218,7 @@ export const Notification: ChakraComponent<
         } as IconProps,
         warning: {
           color:
-            colorMode === "dark" ? "dark.ui.error.primary" : "brand.primary",
+            colorMode === "dark" ? "dark.ui.error.primary" : "ui.error.primary",
           name: "errorFilled",
           title: "Notification warning icon",
         } as IconProps,

@@ -27,7 +27,7 @@ const activeFocus = (darkMode = false) => ({
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
   userSelect: "none",
-  fontWeight: "text.default",
+  fontWeight: "body.default",
   marginBottom: "0",
   marginStart: "xs",
   width: "100%",
@@ -119,7 +119,7 @@ const labelLegendText = {
   marginBottom: "xs",
   width: "100%",
   span: {
-    fontWeight: "light",
+    fontWeight: "regular",
   },
   _dark: {
     color: "dark.ui.typography.heading",

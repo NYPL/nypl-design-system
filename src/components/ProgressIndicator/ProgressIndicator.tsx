@@ -26,8 +26,6 @@ export type ProgressIndicatorLabelPlacements =
   typeof progressIndicatorLabelPlacementsArray[number];
 
 interface BaseProgressIndicatorProps {
-  /** The darkMode prop is deprecated and should no longer be used. */
-  darkMode?: boolean;
   /** ID that other components can cross reference for accessibility purposes. */
   id: string;
   /** Whether the `ProgressIndicator` should be linear or circular. */
@@ -74,7 +72,6 @@ export const ProgressIndicator: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, ProgressIndicatorProps>((props, ref?) => {
     const {
-      darkMode = false,
       id,
       indicatorType = "linear",
       isIndeterminate = false,
@@ -87,7 +84,6 @@ export const ProgressIndicator: ChakraComponent<
     } = props;
     const finalLabelPlacement = labelPlacement ?? "bottom";
     const styles = useMultiStyleConfig("ProgressIndicator", {
-      darkMode,
       size,
       labelPlacement: finalLabelPlacement,
     });
@@ -140,7 +136,7 @@ export const ProgressIndicator: ChakraComponent<
       return (
         <>
           {showLabel && (
-            <Label id={`${id}-label`} htmlFor={id}>
+            <Label id={`${id}-label`} htmlFor={id} mb="xxs">
               {labelText}
             </Label>
           )}

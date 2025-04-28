@@ -1,6 +1,5 @@
+import { Box } from "@chakra-ui/react";
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./templateChangelogData";
 
 import * as TemplateStories from "./Template.stories";
 import {
@@ -13,7 +12,6 @@ import {
   TemplateBottom,
 } from "./Template";
 import Banner from "../Banner/Banner";
-import { Box } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
@@ -30,9 +28,11 @@ import templateSidebarLeft from "/template/templateSidebarLeft.png";
 import templateSidebarRight from "/template/templateSidebarRight.png";
 import templateTop from "/template/templateTop.png";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import ComponentVersionTable from "../../utils/components/ComponentVersionTable";
 import DocsWithImage from "../../utils/components/DocsWithImage";
 import { exampleWrapperStyles } from "../../utils/utils.ts";
+
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./templateChangelogData";
 
 <Meta of={TemplateStories} />
 

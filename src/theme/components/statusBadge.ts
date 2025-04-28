@@ -31,21 +31,6 @@ const baseStyle = defineStyle(({ labelFontSize }) => {
     },
   };
 });
-
-// Level variants
-const low = defineStyle({});
-const medium = defineStyle({
-  borderColor: "ui.status.primary",
-  _dark: {
-    borderColor: "ui.status.primary",
-  },
-});
-const high = defineStyle({
-  borderColor: "ui.error.primary",
-  _dark: {
-    borderColor: "dark.ui.error.primary",
-  },
-});
 // Type variants
 export const neutral = defineStyle({
   borderColor: "ui.gray.dark",
@@ -97,9 +82,6 @@ export const recommendation = defineStyle({
 const StatusBadge = defineStyleConfig({
   baseStyle,
   variants: {
-    low,
-    medium,
-    high,
     neutral,
     informative,
     positive,

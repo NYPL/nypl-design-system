@@ -130,6 +130,9 @@ const MultiSelect = defineMultiStyleConfig({
         ...multiSelectWidths[width],
       },
       ".chakra-accordion__panel": {
+        overflow: "unset",
+        maxHeight: "unset",
+        padding: "s",
         bgColor: "ui.white",
         _dark: {
           bgColor: "dark.ui.bg.page",

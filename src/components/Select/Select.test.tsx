@@ -86,6 +86,23 @@ describe("Select", () => {
     ).toHaveAttribute("aria-describedby", `${id}-helperText`);
   });
 
+  it("renders an autoComplete attribute", () => {
+    const newProps = {
+      ...baseProps,
+      labelText: "What's your country of residence?",
+    };
+    render(
+      <Select {...newProps} autoComplete="country-name">
+        {baseOptions}
+      </Select>
+    );
+
+    expect(screen.getByLabelText(/your country of residence/i)).toHaveAttribute(
+      "autoComplete",
+      "country-name"
+    );
+  });
+
   it("renders '(required)' text in the label", () => {
     const { rerender } = render(
       <Select {...baseProps} isRequired>
@@ -101,6 +118,22 @@ describe("Select", () => {
       </Select>
     );
     expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
+  });
+
+  it("renders a custom required label when 'requiredLabelText' prop is passed", () => {
+    const customRequiredLabelText = "This is a custom required label";
+    render(
+      <Select
+        {...baseProps}
+        isRequired
+        requiredLabelText={customRequiredLabelText}
+      >
+        {baseOptions}
+      </Select>
+    );
+    expect(
+      screen.getByText(customRequiredLabelText, { exact: false })
+    ).toBeInTheDocument();
   });
 
   it("renders required and aria-required attributes when 'showLabel' is false", () => {

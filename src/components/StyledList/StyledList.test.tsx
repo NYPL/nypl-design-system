@@ -110,12 +110,6 @@ describe("StyledList", () => {
     const defaultTextSize = renderer
       .create(<StyledList listItems={fishArray} textSize="caption" />)
       .toJSON();
-    const miniTextSize = renderer
-      .create(<StyledList listItems={fishArray} textSize="mini" />)
-      .toJSON();
-    const tagTextSize = renderer
-      .create(<StyledList listItems={fishArray} textSize="tag" />)
-      .toJSON();
     const withChakraProps = renderer
       .create(
         <StyledList
@@ -137,8 +131,6 @@ describe("StyledList", () => {
     expect(unorderedJSXArray).toMatchSnapshot();
     expect(captionTextSize).toMatchSnapshot();
     expect(defaultTextSize).toMatchSnapshot();
-    expect(miniTextSize).toMatchSnapshot();
-    expect(tagTextSize).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });

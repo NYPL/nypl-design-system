@@ -41,12 +41,6 @@ Use the DS [Heading](../?path=/docs/components-typography-styles-heading--docs)
 component to render a native HTML `<h>` tag. The `level` prop can be used to set
 the specific `<h>` tag that you require.
 
-### Updated Typographic Styles
-
-New typographic styles were introduced in June 2023 and the new styles are the
-supported options. The old typographic styles are still available, but they have
-been deprecated.
-
 ### Default Styles for Native Heading Elements
 
 The `level` prop can be used to set a native heading element (ex. `<h1>`,
@@ -92,51 +86,7 @@ Based on the June 2023 updates, the following values should be used for the
 </Box>
 }
 
-#### Deprecated Options
-
-The older `level` values and the associated styles are still available, but the
-values have been deprecated and they should only used to fulfill older design
-requirements.
-
-For the deprecated options, the `primary` size is the default style for the
-`<h1>` element. The `secondary` size is the default style for the `<h2>`
-element. The `tertiary` size is the default style for the `<h3>` element. And
-the `callout` size is the default style for the `<h4>` element. `<h5>` and
-`<h6>` do not have corresponding `size` styles.
-
-`one`, `two`, `three`, `four`, `five`, `six`
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="s"
->
-  <Heading color="ui.typography.heading" level="one">
-    Heading Level one (DEPRECATED)
-  </Heading>
-  <Heading color="ui.typography.heading" level="two" border="none">
-    Heading Level two (DEPRECATED)
-  </Heading>
-  <Heading color="ui.typography.heading" level="three">
-    Heading Level three (DEPRECATED)
-  </Heading>
-  <Heading color="ui.typography.heading" level="four">
-    Heading Level four (DEPRECATED)
-  </Heading>
-  <Heading color="ui.typography.heading" level="five">
-    Heading Level five (DEPRECATED)
-  </Heading>
-  <Heading color="ui.typography.heading" level="six">
-    Heading Level six (DEPRECATED)
-  </Heading>
-</Box>
-}
-
-#### Migrating from Old to New
+#### Migrating from v3 to v4
 
 When adopting the new `level` values, there is a direct relationship between the
 deprecated values and the new values. For example, from a DOM persepctive, `two`
@@ -175,7 +125,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 |                    | JS Token                   | CSS Token                                        | Value            |
 | ------------------ | :------------------------- | :----------------------------------------------- | :--------------- |
 | **Font Size**      | `desktop.heading.display1` | `var(--nypl-fontSizes-desktop-heading-display1)` | `4.25rem` (68px) |
-| **Font Weight**    | `heading.display1`         | `var(--nypl-fontWeights-heading-display1)`       | `200` (thin)     |
+| **Font Weight**    | `heading.display1`         | `var(--nypl-fontWeights-heading-display1)`       | `300` (light)    |
 | **Line Height**    | --                         | --                                               | `1.05`           |
 | **Letter Spacing** | --                         | --                                               | `1px`            |
 
@@ -210,7 +160,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 |                    | JS Token                   | CSS Token                                        | Value             |
 | ------------------ | :------------------------- | :----------------------------------------------- | :---------------- |
 | **Font Size**      | `desktop.heading.heading1` | `var(--nypl-fontSizes-desktop-heading-heading1)` | `3.375rem` (54px) |
-| **Font Weight**    | `heading.heading1`         | `var(--nypl-fontWeights-heading-heading1)`       | `200` (thin)      |
+| **Font Weight**    | `heading.heading1`         | `var(--nypl-fontWeights-heading-heading1)`       | `300` (light)     |
 | **Line Height**    | --                         | --                                               | `1.15`            |
 | **Letter Spacing** | --                         | --                                               | `1px`             |
 
@@ -245,7 +195,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 |                    | JS Token                   | CSS Token                                        | Value             |
 | ------------------ | :------------------------- | :----------------------------------------------- | :---------------- |
 | **Font Size**      | `desktop.heading.heading2` | `var(--nypl-fontSizes-desktop-heading-heading2)` | `2.625rem` (42px) |
-| **Font Weight**    | `heading.heading2`         | `var(--nypl-fontWeights-heading-heading2)`       | `200` (thin)      |
+| **Font Weight**    | `heading.heading2`         | `var(--nypl-fontWeights-heading-heading2)`       | `300` (light)     |
 | **Line Height**    | --                         | --                                               | `1.20`            |
 | **Letter Spacing** | --                         | --                                               | `1px`             |
 
@@ -274,12 +224,12 @@ the `size` prop can be used to apply a smaller or larger font size style.
 </List>
 }
 
-|                    | JS Token                   | CSS Token                                        | Value         |
-| ------------------ | :------------------------- | :----------------------------------------------- | :------------ |
-| **Font Size**      | `desktop.heading.heading3` | `var(--nypl-fontSizes-desktop-heading-heading3)` | `2rem` (32px) |
-| **Font Weight**    | `heading.heading3`         | `var(--nypl-fontWeights-heading-heading3)`       | `300` (light) |
-| **Line Height**    | --                         | --                                               | `1.25`        |
-| **Letter Spacing** | --                         | --                                               | `1px`         |
+|                    | JS Token                   | CSS Token                                        | Value           |
+| ------------------ | :------------------------- | :----------------------------------------------- | :-------------- |
+| **Font Size**      | `desktop.heading.heading3` | `var(--nypl-fontSizes-desktop-heading-heading3)` | `2rem` (32px)   |
+| **Font Weight**    | `heading.heading3`         | `var(--nypl-fontWeights-heading-heading3)`       | `400` (regular) |
+| **Line Height**    | --                         | --                                               | `1.25`          |
+| **Letter Spacing** | --                         | --                                               | `1px`           |
 
 {
 
@@ -309,7 +259,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 |                    | JS Token                   | CSS Token                                        | Value             |
 | ------------------ | :------------------------- | :----------------------------------------------- | :---------------- |
 | **Font Size**      | `desktop.heading.heading4` | `var(--nypl-fontSizes-desktop-heading-heading4)` | `1.625rem` (26px) |
-| **Font Weight**    | `heading.heading4`         | `var(--nypl-fontWeights-heading-heading4)`       | `400` (regular)   |
+| **Font Weight**    | `heading.heading4`         | `var(--nypl-fontWeights-heading-heading4)`       | `500` (medium)    |
 | **Line Height**    | --                         | --                                               | `1.30`            |
 | **Letter Spacing** | --                         | --                                               | `0`               |
 
@@ -341,7 +291,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 |                    | JS Token                   | CSS Token                                        | Value             |
 | ------------------ | :------------------------- | :----------------------------------------------- | :---------------- |
 | **Font Size**      | `desktop.heading.heading5` | `var(--nypl-fontSizes-desktop-heading-heading5)` | `1.375rem` (22px) |
-| **Font Weight**    | `heading.heading5`         | `var(--nypl-fontWeights-heading-heading5)`       | `500` (medium)    |
+| **Font Weight**    | `heading.heading5`         | `var(--nypl-fontWeights-heading-heading5)`       | `600` (semibold)  |
 | **Line Height**    | --                         | --                                               | `1.35`            |
 | **Letter Spacing** | --                         | --                                               | `0`               |
 
@@ -373,7 +323,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 |                    | JS Token                   | CSS Token                                        | Value            |
 | ------------------ | :------------------------- | :----------------------------------------------- | :--------------- |
 | **Font Size**      | `desktop.heading.heading6` | `var(--nypl-fontSizes-desktop-heading-heading6)` | `1.25rem` (20px) |
-| **Font Weight**    | `heading.heading6`         | `var(--nypl-fontWeights-heading-heading6)`       | `500` (medium)   |
+| **Font Weight**    | `heading.heading6`         | `var(--nypl-fontWeights-heading-heading6)`       | `600` (semibold) |
 | **Line Height**    | --                         | --                                               | `1.40`           |
 | **Letter Spacing** | --                         | --                                               | `0`              |
 
@@ -405,7 +355,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 |                    | JS Token                   | CSS Token                                        | Value             |
 | ------------------ | :------------------------- | :----------------------------------------------- | :---------------- |
 | **Font Size**      | `desktop.heading.heading7` | `var(--nypl-fontSizes-desktop-heading-heading7)` | `1.125rem` (18px) |
-| **Font Weight**    | `heading.heading7`         | `var(--nypl-fontWeights-heading-heading7)`       | `500` (medium)    |
+| **Font Weight**    | `heading.heading7`         | `var(--nypl-fontWeights-heading-heading7)`       | `700` (bold)      |
 | **Line Height**    | --                         | --                                               | `1.45`            |
 | **Letter Spacing** | --                         | --                                               | `0`               |
 
@@ -434,12 +384,12 @@ the `size` prop can be used to apply a smaller or larger font size style.
 </List>
 }
 
-|                    | JS Token                   | CSS Token                                        | Value          |
-| ------------------ | :------------------------- | :----------------------------------------------- | :------------- |
-| **Font Size**      | `desktop.heading.heading8` | `var(--nypl-fontSizes-desktop-heading-heading8)` | `1rem` (16px)  |
-| **Font Weight**    | `heading.heading8`         | `var(--nypl-fontWeights-heading-heading8)`       | `500` (medium) |
-| **Line Height**    | --                         | --                                               | `1.50`         |
-| **Letter Spacing** | --                         | --                                               | `0`            |
+|                    | JS Token                   | CSS Token                                        | Value         |
+| ------------------ | :------------------------- | :----------------------------------------------- | :------------ |
+| **Font Size**      | `desktop.heading.heading8` | `var(--nypl-fontSizes-desktop-heading-heading8)` | `1rem` (16px) |
+| **Font Weight**    | `heading.heading8`         | `var(--nypl-fontWeights-heading-heading8)`       | `700` (bold)  |
+| **Line Height**    | --                         | --                                               | `1.50`        |
+| **Letter Spacing** | --                         | --                                               | `0`           |
 
 {
 
@@ -456,120 +406,6 @@ the `size` prop can be used to apply a smaller or larger font size style.
 </Box>
 }
 
-#### Deprecated Options
-
-The older `size` values and the associated styles are still available, but the
-values should be consdidered deprecated and they should only used to fulfill
-older design requirements.
-
-##### Heading Primary (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token          | CSS Token                                 | Value     |
-| --------------- | :---------------- | :---------------------------------------- | :-------- |
-| **Font Size**   | `heading.primary` | `var(--nypl-fontSizes-heading-primary)`   | `2.25rem` |
-| **Font Weight** | `heading.primary` | `var(--nypl-fontWeights-heading-primary)` | `300`     |
-| **Line Height** | --                | --                                        | `1.1`     |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Heading color="ui.typography.heading" level="one" size="primary" m="0">
-    Heading Size primary (DEPRECATED)
-  </Heading>
-</Box>
-}
-
-##### Heading Secondary (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token            | CSS Token                                   | Value     |
-| --------------- | :------------------ | :------------------------------------------ | :-------- |
-| **Font Size**   | `heading.secondary` | `var(--nypl-fontSizes-heading-secondary)`   | `1.75rem` |
-| **Font Weight** | `heading.secondary` | `var(--nypl-fontWeights-heading-secondary)` | `500`     |
-| **Line Height** | --                  | --                                          | `1.25`    |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Heading color="ui.typography.heading" level="one" size="secondary" m="0">
-    Heading Size secondary (DEPRECATED)
-  </Heading>
-</Box>
-}
-
-##### Heading Tertiary (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token           | CSS Token                                  | Value      |
-| --------------- | :----------------- | :----------------------------------------- | :--------- |
-| **Font Size**   | `heading.tertiary` | `var(--nypl-fontSizes-heading-tertiary)`   | `1.375rem` |
-| **Font Weight** | `heading.tertiary` | `var(--nypl-fontWeights-heading-tertiary)` | `500`      |
-| **Line Height** | --                 | --                                         | `1.25`     |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Heading color="ui.typography.heading" level="one" size="tertiary" m="0">
-    Heading Size tertiary (DEPRECATED)
-  </Heading>
-</Box>
-}
-
-##### Heading Callout (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token          | CSS Token                                 | Value     |
-| --------------- | :---------------- | :---------------------------------------- | :-------- |
-| **Font Size**   | `heading.callout` | `var(--nypl-fontSizes-heading-callout)`   | `1.25rem` |
-| **Font Weight** | `heading.callout` | `var(--nypl-fontWeights-heading-callout)` | `500`     |
-| **Line Height** | --                | --                                        | `1.25`    |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Heading color="ui.typography.heading" level="one" size="callout" m="0">
-    Heading Size callout (DEPRECATED)
-  </Heading>
-</Box>
-}
-
 ## Text Component
 
 Use the DS [Text](../?path=/docs/components-typography-styles-text--docs)
@@ -578,12 +414,6 @@ component to render a standard HTML `<p>` tag.
 The `Text` component is used for body copy and captions. However, new
 typographic styles were introduced in June 2023 and the `Text` component can now
 be used to render `subtitle` and `overline` text elements.
-
-### Updated Typographic Styles
-
-New typographic styles were introduced in June 2023, adding `subtitle1`,
-`subtitle2`, `overline1` and `overline2`. As part of that update, the `tag` and
-`mini` styles have been deprecated.
 
 #### Recommended Options
 
@@ -620,26 +450,6 @@ New typographic styles were introduced in June 2023, adding `subtitle1`,
 </Box>
 }
 
-#### Deprecated Options
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="s"
->
-  <Text color="ui.typography.body" fontFamily="body" fontSize=".75rem">
-    Tag (DEPRECATED)
-  </Text>
-  <Text color="ui.typography.body" fontFamily="body" fontSize=".625rem">
-    Mini (DEPRECATED)
-  </Text>
-</Box>
-}
-
 ### Size Options
 
 The `size` prop can be used to render a specific style from the DS default text styles.
@@ -656,11 +466,11 @@ The `size` prop can be used to render a specific style from the DS default text 
 </List>
 }
 
-|                 | JS Token             | CSS Token                                  | Value         |
-| --------------- | :------------------- | :----------------------------------------- | :------------ |
-| **Font Size**   | `desktop.body.body1` | `var(--nypl-fontSizes-desktop-body-body1)` | `1rem` (16px) |
-| **Font Weight** | `body`               | `var(--nypl-fontWeights-body)`             | `300` (light) |
-| **Line Height** | --                   | --                                         | `1.5`         |
+|                 | JS Token             | CSS Token                                  | Value           |
+| --------------- | :------------------- | :----------------------------------------- | :-------------- |
+| **Font Size**   | `desktop.body.body1` | `var(--nypl-fontSizes-desktop-body-body1)` | `1rem` (16px)   |
+| **Font Weight** | `body`               | `var(--nypl-fontWeights-body)`             | `400` (regular) |
+| **Line Height** | --                   | --                                         | `1.5`           |
 
 {
 
@@ -694,7 +504,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 |                 | JS Token             | CSS Token                                  | Value             |
 | --------------- | :------------------- | :----------------------------------------- | :---------------- |
 | **Font Size**   | `desktop.body.body2` | `var(--nypl-fontSizes-desktop-body-body2)` | `0.875rem` (14px) |
-| **Font Weight** | `body2`              | `var(--nypl-fontWeights-body2)`            | `300` (light)     |
+| **Font Weight** | `body2`              | `var(--nypl-fontWeights-body2)`            | `400` (regular)   |
 | **Line Height** | --                   | --                                         | `1.5`             |
 
 {
@@ -958,62 +768,6 @@ The `size` prop can be used to render a specific style from the DS default text 
     size="heading5"
     text="Lorem ipsum dolor"
   />
-</Box>
-}
-
-#### Deprecated Options
-
-##### Tag (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token   | CSS Token                          | Value            |
-| --------------- | :--------- | :--------------------------------- | :--------------- |
-| **Font Size**   | `text.tag` | `var(--nypl-fontSizes-text-tag)`   | `0.75rem` (12px) |
-| **Font Weight** | `text.tag` | `var(--nypl-fontWeights-text-tag)` | `400` (regular)  |
-| **Line Height** | --         | --                                 | `1.5`            |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Text color="ui.typography.body" size="tag" mt="0">
-    Tag text (DEPRECATED)
-  </Text>
-</Box>
-}
-
-##### Mini (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token    | CSS Token                           | Value             |
-| --------------- | :---------- | :---------------------------------- | :---------------- |
-| **Font Size**   | `text.mini` | `var(--nypl-fontSizes-text-mini)`   | `0.625rem` (10px) |
-| **Font Weight** | `text.mini` | `var(--nypl-fontWeights-text-mini)` | `400` (regular)   |
-| **Line Height** | --          | --                                  | `1.5`             |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Text color="ui.typography.body" size="mini" m="0">
-    Mini text (DEPRECATED)
-  </Text>
 </Box>
 }
 
@@ -1328,7 +1082,7 @@ recommended to use the styles sparingly.
       fontFamily: "var(--nypl-fonts-body)",
     }}
   >
-    Light / 300 (default)
+    Light / 300 (reserved for headings only)
   </p>
   <p
     style={{
@@ -1337,7 +1091,7 @@ recommended to use the styles sparingly.
       fontFamily: "var(--nypl-fonts-body)",
     }}
   >
-    Regular / 400
+    Regular / 400 (default)
   </p>
   <p
     style={{
@@ -1394,14 +1148,19 @@ Reserved for use only in the Heading component.
   p="s"
 >
   <Heading level="h2" border="0">
-    Lorem Ipsum
+    <>
+      Lorem{" "}
+      <Box as="span" fontWeight="thin">
+        Ipsum
+      </Box>
+    </>
   </Heading>
 </Box>
 }
 
 ### Light
 
-The default font weight for the Reservoir Design System typography.
+Reserved for use only in the Heading component.
 
 {
 
@@ -1420,21 +1179,12 @@ The default font weight for the Reservoir Design System typography.
       </Box>
     </>
   </Heading>
-  <p
-    style={{
-      fontSize: "var(--nypl-fontSizes-0)",
-      fontWeight: "var(--nypl-fontWeights-light)",
-      fontFamily: "var(--nypl-fonts-body)",
-    }}
-  >
-    Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-  </p>
 </Box>
 }
 
 ### Regular
 
-Used as default weight for text sizes smaller than 14px (Tag and Button Small).
+The default font weight for the Reservoir Design System typography.
 
 {
 
@@ -1453,19 +1203,6 @@ Used as default weight for text sizes smaller than 14px (Tag and Button Small).
       </Box>
     </>
   </Heading>
-  <p
-    style={{
-      fontSize: "var(--nypl-fontSizes-0)",
-      fontWeight: "var(--nypl-fontWeights-light)",
-      fontFamily: "var(--nypl-fonts-body)",
-    }}
-  >
-    Morbi leo risus, porta ac{" "}
-    <Box as="span" fontWeight="regular">
-      consectetur
-    </Box>{" "}
-    ac, vestibulum at eros.
-  </p>
   <p
     style={{
       fontSize: "var(--nypl-fontSizes-0)",
@@ -1503,7 +1240,7 @@ using a heavier weight.
   <p
     style={{
       fontSize: "var(--nypl-fontSizes-0)",
-      fontWeight: "var(--nypl-fontWeights-light)",
+      fontWeight: "var(--nypl-fontWeights-regular)",
       fontFamily: "var(--nypl-fonts-body)",
     }}
   >
@@ -1573,7 +1310,7 @@ Add hierarchy to selective words to call attention to.
   <p
     style={{
       fontSize: "var(--nypl-fontSizes-0)",
-      fontWeight: "var(--nypl-fontWeights-light)",
+      fontWeight: "var(--nypl-fontWeights-regular)",
       fontFamily: "var(--nypl-fonts-body)",
     }}
   >
@@ -1611,7 +1348,7 @@ Add hierarchy to selective words to call attention to.
   <p
     style={{
       fontSize: "var(--nypl-fontSizes-0)",
-      fontWeight: "var(--nypl-fontWeights-light)",
+      fontWeight: "var(--nypl-fontWeights-regular)",
       fontFamily: "var(--nypl-fonts-body)",
     }}
   >
@@ -1625,7 +1362,7 @@ Add hierarchy to selective words to call attention to.
     style={{
       fontSize: "var(--nypl-fontSizes-0)",
       fontStyle: "italic",
-      fontWeight: "var(--nypl-fontWeights-light)",
+      fontWeight: "var(--nypl-fontWeights-regular)",
       fontFamily: "var(--nypl-fonts-body)",
     }}
   >
@@ -1659,7 +1396,7 @@ of this file for link styles.
   <p
     style={{
       fontSize: "var(--nypl-fontSizes-0)",
-      fontWeight: "var(--nypl-fontWeights-light)",
+      fontWeight: "var(--nypl-fontWeights-regular)",
       fontFamily: "var(--nypl-fonts-body)",
     }}
   >
@@ -1763,7 +1500,7 @@ Recommendation: maximum of 15 words (approx. 75 character)
   p="s"
 >
   <Heading color="ui.typography.heading" level="h2" border="0">
-    This is an Example to Show What Fourteen Words Looks Like in a Title
+    This is an example to show what fourteen words looks like in a title
   </Heading>
 </Box>
 }

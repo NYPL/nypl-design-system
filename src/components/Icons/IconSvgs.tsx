@@ -57,6 +57,8 @@ import mapsPlace from "../../../icons/svg/maps-place.svg";
 import minus from "../../../icons/svg/minus.svg";
 import moonCrescent from "../../../icons/svg/moon-crescent.svg";
 import navigationMoreVert from "../../../icons/svg/navigation-more-vert.svg";
+import navigationSubdirectoryArrowLeft from "../../../icons/svg/navigation-subdirectory-arrow-left.svg";
+import navigationSubdirectoryArrowRight from "../../../icons/svg/navigation-subdirectory-arrow-right.svg";
 import plus from "../../../icons/svg/plus.svg";
 import search from "../../../icons/svg/search.svg";
 import socialFacebook from "../../../icons/svg/social-facebook.svg";
@@ -137,6 +139,8 @@ export default {
   minus,
   moonCrescent,
   navigationMoreVert,
+  navigationSubdirectoryArrowLeft,
+  navigationSubdirectoryArrowRight,
   plus,
   search,
   socialFacebook,

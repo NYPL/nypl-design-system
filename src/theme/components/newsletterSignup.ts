@@ -22,7 +22,7 @@ const NewsletterSignup = defineMultiStyleConfig({
         base: highlightColor,
         md: "ui.border.default",
       },
-      borderWidth: { base: ".75rem 0px 0px 0px", md: "0px 0px 0px .75rem" },
+      borderWidth: { base: ".5rem 0px 0px 0px", md: "0px 0px 0px .5rem" },
       gap: "xs",
       justifyContent: "center",
       width: { base: "100%", md: "50%" }, // It's a two-column layout >md

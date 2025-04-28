@@ -9,27 +9,8 @@ import React, { forwardRef } from "react";
 
 import Image, { ComponentImageProps } from "../Image/Image";
 
-export const heroTypesArray = [
-  "primary",
-  "secondary",
-  "secondaryBooksAndMore",
-  "secondaryLocations",
-  "secondaryResearch",
-  "secondaryWhatsOn",
-  "tertiary",
-  "campaign",
-  "fiftyFifty",
-] as const;
+export const heroTypesArray = ["primary", "tertiary", "campaign"] as const;
 export type HeroTypes = typeof heroTypesArray[number];
-// Only used for internal purposes.
-export const heroSecondaryTypes = [
-  "secondary",
-  "secondaryBooksAndMore",
-  "secondaryLocations",
-  "secondaryResearch",
-  "secondaryWhatsOn",
-];
-
 export interface HeroImageProps
   extends Pick<
     ComponentImageProps,
@@ -62,10 +43,10 @@ export interface HeroProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Object used to create and render the `Image` component. You can pass `component`
-   * (with its own internal props, which will override) or `src`, `alt`, `id`, `fallBackSrc`, and `onError`.
-   * If `imageProps.alt` is left blank, a warning will be logged to the console and
-   * will cause accessibility issues. For `imageProps.src`, it will only work for
-   * the "secondary", "fiftyFifty" and "campaign" `Hero` types. */
+   * (with its own internal props, which will override) or `src`, `alt`, `id`,
+   * `fallBackSrc`, and `onError`. If `imageProps.alt` is left blank, a warning
+   * will be logged to the console and will cause accessibility issues. For
+   * `imageProps.src`, it will only work for the "campaign" `Hero` type. */
   imageProps?: HeroImageProps;
   /** Optional boolean used to toggle the default text color from light to dark.
    * Set isDarkText to `true` if the backgroundColor is set to a light color. */
@@ -154,12 +135,6 @@ export const Hero: ChakraComponent<
           );
         }
       }
-      if (heroSecondaryTypes.includes(heroType) && backgroundImageSrc) {
-        console.warn(
-          "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
-            "but the `'secondary'` `heroType` variant will not use it."
-        );
-      }
       if (heroType === "tertiary" && (backgroundImageSrc || imageProps.src)) {
         console.warn(
           "NYPL Reservoir Hero: The `'tertiary'` `heroType` variant hero " +
@@ -174,12 +149,6 @@ export const Hero: ChakraComponent<
           "NYPL Reservoir Hero: It is recommended to use either the " +
             "`backdropBackgroundColor`, `backgroundImageSrc`, or " +
             "`imageProps.src` prop for the `'campaign'` `heroType` variant."
-        );
-      }
-      if (heroType === "fiftyFifty" && backgroundImageSrc) {
-        console.warn(
-          "NYPL Reservoir Hero: The `backgroundImageSrc` prop has been passed, " +
-            "but the `'fiftyFifty'` `heroType` variant hero will not use it."
         );
       }
       if (heroType !== "campaign" && backdropBackgroundColor) {
@@ -197,18 +166,16 @@ export const Hero: ChakraComponent<
 
       /** The _dark object in the theme file was overriding custom background
        * colors. To overcome this issue, the background color styles were moved
-       * into the component file and the related styles for all variants, other
-       * than the "secondary" variant, were removed from the theme file. */
+       * into the component file and the related styles for all variants,
+       * were removed from the theme file. */
       const allDefaultBackgroundColors = {
         primary: useColorModeValue("ui.black", "dark.ui.bg.default"),
-        secondary: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
         tertiary: useColorModeValue("ui.gray.x-dark", "dark.ui.bg.default"),
         campaign: useColorModeValue("ui.black", "dark.ui.bg.default"),
         campaignBackdrop: useColorModeValue(
           "dark.ui.bg.active",
           "dark.ui.bg.active"
         ),
-        fiftyFifty: useColorModeValue("ui.bg.default", "dark.ui.bg.default"),
       };
 
       const defaultBackgroundColor = allDefaultBackgroundColors[heroType];
@@ -219,8 +186,6 @@ export const Hero: ChakraComponent<
               backgroundImage: `/**/url("${backgroundImageSrc}")`,
             }
           : {};
-      } else if (heroType === "secondary") {
-        backgroundImageStyle = { bgColor: defaultBackgroundColor };
       } else if (heroType === "campaign") {
         /**
          * For better control of the background image in the "campaign" variant,
@@ -268,7 +233,7 @@ export const Hero: ChakraComponent<
                 bgColor: allDefaultBackgroundColors["campaignBackdrop"],
               },
             };
-      } else if (heroType === "tertiary" || heroType === "fiftyFifty") {
+      } else if (heroType === "tertiary") {
         const tertiaryBgColor = backgroundColor
           ? backgroundColor
           : defaultBackgroundColor;
@@ -277,24 +242,13 @@ export const Hero: ChakraComponent<
           : { bgColor: tertiaryBgColor };
       }
 
-      if (!heroSecondaryTypes.includes(heroType)) {
-        contentBoxStyling = {
-          ...(foregroundColor && { color: foregroundColor }),
-          ...(backgroundColor
-            ? { backgroundColor }
-            : { bgColor: defaultBackgroundColor }),
-        };
-      } else if (
-        foregroundColor ||
-        backgroundColor ||
-        backdropBackgroundColor
-      ) {
-        console.warn(
-          "NYPL Reservoir Hero: The `foregroundColor`, `backgroundColor`, or " +
-            "`backdropBackgroundColor` props have been passed, but the " +
-            "`'secondary'` `heroType` variant will not use them."
-        );
-      }
+      contentBoxStyling = {
+        ...(foregroundColor && { color: foregroundColor }),
+        ...(backgroundColor
+          ? { backgroundColor }
+          : { bgColor: defaultBackgroundColor }),
+      };
+
       if (foregroundColor && isDarkText) {
         console.warn(
           "NYPL Reservoir Hero: The `foregroundColor` and `isDarkText` props " +
@@ -327,12 +281,6 @@ export const Hero: ChakraComponent<
               <Box
                 __css={{
                   ...styles.imgWrapper,
-                }}
-                style={{
-                  backgroundImage:
-                    heroType === "fiftyFifty"
-                      ? `/**/url("${imageProps.src}")`
-                      : undefined,
                 }}
               >
                 {imageToRender}

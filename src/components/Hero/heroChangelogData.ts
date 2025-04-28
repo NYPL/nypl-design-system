@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Removes deprecated `secondary` and `fiftyFifty` variants.",
+      "Updates the grid layout for the `primary` variant.",
+    ],
+  },
+  {
     date: "2025-02-13",
     version: "3.5.4",
     type: "Update",

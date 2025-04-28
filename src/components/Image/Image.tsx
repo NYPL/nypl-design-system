@@ -202,7 +202,7 @@ export const Image: ChakraComponent<
     let srcProp = isLazy ? {} : { src };
 
     if (alt && alt.length > 300) {
-      throw new Error(
+      console.warn(
         "NYPL Reservoir Image: Alt text must be less than 300 characters."
       );
     }

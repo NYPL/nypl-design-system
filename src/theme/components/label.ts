@@ -12,7 +12,7 @@ const Label = defineStyleConfig({
     flex: props.isInlined ? "1" : null,
     whiteSpace: props.isInlined ? "nowrap" : null,
     span: {
-      fontWeight: "light",
+      fontWeight: "regular",
     },
   })),
 });

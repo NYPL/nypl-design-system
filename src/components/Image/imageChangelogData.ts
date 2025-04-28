@@ -13,8 +13,18 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
+    affects: ["Functionality"],
+    notes: ["Replaces the error thrown with a console.warn."],
+  },
+  {
+    date: "2025-03-20",
+    version: "3.5.5",
+    type: "Update",
     affects: ["Styles", "Functionality"],
-    notes: ["Adds 'fourByOne' and 'twoByThree' aspect ratios."],
+    notes: [
+      "Adds 'fourByOne' and 'twoByThree' aspect ratios.",
+      "Replaces the error thrown with a console.warn.",
+    ],
   },
   {
     date: "2025-01-16",

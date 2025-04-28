@@ -21,25 +21,8 @@ export const headingSizesArray = [
   "heading6",
   "heading7",
   "heading8",
-  "primary",
-  "secondary",
-  "tertiary",
-  "callout",
 ] as const;
-export const headingLevelsArray = [
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-] as const;
+export const headingLevelsArray = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
 
 export type HeadingSizes = typeof headingSizesArray[number];
 export type HeadingLevels = typeof headingLevelsArray[number];
@@ -138,14 +121,14 @@ export const Heading: ChakraComponent<
       const asHeading: any = finalLevel;
 
       if (!props.children && !text) {
-        throw new Error(
+        console.warn(
           "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
         );
       }
 
       if (React.Children.count(props.children) > 1) {
         // Catching the error because React's error isn't as helpful.
-        throw new Error(
+        console.warn(
           "NYPL Reservoir Heading: Only pass one child into Heading."
         );
       }

@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-04-24",
+    version: "3.6.1",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updates text color to `ui.typography.inverse.heading` on light mode.",
+    ],
+  },
+  {
     date: "2024-09-05",
     version: "3.3.1",
     type: "Update",

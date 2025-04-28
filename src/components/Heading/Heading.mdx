@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as HeadingStories from "./Heading.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./headingChangelogData";
 
 <Meta of={HeadingStories} />
 
-# Heading
+<ComponentDocsHeader
+  category="Typography & styles component"
+  componentName="Heading"
+  summary="Component that renders a standard HTML heading element with DS styles."
+  versionAdded="0.0.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `3.5.3`    |
+<Canvas of={HeadingStories.WithControls} />
 
 ## Table of Contents
 
@@ -36,8 +40,6 @@ text can be passed in through a `text` prop or as a child. Default styles for
 semantic elements can be overwritten using the `size` prop.
 
 ## Component Props
-
-<Canvas of={HeadingStories.WithControls} />
 
 <ArgTypes of={HeadingStories.WithControls} />
 
@@ -80,12 +82,6 @@ Resources:
 - [A11y Project Accessible heading structure](https://www.a11yproject.com/posts/how-to-accessible-heading-structure/)
 - [Chakra UI Heading](https://chakra-ui.com/docs/components/typography/heading)
 
-## Updated Typographic Styles
-
-New typographic styles were introduced in June 2023 and the new styles are the
-supported options. The old typographic styles are still available, but they have
-been deprecated.
-
 ## Native Heading Elements
 
 The `level` prop can be used to set a native heading element (ex. `<h1>`,
@@ -103,36 +99,11 @@ directly with the values of the `size` prop. For example, the `heading1` size is
 the default style for the `<h1>` element. The `heading2` size is the default
 style for the `<h2>` element. And so on.
 
-Based on the June 2023 updates, the following values should be used for the
-`level` prop.
+The following values should be used for the `level` prop.
 
 `h1`, `h2`, `h3`, `h4`, `h5`, `h6`
 
 <Canvas of={HeadingStories.DefaultStyles} />
-
-### Deprecated Options
-
-The older `level` values and the associated styles are still available, but the
-values have been deprecated and they should only used to fulfill older design
-requirements.
-
-For the deprecated options, the `primary` size is the default style for the
-`<h1>` element. The `secondary` size is the default style for the `<h2>`
-element. The `tertiary` size is the default style for the `<h3>` element. And
-the `callout` size is the default style for the `<h4>` element. `<h5>` and
-`<h6>` do not have corresponding `size` styles.
-
-`one`, `two`, `three`, `four`, `five`, `six`
-
-<Canvas of={HeadingStories.DefaultStylesDeprecated} />
-
-### Migrating from Old to New
-
-When adopting the new `level` values, there is a direct relationship between the
-deprecated values and the new values. For example, from a DOM persepctive, `two`
-should be replaced with `h2`, as they will both render the `<h2>` element.
-Please note that migrating to the new `level` values will change the styles for
-the headings. Make sure to use the `size` prop to make adjustments as needed.
 
 ## Size Styles
 
@@ -146,8 +117,7 @@ elements.
   language="jsx"
 />
 
-Based on the June 2023 updates, the following values should be used for the
-`size` prop.
+The following values should be used for the `size` prop.
 
 `display1`, `heading1`, `heading2`, `heading3`, `heading4`, `heading5`,
 `heading6`, `heading7`, `heading8`
@@ -160,19 +130,6 @@ Guide](../?path=/docs/style-guide-typography--docs#size-options).
 each `Heading` component and the `size` prop is used to adjust the text size.
 
 <Canvas of={HeadingStories.SizeStyles} />
-
-### Deprecated Options
-
-The older `size` values and the associated styles are still available, but the
-values have been deprecated and they should only used to fulfill older design
-requirements.
-
-`primary`, `secondary`, `tertiary`, `callout`
-
-**Note:** In the examples below, the `level` prop is set to `level="one"` for
-each `Heading` component and the `size` prop is used to adjust the text size.
-
-<Canvas of={HeadingStories.SizeStylesDeprecated} />
 
 ## Overline and Subtitle
 

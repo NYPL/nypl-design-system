@@ -20,21 +20,97 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `viewport` preview options in Storybook to align with the Reservoir breakpoints.
 - Updates the Storybook font styles.
 - Updates the docs for the `Template` component.
+- Replaces the error thrown with a console.warn for the `Breadcrumbs`, `Heading`, and `Image` components.
+
+### Removals
+
+- Removes the NYPL Header component.
+- Removes the following deprecated props and typed and style values:
+  - `Button`'s `link` value in `buttonTypesArray`
+  - `Heading`'s "primary", "secondary", "tertiary", "callout" sizes
+  - `Heading`'s "one", "two", "three", "four", "five", "six" levels
+  - `Hero`'s "secondary", "secondaryBooksAndMore", "secondaryLocations", "secondaryResearch", "secondaryWhatsOn", "fiftyFifty" types
+  - `Icon`'s `IconRotationTypes` type
+  - `Link`'s `button` value in `linkTypesArray`
+  - `Notifications`' `noMargin` prop; this is now the default style
+  - `ProgressIndicator`'s `darkMode` prop
+  - `StatusBadge`'s "low", "medium", "high" values from `statusBadgeTypeArray`
+  - `StatusBadge`'s `level` prop
+  - `StyledList`'s "tag", "mini" values in `textSizesArray`
 
 ## Prerelease
+
+## 3.6.1 (April 24, 2025)
+
+### Updates
+
+- Updates `Notification` variant font colors to sync with VDL.
+- Updates `Tooltip` text color.
+- Updates the `SearchBar` component to remove the text input right border.
+- Updates the `SkeletonLoader` component to make the button placeholder look more like a button.
+- Updates the `Tabs` component to sync the border color with the VDL.
+- Updates the `SubNav` component to add dark mode color styles.
+- Updates the `Heading` component to increase the font weight for the `size` styles.
+- Updates the Storybook docs for the `Tooltip` component to clarify how a tooltip should be used.
+- Updates the Storybook docs for the `Tabs` component to improve details about the mobile carousel and horizontal scrolling.
+
+### Fixes
+
+- Fixes the `MultiSelect` component so that the `itemCount` prop displays even when `0` is passed as a value.
+
+## 3.6.0 (April 10, 2025)
+
+### Adds
+
+- Adds the `"navigationSubdirectoryArrowLeft"` and `"navigationSubdirectoryArrowRight"` options to the `Icon` component.
+- Adds the `autoComplete` prop to the `Select` element.
+- Adds `requiredLabelText` prop to allow customization of the '(required)' text in the `Select` component.
+
+### Updates
+
+- Updates the `Notification` component's styles to sync with its VDL.
+- Updates the `ProgressIndicator` component's label margin to be consistent with VDL.
+- Updates the `Button`'s height for each size option to align with VDL.
+- Updates the `"dl"` variant of the `List` component to use `2rem` for column spacing and to set the width of the `term` columnm to be a full `"250px"` for `tablet` and `desktop` viewports.
+- Updates the DS default font weight from `light` (300) to `regular` (400).
+- Updates the `Typography` Style Guide and the `Design Tokens` Development Guide to use `regular` (400) as the default font weight.
+- Updates all `Form` components to set the font weight for the `(required)` label to `"regular"`.
+- Updates the `Menu` component to set the font weight for the `group` headings to `"bold"`.
+- Updates the `Multiselect` search input field to remain visible on scroll.
+- Updates the `NewsletterSignup` component's left border width and wrapper's `gap` value.
+- Updates the `TextInput` component so that the clearable button will not render when `isDisabled` is true.
+- Updates the `TextInput` placeholder text color for dark mode.
+- Updates the `Checkbox` component to sync the focus color styles with the VDL.
+- Updates the `Notification` component to sync styles with the VDL.
+- Updates the `ProgressIndicator` component's label margin to be consistent with the VDL.
+- Updates the `"dl"` variant of the `List` component to use `2rem` for column spacing and to set the width of the `term` columnm to be a full `"250px"` for `tablet` and `desktop` viewports.
+- Updates the `TagSet` component to sync the border color styles with the VDL.
+- Updates the `MultiSelect` component to now allow 0 to be rendered for `itemCount`.
+
+### Fixes
+
+- Fixes `Accordion` styles, including padding and active hover state, and double-border issue.
+- Fixes an overflow bug in the `filter` variant of the `TagSet` component when `isDismissible` is false.
+- Fixes the vertical alignment of the label for the `inline` variant of the `Select` component.
+
+## 3.5.5 (March 20, 2025)
 
 ### Adds
 
 - Adds the `Container Query Guide` page to the `Development Guide` section of Storybook.
+- Adds the `primitives` color object.
+- Adds the `highlighter` colors to the `colors` theme object.
 
 ### Updates
 
-- Updates the spacing on `Modal`.
-- Updates the spacing between heading and content in `Banner` component.
+- Updates the spacing on the `Modal` component.
+- Updates the spacing between heading and content in the `Banner` component.
 - Updates the `Card`, `FeaturedContent`, and `SearchBar` components to use container queries.
-- Updated the `"filter"` variant of `TagSet` to remove tag button wrapper when `isDismissible` and `onClick` are false.
-- Updates `Image` to include 'fourByOne' and 'twoByThree' aspect ratio options.
-
+- Updated the `"filter"` variant of the `TagSet` component to remove tag button wrapper when `isDismissible` and `onClick` are false.
+- Updates the `Image` component to include `"fourByOne"` and `"twoByThree"` aspect ratio options.
+- Updates the `Label` component to set the font weight for the `(required)` label to `"light"`.
+- Updates the `Fieldset` component to set the font weight for the `(required)` label to `"light"`.
+- Updates the `FeedbackBox` component to set the font weight for the `(required)` label on the `Textarea` element to `"light"`.
 
 ## 3.5.4 (February 13, 2025)
 
@@ -53,9 +129,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `FeedbackBox` component to set the font weight for the popup header to `medium`.
 - Updates the `primary` variant of the `Hero` component to have appropriate padding for desktop and mobile, and `max-width` of 860px
 - Updates the `campaign` variant of the `Hero` component to have consistent padding.
-- Updates the `Label` component to set the font weight for the `(required)` label to `"medium"`.
-- Updates the `Fieldset` component to set the font weight for the `(required)` label to `"medium"`.
-- Updates the `FeedbackBox` component to set the font weight for the `(required)` label on the `Textarea` element to `"medium"`.
 
 ### Fixes
 

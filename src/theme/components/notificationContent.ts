@@ -25,11 +25,10 @@ const baseStyle = definePartsStyle(
       justifyContent: "center",
       content: {
         color:
-          notificationType === "warning" ? "brand.primary" : "currentColor",
-        marginTop: showIcon ? "xxxs" : "0",
+          notificationType === "warning" ? "ui.error.primary" : "currentColor",
         paddingStart:
           !isCentered && showIcon ? (notificationHeading ? "l" : "xs") : "0",
-        pt: !isCentered && notificationHeading ? "xxs" : "0",
+        pt: !isCentered ? "xxs" : "0",
         w: "100%",
         _dark: {
           borderLeftColor:

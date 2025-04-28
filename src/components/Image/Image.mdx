@@ -1,19 +1,23 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import Banner from "../Banner/Banner";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as ImageStories from "./Image.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./imageChangelogData";
 
 <Meta of={ImageStories} />
 
-# Image
+<ComponentDocsHeader
+  category="Media & icon component"
+  componentName="Image"
+  summary="Component that renders an image with DS styles."
+  versionAdded="0.0.6"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.0.6`      |
-| Latest            | `Prerelease` |
+<Canvas of={ImageStories.WithControls} />
 
 ## Table of Contents
 
@@ -37,8 +41,6 @@ If you want a simple HTML `img` element then don't pass in values for the
 `aspectRatio` or `size` props.
 
 ## Component Props
-
-<Canvas of={ImageStories.WithControls} />
 
 <ArgTypes of={ImageStories.WithControls} />
 

@@ -29,23 +29,6 @@ describe("StatusBadge", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const low = renderer
-      .create(<StatusBadge id="low">Registration Required</StatusBadge>)
-      .toJSON();
-    const medium = renderer
-      .create(
-        <StatusBadge id="medium" level="medium">
-          Registration Required
-        </StatusBadge>
-      )
-      .toJSON();
-    const high = renderer
-      .create(
-        <StatusBadge id="high" level="high">
-          Registration Required
-        </StatusBadge>
-      )
-      .toJSON();
     const neutral = renderer
       .create(
         <StatusBadge id="neutral" type="neutral">
@@ -124,9 +107,6 @@ describe("StatusBadge", () => {
       )
       .toJSON();
 
-    expect(low).toMatchSnapshot();
-    expect(medium).toMatchSnapshot();
-    expect(high).toMatchSnapshot();
     expect(neutral).toMatchSnapshot();
     expect(informative).toMatchSnapshot();
     expect(positive).toMatchSnapshot();
