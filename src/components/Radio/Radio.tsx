@@ -6,13 +6,18 @@ import {
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { ComponentProps, forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
 
-export interface RadioProps {
+type ChakraRadioProps = Pick<
+  ComponentProps<typeof ChakraRadio>,
+  "name" | "value"
+>;
+
+export interface RadioProps extends ChakraRadioProps {
   /** Additional class name. */
   className?: string;
   /** Optional string to populate the HelperErrorText for the standard state. */
@@ -39,8 +44,6 @@ export interface RadioProps {
    * `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel`
    * is false. */
   labelText: string | JSX.Element;
-  /** Used to reference the input element in forms. */
-  name?: string;
   /** Should be passed along with `isChecked` for controlled components. */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Offers the ability to hide the helper/invalid text. */
@@ -48,8 +51,6 @@ export interface RadioProps {
   /** Offers the ability to show the radio's label onscreen or hide it. Refer
    * to the `labelText` property for more information. */
   showLabel?: boolean;
-  /** Populates the value of the input. */
-  value?: string;
 }
 
 export const Radio: ChakraComponent<

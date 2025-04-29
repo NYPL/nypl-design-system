@@ -30,7 +30,7 @@ type Story = StoryObj<typeof Radio>;
  * Main Story for the Radio component. This must contains the `args`
  * and `parameters` properties in this object.
  */
-export const Controls: Story = {
+export const WithControls: Story = {
   args: {
     className: undefined,
     helperText: "This is the helper text!",
@@ -41,13 +41,11 @@ export const Controls: Story = {
     isInvalid: false,
     isRequired: false,
     labelText: "Test Label",
-    name: "test_name",
     onChange: undefined,
     showHelperInvalidText: true,
     showLabel: true,
-    value: "1",
   },
-  render: (args) => <Radio {...args} />,
+  render: (args) => <Radio name="test_name" value="1" {...args} />,
   parameters: {
     design: {
       type: "figma",

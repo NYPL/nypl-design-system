@@ -13,8 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Updates styles with container queries to be more responsive."],
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: [
+      "Updates styles with container queries to be more responsive.",
+      "Removes `action` and `method` props (as HTML equivalents may be used) and updates docs.",
+    ],
   },
   {
     date: "2024-10-24",

@@ -32,6 +32,11 @@ export type SelectProps = Partial<
 > & {
   optionsData: SelectOptionsProps[];
 };
+
+type HTMLFormAttributes = Pick<
+  React.FormHTMLAttributes<HTMLFormElement>,
+  "action" | "method"
+>;
 // From the `TextInput` component, we only need a certain set of optional props.
 export type TextInputProps = Pick<InitialInputProps, "labelText" | "name"> &
   Partial<
@@ -51,9 +56,7 @@ export type TextInputProps = Pick<InitialInputProps, "labelText" | "name"> &
     >
   >;
 
-export interface SearchBarProps {
-  /** Adds 'action' property to the `form` element. */
-  action?: string;
+export interface SearchBarProps extends HTMLFormAttributes {
   /** The onClick callback function for the `Button` component. */
   buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** A class name for the `form` element. */
@@ -79,8 +82,6 @@ export interface SearchBarProps {
   isRequired?: boolean;
   /** Populates the `aria-label` attribute on the form element. */
   labelText: string;
-  /** Adds 'method' property to the `form` element. */
-  method?: string;
   /** Sets the `Button` variant type to `noBrand` when true;
    * false by default which sets the type to `primary`. */
   noBrandButtonType?: boolean;

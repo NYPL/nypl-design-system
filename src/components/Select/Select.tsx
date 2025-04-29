@@ -6,7 +6,13 @@ import {
   useColorModeValue,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useState, useRef } from "react";
+import React, {
+  ComponentProps,
+  forwardRef,
+  useEffect,
+  useState,
+  useRef,
+} from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -19,7 +25,12 @@ export const labelPositionsArray = ["default", "inline"];
 export type SelectTypes = typeof selectTypesArray[number];
 export type LabelPositions = typeof labelPositionsArray[number];
 
-export interface SelectProps {
+type ChakraSelectProps = Pick<
+  ComponentProps<typeof ChakraSelect>,
+  "name" | "value"
+>;
+
+export interface SelectProps extends ChakraSelectProps {
   /** A class name for the `div` parent element. */
   className?: string;
   /** The initial value of an uncontrolled component */
@@ -45,8 +56,6 @@ export interface SelectProps {
    * populates an `aria-label` attribute on the select input if `showLabel` is
    * set to `false`. */
   labelText: string;
-  /** Used to reference the select element in forms. */
-  name: string;
   /** The callback function to get the selected value.
    * Should be passed along with `value` for controlled components. */
   onChange?: (event: React.FormEvent) => void;
@@ -62,9 +71,6 @@ export interface SelectProps {
   /** Whether or not to display the "(required)" text in the label text.
    * True by default. */
   showRequiredLabel?: boolean;
-  /** The value of the selected option.
-   * Should be passed along with `onChange` for controlled components. */
-  value?: string;
 }
 
 /**

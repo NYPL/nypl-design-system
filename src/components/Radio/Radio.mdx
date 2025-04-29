@@ -1,4 +1,4 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
+import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as RadioStories from "./Radio.stories";
 import Link from "../Link/Link";
@@ -9,10 +9,10 @@ import { changelogData } from "./radioChangelogData";
 
 # Radio
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.22.0`   |
-| Latest            | `3.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.22.0`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -22,6 +22,7 @@ import { changelogData } from "./radioChangelogData";
 - {<Link href="#browser-states" target="_self">Browser States</Link>}
 - {<Link href="#helper-and-error-text" target="_self">Helper and Error Text</Link>}
 - {<Link href="#label-using-jsx-elements" target="_self">Label Using JSX Elements</Link>}
+- {<Link href="#name-and-value-attributes" target="_self">Name and Value Attributes</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
@@ -35,9 +36,9 @@ component will handle all the states and data management.
 
 ## Component Props
 
-<Canvas of={RadioStories.Controls} />
+<Canvas of={RadioStories.WithControls} />
 
-<ArgTypes of={RadioStories.Controls} />
+<ArgTypes of={RadioStories.WithControls} />
 
 ## Accessibility
 
@@ -70,6 +71,23 @@ a layout to the label. View the `RadioGroup` documentation for this
 usage.
 
 <Canvas of={RadioStories.LabelUsingJSXElements} />
+
+## Name and Value Attributes
+
+For a `Radio` to be submitted as form data, a `name` attribute is required.
+If you are using the `RadioGroup` wrapper (recommended) this `name` must be passed
+to the `RadioGroup` and will be applied to all children `Radio`s. If you are
+using the `Radio` in isolation, you should pass the `name` directly to the `Radio`.
+The `value` attribute is optional, but is recommended because it is needed by the
+`RadioGroup`'s `onChange` function.
+
+<Source
+  code={`
+// If selected, this would add library=SASB to form data
+<Radio name="library" value="SASB"/> 
+`}
+  language="tsx"
+/>
 
 ## Changelog
 

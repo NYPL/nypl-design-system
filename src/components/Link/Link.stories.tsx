@@ -12,12 +12,10 @@ const meta: Meta<typeof Link> = {
     children: { table: { disable: true } },
     className: { control: false },
     hasVisitedState: argsBooleanType("true"),
-    href: { control: { type: "text" } },
     id: { control: false },
     isUnderlined: argsBooleanType("true"),
     onClick: { control: false },
     ref: { table: { disable: true } },
-    rel: { control: { type: "text" } },
     screenreaderOnlyText: { control: { type: "text" } },
     target: { control: false },
     type: {
@@ -40,16 +38,18 @@ export const WithControls: Story = {
     children: "Link",
     className: "custom-class",
     hasVisitedState: true,
-    href: "https://nypl.org",
     id: "nypl-link",
     isUnderlined: true,
     onClick: undefined,
-    rel: undefined,
     screenreaderOnlyText: "Screenreader only text",
     target: undefined,
     type: "action",
   },
-  render: (args: any) => <Link {...args}>{args.children}</Link>,
+  render: (args: any) => (
+    <Link {...args} href="https://nypl.org">
+      {args.children}
+    </Link>
+  ),
   parameters: {
     design: {
       type: "figma",

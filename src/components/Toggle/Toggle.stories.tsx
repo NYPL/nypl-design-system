@@ -12,7 +12,6 @@ const meta: Meta<typeof Toggle> = {
     defaultChecked: { control: false },
     id: { control: false },
     key: { table: { disable: true } },
-    name: { control: false },
     onChange: { control: false },
     ref: { table: { disable: true } },
     size: {
@@ -41,11 +40,10 @@ export const WithControls: Story = {
     isInvalid: false,
     isRequired: false,
     labelText: "Test Label",
-    name: "toggle-1",
     onChange: undefined,
     size: "default",
   },
-  render: (args) => <Toggle {...args} />,
+  render: (args) => <Toggle name="toggle-1" {...args} />,
   parameters: {
     design: {
       type: "figma",

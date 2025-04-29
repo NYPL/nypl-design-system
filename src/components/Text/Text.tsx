@@ -4,7 +4,7 @@ import {
   useStyleConfig,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { ComponentProps, forwardRef } from "react";
 
 export const textSizesArray = [
   "default",
@@ -20,7 +20,9 @@ export const textSizesArray = [
 ] as const;
 export type TextSizes = typeof textSizesArray[number];
 
-export interface TextProps {
+type ChakraTextProps = Pick<ComponentProps<typeof ChakraText>, "role">;
+
+export interface TextProps extends ChakraTextProps {
   /** Additional class name to render in the `Text` component. */
   className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
@@ -37,8 +39,6 @@ export interface TextProps {
   isLowercase?: boolean;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
-  /** Optional prop used to explicitly set the ARIA role */
-  role?: string;
   /** Optional prop to control the text styling */
   size?: TextSizes;
 }

@@ -13,9 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
+    affects: ["Documentation", "Functionality", "Styles"],
     notes: [
       'Changes the font weight for the `(required)` label to `"medium"`.',
+      "Removes `htmlFor` prop (as HTML equivalent may be used) and updates docs.",
     ],
   },
   {

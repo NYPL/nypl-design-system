@@ -235,11 +235,11 @@ the invalid state.
 ### Alternate Number Pattern
 
 Another pattern for entering numbers in a restrictive way is to use the
-`maxLength` and `pattern` props. Together, these props can be set to define how
-many digits and what characters are allowed. For example, if a zip code is
-required, the `maxLength` prop can be set to "5" and the `pattern` prop can be
-set to `"[0-9]\*"` to allow only numbers to be entered and limit the number of
-characters to 5.
+`maxLength` prop or `pattern` HTML attribute. Together, these props can be set
+to define how many digits and what characters are allowed. For example, if
+a zip code is required, the `maxLength` prop can be set to "5" and the `pattern`
+attribute can be set to `"[0-9]\*"` to allow only numbers to be entered and
+limit the number of characters to 5.
 
 Note that the `type` prop is not set to "number" in this example and that the
 consuming application must handle validating the value entered. Browsers will

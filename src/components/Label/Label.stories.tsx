@@ -26,12 +26,15 @@ type Story = StoryObj<typeof Label>;
 export const WithControls: Story = {
   args: {
     className: undefined,
-    htmlFor: "id-of-input-element",
     id: "label-id",
     isRequired: false,
     text: "A label for a villager.",
   },
-  render: (args: any) => <Label {...args}>{args.text}</Label>,
+  render: (args: any) => (
+    <Label htmlFor="id-of-input-element" {...args}>
+      {args.text}
+    </Label>
+  ),
   parameters: {
     jest: "Label.test.tsx",
   },

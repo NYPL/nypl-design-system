@@ -12,10 +12,10 @@ import * as LinkStories from "./Link.stories";
 
 # Link
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `3.4.2`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.4`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -41,10 +41,10 @@ import * as LinkStories from "./Link.stories";
 
 ## Accessibility
 
-The `Link` component renders an `<a>` element with the `href` attribute, so the
-`Link` component should be used for navigation. If an `onClick` action is
-required, a `Button` component should be used instead. In simple terms, a link
-goes somewhere and a button does something.
+The `Link` component should be passed an HTML `href` attribute and be used
+for navigation. If an `onClick` action is required, a `Button` component
+should be used instead. In simple terms, a link goes somewhere and a button
+does something.
 
 Despite these best practices and recommendations, it is possible to pass an
 `onClick` prop to the `Link` component because there are some very specific use
@@ -147,7 +147,7 @@ links with icons. Icons can be rendered to the left or right of the link text.
 ## DS v3 Breaking Change
 
 Previous versions of the Design System allowed an anchor element to be passed
-as a child if the `href` prop was not used.
+as a child if no `href` was passed.
 
 <Source
   code={`
@@ -159,11 +159,11 @@ import { Link } from "@nypl/design-system-react-components";
 </Link>
 `} language="jsx" />
 
-In DS 3.0.0+, this pattern is no longer supported. The `href` prop should be
+In DS 3.0.0+, this pattern is no longer supported. The `href` attribute should be
 passed to render an accessible and valid link. There are cases where the `href`
-prop is not required, such as when using with an application framework router.
-For more information and recommended routing patterns, see the following
-sections.
+attribute is not required, such as when using the component with an application
+framework router. For more information and recommended routing patterns, see the
+following sections.
 
 ## Link with Routers
 

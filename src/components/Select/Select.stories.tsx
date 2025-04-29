@@ -26,7 +26,6 @@ const meta: Meta<typeof Select> = {
       options: labelPositionsArray,
       table: { defaultValue: { summary: "default" } },
     },
-    name: { control: false },
     onChange: { control: false },
     placeholder: { control: "text" },
     ref: { table: { disable: true } },
@@ -38,7 +37,6 @@ const meta: Meta<typeof Select> = {
     showHelperInvalidText: argsBooleanType("true"),
     showLabel: argsBooleanType("true"),
     showRequiredLabel: argsBooleanType("true"),
-    value: { control: false },
   },
 };
 
@@ -61,17 +59,15 @@ export const WithControls: Story = {
     isRequired: false,
     labelPosition: "default",
     labelText: "What is your favorite color?",
-    name: "color",
     onChange: undefined,
     placeholder: undefined,
     showHelperInvalidText: undefined,
     showLabel: true,
     showRequiredLabel: true,
     selectType: "default",
-    value: undefined,
   },
   render: (args) => (
-    <Select {...args}>
+    <Select name="color" {...args}>
       <option value="red">Red</option>
       <option value="green">Green</option>
       <option value="blue">Blue</option>

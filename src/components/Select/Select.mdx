@@ -30,10 +30,13 @@ import { changelogData } from "./selectChangelogData";
 <Description of={SelectStories} />
 
 The `Select` component renders a `select` element along with its `option`
-children. For optimal accessibility, the `labelText` property is a required
-prop, regardless of the label visibility. Additionally, while the `id` prop is
-optional, a unique `id` attribute is necessary for accessibility. If the prop
-is left blank, a value will be generated for you.
+children. For a `Select` to be submitted as form data, a `name` attribute must
+be passed.
+
+For optimal accessibility, the `labelText` property is a required prop, regardless of
+the label visibility. Additionally, while the `id` prop is optional, a unique `id`
+attribute is necessary for accessibility. If the prop is left blank, a value will be
+generated for you.
 
 ## Component Props
 
@@ -104,11 +107,11 @@ can be used to show or hide the "required" text within the `label` element.
 
 ## Getting Select Input Value
 
-### Controlled Component using value and onChange props
+### Controlled Component using value attribute and onChange props
 
 If your application uses controlled React components and the Reservoir Design
 System (DS) `Select` component must be controlled, you can pass and extract the
-value through the `value` and `onChange` props. This will be called every time
+value through the `value` attribute and `onChange` props. This will be called every time
 a new `option` value is selected.
 
 Try it out: open up the browser's console to see new values being logged on

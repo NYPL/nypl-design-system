@@ -35,8 +35,6 @@ export interface LinkProps extends ChakraLinkProps {
   className?: string;
   /** Used to include or remove visited state styles. Default is true. */
   hasVisitedState?: boolean;
-  /** The `href` attribute for the anchor element. */
-  href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
   /** Used to explicitly set the underline style for a text link. If true, link
@@ -46,7 +44,6 @@ export interface LinkProps extends ChakraLinkProps {
   onClick?: (
     event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
   ) => void;
-  rel?: string;
   /** Visibly hidden text that will only be read by screenreaders. */
   screenreaderOnlyText?: string;
   /** Prop that sets the HTML attribute to target where the link should go. */
@@ -144,8 +141,7 @@ function getStandaloneIcon(children: JSX.Element, linkId: string) {
 }
 
 /**
- * A component that uses an `href` prop or a child anchor `<a>` element, to
- * create an anchor element with added styling and conventions.
+ * A component that renders an anchor element with added styling and conventions.
  */
 export const Link: ChakraComponent<
   React.ForwardRefExoticComponent<

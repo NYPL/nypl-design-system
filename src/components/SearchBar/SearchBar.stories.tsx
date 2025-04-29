@@ -11,7 +11,6 @@ const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",
   component: SearchBar,
   argTypes: {
-    action: { control: false },
     buttonOnClick: {
       control: false,
       table: { defaultValue: { summary: "null" } },
@@ -21,7 +20,6 @@ const meta: Meta<typeof SearchBar> = {
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),
     isRequired: argsBooleanType(),
-    method: { control: false },
     onSubmit: { control: false },
     selectProps: { control: false },
     showHelperText: {
@@ -57,7 +55,6 @@ const optionsGroup = [
  */
 export const WithControls: Story = {
   args: {
-    action: undefined,
     buttonOnClick: undefined,
     className: undefined,
     helperText: "Search for items in Animal Crossing New Horizons",
@@ -67,7 +64,6 @@ export const WithControls: Story = {
     isInvalid: false,
     isRequired: false,
     labelText: "SearchBar Label",
-    method: undefined,
     noBrandButtonType: false,
     onSubmit: () => {},
     selectProps: undefined,

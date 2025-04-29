@@ -142,8 +142,6 @@ export interface InputProps
   maxLength?: number;
   /** The min number for a `number` TextInput type. */
   min?: number;
-  /** Used to reference the input element in forms. */
-  name?: string;
   /** The action to perform on the `input`/`textarea`'s onChange function  */
   onChange?: (
     event:
@@ -154,10 +152,6 @@ export interface InputProps
   onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
   /** The action to perform on the `input`/`textarea`'s onFocus function  */
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  /** Regex to query the user input against. */
-  pattern?: string;
-  /** Populates the placeholder for the input/textarea elements */
-  placeholder?: string;
   /** Allows the '(required)' text to be changed for language purposes
    * Note: Parenthesis will be added automatically by the component */
   requiredLabelText?: string;
@@ -169,14 +163,10 @@ export interface InputProps
   /** Whether or not to display the "(required)" text in the label text.
    * True by default. */
   showRequiredLabel?: boolean;
-  /** The amount to increase or decrease when using the number type. */
-  step?: number;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
   textInputType?: TextInputVariants;
   /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
   type?: TextInputTypes;
-  /** Populates the value of the input/textarea elements */
-  value?: string;
 }
 
 /**

@@ -6,7 +6,7 @@ import {
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { ComponentProps, forwardRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -15,7 +15,9 @@ import { getAriaAttrs } from "../../utils/utils";
 export const toggleSizesArray = ["default", "small"] as const;
 export type ToggleSizes = typeof toggleSizesArray[number];
 
-export interface ToggleProps {
+type ChakraSwitchProps = Pick<ComponentProps<typeof Switch>, "name">;
+
+export interface ToggleProps extends ChakraSwitchProps {
   /** Used for uncontrolled scenarios.  Sets the state of the Toggle when the page first loads.
    *   If true, the toggle will be initially set to the "on" position. */
   defaultChecked?: boolean;
@@ -40,9 +42,6 @@ export interface ToggleProps {
   isRequired?: boolean;
   /** The toggle's label. This will serve as the text content for the `<label>` element */
   labelText: string;
-  /** The name prop indicates the `Toggle`'s form element name. If none is
-   * specified, 'default' will be used. */
-  name?: string;
   /** The action to perform on the `<input>`'s onChange function  */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The size of the Toggle. Defaults to "large". */
@@ -73,7 +72,7 @@ export const Toggle: ChakraComponent<
       isInvalid = false,
       isRequired = false,
       labelText,
-      name,
+      name = "default",
       onChange = onChangeDefault,
       size = "default",
       ...rest
@@ -110,7 +109,7 @@ export const Toggle: ChakraComponent<
             isDisabled={isDisabled}
             isInvalid={isInvalid}
             isRequired={isRequired}
-            name={name || "default"}
+            name={name}
             ref={ref}
             size={size === "default" ? "lg" : "sm"}
             lineHeight="1.5"

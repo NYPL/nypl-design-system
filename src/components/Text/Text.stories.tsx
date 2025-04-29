@@ -15,7 +15,6 @@ const meta: Meta<typeof Text> = {
     isUppercase: argsBooleanType(),
     isLowercase: argsBooleanType(),
     noSpace: argsBooleanType(),
-    role: { control: false },
     size: {
       control: {
         type: "select",
@@ -45,7 +44,6 @@ export const WithControls: Story = {
     isUppercase: false,
     isLowercase: false,
     noSpace: false,
-    role: undefined,
     size: "default",
   },
   parameters: {

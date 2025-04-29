@@ -9,10 +9,10 @@ import { changelogData } from "./toggleChangelogData";
 
 # Toggle
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.8`   |
-| Latest            | `3.0.0`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.25.8`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -41,6 +41,10 @@ actions that occur immediately after a user “flips the switch.”
 
 The Toggle component label should clarify the action being performed. Labels
 should be short and to the point, often three words or less.
+
+If the `Toggle` is part of a form, you should pass the component an HTML `name`
+attribute. A `name` is required to be able to add the value to form data. If you
+do not, a `name` of `"default"` will automatically be applied.
 
 ## Component Props
 
