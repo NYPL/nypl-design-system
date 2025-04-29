@@ -13,7 +13,7 @@ import {
   useColorMode,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { ComponentProps, forwardRef } from "react";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
@@ -21,7 +21,12 @@ import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
 import TextInput, { TextInputTypes } from "../TextInput/TextInput";
 
-export interface SliderProps {
+type ChakraSliderProps = Pick<
+  ComponentProps<typeof ChakraSlider>,
+  "name" | "min" | "max"
+>;
+
+export interface SliderProps extends ChakraSliderProps {
   /** Additional class name for the Slider component. */
   className?: string;
   /** The initial value for the single `Slider` or an array of two number
@@ -48,12 +53,6 @@ export interface SliderProps {
    * the first `TextInput` component. If `showLabel` is false, then this value
    * will be set in the `Slider`'s `aria-label` attribute. */
   labelText: string;
-  /** Maximum value allowed. */
-  max?: number;
-  /** Minimum value allowed. */
-  min?: number;
-  /** The name prop indicates into which form this component belongs to. */
-  name?: string;
   /** Callback function that gets the value(s) selected. */
   onChange?: (val: number | number[]) => void;
   /** Callback function when the user is done selecting a new value. */
