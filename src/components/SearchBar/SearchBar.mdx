@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import { changelogData } from "./searchBarChangelogData";
 
 import * as SearchBarStories from "./SearchBar.stories";
@@ -7,12 +8,15 @@ import Link from "../Link/Link";
 
 <Meta of={SearchBarStories} />
 
-# SearchBar
+<ComponentDocsHeader
+  category="Form element"
+  componentName="SearchBar"
+  summary="A form container with text input and button that submits a search query"
+  versionAdded="0.0.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.0.4`      |
-| Latest            | `Prerelease` |
+<Canvas of={SearchBarStories.WithControls} />
 
 ## Table of Contents
 
