@@ -13,8 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
-    notes: ["Updates the `labelText` prop type to `string | JSX.Element`"],
+    affects: ["Documentation", "Functionality"],
+    notes: [
+      "Updates the `labelText` prop type to `string | JSX.Element`",
+      "Removes `name`, `placeholder`, `step`, `pattern` and `value` props (as HTML equivalents may be used) and updates docs.",
+    ],
   },
   {
     date: "2024-12-19",

@@ -18,6 +18,7 @@ import { changelogData } from "./textInputChangelogData";
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#html-input-attributes" target="_self">HTML Input Attributes</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#autocomplete" target="_self">Autocomplete</Link>}
 - {<Link href="#labelling-variations" target="_self">Labelling Variations</Link>}
@@ -43,6 +44,13 @@ is left blank, a value will be generated for you.
 <Canvas of={TextInputStories.WithControls} />
 
 <ArgTypes of={TextInputStories.WithControls} />
+
+## HTML Input Attributes
+
+The `TextInput` props extend the native HTML input attributes so you may pass
+values like `name`, `placeholder`, `value`, `step`, and `pattern`. If the input
+is part of a form, you will need to include `name` for the value to be submitted
+as form data.
 
 ## Accessibility
 
