@@ -9,10 +9,10 @@ import { changelogData } from "./tagSetChangelogData";
 
 # TagSet
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `1.2.0`      |
-| Latest            | `Prerelease` |
+| Component Version | DS Version |
+| ----------------- | ---------- |
+| Added             | `1.2.0`    |
+| Latest            | `3.6.0`    |
 
 ## Table of Contents
 
@@ -113,6 +113,12 @@ Notes:
   `{ label: "Clear Filters", id: "clear-filters" }`
 - When `isDismissible` is false, the tags will not render as buttons, since they
   have no `onClick`. In this case, they should be used as a static list of keywords.
+
+### Dismissible
+
+<Canvas of={TagSetStories.FilterVariantDismiss} />
+
+### Not dismissible
 
 <Canvas of={TagSetStories.FilterVariant} />
 

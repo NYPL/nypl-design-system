@@ -82,15 +82,6 @@ const variants = {
     fontWeight: "subtitle.subtitle2",
     lineHeight: 1.4,
   }),
-  // Deprecated options
-  tag: defineStyle({
-    fontSize: "text.tag",
-    fontWeight: "text.tag",
-  }),
-  mini: defineStyle({
-    fontSize: "text.mini",
-    fontWeight: "text.mini",
-  }),
 };
 
 const Text = defineStyleConfig({

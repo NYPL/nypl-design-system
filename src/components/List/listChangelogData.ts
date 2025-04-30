@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-04-10",
+    version: "3.6.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      'Updates the "dl" variant to use 2rem for column spacing and to set the width of the "term" columnm to be a full 250px for tablet and desktop viewports.',
+    ],
+  },
+  {
     date: "2024-05-23",
     version: "3.1.4",
     type: "New Feature",

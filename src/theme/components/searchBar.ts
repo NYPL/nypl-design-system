@@ -53,6 +53,7 @@ const SearchBar = defineMultiStyleConfig({
     ".textInput": {
       flexGrow: 1,
       "div > input": {
+        borderRight: 0,
         borderRightRadius: 0,
       },
     },

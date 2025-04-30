@@ -79,7 +79,6 @@ function useNYPLTheme() {
       default: theme.fontWeights.default,
       // display1, heading1, heading2, heading3, heading4,
       // heading5, heading6
-      // deprecated: primary, secondary, tertiary, callout
       heading: theme.fontWeights.heading,
       // default
       helper: theme.fontWeights.helper,
@@ -97,6 +96,7 @@ function useNYPLTheme() {
       heading: theme.fonts.heading,
     },
     radii: theme.radii,
+    sizes: theme.sizes,
     space: {
       xxs: theme.space.xxs,
       xs: theme.space.xs,

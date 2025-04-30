@@ -119,7 +119,7 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                     />
                   ) : null}
 
-                  {tagSet.label}
+                  <span>{tagSet.label}</span>
                 </Box>
               )}
             </TooltipWrapper>

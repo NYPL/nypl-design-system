@@ -69,14 +69,13 @@ const generalSizeValues = (size = "medium", isPill = false) => {
   const sizes = {
     small: {
       fontSize: "desktop.button.small",
-      height: "fit-content",
-      minHeight: "auto",
+      height: isPill ? "fit-content" : "button.small.height",
       px: isPill ? "s" : "button.small.px",
       py: isPill ? "xxxs" : "button.small.py",
     },
     medium: {
       fontSize: "desktop.button.default",
-      height: isPill ? "fit-content" : undefined,
+      height: isPill ? "fit-content" : "button.medium.height",
       minHeight: isPill
         ? "auto"
         : { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
@@ -85,8 +84,7 @@ const generalSizeValues = (size = "medium", isPill = false) => {
     },
     large: {
       fontSize: "desktop.button.large",
-      height: "fit-content",
-      minHeight: "auto",
+      height: isPill ? "fit-content" : "button.large.height",
       px: isPill ? "l" : "button.large.px",
       py: isPill ? "xxs" : "button.large.py",
     },
@@ -129,32 +127,6 @@ export const secondary = definePartsStyle(({ buttonSize = "medium" }: any) => ({
     },
     _dark: {
       ...ghostDarkStyles,
-    },
-  },
-}));
-// The "link" type is deprecated but we still want to style
-// it correctly for backwards compatibility.
-const link = definePartsStyle(({ buttonSize = "medium" }: any) => ({
-  base: {
-    bg: "transparent",
-    color: "ui.link.primary",
-    textDecoration: "underline",
-    ...generalSizeValues(buttonSize),
-    _disabled: {
-      bg: "transparent",
-    },
-    _hover: {
-      bg: "transparent",
-      color: "ui.link.secondary",
-    },
-    _dark: {
-      color: "dark.ui.link.primary",
-      _disabled: {
-        bg: "transparent",
-      },
-      _hover: {
-        color: "dark.ui.link.secondary",
-      },
     },
   },
 }));
@@ -274,8 +246,6 @@ const Button = defineMultiStyleConfig({
     primary,
     secondary,
     text,
-    // Deprecated type. Use "text" instead.
-    link,
     pill,
     iconOnly,
     callout,

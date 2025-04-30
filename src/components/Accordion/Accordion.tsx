@@ -84,7 +84,9 @@ const getElementsFromData = (
   id: string,
   isAlwaysRendered: boolean = false,
   isDarkMode: boolean,
-  panelMaxHeight: string
+  panelMaxHeight: string,
+  hoveredButtonIndex: number,
+  setHoveredButtonIndex: React.Dispatch<React.SetStateAction<number>>
 ) => {
   const colorMap = isDarkMode
     ? {
@@ -99,11 +101,14 @@ const getElementsFromData = (
       };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
+  const numAccordionItems = data?.length;
+
   const multipleFontSize =
-    data?.length > 1 ? "desktop.body.body1" : "desktop.body.body2";
-  const multiplePadding = data?.length > 1 ? "17.5px" : "xs s";
+    numAccordionItems > 1 ? "desktop.body.body1" : "desktop.body.body2";
+  const multiplePadding = numAccordionItems > 1 ? "s" : "xs s";
 
   return data.map((content, index) => {
+    const isLast = index === numAccordionItems - 1;
     // This is done to support both string and DOM element input.
     const panel =
       typeof content.panel === "string" ? (
@@ -120,6 +125,7 @@ const getElementsFromData = (
           key={index}
           maxHeight={panelMaxHeight}
           overflow="auto"
+          borderBottom={!isLast ? "transparent" : undefined}
         >
           {content.panel}
         </AccordionPanel>
@@ -134,7 +140,6 @@ const getElementsFromData = (
           "be used, so the value in the accordionData prop will take precedence."
       );
     }
-
     return (
       <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
@@ -145,23 +150,25 @@ const getElementsFromData = (
               <AccordionButton
                 aria-label={finalAriaLabel}
                 id={`${id}-button-${index}`}
-                borderColor={
-                  isDarkMode ? "dark.ui.border.default" : "ui.gray.medium"
-                }
                 padding={multiplePadding}
                 ref={content.buttonInteractionRef}
+                // Fix for double border issue in non-hovered state
+                // i.e. Hide the bottom border unless the accordion is last or expanded
+                borderBottomColor={
+                  isLast || isExpanded ? "ui.gray.medium" : "transparent"
+                }
+                // Fix for double border issue on hover
+                // i.e. Hide the top border on the next button after the hovered button unless it's first
+                borderTopColor={
+                  index !== 0 && index === hoveredButtonIndex + 1
+                    ? "transparent"
+                    : undefined
+                }
                 bg={
                   !content.accordionType
                     ? colorMap.default
                     : bgColorByAccordionType
                 }
-                _expanded={{
-                  bg:
-                    !content.accordionType ||
-                    content.accordionType === "default"
-                      ? "ui.gray.light-cool"
-                      : bgColorByAccordionType,
-                }}
                 _hover={{
                   bg:
                     !content.accordionType ||
@@ -169,6 +176,20 @@ const getElementsFromData = (
                       ? "transparent"
                       : bgColorByAccordionType,
                   borderColor: "ui.gray.dark",
+                }}
+                _expanded={{
+                  bg:
+                    !content.accordionType ||
+                    content.accordionType === "default"
+                      ? "ui.gray.light-cool"
+                      : bgColorByAccordionType,
+                  _hover: {
+                    bg:
+                      !content.accordionType ||
+                      content.accordionType === "default"
+                        ? "ui.gray.light-cool"
+                        : bgColorByAccordionType,
+                  },
                 }}
                 _dark={{
                   _expanded: {
@@ -182,6 +203,19 @@ const getElementsFromData = (
                     content.accordionType === "default"
                       ? "dark.ui.border.hover"
                       : bgColorByAccordionType,
+                  borderBottomColor:
+                    isLast || isExpanded
+                      ? "dark.ui.border.default"
+                      : "transparent",
+                  _hover: {
+                    borderColor: "dark.ui.border.hover",
+                  },
+                }}
+                onMouseEnter={() => {
+                  setHoveredButtonIndex(index);
+                }}
+                onMouseLeave={() => {
+                  setHoveredButtonIndex(-1);
                 }}
               >
                 <Box
@@ -236,6 +270,10 @@ export const Accordion: ChakraComponent<
     const [expandedPanels, setExpandedPanels] = useState<number[]>(
       isDefaultOpen ? [0] : []
     );
+
+    // Used for fix a double border issue on hover for users with JS enabled
+    // Necessary due to Chakra's internal wrapping of the AccordionButton in a div
+    const [hoveredButtonIndex, setHoveredButtonIndex] = useState<number>(-1);
 
     // If the accordionData doesn't already contain refs for the panel
     // buttons, add them now.
@@ -297,7 +335,9 @@ export const Accordion: ChakraComponent<
           id,
           isAlwaysRendered,
           isDarkMode,
-          panelMaxHeight
+          panelMaxHeight,
+          hoveredButtonIndex,
+          setHoveredButtonIndex
         )}
       </ChakraAccordion>
     );

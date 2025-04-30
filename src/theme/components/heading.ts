@@ -70,7 +70,7 @@ export const headings = {
         md: "desktop.heading.display1",
       },
       fontWeight: "heading.display1",
-      letterSpacing: "0.0625rem",
+      letterSpacing: "0",
       lineHeight: { base: "1.15", md: "1.10" },
       width: "auto",
       a: { textUnderlineOffset: "7px" },
@@ -83,7 +83,7 @@ export const headings = {
         md: "desktop.heading.heading1",
       },
       fontWeight: "heading.heading1",
-      letterSpacing: "0.0625rem",
+      letterSpacing: "0",
       lineHeight: { base: "1.20", md: "1.15" },
       width: "auto",
       a: { textUnderlineOffset: "6px" },
@@ -96,7 +96,7 @@ export const headings = {
         md: "desktop.heading.heading2",
       },
       fontWeight: "heading.heading2",
-      letterSpacing: "0.0625rem",
+      letterSpacing: "0",
       lineHeight: { base: "1.25", md: "1.20" },
       width: "auto",
       a: { textUnderlineOffset: "5px" },
@@ -180,21 +180,14 @@ export const headings = {
 
 // Styles for different visual variants
 const variants = {
-  // RECOMMENDED options for native heading element variants
+  // Options for native heading element variants
   h1: headings.heading1,
   h2: headings.heading2,
   h3: headings.heading3,
   h4: headings.heading4,
   h5: headings.heading5,
   h6: headings.heading6,
-  // DEPRECATED options for native heading elements variants
-  one: headings.one,
-  two: headings.two,
-  three: headings.three,
-  four: headings.four,
-  five: headings.fallback,
-  six: headings.fallback,
-  // RECOMMENDED options for size variants
+  // Options for size variants
   display1: headings.display1,
   heading1: headings.heading1,
   heading2: headings.heading2,
@@ -204,11 +197,6 @@ const variants = {
   heading6: headings.heading6,
   heading7: headings.heading7,
   heading8: headings.heading8,
-  // DEPRECATED options for size variants
-  primary: headings.one,
-  secondary: headings.two,
-  tertiary: headings.three,
-  callout: headings.four,
 };
 
 const Heading = defineMultiStyleConfig({
@@ -241,8 +229,6 @@ const Heading = defineMultiStyleConfig({
   // Available variants:
   // h1, h2, h3, h4, h5, h6
   // display1, heading1, heading2, heading3, heading4, heading5, heading6
-  // DEPRECATED: one, two, three, four, five, six
-  // DEPRECATED: primary, secondary, tertiary, callout
   variants,
   defaultProps: {
     variant: "h2",

@@ -64,9 +64,10 @@ const SkeletonLoader = defineMultiStyleConfig({
           ...borderStyles,
         },
         button: {
-          height: "32px",
-          margin: "auto",
+          borderRadius: "20px",
+          height: "40px",
           maxWidth: "160px",
+          overflow: "hidden",
           width: "100%",
         },
         container: {

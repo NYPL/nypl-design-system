@@ -56,7 +56,7 @@ const TagSetFilter = defineMultiStyleConfig({
         _hover: {
           bg: isDismissible ? "dark.ui.bg.hover" : "dark.ui.bg.default",
           borderColor: isDismissible
-            ? "dark.ui.border.active"
+            ? "dark.ui.border.hover"
             : "dark.ui.border.default",
           color: isDismissible
             ? "dark.ui.typography.heading"
@@ -105,6 +105,7 @@ const TagSetExplore = defineStyleConfig({
     },
     _hover: {
       bg: "ui.link.primary-10",
+      borderColor: "ui.link.secondary",
       a: {
         color: "ui.link.secondary",
       },
@@ -127,6 +128,7 @@ const TagSetExplore = defineStyleConfig({
       },
       _hover: {
         bg: "dark.ui.link.primary-10",
+        borderColor: "dark.ui.link.secondary",
         a: {
           color: "dark.ui.link.secondary",
         },
