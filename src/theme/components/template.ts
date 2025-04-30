@@ -14,79 +14,41 @@ const Template = defineStyleConfig({
       minWidth: "288px",
       m: "0 auto",
       p: responsiveMargin,
-      gridTemplateAreas: `
-        "breakout"
-        "top"
-        "main"
-        "bottom"
-      `,
-      gridTemplateColumns: "100%",
-      gridTemplateRows: "auto",
+      // Using named grid lines to implicitly define grid template areas
+      gridTemplateColumns:
+        "[breakout-start top-start sidebar-start main-start bottom-start] 1fr [breakout-end top-end sidebar-end main-end bottom-end]",
+      gridTemplateRows:
+        "[breakout-start] auto [breakout-end top-start] auto [top-end main-start] auto [main-end sidebar-start] auto [sidebar-end bottom-start] auto [botom-end]",
       columnGap: responsiveGap,
       "& > *:not(:last-child)": { mb: responsiveGap },
     };
   }),
   variants: {
     left: {
-      gridTemplateAreas: {
-        base: `
-          "breakout"
-          "top"
-          "sidebar"
-          "main"
-          "bottom"
-        `,
-        sm: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "sidebar sidebar sidebar sidebar sidebar sidebar main main main main main main" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
-        md: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "sidebar sidebar sidebar sidebar main main main main main main main main" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
-        lg: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "sidebar sidebar sidebar main main main main main main main main main" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
+      // Using named grid lines to implicitly define grid template areas
+      gridTemplateColumns: {
+        base: "[breakout-start top-start sidebar-start main-start bottom-start] 1fr [breakout-end top-end sidebar-end main-end bottom-end]",
+        sm: "[breakout-start top-start sidebar-start bottom-start] repeat(6, 1fr) [sidebar-end main-start] repeat(6, 1fr) [breakout-end top-end main-end bottom-end]",
+        md: "[breakout-start top-start sidebar-start bottom-start] repeat(4, 1fr) [sidebar-end main-start] repeat(8, 1fr) [breakout-end top-end main-end bottom-end]",
+        lg: "[breakout-start top-start sidebar-start bottom-start] repeat(3, 1fr) [sidebar-end main-start] repeat(9, 1fr) [breakout-end top-end main-end bottom-end]",
       },
-      gridTemplateColumns: { sm: "repeat(12, 1fr)" },
+      gridTemplateRows: {
+        base: "[breakout-start] auto [breakout-end top-start] auto [top-end sidebar-start] auto [sidebar-end main-start] auto [main-end bottom-start] auto [botom-end]",
+        sm: "[breakout-start] auto [breakout-end top-start] auto [top-end main-start sidebar-start] auto [main-end sidebar-end botton-start] auto [botom-end]",
+      },
     },
     right: {
-      gridTemplateAreas: {
-        base: `
-          "breakout"
-          "top"
-          "sidebar"
-          "main"
-          "bottom"
-        `,
-        sm: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "main main main main main main sidebar sidebar sidebar sidebar sidebar sidebar" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
-        md: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "main main main main main main main main sidebar sidebar sidebar sidebar" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
-        lg: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "main main main main main main main main main sidebar sidebar sidebar" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
+      // Using named grid lines to implicitly define grid template areas
+      gridTemplateColumns: {
+        base: "[breakout-start top-start sidebar-start main-start bottom-start] 1fr [breakout-end top-end sidebar-end main-end bottom-end]",
+        sm: "[breakout-start top-start main-start bottom-start] repeat(6, 1fr) [main-end sidebar-start] repeat(6, 1fr) [breakout-end top-end sidebar-end bottom-end]",
+        md: "[breakout-start top-start main-start bottom-start] repeat(8, 1fr) [main-end sidebar-start] repeat(4, 1fr) [breakout-end top-end sidebar-end bottom-end]",
+        lg: "[breakout-start top-start main-start bottom-start] repeat(9, 1fr) [main-end sidebar-start] repeat(3, 1fr) [breakout-end top-end sidebar-end bottom-end]",
       },
-      gridTemplateColumns: { sm: "repeat(12, 1fr)" },
-      gridTemplateRows: "auto",
+      gridTemplateRows: {
+        base: "[breakout-start] auto [breakout-end top-start] auto [top-end main-start] auto [main-end sidebar-start] auto [sidebar-end bottom-start] auto [botom-end]",
+        sm: "[breakout-start] auto [breakout-end top-start] auto [top-end main-start sidebar-start] auto [main-end sidebar-end botton-start] auto [botom-end]",
+      },
     },
   },
 });
@@ -108,14 +70,12 @@ const TemplateMainNarrow = defineStyleConfig({
     return {
       columnGap: responsiveGap,
       display: "grid",
-      gridTemplateAreas: {
-        base: `"mainNarrow"`,
-        md: `". mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow ."`,
-        lg: `". . mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow . ."`,
+      // Using named grid lines to implicitly define grid template areas
+      gridTemplateColumns: {
+        base: "[mainNarrow-start] 1fr [mainNarrow-end]",
+        md: "1fr [mainNarrow-start] repeat(10, 1fr) [mainNarrow-end] 1fr",
+        lg: "1fr 1fr [mainNarrow-start] repeat(8, 1fr) [mainNarrow-end] 1fr 1fr",
       },
-      gridTemplateColumns: { base: "100%", md: "repeat(12, 1fr)" },
-      // maxWidth: "720px",
-      // m: "0 auto",
     };
   }),
 });
