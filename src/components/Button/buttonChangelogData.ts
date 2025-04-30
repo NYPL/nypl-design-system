@@ -15,6 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Documentation", "Functionality"],
     notes: [
+      "Removes deprecated `link` buttonType.",
       "Removes `type` prop (as HTML equivalent may be used) and updates docs.",
     ],
   },

@@ -54,7 +54,7 @@ const exampleAllLinkData: SocialMediaLinkDataProps[] = [
   },
   {
     icon: "socialX",
-    labelText: "X",
+    labelText: "X, formerly Twitter",
     url: "https://x.com/nypl",
   },
   {
@@ -71,7 +71,7 @@ const exampleLinkData: SocialMediaLinkDataProps[] = [
   },
   {
     icon: "socialX",
-    labelText: "X",
+    labelText: "X, formerly Twitter",
     url: "https://x.com/nypl",
   },
   {
@@ -99,7 +99,7 @@ const exampleTwoLinkData: SocialMediaLinkDataProps[] = [
   },
   {
     icon: "socialX",
-    labelText: "X",
+    labelText: "X, formerly Twitter",
     url: "https://x.com/nypl",
   },
   {

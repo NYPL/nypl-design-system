@@ -25,6 +25,7 @@ const meta: Meta<typeof Select> = {
       controls: { type: "select" },
       options: labelPositionsArray,
       table: { defaultValue: { summary: "default" } },
+      control: { type: "radio" },
     },
     onChange: { control: false },
     placeholder: { control: "text" },
@@ -158,6 +159,20 @@ export const LabellingVariations: Story = {
         <option value="white">White</option>
       </Select>
       <Select
+        helperText="Display a custom required text"
+        id="label-example4"
+        isRequired
+        labelText="What is your favorite color?"
+        name="color"
+        requiredLabelText="* custom required label"
+      >
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+      </Select>
+      <Select
         helperText="Display the label inline"
         id="label-example5"
         isRequired
@@ -209,6 +224,24 @@ export const Disabled: Story = {
       <option value="blue">Blue</option>
       <option value="black">Black</option>
       <option value="white">White</option>
+    </Select>
+  ),
+};
+
+export const AutoComplete: Story = {
+  render: () => (
+    <Select
+      autoComplete="country-name"
+      id="autocomplete"
+      labelText="Select a country"
+      name="country"
+    >
+      <option value="algeria">Algeria</option>
+      <option value="argentina">Argentina</option>
+      <option value="australia">Australia</option>
+      <option value="brazil">Brazil</option>
+      <option value="canada">Canada</option>
+      <option value="china">China</option>
     </Select>
   ),
 };

@@ -5,24 +5,11 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
-import Hero, { heroSecondaryTypes, heroTypesArray } from "./Hero";
+import Hero, { heroTypesArray } from "./Hero";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
 import { getPlaceholderImage } from "../../utils/utils";
 
-const secondarySubHeaderText = (
-  <>
-    Explore our <Link href="#">collection</Link> of hundreds of online resources
-    and databases. Use our free online content to help with your research,
-    whether it's finding a single article, tracing a family tree, learning a new
-    language, or anything in between.
-  </>
-);
-const deprecatedMessage = (
-  <Text mt="s" noSpace>
-    This variant has been deprecated.
-  </Text>
-);
 const otherSubHeaderText = (
   <>
     With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
@@ -136,28 +123,6 @@ export const WithControls: Story = {
         subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
       />
     )) ||
-    (heroSecondaryTypes.includes(args.heroType) && (
-      <div className="nypl--books-and-more">
-        <Hero
-          {...args}
-          heading={
-            <Heading
-              level="h1"
-              id="1"
-              size="heading2"
-              text="Hero Secondary (deprecated)"
-            />
-          }
-          heroType={args.heroType}
-          imageProps={args.imageProps}
-          subHeaderText={
-            <>
-              {secondarySubHeaderText} {deprecatedMessage}
-            </>
-          }
-        />
-      </div>
-    )) ||
     (args.heroType === "tertiary" && (
       <Hero
         {...args}
@@ -176,21 +141,6 @@ export const WithControls: Story = {
         heroType={args.heroType}
         imageProps={args.imageProps}
         subHeaderText={otherSubHeaderText}
-      />
-    )) ||
-    (args.heroType === "fiftyFifty" && (
-      <Hero
-        {...args}
-        heroType={args.heroType}
-        imageProps={{
-          ...args.imageProps,
-          src: getPlaceholderImage(),
-        }}
-        subHeaderText={
-          <>
-            {otherSubHeaderText} {deprecatedMessage}
-          </>
-        }
       />
     )),
   parameters: {
@@ -503,199 +453,4 @@ const CampaignFallBackExample = () => {
 
 export const CampaignFallbackImage: Story = {
   render: () => <CampaignFallBackExample />,
-};
-
-export const Secondary: Story = {
-  name: "Secondary (deprecated)",
-  render: () => (
-    <Hero
-      heading={
-        <Heading
-          level="h1"
-          id="secondary-hero"
-          size="heading2"
-          text="Hero Secondary (deprecated)"
-        />
-      }
-      heroType="secondary"
-      imageProps={imageProps}
-      subHeaderText={
-        <>
-          {secondarySubHeaderText} {deprecatedMessage}
-        </>
-      }
-    />
-  ),
-};
-
-export const FiftyFifty: Story = {
-  name: "FiftyFifty (deprecated)",
-  render: () => (
-    <Stack spacing="l">
-      <div>
-        <Heading
-          id="fiftyfifty-default"
-          size="heading6"
-          text="FiftyFifty Hero at Default Height"
-        />
-        <Hero
-          heroType="fiftyFifty"
-          imageProps={imageProps}
-          subHeaderText={
-            <>
-              {otherSubHeaderText} {deprecatedMessage}
-            </>
-          }
-        />
-      </div>
-      <div>
-        <Heading
-          id="fiftyfifty-long-text"
-          size="heading6"
-          text="FiftyFifty Hero with Long Text"
-        />
-        <Hero
-          heroType="fiftyFifty"
-          imageProps={imageProps}
-          subHeaderText={
-            <>
-              {otherSubHeaderTextLong} {deprecatedMessage}
-            </>
-          }
-        />
-      </div>
-    </Stack>
-  ),
-};
-export const ColorVariations: Story = {
-  name: "Color Variations for Secondary Hero",
-  render: () => (
-    <Stack mb="l" spacing="l">
-      <div>
-        <Heading
-          id="main-secondary-heading"
-          level="h4"
-          size="heading6"
-          text="secondary"
-        />
-        <Hero
-          heading={
-            <Heading
-              level="h1"
-              size="heading2"
-              id="main-secondary-hero"
-              text="Secondary (deprecated)"
-            />
-          }
-          heroType="secondary"
-          imageProps={imageProps}
-          subHeaderText={
-            <>
-              {secondarySubHeaderText} {deprecatedMessage}
-            </>
-          }
-        />
-      </div>
-      <div>
-        <Heading
-          id="books-heading"
-          level="h4"
-          size="heading6"
-          text="secondaryBooksAndMore"
-        />
-        <Hero
-          heading={
-            <Heading
-              level="h1"
-              size="heading2"
-              id="books-hero"
-              text="Books and More (deprecated)"
-            />
-          }
-          heroType="secondaryBooksAndMore"
-          imageProps={imageProps}
-          subHeaderText={
-            <>
-              {secondarySubHeaderText} {deprecatedMessage}
-            </>
-          }
-        />
-      </div>
-      <div>
-        <Heading
-          id="location-heading"
-          level="h4"
-          size="heading6"
-          text="secondaryLocations"
-        />
-        <Hero
-          heading={
-            <Heading
-              level="h1"
-              size="heading2"
-              id="locations-hero"
-              text="Locations (deprecated)"
-            />
-          }
-          heroType="secondaryLocations"
-          imageProps={imageProps}
-          subHeaderText={
-            <>
-              {secondarySubHeaderText} {deprecatedMessage}
-            </>
-          }
-        />
-      </div>
-      <div>
-        <Heading
-          id="research-heading"
-          level="h4"
-          size="heading6"
-          text="secondaryResearch"
-        />
-        <Hero
-          heading={
-            <Heading
-              level="h1"
-              size="heading2"
-              id="research-hero"
-              text="Research (deprecated)"
-            />
-          }
-          heroType="secondaryResearch"
-          imageProps={imageProps}
-          subHeaderText={
-            <>
-              {secondarySubHeaderText} {deprecatedMessage}
-            </>
-          }
-        />
-      </div>
-      <div>
-        <Heading
-          id="whats-on-heading"
-          level="h4"
-          size="heading6"
-          text="secondaryWhatsOn"
-        />
-        <Hero
-          heading={
-            <Heading
-              level="h1"
-              size="heading2"
-              id="whats-on-hero"
-              text="What's On (deprecated)"
-            />
-          }
-          heroType="secondaryWhatsOn"
-          imageProps={imageProps}
-          subHeaderText={
-            <>
-              {secondarySubHeaderText} {deprecatedMessage}
-            </>
-          }
-        />
-      </div>
-    </Stack>
-  ),
 };

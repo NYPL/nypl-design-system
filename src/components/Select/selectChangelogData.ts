@@ -19,6 +19,17 @@ export const changelogData: ChangelogData[] = [
     ],
   },
   {
+    date: "2025-04-10",
+    version: "3.6.0",
+    type: "Update",
+    affects: ["Functionality", "Accessibility"],
+    notes: [
+      "Adds the `autoComplete` prop to the select element.",
+      "Adds `requiredLabelText` prop to allow customization of the '(required)' text.",
+      "Fixes the vertical alignment of the label for the `inline` variant.",
+    ],
+  },
+  {
     date: "2024-09-19",
     version: "3.3.2",
     type: "Update",

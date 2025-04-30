@@ -6,13 +6,7 @@ import {
   useColorModeValue,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, {
-  ComponentProps,
-  forwardRef,
-  useEffect,
-  useState,
-  useRef,
-} from "react";
+import React, { forwardRef, useEffect, useState, useRef } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -25,12 +19,8 @@ export const labelPositionsArray = ["default", "inline"];
 export type SelectTypes = typeof selectTypesArray[number];
 export type LabelPositions = typeof labelPositionsArray[number];
 
-type ChakraSelectProps = Pick<
-  ComponentProps<typeof ChakraSelect>,
-  "name" | "value"
->;
-
-export interface SelectProps extends ChakraSelectProps {
+export interface SelectProps
+  extends React.SelectHTMLAttributes<HTMLSelectElement> {
   /** A class name for the `div` parent element. */
   className?: string;
   /** The initial value of an uncontrolled component */
@@ -61,6 +51,9 @@ export interface SelectProps extends ChakraSelectProps {
   onChange?: (event: React.FormEvent) => void;
   /** Placeholder text in the select element. */
   placeholder?: string;
+  /** Allows the '(required)' text to be changed for language purposes
+   * Note: Parenthesis will be added automatically by the component */
+  requiredLabelText?: string;
   /** The variant to display. */
   selectType?: SelectTypes;
   /** Offers the ability to hide the helper/invalid text. */
@@ -87,6 +80,7 @@ export const Select: ChakraComponent<
   forwardRef<HTMLSelectElement, React.PropsWithChildren<SelectProps>>(
     (props: React.PropsWithChildren<SelectProps>, ref?) => {
       const {
+        autoComplete,
         children,
         className,
         defaultValue,
@@ -105,6 +99,7 @@ export const Select: ChakraComponent<
         showHelperInvalidText = true,
         showLabel = true,
         showRequiredLabel = true,
+        requiredLabelText,
         value = "",
         ...rest
       } = props;
@@ -188,22 +183,22 @@ export const Select: ChakraComponent<
                   id={`${id}-label`}
                   isInlined
                   isRequired={showRequiredLabel && isRequired}
+                  requiredLabelText={requiredLabelText}
                 >
                   {labelText}
                 </Label>
               </Box>
             )}
             <ChakraSelect
+              autoComplete={autoComplete}
               id={id}
-              variant="outline"
               isRequired={isRequired}
               isDisabled={isDisabled}
               isInvalid={isInvalid}
               name={name}
               placeholder={placeholder}
               ref={ref}
-              {...controlledOrUncontrolledProps}
-              {...ariaAttributes}
+              variant="outline"
               icon={
                 <Icon
                   color={arrowColor}
@@ -212,6 +207,8 @@ export const Select: ChakraComponent<
                   size="medium"
                 />
               }
+              {...controlledOrUncontrolledProps}
+              {...ariaAttributes}
               __css={styles.select}
             >
               {children}

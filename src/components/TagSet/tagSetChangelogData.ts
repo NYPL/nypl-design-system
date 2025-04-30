@@ -10,8 +10,18 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2025-04-10",
+    version: "3.6.0",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Fixes an overflow bug in the `filter` variant when `isDismissible` is false.",
+      "Syncs the border colors styles with the VDL.",
+    ],
+  },
+  {
+    date: "2025-03-20",
+    version: "3.5.5",
     type: "Update",
     affects: ["Documentation", "Accessibility"],
     notes: [

@@ -4,7 +4,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Icon from "../Icons/Icon";
 import StatusBadge, {
   statusBadgeFontSizeArray,
-  statusBadgeLevelArray,
   statusBadgeTypeArray,
 } from "./StatusBadge";
 import Table from "../Table/Table";
@@ -22,11 +21,6 @@ const meta: Meta<typeof StatusBadge> = {
       options: statusBadgeFontSizeArray,
     },
     id: { control: false },
-    level: {
-      table: { defaultValue: { summary: "low" } },
-      control: { type: "radio" },
-      options: statusBadgeLevelArray,
-    },
     type: {
       control: { type: "select" },
       options: statusBadgeTypeArray,
@@ -46,7 +40,6 @@ export const WithControls: Story = {
     className: undefined,
     fontSize: undefined,
     id: "statusBadge-id",
-    level: undefined,
     type: undefined,
   },
   parameters: {
@@ -117,43 +110,6 @@ export const Types: Story = {
           "Recommendation",
           "Highlights a suggestion that will improve the experience and achieve better results.",
           "Recommended for you, Related",
-        ],
-      ]}
-      tableTextSize="body2"
-    />
-  ),
-};
-
-export const Levels: Story = {
-  render: () => (
-    <Table
-      columnHeaders={["", "Variant", "Purpose", "Examples"]}
-      tableData={[
-        [
-          <>
-            <StatusBadge level="low">Low level</StatusBadge>
-          </>,
-          <>
-            <Box whiteSpace="nowrap">Low (default)</Box>
-          </>,
-          "Used to indicate standard or low priority.",
-          "Library Card Required",
-        ],
-        [
-          <>
-            <StatusBadge level="medium">Medium level</StatusBadge>
-          </>,
-          "Medium",
-          "Indicates moderate priority – something is important, but not critical.",
-          "Pending, Cancelled",
-        ],
-        [
-          <>
-            <StatusBadge level="high">High level</StatusBadge>
-          </>,
-          "High",
-          "Indicates the highest priority – this is critical and very important; destructive",
-          "On-Site Access Only, Closed, Unavailable",
         ],
       ]}
       tableTextSize="body2"
@@ -322,7 +278,7 @@ export const Labeling: Story = {
 export const Icons: Story = {
   render: () => (
     <VStack spacing="s" align="stretch">
-      <StatusBadge level="high">
+      <StatusBadge type="negative">
         <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
         On-Site Access Only
       </StatusBadge>
@@ -335,7 +291,7 @@ export const Icons: Story = {
         />
         Mising information
       </StatusBadge>
-      <StatusBadge level="low">
+      <StatusBadge type="neutral">
         Registration Required
         <Icon
           color="ui.black"

@@ -15,8 +15,23 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Documentation", "Functionality"],
     notes: [
+      "Removes deprecated `noMargin` prop.",
       "Removes `ariaLabel` prop and instructs developers to use the native HTML attribute instead.",
     ],
+  },
+  {
+    date: "2025-04-24",
+    version: "3.6.1",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Variant font colors updated to sync with the VDL."],
+  },
+  {
+    date: "2025-04-10",
+    version: "3.6.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Style updates to sync with the VDL."],
   },
   {
     date: "2024-03-14",

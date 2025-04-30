@@ -7,9 +7,6 @@ export const statusBadgeFontSizeArray = [
   "desktop.caption",
 ] as const;
 
-export const statusBadgeLevelArray = ["low", "medium", "high"] as const;
-export type StatusBadgeLevels = typeof statusBadgeLevelArray[number];
-
 export const statusBadgeTypeArray = [
   "informative",
   "negative",
@@ -17,9 +14,6 @@ export const statusBadgeTypeArray = [
   "positive",
   "recommendation",
   "warning",
-  "low",
-  "medium",
-  "high",
 ] as const;
 export type StatusBadgeTypes = typeof statusBadgeTypeArray[number];
 export interface StatusBadgeProps {
@@ -27,9 +21,6 @@ export interface StatusBadgeProps {
   className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Level of the status badge. This prop has been deprecated in favor of the
-   * `type` prop. */
-  level?: StatusBadgeLevels;
   /** Semantic type of the status badge. */
   type?: StatusBadgeTypes;
 }
@@ -48,11 +39,10 @@ export const StatusBadge: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<StatusBadgeProps>>(
     (props, ref?) => {
-      const { children, className, id, level, type, ...rest } = props;
-      const finalVariant = level ? level : type ? type : "low";
+      const { children, className, id, type, ...rest } = props;
       const styles = useStyleConfig("StatusBadge", {
         labelFontSize: rest["fontSize"],
-        variant: finalVariant,
+        variant: type || "neutral",
       });
 
       if (!children) {

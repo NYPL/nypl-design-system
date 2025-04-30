@@ -19,13 +19,20 @@ export const changelogData: ChangelogData[] = [
     ],
   },
   {
+    date: "2025-04-10",
+    version: "3.6.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Syncs the focus color styles with the VDL."],
+  },
+  {
     date: "2025-02-13",
     version: "3.5.4",
     type: "Update",
     affects: ["Styles"],
     notes: [
       "Updates the check icon to use DS icon.",
-      "Sets the correct background color for all states",
+      "Sets the correct background color for all states.",
     ],
   },
   {

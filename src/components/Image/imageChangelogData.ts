@@ -15,9 +15,18 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Documentation", "Styles", "Functionality"],
     notes: [
-      "Adds 'fourByOne' and 'twoByThree' aspect ratios.",
       "Replaces the error thrown with a console.warn.",
       "Removes `alt` and `src` props (as HTML equivalents may be used) and updates docs.",
+    ],
+  },
+  {
+    date: "2025-03-20",
+    version: "3.5.5",
+    type: "Update",
+    affects: ["Styles", "Functionality"],
+    notes: [
+      "Adds 'fourByOne' and 'twoByThree' aspect ratios.",
+      "Replaces the error thrown with a console.warn.",
     ],
   },
   {

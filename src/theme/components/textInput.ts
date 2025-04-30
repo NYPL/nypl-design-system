@@ -56,13 +56,13 @@ const input = {
     _disabled: {
       ...selectTextInputDisabledStyles,
       _placeholder: {
-        color: "ui.gray.x-dark",
+        color: "dark.ui.disabled.primary",
       },
     },
     _active: selectTextInputFocusStyles,
     _focus: selectTextInputFocusStyles,
     _placeholder: {
-      color: "ui.gray.dark",
+      color: "ui.gray.semi-dark",
     },
     _invalid: {
       borderColor: "dark.ui.error.primary",

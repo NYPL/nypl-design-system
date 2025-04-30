@@ -21,25 +21,8 @@ export const headingSizesArray = [
   "heading6",
   "heading7",
   "heading8",
-  "primary",
-  "secondary",
-  "tertiary",
-  "callout",
 ] as const;
-export const headingLevelsArray = [
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-] as const;
+export const headingLevelsArray = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
 
 export type HeadingSizes = typeof headingSizesArray[number];
 export type HeadingLevels = typeof headingLevelsArray[number];

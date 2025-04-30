@@ -32,231 +32,6 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
 
 exports[`Hero Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-b2u002"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-0"
-    data-testid="hero-content"
-    style={{}}
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": undefined,
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="secondary-hero"
-    >
-      Hero Secondary
-    </h1>
-    <div
-      className="css-0"
-    >
-      Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 3`] = `
-<div
-  className="css-0"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-0"
-    data-testid="hero-content"
-    style={{}}
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": undefined,
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="secondary-hero"
-    >
-      Hero Secondary Books and More
-    </h1>
-    <div
-      className="css-0"
-    >
-      Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 4`] = `
-<div
-  className="css-0"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-0"
-    data-testid="hero-content"
-    style={{}}
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": undefined,
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="secondary-hero"
-    >
-      Hero Secondary Locations
-    </h1>
-    <div
-      className="css-0"
-    >
-      Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 5`] = `
-<div
-  className="css-0"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-0"
-    data-testid="hero-content"
-    style={{}}
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": undefined,
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="secondary-hero"
-    >
-      Hero Secondary
-    </h1>
-    <div
-      className="css-0"
-    >
-      Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 6`] = `
-<div
-  className="css-0"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-0"
-    data-testid="hero-content"
-    style={{}}
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": undefined,
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="secondary-hero"
-    >
-      Hero Secondary What's On
-    </h1>
-    <div
-      className="css-0"
-    >
-      Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 7`] = `
-<div
   className="css-14tngpx"
   data-responsive-background-image={true}
   data-testid="hero"
@@ -283,7 +58,7 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`Hero Renders the UI snapshot correctly 8`] = `
+exports[`Hero Renders the UI snapshot correctly 3`] = `
 <div
   className="css-x5wp36"
   data-responsive-background-image={true}
@@ -332,50 +107,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
 </div>
 `;
 
-exports[`Hero Renders the UI snapshot correctly 9`] = `
-<div
-  className="css-b2u002"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-b2u002"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.bg.default",
-      }
-    }
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <div
-      className="css-0"
-    >
-      With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 10`] = `
+exports[`Hero Renders the UI snapshot correctly 4`] = `
 <div
   className="css-1wmtxb5"
   data-responsive-background-image={true}
@@ -405,7 +137,7 @@ exports[`Hero Renders the UI snapshot correctly 10`] = `
 </div>
 `;
 
-exports[`Hero Renders the UI snapshot correctly 11`] = `
+exports[`Hero Renders the UI snapshot correctly 5`] = `
 <div
   className="css-1wmtxb5"
   data-responsive-background-image={true}

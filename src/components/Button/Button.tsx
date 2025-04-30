@@ -17,7 +17,6 @@ export const buttonTypesArray = [
   "callout",
   "pill",
   "noBrand",
-  "link",
 ] as const;
 
 export type ButtonSizes = typeof buttonSizesArray[number];
