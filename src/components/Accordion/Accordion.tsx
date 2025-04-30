@@ -8,7 +8,12 @@ import {
   useColorMode,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { ComponentProps, forwardRef, useEffect, useState } from "react";
+import React, {
+  ButtonHTMLAttributes,
+  forwardRef,
+  useEffect,
+  useState,
+} from "react";
 
 import Icon, { IconColors } from "../Icons/Icon";
 
@@ -22,11 +27,11 @@ export interface AccordionDataProps {
   panel: string | React.ReactNode;
 }
 
-type AccordionButtonAttributes = Pick<
-  ComponentProps<typeof AccordionButton>,
+type HTMLButtonAttributes = Pick<
+  ButtonHTMLAttributes<HTMLButtonElement>,
   "aria-label"
 >;
-export interface AccordionProps extends AccordionButtonAttributes {
+export interface AccordionProps extends HTMLButtonAttributes {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
