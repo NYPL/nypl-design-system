@@ -57,13 +57,6 @@ association is handled automatically by all DS `Form Elements` components.
 
 <Canvas of={HelperErrorTextStories.TextInputExample} />
 
-### ARIA Atomic
-
-By default, `aria-atomic` is set to `true` for the `HelperErrorText` component.
-This allows the entire DOM element to be presented to assistive technologies. If
-desired, you can pass `aria-atomic={false}` instead so that only additions or
-removals will be read by assistive technologies.
-
 ### ARIA Live
 
 By default, `aria-live` is set to `polite` for the `HelperErrorText` component.
@@ -85,6 +78,13 @@ attribute is set in the wrapper `<div>` element that is always rendered by the
 `HelperErrorText` component.
 
 <Canvas of={HelperErrorTextStories.AriaControls} />
+
+### ARIA Atomic
+
+When `aria-atomic` is set to `true` within an ARIA live region, the entire DOM
+element is presented to assistive technologies. By default, `aria-atomic` is
+set to `true` for the `HelperErrorText` component. If desired, you can pass
+`aria-atomic={false}` instead so that only the changed node is presented.
 
 Resources:
 
