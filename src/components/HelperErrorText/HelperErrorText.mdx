@@ -81,10 +81,11 @@ attribute is set in the wrapper `<div>` element that is always rendered by the
 
 ### ARIA Atomic
 
-When `aria-atomic` is set to `true` within an ARIA live region, the entire DOM
-element is presented to assistive technologies. By default, `aria-atomic` is
-set to `true` for the `HelperErrorText` component. If desired, you can pass
-`aria-atomic={false}` instead so that only the changed node is presented.
+When `aria-atomic` is set to `true` within an ARIA live region and something in
+that region changes, the entire DOM element is presented to assistive technologies.
+By default, this is the behavior of the `HelperErrorText` component. If desired,
+you can pass `aria-atomic={false}` instead so that only the change (addition or
+removal) is presented.
 
 Resources:
 
