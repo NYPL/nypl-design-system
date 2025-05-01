@@ -12,6 +12,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds Progressive Enhancement accessibility guide Storybook page.
 
+### Updates
+
+- Update Storybook and related npm packages to `v8.6.12`.
+- Updates `vite` to `v5.4.18`, `@vitejs/plugin-react` to `v4.4.1`, and `vite-plugin-svgr` to `v4.3.0`.
+
 ## 3.6.1 (April 24, 2025)
 
 ### Updates

@@ -28,59 +28,105 @@ and devices.
 This approach is particularly important for accessibility and users with
 disabilities, who may be using assistive technologies or older devices that do
 not support advanced features. This inclusive design philosophy also focuses on
-developers knowing and implement web fundamentals, such as HTML and CSS, before
-heavily relying on JavaScript.
+developers knowing and implementing web fundamentals, such as HTML and CSS,
+before heavily relying on JavaScript.
 
 ## NYPL and DS Problem
 
-When Javascript is turned off in a browser, certain Design System (DS) components
-and general user interfaces do not work. There are various reasons why app-level
-features may not work including how the application is architected, how data is
-fetched, and how data is rendered. Many issues, however, point back to DS
-components.
+When JavaScript is turned off in the browser, certain NYPL user interfaces and
+features do not work. There are various reasons why this is, including how the
+application is architected, how data is fetched, and how data is rendered. Many
+issues, however, point back to DS components.
 
 ## HTML Button Issue
 
-HTML `<button>`s can work without javascript in the following contexts.
+HTML `<button>`s can only work without JavaScript in the following contexts.
 
-- When used inside a `<form>` element, if it has an attribute of type=”submit”,
+- When used inside a `<form>` element, if it has an attribute of type="submit",
   the button will be clickable.
-- When used inside a `<form>` element, if it has an attribute of type=”reset”,
+- When used inside a `<form>` element, if it has an attribute of type="reset",
   the button will be clickable and clear out input elements.
 
-There are DS components that use the `Button` component, and therefore the
-`<button>` HTML element, and cannot fully function without Javascript. These
-components rely on the button element to open, close, or perform user actions
-that won’t work without javascript.
+However, there are several DS components that use the `Button` component (and
+therefore the `<button>` HTML element) outside of a form to open, close, or
+perform other user actions. These components cannot fully function without
+JavaScript.
 
 ## Component Audit
 
-As of v3.6.1, the DS contains 25 fully functional components, and 36 components
-that need Javascript to work.
+As of v3.6.1, the DS contains 25 fully functional components, and 34 components
+that need JavaScript to work.
 
-The following (25) components are fully functional without Javascript:
+The following (25) components are fully functional without JavaScript:
 
-- `Breadcrumbs`, `Card`, `FeaturedContent`, `FieldSet`, `Footer`, `Form`,
-  `FormRow`, `FormField`, `HelperErrorText`, `Hero`, `HorizontalRule`, `Icon`,
-  `Image`, `Label`, `Link`, `List`, `Logo`, `SimpleGrid`, `SkipNavigation`,
-  `StatusBadge`, `StructuredContent`, `StyledList`, `Table`, `Template`, `Text`
+- `Breadcrumbs`
+- `Card`
+- `FeaturedContent`
+- `FieldSet`
+- `Footer`
+- `Form`,
+- `FormRow`
+- `FormField`
+- `HelperErrorText`
+- `Hero`
+- `HorizontalRule`
+- `Icon`,
+- `Image`
+- `Label`
+- `Link`
+- `List`
+- `Logo`
+- `SimpleGrid`
+- `SkipNavigation`,
+- `StatusBadge`
+- `StructuredContent`
+- `StyledList`
+- `Table`
+- `Template`
+- `Text`
 
-The following (16) use the HTML `<button>` element and are not fully functional without
-Javascript:
+The following (16) use the HTML `<button>` element and are not fully functional
+without JavaScript:
 
-- `Accordion`, `AlphabetFilter`, `Banner`, `Button`, `ButtonGroup`, `Header`,
-  `Menu`, `Modal`, `MultiSelect`, `MultiSelectGroup`, `NewsletterSignup`,
-  `Notification`, `Pagination`, `SubNav`, `Tabs`, `TagSet`
+- `Accordion`
+- `AlphabetFilter`
+- `Banner`
+- `Button`
+- `ButtonGroup`
+- `Header`
+- `Menu`
+- `Modal`
+- `MultiSelect`
+- `MultiSelectGroup`
+- `NewsletterSignup`
+- `Notification`
+- `Pagination`
+- `SubNav`
+- `Tabs`
+- `TagSet`
 
-The following (15) components need a pattern update to work without Javascript:
+The following (15) components need a pattern update to work without JavaScript:
 
-- `CheckBox`, `CheckboxGroup`, `FeedbackBox`, `FilterBarInline`, `FilterBarPopup`,
-  `ProgressIndicator`, `Radio`, `RadioGroup`, `SearchBar`, `Select`,
-  `SkeletonLoader`, `Slider`, `TextInput`, `Toggle`, `Tooltip`
+- `CheckBox`
+- `CheckboxGroup`
+- `FeedbackBox`
+- `FilterBarInline`
+- `FilterBarPopup`
+- `ProgressIndicator`
+- `Radio`
+- `RadioGroup`
+- `SearchBar`
+- `Select`
+- `SkeletonLoader`
+- `Slider`
+- `TextInput`
+- `Toggle`
+- `Tooltip`
 
 The following (2) can't be fixed due to browser limitations:
 
-- `AudioPlayer`, `VideoPlayer`
+- `AudioPlayer`
+- `VideoPlayer`
 
 The following (1) depend on external libraries:
 
@@ -88,20 +134,16 @@ The following (1) depend on external libraries:
 
 ## General Recommendations
 
-In our current web world and based on the number of users that have JS disabled,
-instead of fixing all no-JS issues, we should attempt to fix what we can. This
-audit gives us a better understanding of what components do not work without JS.
-We need to document our findings and be transparent about the components that do
-not work. Based on the Engineering General Javascript standard, a no-JS fallback
-is preferable but not required.
+Based on the [Engineering General JavaScript standard](https://github.com/NYPL/engineering-general/blob/main/standards/javscript.md),
+a no-JavaScript fallback is preferable but not required. Our recommendation is
+to fix what we can. This audit gives us a better understanding of what components
+do not work without JavasSript currently, and which ones we have the opportunity
+to change.
 
-Various new pages and features that are being built have JS-heavy requirements.
-Based on the standards, we need to recommend and encourage teams to add a
-noscript fallback message that instructs patrons to enable JS to use the site.
-
-We recommend rendering a simple component with the patron message to use as the
-fallback noscript solution. This would not be a React component but rather an
-HTML/CSS snippet.
+Various new pages and features being built for NYPL have JavaScript-heavy
+requirements. We recommend and encourage teams to add a noscript fallback
+message. This would be an HTML/CSS snippet (not React) that instructs patrons
+to enable Javascript to use the site.
 
 ## Resources
 
