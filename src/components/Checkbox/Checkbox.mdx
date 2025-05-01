@@ -18,11 +18,11 @@ import { changelogData } from "./checkboxChangelogData";
 
 - {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#additional-attributes" target="_self">Additional Attributes</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#checked" target="_self">Checked</Link>}
 - {<Link href="#indeterminate" target="_self">Indeterminate</Link>}
 - {<Link href="#additional-states" target="_self">Additional States</Link>}
-- {<Link href="#name-and-value-attributes" target="_self">Name and Value Attributes</Link>}
 - {<Link href="#label-using-jsx-elements" target="_self">Label Using JSX Elements</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
@@ -40,6 +40,26 @@ DS `CheckboxGroup` component. The `CheckboxGroup` component will handle all the 
 <Canvas of={CheckboxStories.WithControls} />
 
 <ArgTypes of={CheckboxStories.WithControls} />
+
+## Additional Attributes
+
+Beyond the `Checkbox` props, you may also pass `name` and `value` attributes.
+
+In fact, a `name` attribute is required for a checkbox to be submitted as form data
+(though `name="default"` will automatically be applied if none is passed). If you
+are using the `CheckboxGroup` wrapper (recommended) a `name` must be passed to the
+`CheckboxGroup` and will be applied to all children `Checkbox`es.
+
+The `value` attribute is optional, but is recommended because it is needed by the
+`CheckboxGroup`'s `onChange` function.
+
+<Source
+  code={`
+// If checked, this would add library=SASB to form data
+<Checkbox name="library" value="SASB"/> 
+`}
+  language="tsx"
+/>
 
 ## Accessibility
 
@@ -78,24 +98,6 @@ now be controlled and removed by the parent component in order to remove this st
 ## Additional States
 
 <Canvas of={CheckboxStories.AdditionalStates} />
-
-## Name and Value Attributes
-
-For a checked `Checkbox` to be submitted as form data, a `name` attribute is required.
-If you are using the `CheckboxGroup` wrapper (recommended) this `name` must be passed
-to the `CheckboxGroup` and will be applied to all children `Checkbox`es. If you are
-using the `Checkbox` in isolation, you should pass the `name` directly to the `Checkbox`
-(or a `name` of `"default"` will automatically be applied). The `value` attribute is
-optional, but is recommended because it is needed by the `CheckboxGroup`'s `onChange`
-function.
-
-<Source
-  code={`
-// If checked, this would add library=SASB to form data
-<Checkbox name="library" value="SASB"/> 
-`}
-  language="tsx"
-/>
 
 ## Label Using JSX Elements
 

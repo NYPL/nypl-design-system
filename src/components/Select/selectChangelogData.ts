@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Documentation", "Functionality"],
     notes: [
-      "Removes `name` and `value` props (as HTML equivalents may be used) and updates docs.",
+      "Removes `name` and `value` props (as HTML or Chakra equivalents may be used) and updates docs.",
     ],
   },
   {

@@ -1,11 +1,12 @@
 import {
   Box,
   Button as ChakraButton,
+  ButtonProps as ChakraButtonProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { ComponentProps, forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
@@ -21,9 +22,6 @@ export const buttonTypesArray = [
 
 export type ButtonSizes = typeof buttonSizesArray[number];
 export type ButtonTypes = typeof buttonTypesArray[number];
-
-type ChakraButtonProps = Pick<ComponentProps<typeof ChakraButton>, "type">;
-
 export interface ButtonProps extends ChakraButtonProps {
   /** The button variation to render based on the `ButtonTypes` type. */
   buttonType?: ButtonTypes;
@@ -110,7 +108,7 @@ export const Button: ChakraComponent<
           id={id}
           isDisabled={isDisabled}
           ref={ref}
-          type={type || "button"}
+          type={type}
           {...btnCallback}
           __css={styles.base}
           {...rest}

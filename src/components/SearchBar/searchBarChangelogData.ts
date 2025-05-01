@@ -23,7 +23,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Documentation", "Functionality", "Styles"],
     notes: [
       "Updates styles with container queries to be more responsive.",
-      "Removes `action` and `method` props (as HTML equivalents may be used) and updates docs.",
+      "Removes `action` and `method` props (as HTML or Chakra equivalents may be used) and updates docs.",
     ],
   },
   {

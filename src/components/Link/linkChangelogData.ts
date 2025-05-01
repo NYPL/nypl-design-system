@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Documentation", "Functionality"],
     notes: [
       "Removes deprecated `button` value in `linkTypesArray`.",
-      "Removes `href` and `rel` props (as HTML equivalents may be used) and updates docs.",
+      "Removes `href` and `rel` props (as HTML or Chakra equivalents may be used) and updates docs.",
     ],
   },
   {

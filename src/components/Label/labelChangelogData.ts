@@ -17,7 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       'Changes the font weight for the `(required)` label to `"light"`.',
       'Changes the font weight for the `(required)` label to `"medium"`.',
-      "Removes `htmlFor` prop (as HTML equivalent may be used) and updates docs.",
+      "Removes `htmlFor` prop (as HTML or Chakra equivalent may be used) and updates docs.",
     ],
   },
   {

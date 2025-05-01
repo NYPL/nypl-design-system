@@ -8,12 +8,13 @@ import {
   RangeSliderTrack as ChakraRangeSliderTrack,
   Slider as ChakraSlider,
   SliderFilledTrack as ChakraSliderFilledTrack,
+  SliderProps as ChakraSliderProps,
   SliderThumb as ChakraSliderThumb,
   SliderTrack as ChakraSliderTrack,
   useColorMode,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { ComponentProps, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
@@ -21,12 +22,8 @@ import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
 import TextInput, { TextInputTypes } from "../TextInput/TextInput";
 
-type ChakraSliderProps = Pick<
-  ComponentProps<typeof ChakraSlider>,
-  "name" | "min" | "max"
->;
-
-export interface SliderProps extends ChakraSliderProps {
+export interface SliderProps
+  extends Omit<ChakraSliderProps, "defaultValue" | "value"> {
   /** Additional class name for the Slider component. */
   className?: string;
   /** The initial value for the single `Slider` or an array of two number
@@ -69,8 +66,6 @@ export interface SliderProps extends ChakraSliderProps {
   showRequiredLabel?: boolean;
   /** Offers the ability to hide the static min/max values. */
   showValues?: boolean;
-  /** The amount to increase or decrease when using the slider thumb(s). */
-  step?: number;
   /** The value(s) to programmatically update the Slider or RangeSlider. */
   value?: number | number[];
 }

@@ -16,14 +16,9 @@ interface FormBaseProps {
 
 export interface FormChildProps extends Partial<FormBaseProps> {}
 
-type HTMLFormAttributes = Omit<
-  React.FormHTMLAttributes<HTMLFormElement>,
-  "id" | "method"
-> & {
-  method?: "get" | "post";
-};
-
-export interface FormProps extends FormBaseProps, HTMLFormAttributes {
+export interface FormProps
+  extends FormBaseProps,
+    Omit<React.FormHTMLAttributes<HTMLFormElement>, "id"> {
   /** Function to call for the `onSubmit` form event. */
   onSubmit?: (e: React.FormEvent<any>) => void;
 }
@@ -83,11 +78,15 @@ export const FormField: ChakraComponent<
 /** Main Form component */
 export const Form: ChakraComponent<
   React.ForwardRefExoticComponent<
-    FormProps & React.RefAttributes<HTMLDivElement & HTMLFormElement>
+    React.PropsWithChildren<FormProps> &
+      React.RefAttributes<HTMLDivElement & HTMLFormElement>
   >,
-  FormProps
+  React.PropsWithChildren<FormProps>
 > = chakra(
-  forwardRef<HTMLDivElement & HTMLFormElement, FormProps>((props, ref?) => {
+  forwardRef<
+    HTMLDivElement & HTMLFormElement,
+    React.PropsWithChildren<FormProps>
+  >((props: React.PropsWithChildren<FormProps>, ref?) => {
     const {
       children,
       className,

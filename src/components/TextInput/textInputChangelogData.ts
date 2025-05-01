@@ -26,7 +26,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Documentation", "Functionality"],
     notes: [
       "Updates the `labelText` prop type to `string | JSX.Element`",
-      "Removes `name`, `placeholder`, `step`, `pattern` and `value` props (as HTML equivalents may be used) and updates docs.",
+      "Removes `name`, `placeholder`, `step`, `pattern` and `value` props (as HTML or Chakra equivalents may be used) and updates docs.",
     ],
   },
   {

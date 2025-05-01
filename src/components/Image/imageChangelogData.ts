@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Documentation", "Styles", "Functionality"],
     notes: [
       "Replaces the error thrown with a console.warn.",
-      "Removes `alt` and `src` props (as HTML equivalents may be used) and updates docs.",
+      "Removes `alt` and `src` props (as HTML or Chakra equivalents may be used) and updates docs.",
     ],
   },
   {

@@ -27,9 +27,6 @@ const meta: Meta<typeof Slider> = {
     isRangeSlider: argsBooleanType(),
     isRequired: argsBooleanType(),
     labelText: { control: "text" },
-    max: { control: "number", table: { defaultValue: { summary: "100" } } },
-    min: { control: "number", table: { defaultValue: { summary: "0" } } },
-    name: { control: false },
     onChange: { control: false },
     onChangeEnd: { control: false },
     showBoxes: argsBooleanType("true"),
@@ -37,7 +34,6 @@ const meta: Meta<typeof Slider> = {
     showLabel: argsBooleanType("true"),
     showRequiredLabel: argsBooleanType("true"),
     showValues: argsBooleanType("true"),
-    step: { control: "number", table: { defaultValue: { summary: "1" } } },
     value: { control: false },
   },
 };
@@ -61,9 +57,6 @@ export const WithControls: Story = {
     isRangeSlider: false,
     isRequired: false,
     labelText: "Slider label",
-    max: 100,
-    min: 0,
-    name: undefined,
     onChange: undefined,
     onChangeEnd: undefined,
     showBoxes: true,
@@ -71,7 +64,6 @@ export const WithControls: Story = {
     showLabel: true,
     showRequiredLabel: true,
     showValues: true,
-    step: 1,
     value: undefined,
   },
   argTypes: {
@@ -82,7 +74,7 @@ export const WithControls: Story = {
       },
     },
   },
-  render: (args) => <Slider {...args} />,
+  render: (args) => <Slider min={0} max={100} step={1} {...args} />,
   parameters: {
     design: {
       type: "figma",
@@ -123,9 +115,6 @@ export const RangeSliderWithControls: Story = {
     isRangeSlider: true,
     isRequired: false,
     labelText: "Range Slider label",
-    max: 100,
-    min: 0,
-    name: undefined,
     onChange: undefined,
     onChangeEnd: undefined,
     showBoxes: true,
@@ -133,7 +122,6 @@ export const RangeSliderWithControls: Story = {
     showLabel: true,
     showRequiredLabel: true,
     showValues: true,
-    step: 1,
     value: undefined,
   },
   argTypes: {
@@ -144,7 +132,7 @@ export const RangeSliderWithControls: Story = {
       },
     },
   },
-  render: (args) => <Slider {...args} />,
+  render: (args) => <Slider min={0} max={100} step={1} {...args} />,
   play: async ({ canvasElement }) => {
     const screen = within(canvasElement);
 
