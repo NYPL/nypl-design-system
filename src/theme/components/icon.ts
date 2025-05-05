@@ -34,7 +34,7 @@ const iconRotation: Record<string, { transform: string }> = {
   },
 };
 
-const size: Record<string, { height?: string; width?: string }> = {
+export const size: Record<string, { height?: string; width?: string }> = {
   // 96 px
   xxxxxlarge: {
     height: "var(--nypl-space-xxxl)",

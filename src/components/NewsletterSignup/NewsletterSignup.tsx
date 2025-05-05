@@ -15,7 +15,6 @@ import { NewsletterSignupResponse } from "./NewsletterSignupResponse";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import useDSHeading from "../../hooks/useDSHeading";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export interface NewsletterSignupProps {
   /** Additional class name to add. */
@@ -117,7 +116,6 @@ export const NewsletterSignup: ChakraComponent<
       },
       ref?
     ) => {
-      const { isLargerThanMobile } = useNYPLBreakpoints();
       const styles = useMultiStyleConfig("NewsletterSignup", {
         highlightColor,
       });
@@ -145,7 +143,7 @@ export const NewsletterSignup: ChakraComponent<
 
       return (
         <Stack
-          direction={isLargerThanMobile ? "row" : "column"}
+          direction={{ base: "column", md: "row" }}
           ref={ref}
           __css={styles}
           {...rest}

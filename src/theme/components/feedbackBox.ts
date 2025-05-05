@@ -8,6 +8,7 @@ const { defineMultiStyleConfig, definePartsStyle } =
     "drawerContent",
     "drawerHeader",
     "openButton",
+    "radioGroup",
   ]);
 
 const FeedbackBox = defineMultiStyleConfig({
@@ -77,6 +78,11 @@ const FeedbackBox = defineMultiStyleConfig({
       _focus: {
         boxShadow: "0 0 0 6px var(--nypl-colors-ui-white) !important",
         zIndex: "10000 !important",
+      },
+    },
+    radioGroup: {
+      ".radioGroupStack": {
+        flexDirection: { base: "column", md: "row" },
       },
     },
   }),

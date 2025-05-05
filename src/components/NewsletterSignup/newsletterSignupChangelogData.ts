@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Removes use of `useNYPLBreakpoints` and replaces with equivalent Chakra syntax.",
+    ],
+  },
+  {
     date: "2025-04-10",
     version: "3.6.0",
     type: "Update",
