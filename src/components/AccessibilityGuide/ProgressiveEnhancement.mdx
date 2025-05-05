@@ -1,5 +1,6 @@
 import { Meta, Source } from "@storybook/blocks";
 
+import { Banner } from "../Banner/Banner";
 import Link from "../Link/Link";
 
 <Meta title="Accessibility Guide/Progressive Enhancement" />
@@ -20,16 +21,20 @@ import Link from "../Link/Link";
 Progressive enhancement is a frontend development strategy and mindset that
 emphasizes building a "basic", functional version of a website or component first,
 and then adding more advanced features and enhancements. This approach ensures
-that the core functionality of a component or site is accessible to all users,
-regardless of their device or browser capabilities. Once the necessary functionality
-is in place, we can provide additional enhancements for users with modern browsers
-and devices.
+that the core functionality is accessible to all users, regardless of their
+device, browser capabilities, or connection quality, rather than focusing on the
+few who intentionally disable JavaScript.
 
-This approach is particularly important for accessibility and users with
-disabilities, who may be using assistive technologies or older devices that do
-not support advanced features. This inclusive design philosophy also focuses on
-developers knowing and implementing web fundamentals, such as HTML and CSS,
-before heavily relying on JavaScript.
+A key benefit of progressive enhancement is that it prioritizes a fast and
+reliable first render of the page. By ensuring the base HTML delivers meaningful
+content and functionality upfront, we can improve usability and equity for users
+in bandwidth-constrained environments. Once the foundation is in place, we can
+then provide additional enhancements for users with modern browsers and devices.
+
+On the development side, this inclusive design philosophy focuses on knowing and
+implementing web fundamentals, such as HTML and CSS, before heavily relying on
+JavaScript. Client-side JavaScript for core functionality places the burden on
+the user's device and browser to download, parse, and execute JavaScript code.
 
 ## NYPL and DS Problem
 
@@ -64,20 +69,20 @@ The following (25) components are fully functional without JavaScript:
 - `FeaturedContent`
 - `FieldSet`
 - `Footer`
-- `Form`,
+- `Form`
 - `FormRow`
 - `FormField`
 - `HelperErrorText`
 - `Hero`
 - `HorizontalRule`
-- `Icon`,
+- `Icon`
 - `Image`
 - `Label`
 - `Link`
 - `List`
 - `Logo`
 - `SimpleGrid`
-- `SkipNavigation`,
+- `SkipNavigation`
 - `StatusBadge`
 - `StructuredContent`
 - `StyledList`
@@ -137,13 +142,61 @@ The following (1) depend on external libraries:
 Based on the [Engineering General JavaScript standard](https://github.com/NYPL/engineering-general/blob/main/standards/javscript.md),
 a no-JavaScript fallback is preferable but not required. Our recommendation is
 to fix what we can. This audit gives us a better understanding of what components
-do not work without JavasSript currently, and which ones we have the opportunity
-to change.
+currently do not work without JavasSript, and which ones we have the opportunity
+to change (with time and resources).
 
 Various new pages and features being built for NYPL have JavaScript-heavy
 requirements. We recommend and encourage teams to add a noscript fallback
 message. This would be an HTML/CSS snippet (not React) that instructs patrons
 to enable Javascript to use the site.
+
+## noscript Fallback Example
+
+TBD
+
+<Source
+  language="html"
+  code={`
+<noscript>
+  <aside className="noscript-banner">
+    <h2>JavaScript is disabled</h2>
+    <div>Some features may not work as expected.</div>
+  </aside>
+  <style>
+    .noscript-banner {
+      background: #f9e08e;
+      color: #2e2e2e;
+      padding: 16px;
+      text-align: center;
+      font-size: 16px;
+    }
+  </style>
+`}
+/>
+
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The above example needs to be modified to work
+      appropriately in Next.js. See the{" "}
+      <a href="https://nextjs.org/docs/app/getting-started/css">
+        Next.js documentation
+      </a>{" "}
+      for other approaches.
+    </>
+  }
+/>
+
+<Source
+  language="html"
+  code={`
+<style>
+  {
+    ".noscript-banner {background: #f9e08e;color: #2e2e2e;padding: 16px;text-align: center;font-size: 16px;}"
+  }
+</style>
+`}
+/>
 
 ## Resources
 
