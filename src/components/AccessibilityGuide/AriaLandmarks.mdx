@@ -38,16 +38,20 @@ ARIA’s eight landmark roles are specifically meant to describe page organizati
 | region        | `<section>`  |
 | search        | `<search>`   |
 
-Landmarks can be indicated with `role="landmark"` or by using the landmark's HTML element.
+Landmarks can be indicated with `role="landmark"` or by using the landmark's HTML element– both methods mean the same thing in the document.
+
+Some landmarks can be nested inside each other (see `<header>`, for instance) or appear multiple times on a page (distinguished by a unique id), but it depends on the specific landmark.
 
 **Some Reservoir components already internally set a landmark role, but some landmarks must be set by the consuming app since they could wrap many components.**
 
 ### banner
 
-The `Header` is Reservoir's only component that falls under the `banner` category: an area that has global, rather than page-specific, information or actionable elements.
+The banner landmark is an area that has global, rather than page-specific, information or actionable elements.
 For example, a website's logo and primary navigation would be expected child elements of a `banner` landmark. There should only be a single `banner` landmark per interface.
 
-Our `Header` contains other landmarks: `complementary` for temporary sitewide alerts, `navigation` for the site navigation. The DS `Banner` is a `complementary` landmark, despite its title matching `banner`.
+The Header is Reservoir's only component that falls under the banner category. Our `Header` contains other landmarks: `complementary` for temporary sitewide alerts, `navigation` for the site navigation.
+
+Note: The DS `Banner` is a `complementary` landmark, despite its title matching `banner`.
 
 ### complementary
 
@@ -57,7 +61,7 @@ The `Banner`, `StatusBadge`, `Notification` , `Hero`, and `FeaturedContent` comp
 
 ### contentinfo
 
-`contentinfo` is another globally repeating landmark, like `banner`, with information about the parent document. If `banner` is usually the site's header, `contentinfo` is usually the footer.
+`contentinfo` is another globally repeating landmark, like `banner`, with information about the parent document. If `banner` is usually the site's header, `contentinfo` is usually the footer. There should only be a single `contentinfo` landmark per interface.
 
 The DS `Footer` uses the `contentinfo` role.
 
@@ -91,7 +95,7 @@ The `Template` [component](../?path=/docs/components-page-layout-template--docs)
 ### navigation
 
 The `navigation` landmark identifies groups (e.g. lists) of links that are intended to be used for website or page content navigation.
-There can be multiple `navigation`s on a page, but if a `navigation` landmark has the same set of links as another `navigation` landmark on the page (think mobile versus desktop), use the same label for both.
+There can be multiple `navigation`s on a page, but if a `navigation` landmark has the same set of links as another `navigation` landmark on the page (think mobile versus desktop), use the same HTML `label` attribute for both.
 
 Elements under [Navigation](../?path=/docs/components-navigation) should be wrapped by the `navigation` landmark.
 
@@ -102,6 +106,8 @@ The `region` landmark is sort of a catch-all: a perceivable section containing c
 Since `region` is for content that doesn't fit under other landmarks, it has no default corresponding HTML element. A `<section>` element can become a `region` landmark if it is provided an accessible name (for instance, by giving it an `aria-label` or `aria-labelledby` attribute).
 
 `region` should always be applied by the consuming app, since it is specific to the content being presented.
+
+Note: There's not always a clear line between `complementary` content and content that deserves its own `region`, but a good rule of a thumb is that `complementary` content should supports or modifies the main content of the page, while `region` should represent its own separate information.
 
 ### search
 
