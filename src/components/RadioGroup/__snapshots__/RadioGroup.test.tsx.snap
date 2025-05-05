@@ -17,7 +17,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
@@ -162,7 +162,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-1478f2b"
+      className="chakra-stack radioGroupStack css-1478f2b"
     >
       <div
         className="css-1xdhyk6"
@@ -307,7 +307,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
@@ -452,7 +452,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
@@ -602,7 +602,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
@@ -747,7 +747,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
@@ -897,7 +897,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
@@ -1044,7 +1044,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
@@ -1197,7 +1197,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
@@ -1350,7 +1350,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
@@ -1519,7 +1519,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
@@ -1665,7 +1665,7 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack css-19s3t1h"
+      className="chakra-stack radioGroupStack css-19s3t1h"
     >
       <div
         className="css-1xdhyk6"
