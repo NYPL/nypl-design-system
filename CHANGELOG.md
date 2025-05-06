@@ -21,6 +21,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the Storybook font styles.
 - Updates the docs for the `Template` component.
 - Replaces the error thrown with a console.warn for the `Breadcrumbs`, `Heading`, and `Image` components.
+- Removes props with HTML equivalents and instructs devs to use the native attributes
 
 ### Removals
 

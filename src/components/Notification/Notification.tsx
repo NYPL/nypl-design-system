@@ -50,8 +50,6 @@ type NotificationContentProps = Omit<BaseProps, "icon">;
 type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
 
 export interface NotificationProps extends BasePropsWithoutAlignText {
-  /** Label used to describe the `Notification`'s aside HTML element. */
-  ariaLabel?: string;
   /** Additional `className` to add. */
   className?: string;
   /** Optional prop to control whether a `Notification` can be dismissed
@@ -160,7 +158,6 @@ export const Notification: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, NotificationProps>((props, ref?) => {
     const {
-      ariaLabel,
       className,
       dismissible = false,
       icon,
@@ -286,7 +283,6 @@ export const Notification: ChakraComponent<
     }
     return (
       <Box
-        aria-label={ariaLabel}
         as="aside"
         className={className}
         data-type={notificationType}
