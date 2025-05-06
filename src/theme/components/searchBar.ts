@@ -26,6 +26,11 @@ const SearchBar = defineMultiStyleConfig({
             ...size["medium"],
           },
         },
+        ".textInput": {
+          "div > input": {
+            borderLeftRadius: hasSelectElem ? "sm" : null,
+          },
+        },
       },
     }),
     ...setContainerStyles({
@@ -55,12 +60,16 @@ const SearchBar = defineMultiStyleConfig({
             ...size["small"],
           },
         },
+        ".textInput": {
+          "div > input": {
+            borderLeftRadius: 0,
+          },
+        },
       },
     }),
     ".textInput": {
       flexGrow: 1,
       "div > input": {
-        borderLeftRadius: { base: hasSelectElem ? "sm" : null, md: 0 },
         borderRight: 0,
         borderRightRadius: 0,
       },
