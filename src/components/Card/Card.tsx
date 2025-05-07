@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   LinkBox as ChakraLinkBox,
@@ -25,9 +26,7 @@ interface CardBaseProps {
   layout?: LayoutTypes;
 }
 
-interface CardWrapperProps {
-  /** Optional CSS class name to add. */
-  className?: string;
+interface CardWrapperProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Main link to use when the full `Card` component should be clickable. */
@@ -166,19 +165,13 @@ export const CardActions: React.FC<React.PropsWithChildren<any>> = chakra(
  */
 const CardWrapper: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<CardWrapperProps>>(
-    ({ className, children, id, mainActionLink, styles, ...rest }, ref) =>
+    ({ children, id, mainActionLink, styles, ...rest }, ref) =>
       mainActionLink ? (
-        <ChakraLinkBox
-          id={id}
-          className={className}
-          ref={ref}
-          sx={styles}
-          {...rest}
-        >
+        <ChakraLinkBox id={id} ref={ref} sx={styles} {...rest}>
           {children}
         </ChakraLinkBox>
       ) : (
-        <Box id={id} className={className} ref={ref} sx={styles} {...rest}>
+        <Box id={id} ref={ref} sx={styles} {...rest}>
           {children}
         </Box>
       )
@@ -214,7 +207,6 @@ export const Card: ChakraComponent<
       const {
         backgroundColor,
         children,
-        className,
         foregroundColor,
         id,
         imageProps = {
@@ -324,7 +316,6 @@ export const Card: ChakraComponent<
         <Box __css={styles.base} ref={ref}>
           <CardWrapper
             id={id}
-            className={className}
             mainActionLink={mainActionLink}
             styles={{
               ...styles.wrapper,

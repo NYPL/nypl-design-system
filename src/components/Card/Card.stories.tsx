@@ -20,7 +20,6 @@ const meta: Meta<typeof Card> = {
   component: Card,
   argTypes: {
     backgroundColor: { control: { type: "color" } },
-    className: { control: false },
     foregroundColor: { control: { type: "color" } },
     id: { control: false },
     imageProps: { disable: true },
@@ -75,7 +74,6 @@ type Story = StoryObj<typeof Card>;
 export const WithControls: Story = {
   args: {
     backgroundColor: undefined,
-    className: undefined,
     foregroundColor: undefined,
     id: "card-id",
     imageProps: undefined,
@@ -98,7 +96,6 @@ export const WithControls: Story = {
   render: (args) => (
     <Card
       backgroundColor={args.backgroundColor}
-      className={args.className}
       foregroundColor={args.foregroundColor}
       id={args.id}
       imageProps={{

@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Replaces the error thrown with a console.warn."],
+    notes: [
+      "Replaces the error thrown with a console.warn.",
+      "Removes explicit `className` prop.",
+    ],
   },
   {
     date: "2025-01-30",

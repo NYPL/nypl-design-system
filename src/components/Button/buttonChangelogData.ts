@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Removes deprecated `link` buttonType."],
+    notes: [
+      "Removes deprecated `link` buttonType.",
+      "Removes explicit `className` prop.",
+    ],
   },
   {
     date: "2025-04-10",
