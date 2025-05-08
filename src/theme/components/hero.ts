@@ -2,6 +2,7 @@ import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 // import { StyleFunctionProps } from "@chakra-ui/system";
 import { wrapperStyles } from "./global";
 import { screenreaderOnly } from "./globalMixins";
+import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
 
 // This function creates a set of functions that help us
 // create multipart component styles.
@@ -150,48 +151,50 @@ export const getLinkColor = (state, foregroundColor, isDarkText) => {
   return finalColor;
 };
 // Variant styling
-const primary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
-  base: {
-    alignItems: "center",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    display: "grid",
-    gridTemplateColumns: "repeat(12, 1fr)",
-    gap: { base: "1.5rem", lg: "2rem" },
-    minHeight: "352px",
-    p: "l",
-    paddingInline: "1rem",
-  },
-  content: {
-    bg: "ui.black",
-    color: getTextColor("body", "light", foregroundColor, isDarkText),
-    gridColumn: { base: "1 / -1", md: "2 / 12", lg: "3 / 11" },
-    maxWidth: { md: "860px" },
-    padding: { base: "inset.default", lg: "inset.wide" },
-    paddingEnd: { lg: "inset.wide" },
-    paddingStart: { lg: "inset.wide" },
-    a: {
-      color: "inherit",
-      display: "inline-block",
+const primary = definePartsStyle(({ foregroundColor, isDarkText }) => {
+  const { responsiveGap } = useResponsiveSpacing();
+  return {
+    base: {
+      alignItems: "center",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      display: "grid",
+      gridTemplateColumns: "repeat(12, 1fr)",
+      gap: responsiveGap,
+      minHeight: "352px",
+      p: "l",
+      paddingInline: "s",
     },
-    bodyText: {
-      marginBottom: "0",
-    },
-    ".chakra-heading": {
-      color: getTextColor("heading", "light", foregroundColor, isDarkText),
-    },
-    _dark: {
-      bgColor: "dark.ui.bg.default",
-      color: getTextColor("body", "dark", foregroundColor, isDarkText),
+    content: {
+      bg: "ui.black",
+      color: getTextColor("body", "light", foregroundColor, isDarkText),
+      gridColumn: { base: "1 / -1", md: "2 / 12", lg: "3 / 11" },
+      padding: { base: "inset.default", lg: "inset.wide" },
+      paddingEnd: { lg: "inset.wide" },
+      paddingStart: { lg: "inset.wide" },
+      a: {
+        color: "inherit",
+        display: "inline-block",
+      },
+      bodyText: {
+        marginBottom: "0",
+      },
       ".chakra-heading": {
-        color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+        color: getTextColor("heading", "light", foregroundColor, isDarkText),
+      },
+      _dark: {
+        bgColor: "dark.ui.bg.default",
+        color: getTextColor("body", "dark", foregroundColor, isDarkText),
+        ".chakra-heading": {
+          color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+        },
       },
     },
-  },
-  heading: {
-    color: getTextColor("heading", "dark", foregroundColor, isDarkText),
-  },
-}));
+    heading: {
+      color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+    },
+  };
+});
 const secondary = getSecondaryVariantStyles();
 const secondaryBooksAndMore = getSecondaryVariantStyles(
   "section.books-and-more.primary"
