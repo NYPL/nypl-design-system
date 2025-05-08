@@ -8,7 +8,12 @@ import {
   useColorMode,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useState } from "react";
+import React, {
+  ButtonHTMLAttributes,
+  forwardRef,
+  useEffect,
+  useState,
+} from "react";
 
 import Icon, { IconColors } from "../Icons/Icon";
 
@@ -21,12 +26,14 @@ export interface AccordionDataProps {
   label: string | JSX.Element;
   panel: string | React.ReactNode;
 }
-export interface AccordionProps {
+
+type HTMLButtonAttributes = Pick<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "aria-label"
+>;
+export interface AccordionProps extends HTMLButtonAttributes {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
-  /** Global aria-label value that is applied to all accordions if individual
-   * ariaLabel props are not included with accordionData entries. */
-  ariaLabel?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
@@ -128,9 +135,9 @@ const getElementsFromData = (
 
     if (content.ariaLabel && ariaLabel) {
       console.warn(
-        "NYPL Reservoir Accordion: An ariaLabel value has been passed for the " +
+        "NYPL Reservoir Accordion: An aria-label value has been passed for the " +
           "overall component and as part of the accordionData prop. Both can not " +
-          "be used, so the value in the accordionData prop will be used."
+          "be used, so the value in the accordionData prop will take precedence."
       );
     }
     return (
@@ -239,6 +246,7 @@ const getElementsFromData = (
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
+
 export const Accordion: ChakraComponent<
   React.ForwardRefExoticComponent<
     AccordionProps & React.RefAttributes<HTMLDivElement>
@@ -248,7 +256,7 @@ export const Accordion: ChakraComponent<
   forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
     const {
       accordionData,
-      ariaLabel,
+      "aria-label": ariaLabel,
       id,
       isDefaultOpen = false,
       isAlwaysRendered = false,

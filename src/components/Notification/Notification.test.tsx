@@ -59,7 +59,7 @@ describe("Notification", () => {
   beforeEach(() => {
     utils = render(
       <Notification
-        ariaLabel="Notification label"
+        aria-label="Notification label"
         id="notificationID"
         notificationContent={<>Notification content.</>}
         notificationHeading="Notification Heading"
@@ -74,7 +74,7 @@ describe("Notification", () => {
   it("renders a custom heading level", () => {
     utils.rerender(
       <Notification
-        ariaLabel="Notification label"
+        aria-label="Notification label"
         id="notificationID"
         notificationContent={<>Notification content.</>}
         notificationHeading={<Heading level="h4">Custom H4 Heading</Heading>}

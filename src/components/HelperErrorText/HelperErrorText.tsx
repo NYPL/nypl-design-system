@@ -6,21 +6,14 @@ import {
 } from "@chakra-ui/react";
 import { forwardRef } from "react";
 
-export type AriaLiveValues = "assertive" | "off" | "polite" | undefined;
 export type HelperErrorTextType = string | JSX.Element;
 
-export interface HelperErrorTextProps {
-  /** Aria attribute. When true, assistive technologies will read the entire
-   * DOM element. When false, only changes (additionals or removals) will be
-   * read. True by default. */
-  ariaAtomic?: boolean;
-  /** Aria attribute used to handle live updates for the helper and error text.
-   * This indicates the priority of the text and when it should be presented to
-   * users using screen readers; "off" indicates that the content should not be
-   * presented, "polite" that it will be announced at the next available time
-   * slot, and "assertive" that it should be announced immediately. This is set
-   * to "polite" by default. */
-  ariaLive?: AriaLiveValues;
+type HTMLDivAttributes = Pick<
+  React.HTMLAttributes<HTMLDivElement>,
+  "aria-atomic" | "aria-live"
+>;
+
+export interface HelperErrorTextProps extends HTMLDivAttributes {
   /** Additional className to add. */
   className?: string;
   /** Unique ID for accessibility purposes. */
@@ -39,6 +32,7 @@ export interface HelperErrorTextProps {
  * This pattern guarantees accessibility guidelines are met if the text content
  * is dynamically updated by the app or component that implements it.
  */
+
 export const HelperErrorText: ChakraComponent<
   React.ForwardRefExoticComponent<
     HelperErrorTextProps & React.RefAttributes<HTMLDivElement>
@@ -48,8 +42,8 @@ export const HelperErrorText: ChakraComponent<
   forwardRef<HTMLDivElement, HelperErrorTextProps>(
     (
       {
-        ariaAtomic = true,
-        ariaLive = "polite",
+        "aria-atomic": ariaAtomic = true,
+        "aria-live": ariaLive = "polite",
         className = "",
         id,
         isInvalid = false,
@@ -60,6 +54,7 @@ export const HelperErrorText: ChakraComponent<
       ref?
     ) => {
       const styles = useMultiStyleConfig("HelperErrorText", { isInvalid });
+
       const props = {
         "aria-atomic": ariaAtomic,
         "aria-live": ariaLive === "off" ? undefined : ariaLive,
