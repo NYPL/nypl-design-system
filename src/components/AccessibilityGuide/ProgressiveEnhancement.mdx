@@ -1,7 +1,11 @@
 import { Meta, Source } from "@storybook/blocks";
 
 import { Banner } from "../Banner/Banner";
+import Image from "../Image/Image";
 import Link from "../Link/Link";
+
+import progressiveEnhancementExample from "/static/progressive-enhancement.png";
+import { exampleWrapperStyles } from "../../utils/utils.ts";
 
 <Meta title="Accessibility Guide/Progressive Enhancement" />
 
@@ -152,7 +156,8 @@ to enable Javascript to use the site.
 
 ## noscript Fallback Example
 
-TBD
+We recommend placing the following `noscript` snippet at the top of the
+`<body>` tag in your HTML for the global message.
 
 <Source
   language="html"
@@ -171,7 +176,26 @@ TBD
       font-size: 16px;
     }
   </style>
+</noscript>
 `}
+/>
+
+### Next.js Example
+
+If you are using the Pages Router, you can add the `noscript` tag in the
+`_document.js` file.
+
+If you are using the App Router, you can add the `noscript` tag in the
+`layout.js` file.
+
+This will ensure that the `noscript` tag is rendered on the server side for
+both the Pages and App Router.
+
+<Image
+  alt="Example of banner for no JavaScript on Digital Collections"
+  border="1px solid var(--nypl-colors-ui-border-default)"
+  src={progressiveEnhancementExample}
+  {...exampleWrapperStyles}
 />
 
 <Banner
@@ -185,6 +209,7 @@ TBD
       for other approaches.
     </>
   }
+  type="informative"
 />
 
 <Source
