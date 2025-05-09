@@ -22,7 +22,6 @@ const meta: Meta<typeof Icon> = {
       options: iconAlignArray,
       table: { defaultValue: { summary: "none" } },
     },
-    children: { table: { disable: true } },
     color: {
       control: { type: "select" },
       options: iconColorsArray,

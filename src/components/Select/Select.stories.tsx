@@ -12,7 +12,6 @@ const meta: Meta<typeof Select> = {
   title: "Components/Form Elements/Select",
   component: Select,
   argTypes: {
-    children: { table: { disable: true } },
     defaultValue: { control: false },
     helperText: { control: "text" },
     id: { control: false },

@@ -97,7 +97,6 @@ export interface SubNavProps extends BoxProps {
 
 interface SubNavItemProps {
   id: string;
-  children: React.ReactNode;
   isOutlined?: boolean;
   isSelected?: boolean;
   screenreaderOnlyText?: string;

@@ -19,7 +19,6 @@ const meta: Meta<typeof Tooltip> = {
   title: "Components/Overlays & Switchers/Tooltip",
   component: Tooltip,
   argTypes: {
-    children: { control: false },
     id: { control: false },
     isDisabled: argsBooleanType(),
     offset: { control: false },
@@ -41,7 +40,6 @@ type Story = StoryObj<typeof Tooltip>;
  */
 export const WithControls: Story = {
   args: {
-    children: undefined,
     content:
       "This is a tooltip with information describing the hovered object.",
     id: "tooltip-id",

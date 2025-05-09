@@ -7,7 +7,6 @@ const meta: Meta<typeof Text> = {
   title: "Components/Typography & Styles/Text",
   component: Text,
   argTypes: {
-    children: { table: { disable: true } },
     isBold: argsBooleanType(),
     isItalic: argsBooleanType(),
     isCapitalized: argsBooleanType(),

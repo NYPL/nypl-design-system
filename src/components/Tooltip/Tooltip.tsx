@@ -11,8 +11,6 @@ import Image from "../Image/Image";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
 export interface TooltipProps extends Omit<ChakraTooltipProps, "content"> {
-  /** Any child node passed to the component. */
-  children: React.ReactNode;
   /** Value used to populate the tooltip content. */
   content: string | number | React.ReactNode;
   /** ID that other components can cross reference for accessibility purposes. */
@@ -33,60 +31,62 @@ export const Tooltip: ChakraComponent<
   >,
   React.PropsWithChildren<TooltipProps>
 > = chakra(
-  forwardRef<HTMLDivElement, TooltipProps>((props, ref?) => {
-    const {
-      children,
-      content,
-      id,
-      placement = "top",
-      offset = [0, 8],
-      isDisabled,
-      shouldWrapChildren,
-      ...rest
-    } = props;
+  forwardRef<HTMLDivElement, React.PropsWithChildren<TooltipProps>>(
+    (props, ref?) => {
+      const {
+        children,
+        content,
+        id,
+        placement = "top",
+        offset = [0, 8],
+        isDisabled,
+        shouldWrapChildren,
+        ...rest
+      } = props;
 
-    if (typeof content !== "string" && typeof content !== "number") {
-      React.Children.map(
-        content as React.ReactNode,
-        (contentChild: React.ReactElement) => {
-          if (contentChild.type !== Icon || contentChild.type !== Image) {
-            console.warn(
-              "NYPL Reservoir Tooltip: Pass in a string, number, DS Icon, or DS Image into the 'content' prop."
-            );
+      if (typeof content !== "string" && typeof content !== "number") {
+        React.Children.map(
+          content as React.ReactNode,
+          (contentChild: React.ReactElement) => {
+            if (contentChild.type !== Icon || contentChild.type !== Image) {
+              console.warn(
+                "NYPL Reservoir Tooltip: Pass in a string, number, DS Icon, or DS Image into the 'content' prop."
+              );
+            }
           }
-        }
+        );
+      }
+
+      const newChildren = shouldWrapChildren ? (
+        <ComponentWrapper width="fit-content">{children}</ComponentWrapper>
+      ) : (
+        children
+      );
+
+      const styles = useStyleConfig("Tooltip", {});
+
+      return (
+        <ChakraTooltip
+          aria-label={typeof content !== "string" ? "Tooltip" : undefined}
+          closeDelay={750}
+          closeOnClick
+          closeOnEsc
+          closeOnMouseDown
+          hasArrow
+          isDisabled={isDisabled}
+          label={content}
+          openDelay={500}
+          offset={offset}
+          placement={placement}
+          ref={ref}
+          sx={styles}
+          {...rest}
+        >
+          {newChildren}
+        </ChakraTooltip>
       );
     }
-
-    const newChildren = shouldWrapChildren ? (
-      <ComponentWrapper width="fit-content">{children}</ComponentWrapper>
-    ) : (
-      children
-    );
-
-    const styles = useStyleConfig("Tooltip", {});
-
-    return (
-      <ChakraTooltip
-        aria-label={typeof content !== "string" ? "Tooltip" : undefined}
-        closeDelay={750}
-        closeOnClick
-        closeOnEsc
-        closeOnMouseDown
-        hasArrow
-        isDisabled={isDisabled}
-        label={content}
-        openDelay={500}
-        offset={offset}
-        placement={placement}
-        ref={ref}
-        sx={styles}
-        {...rest}
-      >
-        {newChildren}
-      </ChakraTooltip>
-    );
-  })
+  )
 );
 
 export default Tooltip;

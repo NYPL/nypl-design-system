@@ -9,7 +9,6 @@ const meta: Meta<typeof Link> = {
   title: "Components/Navigation/Link",
   component: Link,
   argTypes: {
-    children: { table: { disable: true } },
     hasVisitedState: argsBooleanType("true"),
     href: { control: { type: "text" } },
     id: { control: false },
@@ -36,7 +35,6 @@ type Story = StoryObj<typeof Link>;
  */
 export const WithControls: Story = {
   args: {
-    children: "Link",
     hasVisitedState: true,
     href: "https://nypl.org",
     id: "nypl-link",

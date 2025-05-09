@@ -11,7 +11,6 @@ const meta: Meta<typeof Logo> = {
   title: "Components/Media & Icons/Logo",
   component: Logo,
   argTypes: {
-    children: { table: { disable: true } },
     decorative: argsBooleanType(),
     id: { control: false },
     name: {

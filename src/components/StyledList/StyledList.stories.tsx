@@ -8,7 +8,6 @@ const meta: Meta<typeof StyledList> = {
   title: "Components/Typography & Styles/StyledList",
   component: StyledList,
   argTypes: {
-    children: { table: { disable: true } },
     id: { control: false },
     listItems: { control: false },
     style: { control: false },
