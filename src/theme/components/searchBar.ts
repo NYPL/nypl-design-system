@@ -1,6 +1,6 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { setContainerStyles } from "../../utils/setContainerStyles";
-import { size } from "./icon";
+import { iconSizeStyles } from "../sharedStyles";
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["button", "select"]);
@@ -23,7 +23,7 @@ const SearchBar = defineMultiStyleConfig({
             display: "none",
           },
           "> svg": {
-            ...size["medium"],
+            ...iconSizeStyles["medium"],
           },
         },
         ".textInput": {
@@ -57,7 +57,7 @@ const SearchBar = defineMultiStyleConfig({
             display: "block",
           },
           "> svg": {
-            ...size["small"],
+            ...iconSizeStyles["small"],
           },
         },
         ".textInput": {
