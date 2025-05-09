@@ -153,7 +153,6 @@ const columnStylesComplex = [
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     columnHeaders,
     columnHeadersBackgroundColor: undefined,
     columnHeadersTextColor: undefined,

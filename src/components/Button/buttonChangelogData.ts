@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality"],
     notes: [
       "Removes deprecated `link` buttonType.",
-      "Removes explicit `className` prop.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop types.",
     ],
   },
   {

@@ -28,8 +28,6 @@ export type HeadingSizes = typeof headingSizesArray[number];
 export type HeadingLevels = typeof headingLevelsArray[number];
 
 export interface HeadingProps extends ChakraHeadingProps {
-  /** Optional className that appears in addition to `heading` */
-  className?: string;
   /** Optional ID that other components can cross reference for accessibility
    * purposes */
   id?: string;
@@ -90,7 +88,6 @@ export const Heading: ChakraComponent<
   forwardRef<HTMLHeadingElement, React.PropsWithChildren<HeadingProps>>(
     (props, ref?) => {
       const {
-        className,
         id,
         isCapitalized,
         isUppercase,
@@ -214,7 +211,6 @@ export const Heading: ChakraComponent<
           )}
           <ChakraHeading
             as={asHeading}
-            className={className}
             id={id}
             ref={ref}
             sx={{

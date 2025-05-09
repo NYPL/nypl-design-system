@@ -21,8 +21,6 @@ export type LabelPositions = typeof labelPositionsArray[number];
 
 export interface SelectProps
   extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  /** A class name for the `div` parent element. */
-  className?: string;
   /** The initial value of an uncontrolled component */
   defaultValue?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */
@@ -87,7 +85,6 @@ export const Select: ChakraComponent<
       const {
         autoComplete,
         children,
-        className,
         defaultValue,
         helperText,
         id,
@@ -168,7 +165,6 @@ export const Select: ChakraComponent<
 
       return (
         <ComponentWrapper
-          className={className}
           helperText={helperText}
           helperTextStyles={{
             marginStart: { sm: "auto", md: `${labelWidth}px` },

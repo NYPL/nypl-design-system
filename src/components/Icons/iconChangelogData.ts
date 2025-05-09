@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Removes the depreacted `IconRotationTypes` type."],
+    notes: [
+      "Removes the depreacted `IconRotationTypes` type.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop types.",
+    ],
   },
   {
     date: "2025-04-10",

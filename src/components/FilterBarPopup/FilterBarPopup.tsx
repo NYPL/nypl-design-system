@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Modal,
@@ -21,9 +22,7 @@ import { LayoutTypes } from "../../helpers/types";
 import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
 import { FilterBarItemsType } from "../FilterBarInline/FilterBarInline";
 
-export interface FilterBarPopupProps {
-  /** The className of the FilterBarInline. */
-  className?: string;
+export interface FilterBarPopupProps extends BoxProps {
   /** Optional string value used to set the text for a `Heading` component, or
    * a DS Heading component that can be passed in.
    */

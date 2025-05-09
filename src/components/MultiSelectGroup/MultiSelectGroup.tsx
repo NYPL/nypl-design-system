@@ -1,4 +1,4 @@
-import { chakra, ChakraComponent, Stack } from "@chakra-ui/react";
+import { chakra, ChakraComponent, Stack, StackProps } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
@@ -6,9 +6,7 @@ import { LayoutTypes } from "../../helpers/types";
 import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
-export interface MultiSelectGroupProps {
-  /** Additional className to use. */
-  className?: string;
+export interface MultiSelectGroupProps extends StackProps {
   /** The id of the MultiSelectGroup. */
   id: string;
   /** The label text rendered within the MultiSelectGroup. */

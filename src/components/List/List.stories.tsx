@@ -11,7 +11,6 @@ const meta: Meta<typeof List> = {
   component: List,
   argTypes: {
     children: { table: { disable: true } },
-    className: { control: false },
     id: { control: false },
     inline: argsBooleanType(),
     listItems: { control: false },
@@ -119,7 +118,6 @@ const descriptions = [
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     id: "nypl-list",
     inline: false,
     listItems: undefined,

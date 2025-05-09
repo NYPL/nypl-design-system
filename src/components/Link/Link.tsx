@@ -28,8 +28,6 @@ export const linkTypesArray = [
 export type LinkTypes = typeof linkTypesArray[number];
 
 export interface LinkProps extends ChakraLinkProps {
-  /** Additional class name to render in the `Link` component. */
-  className?: string;
   /** Used to include or remove visited state styles. Default is true. */
   hasVisitedState?: boolean;
   /** The `href` attribute for the anchor element. */
@@ -158,7 +156,6 @@ export const Link: ChakraComponent<
     const {
       as = "a",
       children,
-      className,
       hasVisitedState = true,
       href,
       id,
@@ -234,13 +231,7 @@ export const Link: ChakraComponent<
     ) : null;
 
     return (
-      <ChakraLink
-        as={as}
-        className={className}
-        {...linkProps}
-        sx={styles.base}
-        {...rest}
-      >
+      <ChakraLink as={as} {...linkProps} sx={styles.base} {...rest}>
         {newChildren}
         {screenReaderOnlyElement}
       </ChakraLink>

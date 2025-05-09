@@ -15,8 +15,6 @@ import { LayoutTypes } from "../../helpers/types";
 import { spacing } from "../../theme/foundations/spacing";
 
 export interface CheckboxGroupProps {
-  /** Any child node passed to the component. */
-  children: React.ReactNode;
   /** Populates the initial value of the input */
   defaultValue?: string[];
   /** Optional string to populate the HelperErrorText for standard state */
@@ -68,102 +66,104 @@ export const CheckboxGroup: ChakraComponent<
   >,
   React.PropsWithChildren<CheckboxGroupProps>
 > = chakra(
-  forwardRef<HTMLDivElement, CheckboxGroupProps>((props, ref?) => {
-    const {
-      children,
-      defaultValue = [],
-      helperText,
-      id,
-      invalidText,
-      isDisabled = false,
-      isFullWidth = false,
-      isInvalid = false,
-      isRequired = false,
-      labelText,
-      layout = "column",
-      name,
-      onChange,
-      showHelperInvalidText = true,
-      showLabel = true,
-      showRequiredLabel = true,
-      value,
-      ...rest
-    } = props;
-    const footnote = isInvalid ? invalidText : helperText;
-    const newChildren: JSX.Element[] = [];
-    const spacingProp =
-      layout === "column"
-        ? spacing.input.group.default.vstack
-        : spacing.input.group.default.hstack;
-    const checkboxProps =
-      defaultValue && onChange
-        ? {
-            defaultValue,
-            onChange,
+  forwardRef<HTMLDivElement, React.PropsWithChildren<CheckboxGroupProps>>(
+    (props, ref?) => {
+      const {
+        children,
+        defaultValue = [],
+        helperText,
+        id,
+        invalidText,
+        isDisabled = false,
+        isFullWidth = false,
+        isInvalid = false,
+        isRequired = false,
+        labelText,
+        layout = "column",
+        name,
+        onChange,
+        showHelperInvalidText = true,
+        showLabel = true,
+        showRequiredLabel = true,
+        value,
+        ...rest
+      } = props;
+      const footnote = isInvalid ? invalidText : helperText;
+      const newChildren: JSX.Element[] = [];
+      const spacingProp =
+        layout === "column"
+          ? spacing.input.group.default.vstack
+          : spacing.input.group.default.hstack;
+      const checkboxProps =
+        defaultValue && onChange
+          ? {
+              defaultValue,
+              onChange,
+            }
+          : {};
+
+      if (value) {
+        checkboxProps["value"] = value;
+      }
+
+      if (!id) {
+        console.warn(
+          "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
+        );
+      }
+      // Go through the Checkbox children and update them as needed.
+      React.Children.map(
+        children as JSX.Element,
+        (child: React.ReactElement, i) => {
+          if (child !== undefined && child !== null) {
+            const newProps = {
+              key: i,
+              id: `${id}-${i}`,
+              name,
+              isDisabled,
+              isInvalid,
+              isRequired,
+            };
+            newChildren.push(React.cloneElement(child, newProps));
           }
-        : {};
+        }
+      );
 
-    if (value) {
-      checkboxProps["value"] = value;
-    }
+      // Get the Chakra-based styles for the custom elements in this component.
+      const styles = useMultiStyleConfig("CheckboxGroup", { isFullWidth });
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
+      return (
+        <Fieldset
+          id={`${id}-checkbox-group`}
+          isLegendHidden={!showLabel}
+          isRequired={isRequired}
+          legendText={labelText}
+          showRequiredLabel={showRequiredLabel}
+          {...rest}
+          __css={styles}
+        >
+          <ChakraCheckboxGroup {...checkboxProps}>
+            <Stack
+              id={id}
+              data-testid="checkbox-group"
+              direction={[layout]}
+              spacing={spacingProp}
+              ref={ref}
+            >
+              {newChildren}
+            </Stack>
+          </ChakraCheckboxGroup>
+          <HelperErrorText
+            id={`${id}-helperErrorText`}
+            isInvalid={isInvalid}
+            isRenderedText={showHelperInvalidText}
+            text={footnote}
+            __css={styles.helperErrorText}
+          />
+        </Fieldset>
       );
     }
-    // Go through the Checkbox children and update them as needed.
-    React.Children.map(
-      children as JSX.Element,
-      (child: React.ReactElement, i) => {
-        if (child !== undefined && child !== null) {
-          const newProps = {
-            key: i,
-            id: `${id}-${i}`,
-            name,
-            isDisabled,
-            isInvalid,
-            isRequired,
-          };
-          newChildren.push(React.cloneElement(child, newProps));
-        }
-      }
-    );
-
-    // Get the Chakra-based styles for the custom elements in this component.
-    const styles = useMultiStyleConfig("CheckboxGroup", { isFullWidth });
-
-    return (
-      <Fieldset
-        id={`${id}-checkbox-group`}
-        isLegendHidden={!showLabel}
-        isRequired={isRequired}
-        legendText={labelText}
-        showRequiredLabel={showRequiredLabel}
-        {...rest}
-        __css={styles}
-      >
-        <ChakraCheckboxGroup {...checkboxProps}>
-          <Stack
-            id={id}
-            data-testid="checkbox-group"
-            direction={[layout]}
-            spacing={spacingProp}
-            ref={ref}
-          >
-            {newChildren}
-          </Stack>
-        </ChakraCheckboxGroup>
-        <HelperErrorText
-          id={`${id}-helperErrorText`}
-          isInvalid={isInvalid}
-          isRenderedText={showHelperInvalidText}
-          text={footnote}
-          __css={styles.helperErrorText}
-        />
-      </Fieldset>
-    );
-  })
+  )
 );
 
 export default CheckboxGroup;

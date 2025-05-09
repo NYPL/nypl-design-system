@@ -3,6 +3,7 @@ import {
   chakra,
   ChakraComponent,
   Icon as ChakraIcon,
+  IconProps as ChakraIconProps,
   useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -14,9 +15,7 @@ import { logoNamesArray, logoSizesArray } from "./logoVariables";
 export type LogoNames = typeof logoNamesArray[number];
 export type LogoSizes = typeof logoSizesArray[number];
 
-export interface LogoProps {
-  /** Optional className that will be added to the parent element */
-  className?: string;
+export interface LogoProps extends ChakraIconProps {
   /** Logos designated as decorative will be ignored by screenreaders. False
    * by default. */
   decorative?: boolean;

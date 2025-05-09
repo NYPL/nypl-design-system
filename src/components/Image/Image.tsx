@@ -1,6 +1,7 @@
 import useNativeLazyLoading from "@charlietango/use-native-lazy-loading";
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMergeRefs,
@@ -67,11 +68,9 @@ export interface ComponentImageProps extends Partial<HTMLImageElement> {
   src?: string;
 }
 
-interface ImageWrapperProps {
+interface ImageWrapperProps extends Pick<BoxProps, "className"> {
   /** Optionally pass in additional Chakra-based styles. */
   additionalWrapperStyles?: { [key: string]: any };
-  /** ClassName you can add in addition to 'image' */
-  className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional value to control the aspect ratio of the card image; default

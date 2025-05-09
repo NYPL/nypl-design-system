@@ -1,4 +1,10 @@
-import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  chakra,
+  ChakraComponent,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import { checkListChildrenError } from "../List/List";
@@ -6,11 +12,9 @@ import { checkListChildrenError } from "../List/List";
 export const textSizesArray = ["default", "body1", "body2", "caption"] as const;
 export type StyledListTextSizes = typeof textSizesArray[number];
 
-export interface StyledListProps {
+export interface StyledListProps extends Omit<BoxProps, "style"> {
   /** Any child node passed to the component. */
   children?: React.ReactNode;
-  /** A class name for the StyledList parent div. */
-  className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Data to render if `li` children elements are not passed. It must be an

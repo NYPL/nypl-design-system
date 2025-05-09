@@ -32,10 +32,6 @@ const meta: Meta<typeof Image> = {
     caption: {
       control: { type: "text" },
     },
-    className: {
-      control: false,
-      description: "Additional class name for the component to use.",
-    },
     component: { control: false },
     credit: {
       control: { type: "text" },
@@ -138,7 +134,6 @@ export const WithControls: Story = {
     alt: "Alt text",
     aspectRatio: "twoByOne",
     caption: "Image caption",
-    className: undefined,
     component: undefined,
     credit: "Image credit",
     imageType: "default",

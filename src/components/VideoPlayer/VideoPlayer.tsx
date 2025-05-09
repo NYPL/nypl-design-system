@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
@@ -18,12 +19,10 @@ export const VideoPlayerTypesArray = ["vimeo", "youtube"] as const;
 export type VideoPlayerAspectRatios =
   typeof VideoPlayerAspectRatiosArray[number];
 export type VideoPlayerTypes = typeof VideoPlayerTypesArray[number];
-export interface VideoPlayerProps {
+export interface VideoPlayerProps extends BoxProps {
   /** Optional aspect ratio prop to control the sizing of the video player; if
    * omitted, the video player defaults to `sixteen-by-nine` */
   aspectRatio?: VideoPlayerAspectRatios;
-  /** Optional className you can add in addition to `video-player` */
-  className?: string;
   /** Optional string to set the text for a video description */
   descriptionText?: string;
   /** Optional string to set a code snippet provided by YouTube or Vimeo; the
@@ -64,7 +63,6 @@ export const VideoPlayer: ChakraComponent<
     (props, ref?) => {
       const {
         aspectRatio,
-        className,
         descriptionText,
         embedCode,
         headingText,
@@ -178,7 +176,6 @@ export const VideoPlayer: ChakraComponent<
 
       return (
         <Box
-          className={className}
           data-testid="video-player-component"
           id={id}
           ref={ref}

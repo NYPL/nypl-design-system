@@ -1,5 +1,6 @@
 import {
   Text as ChakraText,
+  TextProps as ChakraTextProps,
   chakra,
   useStyleConfig,
   ChakraComponent,
@@ -20,9 +21,7 @@ export const textSizesArray = [
 ] as const;
 export type TextSizes = typeof textSizesArray[number];
 
-export interface TextProps {
-  /** Additional class name to render in the `Text` component. */
-  className?: string;
+export interface TextProps extends ChakraTextProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional prop used to show bolded text */

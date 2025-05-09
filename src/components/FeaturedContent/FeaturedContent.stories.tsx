@@ -14,7 +14,6 @@ const meta: Meta<typeof FeaturedContent> = {
   title: "Components/Basic Elements/FeaturedContent",
   component: FeaturedContent,
   argTypes: {
-    className: { control: false },
     id: { control: false },
     isFullWidth: {
       table: { defaultValue: { summary: "false" } },
@@ -50,7 +49,6 @@ type Story = StoryObj<typeof FeaturedContent>;
 
 export const WithControls: Story = {
   args: {
-    className: undefined,
     id: "FeaturedContent-id",
     imageProps: undefined,
     "imageProps.alt": "Alt text",

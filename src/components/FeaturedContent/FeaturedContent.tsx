@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
@@ -27,9 +28,7 @@ export interface FeaturedContentImageProps extends ImageProps {
   position?: FeaturedContentPositionType;
 }
 
-export interface FeaturedContentProps {
-  /** Optional CSS class name to add. */
-  className?: string;
+export interface FeaturedContentProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** The text content rendered in the component.  DS components and native HTML can be passed in this prop. */

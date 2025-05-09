@@ -1,6 +1,7 @@
 import {
   As,
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
@@ -17,9 +18,7 @@ export interface DescriptionProps {
   description: string | JSX.Element;
 }
 
-export interface ListProps {
-  /** ClassName you can add in addition to 'list' */
-  className?: string;
+export interface ListProps extends Omit<BoxProps, "title"> {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Display the list in a row. */
@@ -61,7 +60,6 @@ export const List: ChakraComponent<
   >((props, ref?) => {
     const {
       children,
-      className,
       id,
       inline = false,
       listItems,
@@ -153,28 +151,14 @@ export const List: ChakraComponent<
     if (type === "ol" || type === "ul") {
       checkListChildrenError(children, type);
       listElement = (
-        <Box
-          as={type as As}
-          id={id}
-          className={className}
-          ref={ref}
-          __css={styles.base}
-          {...rest}
-        >
+        <Box as={type as As} id={id} ref={ref} __css={styles.base} {...rest}>
           {listChildrenElms(type)}
         </Box>
       );
     } else if (type === "dl") {
       checkDescriptionChildrenError();
       listElement = (
-        <Box
-          as="section"
-          id={id}
-          className={className}
-          ref={ref}
-          __css={styles.base}
-          {...rest}
-        >
+        <Box as="section" id={id} ref={ref} __css={styles.base} {...rest}>
           {finalTitle}
           <dl>{listChildrenElms(type)}</dl>
         </Box>

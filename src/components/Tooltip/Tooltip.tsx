@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import {
   chakra,
   Tooltip as ChakraTooltip,
+  TooltipProps as ChakraTooltipProps,
   useStyleConfig,
   ChakraComponent,
 } from "@chakra-ui/react";
@@ -9,13 +10,11 @@ import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
-export interface TooltipProps {
+export interface TooltipProps extends Omit<ChakraTooltipProps, "content"> {
   /** Any child node passed to the component. */
   children: React.ReactNode;
   /** Value used to populate the tooltip content. */
   content: string | number | React.ReactNode;
-  /** A class name for the Tooltip parent div. */
-  className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Adds the `disabled` prop to the Tooltip when true. */
@@ -37,7 +36,6 @@ export const Tooltip: ChakraComponent<
   forwardRef<HTMLDivElement, TooltipProps>((props, ref?) => {
     const {
       children,
-      className,
       content,
       id,
       placement = "top",

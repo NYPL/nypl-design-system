@@ -322,7 +322,6 @@ const meta: Meta<typeof MultiSelectGroup> = {
   title: "Components/Form Elements/MultiSelectGroup",
   component: MultiSelectGroup,
   argTypes: {
-    className: { control: false },
     id: { control: false },
     layout: {
       control: { type: "radio" },
@@ -349,7 +348,6 @@ type Story = StoryObj<typeof MultiSelectGroup>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     id: "multiselect-group",
     labelText: "Label Text",
     layout: "row",

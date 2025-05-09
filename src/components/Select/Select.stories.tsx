@@ -13,7 +13,6 @@ const meta: Meta<typeof Select> = {
   component: Select,
   argTypes: {
     children: { table: { disable: true } },
-    className: { control: false },
     defaultValue: { control: false },
     helperText: { control: "text" },
     id: { control: false },
@@ -52,7 +51,6 @@ type Story = StoryObj<typeof Select>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     defaultValue: undefined,
     helperText: "This is the helper text.",
     id: "select-id",

@@ -1,6 +1,7 @@
 import {
   chakra,
   SimpleGrid as ChakraSimpleGrid,
+  SimpleGridProps as ChakraSimpleGridProps,
   ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -16,9 +17,7 @@ export const gridGapsArray = [
 ] as const;
 export type GridGaps = typeof gridGapsArray[number];
 
-export interface SimpleGridProps {
-  /** Additional class name. */
-  className?: string;
+export interface SimpleGridProps extends ChakraSimpleGridProps {
   /** Optional numeric value to override the default column count; the default
    * column count is 3. */
   columns?: number;
@@ -39,14 +38,7 @@ export const SimpleGrid: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SimpleGridProps>>(
     (props, ref?) => {
-      const {
-        children,
-        columns,
-        className,
-        gap = "grid.l",
-        id,
-        ...rest
-      } = props;
+      const { children, columns, gap = "grid.l", id, ...rest } = props;
 
       const responsiveCols = columns
         ? { base: 1, md: columns }
@@ -54,7 +46,6 @@ export const SimpleGrid: ChakraComponent<
 
       return (
         <ChakraSimpleGrid
-          className={className}
           columns={responsiveCols}
           gap={gap}
           id={id}

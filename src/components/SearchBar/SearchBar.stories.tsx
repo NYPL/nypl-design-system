@@ -17,7 +17,6 @@ const meta: Meta<typeof SearchBar> = {
       control: false,
       table: { defaultValue: { summary: "null" } },
     },
-    className: { control: false },
     id: { control: false },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),
@@ -60,7 +59,6 @@ export const WithControls: Story = {
   args: {
     action: undefined,
     buttonOnClick: undefined,
-    className: undefined,
     helperText: "Search for items in Animal Crossing New Horizons",
     id: "searchBar-id",
     invalidText: "Could not find the item :(",

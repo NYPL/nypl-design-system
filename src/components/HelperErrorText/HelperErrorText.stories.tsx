@@ -10,7 +10,6 @@ const meta: Meta<typeof HelperErrorText> = {
   component: HelperErrorText,
   argTypes: {
     children: { table: { disable: true } },
-    className: { control: false },
     id: { control: false },
     isInvalid: {
       table: { defaultValue: { summary: "false" } },
@@ -30,7 +29,6 @@ type Story = StoryObj<typeof HelperErrorText>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     id: "helperErrorText-id",
     isInvalid: false,
     text: "This is the helper text!",

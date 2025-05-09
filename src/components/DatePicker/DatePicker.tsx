@@ -7,7 +7,7 @@ import {
 import React, { useState, forwardRef, useRef } from "react";
 import ReactDatePicker from "react-datepicker";
 
-import Fieldset from "../Fieldset/Fieldset";
+import Fieldset, { FieldsetProps } from "../Fieldset/Fieldset";
 import { FormRow, FormField } from "../Form/Form";
 import HelperErrorText, {
   HelperErrorTextType,
@@ -51,9 +51,9 @@ interface DateRangeRowProps {
 
 // Interface used by the `div` or `fieldset` parent wrapper element.
 // Internal use only.
-interface DatePickerWrapperProps extends DateRangeRowProps {
-  /** Additional className. */
-  className?: string;
+interface DatePickerWrapperProps
+  extends DateRangeRowProps,
+    Pick<FieldsetProps, "className"> {
   /** Adds the 'required' property to the input element(s). */
   isRequired?: boolean;
   /** Passed to the `TextInput` component to render a label associated with an input field. */
@@ -270,7 +270,6 @@ export const DatePicker: ChakraComponent<
 > = chakra(
   forwardRef<TextInputRefType, DatePickerProps>((props, ref?) => {
     const {
-      className,
       dateFormat = "yyyy-MM-dd",
       dateType = "full",
       helperText,
@@ -491,7 +490,6 @@ export const DatePicker: ChakraComponent<
         isDateRange={isDateRange}
         showLabel={showLabel}
         labelText={labelText}
-        className={className}
         isRequired={isRequired}
         showRequiredLabel={showRequiredLabel}
         {...rest}

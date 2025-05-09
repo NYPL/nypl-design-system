@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Removes deprecated `button` value in `linkTypesArray`."],
+    notes: [
+      "Removes deprecated `button` value in `linkTypesArray`.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop types.",
+    ],
   },
   {
     date: "2024-11-07",

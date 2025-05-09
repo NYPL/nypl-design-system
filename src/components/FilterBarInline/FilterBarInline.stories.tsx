@@ -69,7 +69,6 @@ const meta: Meta<typeof FilterBarInline> = {
   title: "Components/Form Elements/FilterBarInline",
   component: FilterBarInline,
   argTypes: {
-    className: { control: false },
     id: { control: false },
     heading: { control: false },
     layout: {

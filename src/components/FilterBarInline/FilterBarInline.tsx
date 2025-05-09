@@ -9,15 +9,16 @@ import {
   SelectedItems as MultiSelectItems,
 } from "../MultiSelect/MultiSelect";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
-import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import ComponentWrapper, {
+  ComponentWrapperProps,
+} from "../ComponentWrapper/ComponentWrapper";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 
 export type FilterBarItemsType =
   | (boolean | number | number[] | string | string[] | MultiSelectItems)[];
 
-export interface FilterBarInlineProps {
-  /** The className of the FilterBarInline. */
-  className?: string;
+export interface FilterBarInlineProps
+  extends Pick<ComponentWrapperProps, "className"> {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional string value used to set the text for a `Heading` component, or
@@ -57,7 +58,6 @@ export const FilterBarInline: ChakraComponent<
     (props, ref?) => {
       const {
         children,
-        className,
         id,
         heading,
         layout = "row",
@@ -90,7 +90,6 @@ export const FilterBarInline: ChakraComponent<
 
       return (
         <ComponentWrapper
-          className={className}
           id={`filter-bar-inline-${id}`}
           headingText={finalHeading}
           ref={ref}

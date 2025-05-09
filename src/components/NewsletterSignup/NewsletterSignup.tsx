@@ -5,6 +5,7 @@ import {
   useMultiStyleConfig,
   ChakraComponent,
   VStack,
+  StackProps,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -17,9 +18,7 @@ import TextInput from "../TextInput/TextInput";
 import useDSHeading from "../../hooks/useDSHeading";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
-export interface NewsletterSignupProps {
-  /** Additional class name to add. */
-  className?: string;
+export interface NewsletterSignupProps extends Omit<StackProps, "title"> {
   /** Text displayed next to the confirmation icon after a successful email submission */
   confirmationHeading: string;
   /** Detail text for the confirmation view */
@@ -96,7 +95,6 @@ export const NewsletterSignup: ChakraComponent<
   forwardRef<HTMLDivElement, NewsletterSignupProps>(
     (
       {
-        className,
         confirmationHeading,
         confirmationText,
         descriptionText,

@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Replaces the error thrown with a console.warn.",
       "Removes deprecated values for size and levels.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop types.",
     ],
   },
   {

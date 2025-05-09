@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   ChakraComponent,
   chakra,
   useMultiStyleConfig,
@@ -12,9 +13,7 @@ import List from "../List/List";
 import { range } from "../../utils/utils";
 import Icon from "../Icons/Icon";
 
-export interface PaginationProps {
-  /** Additional className. */
-  className?: string;
+export interface PaginationProps extends BoxProps {
   /** The currentPage can be used to programatically force the selected page to change
    * without the user explicitly requesting it – for example, if the user should be
    * brought back to the first page of a set of results after a new search. */
@@ -45,7 +44,6 @@ export const Pagination: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, PaginationProps>((props, ref?) => {
     const {
-      className,
       currentPage,
       getPageHref,
       id,
@@ -382,7 +380,6 @@ export const Pagination: ChakraComponent<
         id={id}
         aria-label="Pagination"
         role="navigation"
-        className={className}
         ref={ref}
         __css={styles}
         {...rest}

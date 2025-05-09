@@ -3,6 +3,7 @@ import {
   chakra,
   ChakraComponent,
   Table as ChakraTable,
+  TableProps as ChakraTableProps,
   TableCaption as ChakraTableCaption,
   TableContainer,
   Tbody as ChakraTbody,
@@ -23,9 +24,7 @@ interface CustomColors {
 export const tableBodyTextSizesArray = ["body1", "body2"] as const;
 export type TableBodyTextSizes = typeof tableBodyTextSizesArray[number];
 
-export interface TableProps {
-  /** Additional class name for the `Table` component. */
-  className?: string;
+export interface TableProps extends ChakraTableProps {
   /** Array of string values used to populate the `Table` column headers.
    * For improved accessibility, column headers are required. */
   columnHeaders: string[];
@@ -71,7 +70,6 @@ export const Table: ChakraComponent<
   forwardRef<HTMLTableElement, React.PropsWithChildren<TableProps>>(
     (props, ref?) => {
       const {
-        className,
         columnHeaders = [],
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
@@ -237,7 +235,6 @@ export const Table: ChakraComponent<
         <TableContainer {...containerProps} sx={styles.base}>
           <ChakraTable
             aria-label={titleText && !showTitleText ? titleText : undefined}
-            className={className}
             id={id}
             ref={ref}
             sx={styles.innerTable}
