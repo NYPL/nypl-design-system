@@ -16,7 +16,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-basic-wrapper"
       >
         <div
@@ -194,7 +194,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-z1r9u7"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-withSelect-wrapper"
       >
         <div
@@ -275,7 +275,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-withoutHelperText-wrapper"
       >
         <div
@@ -339,7 +339,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-withClearButton-wrapper"
       >
         <div
@@ -420,7 +420,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-invalidState-wrapper"
       >
         <div
@@ -493,7 +493,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-disabledState-wrapper"
       >
         <div
@@ -558,7 +558,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-requiredState-wrapper"
       >
         <div
@@ -624,7 +624,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-noBrandButtonType-wrapper"
       >
         <div
@@ -832,7 +832,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-chakra-wrapper"
       >
         <div
@@ -914,7 +914,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-props-wrapper"
       >
         <div

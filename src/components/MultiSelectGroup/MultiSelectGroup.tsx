@@ -69,7 +69,6 @@ export const MultiSelectGroup: ChakraComponent<
           className={className}
           columnGap="xs"
           data-testid={`multiselect-group-${id}`}
-          direction={finalLayout}
           id={id}
           ref={ref}
           rowGap="xs"
@@ -80,6 +79,7 @@ export const MultiSelectGroup: ChakraComponent<
               : null
           }
           sx={{
+            flexDirection: { base: "column", md: layout },
             "> div": {
               _notFirst: {
                 mx: "0",
