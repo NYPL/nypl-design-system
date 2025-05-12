@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import { changelogData } from "./searchBarChangelogData";
 
 import * as SearchBarStories from "./SearchBar.stories";
@@ -7,12 +8,15 @@ import Link from "../Link/Link";
 
 <Meta of={SearchBarStories} />
 
-# SearchBar
+<ComponentDocsHeader
+  category="Form element"
+  componentName="SearchBar"
+  summary="A form container with text input and button that submits a search query"
+  versionAdded="0.0.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `3.6.1`    |
+<Canvas of={SearchBarStories.WithControls} />
 
 ## Table of Contents
 
@@ -54,8 +58,9 @@ aria-labels are used to make these children components accessible.
 The `SearchBar` component is implemented with Reservoir `Select`, `TextInput`,
 and `Button` accessible components. This a "complete" component that renders an
 HTML `<form>` element that is submitted with a `<button>` element of `type="submit"`.
-The `<form>` element also has a `role="search"` attribute that allows
-screenreaders to pick up this entire search form.
+
+The `Searchbar`, along with any other search/filter functionality, must be wrapped in a container with role="search", for a screenreader to recognize it correctly.
+See [search in "ARIA Landmarks"](../?path=/docs/accessibility-guide-aria-landmarks--docs#search).
 
 Resources:
 
