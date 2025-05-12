@@ -237,11 +237,11 @@ export const TemplateFullExample: Story = {
           />
           <Hero
             backgroundImageSrc={getPlaceholderImage()}
-            heroType="campaign"
-            heading={<Heading level="h1" id="1" text="Hero Campaign" />}
+            heroType="primary"
+            heading={<Heading level="h1" id="1" text="Hero Primary" />}
             imageProps={{
               alt: "Image example",
-              src: getPlaceholderImage("smaller"),
+              src: getPlaceholderImage(),
             }}
             isDarkBackgroundImage
             subHeaderText={otherSubHeaderText}

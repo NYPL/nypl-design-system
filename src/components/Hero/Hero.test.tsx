@@ -221,19 +221,6 @@ describe("Hero", () => {
       <Hero
         heroType="tertiary"
         heading={heading}
-        subHeaderText={otherSubHeaderText}
-        locationDetails={<>Some location details.</>}
-      />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
-        "with the `'primary'` `heroType` variant."
-    );
-
-    rerender(
-      <Hero
-        heroType="tertiary"
-        heading={heading}
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
       />
@@ -264,26 +251,10 @@ describe("Hero", () => {
     );
     const { rerender } = render(
       <Hero
-        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-        heroType="campaign"
-        heading={heading}
-        imageProps={imageProps}
-        locationDetails={<>Some location details.</>}
-        subHeaderText={otherSubHeaderText}
-      />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: The `locationDetails` prop should only be used " +
-        "with the `'primary'` `heroType` variant."
-    );
-
-    rerender(
-      <Hero
         heroType="campaign"
         heading={heading}
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
-        locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -298,7 +269,6 @@ describe("Hero", () => {
         heading={heading}
         subHeaderText={otherSubHeaderText}
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-        locationDetails={<>Some location details.</>}
       />
     );
     expect(warn).toHaveBeenCalledWith(
