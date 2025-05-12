@@ -17,6 +17,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Fixes the style transitions for the `Button` component.
 
+### Removes
+
+- Removes use of `useNYPLBreakpoints` hook where possible without causing breaking change.
+
 ## 3.6.1 (April 24, 2025)
 
 ### Updates

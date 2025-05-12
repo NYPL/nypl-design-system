@@ -160,7 +160,11 @@ export const RadioGroup: ChakraComponent<
             {showRequiredLabel && isRequired && <span> (required)</span>}
           </Box>
           <ChakraRadioGroup {...radioGroupProps}>
-            <Stack direction={[layout]} spacing={spacingProp}>
+            <Stack
+              className="radioGroupStack"
+              direction={[layout]}
+              spacing={spacingProp}
+            >
               {newChildren}
             </Stack>
           </ChakraRadioGroup>

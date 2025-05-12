@@ -112,7 +112,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 1`] = `
               role="radiogroup"
             >
               <div
-                className="chakra-stack css-1478f2b"
+                className="chakra-stack radioGroupStack css-1478f2b"
               >
                 <div
                   className="css-1xdhyk6"
@@ -415,7 +415,7 @@ exports[`HeaderSearchForm renders the UI snapshot correctly 2`] = `
               role="radiogroup"
             >
               <div
-                className="chakra-stack css-19s3t1h"
+                className="chakra-stack radioGroupStack css-19s3t1h"
               >
                 <div
                   className="css-1xdhyk6"
