@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds "ARIA Landmarks" accessibility guide
+
 ### Updates
 
 - Update Storybook and related npm packages to `v8.6.12`.
@@ -20,6 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Removes
 
 - Removes use of `useNYPLBreakpoints` hook where possible without causing breaking change.
+
 
 ## 3.6.1 (April 24, 2025)
 
