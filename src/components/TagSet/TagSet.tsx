@@ -1,8 +1,8 @@
 import {
+  BoxProps,
   chakra,
   ChakraComponent,
   Flex,
-  FlexProps,
   useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -16,7 +16,7 @@ import TagSetFilter, {
   TagSetFilterProps,
 } from "./TagSetFilter";
 
-export interface BaseTagSetProps extends FlexProps {
+export interface BaseTagSetProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
 }

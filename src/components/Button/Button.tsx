@@ -1,12 +1,13 @@
 import {
   Box,
+  BoxProps,
   Button as ChakraButton,
-  ButtonProps as ChakraButtonProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { ButtonHTMLAttributes, forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
@@ -25,7 +26,9 @@ export type ButtonElementType = typeof buttonElementTypeArray[number];
 export type ButtonSizes = typeof buttonSizesArray[number];
 export type ButtonTypes = typeof buttonTypesArray[number];
 
-export interface ButtonProps extends ChakraButtonProps {
+export interface ButtonProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {
   /** The button variation to render based on the `ButtonTypes` type. */
   buttonType?: ButtonTypes;
   /** ID that other components can cross reference for accessibility purposes. */

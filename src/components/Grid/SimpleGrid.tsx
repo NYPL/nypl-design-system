@@ -1,7 +1,7 @@
 import {
+  BoxProps,
   chakra,
   SimpleGrid as ChakraSimpleGrid,
-  SimpleGridProps as ChakraSimpleGridProps,
   ChakraComponent,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -17,7 +17,7 @@ export const gridGapsArray = [
 ] as const;
 export type GridGaps = typeof gridGapsArray[number];
 
-export interface SimpleGridProps extends ChakraSimpleGridProps {
+export interface SimpleGridProps extends BoxProps {
   /** Optional numeric value to override the default column count; the default
    * column count is 3. */
   columns?: number;

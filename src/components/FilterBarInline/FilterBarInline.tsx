@@ -1,4 +1,4 @@
-import { chakra, ChakraComponent, Stack } from "@chakra-ui/react";
+import { BoxProps, chakra, ChakraComponent, Stack } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
@@ -9,16 +9,13 @@ import {
   SelectedItems as MultiSelectItems,
 } from "../MultiSelect/MultiSelect";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
-import ComponentWrapper, {
-  ComponentWrapperProps,
-} from "../ComponentWrapper/ComponentWrapper";
+import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 
 export type FilterBarItemsType =
   | (boolean | number | number[] | string | string[] | MultiSelectItems)[];
 
-export interface FilterBarInlineProps
-  extends Pick<ComponentWrapperProps, "className"> {
+export interface FilterBarInlineProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional string value used to set the text for a `Heading` component, or

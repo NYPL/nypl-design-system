@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
 import {
+  BoxProps,
   chakra,
   Tooltip as ChakraTooltip,
-  TooltipProps as ChakraTooltipProps,
   useStyleConfig,
   ChakraComponent,
 } from "@chakra-ui/react";
@@ -10,7 +10,7 @@ import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
-export interface TooltipProps extends Omit<ChakraTooltipProps, "content"> {
+export interface TooltipProps extends Omit<BoxProps, "content"> {
   /** Value used to populate the tooltip content. */
   content: string | number | React.ReactNode;
   /** ID that other components can cross reference for accessibility purposes. */

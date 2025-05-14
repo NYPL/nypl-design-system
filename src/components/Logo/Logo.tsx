@@ -1,9 +1,10 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Icon as ChakraIcon,
-  IconProps as ChakraIconProps,
   useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -15,7 +16,8 @@ import { logoNamesArray, logoSizesArray } from "./logoVariables";
 export type LogoNames = typeof logoNamesArray[number];
 export type LogoSizes = typeof logoSizesArray[number];
 
-export interface LogoProps extends ChakraIconProps {
+export interface LogoProps
+  extends Pick<BoxProps, "className" | keyof ChakraProps> {
   /** Logos designated as decorative will be ignored by screenreaders. False
    * by default. */
   decorative?: boolean;

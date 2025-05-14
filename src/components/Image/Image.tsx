@@ -4,6 +4,7 @@ import {
   BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   useMergeRefs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
@@ -68,7 +69,7 @@ export interface ComponentImageProps extends Partial<HTMLImageElement> {
   src?: string;
 }
 
-interface ImageWrapperProps extends Pick<BoxProps, "className"> {
+interface ImageWrapperProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalWrapperStyles?: { [key: string]: any };
   /** ID that other components can cross reference for accessibility purposes. */
@@ -83,8 +84,9 @@ interface ImageWrapperProps extends Pick<BoxProps, "className"> {
 }
 
 export interface ImageProps
-  extends ImageWrapperProps,
-    ImgHTMLAttributes<HTMLImageElement> {
+  extends Pick<BoxProps, keyof ChakraProps>,
+    ImageWrapperProps,
+    Omit<ImgHTMLAttributes<HTMLImageElement>, "color" | "height" | "width"> {
   /** Optionally pass in additional Chakra-based styles only for the figure. */
   additionalFigureStyles?: { [key: string]: any };
   /** Optionally pass in additional Chakra-based styles only for the image. */
@@ -113,7 +115,7 @@ export interface ImageProps
 }
 
 const ImageWrapper = chakra(
-  (props: React.PropsWithChildren<ImageWrapperProps>) => {
+  (props: React.PropsWithChildren<ImageWrapperProps & BoxProps>) => {
     const {
       additionalWrapperStyles = {},
       className = "",

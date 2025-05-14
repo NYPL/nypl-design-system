@@ -1,8 +1,8 @@
 import {
+  BoxProps,
   chakra,
   ChakraComponent,
   Checkbox as ChakraCheckbox,
-  CheckboxProps as ChakraCheckboxProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -22,7 +22,7 @@ interface CheckboxIconProps {
   isIndeterminate?: boolean;
 }
 
-export interface CheckboxProps extends ChakraCheckboxProps, CheckboxIconProps {
+export interface CheckboxProps extends BoxProps, CheckboxIconProps {
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */

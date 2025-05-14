@@ -1,12 +1,13 @@
 import {
   Box,
+  BoxProps,
   ChakraComponent,
+  ChakraProps,
   chakra,
   Link as ChakraLink,
-  LinkProps as ChakraLinkProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { AnchorHTMLAttributes, forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 import { sanitizeStringForAttribute } from "../../utils/utils";
@@ -27,7 +28,9 @@ export const linkTypesArray = [
 ] as const;
 export type LinkTypes = typeof linkTypesArray[number];
 
-export interface LinkProps extends ChakraLinkProps {
+export interface LinkProps
+  extends Pick<BoxProps, "as" | keyof ChakraProps>,
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "color"> {
   /** Used to include or remove visited state styles. Default is true. */
   hasVisitedState?: boolean;
   /** The `href` attribute for the anchor element. */

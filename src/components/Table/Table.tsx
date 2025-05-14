@@ -1,9 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Table as ChakraTable,
-  TableProps as ChakraTableProps,
   TableCaption as ChakraTableCaption,
   TableContainer,
   Tbody as ChakraTbody,
@@ -24,7 +24,7 @@ interface CustomColors {
 export const tableBodyTextSizesArray = ["body1", "body2"] as const;
 export type TableBodyTextSizes = typeof tableBodyTextSizesArray[number];
 
-export interface TableProps extends ChakraTableProps {
+export interface TableProps extends BoxProps {
   /** Array of string values used to populate the `Table` column headers.
    * For improved accessibility, column headers are required. */
   columnHeaders: string[];

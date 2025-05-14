@@ -1,9 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Radio as ChakraRadio,
-  RadioProps as ChakraRadioProps,
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
@@ -13,7 +13,7 @@ import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
 
-export interface RadioProps extends ChakraRadioProps {
+export interface RadioProps extends BoxProps {
   /** Optional string to populate the HelperErrorText for the standard state. */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */

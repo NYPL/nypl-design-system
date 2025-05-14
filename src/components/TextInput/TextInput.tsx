@@ -1,7 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Input as ChakraInput,
   Textarea as ChakraTextarea,
   useMergeRefs,
@@ -46,7 +48,11 @@ export const TextInputFormats = {
 export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      "color" | "height" | "width"
+    > {
   /** FOR INTERNAL DS USE ONLY: Adds an aria-label or appends to an existing aria-label for screen readers.*/
   additionalAriaLabel?: string;
   /** FOR INTERNAL DS USE ONLY: additional helper text id(s) to be used for the input's `aria-describedby` value.

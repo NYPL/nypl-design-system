@@ -1,7 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Select as ChakraSelect,
   useColorModeValue,
   useMultiStyleConfig,
@@ -20,7 +22,8 @@ export type SelectTypes = typeof selectTypesArray[number];
 export type LabelPositions = typeof labelPositionsArray[number];
 
 export interface SelectProps
-  extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "color"> {
   /** The initial value of an uncontrolled component */
   defaultValue?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */

@@ -1,8 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
+  ChakraProps,
   Icon as ChakraIcon,
-  IconProps as ChakraIconProps,
   useStyleConfig,
   ChakraComponent,
 } from "@chakra-ui/react";
@@ -25,7 +26,8 @@ export type IconRotations = typeof iconRotationsArray[number];
 export type IconSizes = typeof iconSizesArray[number];
 export type IconTypes = typeof iconTypesArray[number];
 
-export interface IconProps extends ChakraIconProps {
+export interface IconProps
+  extends Pick<BoxProps, "className" | keyof ChakraProps> {
   /** Aligns the icon. */
   align?: IconAlign;
   /** Overrides default icon color (black). */

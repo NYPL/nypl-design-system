@@ -1,11 +1,11 @@
 import {
+  BoxProps,
   chakra,
   Stack,
   useColorModeValue,
   useMultiStyleConfig,
   ChakraComponent,
   VStack,
-  StackProps,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -18,7 +18,7 @@ import TextInput from "../TextInput/TextInput";
 import useDSHeading from "../../hooks/useDSHeading";
 import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
-export interface NewsletterSignupProps extends Omit<StackProps, "title"> {
+export interface NewsletterSignupProps extends Omit<BoxProps, "title"> {
   /** Text displayed next to the confirmation icon after a successful email submission */
   confirmationHeading: string;
   /** Detail text for the confirmation view */

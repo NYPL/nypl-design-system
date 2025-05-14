@@ -1,6 +1,6 @@
 import {
+  BoxProps,
   Breadcrumb as ChakraBreadcrumb,
-  BreadcrumbProps as ChakraBreadcrumbProps,
   BreadcrumbItem,
   BreadcrumbLink,
   chakra,
@@ -31,7 +31,7 @@ export interface BreadcrumbsDataProps {
   linkProps?: any;
 }
 
-export interface BreadcrumbProps extends ChakraBreadcrumbProps {
+export interface BreadcrumbProps extends BoxProps {
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
   /** Used to control how the `Hero` component will be rendered. */
