@@ -21,7 +21,8 @@ export const featuredContentPositionArray = ["start", "end"] as const;
 export type FeaturedContentPositionType =
   typeof featuredContentPositionArray[number];
 
-export interface FeaturedContentImageProps extends ImageProps {
+export interface FeaturedContentImageProps
+  extends Omit<ImageProps, "position"> {
   /** String value that specifies the width of the image rendered within the component. */
   width?: FeaturedContentWidthType;
   /** String value that specifies the position of the image rendered within the component. */

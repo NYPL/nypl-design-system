@@ -78,7 +78,6 @@ const meta: Meta<typeof Hero> = {
       table: { defaultValue: { summary: "false" } },
     },
     isDarkText: { control: false },
-    locationDetails: { control: false },
     subHeaderText: { control: false },
   },
 };
@@ -103,7 +102,6 @@ export const WithControls: Story = {
     "imageProps.src": "",
     isDarkBackgroundImage: undefined,
     isDarkText: undefined,
-    locationDetails: undefined,
     subHeaderText: undefined,
   },
   render: (args) =>

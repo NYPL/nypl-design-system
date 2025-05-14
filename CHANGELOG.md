@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the docs for the `Template` component.
 - Replaces the error thrown with a console.warn for the `Breadcrumbs`, `Heading`, and `Image` components.
 - Removes props with HTML equivalents and instructs devs to use the native attributes
+- Updates the grid layout of the content for the `Hero` `"primary"` variant.
 
 ### Removals
 
@@ -38,6 +39,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   - `StatusBadge`'s "low", "medium", "high" values from `statusBadgeTypeArray`
   - `StatusBadge`'s `level` prop
   - `StyledList`'s "tag", "mini" values in `textSizesArray`
+- Removes `role="search"` from `Searchbar` wrapper.
 - Removes explicit `className` and `children` props in favor of expanded prop type definitions
 
 ## Prerelease

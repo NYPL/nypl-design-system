@@ -13,8 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
-    notes: ["Removes deprecated `secondary` and `fiftyFifty` variants."],
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Removes deprecated `secondary` and `fiftyFifty` variants.",
+      "Updates the grid layout for the `primary` variant.",
+    ],
   },
   {
     date: "2025-02-13",
