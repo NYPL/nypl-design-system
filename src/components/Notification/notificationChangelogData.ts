@@ -17,7 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes deprecated `noMargin` prop.",
       "Removes `ariaLabel` prop and instructs developers to use the native HTML attribute instead.",
-      "Removes explicit `className` prop as interface can be extended to include Chakra prop types.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
     ],
   },
   {
