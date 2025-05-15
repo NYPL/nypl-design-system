@@ -44,8 +44,9 @@ is left blank, a value will be generated for you.
 
 <Canvas of={TextInputStories.WithControls} />
 
-`TextInput` composes an HTML `input` element, so you may pass any HTML `input` attribute, as well
-any Chakra style prop and the props below.
+`TextInput` composes an HTML `input` element or an HTML `textarea` element,
+so you may pass any HTML `input` or `textarea` attribute (depending on which
+you're using), as well any Chakra style prop and the props below.
 
 <ArgTypes of={TextInputStories.WithControls} />
 
@@ -163,8 +164,8 @@ the `type` prop is set to `"textarea"`.
 
 ### Controlled isClearableCallback Example
 
-A `TextInput` component is controlled when the `value` and `onChange` props are
-set. For a controlled component, the `isClearableCallback` prop can be used to
+A `TextInput` component is controlled when the `value` and `onChange` attributes are
+passed. For a controlled component, the `isClearableCallback` prop can be used to
 clear the input value in the consuming application. This callback is only called
 when the close button is clicked.
 
@@ -243,17 +244,17 @@ send focus to the input field when the "Edit" button is clicked.
 ## Number Type
 
 The `TextInput` component can be configured to render a number input by setting
-`type="number"`. In this input type, the `maxLength` prop does not restrict the
-length of the number that is passed to the input. This is the expected behavior
-as the native HTML input and `maxlength` attribute behave this way.
+`type="number"`. In this input type, passing a `maxLength` attribute does not
+restrict the length of the number that is passed to the input. This is the
+expected behavior (the native HTML input and `maxlength` attribute behave this way).
 
-For this type, the `min` and `max` props do restrict the value of the number
+For this type, `min` and `max` HTML attributes do restrict the value of the number
 input that is passed. This can be seen by using the up and down arrows to
-increase or decrease the number value, respectively. However, if the `max` prop
+increase or decrease the number value, respectively. However, if the `max` attribute
 is set to "200", for example, the user can still enter a number such as "400".
 The consuming application must handle validating the entered number value.
 
-If the `min` prop value is greater than the `max` prop value, it will trigger
+If the `min` attribute value is greater than the `max` attribute value, it will trigger
 the invalid state.
 
 <Canvas of={TextInputStories.NumberType} />

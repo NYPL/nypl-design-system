@@ -35,11 +35,14 @@ import Link from "../Link/Link";
 
 <Description of={SearchBarStories} />
 
-The main wrapper element that is rendered is a `<form>` DOM element. All the
-props passed to `SearchBar` will apply to the `<form>` element and its children.
-The `SearchBar` component will render a `Select` component (optional),
-`TextInput` component, `Button` component, and `HelperErrorText` component
-based on the required props.
+The main wrapper element that is rendered is a `<form>` DOM element. You are
+expected to pass an `action` attribute to specify where the search query should
+be sent. You may also pass a `method` attribute, although search forms generally
+use `method="get"`, which is already the default behavior.
+
+Based on the props passed, the `SearchBar` component will render a `Select`
+component (optional),`TextInput` component, `Button` component, and
+`HelperErrorText` component.
 
 The `Select` dropdown narrows the search within a specific category, typically
 title or author. Toggle the `Select` through the Controls.

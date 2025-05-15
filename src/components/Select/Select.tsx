@@ -47,13 +47,6 @@ export interface SelectProps
    * populates an `aria-label` attribute on the select input if `showLabel` is
    * set to `false`. */
   labelText: string;
-  /** Used to reference the select element in forms. */
-  name: string;
-  /** The callback function to get the selected value.
-   * Should be passed along with `value` for controlled components. */
-  onChange?: (event: React.FormEvent) => void;
-  /** Placeholder text in the select element. */
-  placeholder?: string;
   /** Allows the '(required)' text to be changed for language purposes
    * Note: Parenthesis will be added automatically by the component */
   requiredLabelText?: string;
@@ -67,9 +60,6 @@ export interface SelectProps
   /** Whether or not to display the "(required)" text in the label text.
    * True by default. */
   showRequiredLabel?: boolean;
-  /** The value of the selected option.
-   * Should be passed along with `onChange` for controlled components. */
-  value?: string;
 }
 
 /**

@@ -38,14 +38,10 @@ export interface ButtonProps
   /** Trigger the Button's action through the `mouseDown` event handler instead
    * of `onClick`. `false` by default. */
   mouseDown?: boolean;
-  /** The action to perform on the `<button>`'s onClick function. */
-  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** Visibly hidden text that will only be read by screenreaders. */
   screenreaderOnlyText?: string;
   /** The size of the `Button`. */
   size?: ButtonSizes;
-  /** The HTML button type attribute. */
-  type?: ButtonElementType;
 }
 
 /**
