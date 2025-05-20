@@ -84,7 +84,7 @@ export const MultiSelectGroup: ChakraComponent<
         >
           {renderMultiSelect({
             isBlockElement: layout === "column",
-            multiSelectWidth: layout === "row" ? "fitContent" : "full",
+            multiSelectWidth,
           })}
         </Stack>
       </Fieldset>
