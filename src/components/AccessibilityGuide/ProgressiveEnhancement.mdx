@@ -44,8 +44,9 @@ the user's device and browser to download, parse, and execute JavaScript code.
 
 When JavaScript is turned off in the browser, certain NYPL user interfaces and
 features do not work. There are various reasons why this is, including how the
-application is architected, how data is fetched, and how data is rendered. Many
-issues, however, point back to DS components.
+application is architected, how data is fetched, how data is rendered, and
+whether the vendors we are using support it. Many issues, however, point back
+to DS components.
 
 ## HTML Button Issue
 
@@ -164,7 +165,7 @@ We recommend placing the following `noscript` snippet at the top of the
   code={`
 <noscript>
   <aside className="noscript-banner">
-    <h2>JavaScript is disabled</h2>
+    <h2>JavaScript is disabled.</h2>
     <div>Some features may not work as expected.</div>
   </aside>
   <style>
