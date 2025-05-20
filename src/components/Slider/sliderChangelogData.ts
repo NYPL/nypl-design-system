@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Removes `isDarkMode` in favor of Chakra's `_dark` conditional key.",
+    ],
+  },
+  {
     date: "2024-09-19",
     version: "3.3.2",
     type: "Update",

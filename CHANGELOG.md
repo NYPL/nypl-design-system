@@ -40,6 +40,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   - `StatusBadge`'s `level` prop
   - `StyledList`'s "tag", "mini" values in `textSizesArray`
 - Removes `role="search"` from `Searchbar` wrapper.
+- Removes `isDarkMode` function from `Slider` and `Accordion`.
 
 ## Prerelease
 
