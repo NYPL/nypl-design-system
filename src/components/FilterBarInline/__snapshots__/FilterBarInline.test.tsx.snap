@@ -21,7 +21,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-rzpr2z"
+        className="chakra-stack css-1nccnd8"
         data-testid="multiselect-group-MultiSelectGroup"
         id="MultiSelectGroup"
       >
@@ -1153,7 +1153,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-4enuzb"
+        className="chakra-stack css-1nccnd8"
         data-testid="multiselect-group-MultiSelectGroup"
         id="MultiSelectGroup"
       >
@@ -2297,7 +2297,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-rzpr2z"
+        className="chakra-stack css-1nccnd8"
         data-testid="multiselect-group-MultiSelectGroup"
         id="MultiSelectGroup"
       >
@@ -3441,7 +3441,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-4enuzb"
+        className="chakra-stack css-1nccnd8"
         data-testid="multiselect-group-MultiSelectGroup"
         id="MultiSelectGroup"
       >
