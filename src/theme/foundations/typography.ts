@@ -31,7 +31,7 @@ const fontSizeValues = {
     overline2: "0.625rem", // 10px
     label1: "0.875rem", // 14px
     label2: "0.75rem", // 12px
-    tab: "1.125rem", // 18px
+    tab1: "1.125rem", // 18px
     buttonDefault: "0.875rem", // 14px
     buttonSmall: "0.75rem", // 12px
     buttonLarge: "1rem", // 26px
@@ -56,7 +56,7 @@ const fontSizeValues = {
     overline2: "0.625rem", // 10px
     label1: "0.875rem", // 14px
     label2: "0.75rem", // 12px
-    tab: "1rem", // 16px
+    tab1: "1rem", // 16px
     buttonDefault: "0.875rem", // 14px
     buttonSmall: "0.75rem", // 12px
     buttonLarge: "1rem", // 26px
@@ -139,7 +139,7 @@ const typography: Typography = {
         subtitle2: fontSizeValues.desktop["subtitle2"],
       },
       tab: {
-        default: fontSizeValues.desktop["subtitle1"],
+        tab1: fontSizeValues.desktop["tab1"],
       },
     },
     mobile: {
@@ -184,7 +184,7 @@ const typography: Typography = {
         subtitle2: fontSizeValues.mobile["subtitle2"],
       },
       tab: {
-        default: fontSizeValues.mobile["subtitle1"],
+        tab1: fontSizeValues.mobile["tab1"],
       },
     },
     // deprecated semantic tokens

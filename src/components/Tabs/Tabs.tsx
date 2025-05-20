@@ -75,8 +75,8 @@ const getElementsFromData = (
     const tempTab = (
       <Tab
         fontSize={{
-          base: "mobile.tab.default",
-          md: "desktop.tab.default",
+          base: "mobile.tab.tab1",
+          md: "desktop.tab.tab1",
         }}
         key={index}
         onClick={useHash ? () => onClickHash(`tab${index + 1}`) : undefined}
