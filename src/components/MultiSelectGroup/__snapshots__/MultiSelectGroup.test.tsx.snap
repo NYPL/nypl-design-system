@@ -52,7 +52,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
               id="accordion-multi-select-accordion-colors-icon-0"
@@ -313,7 +313,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
               id="accordion-multi-select-accordion-pets-icon-0"
@@ -733,7 +733,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
               id="accordion-multi-select-accordion-tools-icon-0"
@@ -1170,7 +1170,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
               id="accordion-multi-select-accordion-colors-icon-0"
@@ -1431,7 +1431,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
               id="accordion-multi-select-accordion-pets-icon-0"
@@ -1851,7 +1851,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
               id="accordion-multi-select-accordion-tools-icon-0"
