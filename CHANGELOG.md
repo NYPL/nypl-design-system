@@ -10,8 +10,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds "ARIA Landmarks" accessibility guide.
+- Adds "ARIA Landmarks" accessibility guide
 - Adds explicit `tabs` design tokens for font size and weight.
+- Adds Progressive Enhancement accessibility guide Storybook page.
 
 ### Updates
 
