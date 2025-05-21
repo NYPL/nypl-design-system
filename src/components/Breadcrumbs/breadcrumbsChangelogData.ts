@@ -13,8 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
-    notes: ["Replaces the error thrown with a console.warn."],
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Replaces the error thrown with a console.warn.",
+      "Changes theme name from `CustomBreadcrumbs` to `ReservoirBreadcrumbs for consistency.",
+    ],
   },
   {
     date: "2025-01-30",
