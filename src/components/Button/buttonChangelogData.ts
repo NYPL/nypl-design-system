@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality", "Styles"],
     notes: [
       "Removes deprecated `link` buttonType.",
-      "Changes theme name from `CustomButton` to `ReservoirButton for consistency.",
+      "Changes theme name from `CustomButton` to `ReservoirButton` for consistency.",
     ],
   },
   {

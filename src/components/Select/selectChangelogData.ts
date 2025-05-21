@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Changes theme name from `CustomSelect` to `ReservoirSelect for consistency.",
+      "Changes theme name from `CustomSelect` to `ReservoirSelect` for consistency.",
     ],
   },
   {
