@@ -31,6 +31,7 @@ const fontSizeValues = {
     overline2: "0.625rem", // 10px
     label1: "0.875rem", // 14px
     label2: "0.75rem", // 12px
+    tab1: "1.125rem", // 18px
     buttonDefault: "0.875rem", // 14px
     buttonSmall: "0.75rem", // 12px
     buttonLarge: "1rem", // 26px
@@ -55,6 +56,7 @@ const fontSizeValues = {
     overline2: "0.625rem", // 10px
     label1: "0.875rem", // 14px
     label2: "0.75rem", // 12px
+    tab1: "1rem", // 16px
     buttonDefault: "0.875rem", // 14px
     buttonSmall: "0.75rem", // 12px
     buttonLarge: "1rem", // 26px
@@ -136,6 +138,9 @@ const typography: Typography = {
         subtitle1: fontSizeValues.desktop["subtitle1"],
         subtitle2: fontSizeValues.desktop["subtitle2"],
       },
+      tab: {
+        tab1: fontSizeValues.desktop["tab1"],
+      },
     },
     mobile: {
       body: {
@@ -177,6 +182,9 @@ const typography: Typography = {
       subtitle: {
         subtitle1: fontSizeValues.mobile["subtitle1"],
         subtitle2: fontSizeValues.mobile["subtitle2"],
+      },
+      tab: {
+        tab1: fontSizeValues.mobile["tab1"],
       },
     },
     // deprecated semantic tokens
@@ -271,6 +279,10 @@ const typography: Typography = {
     subtitle: {
       subtitle1: fontWeightValues["regular"],
       subtitle2: fontWeightValues["regular"],
+    },
+    tab: {
+      default: fontWeightValues["regular"],
+      active: fontWeightValues["bold"],
     },
     text: {
       default: fontWeightValues["regular"],
