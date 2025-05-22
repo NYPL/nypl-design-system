@@ -8,6 +8,28 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.6.2 (May 22, 2025)
+
+### Adds
+
+- Adds the `ARIA Landmarks` page to the `Accessibility Guide` in Storybook.
+- Adds explicit `tabs` design tokens for font size and weight.
+- Adds the `Progressive Enhancement` page to the `Accessibility Guide` in Storybook.
+
+### Updates
+
+- Updates Storybook and related npm packages to `v8.6.12`.
+- Updates `vite` to `v5.4.18`, `@vitejs/plugin-react` to `v4.4.1`, and `vite-plugin-svgr` to `v4.3.0`.
+- Updates the `Tabs` component to use the explicitly defined `tabs` design tokens for font size and weight.
+
+### Fixes
+
+- Fixes the style transitions for the `Button` component.
+
+### Removes
+
+- Removes use of `useNYPLBreakpoints` hook where possible without causing breaking change. This update impacts the `FeedbackBox`, `Modal`, `MultiSelectGroup`, `NewsletterSignup`, `SearchBar`, and `Table` components.
+
 ## 3.6.1 (April 24, 2025)
 
 ### Updates

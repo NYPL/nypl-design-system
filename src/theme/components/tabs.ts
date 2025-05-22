@@ -44,7 +44,7 @@ const tab = {
     borderBottomColor: "ui.black",
   },
   _selected: {
-    fontWeight: "bold",
+    fontWeight: "tab.active",
     bg: "ui.gray.light-cool",
     border: "0",
     borderTopRadius: "sm",
