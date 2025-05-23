@@ -23,7 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Replaces the error thrown with a console.warn for the `Breadcrumbs`, `Heading`, and `Image` components.
 - Removes props with HTML equivalents and instructs devs to use the native attributes
 - Updates the grid layout of the content for the `Hero` `"primary"` variant.
-- Changes the names of theme objects that conflict with Chakra's base names from `Custom` to `Reservoir` for consistency.
+- Changes the names of theme objects that conflict with Chakra's base names from `Custom` to `Reservoir` for consistency. This impacts theme objects for `Breadcrumbs`, `Button`, `Select`, `Slider`, and `Table`.
 
 ### Removals
 
