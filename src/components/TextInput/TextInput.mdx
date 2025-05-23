@@ -45,8 +45,8 @@ is left blank, a value will be generated for you.
 <Canvas of={TextInputStories.WithControls} />
 
 `TextInput` composes an HTML `input` element or an HTML `textarea` element,
-so you may pass any HTML `input` or `textarea` attribute (depending on which
-you're using), as well any Chakra style prop and the props below.
+so you may pass any HTML `input` or `textarea` attributes (depending on which
+you're using), as well any Chakra style props and the props below.
 
 <ArgTypes of={TextInputStories.WithControls} />
 
@@ -69,8 +69,8 @@ The `helperText` and the `invalidText` are associated with the `<input>` element
 through the `aria-describedby` attribute.
 
 When the `isClearable` prop is set to `true`, as text is added to the input
-field a close button is rendered to clear the input value. Once the close button
-is clicked, the input value will be cleared, the close button will become hidden,
+field a clear button is rendered to clear the input value. Once the clear button
+is clicked, the input value will be cleared, the clear button will become hidden,
 and focus will be set to the input element.
 
 When the `type` prop is set to `"textarea"`, the `<textarea>` element
@@ -130,7 +130,7 @@ within the `label` element.
 ## isClearable Button
 
 Set the `isClearable` prop to `true` to render a button that clears the input
-value. This close button will render when the input has a value and disappear
+value. This clear button will render when the input has a value and disappear
 when the input is empty, including after it is clicked.
 
 This button has visually hidden text, a "close" icon, and renders on top
@@ -167,7 +167,7 @@ the `type` prop is set to `"textarea"`.
 A `TextInput` component is controlled when the `value` and `onChange` attributes are
 passed. For a controlled component, the `isClearableCallback` prop can be used to
 clear the input value in the consuming application. This callback is only called
-when the close button is clicked.
+when the clear button is clicked.
 
 <Source
   code={`

@@ -1,8 +1,8 @@
 import {
+  BoxProps,
   ChakraComponent,
   chakra,
   useStyleConfig,
-  BoxProps,
 } from "@chakra-ui/react";
 import List from "../List/List";
 import Link from "../Link/Link";

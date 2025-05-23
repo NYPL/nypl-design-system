@@ -106,8 +106,6 @@ export interface ImageProps
   imageType?: ImageTypes;
   /** Flag to set the internal `Image` component to `isLazy` mode. */
   isLazy?: boolean;
-  /** Additional action to perform in the `img`'s `onerror` attribute function. */
-  onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
 }
 
 const ImageWrapper = chakra(

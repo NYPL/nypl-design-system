@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   Tab,
   TabList,
@@ -26,7 +27,7 @@ export interface TabsDataProps {
   label: string;
   content: string | React.ReactNode;
 }
-export interface TabsProps {
+export interface TabsProps extends Omit<BoxProps, "onChange"> {
   /** The index of the tab to display on the initial render. */
   defaultIndex?: number;
   /** ID that other components can cross reference for accessibility purposes */

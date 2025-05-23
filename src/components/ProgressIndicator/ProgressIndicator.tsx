@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   CircularProgress as ChakraCircularProgress,
@@ -25,7 +26,7 @@ export type ProgressIndicatorTypes = typeof progressIndicatorTypesArray[number];
 export type ProgressIndicatorLabelPlacements =
   typeof progressIndicatorLabelPlacementsArray[number];
 
-interface BaseProgressIndicatorProps {
+interface BaseProgressIndicatorProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id: string;
   /** Whether the `ProgressIndicator` should be linear or circular. */

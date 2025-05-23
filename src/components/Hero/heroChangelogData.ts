@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes deprecated `secondary` and `fiftyFifty` variants.",
       "Updates the grid layout for the `primary` variant.",
+      "Extends prop interface to include Chakra prop or HTML attribute types.",
     ],
   },
   {
