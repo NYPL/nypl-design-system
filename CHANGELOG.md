@@ -23,6 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Replaces the error thrown with a console.warn for the `Breadcrumbs`, `Heading`, and `Image` components.
 - Removes props with HTML equivalents and instructs devs to use the native attributes
 - Updates the grid layout of the content for the `Hero` `"primary"` variant.
+- Changes the names of theme objects that conflict with Chakra's base names from `Custom` to `Reservoir` for consistency.
 
 ### Removals
 
@@ -56,7 +57,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Heading` component to increase the font weight for the `size` styles.
 - Updates the Storybook docs for the `Tooltip` component to clarify how a tooltip should be used.
 - Updates the Storybook docs for the `Tabs` component to improve details about the mobile carousel and horizontal scrolling.
-- Changes the names of theme objects that conflict with Chakra's base names from `Custom` to `Reservoir` for consistency.
 
 ### Fixes
 
