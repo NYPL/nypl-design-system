@@ -95,7 +95,7 @@ export const Table: ChakraComponent<
 
       const { isLargerThanMobile } = useNYPLBreakpoints();
 
-      const styles = useMultiStyleConfig("CustomTable", {
+      const styles = useMultiStyleConfig("ReservoirTable", {
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
         tableTextSize,

@@ -150,7 +150,7 @@ export const Slider: ChakraComponent<
         "NYPL Reservoir Slider: The `min` prop is greater than the `max` prop."
       );
     }
-    const styles = useMultiStyleConfig("CustomSlider", {
+    const styles = useMultiStyleConfig("ReservoirSlider", {
       isDarkMode,
       isDisabled,
       isInvalid: finalIsInvalid,
