@@ -1,4 +1,4 @@
-import { baseTDStyles, baseTHStyles } from "./customTable";
+import { baseTDStyles, baseTHStyles } from "./table";
 import { textMargin } from "./global";
 import { headings } from "./heading";
 import { baseLinkStyles } from "./link";

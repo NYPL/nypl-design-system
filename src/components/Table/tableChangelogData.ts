@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Changes theme name from `CustomTable` to `ReservoirTable` for consistency.",
+    ],
+  },
+  {
     date: "2024-11-07",
     version: "3.4.2",
     type: "Bug Fix",

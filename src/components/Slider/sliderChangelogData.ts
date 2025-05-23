@@ -15,6 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
+      "Changes theme name from `CustomSlider` to `ReservoirSlider` for consistency.",
       "Removes `isDarkMode` in favor of Chakra's `_dark` conditional key.",
     ],
   },
