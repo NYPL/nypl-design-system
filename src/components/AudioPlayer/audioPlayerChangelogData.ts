@@ -14,7 +14,9 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Removed explicit `classname` prop."],
+    notes: [
+      "Removed explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+    ],
   },
   {
     date: "2024-03-14",

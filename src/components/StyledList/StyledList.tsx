@@ -43,11 +43,11 @@ export const StyledList: ChakraComponent<
   >((props, ref?) => {
     const {
       children,
-      className,
       id,
       listItems = [],
       style = "capped",
       textSize = "default",
+      ...rest
     } = props;
     const styles = useStyleConfig("StyledList", {
       textSize,
@@ -71,7 +71,7 @@ export const StyledList: ChakraComponent<
       children || listItems.map((item, i) => <li key={i}>{item}</li>);
 
     return (
-      <Box as="ul" className={className} id={id} ref={ref} __css={styles}>
+      <Box as="ul" id={id} ref={ref} {...rest} __css={styles}>
         {finalChildren}
       </Box>
     );

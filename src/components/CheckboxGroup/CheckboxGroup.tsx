@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   ChakraComponent,
   CheckboxGroup as ChakraCheckboxGroup,
@@ -14,7 +15,7 @@ import HelperErrorText, {
 import { LayoutTypes } from "../../helpers/types";
 import { spacing } from "../../theme/foundations/spacing";
 
-export interface CheckboxGroupProps {
+export interface CheckboxGroupProps extends Omit<BoxProps, "onChange"> {
   /** Populates the initial value of the input */
   defaultValue?: string[];
   /** Optional string to populate the HelperErrorText for standard state */
