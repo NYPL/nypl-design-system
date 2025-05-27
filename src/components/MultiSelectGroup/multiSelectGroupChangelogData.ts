@@ -19,6 +19,13 @@ export const changelogData: ChangelogData[] = [
     ],
   },
   {
+    date: "2025-05-22",
+    version: "3.6.2",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Uses CSS to decrease reliance on `useNYPLBreakpoints` hook."],
+  },
+  {
     date: "2024-07-03",
     version: "3.1.7",
     type: "Update",

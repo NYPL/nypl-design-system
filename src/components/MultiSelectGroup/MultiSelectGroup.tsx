@@ -75,6 +75,7 @@ export const MultiSelectGroup: ChakraComponent<
               : null
           }
           sx={{
+            flexDirection: { base: "column", md: layout },
             "> div": {
               _notFirst: {
                 mx: "0",

@@ -9,7 +9,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     MultiSelectGroup example
   </legend>
   <div
+<<<<<<< HEAD
     className="chakra-stack css-1nccnd8"
+=======
+    className="chakra-stack css-4odavm"
+>>>>>>> reservoir-v4
     data-testid="multiselect-group-MultiSelectGroup"
     id="MultiSelectGroup"
   >
@@ -1127,7 +1131,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     MultiSelectGroup example
   </legend>
   <div
+<<<<<<< HEAD
     className="chakra-stack css-1nccnd8"
+=======
+    className="chakra-stack css-4odavm"
+>>>>>>> reservoir-v4
     data-testid="multiselect-group-MultiSelectGroup"
     id="MultiSelectGroup"
   >

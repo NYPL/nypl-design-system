@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-05-22",
+    version: "3.6.2",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Uses the explicitly defined `tabs` design tokens for font size and weight.",
+    ],
+  },
+  {
     date: "2025-04-24",
     version: "3.6.1",
     type: "Update",

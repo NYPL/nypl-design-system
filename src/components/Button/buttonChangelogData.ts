@@ -13,8 +13,18 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
-    notes: ["Removes deprecated `link` buttonType."],
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Removes deprecated `link` buttonType.",
+      "Changes theme name from `CustomButton` to `ReservoirButton` for consistency.",
+    ],
+  },
+  {
+    date: "2025-05-22",
+    version: "3.6.2",
+    type: "Bug Fix",
+    affects: ["Styles"],
+    notes: ["Fixes the style transitions."],
   },
   {
     date: "2025-04-10",
