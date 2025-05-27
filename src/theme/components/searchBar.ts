@@ -1,11 +1,12 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { setContainerStyles } from "../../utils/setContainerStyles";
+import { iconSizeStyles } from "../sharedStyles";
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["button", "select"]);
 
 const SearchBar = defineMultiStyleConfig({
-  baseStyle: definePartsStyle({
+  baseStyle: definePartsStyle(({ hasSelectElem = false }) => ({
     display: "flex",
     ...setContainerStyles({
       breakpoint: "base",
@@ -20,6 +21,14 @@ const SearchBar = defineMultiStyleConfig({
           padding: "xs",
           " > span": {
             display: "none",
+          },
+          "> svg": {
+            ...iconSizeStyles["medium"],
+          },
+        },
+        ".textInput": {
+          "div > input": {
+            borderLeftRadius: hasSelectElem ? "sm" : null,
           },
         },
       },
@@ -46,6 +55,14 @@ const SearchBar = defineMultiStyleConfig({
           paddingRight: "s",
           " > span": {
             display: "block",
+          },
+          "> svg": {
+            ...iconSizeStyles["small"],
+          },
+        },
+        ".textInput": {
+          "div > input": {
+            borderLeftRadius: 0,
           },
         },
       },
@@ -78,7 +95,7 @@ const SearchBar = defineMultiStyleConfig({
         },
       },
     },
-  }),
+  })),
 });
 
 export default SearchBar;
