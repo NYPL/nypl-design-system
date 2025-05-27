@@ -110,7 +110,7 @@ export const Select: ChakraComponent<
       } = props;
       const [labelWidth, setLabelWidth] = useState<number>(0);
       const labelRef = useRef<HTMLDivElement>(null);
-      const styles = useMultiStyleConfig("CustomSelect", {
+      const styles = useMultiStyleConfig("ReservoirSelect", {
         variant: selectType,
         labelPosition,
       });

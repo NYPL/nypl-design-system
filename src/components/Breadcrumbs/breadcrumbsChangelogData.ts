@@ -13,9 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Functionality", "Styles"],
     notes: [
       "Replaces the error thrown with a console.warn.",
+      "Changes theme name from `CustomBreadcrumbs` to `ReservoirBreadcrumbs` for consistency.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
     ],
   },

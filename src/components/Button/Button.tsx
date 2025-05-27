@@ -101,7 +101,7 @@ export const Button: ChakraComponent<
         variant = "iconOnly";
       }
 
-      styles = useMultiStyleConfig("CustomButton", {
+      styles = useMultiStyleConfig("ReservoirButton", {
         variant,
         buttonSize: size,
       });

@@ -12,15 +12,10 @@ import Accordion from "./components/accordion";
 import AlphabetFilter from "./components/alphabetFilter";
 import AudioPlayer from "./components/audioPlayer";
 import Banner from "./components/banner";
-import Breadcrumb from "./components/breadcrumb";
-import Button from "./components/button";
 import ButtonGroup from "./components/buttonGroup";
 import Checkbox from "./components/checkbox";
 import ComponentWrapper from "./components/componentWrapper";
 import CheckboxGroup from "./components/checkboxGroup";
-import CustomSelect from "./components/select";
-import CustomSlider from "./components/slider";
-import CustomTable from "./components/customTable";
 import DatePicker from "./components/datePicker";
 import FeedbackBox from "./components/feedbackBox";
 import FeaturedContent from "./components/featuredContent";
@@ -31,10 +26,8 @@ import Heading from "./components/heading";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
 import HorizontalRule from "./components/horizontalRule";
-import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
-import List from "./components/list";
 import Logo from "./components/logo";
 import Menu from "./components/menu";
 import Modal from "./components/modal";
@@ -48,8 +41,15 @@ import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
 import Radio, { RadioWrapper } from "./components/radio";
 import RadioGroup from "./components/radioGroup";
+import ReservoirBreadcrumb from "./components/breadcrumb";
+import ReservoirButton from "./components/button";
 import ReservoirCard from "./components/card";
+import ReservoirIcon from "./components/icon";
 import { ReservoirImage, ReservoirImageWrapper } from "./components/image";
+import ReservoirList from "./components/list";
+import ReservoirSelect from "./components/select";
+import ReservoirSlider from "./components/slider";
+import ReservoirTable from "./components/table";
 import SearchBar from "./components/searchBar";
 import SkeletonLoader from "./components/skeletonLoader";
 import SkipNavigation from "./components/skipNavigation";
@@ -103,13 +103,10 @@ const theme: any = {
     AlphabetFilter,
     AudioPlayer,
     Banner,
-    CustomBreadcrumb: Breadcrumb,
-    CustomButton: Button,
     ButtonGroup,
     Checkbox,
     CheckboxGroup,
     ComponentWrapper,
-    CustomSelect,
     DatePicker,
     FeedbackBox,
     FeaturedContent,
@@ -122,7 +119,6 @@ const theme: any = {
     HorizontalRule,
     Label,
     Link,
-    ReservoirList: List,
     Logo,
     Menu,
     Modal,
@@ -137,14 +133,19 @@ const theme: any = {
     Radio,
     RadioGroup,
     RadioWrapper,
+    ReservoirBreadcrumb,
+    ReservoirButton,
     ...ReservoirCard,
-    ReservoirIcon: Icon,
+    ReservoirIcon,
     ReservoirImage,
     ReservoirImageWrapper,
+    ReservoirList,
+    ReservoirSelect,
+    ReservoirSlider,
+    ReservoirTable,
     SearchBar,
     SkeletonLoader,
     SkipNavigation,
-    CustomSlider,
     StatusBadge,
     StructuredContent,
     StyledList,
@@ -152,7 +153,6 @@ const theme: any = {
     SubNav,
     SubNavChildren,
     Tabs,
-    CustomTable,
     ...TagSetStyles,
     ...TemplateStyles,
     Text,
