@@ -13,9 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Styles"],
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Changes theme name from `CustomSlider` to `ReservoirSlider` for consistency.",
       "Removes `name` prop (as HTML equivalent may be used) and updates docs.",
     ],
   },

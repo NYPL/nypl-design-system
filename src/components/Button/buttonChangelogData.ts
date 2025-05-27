@@ -13,9 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Functionality", "Styles"],
     notes: [
       "Removes deprecated `link` buttonType.",
+      "Changes theme name from `CustomButton` to `ReservoirButton` for consistency.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes `type` and `onClick` props (as HTML equivalents may be used) and updates docs.",
     ],

@@ -158,7 +158,7 @@ export const Breadcrumbs: ChakraComponent<
       );
     }
 
-    const styles = useStyleConfig("CustomBreadcrumb", {
+    const styles = useStyleConfig("ReservoirBreadcrumb", {
       variant: breadcrumbsType,
     });
     const breadcrumbItems = getElementsFromData(

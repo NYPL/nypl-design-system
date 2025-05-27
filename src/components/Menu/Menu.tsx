@@ -296,7 +296,7 @@ export const Menu: ChakraComponent<
 
       const initialRef = useRef();
       return (
-        <Box className={className} ref={ref}>
+        <Box ref={ref}>
           <ChakraMenu
             id={id}
             initialFocusRef={selected ? initialRef : null}
