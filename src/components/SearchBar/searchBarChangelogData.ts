@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
     notes: [
       "Removes role=search on the component wrapper.",
-      "Removes use of `useNYPLBreakpoints` and replaces with screenreader only styles.",
+      "Removes use of `useNYPLBreakpoints` and replaces `aria-label` with screenreader only styles.",
     ],
   },
   {
