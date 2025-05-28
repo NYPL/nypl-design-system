@@ -41,6 +41,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   - `StyledList`'s "tag", "mini" values in `textSizesArray`
 - Removes `role="search"` from `Searchbar` wrapper.
 - Removes use of `useNYPLBreakpoints` hook in `FilterBarInline` and `MultiSelectGroup`.
+- Removes `isDarkMode` function from `Slider` and `Accordion`.
 - Removes `useNYPLBreakpoints` from final component, `SearchBar`, and removes `mediaMatchMock` from test setup since it is no longer necessary.
 
 ## Prerelease

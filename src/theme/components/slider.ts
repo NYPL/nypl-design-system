@@ -38,19 +38,22 @@ const staticValues = {
 const CustomSlider = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
     ({
-      isDarkMode,
       isDisabled,
       isInvalid,
       showBoxes,
       showValues,
     }: CustomSliderBaseStyle) => {
-      const prefix = isDarkMode ? "dark." : "";
-      let baseColor = `${prefix}ui.link.primary`;
-      if (isInvalid) {
-        baseColor = `${prefix}ui.error.primary`;
-      } else if (isDisabled) {
-        baseColor = `${prefix}ui.disabled.primary`;
-      }
+      const baseColorLight = isDisabled
+        ? "ui.disable.primary"
+        : isInvalid
+        ? "ui.error.primary"
+        : "ui.link.primary";
+
+      const baseColorDark = isDisabled
+        ? "dark.ui.disable.primary"
+        : isInvalid
+        ? "dark.ui.error.primary"
+        : "dark.ui.link.primary";
 
       return {
         // Override the default Chakra Slider parts styles.
@@ -75,7 +78,7 @@ const CustomSlider = defineMultiStyleConfig({
           border: "2px solid",
           // Thumb doesn't have an _invalid state...
           // so we manually do it through the props.
-          borderColor: baseColor,
+          borderColor: baseColorLight,
           boxShadow: "none",
           _active: {
             transform: "translateY(-50%) scale(1.0)",
@@ -86,6 +89,7 @@ const CustomSlider = defineMultiStyleConfig({
           },
           _dark: {
             bgColor: "dark.ui.bg.default",
+            borderColor: baseColorDark,
             _disabled: {
               bgColor: "dark.ui.disabled.secondary",
               borderColor: "dark.ui.disabled.primary",
@@ -95,7 +99,10 @@ const CustomSlider = defineMultiStyleConfig({
         // Filled track doesn't have a _disabled or _invalid state...
         // so we manually do it through the props.
         filledTrack: {
-          bgColor: baseColor,
+          bgColor: baseColorLight,
+          _dark: {
+            bgColor: baseColorDark,
+          },
         },
         // Custom parts styles
         leftValue: {
