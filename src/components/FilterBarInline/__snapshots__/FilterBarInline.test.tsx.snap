@@ -21,7 +21,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-rzpr2z"
+        className="chakra-stack css-4odavm"
         data-testid="multiselect-group-MultiSelectGroup"
         id="MultiSelectGroup"
       >
@@ -64,7 +64,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-colors-icon-0"
@@ -325,7 +325,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-pets-icon-0"
@@ -745,7 +745,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-tools-icon-0"
@@ -1153,7 +1153,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-4enuzb"
+        className="chakra-stack css-4odavm"
         data-testid="multiselect-group-MultiSelectGroup"
         id="MultiSelectGroup"
       >
@@ -1196,7 +1196,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-colors-icon-0"
@@ -1457,7 +1457,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-pets-icon-0"
@@ -1877,7 +1877,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-tools-icon-0"
@@ -2297,7 +2297,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-rzpr2z"
+        className="chakra-stack css-4odavm"
         data-testid="multiselect-group-MultiSelectGroup"
         id="MultiSelectGroup"
       >
@@ -2340,7 +2340,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-colors-icon-0"
@@ -2601,7 +2601,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-pets-icon-0"
@@ -3021,7 +3021,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-tools-icon-0"
@@ -3441,7 +3441,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-4enuzb"
+        className="chakra-stack css-4odavm"
         data-testid="multiselect-group-MultiSelectGroup"
         id="MultiSelectGroup"
       >
@@ -3484,7 +3484,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-colors-icon-0"
@@ -3745,7 +3745,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-pets-icon-0"
@@ -4165,7 +4165,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1nreziu"
+                  className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="accordion-multi-select-accordion-tools-icon-0"

@@ -4,7 +4,6 @@ import React, { forwardRef } from "react";
 import Fieldset from "../Fieldset/Fieldset";
 import { LayoutTypes } from "../../helpers/types";
 import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export interface MultiSelectGroupProps extends BoxProps {
   /** The id of the MultiSelectGroup. */
@@ -51,10 +50,6 @@ export const MultiSelectGroup: ChakraComponent<
       renderMultiSelect,
       ...rest
     } = props;
-    const { isLargerThanMobile } = useNYPLBreakpoints();
-    const finalLayout = isLargerThanMobile ? layout : "column";
-    const finalWidth = isLargerThanMobile ? multiSelectWidth : "full";
-    const isBlockElement = finalLayout === "column";
 
     return (
       <Fieldset
@@ -67,7 +62,7 @@ export const MultiSelectGroup: ChakraComponent<
           className={className}
           columnGap="xs"
           data-testid={`multiselect-group-${id}`}
-          direction={finalLayout}
+          direction={{ base: "column", md: layout }}
           id={id}
           ref={ref}
           rowGap="xs"
@@ -78,6 +73,7 @@ export const MultiSelectGroup: ChakraComponent<
               : null
           }
           sx={{
+            flexDirection: { base: "column", md: layout },
             "> div": {
               _notFirst: {
                 mx: "0",
@@ -85,7 +81,10 @@ export const MultiSelectGroup: ChakraComponent<
             },
           }}
         >
-          {renderMultiSelect({ isBlockElement, multiSelectWidth: finalWidth })}
+          {renderMultiSelect({
+            isBlockElement: layout === "column",
+            multiSelectWidth,
+          })}
         </Stack>
       </Fieldset>
     );

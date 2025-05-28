@@ -20,6 +20,15 @@ export const changelogData: ChangelogData[] = [
     ],
   },
   {
+    date: "2025-05-22",
+    version: "3.6.2",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Removes use of `useNYPLBreakpoints` and replaces with equivalent Chakra syntax.",
+    ],
+  },
+  {
     date: "2024-11-07",
     version: "3.4.2",
     type: "Bug Fix",

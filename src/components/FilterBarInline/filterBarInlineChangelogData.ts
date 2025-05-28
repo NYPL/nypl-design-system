@@ -13,8 +13,9 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Functionality", "Styles"],
     notes: [
+      "Removes use of `useNYPLBreakpoints` and replaces with equivalent CSS.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
     ],
   },

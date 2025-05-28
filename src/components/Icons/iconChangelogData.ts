@@ -13,9 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Functionality", "Styles"],
     notes: [
       "Removes the depreacted `IconRotationTypes` type.",
+      "Adds `currentColor` option to `iconColorsArray`",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
     ],
   },

@@ -8,7 +8,6 @@ import {
   MultiSelectWidths,
   SelectedItems as MultiSelectItems,
 } from "../MultiSelect/MultiSelect";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 
@@ -65,13 +64,6 @@ export const FilterBarInline: ChakraComponent<
         ...rest
       } = props;
 
-      const { isLargerThanMobile } = useNYPLBreakpoints();
-      const finalWidth = !isLargerThanMobile
-        ? "full"
-        : layout === "row"
-        ? "fitContent"
-        : "full";
-
       const generalHeadingProps = {
         size: "heading5" as HeadingSizes,
       };
@@ -110,7 +102,7 @@ export const FilterBarInline: ChakraComponent<
               isBlockElement: layout === "column",
               closeOnBlur: layout === "row",
               layout: layout,
-              width: finalWidth,
+              width: layout === "row" ? "fitContent" : "full",
             })}
             {(onSubmit || onClear) && (
               <ButtonGroup
