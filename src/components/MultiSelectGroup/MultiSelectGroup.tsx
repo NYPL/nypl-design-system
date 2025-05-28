@@ -4,7 +4,6 @@ import React, { forwardRef } from "react";
 import Fieldset from "../Fieldset/Fieldset";
 import { LayoutTypes } from "../../helpers/types";
 import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 export interface MultiSelectGroupProps {
   /** Additional className to use. */
@@ -53,10 +52,6 @@ export const MultiSelectGroup: ChakraComponent<
       renderMultiSelect,
       ...rest
     } = props;
-    const { isLargerThanMobile } = useNYPLBreakpoints();
-    const finalLayout = isLargerThanMobile ? layout : "column";
-    const finalWidth = isLargerThanMobile ? multiSelectWidth : "full";
-    const isBlockElement = finalLayout === "column";
 
     return (
       <Fieldset
@@ -69,6 +64,7 @@ export const MultiSelectGroup: ChakraComponent<
           className={className}
           columnGap="xs"
           data-testid={`multiselect-group-${id}`}
+          direction={{ base: "column", md: layout }}
           id={id}
           ref={ref}
           rowGap="xs"
@@ -87,7 +83,10 @@ export const MultiSelectGroup: ChakraComponent<
             },
           }}
         >
-          {renderMultiSelect({ isBlockElement, multiSelectWidth: finalWidth })}
+          {renderMultiSelect({
+            isBlockElement: layout === "column",
+            multiSelectWidth,
+          })}
         </Stack>
       </Fieldset>
     );
