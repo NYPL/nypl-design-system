@@ -1,8 +1,11 @@
 import { act, renderHook } from "@testing-library/react-hooks";
+import MatchMedia from "../../__tests__/mediaMatchMock";
 import useNYPLBreakpoints from "../useNYPLBreakpoints";
 
 describe("useNYPLBreakpoints", () => {
   beforeAll(() => {
+    new MatchMedia();
+
     window.resizeTo = function resizeTo(width, height) {
       Object.assign(this, {
         innerWidth: width,

@@ -13,8 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Accessibility", "Documentation"],
-    notes: ["Removes role=search on the component wrapper."],
+    affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
+    notes: [
+      "Removes role=search on the component wrapper.",
+      "Removes use of `useNYPLBreakpoints` and replaces with screenreader only styles.",
+    ],
   },
   {
     date: "2025-05-22",

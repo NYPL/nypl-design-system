@@ -14,7 +14,6 @@ import Select, { SelectProps as InitialSelectProps } from "../Select/Select";
 import TextInput, {
   InputProps as InitialInputProps,
 } from "../TextInput/TextInput";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 interface SelectOptionsProps {
   text: string;
@@ -143,7 +142,6 @@ export const SearchBar: ChakraComponent<
       isRequired ? "(required)" : ""
     }`;
     const buttonType = noBrandButtonType ? "noBrand" : "primary";
-    const { isLargerThanMobile } = useNYPLBreakpoints();
 
     if (!id) {
       console.warn(
@@ -204,7 +202,6 @@ export const SearchBar: ChakraComponent<
         type="submit"
         sx={styles.button}
         data-button
-        aria-label={isLargerThanMobile ? "" : "Search"}
       >
         <Icon align="left" id={`searchbar-icon-${id}`} name="search" />
         <span>Search</span>
