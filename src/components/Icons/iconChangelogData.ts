@@ -13,8 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
-    notes: ["Removes the depreacted `IconRotationTypes` type."],
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Removes the depreacted `IconRotationTypes` type.",
+      "Adds `currentColor` option to `iconColorsArray`",
+    ],
   },
   {
     date: "2025-04-10",
