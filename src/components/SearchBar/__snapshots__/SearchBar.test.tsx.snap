@@ -15,7 +15,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-basic-wrapper"
       >
         <div
@@ -25,7 +25,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
             aria-describedby="basic-helperText"
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input textInput css-vd0gku"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-basic"
             name="textInputName"
@@ -192,7 +192,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-z1r9u7"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-withSelect-wrapper"
       >
         <div
@@ -202,7 +202,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
             aria-describedby="withSelect-helperText"
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input textInput css-7ep20j"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-withSelect"
             name="textInputName"
@@ -272,7 +272,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-withoutHelperText-wrapper"
       >
         <div
@@ -281,7 +281,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
           <input
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input textInput css-vd0gku"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-withoutHelperText"
             name="textInputName"
@@ -335,7 +335,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-withClearButton-wrapper"
       >
         <div
@@ -345,7 +345,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
             aria-describedby="withClearButton-helperText"
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input textInput css-vd0gku"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-withClearButton"
             name="textInputName"
@@ -415,7 +415,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-invalidState-wrapper"
       >
         <div
@@ -426,7 +426,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
             aria-invalid={true}
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input textInput css-vd0gku"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-invalidState"
             name="textInputName"
@@ -487,7 +487,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-disabledState-wrapper"
       >
         <div
@@ -496,7 +496,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
           <input
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input textInput css-vd0gku"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={true}
             id="searchbar-textinput-disabledState"
             name="textInputName"
@@ -551,7 +551,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-requiredState-wrapper"
       >
         <div
@@ -561,7 +561,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
             aria-label="Item Search"
             aria-required={true}
             autoComplete={null}
-            className="chakra-input textInput css-vd0gku"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={true}
             id="searchbar-textinput-requiredState"
             name="textInputName"
@@ -616,7 +616,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-noBrandButtonType-wrapper"
       >
         <div
@@ -626,7 +626,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
             aria-label="Item Search"
             aria-required={true}
             autoComplete={null}
-            className="chakra-input textInput css-vd0gku"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={true}
             id="searchbar-textinput-noBrandButtonType"
             name="textInputName"
@@ -820,7 +820,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-chakra-wrapper"
       >
         <div
@@ -830,7 +830,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
             aria-describedby="chakra-helperText"
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input textInput css-vd0gku"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-chakra"
             name="textInputName"
@@ -901,7 +901,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
       className="css-1ik4laa"
     >
       <div
-        className="textInput css-g1fpd3"
+        className="textInput css-1u8qly9"
         id="searchbar-textinput-props-wrapper"
       >
         <div
@@ -911,7 +911,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
             aria-describedby="props-helperText"
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input textInput css-vd0gku"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-props"
             name="textInputName"

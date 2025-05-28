@@ -16,6 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Documentation", "Functionality"],
     notes: [
       "Removes `ariaLabel` prop and instructs developers to use the native HTML attribute instead.",
+      "Removes `isDarkMode` in favor of Chakra's `_dark` conditional key.",
       "Extends prop definition to include Chakra's `BoxProps`",
     ],
   },

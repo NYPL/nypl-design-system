@@ -14,7 +14,6 @@ import {
 import React, { forwardRef } from "react";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import useDSHeading from "../../hooks/useDSHeading";
 
 export interface BaseProps extends Omit<BoxProps, "scrollBehavior"> {
@@ -100,11 +99,7 @@ export const BaseModal: ChakraComponent<
     isOpen,
     ...rest
   } = props;
-  const xlarge = "xl";
-  const fullSize = "full";
-  const { isLargerThanMobile } = useNYPLBreakpoints();
-  // For larger screens, set the size to xl, otherwise set it to full.
-  const size = isLargerThanMobile ? xlarge : fullSize;
+
   const finalTitle = useDSHeading({
     title: headingText,
     id,
@@ -128,7 +123,7 @@ export const BaseModal: ChakraComponent<
           isOpen={isOpen}
           onClose={onClose}
           scrollBehavior="inside"
-          size={size}
+          size={{ base: "full", md: "xl" }}
           {...rest}
         >
           <ModalOverlay />
@@ -151,7 +146,7 @@ export const BaseModal: ChakraComponent<
           isOpen={isOpen}
           onClose={onCancel}
           scrollBehavior="inside"
-          size={size}
+          size={{ base: "full", md: "xl" }}
           {...rest}
         >
           <ModalOverlay />

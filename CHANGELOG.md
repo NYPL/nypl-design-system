@@ -23,6 +23,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Replaces the error thrown with a console.warn for the `Breadcrumbs`, `Heading`, and `Image` components.
 - Removes props with HTML equivalents and instructs devs to use the native attributes
 - Updates the grid layout of the content for the `Hero` `"primary"` variant.
+- Changes the names of theme objects that conflict with Chakra's base names from `Custom` to `Reservoir` for consistency. This impacts theme objects for `Breadcrumbs`, `Button`, `Select`, `Slider`, and `Table`.
 
 ### Removals
 
@@ -40,9 +41,33 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
   - `StatusBadge`'s `level` prop
   - `StyledList`'s "tag", "mini" values in `textSizesArray`
 - Removes `role="search"` from `Searchbar` wrapper.
+- Removes use of `useNYPLBreakpoints` hook in `FilterBarInline` and `MultiSelectGroup`.
+- Removes `isDarkMode` function from `Slider` and `Accordion`.
 - Removes explicit `className` and `children` props in favor of expanded prop type definitions in all components.
 
 ## Prerelease
+
+## 3.6.2 (May 22, 2025)
+
+### Adds
+
+- Adds the `ARIA Landmarks` page to the `Accessibility Guide` in Storybook.
+- Adds explicit `tabs` design tokens for font size and weight.
+- Adds the `Progressive Enhancement` page to the `Accessibility Guide` in Storybook.
+
+### Updates
+
+- Updates Storybook and related npm packages to `v8.6.12`.
+- Updates `vite` to `v5.4.18`, `@vitejs/plugin-react` to `v4.4.1`, and `vite-plugin-svgr` to `v4.3.0`.
+- Updates the `Tabs` component to use the explicitly defined `tabs` design tokens for font size and weight.
+
+### Fixes
+
+- Fixes the style transitions for the `Button` component.
+
+### Removes
+
+- Removes use of `useNYPLBreakpoints` hook where possible without causing breaking change. This update impacts the `FeedbackBox`, `Modal`, `MultiSelectGroup`, `NewsletterSignup`, `SearchBar`, and `Table` components.
 
 ## 3.6.1 (April 24, 2025)
 
@@ -57,7 +82,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the `Heading` component to increase the font weight for the `size` styles.
 - Updates the Storybook docs for the `Tooltip` component to clarify how a tooltip should be used.
 - Updates the Storybook docs for the `Tabs` component to improve details about the mobile carousel and horizontal scrolling.
-- Changes the names of theme objects that conflict with Chakra's base names from `Custom` to `Reservoir` for consistency.
 
 ### Fixes
 

@@ -14,7 +14,6 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 interface CustomColors {
   backgroundColor?: string;
@@ -91,7 +90,17 @@ export const Table: ChakraComponent<
       columnHeadersTextColor &&
         (customColors["color"] = columnHeadersTextColor);
 
-      const { isLargerThanMobile } = useNYPLBreakpoints();
+      // If the screen width is smaller than the `md` breakpoint and
+      // `isScrollable` is false, we should not apply the column styles
+      const responsiveColumnStyle = (styleObj: object): object => {
+        const updatedStyle = Object.fromEntries(
+          Object.entries(styleObj).map(([key, value]) => [
+            key,
+            { base: isScrollable ? value : undefined, md: value },
+          ])
+        );
+        return updatedStyle;
+      };
 
       const styles = useMultiStyleConfig("ReservoirTable", {
         columnHeadersBackgroundColor,
@@ -178,11 +187,8 @@ export const Table: ChakraComponent<
                       scope="row"
                       key={key}
                       sx={
-                        isScrollable
-                          ? columnStyles[key]
-                          : isLargerThanMobile
-                          ? columnStyles[key]
-                          : undefined
+                        columnStyles.length &&
+                        responsiveColumnStyle(columnStyles[key])
                       }
                     >
                       {cellContent(key, column)}
@@ -192,11 +198,8 @@ export const Table: ChakraComponent<
                     <ChakraTd
                       key={key}
                       sx={
-                        isScrollable
-                          ? columnStyles[key]
-                          : isLargerThanMobile
-                          ? columnStyles[key]
-                          : undefined
+                        columnStyles.length &&
+                        responsiveColumnStyle(columnStyles[key])
                       }
                     >
                       {cellContent(key, column)}

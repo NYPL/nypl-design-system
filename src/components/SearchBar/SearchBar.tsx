@@ -122,7 +122,8 @@ export const SearchBar: ChakraComponent<
       textInputProps,
       ...rest
     } = props;
-    const styles = useMultiStyleConfig("SearchBar", {});
+    const hasSelectElem = !!selectProps;
+    const styles = useMultiStyleConfig("SearchBar", { hasSelectElem });
     const stateProps = {
       helperText: "",
       isDisabled,
@@ -139,7 +140,6 @@ export const SearchBar: ChakraComponent<
     }`;
     const buttonType = noBrandButtonType ? "noBrand" : "primary";
     const { isLargerThanMobile } = useNYPLBreakpoints();
-    const iconSize = isLargerThanMobile ? "small" : "medium";
 
     if (!id) {
       console.warn(
@@ -186,11 +186,6 @@ export const SearchBar: ChakraComponent<
         textInputType={selectElem ? "searchBarSelect" : "searchBar"}
         type="text"
         value={textInputProps?.value}
-        sx={{
-          "div > input": {
-            borderLeftRadius: isLargerThanMobile && selectElem ? 0 : "sm",
-          },
-        }}
         {...stateProps}
       />
     );
@@ -207,12 +202,7 @@ export const SearchBar: ChakraComponent<
         data-button
         aria-label={isLargerThanMobile ? "" : "Search"}
       >
-        <Icon
-          align="left"
-          id={`searchbar-icon-${id}`}
-          name="search"
-          size={iconSize}
-        />
+        <Icon align="left" id={`searchbar-icon-${id}`} name="search" />
         <span>Search</span>
       </Button>
     );
