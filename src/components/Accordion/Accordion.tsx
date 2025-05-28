@@ -139,10 +139,8 @@ const getElementsFromData = (
       <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
         {({ isExpanded }) => {
-          const bgColorByAccordionTypeLight =
-            colorMapLight[content.accordionType];
-          const bgColorByAccordionTypeDark =
-            colorMapDark[content.accordionType];
+          const noTypeOrDefaultType =
+            !content.accordionType || content.accordionType === "default";
           return (
             <>
               <AccordionButton
@@ -163,30 +161,22 @@ const getElementsFromData = (
                     : undefined
                 }
                 bg={
-                  !content.accordionType
-                    ? colorMapLight.default
-                    : bgColorByAccordionTypeLight
+                  colorMapLight[content?.accordionType] || colorMapLight.default
                 }
                 _hover={{
-                  bg:
-                    !content.accordionType ||
-                    content.accordionType === "default"
-                      ? "transparent"
-                      : bgColorByAccordionTypeLight,
+                  bg: noTypeOrDefaultType
+                    ? "transparent"
+                    : colorMapLight[content.accordionType],
                   borderColor: "ui.gray.dark",
                 }}
                 _expanded={{
-                  bg:
-                    !content.accordionType ||
-                    content.accordionType === "default"
-                      ? "ui.gray.light-cool"
-                      : bgColorByAccordionTypeLight,
+                  bg: noTypeOrDefaultType
+                    ? "ui.gray.light-cool"
+                    : colorMapLight[content.accordionType],
                   _hover: {
-                    bg:
-                      !content.accordionType ||
-                      content.accordionType === "default"
-                        ? "ui.gray.light-cool"
-                        : bgColorByAccordionTypeLight,
+                    bg: noTypeOrDefaultType
+                      ? "ui.gray.light-cool"
+                      : colorMapLight[content.accordionType],
                   },
                 }}
                 _dark={{
@@ -196,11 +186,9 @@ const getElementsFromData = (
                   bg: "dark.ui.bg.default",
                   color: "dark.ui.typography.heading",
                   borderStart: "4px solid",
-                  borderStartColor:
-                    !content.accordionType ||
-                    content.accordionType === "default"
-                      ? "dark.ui.border.hover"
-                      : bgColorByAccordionTypeDark,
+                  borderStartColor: noTypeOrDefaultType
+                    ? "dark.ui.border.hover"
+                    : colorMapDark[content.accordionType],
                   borderBottomColor:
                     isLast || isExpanded
                       ? "dark.ui.border.default"
