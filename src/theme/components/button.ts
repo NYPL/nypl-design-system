@@ -19,6 +19,7 @@ export const baseButtonStyle = {
   lineHeight: "1.5",
   minWidth: "10",
   textDecoration: "none",
+  transitionDuration: "var(--nypl-transition-duration-normal)",
   wordWrap: "normal",
   svg: {
     fill: "currentColor",
