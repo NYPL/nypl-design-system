@@ -24,69 +24,67 @@ const Template = defineStyleConfig({
       gridTemplateRows: "auto",
       columnGap: responsiveGap,
       "& > *:not(:last-child)": { mb: responsiveGap },
+
+      /** The top, bottom, main, and sidebar content areas should span the full
+       * width of the content area from a mobile-first viewpoint. Using -1 for
+       * the "last column" value ensures that the element spans all columns in
+       * the grid. */
+      "& .reservoir-template-full": {
+        gridColumn: "1 / -1",
+      },
+      "& .reservoir-template-main": {
+        gridColumn: "1 / -1",
+      },
+      "& .reservoir-template-sidebar": {
+        gridColumn: "1 / -1",
+      },
     };
   }),
+  /** If the sidebar is enabled, the starting positions (left or right) and
+   * spans of the main and sidebar content areas are adjusted based on
+   * responsive column patterns established by the NYPL design standards.
+   *
+   * Main:
+   * - Small mobile:            1/1 width
+   * - Large mobile:            1/2 width
+   * - Small tablet:            2/3 width
+   * - Large tablet & desktop:  3/4 width
+   *
+   * Sidebar:
+   * - Small mobile:            1/1 width
+   * - Large mobile:            1/2 width
+   * - Small tablet:            1/3 width
+   * - Large tablet & desktop:  1/4 width
+   * */
   variants: {
     left: {
-      gridTemplateAreas: {
-        base: `
-          "breakout"
-          "top"
-          "sidebar"
-          "main"
-          "bottom"
-        `,
-        sm: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "sidebar sidebar sidebar sidebar sidebar sidebar main main main main main main" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
-        md: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "sidebar sidebar sidebar sidebar main main main main main main main main" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
-        lg: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "sidebar sidebar sidebar main main main main main main main main main" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
-      },
       gridTemplateColumns: { sm: "repeat(12, 1fr)" },
+      "& .reservoir-template-main": {
+        gridColumn: {
+          base: "1 / -1",
+          sm: "7 / -1",
+          md: "5 / -1",
+          lg: "4 / -1",
+        },
+      },
+      "& .reservoir-template-sidebar": {
+        gridColumn: { base: "1 / -1", sm: "1 / 7", md: "1 / 5", lg: "1 / 4" },
+      },
     },
     right: {
-      gridTemplateAreas: {
-        base: `
-          "breakout"
-          "top"
-          "sidebar"
-          "main"
-          "bottom"
-        `,
-        sm: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "main main main main main main sidebar sidebar sidebar sidebar sidebar sidebar" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
-        md: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "main main main main main main main main sidebar sidebar sidebar sidebar" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
-        lg: `
-          "breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout breakout" 
-          "top top top top top top top top top top top top" 
-          "main main main main main main main main main sidebar sidebar sidebar" 
-          "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom"
-        `,
-      },
       gridTemplateColumns: { sm: "repeat(12, 1fr)" },
       gridTemplateRows: "auto",
+      "& .reservoir-template-main": {
+        gridColumn: { base: "1 / -1", sm: "1 / 7", md: "1 / 9", lg: "1 / 10" },
+      },
+      "& .reservoir-template-sidebar": {
+        gridColumn: {
+          base: "1 / -1",
+          sm: "7 / -1",
+          md: "9 / -1",
+          lg: "10 / -1",
+        },
+      },
     },
   },
 });
@@ -95,9 +93,10 @@ const TemplateBreakout = defineStyleConfig({
   baseStyle: defineStyle(() => {
     const { responsiveMargin } = useResponsiveSpacing();
     return {
-      width: "100vw",
+      gridColumn: "1 / -1",
       ml: "calc(-50vw + 50%)",
       px: responsiveMargin,
+      width: "100vw",
     };
   }),
 });
@@ -108,14 +107,14 @@ const TemplateMainNarrow = defineStyleConfig({
     return {
       columnGap: responsiveGap,
       display: "grid",
-      gridTemplateAreas: {
-        base: `"mainNarrow"`,
-        md: `". mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow ."`,
-        lg: `". . mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow mainNarrow . ."`,
-      },
       gridTemplateColumns: { base: "100%", md: "repeat(12, 1fr)" },
-      // maxWidth: "720px",
-      // m: "0 auto",
+      "& .reservoir-template-main-narrow": {
+        gridColumn: {
+          base: "1 / -1",
+          md: "2 / 12",
+          lg: "3 / 11",
+        },
+      },
     };
   }),
 });

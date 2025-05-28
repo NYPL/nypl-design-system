@@ -194,7 +194,7 @@ export const WithControls: Story = {
         <TemplateTop>
           <Placeholder variant="short">Content Top</Placeholder>
         </TemplateTop>
-        {sidebar !== "none" && (
+        {sidebar === "left" && (
           <TemplateSidebar>
             <Placeholder>{sidebarLabel(sidebar)}</Placeholder>
           </TemplateSidebar>
@@ -202,6 +202,11 @@ export const WithControls: Story = {
         <TemplateMain>
           <Placeholder>Main Content</Placeholder>
         </TemplateMain>
+        {sidebar === "right" && (
+          <TemplateSidebar>
+            <Placeholder>{sidebarLabel(sidebar)}</Placeholder>
+          </TemplateSidebar>
+        )}
         <TemplateBottom>
           <Placeholder variant="short">Content Bottom</Placeholder>
         </TemplateBottom>

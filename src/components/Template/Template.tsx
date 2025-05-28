@@ -49,11 +49,7 @@ const Template: ChakraComponent<
 const TemplateBreakout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const styles = useStyleConfig("TemplateBreakout", {});
 
-  return (
-    <Box gridArea="breakout" __css={styles}>
-      {children}
-    </Box>
-  );
+  return <Box __css={styles}>{children}</Box>;
 };
 
 /**
@@ -62,7 +58,7 @@ const TemplateBreakout: React.FC<React.PropsWithChildren> = ({ children }) => {
  * main content and sidebar (if one exists).
  */
 const TemplateTop: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <Box gridArea="top">{children}</Box>
+  <Box className="reservoir-template-full">{children}</Box>
 );
 
 /**
@@ -75,7 +71,7 @@ const TemplateMain: React.FC<React.PropsWithChildren<TemplateMainProps>> = ({
   children,
   id = "mainContent",
 }) => (
-  <Box as="main" id={id} gridArea="main">
+  <Box as="main" className="reservoir-template-main" id={id}>
     {children}
   </Box>
 );
@@ -93,8 +89,8 @@ const TemplateMainNarrow: React.FC<React.PropsWithChildren<TemplateMainProps>> =
     const styles = useStyleConfig("TemplateMainNarrow");
 
     return (
-      <Box as="main" id={id} gridArea="main" __css={styles}>
-        <Box gridArea="mainNarrow">{children}</Box>
+      <Box as="main" className="reservoir-template-main" id={id} __css={styles}>
+        <Box className="reservoir-template-main-narrow">{children}</Box>
       </Box>
     );
   };
@@ -106,7 +102,7 @@ const TemplateMainNarrow: React.FC<React.PropsWithChildren<TemplateMainProps>> =
  * to render the correct CSS styles.
  */
 const TemplateSidebar: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <Box gridArea="sidebar">{children}</Box>
+  <Box className="reservoir-template-sidebar">{children}</Box>
 );
 
 /**
@@ -114,7 +110,7 @@ const TemplateSidebar: React.FC<React.PropsWithChildren> = ({ children }) => (
  * will always render below the main content and sidebar (if one exists).
  */
 const TemplateBottom: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <Box gridArea="bottom">{children}</Box>
+  <Box className="reservoir-template-full">{children}</Box>
 );
 
 export {
