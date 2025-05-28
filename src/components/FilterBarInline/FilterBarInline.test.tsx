@@ -99,11 +99,11 @@ const FilterBarTestComponent = ({
                     onChange(e.target.id, multiSelect.id);
                   }}
                   onMixedStateChange={(e) => {
-                    onMixedStateChange(
-                      e.target.id,
-                      multiSelect.id,
-                      multiSelect.items
-                    );
+                    onMixedStateChange({
+                      parentId: e.target.id,
+                      multiSelectId: multiSelect.id,
+                      items: multiSelect.items,
+                    });
                   }}
                   onClear={() => {
                     onClear(multiSelect.id);

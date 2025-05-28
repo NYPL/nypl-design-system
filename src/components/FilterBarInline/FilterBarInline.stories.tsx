@@ -155,11 +155,11 @@ const FilterBarStory = (args) => {
           selectedItems={selectedItems}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -215,11 +215,11 @@ const FilterBarInlineHeadingStory = () => {
           selectedItems={selectedItems}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -279,11 +279,11 @@ const FilterBarLayoutStory = () => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -597,11 +597,11 @@ const FilterBarRowContainerStory = () => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -628,11 +628,11 @@ const FilterBarRowContainerStory = () => {
             isBlockElement={isBlockElement}
             onChange={(e) => onChange(e.target.id, multiSelect.id)}
             onMixedStateChange={(e) => {
-              return onMixedStateChange(
-                e.target.id,
-                multiSelect.id,
-                multiSelect.items
-              );
+              return onMixedStateChange({
+                parentId: e.target.id,
+                multiSelectId: multiSelect.id,
+                items: multiSelect.items,
+              });
             }}
             onClear={() => onClear(multiSelect.id)}
             width={multiSelectWidth}
@@ -723,11 +723,11 @@ const FilterBarColumnContainerStory = () => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -837,11 +837,11 @@ const FilterBarChildrenStory = (args) => {
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onClear={() => onClear(multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           width={multiSelectWidth}
         />

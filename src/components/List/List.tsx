@@ -151,7 +151,7 @@ export const List: ChakraComponent<
     };
 
     if (type === "ol" || type === "ul") {
-      checkListChildrenError(children, type);
+      checkListChildrenError({ children, listType: type });
       listElement = (
         <Box
           as={type as As}
@@ -189,11 +189,15 @@ export const List: ChakraComponent<
  * Checks for `li` elements and consoles a warning if the
  * children are different HTML elements.
  */
-export const checkListChildrenError = (
-  children: React.ReactNode,
+export const checkListChildrenError = ({
+  children,
   listType = "ul",
-  componentName = "List"
-) => {
+  componentName = "List",
+}: {
+  children: React.ReactNode;
+  listType?: string;
+  componentName?: string;
+}) => {
   React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
     if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
       console.warn(

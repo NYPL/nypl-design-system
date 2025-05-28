@@ -49,13 +49,19 @@ const breadcrumbTextLength = 40;
  * Truncate breadcrumb text if it is more than 40 characters in length and
  * then add ellipsis at the end.
  */
-const tooltipWrapperOrText = (
-  breadcrumbsData: BreadcrumbsDataProps,
+const tooltipWrapperOrText = ({
+  breadcrumbsData,
   breadcrumbsID,
   customLinkComponent,
   renderIcon = false,
-  isCurrentPage = false
-) => {
+  isCurrentPage = false,
+}: {
+  breadcrumbsData: BreadcrumbsDataProps;
+  breadcrumbsID: string;
+  customLinkComponent: React.ElementType;
+  renderIcon?: boolean;
+  isCurrentPage?: boolean;
+}) => {
   const textLength = (breadcrumbsData.text as string).length;
   const renderTooltip = textLength >= breadcrumbTextLength;
   // If the text is more than 40 characters in length, truncate it.
@@ -100,11 +106,15 @@ const tooltipWrapperOrText = (
   return breadcrumbLink;
 };
 
-const getElementsFromData = (
-  data: BreadcrumbsDataProps[],
-  breadcrumbsID?: string,
-  customLinkComponent?: any
-) => {
+const getElementsFromData = ({
+  data,
+  breadcrumbsID,
+  customLinkComponent,
+}: {
+  data: BreadcrumbsDataProps[];
+  breadcrumbsID?: string;
+  customLinkComponent?: any;
+}) => {
   if (!data?.length) {
     return null;
   }
@@ -118,13 +128,13 @@ const getElementsFromData = (
     const isCurrentPage = index === data.length - 1;
     return (
       <BreadcrumbItem key={index}>
-        {tooltipWrapperOrText(
+        {tooltipWrapperOrText({
           breadcrumbsData,
           breadcrumbsID,
           customLinkComponent,
           renderIcon,
-          isCurrentPage
-        )}
+          isCurrentPage,
+        })}
       </BreadcrumbItem>
     );
   });
@@ -163,11 +173,11 @@ export const Breadcrumbs: ChakraComponent<
     const styles = useStyleConfig("CustomBreadcrumb", {
       variant: breadcrumbsType,
     });
-    const breadcrumbItems = getElementsFromData(
-      breadcrumbsData,
-      id,
-      customLinkComponent
-    );
+    const breadcrumbItems = getElementsFromData({
+      data: breadcrumbsData,
+      breadcrumbsID: id,
+      customLinkComponent,
+    });
 
     return (
       <ChakraBreadcrumb
