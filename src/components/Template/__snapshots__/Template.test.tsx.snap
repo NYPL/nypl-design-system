@@ -5,7 +5,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
   className="css-0"
 >
   <div
-    className="css-fd96ed"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -14,7 +14,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
     </div>
   </div>
   <div
-    className="css-1q0thn5"
+    className="reservoir-template-full css-0"
   >
     <div
       className="placeholder placeholder--undefined"
@@ -23,7 +23,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
     </div>
   </div>
   <div
-    className="css-s7bsmx"
+    className="reservoir-template-sidebar css-0"
   >
     <div
       className="placeholder placeholder--undefined"
@@ -32,7 +32,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
     </div>
   </div>
   <main
-    className="css-n7iznt"
+    className="reservoir-template-main css-0"
     id="mainContent"
   >
     <div
@@ -47,7 +47,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
     </div>
   </main>
   <div
-    className="css-1yhc1wu"
+    className="reservoir-template-full css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -63,7 +63,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
   className="css-0"
 >
   <div
-    className="css-fd96ed"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -72,7 +72,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
     </div>
   </div>
   <div
-    className="css-1q0thn5"
+    className="reservoir-template-full css-0"
   >
     <div
       className="placeholder placeholder--undefined"
@@ -81,7 +81,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
     </div>
   </div>
   <main
-    className="css-n7iznt"
+    className="reservoir-template-main css-0"
     id="mainContent"
   >
     <div
@@ -96,7 +96,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
     </div>
   </main>
   <div
-    className="css-s7bsmx"
+    className="reservoir-template-sidebar css-0"
   >
     <div
       className="placeholder placeholder--undefined"
@@ -105,7 +105,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
     </div>
   </div>
   <div
-    className="css-1yhc1wu"
+    className="reservoir-template-full css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -121,7 +121,7 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
   className="css-0"
 >
   <div
-    className="css-fd96ed"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -130,7 +130,7 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
     </div>
   </div>
   <div
-    className="css-1q0thn5"
+    className="reservoir-template-full css-0"
   >
     <div
       className="placeholder placeholder--undefined"
@@ -139,7 +139,7 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
     </div>
   </div>
   <main
-    className="css-n7iznt"
+    className="reservoir-template-main css-0"
     id="mainContent"
   >
     <div
@@ -154,7 +154,7 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
     </div>
   </main>
   <div
-    className="css-1yhc1wu"
+    className="reservoir-template-full css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -170,7 +170,7 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
   className="css-0"
 >
   <div
-    className="css-fd96ed"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -179,7 +179,7 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
     </div>
   </div>
   <div
-    className="css-1q0thn5"
+    className="reservoir-template-full css-0"
   >
     <div
       className="placeholder placeholder--undefined"
@@ -188,11 +188,11 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
     </div>
   </div>
   <main
-    className="css-n7iznt"
+    className="reservoir-template-main css-0"
     id="mainContent"
   >
     <div
-      className="css-7f64us"
+      className="reservoir-template-main-narrow css-0"
     >
       <div
         className="placeholder placeholder--undefined"
@@ -207,7 +207,7 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
     </div>
   </main>
   <div
-    className="css-1yhc1wu"
+    className="reservoir-template-full css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -223,7 +223,7 @@ exports[`Template components renders the UI snapshot correctly 5`] = `
   className="css-0"
 >
   <main
-    className="css-n7iznt"
+    className="reservoir-template-main css-0"
     id="mainContent"
   >
     <div
@@ -245,7 +245,7 @@ exports[`Template components renders the UI snapshot correctly 6`] = `
   className="css-0"
 >
   <main
-    className="css-n7iznt"
+    className="reservoir-template-main css-0"
     id="mainContent"
   >
     <div
