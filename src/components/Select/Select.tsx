@@ -47,6 +47,8 @@ export interface SelectProps
    * populates an `aria-label` attribute on the select input if `showLabel` is
    * set to `false`. */
   labelText: string;
+  /** Placeholder text in the select element. */
+  placeholder?: string;
   /** Allows the '(required)' text to be changed for language purposes
    * Note: Parenthesis will be added automatically by the component */
   requiredLabelText?: string;

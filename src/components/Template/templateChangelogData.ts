@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality", "Styles"],
     notes: [
       "Major update to component and styles based on the Template TAD. Updates include simplified code and exported components, responsive sidebar and spacing, and accomodations for content needing a narrower container.",
-      "Extends prop interface to include Chakra prop or HTML attribute types.",
+      "Extends prop interface to include Chakra props or HTML attributes.",
     ],
   },
   {

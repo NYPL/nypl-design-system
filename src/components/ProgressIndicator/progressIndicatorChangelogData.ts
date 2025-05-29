@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality"],
     notes: [
       "Removes deprecated `darkMode` prop.",
-      "Extends prop interface to include Chakra prop or HTML attribute types.",
+      "Extends prop interface to include Chakra props or HTML attributes.",
     ],
   },
   {
