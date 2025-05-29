@@ -14,20 +14,14 @@ const Template = defineStyleConfig({
       minWidth: "288px",
       m: "0 auto",
       p: responsiveMargin,
-      gridTemplateAreas: `
-        "breakout"
-        "top"
-        "main"
-        "bottom"
-      `,
-      gridTemplateColumns: "100%",
+      gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "auto",
       columnGap: responsiveGap,
       "& > *:not(:last-child)": { mb: responsiveGap },
 
       /** The top, bottom, main, and sidebar content areas should span the full
        * width of the content area from a mobile-first viewpoint. Using -1 for
-       * the "last column" value ensures that the element spans all columns in
+       * the "last column" value ensures that these elements span all columns in
        * the grid. */
       "& .reservoir-template-full": {
         gridColumn: "1 / -1",
@@ -58,7 +52,6 @@ const Template = defineStyleConfig({
    * */
   variants: {
     left: {
-      gridTemplateColumns: { sm: "repeat(12, 1fr)" },
       "& .reservoir-template-main": {
         gridColumn: {
           base: "1 / -1",
@@ -72,8 +65,6 @@ const Template = defineStyleConfig({
       },
     },
     right: {
-      gridTemplateColumns: { sm: "repeat(12, 1fr)" },
-      gridTemplateRows: "auto",
       "& .reservoir-template-main": {
         gridColumn: { base: "1 / -1", sm: "1 / 7", md: "1 / 9", lg: "1 / 10" },
       },
@@ -107,7 +98,7 @@ const TemplateMainNarrow = defineStyleConfig({
     return {
       columnGap: responsiveGap,
       display: "grid",
-      gridTemplateColumns: { base: "100%", md: "repeat(12, 1fr)" },
+      gridTemplateColumns: "repeat(12, 1fr)",
       "& .reservoir-template-main-narrow": {
         gridColumn: {
           base: "1 / -1",
