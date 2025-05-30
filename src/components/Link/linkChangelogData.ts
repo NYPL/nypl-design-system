@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Removes deprecated `button` value in `linkTypesArray`."],
+    notes: [
+      "Removes deprecated `button` value in `linkTypesArray`.",
+      "Replaces positional function arguments with objects for `getWithDirectionIcon`, and `getExternalExtraElements`",
+    ],
   },
   {
     date: "2024-11-07",

@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Replaces the error thrown with a console.warn.",
       "Changes theme name from `CustomBreadcrumbs` to `ReservoirBreadcrumbs` for consistency.",
+      "Replaces positional function arguments with objects for `tooltipWrapperOrText` and `getElementsFromData`.",
     ],
   },
   {
