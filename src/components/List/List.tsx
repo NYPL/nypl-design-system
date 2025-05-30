@@ -195,7 +195,7 @@ export const checkListChildrenError = ({
   componentName = "List",
 }: {
   children: React.ReactNode;
-  listType?: string;
+  listType?: ListTypes;
   componentName?: string;
 }) => {
   React.Children.map(children as JSX.Element, (child: React.ReactElement) => {

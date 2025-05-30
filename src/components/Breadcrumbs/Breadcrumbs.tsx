@@ -40,7 +40,7 @@ export interface BreadcrumbProps {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Custom Link component for apps with internal routing, defaults to BreadcrumbLink if not passed */
-  customLinkComponent?: any;
+  customLinkComponent?: React.ElementType;
 }
 
 const breadcrumbTextLength = 40;
@@ -113,7 +113,7 @@ const getElementsFromData = ({
 }: {
   data: BreadcrumbsDataProps[];
   breadcrumbsID?: string;
-  customLinkComponent?: any;
+  customLinkComponent?: React.ElementType;
 }) => {
   if (!data?.length) {
     return null;
