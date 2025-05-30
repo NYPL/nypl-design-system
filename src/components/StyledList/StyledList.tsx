@@ -3,14 +3,7 @@ import React, { forwardRef } from "react";
 
 import { checkListChildrenError } from "../List/List";
 
-export const textSizesArray = [
-  "default",
-  "body1",
-  "body2",
-  "caption",
-  "tag",
-  "mini",
-] as const;
+export const textSizesArray = ["default", "body1", "body2", "caption"] as const;
 export type StyledListTextSizes = typeof textSizesArray[number];
 
 export interface StyledListProps {

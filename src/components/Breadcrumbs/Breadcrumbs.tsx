@@ -165,7 +165,7 @@ export const Breadcrumbs: ChakraComponent<
     } = props;
 
     if (!breadcrumbsData || breadcrumbsData.length === 0) {
-      throw new Error(
+      console.warn(
         "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
       );
     }

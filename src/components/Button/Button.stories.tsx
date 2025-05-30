@@ -198,9 +198,6 @@ export const ButtonTypes: Story = {
       <Button buttonType="pill" id="pill-btn">
         Pill
       </Button>
-      <Button buttonType="link" id="link-btn">
-        Link (deprecated)
-      </Button>
     </ButtonGroup>
   ),
 };
@@ -289,18 +286,6 @@ const buttonData = [
     </Button>,
     <Button buttonType="pill" id="pill-large" key="pill-large" size="large">
       Pill
-    </Button>,
-  ],
-  [
-    "link (deprecated)",
-    <Button buttonType="link" id="l-small" key="l-small" size="small">
-      Link
-    </Button>,
-    <Button buttonType="link" id="l-medium" key="l-medium" size="medium">
-      Link
-    </Button>,
-    <Button buttonType="link" id="l-large" key="l-large" size="large">
-      Link
     </Button>,
   ],
 ];

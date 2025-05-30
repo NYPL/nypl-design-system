@@ -172,7 +172,7 @@ An object containing the container query styles.
   code={`
 import { setContainerStyles } from "../utils/setContainerStyles";
 const styles = setContainerStyles({
-    breakpoint: "md",
+    breakpoint: "mobile",
     styles: {
         "[data-body]": {
         flexBasis: "100%",
@@ -232,7 +232,7 @@ const componentStyles = {
   base: {
     bgColor: "ui.bg.default",
     ...setContainerStyles({
-      breakpoint: "sm",
+      breakpoint: "smallMobile",
       styles: {
         "[data-body]": {
           flexBasis: "100%",
@@ -240,7 +240,7 @@ const componentStyles = {
       },
     }),
     ...setContainerStyles({
-      breakpoint: "md",
+      breakpoint: "mobile",
       styles: {
         "[data-imagewrapper]": {
           flexFlow: "row",

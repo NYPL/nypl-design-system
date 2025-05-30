@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes deprecated `low`, `medium`, `high` values from `statusBadgeTypeArray`.",
+      "Removes deprecated `level` prop.",
+    ],
+  },
+  {
     date: "2025-02-13",
     version: "3.5.4",
     type: "New Feature",

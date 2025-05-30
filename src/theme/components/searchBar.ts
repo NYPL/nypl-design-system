@@ -34,7 +34,7 @@ const SearchBar = defineMultiStyleConfig({
       },
     }),
     ...setContainerStyles({
-      breakpoint: "md",
+      breakpoint: "mobile",
       styles: {
         "&": { marginBottom: "auto", flexFlow: "row" },
         "[data-select]": {

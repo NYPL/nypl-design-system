@@ -1,499 +1,578 @@
+import { Box } from "@chakra-ui/react";
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./templateChangelogData";
 
 import * as TemplateStories from "./Template.stories";
 import {
   Template,
-  TemplateAboveHeader,
-  TemplateAppContainer,
   TemplateBreakout,
-  TemplateContent,
-  TemplateContentBottom,
-  TemplateContentPrimary,
-  TemplateContentSidebar,
-  TemplateContentTop,
-  TemplateFooter,
-  TemplateHeader,
+  TemplateTop,
+  TemplateSidebar,
+  TemplateMain,
+  TemplateMainNarrow,
+  TemplateBottom,
 } from "./Template";
+import Banner from "../Banner/Banner";
+import Heading from "../Heading/Heading";
+import Image from "../Image/Image";
 import Link from "../Link/Link";
+import List from "../List/List";
+import Table from "../Table/Table";
+import Text from "../Text/Text";
+
+import templateBreakout from "/template/templateBreakout.png";
+import templateBottom from "/template/templateBottom.png";
+import templateMain from "/template/templateMain.png";
+import templateMainNarrow from "/template/templateMainNarrow.png";
+import templateMainWide from "/template/templateMainWide.png";
+import templateSidebarLeft from "/template/templateSidebarLeft.png";
+import templateSidebarRight from "/template/templateSidebarRight.png";
+import templateTop from "/template/templateTop.png";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import DocsWithImage from "../../utils/components/DocsWithImage";
+import { exampleWrapperStyles } from "../../utils/utils.ts";
+
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import { changelogData } from "./templateChangelogData";
 
 <Meta of={TemplateStories} />
 
-# Template
-
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.3.6`    |
-| Latest            | `3.5.0`    |
-
-## Table of Contents
-
-- {<Link href="#templateappcontainer-overview" target="_self">TemplateAppContainer Overview</Link>}
-- {<Link href="#templateappcontainer-component-props" target="_self">TemplateAppContainer Component Props</Link>}
-- {<Link href="#templateappcontainer-accessibility" target="_self">TemplateAppContainer Accessibility</Link>}
-- {<Link href="#template-children-overview" target="_self">Template Children Overview</Link>}
-- {<Link href="#template-children-component-props" target="_self">Template Children Component Props</Link>}
-- {<Link href="#full-example-with-template-children-components" target="_self">Full Example with Template Children Components</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
-
-## TemplateAppContainer Overview
-
-<Description of={TemplateAppContainer} />
-
-If you have a custom `Header` component that _already_ renders an HTML `<header>`
-element, set `renderHeaderElement` to false so only one `<header>` element is
-rendered.
-
-If you need to render the `SkipNavigation` component, set `renderSkipNavigation`
-to true.
-
-Likewise, if you have a custom `Footer` component that _already_ renders an HTML
-`<footer>` element, set `renderFooterElement` to false so only one `<footer>`
-element is rendered.
-
-**This is the recommended way to render an app page template.**
-
-<Source
-  code={`
-import { TemplateAppContainer } from "@nypl/design-system-react-components";
-// ...
-<TemplateAppContainer
-  aboveHeader={<Placeholder variant="short">Above Header</Placeholder>}
-  header={<Placeholder variant="short">Header</Placeholder>}
-  breakout={
-    <>
-      <Placeholder variant="short">Breadcrumbs</Placeholder>
-      <Placeholder>Hero</Placeholder>
-    </>
-  }
-  sidebar="left"
-  contentTop={<Placeholder variant="short">Content Top</Placeholder>}
-  contentSidebar={<Placeholder>Left Sidebar</Placeholder>}
-  contentPrimary={
-    <>
-      <Placeholder>Main Content</Placeholder>
-      <Placeholder variant="short">More Content</Placeholder>
-    </>
-  }
-  contentBottom={<Placeholder variant="short">Content Bottom</Placeholder>}
-  footer={<Placeholder>Footer</Placeholder>}
-  renderSkipNavigation={true}
+<ComponentDocsHeader
+  category="Page layout component"
+  componentName="Template"
+  summary="A structural skeleton for composing a standard page layout"
+  versionAdded="0.3.6"
+  versionLatest="Prerelease"
 />
-`}
-  language="jsx"
-/>
-
-## TemplateAppContainer Component Props
 
 <Canvas of={TemplateStories.WithControls} />
 
-<ArgTypes of={TemplateStories.WithControls} />
+## Table of Contents
 
-## TemplateAppContainer Accessibility
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#component-props" target="_self">Component Props</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
+- {<Link href="#child-components" target="_self">Child Components</Link>}
+- {<Link href="#sidebar-configuration" target="_self">Sidebar Configuration</Link>}
+- {<Link href="#understanding-the-fluid-layout" target="_self">Understanding the Fluid Layout</Link>}
+- {<Link href="#full-page-composition" target="_self">Full Page Composition</Link>}
+- {<Link href="#changelog" target="_self">Changelog</Link>}
 
-**The `TemplateAppContainer` component is the recommended way to render the entire
-application.** Therefore, this accessibility section is specifically for the
-`TemplateAppContainer` but the same rules apply to the individual "Template"
-components.
+## Overview
 
-The `TemplateAppContainer` component renders the header as a `<header>` element,
-the content as a `<main>` element, and the footer as a `<footer>` element.
-
-If you need to render an alert or notification at the top of the page with an
-`aside` HTML element or HTML element with the `role="complementary"` attribute,
-then pass that alert or notification component to the `aboveHeader` prop. These
-elements should _not_ be rendered in the `header` HTML section since that's an
-accessibility violation.
-
-The `TemplateAppContainer` component renders a full DOM and one of the children
-is the `main` HTML element with a default "id" of `"mainContent"`. This should
-be used as the anchor element that the skip navigation link points to. If your
-application is using the current Header, it already contains the skip
-navigation feature but make sure it is pointing to the correct anchor element.
-
-If you are using a custom header component or you need to use the Reservoir
-Design System (DS) `SkipNavigation` component, then set the `renderSkipNavigation`
-prop to true. This will render the `SkipNavigation` component at the top of the
-page before any other elements. The main link will point to the `#mainContent`
-`main` element.
-
-Resources
-
-- [W3C Aria Landmarks Example](https://www.w3.org/TR/wai-aria-practices/examples/landmarks/complementary.html)
-- [Digital A11y Role=Complementary](https://www.digitala11y.com/complementary-role/)
-- [WebAim Skip Navigation Link](https://webaim.org/techniques/skipnav/)
-- [A11ymatters Skip Navigation Link](https://www.a11ymatters.com/pattern/skip-link/)
-
-## Template Children Overview
-
-The Reservoir Design System (DS) also provides a set of "template" components
-that work together to render a consistent mobile and desktop layout. More
-information on individual components and how they should be composed can be
-found below. Even though these component are available for use, we recommend
-using the `TemplateAppContainer` component and passing down children component
-as props as needed.
-
-Note: If you need to render the `SkipNavigation` component, you need to explicitly
-render it immediately before the `Template` component. This is done
-automatically in the `TemplateAppContainer` component.
-
-Note: All components that go above the main content `TemplateContent` component
-should be wrapped in a `<div>` element or a `<Box>` component.
-
-Basic "template" components structure:
+- The `Template` component is used to render the general structure of a page
+- The `Template` child components should be used to compose the basic page
+  layout
+- The child components adhere to NYPL design standards and provide a consistent
+  mobile and desktop layout
 
 <Source
   code={`
 import {
   Template,
-  TemplateAboveHeader,
   TemplateBreakout,
-  TemplateContent,
-  TemplateContentBottom,
-  TemplateContentPrimary,
-  TemplateContentSidebar,
-  TemplateContentTop,
-  TemplateFooter,
-  TemplateHeader,
+  TemplateTop,
+  TemplateSidebar,
+  TemplateMain,
+  TemplateBottom
 } from "@nypl/design-system-react-components";
-// ...
-<>
-  <SkipNavigation />
-  <Template>
-    <TemplateBreakout>
-      <TemplateAboveHeader>
-        // ...
-      </TemplateAboveHeader>
-      <TemplateHeader>
-        // ...
-      </TemplateHeader>
-    </TemplateBreakout>
-    <TemplateContent sidebar="...">
-      <TemplateContentTop>
-        // ...
-      </TemplateContentTop>
-      <TemplateContentPrimary>
-        // ...
-      </TemplateContentPrimary>
-      <TemplateContentBottom>
-        // ...
-      </TemplateContentBottom>
-    </TemplateContent>
-    <TemplateFooter>
-      // ...
-    </TemplateFooter>
-  </Template>
-</>
+//...
+<Template sidebar="...">
+  <TemplateBreakout>...</TemplateBreakout>
+  <TemplateTop>...</TemplateTop>
+  <TemplateSidebar>...</TemplateSidebar>
+  <TemplateMain>...</TemplateMain>
+  <TemplateBottom>...</TemplateBottom>
+</Template>
 `}
   language="jsx"
 />
 
-## Template Children Component Props
+## Component Props
 
-<Canvas of={TemplateStories.ChildrenComponentProps} />
+<ArgTypes of={TemplateStories.WithControls} />
 
-<ArgTypes of={TemplateStories.ChildrenComponentProps} />
+## Accessibility
 
-### Template Components
+Wide lines of text are difficult to read and are proven to make it harder for
+people to focus, while short lines of text force the eye to travel back too
+often, breaking a reader's rhythm. The `TemplateMain` component has a max width
+of 1280px, which is too wide for text. If your content includes long chunks of
+text, you should use the `TemplateMainNarrow` component instead. Note that
+`TemplateMainNarrow` is not meant to be used in conjunction with a sidebar.
 
-The components consist of, listed in DOM structure order:
+This means you may use `TemplateMain` or `TemplateMainNarrow` depending on your
+needs, but the two should not be used in conjunction.
 
-- `Template`
-- `TemplateAboveHeader`
-- `TemplateHeader`
+The `TemplateMain` and `TemplateMainNarrow` components render the content as a
+`<main>` element with a default `id` of `"mainContent"`. This should be used as
+the anchor element that the skip navigation link points to. If your application
+is using the current Header, it already contains the skip navigation feature but
+make sure it is pointing to the correct anchor element.
+
+Resources
+
+- [WebAim Skip Navigation Link](https://webaim.org/techniques/skipnav/)
+- [A11ymatters Skip Navigation Link](https://www.a11ymatters.com/pattern/skip-link/)
+
+## Child Components
+
+In addition to the root `Template` component, the following child components are
+offered:
+
 - `TemplateBreakout`
-- `TemplateContent`
-- `TemplateContentTop`
-- `TemplateContentPrimary`
-- `TemplateContentSidebar`
-- `TemplateContentBottom`
-- `TemplateFooter`
+- `TemplateTop`
+- `TemplateSidebar`
+- `TemplateMain` or `TemplateMainNarrow`
+- `TemplateBottom`
 
-#### Template
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The DOM order of the child components should
+      match the structure of the rendered page in the browser.
+      <Text noSpace>
+        If the sidebar is to be rendered on the left side of the page,{" "}
+        <code>TemplateSidebar</code> should come before{" "}
+        <code>TemplateMain</code> in the DOM. If the sidebar is to be rendered
+        on the right side of the page, <code>TemplateSidebar</code> should come
+        after <code>TemplateMain</code> in the DOM.
+      </Text>
+    </>
+  }
+  mb="s"
+  type="recommendation"
+/>
+
+### TemplateBreakout
+
+{
+
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>
+        Ideal for <code>Breadcrumbs</code>, <code>FilterbarInline</code>,{" "}
+        <code>Hero</code>, and <code>SubNav</code> components
+      </li>
+      <li>
+        Also recommended for custom UI that spans the full width of the viewport
+      </li>
+      <li>
+        Positioned directly below the NYPL universal header and above any other
+        <code>Template</code> child components
+      </li>
+      <li>
+        Not contained by the central content area and spans the full width of
+        the viewport
+      </li>
+      <li>
+        All components that go in <code>TemplateTop</code> component should be
+        wrapped in a <code>div</code> element or a <code>Box</code> component
+      </li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template breakout region",
+    caption: "Breakout region",
+    src: "/template/templateBreakout.png",
+  }}
+/>
+}
+
+### TemplateTop
+
+{
+
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>
+        Ideal for <code>Banner</code> and <code>FilterbarInline</code>{" "}
+        components
+      </li>
+      <li>Also recommended for custom "announcement" elements</li>
+      <li>
+        Positioned directly below <code>TemplateBreakout</code> and above{" "}
+        <code>TemplateSidebar</code> and <code>TemplateMain</code>
+      </li>
+      <li>Contained by the central content area</li>
+      <li>Always spans the full width of the central content area</li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template top region",
+    caption: "Top region",
+    src: "/template/templateTop.png",
+  }}
+/>
+}
+
+### TemplateSidebar
+
+{
+
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>Ideal for filtering elements and secondary menus</li>
+      <li>
+        Positioned below <code>TemplateTop</code> and to either the left or
+        right of <code>TemplateMain</code>
+      </li>
+      <li>
+        Not recommended for use with <code>TemplateMainNarrow</code>
+      </li>
+      <li>
+        Spans a percentage of the central content area based on the current
+        breakpoint
+      </li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template sidebar region",
+    caption: "Sidebar region",
+    src: "/template/templateSidebarLeft.png",
+  }}
+/>
+}
+
+### TemplateMain
+
+{
+
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>Should be used for the main content of a page</li>
+      <li>
+        Positioned below <code>TemplateTop</code> and to either the left or
+        right of
+        <code>TemplateSidebar</code>, when it is rendered
+      </li>
+      <li>
+        May be used in conjunction with <code>TemplateSidebar</code>
+      </li>
+      <li>
+        Spans a perecentage of the central content area when the sidebar is
+        rendered
+      </li>
+      <li>
+        Spans the full width of the central content area when the sidebar is not
+        rendered
+      </li>
+      <li>
+        Content in this region should adhere to the{" "}
+        <Link href="/?path=/docs/style-guide-responsive-grid--docs">
+          responsive grid
+        </Link>{" "}
+        recommendations
+      </li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template main region",
+    caption: "Main region",
+    src: "/template/templateMain.png",
+  }}
+/>
+}
+
+### TemplateMainNarrow
+
+{
+
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>Ideal for displaying content that is primarily text</li>
+      <li>
+        Positioned below <code>TemplateTop</code> and to either the left or
+        right of
+        <code>TemplateSidebar</code>, when it is rendered
+      </li>
+      <li>
+        Should not be used in conjunction with <code>TemplateSidebar</code>
+      </li>
+      <li>Contained by the central content area</li>
+      <li>
+        Max width of <code>720px</code>
+      </li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template main narrow region",
+    caption: "Main narrow region",
+    src: "/template/templateMainNarrow.png",
+  }}
+/>
+}
+
+### TemplateBottom
+
+{
+
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>
+        Ideal for <code>Banner</code>, <code>FeaturedContent</code>,{" "}
+        <code>NewsletterSignup</code> components
+      </li>
+      <li>Also recommended for persistent or custom "announcement" elements</li>
+      <li>
+        Positioned directly below <code>TemplateSidebar</code> and{" "}
+        <code>TemplateMain</code> and above the NYPL universal footer
+      </li>
+      <li>Contained by the central content area</li>
+      <li>Always spans the full width of the central content area</li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template bottom region",
+    caption: "Bottom region",
+    src: "/template/templateBottom.png",
+  }}
+/>
+}
+
+## Sidebar Configuration
+
+Use the `sidebar` prop to set the sidebar
+
+- `left`
+- `right`
+- `none` (default)
 
 <Source
   code={`
-<Template>
-  // ...
+<Template sidebar="left">
+  ...
 </Template>
 `}
   language="jsx"
 />
 
-<Description of={Template} />
+{
 
-#### TemplateBreakout
+<Box
+  display={{ base: "block", md: "grid" }}
+  gridTemplateColumns="1fr 1fr 1fr"
+  gap="l"
+>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Left
+    </Heading>
+    <Image
+      alt="Template with left sidebar"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateSidebarLeft.png"
+      {...exampleWrapperStyles}
+    />
+  </Box>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Right
+    </Heading>
+    <Image
+      alt="Template with right sidebar"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateSidebarRight.png"
+      {...exampleWrapperStyles}
+    />
+  </Box>
+  <Box>
+    <Heading level="h3" size="heading7">
+      None
+    </Heading>
+    <Image
+      alt="Template without sidebar"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateSidebarNone.png"
+      {...exampleWrapperStyles}
+    />
+  </Box>
+</Box>
 
-<Source
-  code={`
-<Template>
-  <TemplateBreakout>
-    // ...
-  </TemplateBreakout>
-</Template>
-`}
-  language="jsx"
+}
+
+## Understanding the Fluid Layout
+
+- `TemplateSidebar` and `TemplateMain` use fluid sizing where each fills a
+  fraction of the full width
+- Size fractions are dependent on viewport
+- Content in `TemplateMain`, especially grids, should adhere
+  to the <Link href="/?path=/docs/style-guide-responsive-grid--docs">
+  responsive grid</Link> recommendations and patterns
+
+**NOTE:** In the examples below, `TemplateSidebar` is highlighted in blue and
+`TemplateMain` is highlighted in purple.
+
+{
+
+<Box
+  display={{ base: "block", md: "grid" }}
+  gridTemplateColumns="1fr 1fr 1fr 1fr"
+  gap="l"
+>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Small Mobile
+    </Heading>
+    <Image
+      alt="Fluid layout, 1 column"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateFluidColumns1.png"
+      {...exampleWrapperStyles}
+      mb="s"
+    />
+    <Box>
+      <strong>Sidebar:</strong> 1/1 (100%))
+      <br />
+      <strong>Main:</strong> 1/1 (100%))
+    </Box>
+  </Box>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Large Mobile
+    </Heading>
+    <Image
+      alt="Fluid layout, 2 columns"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateFluidColumns2.png"
+      {...exampleWrapperStyles}
+      mb="s"
+    />
+    <Box>
+      <strong>Sidebar:</strong> 1/2 (50%)
+      <br />
+      <strong>Main:</strong> 1/2 (50%)
+    </Box>
+  </Box>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Small Tablet
+    </Heading>
+    <Image
+      alt="Fluid layout, 3 columns"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateFluidColumns3.png"
+      {...exampleWrapperStyles}
+      mb="s"
+    />
+    <Box>
+      <strong>Sidebar:</strong> 1/3 (33.3%)
+      <br />
+      <strong>Main:</strong> 2/3 (66.6%)
+    </Box>
+  </Box>
+  <Box>
+    <Heading level="h3" size="heading7">
+      Large Tablet and up
+    </Heading>
+    <Image
+      alt="Fluid layout, 4 columns"
+      border="1px solid var(--nypl-colors-ui-border-default)"
+      src="/template/templateFluidColumns4.png"
+      {...exampleWrapperStyles}
+      mb="s"
+    />
+    <Box>
+      <strong>Sidebar:</strong> 1/4 (25%)
+      <br />
+      <strong>Main:</strong> 3/4 (75%)
+    </Box>
+  </Box>
+</Box>
+}
+
+## Full Page Composition
+
+{
+
+<DocsWithImage
+  docs={
+    <>
+      <List type="ul">
+        <li>
+          The <code>Template</code> component should be used with the NYPL
+          universal <code>Header</code> and <code>Footer</code> to compose pages
+          aligned with NYPL design and application standards
+        </li>
+        <li>
+          If an app needs to render the <code>SkipNavigation</code> component,
+          it should be to be explicitly rendered immediately before the{" "}
+          <code>Template</code> component
+        </li>
+      </List>
+    </>
+  }
+  imageProps={{
+    alt: "Full page layout",
+    src: "/template/templateFullPageLayout.png",
+  }}
 />
+}
 
-<Description of={TemplateBreakout} />
+{
 
-#### TemplateAboveHeader
-
-<Source
-  code={`
-<Template>
-  <TemplateBreakout>
-    <TemplateAboveHeader>
-      // ...
-    </TemplateAboveHeader>
-  </TemplateBreakout>
-</Template>
-`}
-  language="jsx"
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> This is the general recommended shape of the
+      DOM, but it will differ based on each individual app's framework
+      architecture.
+    </>
+  }
+  mb="s"
+  type="recommendation"
 />
-
-<Description of={TemplateAboveHeader} />
-
-#### TemplateHeader
+}
 
 <Source
   code={`
-<Template>
-  <TemplateBreakout>
-    <TemplateAboveHeader>
-      // ...
-    </TemplateAboveHeader>
-    <TemplateHeader>
-      // ...
-    </TemplateHeader>
-  </TemplateBreakout>
-</Template>
-`}
-  language="jsx"
-/>
-
-<Description of={TemplateHeader} />
-
-#### TemplateContent
-
-<Source
-  code={`
-<Template>
-  <TemplateBreakout>
-    <TemplateHeader>
-      // ...
-    </TemplateHeader>
-  </TemplateBreakout>
-  <TemplateContent id="mainContent">
-    // ...
-  </TemplateContent>
-</Template>
-`}
-  language="jsx"
-/>
-
-<Description of={TemplateContent} />
-
-#### TemplateContentTop
-
-<Source
-  code={`
-<Template>
-  <TemplateBreakout>
-    <TemplateAboveHeader>
-      // ...
-    </TemplateAboveHeader>
-    <TemplateHeader>
-      // ...
-    </TemplateHeader>
-  </TemplateBreakout>
-  <TemplateContent>
-    <TemplateContentTop>
-      // ...
-    </TemplateContentTop>
-  </TemplateContent>
-</Template>
-`}
-  language="jsx"
-/>
-
-<Description of={TemplateContentTop} />
-
-#### TemplateContentPrimary
-
-<Source
-  code={`
-<Template>
-  <TemplateBreakout>
-    <TemplateAboveHeader>
-      // ...
-    </TemplateAboveHeader>
-    <TemplateHeader>
-      // ...
-    </TemplateHeader>
-  </TemplateBreakout>
-  <TemplateContent>
-    <TemplateContentPrimary>
-      // ...
-    </TemplateContentPrimary>
-  </TemplateContent>
-<Template>
-`}
-  language="jsx"
-/>
-
-<Description of={TemplateContentPrimary} />
-
-#### TemplateContentSidebar
-
-<Source
-  code={`
-<Template>
-  <TemplateBreakout>
-    <TemplateAboveHeader>
-      // ...
-    </TemplateAboveHeader>
-    <TemplateHeader>
-      // ...
-    </TemplateHeader>
-  <TemplateBreakout>
-  <TemplateContent sidebar="right">
-    <TemplateContentPrimary>
-      // ...
-    </TemplateContentPrimary>
-    <TemplateContentSidebar>
-      // RIGHT SIDEBAR
-    </TemplateContentSidebar>
-  </TemplateContent>
-</Template>
-
-<Template>
-  <TemplateBreakout>
-    <TemplateAboveHeader>
-      // ...
-    </TemplateAboveHeader>
-    <TemplateHeader>
-      // ...
-    </TemplateHeader>
-  </TemplateBreakout>
-  <TemplateContent sidebar="left">
-    <TemplateContentSidebar>
-      // LEFT SIDEBAR
-    </TemplateContentSidebar>
-    <TemplateContentPrimary>
-      // ...
-    </TemplateContentPrimary>
-  </TemplateContent>
-<Template>
+import {
+  SkipNavigation,
+  Template,
+  TemplateBreakout,
+  TemplateTop,
+  TemplateSidebar,
+  TemplateMain,
+  TemplateBottom
+} from "@nypl/design-system-react-components";
+//...
+<style>
+  #header-placeholder {
+    min-height: 62px;
+  }
+  @media screen and (min-width: 832px) {
+    #header-placeholder {
+      min-height: 130px;
+    }
+  }
+</style>
+<!-- .... -->
+<div id="header-placeholder">
+  <div id="nypl-header"></div>
+  <script
+    type="module"
+    src="https://ds-header.nypl.org/header.min.js?containerId=nypl-header"
+    async
+  ></script>
+</div>
+<DSProvider>
+  <SkipNavigation />
+  <Template sidebar="...">
+    <TemplateBreakout>...</TemplateBreakout>
+    <TemplateTop>...</TemplateTop>
+    <TemplateSidebar>...</TemplateSidebar>
+    <TemplateMain>...</TemplateMain>
+    <TemplateBottom>...</TemplateBottom>
+  </Template>
+</DSProvider>
+<div id="nypl-footer"></div>
+<script type="module" src="https://ds-header.nypl.org/footer.min.js?containerId=nypl-footer" async></script>
 `} language="jsx" />
-
-<Description of={TemplateContentSidebar} />
-
-#### TemplateContentBottom
-
-<Source
-  code={`
-<Template>
-  <TemplateBreakout>
-    <TemplateAboveHeader>
-      // ...
-    </TemplateAboveHeader>
-    <TemplateHeader>
-      // ...
-    </TemplateHeader>
-  </TemplateBreakout>
-  <TemplateContent>
-    <TemplateContentTop>
-      // ...
-    </TemplateContentTop>
-    <TemplateContentPrimary>
-      // ...
-    </TemplateContentPrimary>
-    <TemplateContentBottom>
-      // ...
-    </TemplateContentBottom>
-  </TemplateContent>
-</Template>
-`}
-  language="jsx"
-/>
-
-<Description of={TemplateContentBottom} />
-
-#### TemplateFooter
-
-<Source
-  code={`
-<Template>
-  <TemplateBreakout>
-    <TemplateAboveHeader>
-      // ...
-    </TemplateAboveHeader>
-    <TemplateHeader>
-      // ...
-    </TemplateHeader>
-  </TemplateBreakout>
-  <TemplateContent sidebar="right">
-    //...
-  </TemplateContent>
-  <TemplateFooter>
-    // ...
-  </TemplateFooter>
-</Template>
-`}
-  language="jsx"
-/>
-
-<Description of={TemplateFooter} />
-
-### Template Children Components Sidebar Configuration
-
-In order to render a sidebar, two steps must be taken.
-
-1. The `TemplateContent` component needs to be aware of it. Pass the location
-   of the sidebar to the `sidebar` prop as either "left" or "right".
-
-<Source
-  code={`
-<TemplateContent sidebar="left">
-`}
-  language="jsx"
-/>
-
-2. Render `TemplateContentSidebar` and `TemplateContentPrimary` next to each
-   other in the appropriate order. If the sidebar must show left, then
-   `TemplateContentSidebar` comes before `TemplateContentPrimary`. Otherwise,
-   `TemplateContentPrimary` must come before `TemplateContentSidebar`.
-
-<Source
-  code={`
-// Render left sidebar
-<TemplateContent sidebar="left">
-  <TemplateContentSidebar>
-    // ...
-  </TemplateContentSidebar>
-  <TemplateContentPrimary>
-    // ...
-  </TemplateContentPrimary>
-</TemplateContent>
-// Render right sidebar
-<TemplateContent sidebar="right">
-  <TemplateContentPrimary>// ...</TemplateContentPrimary>
-  <TemplateContentSidebar>// ...</TemplateContentSidebar>
-</TemplateContent>
-`}
-  language="jsx"
-/>
-
-## Full Example with Template Children Components
-
-export const otherSubHeaderText =
-  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
-
-This is best viewed in the Storybook "Canvas" and not "Docs" section.
-
-<Canvas of={TemplateStories.FullExampleWithTemplateChildrenComponents} />
 
 ## Changelog
 

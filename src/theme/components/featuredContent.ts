@@ -61,7 +61,7 @@ const FeaturedContent = defineMultiStyleConfig({
             },
           }),
           ...setContainerStyles({
-            breakpoint: "md",
+            breakpoint: "mobile",
             styles: {
               "[data-wrapper]": {
                 flexDirection: imageAtEnd ? "row-reverse" : "row",

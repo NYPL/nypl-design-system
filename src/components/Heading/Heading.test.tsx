@@ -95,21 +95,25 @@ describe("Heading", () => {
     );
   });
 
-  it("throws error when neither child nor text is passed", () => {
-    expect(() => render(<Heading id="h1" level="h1" />)).toThrow(
+  it("logs a warning when neither child nor text is passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Heading id="h1" level="h1" />);
+    expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
     );
   });
 
-  it("throws error when heading with many children is passed", () => {
-    expect(() =>
-      render(
-        <Heading id="h1" level="h4">
-          <span>too</span>
-          <span>many</span>
-        </Heading>
-      )
-    ).toThrow("NYPL Reservoir Heading: Only pass one child into Heading.");
+  it("logs a warning when heading with many children is passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(
+      <Heading id="h1" level="h4">
+        <span>too</span>
+        <span>many</span>
+      </Heading>
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Heading: Only pass one child into Heading."
+    );
   });
 
   it("uses custom display size", () => {

@@ -13,6 +13,7 @@ import Link from "../Link/Link";
 ## Table of Contents
 
 - {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#guidelines" target="_self">Guidelines</Link>}
 - {<Link href="#button-groups" target="_self">Button Groups</Link>}
 - {<Link href="#button-types" target="_self">Button Types</Link>}
@@ -32,6 +33,14 @@ import { Button } from "@nypl/design-system-react-components";
 <Button id="btn">Button Text</Button>; `}
   language="jsx"
 />
+
+## Accessibility
+
+Buttons should not be made to look like links. From a visual standpoint, an
+underlined link has the expected functionality of navigating to a new page
+within the current site. If we are true to semantic coding, buttons will not be
+used for this same type of navigational functionality and styling a button to
+mimic the look of a standard link could cause unnecessary confusion.
 
 ## Guidelines
 
@@ -121,9 +130,6 @@ component.
     <Button buttonType="pill" id="pill">
       Pill
     </Button>
-    <Button buttonType="link" id="link">
-      Link (deprecated)
-    </Button>
   </ButtonGroup>
 </Box>
 }
@@ -159,14 +165,6 @@ component.
 - used for equally weighted actions
 - should only be used for buttons that are displayed in a set (i.e. never use for a singleton button)
 - Visual Treatment: rounded, outlined
-
-### Link (deprecated)
-
-The `link` variant has been deprecated for accessibility reasons. From a visual
-standpoint, an underlined link has the expected functionality of navigating to
-a new page within the current site. If we are true to semantic coding, buttons
-will not be used for this same type of navigational functionality and styling
-a button to mimic the look of a standard link could cause unnecessary confusion.
 
 ## Button Sizes
 
@@ -210,9 +208,6 @@ The `size` prop should be used to render various sizes of the button component:
     <Button buttonType="pill" id="small-pill" size="small">
       Pill
     </Button>
-    <Button buttonType="link" id="small-link" size="small">
-      Link (deprecated)
-    </Button>
   </ButtonGroup>
 </Box>
 }
@@ -252,9 +247,6 @@ The `size` prop should be used to render various sizes of the button component:
     <Button buttonType="pill" id="medium-pill" size="medium">
       Pill
     </Button>
-    <Button buttonType="link" id="medium-link" size="medium">
-      Link (deprecated)
-    </Button>
   </ButtonGroup>
 </Box>
 }
@@ -293,9 +285,6 @@ The `size` prop should be used to render various sizes of the button component:
     </Button>
     <Button buttonType="pill" id="large-pill" size="large">
       Pill
-    </Button>
-    <Button buttonType="link" id="large-link" size="large">
-      Link (deprecated)
     </Button>
   </ButtonGroup>
 </Box>

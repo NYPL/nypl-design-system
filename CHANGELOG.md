@@ -6,6 +6,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 4.0.0 (TBD)
+
+### Adds
+
+- Adds the `useResponsiveSpacing` hook.
+- Adds docs for `Responsive Grid` Style Guide.
+
+### Updates
+
+- [Updates `Template` component(s)](https://newyorkpubliclibrary.atlassian.net/browse/DSD-1884) and styles per TAD.
+- Updates the values for the breakpoints and the associated docs.
+- Updates the `viewport` preview options in Storybook to align with the Reservoir breakpoints.
+- Updates the Storybook font styles.
+- Updates the docs for the `Template` component.
+- Replaces the error thrown with a console.warn for the `Breadcrumbs`, `Heading`, and `Image` components.
+
+### Removals
+
+- Removes the NYPL Header component.
+- Removes the following deprecated props and typed and style values:
+  - `Button`'s `link` value in `buttonTypesArray`
+  - `Heading`'s "primary", "secondary", "tertiary", "callout" sizes
+  - `Heading`'s "one", "two", "three", "four", "five", "six" levels
+  - `Hero`'s "secondary", "secondaryBooksAndMore", "secondaryLocations", "secondaryResearch", "secondaryWhatsOn", "fiftyFifty" types
+  - `Icon`'s `IconRotationTypes` type
+  - `Link`'s `button` value in `linkTypesArray`
+  - `Notifications`' `noMargin` prop; this is now the default style
+  - `ProgressIndicator`'s `darkMode` prop
+  - `StatusBadge`'s "low", "medium", "high" values from `statusBadgeTypeArray`
+  - `StatusBadge`'s `level` prop
+  - `StyledList`'s "tag", "mini" values in `textSizesArray`
+
 ## Prerelease
 
 ### Adds

@@ -160,7 +160,7 @@ const ReservoirCard = defineMultiStyleConfig({
             },
           }),
           ...setContainerStyles({
-            breakpoint: "sm",
+            breakpoint: "smallMobile",
             styles: {
               "[data-body]": {
                 flexBasis: isRow ? "100%" : null,
@@ -168,7 +168,7 @@ const ReservoirCard = defineMultiStyleConfig({
             },
           }),
           ...setContainerStyles({
-            breakpoint: "md",
+            breakpoint: "mobile",
             styles: {
               "[data-cardwrapper]": {
                 flexFlow: isRow ? "row" : null,

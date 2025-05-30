@@ -104,7 +104,7 @@ describe("Card", () => {
         </div>
       </CardContent>
       <CardActions>
-        <Link id="link-online" href="online" type="button">
+        <Link id="link-online" href="online" type="buttonPrimary">
           Read Online
         </Link>
         <Link id="link-icon" href="#url" type="action">
@@ -153,7 +153,7 @@ describe("Card", () => {
         The Card Heading
       </CardHeading>
       <CardActions>
-        <Link id="link-online" href="online" type="button">
+        <Link id="link-online" href="online" type="buttonPrimary">
           Read Online
         </Link>
         <Link id="link-icon" href="#url" type="action">
@@ -175,7 +175,7 @@ describe("Card", () => {
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Link id="link-online" href="online" type="button">
+        <Link id="link-online" href="online" type="buttonPrimary">
           Read Online
         </Link>
         <Link id="link-icon" href="#url" type="action">

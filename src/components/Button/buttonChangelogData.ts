@@ -17,6 +17,13 @@ export const changelogData: ChangelogData[] = [
     notes: ["Fixes the style transitions."],
   },
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Removes deprecated `link` buttonType."],
+  },
+  {
     date: "2025-04-10",
     version: "3.6.0",
     type: "Update",

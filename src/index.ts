@@ -111,7 +111,6 @@ export {
 export type { FilterBarPopupProps } from "./components/FilterBarPopup/FilterBarPopup";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export type { FormProps } from "./components/Form/Form";
-export { default as Header } from "./components/Header/Header";
 export { default as Heading } from "./components/Heading/Heading";
 export type {
   HeadingLevels,
@@ -130,7 +129,6 @@ export type {
   IconColors,
   IconNames,
   IconRotations,
-  IconRotationTypes,
   IconSizes,
   IconTypes,
   IconProps,
@@ -233,7 +231,6 @@ export { default as SocialMediaLinks } from "./components/SocialMediaLinks/Socia
 export type { SocialMediaLinkDataProps } from "./components/SocialMediaLinks/SocialMediaLinks";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export type {
-  StatusBadgeLevels,
   StatusBadgeProps,
   StatusBadgeTypes,
 } from "./components/StatusBadge/StatusBadge";
@@ -273,24 +270,13 @@ export type {
   TagSetFilterProps,
 } from "./components/TagSet/TagSetFilter";
 export {
-  TemplateAppContainer,
   Template,
-  TemplateAboveHeader,
-  TemplateHeader,
   TemplateBreakout,
-  TemplateContent,
-  TemplateContentTop,
-  TemplateContentPrimary,
-  TemplateContentSidebar,
-  TemplateFooter,
-} from "./components/Template/Template";
-export type {
-  TemplateAppContainerProps,
-  TemplateProps,
-  TemplateContentProps,
-  TemplateFooterProps,
-  TemplateHeaderProps,
-  TemplateSidebarProps,
+  TemplateTop,
+  TemplateMain,
+  TemplateMainNarrow,
+  TemplateSidebar,
+  TemplateBottom,
 } from "./components/Template/Template";
 export { default as Text } from "./components/Text/Text";
 export type { TextProps, TextSizes } from "./components/Text/Text";
@@ -313,11 +299,12 @@ export type {
 // Hooks
 export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
 export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
+export { default as useFormatNumber } from "./hooks/useFormatNumber";
 export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
-export { default as useWindowSize } from "./hooks/useWindowSize";
+export { default as useResponsiveSpacing } from "./hooks/useResponsiveSpacing";
 export { default as useScrollFadeStyles } from "./hooks/useScrollFadeStyles";
-export { default as useFormatNumber } from "./hooks/useFormatNumber";
+export { default as useWindowSize } from "./hooks/useWindowSize";
 // Utils
 export type { AutoCompleteValues } from "./utils/constantValues";
