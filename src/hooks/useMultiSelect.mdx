@@ -71,10 +71,10 @@ export default function MultiSelectWithHookExample() {
       onChange={(e) => onChange(e.target.id, multiSelectId)}
       onMixedStateChange={(e) =>
         onMixedStateChange({
-                  parentId: e.target.id,
-                  multiSelectId,
-                  items
-                });
+            parentId: e.target.id,
+            multiSelectId,
+            items
+          });
       }
       onClear={() => {
         onClear(multiSelectId);

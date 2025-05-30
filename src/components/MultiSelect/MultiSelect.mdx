@@ -778,10 +778,10 @@ function MultiSelectGroupExample() {
         }}
         onMixedStateChange={(e) => {
           onMixedStateChange({
-                parentId: e.target.id,
-                multiSelectId: "ms-group-1",
-                items: items,
-              });
+              parentId: e.target.id,
+              multiSelectId: "ms-group-1",
+              items: items,
+            });
           setActionName("onMixedStateChange");
         }}
         onClear={() => {

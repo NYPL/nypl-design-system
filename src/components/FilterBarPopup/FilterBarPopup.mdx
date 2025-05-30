@@ -215,11 +215,12 @@ const renderMultiSelect = ({ isBlockElement, multiSelectWidth }) => {
         onChange={(e) => onChange(e.target.id, multiSelect.id)}
         onMixedStateChange={(e) => {
           return onMixedStateChange({
-                parentId: e.target.id,
-                multiSelectId: multiSelect.id,
-                items: multiSelect.items,
-              });
-        }}
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
+          }
+        }
         onClear={() => onClear(multiSelect.id)}
         width={multiSelectWidth}
       />
