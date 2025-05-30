@@ -13,8 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
-    notes: ["Removes deprecated `noMargin` prop."],
+    affects: ["Documentation", "Functionality"],
+    notes: [
+      "Removes deprecated `noMargin` prop.",
+      "Removes `ariaLabel` prop and instructs developers to use the native HTML attribute instead.",
+    ],
   },
   {
     date: "2025-04-24",

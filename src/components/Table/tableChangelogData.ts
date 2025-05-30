@@ -15,6 +15,15 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
+      "Changes theme name from `CustomTable` to `ReservoirTable` for consistency.",
+    ],
+  },
+  {
+    date: "2025-05-22",
+    version: "3.6.2",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
       "Removes use of `useNYPLBreakpoints` and replaces with equivalent Chakra syntax.",
     ],
   },

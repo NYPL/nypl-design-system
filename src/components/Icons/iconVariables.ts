@@ -1,5 +1,6 @@
 export const iconAlignArray = ["left", "right", "none"] as const;
 export const iconColorsArray = [
+  "currentColor",
   "transparent",
   "ui.black",
   "ui.white",

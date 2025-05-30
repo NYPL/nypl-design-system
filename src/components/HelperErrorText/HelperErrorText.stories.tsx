@@ -9,13 +9,6 @@ const meta: Meta<typeof HelperErrorText> = {
   title: "Components/Content Display/HelperErrorText",
   component: HelperErrorText,
   argTypes: {
-    ariaAtomic: {
-      control: false,
-      table: { defaultValue: { summary: "true" } },
-    },
-    ariaLive: {
-      table: { defaultValue: { summary: "polite" } },
-    },
     children: { table: { disable: true } },
     className: { control: false },
     id: { control: false },
@@ -37,8 +30,6 @@ type Story = StoryObj<typeof HelperErrorText>;
  */
 export const WithControls: Story = {
   args: {
-    ariaAtomic: undefined,
-    ariaLive: undefined,
     className: undefined,
     id: "helperErrorText-id",
     isInvalid: false,
@@ -76,14 +67,11 @@ export const TextInputExample: Story = {
 };
 
 export const AriaControls: Story = {
-  args: {
-    ariaAtomic: true,
-    ariaLive: "polite",
-  },
   name: "ARIA Controls",
-  render: (args) => (
+  render: () => (
     <HelperErrorText
-      {...args}
+      aria-atomic={false}
+      aria-live="polite"
       text="Live updates to the helper and error text can be read to screen readers with the appropriate aria-atomic and aria-live props."
     />
   ),

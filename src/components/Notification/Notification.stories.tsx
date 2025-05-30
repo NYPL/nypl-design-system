@@ -39,7 +39,6 @@ type Story = StoryObj<typeof Notification>;
  */
 export const WithControls: Story = {
   args: {
-    ariaLabel: "Notification label",
     className: undefined,
     dismissible: false,
     icon: undefined,
@@ -68,7 +67,7 @@ export const WithControls: Story = {
   },
   render: (args) => (
     <div style={{ border: "1px solid #ccc" }}>
-      <Notification {...args} />
+      <Notification aria-label="Notification label" {...args} />
     </div>
   ),
 };

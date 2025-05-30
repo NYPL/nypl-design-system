@@ -104,7 +104,7 @@ export const Table: ChakraComponent<
         return updatedStyle;
       };
 
-      const styles = useMultiStyleConfig("CustomTable", {
+      const styles = useMultiStyleConfig("ReservoirTable", {
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
         tableTextSize,

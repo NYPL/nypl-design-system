@@ -44,7 +44,7 @@ describe("Banner", () => {
   beforeEach(() => {
     utils = render(
       <Banner
-        ariaLabel="Banner label"
+        aria-label="Banner label"
         content={<>Banner content.</>}
         heading="Banner Heading"
         id="bannerID"
@@ -59,7 +59,7 @@ describe("Banner", () => {
   it("renders a custom heading level", () => {
     utils.rerender(
       <Banner
-        ariaLabel="Banner label"
+        aria-label="Banner label"
         id="bannerID"
         content={<>Banner content.</>}
         heading={<Heading level="h4">Custom H4 Heading</Heading>}

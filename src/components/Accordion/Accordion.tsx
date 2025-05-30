@@ -5,12 +5,16 @@ import {
   AccordionPanel,
   Box,
   chakra,
-  useColorMode,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useState } from "react";
+import React, {
+  ButtonHTMLAttributes,
+  forwardRef,
+  useEffect,
+  useState,
+} from "react";
 
-import Icon, { IconColors } from "../Icons/Icon";
+import Icon from "../Icons/Icon";
 
 export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
@@ -21,12 +25,14 @@ export interface AccordionDataProps {
   label: string | JSX.Element;
   panel: string | React.ReactNode;
 }
-export interface AccordionProps {
+
+type HTMLButtonAttributes = Pick<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "aria-label"
+>;
+export interface AccordionProps extends HTMLButtonAttributes {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
-  /** Global aria-label value that is applied to all accordions if individual
-   * ariaLabel props are not included with accordionData entries. */
-  ariaLabel?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
@@ -51,20 +57,19 @@ const getIcon = ({
   isExpanded = false,
   index,
   id,
-  iconColor,
 }: {
   isExpanded?: boolean;
   index: number;
   id: string;
-  iconColor: IconColors;
 }) => {
   const iconName = isExpanded ? "minus" : "plus";
   return (
     <Icon
+      className="accordion-icon"
+      color="currentColor"
       id={`accordion-${id}-icon-${index}`}
       name={iconName}
       size="small"
-      color={iconColor}
     />
   );
 };
@@ -79,7 +84,6 @@ const getElementsFromData = ({
   ariaLabel,
   id,
   isAlwaysRendered = false,
-  isDarkMode,
   panelMaxHeight,
   hoveredButtonIndex,
   setHoveredButtonIndex,
@@ -88,22 +92,20 @@ const getElementsFromData = ({
   ariaLabel: string;
   id: string;
   isAlwaysRendered?: boolean;
-  isDarkMode: boolean;
   panelMaxHeight: string;
   hoveredButtonIndex: number;
   setHoveredButtonIndex: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  const colorMap = isDarkMode
-    ? {
-        default: "ui.white",
-        warning: "ui.status.primary",
-        error: "dark.ui.error.primary",
-      }
-    : {
-        default: "ui.white",
-        warning: "ui.status.primary",
-        error: "ui.status.secondary",
-      };
+  const colorMapLight = {
+    default: "ui.white",
+    warning: "ui.status.primary",
+    error: "ui.status.secondary",
+  };
+  const colorMapDark = {
+    default: "ui.white",
+    warning: "ui.status.primary",
+    error: "dark.ui.error.primary",
+  };
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
   const numAccordionItems = data?.length;
@@ -140,16 +142,17 @@ const getElementsFromData = ({
 
     if (content.ariaLabel && ariaLabel) {
       console.warn(
-        "NYPL Reservoir Accordion: An ariaLabel value has been passed for the " +
+        "NYPL Reservoir Accordion: An aria-label value has been passed for the " +
           "overall component and as part of the accordionData prop. Both can not " +
-          "be used, so the value in the accordionData prop will be used."
+          "be used, so the value in the accordionData prop will take precedence."
       );
     }
     return (
       <AccordionItem id={`${id}-item-${index}`} key={index}>
         {/* Get the current state to render the correct icon. */}
         {({ isExpanded }) => {
-          const bgColorByAccordionType = colorMap[content.accordionType];
+          const noTypeOrDefaultType =
+            !content.accordionType || content.accordionType === "default";
           return (
             <>
               <AccordionButton
@@ -170,30 +173,22 @@ const getElementsFromData = ({
                     : undefined
                 }
                 bg={
-                  !content.accordionType
-                    ? colorMap.default
-                    : bgColorByAccordionType
+                  colorMapLight[content?.accordionType] || colorMapLight.default
                 }
                 _hover={{
-                  bg:
-                    !content.accordionType ||
-                    content.accordionType === "default"
-                      ? "transparent"
-                      : bgColorByAccordionType,
+                  bg: noTypeOrDefaultType
+                    ? "transparent"
+                    : colorMapLight[content.accordionType],
                   borderColor: "ui.gray.dark",
                 }}
                 _expanded={{
-                  bg:
-                    !content.accordionType ||
-                    content.accordionType === "default"
-                      ? "ui.gray.light-cool"
-                      : bgColorByAccordionType,
+                  bg: noTypeOrDefaultType
+                    ? "ui.gray.light-cool"
+                    : colorMapLight[content.accordionType],
                   _hover: {
-                    bg:
-                      !content.accordionType ||
-                      content.accordionType === "default"
-                        ? "ui.gray.light-cool"
-                        : bgColorByAccordionType,
+                    bg: noTypeOrDefaultType
+                      ? "ui.gray.light-cool"
+                      : colorMapLight[content.accordionType],
                   },
                 }}
                 _dark={{
@@ -203,11 +198,9 @@ const getElementsFromData = ({
                   bg: "dark.ui.bg.default",
                   color: "dark.ui.typography.heading",
                   borderStart: "4px solid",
-                  borderStartColor:
-                    !content.accordionType ||
-                    content.accordionType === "default"
-                      ? "dark.ui.border.hover"
-                      : bgColorByAccordionType,
+                  borderStartColor: noTypeOrDefaultType
+                    ? "dark.ui.border.hover"
+                    : colorMapDark[content.accordionType],
                   borderBottomColor:
                     isLast || isExpanded
                       ? "dark.ui.border.default"
@@ -235,9 +228,6 @@ const getElementsFromData = ({
                   isExpanded,
                   index,
                   id,
-                  iconColor: isDarkMode
-                    ? "dark.ui.typography.heading"
-                    : "ui.black",
                 })}
               </AccordionButton>
               {(isAlwaysRendered || isExpanded) && panel}
@@ -253,6 +243,7 @@ const getElementsFromData = ({
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
+
 export const Accordion: ChakraComponent<
   React.ForwardRefExoticComponent<
     AccordionProps & React.RefAttributes<HTMLDivElement>
@@ -262,7 +253,7 @@ export const Accordion: ChakraComponent<
   forwardRef<HTMLDivElement, AccordionProps>((props, ref?) => {
     const {
       accordionData,
-      ariaLabel,
+      "aria-label": ariaLabel,
       id,
       isDefaultOpen = false,
       isAlwaysRendered = false,
@@ -271,7 +262,6 @@ export const Accordion: ChakraComponent<
       ...rest
     } = props;
 
-    const isDarkMode = useColorMode().colorMode === "dark";
     // Pass `0` to open the first accordion in the 0-index based array.
     const [expandedPanels, setExpandedPanels] = useState<number[]>(
       isDefaultOpen ? [0] : []
@@ -340,7 +330,6 @@ export const Accordion: ChakraComponent<
           ariaLabel,
           id,
           isAlwaysRendered,
-          isDarkMode,
           panelMaxHeight,
           hoveredButtonIndex,
           setHoveredButtonIndex,
