@@ -1,5 +1,5 @@
 import { HelperErrorTextType } from "../components/HelperErrorText/HelperErrorText";
-import { SidebarPlacement } from "../components/Template/Template";
+import { Variant } from "../components/Template/Template";
 import { AriaAttributes } from "./interfaces";
 // Utility functions to use throughout the codebase
 
@@ -181,8 +181,9 @@ export const getPlaceholderImage = (
 };
 
 /** Creates the correct sidebar label in Template stories or tests */
-export const sidebarLabel = (sidebar: SidebarPlacement) => {
-  return `${sidebar[0].toUpperCase()}${sidebar.slice(1)} Sidebar`;
+export const sidebarLabel = (variant: Variant) => {
+  const side = variant === "leftSidebar" ? "Left" : "Right";
+  return `${side} sidebar`;
 };
 
 /** The default styles for images added as examples within doc pages. */

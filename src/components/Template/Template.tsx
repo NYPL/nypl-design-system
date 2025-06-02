@@ -1,15 +1,20 @@
 import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
 import { forwardRef } from "react";
 
-export const sidebarPlacementArray = ["none", "left", "right"] as const;
-export type SidebarPlacement = typeof sidebarPlacementArray[number];
+export const variantArray = [
+  "full",
+  "narrow",
+  "leftSidebar",
+  "rightSidebar",
+] as const;
+export type Variant = typeof variantArray[number];
 
 export interface TemplateProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Renders the `TemplateSidebar` component either on the left or
    * right side of the `TemplateMain` component. */
-  sidebar?: SidebarPlacement;
+  variant?: Variant;
 }
 
 export interface TemplateMainProps {
@@ -29,8 +34,8 @@ const Template: ChakraComponent<
   React.PropsWithChildren<TemplateProps>
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TemplateProps>>(
-    ({ children, sidebar = "none" }, ref?) => {
-      const styles = useStyleConfig("Template", { variant: sidebar });
+    ({ children, variant = "full" }, ref?) => {
+      const styles = useStyleConfig("Template", { variant: variant });
 
       return (
         <Box __css={styles} ref={ref}>
@@ -57,6 +62,9 @@ const TemplateBreakout: React.FC<React.PropsWithChildren> = ({ children }) => {
  * will render below `TemplateBreakout` (if being used) and above the
  * main content and sidebar (if one exists).
  */
+const TemplateFull: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <Box className="reservoir-template-full">{children}</Box>
+);
 const TemplateTop: React.FC<React.PropsWithChildren> = ({ children }) => (
   <Box className="reservoir-template-full">{children}</Box>
 );
@@ -116,6 +124,7 @@ const TemplateBottom: React.FC<React.PropsWithChildren> = ({ children }) => (
 export {
   Template,
   TemplateBreakout,
+  TemplateFull,
   TemplateTop,
   TemplateMain,
   TemplateMainNarrow,

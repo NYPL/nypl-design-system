@@ -16,12 +16,10 @@ import TextInput from "../TextInput/TextInput";
 import {
   Template,
   TemplateBreakout,
-  TemplateTop,
+  TemplateFull,
   TemplateMain,
-  TemplateMainNarrow,
   TemplateSidebar,
-  TemplateBottom,
-  sidebarPlacementArray,
+  variantArray,
 } from "./Template";
 
 const meta: Meta<typeof Template> = {
@@ -29,10 +27,10 @@ const meta: Meta<typeof Template> = {
   component: Template,
   argTypes: {
     id: { control: false },
-    sidebar: {
+    variant: {
       control: { type: "radio" },
-      options: sidebarPlacementArray,
-      table: { defaultValue: { summary: "none" } },
+      options: variantArray,
+      table: { defaultValue: { summary: "full" } },
     },
   },
 };
@@ -185,31 +183,31 @@ export const WithControls: Story = {
     sidebar: "left",
   },
   render: (args) => {
-    const { sidebar } = args;
+    const { variant } = args;
     return (
       <Template {...args}>
         <TemplateBreakout>
           <Placeholder variant="short">Breakout</Placeholder>
         </TemplateBreakout>
-        <TemplateTop>
-          <Placeholder variant="short">Content Top</Placeholder>
-        </TemplateTop>
-        {sidebar === "left" && (
+        <TemplateFull>
+          <Placeholder variant="short">Top content</Placeholder>
+        </TemplateFull>
+        {variant === "leftSidebar" && (
           <TemplateSidebar>
-            <Placeholder>{sidebarLabel(sidebar)}</Placeholder>
+            <Placeholder>{sidebarLabel(variant)}</Placeholder>
           </TemplateSidebar>
         )}
         <TemplateMain>
-          <Placeholder>Main Content</Placeholder>
+          <Placeholder>Main content</Placeholder>
         </TemplateMain>
-        {sidebar === "right" && (
+        {variant === "rightSidebar" && (
           <TemplateSidebar>
-            <Placeholder>{sidebarLabel(sidebar)}</Placeholder>
+            <Placeholder>{sidebarLabel(variant)}</Placeholder>
           </TemplateSidebar>
         )}
-        <TemplateBottom>
-          <Placeholder variant="short">Content Bottom</Placeholder>
-        </TemplateBottom>
+        <TemplateFull>
+          <Placeholder variant="short">Bottom content</Placeholder>
+        </TemplateFull>
       </Template>
     );
   },
@@ -226,9 +224,9 @@ export const TemplateFullExample: Story = {
     sidebar: "left",
   },
   render: (args) => {
-    const { sidebar } = args;
+    const { variant } = args;
     return (
-      <Template sidebar={sidebar}>
+      <Template variant={variant}>
         <TemplateBreakout>
           <Breadcrumbs
             breadcrumbsData={[
@@ -252,14 +250,14 @@ export const TemplateFullExample: Story = {
             subHeaderText={otherSubHeaderText}
           />
         </TemplateBreakout>
-        <TemplateTop>
+        <TemplateFull>
           <Banner
             content="This is the top content area!"
             heading="Content Top"
             type="informative"
           />
-        </TemplateTop>
-        {sidebar === "left" && (
+        </TemplateFull>
+        {variant === "leftSidebar" && (
           <TemplateSidebar>
             <p>Sidebar information in a `Card` component.</p>
             <Card
@@ -334,7 +332,7 @@ export const TemplateFullExample: Story = {
             useRowHeaders
           />
         </TemplateMain>
-        {sidebar === "right" && (
+        {variant === "rightSidebar" && (
           <TemplateSidebar>
             <p>Sidebar information in a `Card` component.</p>
             <Card
@@ -356,13 +354,13 @@ export const TemplateFullExample: Story = {
             </Card>
           </TemplateSidebar>
         )}
-        <TemplateBottom>
+        <TemplateFull>
           <Banner
             content="This is the bottom content area!"
             heading="Content Bottom"
             type="informative"
           />
-        </TemplateBottom>
+        </TemplateFull>
       </Template>
     );
   },
@@ -371,7 +369,7 @@ export const TemplateFullExample: Story = {
 export const TemplateFullExampleNarrow = {
   render: () => (
     <>
-      <Template>
+      <Template variant="narrow">
         <TemplateBreakout>
           <Breadcrumbs
             breadcrumbsData={[
@@ -388,10 +386,17 @@ export const TemplateFullExampleNarrow = {
             backgroundColor="section.research.primary"
             foregroundColor="ui.white"
             heroType="tertiary"
-            heading={<Heading level="h1" id="1" text="Tertiary Hero" />}
+            heading={<Heading level="h1" id="1" text="Narrow main content" />}
           />
         </TemplateBreakout>
-        <TemplateMainNarrow>
+        <TemplateFull>
+          <Banner
+            content="This is a full-width top content area!"
+            heading="Top content"
+            type="informative"
+          />
+        </TemplateFull>
+        <TemplateMain>
           <Heading
             level="h2"
             size="heading3"
@@ -413,7 +418,14 @@ export const TemplateFullExampleNarrow = {
             Collection.
           </p>
           <Accordion accordionData={faqContentData} />
-        </TemplateMainNarrow>
+        </TemplateMain>
+        <TemplateFull>
+          <Banner
+            content="This is a full-width bottom content area!"
+            heading="Bottom content"
+            type="informative"
+          />
+        </TemplateFull>
       </Template>
     </>
   ),
@@ -446,13 +458,13 @@ export const TemplateFullExampleWithFeaturedContent = {
             subHeaderText={otherSubHeaderText}
           />
         </TemplateBreakout>
-        <TemplateTop>
+        <TemplateFull>
           <Banner
             content="This is the top content area!"
-            heading="Content Top"
+            heading="Top content"
             type="informative"
           />
-        </TemplateTop>
+        </TemplateFull>
         <TemplateMain>
           <p>This is the main content!</p>
           <Accordion accordionData={faqContentData} />
@@ -477,13 +489,13 @@ export const TemplateFullExampleWithFeaturedContent = {
             }
           />
         </TemplateMain>
-        <TemplateBottom>
+        <TemplateFull>
           <Banner
             content="This is the bottom content area!"
-            heading="Content Bottom"
+            heading="Bottom content"
             type="informative"
           />
-        </TemplateBottom>
+        </TemplateFull>
       </Template>
     </>
   ),

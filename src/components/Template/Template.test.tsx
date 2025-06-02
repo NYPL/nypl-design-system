@@ -6,49 +6,40 @@ import renderer from "react-test-renderer";
 import {
   Template,
   TemplateBreakout,
-  TemplateTop,
+  TemplateFull,
   TemplateMain,
   TemplateSidebar,
-  TemplateBottom,
-  SidebarPlacement,
-  TemplateMainNarrow,
+  Variant,
 } from "./Template";
 import Placeholder from "../Placeholder/Placeholder";
 import { sidebarLabel } from "../../utils/utils";
 
 const breakout = <Placeholder variant="short">Breakout</Placeholder>;
-const contentTop = <Placeholder>Content Top</Placeholder>;
+const contentTop = <Placeholder>Top content</Placeholder>;
 const contentMain = (
   <>
-    <Placeholder>Main Content</Placeholder>
-    <Placeholder variant="short">More Content</Placeholder>
+    <Placeholder>Main content</Placeholder>
+    <Placeholder variant="short">More content</Placeholder>
   </>
 );
-const contentBottom = <Placeholder variant="short">Content Bottom</Placeholder>;
+const contentBottom = <Placeholder variant="short">Bottom content</Placeholder>;
 
-const templateComponents = (
-  sidebar: SidebarPlacement = "none",
-  useMainNarrow: boolean = false
-) => (
-  <Template sidebar={sidebar}>
+const templateComponents = (variant: Variant = "full") => (
+  <Template variant={variant}>
     <TemplateBreakout>{breakout}</TemplateBreakout>
-    <TemplateTop>{contentTop}</TemplateTop>
-    {sidebar === "left" && !useMainNarrow && (
+    <TemplateFull>{contentTop}</TemplateFull>
+    {variant === "leftSidebar" && (
       <TemplateSidebar>
-        <Placeholder>{sidebarLabel(sidebar)}</Placeholder>
+        <Placeholder>{sidebarLabel(variant)}</Placeholder>
       </TemplateSidebar>
     )}
-    {useMainNarrow ? (
-      <TemplateMainNarrow>{contentMain}</TemplateMainNarrow>
-    ) : (
-      <TemplateMain>{contentMain}</TemplateMain>
-    )}
-    {sidebar === "right" && !useMainNarrow && (
+    <TemplateMain>{contentMain}</TemplateMain>
+    {variant === "rightSidebar" && (
       <TemplateSidebar>
-        <Placeholder>{sidebarLabel(sidebar)}</Placeholder>
+        <Placeholder>{sidebarLabel(variant)}</Placeholder>
       </TemplateSidebar>
     )}
-    <TemplateBottom>{contentBottom}</TemplateBottom>
+    <TemplateFull>{contentBottom}</TemplateFull>
   </Template>
 );
 
@@ -59,53 +50,46 @@ describe("Template components accessibility", () => {
   });
 
   it("passes axe accessibility test with a sidebar on the left", async () => {
-    const { container } = render(templateComponents("left"));
+    const { container } = render(templateComponents("leftSidebar"));
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility test with a sidebar on the right", async () => {
-    const { container } = render(templateComponents("right"));
+    const { container } = render(templateComponents("rightSidebar"));
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility test with the narrow container", async () => {
-    const { container } = render(templateComponents("none", true));
+    const { container } = render(templateComponents("narrow"));
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
 describe("Template components", () => {
   it("renders each section with left sidebar", () => {
-    render(templateComponents("left"));
+    render(templateComponents("leftSidebar"));
 
     expect(screen.getByText("Breakout")).toBeInTheDocument();
-    expect(screen.getByText("Content Top")).toBeInTheDocument();
-    expect(screen.getByText("Left Sidebar")).toBeInTheDocument();
-    expect(screen.getByText("Main Content")).toBeInTheDocument();
-    expect(screen.getByText("More Content")).toBeInTheDocument();
-    expect(screen.getByText("Content Bottom")).toBeInTheDocument();
+    expect(screen.getByText("Top content")).toBeInTheDocument();
+    expect(screen.getByText("Left sidebar")).toBeInTheDocument();
+    expect(screen.getByText("Main content")).toBeInTheDocument();
+    expect(screen.getByText("More content")).toBeInTheDocument();
+    expect(screen.getByText("Bottom content")).toBeInTheDocument();
   });
 
   it("renders each section with right sidebar", () => {
-    render(templateComponents("right"));
+    render(templateComponents("rightSidebar"));
 
     expect(screen.getByText("Breakout")).toBeInTheDocument();
-    expect(screen.getByText("Content Top")).toBeInTheDocument();
-    expect(screen.getByText("Right Sidebar")).toBeInTheDocument();
-    expect(screen.getByText("Main Content")).toBeInTheDocument();
-    expect(screen.getByText("More Content")).toBeInTheDocument();
-    expect(screen.getByText("Content Bottom")).toBeInTheDocument();
+    expect(screen.getByText("Top content")).toBeInTheDocument();
+    expect(screen.getByText("Right sidebar")).toBeInTheDocument();
+    expect(screen.getByText("Main content")).toBeInTheDocument();
+    expect(screen.getByText("More content")).toBeInTheDocument();
+    expect(screen.getByText("Bottom content")).toBeInTheDocument();
   });
 
   it("renders a #mainContent id when using TemplateMain", () => {
-    const { container } = render(templateComponents("left"));
-
-    expect(container.querySelector("#mainContent")).toBeInTheDocument();
-    expect(screen.getByRole("main")).toHaveAttribute("id", "mainContent");
-  });
-
-  it("renders a #mainContent id when using TemplateMainNarrow", () => {
-    const { container } = render(templateComponents("none", true));
+    const { container } = render(templateComponents("leftSidebar"));
 
     expect(container.querySelector("#mainContent")).toBeInTheDocument();
     expect(screen.getByRole("main")).toHaveAttribute("id", "mainContent");
@@ -124,19 +108,19 @@ describe("Template components", () => {
 
   it("renders the UI snapshot correctly", () => {
     const templateComponentsLeftSidebar = renderer
-      .create(templateComponents("left"))
+      .create(templateComponents("leftSidebar"))
       .toJSON();
 
     const templateComponentsRightSidebar = renderer
-      .create(templateComponents("right"))
+      .create(templateComponents("rightSidebar"))
       .toJSON();
 
     const templateComponentsNoSidebar = renderer
-      .create(templateComponents("none"))
+      .create(templateComponents("full"))
       .toJSON();
 
     const templateComponentsMainNarrow = renderer
-      .create(templateComponents("none", true))
+      .create(templateComponents("narrow"))
       .toJSON();
 
     const templateWithChakraProps = renderer.create(

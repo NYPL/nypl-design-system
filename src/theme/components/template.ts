@@ -19,17 +19,14 @@ const Template = defineStyleConfig({
       columnGap: responsiveGap,
       "& > *:not(:last-child)": { mb: responsiveGap },
 
-      /** The top, bottom, main, and sidebar content areas should span the full
-       * width of the content area from a mobile-first viewpoint. Using -1 for
-       * the "last column" value ensures that these elements span all columns in
-       * the grid. */
+      /** Set the full and main content areas to span the full width of the
+       * content area from a mobile-first viewpoint. Using -1 for the "last
+       * column" value ensures that these elements span all columns in the grid.
+       * */
       "& .reservoir-template-full": {
         gridColumn: "1 / -1",
       },
       "& .reservoir-template-main": {
-        gridColumn: "1 / -1",
-      },
-      "& .reservoir-template-sidebar": {
         gridColumn: "1 / -1",
       },
     };
@@ -51,7 +48,7 @@ const Template = defineStyleConfig({
    * - Large tablet & desktop:  1/4 width
    * */
   variants: {
-    left: {
+    leftSidebar: {
       "& .reservoir-template-main": {
         gridColumn: {
           base: "1 / -1",
@@ -64,7 +61,7 @@ const Template = defineStyleConfig({
         gridColumn: { base: "1 / -1", sm: "1 / 7", md: "1 / 5", lg: "1 / 4" },
       },
     },
-    right: {
+    rightSidebar: {
       "& .reservoir-template-main": {
         gridColumn: { base: "1 / -1", sm: "1 / 7", md: "1 / 9", lg: "1 / 10" },
       },
@@ -74,6 +71,15 @@ const Template = defineStyleConfig({
           sm: "7 / -1",
           md: "9 / -1",
           lg: "10 / -1",
+        },
+      },
+    },
+    narrow: {
+      "& .reservoir-template-main": {
+        gridColumn: {
+          base: "1 / -1",
+          md: "2 / 12",
+          lg: "3 / 11",
         },
       },
     },
@@ -92,26 +98,7 @@ const TemplateBreakout = defineStyleConfig({
   }),
 });
 
-const TemplateMainNarrow = defineStyleConfig({
-  baseStyle: defineStyle(() => {
-    const { responsiveGap } = useResponsiveSpacing();
-    return {
-      columnGap: responsiveGap,
-      display: "grid",
-      gridTemplateColumns: "repeat(12, 1fr)",
-      "& .reservoir-template-main-narrow": {
-        gridColumn: {
-          base: "1 / -1",
-          md: "2 / 12",
-          lg: "3 / 11",
-        },
-      },
-    };
-  }),
-});
-
 export default {
   Template,
   TemplateBreakout,
-  TemplateMainNarrow,
 };
