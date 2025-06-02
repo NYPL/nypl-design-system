@@ -192,7 +192,7 @@ export const WithControls: Story = {
         <TemplateFull>
           <Placeholder variant="short">Top content</Placeholder>
         </TemplateFull>
-        {variant === "leftSidebar" && (
+        {variant === "sidebarLeft" && (
           <TemplateSidebar>
             <Placeholder>{sidebarLabel(variant)}</Placeholder>
           </TemplateSidebar>
@@ -200,7 +200,7 @@ export const WithControls: Story = {
         <TemplateMain>
           <Placeholder>Main content</Placeholder>
         </TemplateMain>
-        {variant === "rightSidebar" && (
+        {variant === "sidebarRight" && (
           <TemplateSidebar>
             <Placeholder>{sidebarLabel(variant)}</Placeholder>
           </TemplateSidebar>
@@ -257,7 +257,7 @@ export const TemplateFullExample: Story = {
             type="informative"
           />
         </TemplateFull>
-        {variant === "leftSidebar" && (
+        {variant === "sidebarLeft" && (
           <TemplateSidebar>
             <p>Sidebar information in a `Card` component.</p>
             <Card
@@ -332,7 +332,7 @@ export const TemplateFullExample: Story = {
             useRowHeaders
           />
         </TemplateMain>
-        {variant === "rightSidebar" && (
+        {variant === "sidebarRight" && (
           <TemplateSidebar>
             <p>Sidebar information in a `Card` component.</p>
             <Card

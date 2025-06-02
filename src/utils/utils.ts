@@ -182,7 +182,7 @@ export const getPlaceholderImage = (
 
 /** Creates the correct sidebar label in Template stories or tests */
 export const sidebarLabel = (variant: Variant) => {
-  const side = variant === "leftSidebar" ? "Left" : "Right";
+  const side = variant === "sidebarLeft" ? "Left" : "Right";
   return `${side} sidebar`;
 };
 

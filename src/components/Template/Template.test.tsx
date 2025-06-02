@@ -28,13 +28,13 @@ const templateComponents = (variant: Variant = "full") => (
   <Template variant={variant}>
     <TemplateBreakout>{breakout}</TemplateBreakout>
     <TemplateFull>{contentTop}</TemplateFull>
-    {variant === "leftSidebar" && (
+    {variant === "sidebarLeft" && (
       <TemplateSidebar>
         <Placeholder>{sidebarLabel(variant)}</Placeholder>
       </TemplateSidebar>
     )}
     <TemplateMain>{contentMain}</TemplateMain>
-    {variant === "rightSidebar" && (
+    {variant === "sidebarRight" && (
       <TemplateSidebar>
         <Placeholder>{sidebarLabel(variant)}</Placeholder>
       </TemplateSidebar>
@@ -50,12 +50,12 @@ describe("Template components accessibility", () => {
   });
 
   it("passes axe accessibility test with a sidebar on the left", async () => {
-    const { container } = render(templateComponents("leftSidebar"));
+    const { container } = render(templateComponents("sidebarLeft"));
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it("passes axe accessibility test with a sidebar on the right", async () => {
-    const { container } = render(templateComponents("rightSidebar"));
+    const { container } = render(templateComponents("sidebarRight"));
     expect(await axe(container)).toHaveNoViolations();
   });
 
@@ -67,7 +67,7 @@ describe("Template components accessibility", () => {
 
 describe("Template components", () => {
   it("renders each section with left sidebar", () => {
-    render(templateComponents("leftSidebar"));
+    render(templateComponents("sidebarLeft"));
 
     expect(screen.getByText("Breakout")).toBeInTheDocument();
     expect(screen.getByText("Top content")).toBeInTheDocument();
@@ -78,7 +78,7 @@ describe("Template components", () => {
   });
 
   it("renders each section with right sidebar", () => {
-    render(templateComponents("rightSidebar"));
+    render(templateComponents("sidebarRight"));
 
     expect(screen.getByText("Breakout")).toBeInTheDocument();
     expect(screen.getByText("Top content")).toBeInTheDocument();
@@ -89,7 +89,7 @@ describe("Template components", () => {
   });
 
   it("renders a #mainContent id when using TemplateMain", () => {
-    const { container } = render(templateComponents("leftSidebar"));
+    const { container } = render(templateComponents("sidebarLeft"));
 
     expect(container.querySelector("#mainContent")).toBeInTheDocument();
     expect(screen.getByRole("main")).toHaveAttribute("id", "mainContent");
@@ -107,12 +107,12 @@ describe("Template components", () => {
   });
 
   it("renders the UI snapshot correctly", () => {
-    const templateComponentsLeftSidebar = renderer
-      .create(templateComponents("leftSidebar"))
+    const templateComponentssidebarLeft = renderer
+      .create(templateComponents("sidebarLeft"))
       .toJSON();
 
-    const templateComponentsRightSidebar = renderer
-      .create(templateComponents("rightSidebar"))
+    const templateComponentssidebarRight = renderer
+      .create(templateComponents("sidebarRight"))
       .toJSON();
 
     const templateComponentsNoSidebar = renderer
@@ -135,8 +135,8 @@ describe("Template components", () => {
       </Template>
     );
 
-    expect(templateComponentsLeftSidebar).toMatchSnapshot();
-    expect(templateComponentsRightSidebar).toMatchSnapshot();
+    expect(templateComponentssidebarLeft).toMatchSnapshot();
+    expect(templateComponentssidebarRight).toMatchSnapshot();
     expect(templateComponentsNoSidebar).toMatchSnapshot();
     expect(templateComponentsMainNarrow).toMatchSnapshot();
     expect(templateWithChakraProps).toMatchSnapshot();

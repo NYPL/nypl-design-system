@@ -48,7 +48,7 @@ const Template = defineStyleConfig({
    * - Large tablet & desktop:  1/4 width
    * */
   variants: {
-    leftSidebar: {
+    sidebarLeft: {
       "& .reservoir-template-main": {
         gridColumn: {
           base: "1 / -1",
@@ -61,7 +61,7 @@ const Template = defineStyleConfig({
         gridColumn: { base: "1 / -1", sm: "1 / 7", md: "1 / 5", lg: "1 / 4" },
       },
     },
-    rightSidebar: {
+    sidebarRight: {
       "& .reservoir-template-main": {
         gridColumn: { base: "1 / -1", sm: "1 / 7", md: "1 / 9", lg: "1 / 10" },
       },

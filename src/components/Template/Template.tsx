@@ -4,8 +4,8 @@ import { forwardRef } from "react";
 export const variantArray = [
   "full",
   "narrow",
-  "leftSidebar",
-  "rightSidebar",
+  "sidebarLeft",
+  "sidebarRight",
 ] as const;
 export type Variant = typeof variantArray[number];
 
