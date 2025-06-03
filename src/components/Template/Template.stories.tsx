@@ -180,7 +180,7 @@ const otherSubHeaderText =
 export const WithControls: Story = {
   args: {
     id: "template",
-    sidebar: "left",
+    variant: "sidebarLeft",
   },
   render: (args) => {
     const { variant } = args;
@@ -190,7 +190,7 @@ export const WithControls: Story = {
           <Placeholder variant="short">Breakout</Placeholder>
         </TemplateBreakout>
         <TemplateFull>
-          <Placeholder variant="short">Top content</Placeholder>
+          <Placeholder variant="short">Full content (top)</Placeholder>
         </TemplateFull>
         {variant === "sidebarLeft" && (
           <TemplateSidebar>
@@ -206,7 +206,7 @@ export const WithControls: Story = {
           </TemplateSidebar>
         )}
         <TemplateFull>
-          <Placeholder variant="short">Bottom content</Placeholder>
+          <Placeholder variant="short">Full content (bottom)</Placeholder>
         </TemplateFull>
       </Template>
     );

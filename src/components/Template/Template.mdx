@@ -52,7 +52,7 @@ import { changelogData } from "./templateChangelogData";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#child-components" target="_self">Child Components</Link>}
-- {<Link href="#sidebar-configuration" target="_self">Sidebar Configuration</Link>}
+- {<Link href="#layout-variants" target="_self">Layout Variants</Link>}
 - {<Link href="#understanding-the-fluid-layout" target="_self">Understanding the Fluid Layout</Link>}
 - {<Link href="#full-page-composition" target="_self">Full Page Composition</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
@@ -70,18 +70,17 @@ import { changelogData } from "./templateChangelogData";
 import {
   Template,
   TemplateBreakout,
-  TemplateTop,
+  TemplateFull,
   TemplateSidebar,
   TemplateMain,
-  TemplateBottom
 } from "@nypl/design-system-react-components";
 //...
 <Template sidebar="...">
   <TemplateBreakout>...</TemplateBreakout>
-  <TemplateTop>...</TemplateTop>
+  <TemplateFull>...</TemplateFull>
   <TemplateSidebar>...</TemplateSidebar>
   <TemplateMain>...</TemplateMain>
-  <TemplateBottom>...</TemplateBottom>
+  <TemplateFull>...</TemplateFull>
 </Template>
 `}
   language="jsx"
@@ -93,21 +92,21 @@ import {
 
 ## Accessibility
 
-Wide lines of text are difficult to read and are proven to make it harder for
-people to focus, while short lines of text force the eye to travel back too
-often, breaking a reader's rhythm. The `TemplateMain` component has a max width
-of 1280px, which is too wide for text. If your content includes long chunks of
-text, you should use the `TemplateMainNarrow` component instead. Note that
-`TemplateMainNarrow` is not meant to be used in conjunction with a sidebar.
+Wide lines of text with more than 80 characters per line are difficult to read
+and are proven to make it harder for people to focus, while short lines of text
+with fewer than 30 characters per line force the eye to travel back too often,
+breaking a reader's rhythm.
 
-This means you may use `TemplateMain` or `TemplateMainNarrow` depending on your
-needs, but the two should not be used in conjunction.
+The `TemplateMain` component has a max width of `1280px`, which is much wider
+than the ideal line length for standard text. When page content is predominantly
+large blocks of text, the `Template` component should be set to use the `narrow`
+variant to restrict the width of the `TemplateMain` component.
 
-The `TemplateMain` and `TemplateMainNarrow` components render the content as a
-`<main>` element with a default `id` of `"mainContent"`. This should be used as
-the anchor element that the skip navigation link points to. If your application
-is using the current Header, it already contains the skip navigation feature but
-make sure it is pointing to the correct anchor element.
+The `TemplateMain` component renders the content as a `<main>` element with a
+default `id` of `"mainContent"`. This should be used as the anchor element for
+the skip navigation link. If an application is using the current NYPL `Header`,
+it already contains the skip navigation feature. Just make sure it is pointing
+to the correct anchor element.
 
 Resources
 
@@ -120,23 +119,23 @@ In addition to the root `Template` component, the following child components are
 offered:
 
 - `TemplateBreakout`
-- `TemplateTop`
+- `TemplateFull`
 - `TemplateSidebar`
-- `TemplateMain` or `TemplateMainNarrow`
-- `TemplateBottom`
+- `TemplateMain`
 
 <Banner
   content={
     <>
       <strong>IMPORTANT:</strong> The DOM order of the child components should
       match the structure of the rendered page in the browser.
-      <Text noSpace>
-        If the sidebar is to be rendered on the left side of the page,{" "}
-        <code>TemplateSidebar</code> should come before{" "}
-        <code>TemplateMain</code> in the DOM. If the sidebar is to be rendered
-        on the right side of the page, <code>TemplateSidebar</code> should come
-        after <code>TemplateMain</code> in the DOM.
-      </Text>
+      <br />
+      <br />
+      If the sidebar is to be rendered on the left side of the page, <code>
+        TemplateSidebar
+      </code> should come before <code>TemplateMain</code> in the DOM. If the sidebar
+      is to be rendered on the right side of the page, <code>
+        TemplateSidebar
+      </code> should come after <code>TemplateMain</code> in the DOM.
     </>
   }
   mb="s"
@@ -165,10 +164,6 @@ offered:
         Not contained by the central content area and spans the full width of
         the viewport
       </li>
-      <li>
-        All components that go in <code>TemplateTop</code> component should be
-        wrapped in a <code>div</code> element or a <code>Box</code> component
-      </li>
     </List>
   }
   imageProps={{
@@ -179,7 +174,7 @@ offered:
 />
 }
 
-### TemplateTop
+### TemplateFull
 
 {
 
@@ -187,22 +182,23 @@ offered:
   docs={
     <List type="ul">
       <li>
-        Ideal for <code>Banner</code> and <code>FilterbarInline</code>{" "}
-        components
+        Ideal for <code>Banner</code>, <code>FilterbarInline</code>,{" "}
+        <code>FeaturedContent</code>, and <code>NewsletterSignup</code> (bottom
+        content) components
       </li>
-      <li>Also recommended for custom "announcement" elements</li>
+      <li>Also recommended for persistent or custom "announcement" elements</li>
       <li>
-        Positioned directly below <code>TemplateBreakout</code> and above{" "}
-        <code>TemplateSidebar</code> and <code>TemplateMain</code>
+        Positioned directly below <code>TemplateBreakout</code> or directly
+        below <code>TemplateSidebar</code> and <code>TemplateMain</code>
       </li>
       <li>Contained by the central content area</li>
       <li>Always spans the full width of the central content area</li>
     </List>
   }
   imageProps={{
-    alt: "Template top region",
-    caption: "Top region",
-    src: "/template/templateTop.png",
+    alt: "Template full region",
+    caption: "Full region",
+    src: "/template/templateFull.png",
   }}
 />
 }
@@ -214,13 +210,13 @@ offered:
 <DocsWithImage
   docs={
     <List type="ul">
-      <li>Ideal for filtering elements and secondary menus</li>
+      <li>Ideal for secondary navigation and filtering elements</li>
       <li>
-        Positioned below <code>TemplateTop</code> and to either the left or
+        Positioned below <code>TemplateFull</code> and to either the left or
         right of <code>TemplateMain</code>
       </li>
       <li>
-        Not recommended for use with <code>TemplateMainNarrow</code>
+        Not recommended for use with the <code>narrow</code> variant
       </li>
       <li>
         Spans a percentage of the central content area based on the current
@@ -245,9 +241,8 @@ offered:
     <List type="ul">
       <li>Should be used for the main content of a page</li>
       <li>
-        Positioned below <code>TemplateTop</code> and to either the left or
-        right of
-        <code>TemplateSidebar</code>, when it is rendered
+        Positioned below <code>TemplateFull</code> and to either the left or
+        right of <code>TemplateSidebar</code>, when it is rendered
       </li>
       <li>
         May be used in conjunction with <code>TemplateSidebar</code>
@@ -307,7 +302,89 @@ offered:
 />
 }
 
-### TemplateBottom
+## Layout Variants
+
+Use the `variant` prop to set the template layout
+
+- `full` (default)
+- `narrow`
+- `sidebarLeft`
+- `sidebarRight`
+
+<Source
+  code={`
+<Template variant="sidebarLeft">
+  ...
+</Template>
+`}
+  language="jsx"
+/>
+
+### variant="full"
+
+{
+
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>Ideal for complex layouts</li>
+      <li>
+        Max width of <code>1280px</code>
+      </li>
+      <li>
+        Text blocks should be contained in sub-regions that are less than{" "}
+        <code>800px</code>
+      </li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template full width main region",
+    caption: "Full width main region",
+    src: "/template/templateMainFull.png",
+  }}
+/>
+}
+
+### variant="narrow"
+
+{
+
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>Ideal for displaying content that is primarily text</li>
+      <li>
+        Max width of <code>821px</code>
+      </li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template narrow main region",
+    caption: "Narrow main region",
+    src: "/template/templateMainNarrow.png",
+  }}
+/>
+}
+
+### variant="sidebarLeft"
+
+{
+
+<DocsWithImage
+  docs={
+    <List type="ul">
+      <li>Ideal for secondary navigation and filtering elements</li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template with left sidebar",
+    caption: "Left sidebar",
+    src: "/template/templateSidebarLeft.png",
+  }}
+/>
+}
+
+### variant="sidebarRight"
 
 {
 
@@ -315,92 +392,24 @@ offered:
   docs={
     <List type="ul">
       <li>
-        Ideal for <code>Banner</code>, <code>FeaturedContent</code>,{" "}
-        <code>NewsletterSignup</code> components
+        Ideal for secondary navigation, featured content, and recommendations
       </li>
-      <li>Also recommended for persistent or custom "announcement" elements</li>
-      <li>
-        Positioned directly below <code>TemplateSidebar</code> and{" "}
-        <code>TemplateMain</code> and above the NYPL universal footer
-      </li>
-      <li>Contained by the central content area</li>
-      <li>Always spans the full width of the central content area</li>
     </List>
   }
   imageProps={{
-    alt: "Template bottom region",
-    caption: "Bottom region",
-    src: "/template/templateBottom.png",
+    alt: "Template with right sidebar",
+    caption: "Right sidebar",
+    src: "/template/templateSidebarRight.png",
   }}
 />
 }
 
-## Sidebar Configuration
-
-Use the `sidebar` prop to set the sidebar
-
-- `left`
-- `right`
-- `none` (default)
-
-<Source
-  code={`
-<Template sidebar="left">
-  ...
-</Template>
-`}
-  language="jsx"
-/>
-
-{
-
-<Box
-  display={{ base: "block", md: "grid" }}
-  gridTemplateColumns="1fr 1fr 1fr"
-  gap="l"
->
-  <Box>
-    <Heading level="h3" size="heading7">
-      Left
-    </Heading>
-    <Image
-      alt="Template with left sidebar"
-      border="1px solid var(--nypl-colors-ui-border-default)"
-      src="/template/templateSidebarLeft.png"
-      {...exampleWrapperStyles}
-    />
-  </Box>
-  <Box>
-    <Heading level="h3" size="heading7">
-      Right
-    </Heading>
-    <Image
-      alt="Template with right sidebar"
-      border="1px solid var(--nypl-colors-ui-border-default)"
-      src="/template/templateSidebarRight.png"
-      {...exampleWrapperStyles}
-    />
-  </Box>
-  <Box>
-    <Heading level="h3" size="heading7">
-      None
-    </Heading>
-    <Image
-      alt="Template without sidebar"
-      border="1px solid var(--nypl-colors-ui-border-default)"
-      src="/template/templateSidebarNone.png"
-      {...exampleWrapperStyles}
-    />
-  </Box>
-</Box>
-
-}
-
 ## Understanding the Fluid Layout
 
-- `TemplateSidebar` and `TemplateMain` use fluid sizing where each fills a
+- When using the `sidebarLeft` or `sidebarRight` layout variants,
+  `TemplateSidebar` and `TemplateMain` use fluid sizing where each fills a
   fraction of the full width
-- Size fractions are dependent on viewport
+- Width fractions are dependent on viewport
 - Content in `TemplateMain`, especially grids, should adhere
   to the <Link href="/?path=/docs/style-guide-responsive-grid--docs">
   responsive grid</Link> recommendations and patterns
@@ -535,10 +544,9 @@ import {
   SkipNavigation,
   Template,
   TemplateBreakout,
-  TemplateTop,
+  TemplateFull,
   TemplateSidebar,
   TemplateMain,
-  TemplateBottom
 } from "@nypl/design-system-react-components";
 //...
 <style>
@@ -564,10 +572,10 @@ import {
   <SkipNavigation />
   <Template sidebar="...">
     <TemplateBreakout>...</TemplateBreakout>
-    <TemplateTop>...</TemplateTop>
+    <TemplateFull>...</TemplateFull>
     <TemplateSidebar>...</TemplateSidebar>
     <TemplateMain>...</TemplateMain>
-    <TemplateBottom>...</TemplateBottom>
+    <TemplateFull>...</TemplateFull>
   </Template>
 </DSProvider>
 <div id="nypl-footer"></div>
