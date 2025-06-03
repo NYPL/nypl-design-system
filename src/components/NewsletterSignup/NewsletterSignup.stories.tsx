@@ -6,7 +6,7 @@ import NewsletterSignup, { NewsletterSignupViewType } from "./NewsletterSignup";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
-import { highlightColorsArray } from "../SubNav/SubNav";
+import { highlightColorsArray } from "../../theme/sharedTypes";
 
 const meta: Meta<typeof NewsletterSignup> = {
   title: "Components/Form Elements/NewsletterSignup",

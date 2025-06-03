@@ -5,12 +5,8 @@ import Hero from "../Hero/Hero";
 import Icon from "../Icons/Icon";
 import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 
-import SubNav, {
-  SubNavButton,
-  SubNavLink,
-  bgColorsArray,
-  highlightColorsArray,
-} from "./SubNav";
+import SubNav, { SubNavButton, SubNavLink } from "./SubNav";
+import { bgColorsArray, highlightColorsArray } from "../../theme/sharedTypes";
 
 const meta: Meta<typeof SubNav> = {
   title: "Components/Navigation/SubNav",
