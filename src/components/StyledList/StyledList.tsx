@@ -61,7 +61,11 @@ export const StyledList: ChakraComponent<
 
       // Makes sure that the passed children elements are `li` elements but
       // it is not enforced. Only a warning is logged to the console.
-      checkListChildrenError(children, "ul", "StyledList");
+      checkListChildrenError({
+        children,
+        listType: "ul",
+        componentName: "StyledList",
+      });
 
       finalChildren =
         children || listItems.map((item, i) => <li key={i}>{item}</li>);

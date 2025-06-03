@@ -89,11 +89,15 @@ export const SkeletonLoader: ChakraComponent<
        * "heading" and "content" areas defined by the `type` argument. The last
        * element will have width of `lastWidth`.
        */
-      const getSkeletonElements = (
-        type: string,
+      const getSkeletonElements = ({
+        type,
         size = 1,
-        lastWidth = "80%"
-      ) => {
+        lastWidth = "80%",
+      }: {
+        type: string;
+        size?: number;
+        lastWidth?: string;
+      }) => {
         return new Array(size).fill(null).map((_, i) => {
           const width = i === size - 1 ? lastWidth : "100%";
           const marginBottomValue =
@@ -130,12 +134,20 @@ export const SkeletonLoader: ChakraComponent<
           <Box className={layout} __css={styles.container}>
             {showHeading && (
               <Box __css={styles.section}>
-                {getSkeletonElements("heading", headingSize, "80%")}
+                {getSkeletonElements({
+                  type: "heading",
+                  size: headingSize,
+                  lastWidth: "80%",
+                })}
               </Box>
             )}
             {showContent && (
               <Box __css={styles.section}>
-                {getSkeletonElements("content", contentSize, "30%")}
+                {getSkeletonElements({
+                  type: "content",
+                  size: contentSize,
+                  lastWidth: "30%",
+                })}
               </Box>
             )}
             {showButton && (
