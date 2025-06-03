@@ -334,7 +334,7 @@ export const Pagination: ChakraComponent<
               middleRangeStart > 3 ? "ellipse-start" : 2,
               // The middle range of page numbers to display.
               // Add +1 to the end since range() doesn't include the last number.
-              ...range(middleRangeStart, middleRangeEnd + 1),
+              ...range({ start: middleRangeStart, stop: middleRangeEnd + 1 }),
               // The next to last item will be the next to last
               // number or an ellipse.
               middleRangeEnd < pageCount - 2 ? "ellipse-end" : pageCount - 1,

@@ -50,11 +50,15 @@ export interface LinkProps
  * Renders the `Link` children components with a direction arrow icon based
  * on the `"backwards"` or `"forwards"` `type` prop value.
  */
-function getWithDirectionIcon(
-  children: JSX.Element,
-  type: LinkTypes,
-  linkId: string
-) {
+function getWithDirectionIcon({
+  children,
+  type,
+  linkId,
+}: {
+  children: JSX.Element;
+  type: LinkTypes;
+  linkId: string;
+}) {
   const linkProps: any = {
     align: undefined,
     iconRotation: undefined,
@@ -83,11 +87,15 @@ function getWithDirectionIcon(
   );
 }
 
-function getExternalExtraElements(
-  children: JSX.Element,
-  linkId: string,
-  styles: object
-) {
+function getExternalExtraElements({
+  children,
+  linkId,
+  styles,
+}: {
+  children: JSX.Element;
+  linkId: string;
+  styles: object;
+}) {
   const iconId = `${linkId}-external-icon`;
   const extraElements = (
     <>
@@ -208,13 +216,17 @@ export const Link: ChakraComponent<
     // do not add an icon.
     const newChildren =
       ((type === "forwards" || type === "backwards") &&
-        getWithDirectionIcon(children as JSX.Element, type, sanitizedId)) ||
+        getWithDirectionIcon({
+          children: children as JSX.Element,
+          type,
+          linkId: sanitizedId,
+        })) ||
       (type === "external" &&
-        getExternalExtraElements(
-          children as JSX.Element,
-          sanitizedId,
-          styles.screenreaderOnly
-        )) ||
+        getExternalExtraElements({
+          children: children as JSX.Element,
+          linkId: sanitizedId,
+          styles: styles.screenreaderOnly,
+        })) ||
       (type === "standalone" &&
         getStandaloneIcon(children as JSX.Element, sanitizedId)) ||
       children;

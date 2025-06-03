@@ -16,6 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality"],
     notes: [
       "Removes deprecated `button` value in `linkTypesArray`.",
+      "Replaces positional function arguments with objects for `getWithDirectionIcon`, and `getExternalExtraElements`",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes `href`, `rel`, `onClick`, `target` props (as HTML equivalents may be used) and updates docs.",
     ],
