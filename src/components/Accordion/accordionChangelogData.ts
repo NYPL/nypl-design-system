@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes `ariaLabel` prop and instructs developers to use the native HTML attribute instead.",
       "Removes `isDarkMode` in favor of Chakra's `_dark` conditional key.",
+      "Replaces positional function arguments with objects for `getIcon` and `getElementsFromData`.",
     ],
   },
   {

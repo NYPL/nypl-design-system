@@ -50,12 +50,18 @@ export interface AccordionProps extends HTMLButtonAttributes {
    * component. */
   userClickedOutside?: boolean;
 }
-
 /**
- * Get the minus or plus icon depending on whether the accordion
- * is open or closed.
+ * Get the minus or plus icon depending on whether the accordion is open or closed.
  */
-const getIcon = (isExpanded = false, index: number, id: string) => {
+const getIcon = ({
+  isExpanded = false,
+  index,
+  id,
+}: {
+  isExpanded?: boolean;
+  index: number;
+  id: string;
+}) => {
   const iconName = isExpanded ? "minus" : "plus";
   return (
     <Icon
@@ -73,27 +79,33 @@ const getIcon = (isExpanded = false, index: number, id: string) => {
  * array. This automatically creates the `AccordionButton` and `AccordionPanel`
  * combination that is required for the Chakra `Accordion` component.
  */
-const getElementsFromData = (
-  data: AccordionDataProps[] = [],
-  ariaLabel: string,
-  id: string,
-  isAlwaysRendered: boolean = false,
-  panelMaxHeight: string,
-  hoveredButtonIndex: number,
-  setHoveredButtonIndex: React.Dispatch<React.SetStateAction<number>>
-) => {
+const getElementsFromData = ({
+  data = [],
+  ariaLabel,
+  id,
+  isAlwaysRendered = false,
+  panelMaxHeight,
+  hoveredButtonIndex,
+  setHoveredButtonIndex,
+}: {
+  data?: AccordionDataProps[];
+  ariaLabel: string;
+  id: string;
+  isAlwaysRendered?: boolean;
+  panelMaxHeight: string;
+  hoveredButtonIndex: number;
+  setHoveredButtonIndex: React.Dispatch<React.SetStateAction<number>>;
+}) => {
   const colorMapLight = {
     default: "ui.white",
     warning: "ui.status.primary",
     error: "ui.status.secondary",
   };
-
   const colorMapDark = {
     default: "ui.white",
     warning: "ui.status.primary",
     error: "dark.ui.error.primary",
   };
-
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
   const numAccordionItems = data?.length;
@@ -212,7 +224,11 @@ const getElementsFromData = (
                 >
                   {content.label}
                 </Box>
-                {getIcon(isExpanded, index, id)}
+                {getIcon({
+                  isExpanded,
+                  index,
+                  id,
+                })}
               </AccordionButton>
               {(isAlwaysRendered || isExpanded) && panel}
             </>
@@ -309,15 +325,15 @@ export const Accordion: ChakraComponent<
         ref={ref}
         {...rest}
       >
-        {getElementsFromData(
-          updatedAccordionData,
+        {getElementsFromData({
+          data: updatedAccordionData,
           ariaLabel,
           id,
           isAlwaysRendered,
           panelMaxHeight,
           hoveredButtonIndex,
-          setHoveredButtonIndex
-        )}
+          setHoveredButtonIndex,
+        })}
       </ChakraAccordion>
     );
   })

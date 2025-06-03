@@ -35,8 +35,7 @@ export interface NewsletterSignupProps extends Omit<BoxProps, "title"> {
   id?: string;
   /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
-  /** Value to determine the section color highlight.
-   */
+  /** Value to determine the section color highlight. */
   highlightColor?: HighlightColorTypes;
   /** A handler function that will be called when the form is submitted. */
   onSubmit: (event: React.FormEvent<any>) => void;

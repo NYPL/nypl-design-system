@@ -136,11 +136,11 @@ const FilterBarPopupStory = (args) => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -190,11 +190,11 @@ const FilterBarPopupHeadingStory = () => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -267,11 +267,11 @@ const FilterBarChildrenStory = (args) => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
