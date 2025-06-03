@@ -15,6 +15,7 @@ import { NewsletterSignupResponse } from "./NewsletterSignupResponse";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import useDSHeading from "../../hooks/useDSHeading";
+import { highlightColorsArray } from "../../theme/sharedTypes";
 
 export interface NewsletterSignupProps {
   /** Additional class name to add. */
@@ -59,21 +60,7 @@ export interface NewsletterSignupProps {
   view?: NewsletterSignupViewType;
 }
 
-export const highlightColorTypesArray = [
-  "ui.gray.medium",
-  "section.blogs.secondary",
-  "section.books-and-more.primary",
-  "brand.primary",
-  "section.connect.primary",
-  "section.education.primary",
-  "section.locations.primary",
-  "section.research.primary",
-  "section.research-library.lpa",
-  "section.research-library.schomburg",
-  "section.research-library.schwartzman",
-  "section.whats-on.primary",
-] as const;
-export type HighlightColorTypes = typeof highlightColorTypesArray[number];
+export type HighlightColorTypes = typeof highlightColorsArray[number];
 
 export type NewsletterSignupViewType =
   | "form"

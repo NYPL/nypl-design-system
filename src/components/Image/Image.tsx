@@ -23,6 +23,7 @@ export const imageRatiosArray = [
   "threeByTwo",
   "twoByOne",
 ] as const;
+
 export const imageSizesArray = [
   "default",
   "xxxsmall",

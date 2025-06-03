@@ -8,7 +8,7 @@ import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 import SubNav, {
   SubNavButton,
   SubNavLink,
-  actionBackgroundColorsArray,
+  bgColorsArray,
   highlightColorsArray,
 } from "./SubNav";
 
@@ -19,7 +19,7 @@ const meta: Meta<typeof SubNav> = {
     className: { control: false },
     actionBackgroundColor: {
       control: "select",
-      options: actionBackgroundColorsArray,
+      options: bgColorsArray,
       defaultValue: { summary: "blogs" },
     },
     highlightColor: {

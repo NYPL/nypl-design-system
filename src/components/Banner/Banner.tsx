@@ -5,70 +5,19 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, useState } from "react";
+import {
+  messageTypeArray,
+  bgColorsArray,
+  highlightColorsArray,
+} from "../../theme/sharedTypes";
 
 import Button from "../Button/Button";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 import Icon, { IconProps } from "../Icons/Icon";
 
-export const bannerTypesArray = [
-  "informative",
-  "negative",
-  "neutral",
-  "positive",
-  "recommendation",
-  "warning",
-] as const;
-export type BannerTypes = typeof bannerTypesArray[number];
-export const bannerBgColorsArray = [
-  "brand.primary-05",
-  "section.blogs.primary-05",
-  "section.books-and-more.primary-05",
-  "section.connect.primary-05",
-  "section.education.primary-05",
-  "section.locations.primary-05",
-  "section.research.primary-05",
-  "section.research-library.lpa-05",
-  "section.research-library.schomburg-05",
-  "section.research-library.schwarzman-05",
-  "section.whats-on.primary-05",
-  "dark.brand.primary-05",
-  "dark.section.blogs.primary-05",
-  "dark.section.books-and-more.primary-05",
-  "dark.section.connect.primary-05",
-  "dark.section.education.primary-05",
-  "dark.section.locations.primary-05",
-  "dark.section.research.secondary-05",
-  "dark.section.research-library.lpa-05",
-  "dark.section.research-library.schomburg-05",
-  "dark.section.research-library.schwarzman-05",
-  "dark.section.whats-on.primary-05",
-] as const;
-export type BannerBgColors = typeof bannerBgColorsArray[number];
-export const bannerHighlightColorsArray = [
-  "brand.primary",
-  "section.blogs.primary",
-  "section.books-and-more.primary",
-  "section.connect.primary",
-  "section.education.primary",
-  "section.locations.primary",
-  "section.research.primary",
-  "section.research-library-lpa.primary",
-  "section.research-library-schomburg.primary",
-  "section.research-library-schwarzman.primary",
-  "section.whats-on.primary",
-  "dark.brand.primary",
-  "dark.section.blogs.primary",
-  "dark.section.books-and-more.primary",
-  "dark.section.connect.primary",
-  "dark.section.education.primary",
-  "dark.section.locations.primary",
-  "dark.section.research.secondary",
-  "dark.section.research-library-lpa.primary",
-  "dark.section.research-library-schomburg.primary",
-  "dark.section.research-library-schwarzman.primary",
-  "dark.section.whats-on.primary",
-] as const;
-export type BannerHighlightColors = typeof bannerHighlightColorsArray[number];
+export type BannerTypes = typeof messageTypeArray[number];
+export type BannerBgColors = typeof bgColorsArray[number];
+export type BannerHighlightColors = typeof highlightColorsArray[number];
 
 export interface BannerProps {
   /** Used to set the color of the background for the full component.

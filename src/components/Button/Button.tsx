@@ -6,11 +6,10 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-
+import { sizesArray } from "../../theme/sharedTypes";
 import Icon from "../Icons/Icon";
 
 export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
-export const buttonSizesArray = ["small", "medium", "large"] as const;
 export const buttonTypesArray = [
   "primary",
   "secondary",
@@ -21,7 +20,7 @@ export const buttonTypesArray = [
 ] as const;
 
 export type ButtonElementType = typeof buttonElementTypeArray[number];
-export type ButtonSizes = typeof buttonSizesArray[number];
+export type ButtonSizes = typeof sizesArray[number];
 export type ButtonTypes = typeof buttonTypesArray[number];
 
 export interface ButtonProps {
