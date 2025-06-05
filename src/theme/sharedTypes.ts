@@ -46,7 +46,7 @@ export const highlightColorsArray = [
   "dark.section.research-library-schwarzman.primary",
   "dark.section.whats-on.primary",
 ];
-export const messageTypeArray = [
+export const messageVariantsArray = [
   "informative",
   "negative",
   "neutral",
