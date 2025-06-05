@@ -20,7 +20,7 @@ interface CustomColors {
   color?: string;
 }
 
-export const tableBodyTextSizesArray = ["body1", "body2"] as const;
+export const tableBodyTextSizesArray = ["body1", "body2", "caption"] as const;
 export type TableBodyTextSizes = typeof tableBodyTextSizesArray[number];
 
 export interface TableProps extends BoxProps {

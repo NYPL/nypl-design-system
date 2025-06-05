@@ -62,6 +62,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates Storybook and related npm packages to `v8.6.12`.
 - Updates `vite` to `v5.4.18`, `@vitejs/plugin-react` to `v4.4.1`, and `vite-plugin-svgr` to `v4.3.0`.
 - Updates the `Tabs` component to use the explicitly defined `tabs` design tokens for font size and weight.
+- Updates `Table`'s `tableTextSize` prop to accept `caption`.
 
 ### Fixes
 

@@ -58,11 +58,13 @@ export const fixedColumnStyles = (
 
 const tableTextSizes = (textSizeValue: string = "body1") => ({
   columnHeading:
-    textSizeValue === "body2"
-      ? "desktop.caption.caption1"
-      : "desktop.body.body2",
+    textSizeValue === "body1" ? "desktop.body.body2" : "desktop.caption",
   tableBody:
-    textSizeValue === "body2" ? "desktop.body.body2" : "desktop.body.body1",
+    textSizeValue === "body1"
+      ? "desktop.body.body1"
+      : textSizeValue === "body2"
+      ? "desktop.body.body2"
+      : "desktop.caption",
 });
 
 export const baseTRStyles = (
