@@ -25,6 +25,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the grid layout of the content for the `Hero` `"primary"` variant.
 - Changes the names of theme objects that conflict with Chakra's base names from `Custom` to `Reservoir` for consistency. This impacts theme objects for `Breadcrumbs`, `Button`, `Select`, `Slider`, and `Table`.
 - Replaces positional function args with object references in utility functions/components when there are 3 or more arguments.
+- Updates `Table`'s `tableTextSize` prop to accept `caption`.
 
 ### Removals
 
@@ -62,7 +63,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates Storybook and related npm packages to `v8.6.12`.
 - Updates `vite` to `v5.4.18`, `@vitejs/plugin-react` to `v4.4.1`, and `vite-plugin-svgr` to `v4.3.0`.
 - Updates the `Tabs` component to use the explicitly defined `tabs` design tokens for font size and weight.
-- Updates `Table`'s `tableTextSize` prop to accept `caption`.
 
 ### Fixes
 
