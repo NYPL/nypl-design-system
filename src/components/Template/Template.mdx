@@ -5,11 +5,8 @@ import * as TemplateStories from "./Template.stories";
 import {
   Template,
   TemplateBreakout,
-  TemplateTop,
   TemplateSidebar,
   TemplateMain,
-  TemplateMainNarrow,
-  TemplateBottom,
 } from "./Template";
 import Banner from "../Banner/Banner";
 import Heading from "../Heading/Heading";
@@ -20,13 +17,11 @@ import Table from "../Table/Table";
 import Text from "../Text/Text";
 
 import templateBreakout from "/template/templateBreakout.png";
-import templateBottom from "/template/templateBottom.png";
 import templateMain from "/template/templateMain.png";
 import templateMainNarrow from "/template/templateMainNarrow.png";
 import templateMainWide from "/template/templateMainWide.png";
 import templateSidebarLeft from "/template/templateSidebarLeft.png";
 import templateSidebarRight from "/template/templateSidebarRight.png";
-import templateTop from "/template/templateTop.png";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import DocsWithImage from "../../utils/components/DocsWithImage";
 import { exampleWrapperStyles } from "../../utils/utils.ts";
@@ -92,6 +87,8 @@ import {
 
 ## Accessibility
 
+### Content Width
+
 Wide lines of text with more than 80 characters per line are difficult to read
 and are proven to make it harder for people to focus, while short lines of text
 with fewer than 30 characters per line force the eye to travel back too often,
@@ -101,6 +98,8 @@ The `TemplateMain` component has a max width of `1280px`, which is much wider
 than the ideal line length for standard text. When page content is predominantly
 large blocks of text, the `Template` component should be set to use the `narrow`
 variant to restrict the width of the `TemplateMain` component.
+
+### DOM Structure and Skip Navigation
 
 The `TemplateMain` component renders the content as a `<main>` element with a
 default `id` of `"mainContent"`. This should be used as the anchor element for

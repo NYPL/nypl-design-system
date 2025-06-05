@@ -88,9 +88,26 @@ describe("Template components", () => {
     expect(screen.getByText("Bottom content")).toBeInTheDocument();
   });
 
-  it("renders a #mainContent id when using TemplateMain", () => {
-    const { container } = render(templateComponents("sidebarLeft"));
+  it("renders a #mainContent id when using the full variant", () => {
+    const { container } = render(templateComponents("full"));
+    expect(container.querySelector("#mainContent")).toBeInTheDocument();
+    expect(screen.getByRole("main")).toHaveAttribute("id", "mainContent");
+  });
 
+  it("renders a #mainContent id when using the narrow variant", () => {
+    const { container } = render(templateComponents("narrow"));
+    expect(container.querySelector("#mainContent")).toBeInTheDocument();
+    expect(screen.getByRole("main")).toHaveAttribute("id", "mainContent");
+  });
+
+  it("renders a #mainContent id when using the sidebarLeft variant", () => {
+    const { container } = render(templateComponents("sidebarLeft"));
+    expect(container.querySelector("#mainContent")).toBeInTheDocument();
+    expect(screen.getByRole("main")).toHaveAttribute("id", "mainContent");
+  });
+
+  it("renders a #mainContent id when using the sidebarRight variant", () => {
+    const { container } = render(templateComponents("sidebarRight"));
     expect(container.querySelector("#mainContent")).toBeInTheDocument();
     expect(screen.getByRole("main")).toHaveAttribute("id", "mainContent");
   });

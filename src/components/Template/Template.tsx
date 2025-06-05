@@ -47,9 +47,9 @@ const Template: ChakraComponent<
 );
 
 /**
- * This optional component renders its children above the main content
- * and spans edge-to-edge. It is most useful for `Breadcrumbs`, `Hero`,
- * or other banner-like components.
+ * This optional component spans the full width of the browser window
+ * (edge-to-edge). It is most useful for `Breadcrumbs`, `Hero`, or other
+ * banner-like components.
  */
 const TemplateBreakout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const styles = useStyleConfig("TemplateBreakout", {});
@@ -58,22 +58,18 @@ const TemplateBreakout: React.FC<React.PropsWithChildren> = ({ children }) => {
 };
 
 /**
- * This optional component renders content at a max width of 1280px and
- * will render below `TemplateBreakout` (if being used) and above the
- * main content and sidebar (if one exists).
+ * This optional component will span the full width of the content area and will
+ * render content at a max width of 1280px.
  */
 const TemplateFull: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <Box className="reservoir-template-full">{children}</Box>
-);
-const TemplateTop: React.FC<React.PropsWithChildren> = ({ children }) => (
   <Box className="reservoir-template-full">{children}</Box>
 );
 
 /**
  * This component renders an HTML `<main>` element with an id of "mainContent".
  * The "mainContent" id should be used as the consuming application's skip
- * navigation link. The component should not be used in conjunction with
- * `TemplateMainNarrow`.
+ * navigation link. The width of this component is dependent on the value of the
+ * `variant` prop.
  */
 const TemplateMain: React.FC<React.PropsWithChildren<TemplateMainProps>> = ({
   children,
@@ -85,49 +81,19 @@ const TemplateMain: React.FC<React.PropsWithChildren<TemplateMainProps>> = ({
 );
 
 /**
- * This component renders an HTML `<main>` element with an id of "mainContent".
- * The "mainContent" id should be used as the consuming application's skip
- * navigation link. It provides a narrower container for better readability if
- * the main content includes long text. This component is meant to be used in
- * lieu of `TemplateMain`, and should not be used in conjunction with
- * `TemplateSidebar`.
- */
-const TemplateMainNarrow: React.FC<React.PropsWithChildren<TemplateMainProps>> =
-  ({ children, id = "mainContent" }) => {
-    const styles = useStyleConfig("TemplateMainNarrow");
-
-    return (
-      <Box as="main" className="reservoir-template-main" id={id} __css={styles}>
-        <Box className="reservoir-template-main-narrow">{children}</Box>
-      </Box>
-    );
-  };
-
-/**
- * This optional component is used to render content in a sidebar column.
- * It must be paired with the `TemplateMain` component. An optional `sidebar`
- * prop value of "left" or "right" must be passed to the `Template` wrapper
- * to render the correct CSS styles.
+ * This optional component is used to render content in a sidebar column. For
+ * proper rendering, this component must be paired with the `TemplateMain`
+ * component and the `variant` prop must be set to "sidebarLeft" or
+ * "sidebarRight".
  */
 const TemplateSidebar: React.FC<React.PropsWithChildren> = ({ children }) => (
   <Box className="reservoir-template-sidebar">{children}</Box>
-);
-
-/**
- * This optional component renders content at a max width of 1280px and
- * will always render below the main content and sidebar (if one exists).
- */
-const TemplateBottom: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <Box className="reservoir-template-full">{children}</Box>
 );
 
 export {
   Template,
   TemplateBreakout,
   TemplateFull,
-  TemplateTop,
   TemplateMain,
-  TemplateMainNarrow,
   TemplateSidebar,
-  TemplateBottom,
 };
