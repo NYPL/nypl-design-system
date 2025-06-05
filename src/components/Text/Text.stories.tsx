@@ -7,8 +7,6 @@ const meta: Meta<typeof Text> = {
   title: "Components/Typography & Styles/Text",
   component: Text,
   argTypes: {
-    children: { table: { disable: true } },
-    className: { control: false },
     isBold: argsBooleanType(),
     isItalic: argsBooleanType(),
     isCapitalized: argsBooleanType(),
@@ -38,7 +36,6 @@ type Story = StoryObj<typeof Text>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     isBold: false,
     isItalic: false,
     isCapitalized: false,

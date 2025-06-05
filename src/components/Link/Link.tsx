@@ -1,9 +1,10 @@
 import {
   Box,
+  BoxProps,
   ChakraComponent,
+  ChakraProps,
   chakra,
   Link as ChakraLink,
-  LinkProps as ChakraLinkProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -27,9 +28,8 @@ export const linkTypesArray = [
 ] as const;
 export type LinkTypes = typeof linkTypesArray[number];
 
-export interface LinkProps extends ChakraLinkProps {
-  /** Additional class name to render in the `Link` component. */
-  className?: string;
+export interface LinkProps
+  extends Pick<BoxProps, "as" | "className" | keyof ChakraProps> {
   /** Used to include or remove visited state styles. Default is true. */
   hasVisitedState?: boolean;
   /** The `href` attribute for the anchor element. */
@@ -166,7 +166,6 @@ export const Link: ChakraComponent<
     const {
       as = "a",
       children,
-      className,
       hasVisitedState = true,
       href,
       id,
@@ -246,13 +245,7 @@ export const Link: ChakraComponent<
     ) : null;
 
     return (
-      <ChakraLink
-        as={as}
-        className={className}
-        {...linkProps}
-        sx={styles.base}
-        {...rest}
-      >
+      <ChakraLink as={as} {...linkProps} sx={styles.base} {...rest}>
         {newChildren}
         {screenReaderOnlyElement}
       </ChakraLink>

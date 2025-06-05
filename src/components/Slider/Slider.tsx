@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   RangeSlider as ChakraRangeSlider,
@@ -20,9 +21,8 @@ import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
 import TextInput, { TextInputTypes } from "../TextInput/TextInput";
 
-export interface SliderProps {
-  /** Additional class name for the Slider component. */
-  className?: string;
+export interface SliderProps
+  extends Omit<BoxProps, "defaultValue" | "onChange"> {
   /** The initial value for the single `Slider` or an array of two number
    * values for the `isRangeSlider` case. */
   defaultValue?: number | number[];
@@ -88,7 +88,6 @@ export const Slider: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, SliderProps>((props, ref?) => {
     const {
-      className,
       defaultValue = 0,
       helperText,
       id,
@@ -321,7 +320,6 @@ export const Slider: ChakraComponent<
 
     return (
       <ComponentWrapper
-        className={className}
         helperText={helperText}
         id={id}
         invalidText={invalidText}

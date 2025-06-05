@@ -22,7 +22,6 @@ const meta: Meta<typeof Banner> = {
       control: { type: "select" },
       options: bannerBgColorsArray,
     },
-    className: { control: false },
     content: { control: false },
     heading: { control: false },
     highlightColor: {
@@ -50,7 +49,6 @@ type Story = StoryObj<typeof Banner>;
 export const WithControls: Story = {
   args: {
     backgroundColor: undefined,
-    className: undefined,
     content: `Cras mattis consectetur purus sit amet fermentum. Maecenas
       faucibus mollis interdum. Morbileo risus, porta ac consectetur ac,
       vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient

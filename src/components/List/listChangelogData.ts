@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes deprecated `button` value in `linkTypesArray`.",
       "Replaces positional function arguments with object for `checkListChildrenError.`",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
     ],
   },
   {

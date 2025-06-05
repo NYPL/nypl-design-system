@@ -126,6 +126,7 @@ exports[`StyledList Renders the UI snapshot correctly 6`] = `
 exports[`StyledList Renders the UI snapshot correctly 7`] = `
 <ul
   className="css-1xdhyk6"
+  data-testid="other"
   id="other"
 >
   <li>

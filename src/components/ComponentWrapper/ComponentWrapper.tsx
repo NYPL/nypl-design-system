@@ -1,4 +1,4 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, BoxProps, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 import useDSHeading from "../../hooks/useDSHeading";
 
@@ -6,11 +6,7 @@ import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import Text from "../Text/Text";
-export interface ComponentWrapperProps {
-  /** The UI elements that will be wrapped by this component */
-  children: React.ReactNode;
-  /** A class name for the `div` parent element. */
-  className?: string;
+export interface ComponentWrapperProps extends BoxProps {
   /** Optional string to set the text for the component's description */
   descriptionText?: string | JSX.Element;
   /** Optional string value used to set the text for a `Heading` component, or
@@ -37,7 +33,6 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
     (props, ref?) => {
       const {
         children,
-        className,
         descriptionText,
         headingText,
         helperText,
@@ -62,13 +57,7 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
       }
 
       return (
-        <Box
-          className={className}
-          id={`${id}-wrapper`}
-          ref={ref}
-          __css={styles}
-          {...rest}
-        >
+        <Box id={`${id}-wrapper`} ref={ref} __css={styles} {...rest}>
           {finalHeadingText}
           {descriptionText && <Text>{descriptionText}</Text>}
           {children}

@@ -14,7 +14,6 @@ const meta: Meta<typeof Slider> = {
   title: "Components/Form Elements/Slider",
   component: Slider,
   argTypes: {
-    className: { control: false },
     defaultValue: {
       control: false,
       table: { defaultValue: { summary: "0" } },
@@ -51,7 +50,6 @@ type Story = StoryObj<typeof Slider>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     defaultValue: 50,
     helperText: "Pass in a value from the min 0 to the max 100 values.",
     id: "slider-id",
@@ -113,7 +111,6 @@ export const WithControls: Story = {
 
 export const RangeSliderWithControls: Story = {
   args: {
-    className: undefined,
     defaultValue: [25, 75],
     helperText: "Pass in a value from the min 0 to the max 100 values.",
     id: "slider-range-id",

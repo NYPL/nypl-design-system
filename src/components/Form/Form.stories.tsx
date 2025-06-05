@@ -43,7 +43,6 @@ type Story = StoryObj<typeof Form>;
 export const WithControls: Story = {
   args: {
     action: "/end/point",
-    className: undefined,
     id: "form-id",
     method: "get",
     gap: "grid.l",

@@ -1,11 +1,9 @@
-import { Box, chakra, ChakraComponent } from "@chakra-ui/react";
+import { Box, BoxProps, chakra, ChakraComponent } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import SimpleGrid, { GridGaps } from "../Grid/SimpleGrid";
 
-interface FormBaseProps {
-  /** className to be applied to FormRow, FormField, and Form */
-  className?: string;
+interface FormBaseProps extends BoxProps {
   /** Optional spacing size; if omitted, the default `large` (2rem / 32px)
    * spacing will be used; ```IMPORTANT: for general form layout, this prop
    * should not be used``` */
@@ -92,7 +90,6 @@ export const Form: ChakraComponent<
     const {
       action,
       children,
-      className,
       gap = "grid.l",
       id,
       method,
@@ -125,7 +122,6 @@ export const Form: ChakraComponent<
     return (
       <Box
         as="form"
-        className={className}
         data-testid="ds-form"
         id={id}
         onSubmit={onSubmit}

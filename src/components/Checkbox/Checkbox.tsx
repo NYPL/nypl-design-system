@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   ChakraComponent,
   Checkbox as ChakraCheckbox,
@@ -21,9 +22,7 @@ interface CheckboxIconProps {
   isIndeterminate?: boolean;
 }
 
-export interface CheckboxProps extends CheckboxIconProps {
-  /** className you can add in addition to 'input' */
-  className?: string;
+export interface CheckboxProps extends BoxProps, CheckboxIconProps {
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */

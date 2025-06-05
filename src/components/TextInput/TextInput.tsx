@@ -1,7 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Input as ChakraInput,
   Textarea as ChakraTextarea,
   useMergeRefs,
@@ -46,7 +48,11 @@ export const TextInputFormats = {
 export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      "color" | "height" | "width"
+    > {
   /** FOR INTERNAL DS USE ONLY: Adds an aria-label or appends to an existing aria-label for screen readers.*/
   additionalAriaLabel?: string;
   /** FOR INTERNAL DS USE ONLY: additional helper text id(s) to be used for the input's `aria-describedby` value.
@@ -54,8 +60,6 @@ export interface InputProps
   additionalHelperTextIds?: string;
   /** String value used to set the autocomplete attribute. */
   autoComplete?: AutoCompleteValues;
-  /** A class name for the TextInput parent div. */
-  className?: string;
   /** The starting value of the input field. */
   defaultValue?: string;
   /** Populates the HelperErrorText for the standard state */
@@ -145,7 +149,6 @@ export const TextInput: ChakraComponent<
         additionalHelperTextIds,
         ["aria-describedby"]: ariaDescribedby,
         autoComplete,
-        className,
         defaultValue,
         helperText,
         id,
@@ -327,7 +330,6 @@ export const TextInput: ChakraComponent<
 
       return (
         <ComponentWrapper
-          className={className}
           helperText={!finalIsInvalid ? footnote : helperText}
           id={id}
           invalidText={finalInvalidText}

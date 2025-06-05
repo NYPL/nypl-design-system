@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Replaces the error thrown with a console.warn."],
+    notes: [
+      "Replaces the error thrown with a console.warn.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+    ],
   },
   {
     date: "2025-03-20",

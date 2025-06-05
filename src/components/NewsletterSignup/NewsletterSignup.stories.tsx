@@ -17,7 +17,6 @@ const meta: Meta<typeof NewsletterSignup> = {
     jest: ["NewsletterSignup.test.tsx"],
   },
   argTypes: {
-    className: { control: false },
     confirmationHeading: {
       control: "text",
     },
@@ -95,7 +94,6 @@ const errorHeading = "Oops! Something went wrong.";
 
 export const WithControls: Story = {
   args: {
-    className: undefined,
     confirmationHeading,
     confirmationText: undefined,
     descriptionText,

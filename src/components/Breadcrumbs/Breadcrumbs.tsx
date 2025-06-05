@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   Breadcrumb as ChakraBreadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -30,13 +31,11 @@ export interface BreadcrumbsDataProps {
   linkProps?: any;
 }
 
-export interface BreadcrumbProps {
+export interface BreadcrumbProps extends BoxProps {
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
   /** Used to control how the `Hero` component will be rendered. */
   breadcrumbsType?: BreadcrumbsTypes;
-  /** className you can add in addition to 'input' */
-  className?: string;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Custom Link component for apps with internal routing, defaults to BreadcrumbLink if not passed */
@@ -158,7 +157,6 @@ export const Breadcrumbs: ChakraComponent<
     const {
       breadcrumbsData,
       breadcrumbsType = "whatsOn",
-      className,
       customLinkComponent,
       id,
       ...rest
@@ -182,7 +180,6 @@ export const Breadcrumbs: ChakraComponent<
     return (
       <ChakraBreadcrumb
         aria-label="Breadcrumb"
-        className={className}
         id={id}
         ref={ref}
         __css={styles}

@@ -3,6 +3,7 @@ import {
   ChakraComponent,
   chakra,
   useMultiStyleConfig,
+  BoxProps,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -50,13 +51,11 @@ export type TextInputProps = Pick<InitialInputProps, "labelText" | "name"> &
     >
   >;
 
-export interface SearchBarProps {
+export interface SearchBarProps extends BoxProps {
   /** Adds 'action' property to the `form` element. */
   action?: string;
   /** The onClick callback function for the `Button` component. */
   buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
-  /** A class name for the `form` element. */
-  className?: string;
   /** Optional string for the SearchBar's description above the component. */
   descriptionText?: string;
   /** Optional string value used to set the text for a `Heading` component, or
