@@ -12,7 +12,7 @@ import Text from "../Text/Text";
 import {
   bgColorsArray,
   highlightColorsArray,
-  messageTypeArray,
+  messageVariantsArray,
 } from "../../theme/sharedTypes";
 
 const meta: Meta<typeof Banner> = {
@@ -35,7 +35,7 @@ const meta: Meta<typeof Banner> = {
     isDismissible: { control: { type: "boolean" } },
     type: {
       control: { type: "select" },
-      options: messageTypeArray,
+      options: messageVariantsArray,
       table: { defaultValue: { summary: "neutral" } },
     },
   },

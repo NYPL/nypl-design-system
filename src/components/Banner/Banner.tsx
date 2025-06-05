@@ -6,7 +6,7 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef, useState } from "react";
 import {
-  messageTypeArray,
+  messageVariantsArray,
   bgColorsArray,
   highlightColorsArray,
 } from "../../theme/sharedTypes";
@@ -15,7 +15,7 @@ import Button from "../Button/Button";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 import Icon, { IconProps } from "../Icons/Icon";
 
-export type BannerTypes = typeof messageTypeArray[number];
+export type BannerTypes = typeof messageVariantsArray[number];
 export type BannerBgColors = typeof bgColorsArray[number];
 export type BannerHighlightColors = typeof highlightColorsArray[number];
 

@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Icon from "../Icons/Icon";
 import StatusBadge, { statusBadgeFontSizeArray } from "./StatusBadge";
 import Table from "../Table/Table";
-import { messageTypeArray } from "../../theme/sharedTypes";
+import { messageVariantsArray } from "../../theme/sharedTypes";
 
 const meta: Meta<typeof StatusBadge> = {
   title: "Components/Content Display/StatusBadge",
@@ -21,7 +21,7 @@ const meta: Meta<typeof StatusBadge> = {
     id: { control: false },
     type: {
       control: { type: "select" },
-      options: messageTypeArray,
+      options: messageVariantsArray,
     },
   },
 };
