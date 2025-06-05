@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { getPlaceholderImage, sidebarLabel } from "../../utils/utils";
+import { Box } from "@chakra-ui/react";
 import Accordion, { AccordionDataProps } from "../Accordion/Accordion";
 import Banner from "../Banner/Banner";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
@@ -10,8 +10,10 @@ import Form, { FormField, FormRow } from "../Form/Form";
 import Heading from "../Heading/Heading";
 import Hero from "../Hero/Hero";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
+import Image from "../Image/Image";
 import Placeholder from "../Placeholder/Placeholder";
 import Table from "../Table/Table";
+import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import {
   Template,
@@ -19,8 +21,10 @@ import {
   TemplateFull,
   TemplateMain,
   TemplateSidebar,
-  variantArray,
+  templateVariantArray,
 } from "./Template";
+import { getPlaceholderImage, sidebarLabel } from "../../utils/utils";
+import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
 
 const meta: Meta<typeof Template> = {
   title: "Components/Page Layout/Template",
@@ -29,7 +33,7 @@ const meta: Meta<typeof Template> = {
     id: { control: false },
     variant: {
       control: { type: "radio" },
-      options: variantArray,
+      options: templateVariantArray,
       table: { defaultValue: { summary: "full" } },
     },
   },
@@ -219,7 +223,7 @@ export const WithControls: Story = {
   },
 };
 
-export const TemplateFullExample: Story = {
+export const FullExample: Story = {
   args: {
     sidebar: "left",
   },
@@ -366,7 +370,7 @@ export const TemplateFullExample: Story = {
   },
 };
 
-export const TemplateFullExampleNarrow = {
+export const NarrowExample = {
   render: () => (
     <>
       <Template variant="narrow">
@@ -431,7 +435,8 @@ export const TemplateFullExampleNarrow = {
   ),
 };
 
-export const TemplateFullExampleWithFeaturedContent = {
+export const FeaturedContentExample = {
+  name: "FeaturedContent Example",
   render: () => (
     <>
       <Template>
@@ -500,3 +505,279 @@ export const TemplateFullExampleWithFeaturedContent = {
     </>
   ),
 };
+
+export const ComplexExample = () => {
+  const { responsiveGap } = useResponsiveSpacing();
+  return (
+    <>
+      <Template variant="sidebarLeft">
+        <TemplateBreakout>
+          <Breadcrumbs
+            breadcrumbsData={[
+              { url: "#", text: "Home" },
+              { url: "#", text: "Research" },
+              {
+                url: "#",
+                text: "Catalog",
+              },
+            ]}
+          />
+          <Hero
+            backgroundImageSrc={getPlaceholderImage()}
+            heroType="tertiary"
+            heading={
+              <Heading level="h1" id="1" text="Complex template example" />
+            }
+          />
+        </TemplateBreakout>
+        <TemplateBreakout>
+          <Box
+            display="flex"
+            height="360px"
+            overflow="hidden"
+            position="relative"
+            width="100%"
+            mt="-2rem"
+            background={`url(${getPlaceholderImage()})`}
+            backgroundSize="cover"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Heading
+              bgColor="rgba(0, 0, 0, 0.7)"
+              color="ui.white"
+              id="hero-overlay"
+              level="h2"
+              maxWidth="800px"
+              mx="xl"
+              noSpace
+              p="2rem"
+              size="display1"
+              text="Overlay heading"
+              textAlign="center"
+              width="100%"
+            />
+          </Box>
+        </TemplateBreakout>
+        <TemplateFull>
+          <Box
+            height="360px"
+            overflow="hidden"
+            position="relative"
+            width="100%"
+          >
+            <Image
+              alt="Alt text"
+              aspectRatio="twoByOne"
+              src={getPlaceholderImage()}
+              position="absolute"
+            />
+            <Heading
+              bgColor="rgba(255, 255, 255, 0.1)"
+              bottom="0"
+              color="ui.white"
+              id="image-overlay"
+              left="0"
+              level="h2"
+              noSpace
+              p="s"
+              position="absolute"
+              right="0"
+              size="heading6"
+              text="Overlay heading"
+              textAlign="right"
+            />
+          </Box>
+        </TemplateFull>
+        <TemplateFull>
+          <Banner
+            content="This is a full content area!"
+            heading="Full content"
+            type="informative"
+          />
+        </TemplateFull>
+        <TemplateSidebar>
+          <Box display="grid" gap="s">
+            <Image
+              alt="Alt text"
+              aspectRatio="square"
+              src={getPlaceholderImage()}
+            />
+            <Image
+              alt="Alt text"
+              aspectRatio="square"
+              src={getPlaceholderImage()}
+            />
+          </Box>
+        </TemplateSidebar>
+        <TemplateMain>
+          <Heading
+            overline="Example"
+            subtitle="Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
+            text="Content with sidebar"
+          />
+          <Text>
+            Maecenas faucibus mollis interdum. Integer posuere erat a ante
+            venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh
+            ultricies vehicula ut id elit. Cras mattis consectetur purus sit
+            amet fermentum.
+          </Text>
+          <Heading level="h3" size="heading4" text="Subsection" />
+          <Text>
+            Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor
+            sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non
+            metus auctor fringilla. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Maecenas faucibus mollis interdum.
+          </Text>
+          <Text>
+            Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Praesent commodo cursus magna,
+            vel scelerisque nisl consectetur et. Integer posuere erat a ante
+            venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis
+            interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus
+            dolor auctor.
+          </Text>
+        </TemplateMain>
+        <TemplateBreakout>
+          <Box bgColor="ui.bg.default" py={{ base: "s", md: "m", xl: "l" }}>
+            <Box margin="auto" maxWidth="1280px" px="s">
+              <Heading
+                size="heading6"
+                subtitle="Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
+                text="Example photos"
+              />
+              <Box
+                display="grid"
+                gap={responsiveGap}
+                gridTemplateColumns="repeat(2, 1fr)"
+                mb={{ base: "s", md: "m", xl: "l" }}
+              >
+                <Image
+                  alt="Alt text"
+                  aspectRatio="twoByOne"
+                  src={getPlaceholderImage()}
+                />
+                <Image
+                  alt="Alt text"
+                  aspectRatio="twoByOne"
+                  src={getPlaceholderImage()}
+                />
+              </Box>
+              <Box
+                display="grid"
+                gap={responsiveGap}
+                gridTemplateColumns="repeat(4, 1fr)"
+              >
+                <Image
+                  alt="Alt text"
+                  aspectRatio="square"
+                  src={getPlaceholderImage()}
+                />
+                <Image
+                  alt="Alt text"
+                  aspectRatio="square"
+                  src={getPlaceholderImage()}
+                />
+                <Image
+                  alt="Alt text"
+                  aspectRatio="square"
+                  src={getPlaceholderImage()}
+                />
+                <Image
+                  alt="Alt text"
+                  aspectRatio="square"
+                  src={getPlaceholderImage()}
+                />
+              </Box>
+            </Box>
+          </Box>
+        </TemplateBreakout>
+        <TemplateFull>
+          <Banner
+            content="This is a full content area!"
+            heading="Full content"
+            type="informative"
+          />
+        </TemplateFull>
+        <TemplateSidebar>
+          <Box display="grid" gap="s">
+            <Image
+              alt="Alt text"
+              aspectRatio="square"
+              src={getPlaceholderImage()}
+            />
+            <Image
+              alt="Alt text"
+              aspectRatio="square"
+              src={getPlaceholderImage()}
+            />
+          </Box>
+        </TemplateSidebar>
+        <TemplateMain>
+          <Heading level="h3" size="heading4" text="Heading after a breakout" />
+          <Text>
+            Maecenas faucibus mollis interdum. Integer posuere erat a ante
+            venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh
+            ultricies vehicula ut id elit. Cras mattis consectetur purus sit
+            amet fermentum.
+          </Text>
+          <Heading level="h4" size="heading6" text="Subsection" />
+          <Text>
+            Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor
+            sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non
+            metus auctor fringilla. Praesent commodo cursus magna, vel
+            scelerisque nisl consectetur et. Maecenas faucibus mollis interdum.
+          </Text>
+          <Text>
+            Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Praesent commodo cursus magna,
+            vel scelerisque nisl consectetur et. Integer posuere erat a ante
+            venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis
+            interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus
+            dolor auctor.
+          </Text>
+        </TemplateMain>
+        <TemplateBreakout>
+          <FeaturedContent
+            imageProps={{
+              alt: "",
+              src: getPlaceholderImage("smaller"),
+              position: "end",
+              width: "",
+            }}
+            isFullWidth
+            my="l"
+            textContent={
+              <>
+                <Heading size="heading5">Sit Dapibus Elit</Heading>
+                Donec id elit non mi porta gravida at eget metus. Nulla vitae
+                elit libero, a pharetra augue. Cum sociis natoque penatibus et
+                magnis dis parturient montes, nascetur ridiculus mus. Cras
+                mattis consectetur purus sit amet fermentum.
+              </>
+            }
+          />
+        </TemplateBreakout>
+        <TemplateFull>
+          <Banner
+            content="This is a full content area!"
+            heading="Full content"
+            type="informative"
+          />
+        </TemplateFull>
+        <TemplateFull>
+          <Banner
+            content="This is a full content area!"
+            heading="Full content"
+            type="informative"
+          />
+        </TemplateFull>
+      </Template>
+    </>
+  );
+};
+// export const TemplateFullExampleWithFeaturedContentSiderbar = {
+//   render: () => ComplexExample(),
+// };

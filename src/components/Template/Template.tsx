@@ -1,20 +1,20 @@
 import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
 import { forwardRef } from "react";
 
-export const variantArray = [
+export const templateVariantArray = [
   "full",
   "narrow",
   "sidebarLeft",
   "sidebarRight",
 ] as const;
-export type Variant = typeof variantArray[number];
+export type TemplateVariant = typeof templateVariantArray[number];
 
 export interface TemplateProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Renders the `TemplateSidebar` component either on the left or
    * right side of the `TemplateMain` component. */
-  variant?: Variant;
+  variant?: TemplateVariant;
 }
 
 export interface TemplateMainProps {
@@ -35,7 +35,7 @@ const Template: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TemplateProps>>(
     ({ children, variant = "full" }, ref?) => {
-      const styles = useStyleConfig("Template", { variant: variant });
+      const styles = useStyleConfig("Template", { variant });
 
       return (
         <Box __css={styles} ref={ref}>

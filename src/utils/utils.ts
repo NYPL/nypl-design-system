@@ -1,5 +1,5 @@
 import { HelperErrorTextType } from "../components/HelperErrorText/HelperErrorText";
-import { Variant } from "../components/Template/Template";
+import { TemplateVariant } from "../components/Template/Template";
 import { AriaAttributes } from "./interfaces";
 // Utility functions to use throughout the codebase
 
@@ -181,7 +181,7 @@ export const getPlaceholderImage = (
 };
 
 /** Creates the correct sidebar label in Template stories or tests */
-export const sidebarLabel = (variant: Variant) => {
+export const sidebarLabel = (variant: TemplateVariant) => {
   const side = variant === "sidebarLeft" ? "Left" : "Right";
   return `${side} sidebar`;
 };

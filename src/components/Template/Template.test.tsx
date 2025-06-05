@@ -9,7 +9,7 @@ import {
   TemplateFull,
   TemplateMain,
   TemplateSidebar,
-  Variant,
+  TemplateVariant,
 } from "./Template";
 import Placeholder from "../Placeholder/Placeholder";
 import { sidebarLabel } from "../../utils/utils";
@@ -24,7 +24,7 @@ const contentMain = (
 );
 const contentBottom = <Placeholder variant="short">Bottom content</Placeholder>;
 
-const templateComponents = (variant: Variant = "full") => (
+const templateComponents = (variant: TemplateVariant = "full") => (
   <Template variant={variant}>
     <TemplateBreakout>{breakout}</TemplateBreakout>
     <TemplateFull>{contentTop}</TemplateFull>

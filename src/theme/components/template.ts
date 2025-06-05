@@ -27,7 +27,7 @@ const Template = defineStyleConfig({
         gridColumn: "1 / -1",
       },
       "& .reservoir-template-main": {
-        gridColumn: "1 / -1",
+        gridColumn: { base: "1 / -1" },
       },
     };
   }),
@@ -51,19 +51,27 @@ const Template = defineStyleConfig({
     sidebarLeft: {
       "& .reservoir-template-main": {
         gridColumn: {
-          base: "1 / -1",
           sm: "7 / -1",
           md: "5 / -1",
           lg: "4 / -1",
         },
       },
       "& .reservoir-template-sidebar": {
-        gridColumn: { base: "1 / -1", sm: "1 / 7", md: "1 / 5", lg: "1 / 4" },
+        gridColumn: {
+          base: "1 / -1",
+          sm: "1 / 7",
+          md: "1 / 5",
+          lg: "1 / 4",
+        },
       },
     },
     sidebarRight: {
       "& .reservoir-template-main": {
-        gridColumn: { base: "1 / -1", sm: "1 / 7", md: "1 / 9", lg: "1 / 10" },
+        gridColumn: {
+          sm: "1 / 7",
+          md: "1 / 9",
+          lg: "1 / 10",
+        },
       },
       "& .reservoir-template-sidebar": {
         gridColumn: {
