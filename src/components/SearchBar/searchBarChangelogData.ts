@@ -13,9 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Accessibility", "Documentation", "Functionality"],
+    affects: ["Accessibility", "Documentation", "Functionality", "Styles"],
     notes: [
       "Removes role=search on the component wrapper.",
+      "Removes use of `useNYPLBreakpoints` and replaces `aria-label` with screenreader only styles.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes `action`, `method`, and `onSubmit` props (as HTML equivalents may be used) and updates docs.",
     ],
