@@ -13,9 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Documentation", "Functionality"],
     notes: [
       "Removes explicit `children` prop as its not required when React.PropsWithChildren is used.",
+      "Extends prop type by Chakra's `BoxProps` so consumers can pass Chakra style props and updates documentation.",
     ],
   },
   {

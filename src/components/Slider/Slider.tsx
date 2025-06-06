@@ -3,6 +3,7 @@ import {
   BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   RangeSlider as ChakraRangeSlider,
   RangeSliderFilledTrack as ChakraRangeSliderFilledTrack,
   RangeSliderThumb as ChakraRangeSliderThumb,
@@ -13,7 +14,7 @@ import {
   SliderTrack as ChakraSliderTrack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, InputHTMLAttributes } from "react";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
@@ -22,7 +23,11 @@ import Label from "../Label/Label";
 import TextInput, { TextInputTypes } from "../TextInput/TextInput";
 
 export interface SliderProps
-  extends Omit<BoxProps, "defaultValue" | "onChange"> {
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<
+      InputHTMLAttributes<HTMLInputElement>,
+      "color" | "defaultValue" | "height" | "onChange" | "value" | "width"
+    > {
   /** The initial value for the single `Slider` or an array of two number
    * values for the `isRangeSlider` case. */
   defaultValue?: number | number[];

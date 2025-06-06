@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useColorModeValue,
@@ -12,10 +13,11 @@ import Image, { ComponentImageProps } from "../Image/Image";
 export const heroTypesArray = ["primary", "tertiary", "campaign"] as const;
 export type HeroTypes = typeof heroTypesArray[number];
 export interface HeroImageProps
-  extends Pick<
-    ComponentImageProps,
-    "alt" | "fallbackSrc" | "id" | "src" | "onError" | "component"
-  > {}
+  extends Omit<BoxProps, "onError">,
+    Pick<
+      ComponentImageProps,
+      "alt" | "fallbackSrc" | "id" | "src" | "onError" | "component"
+    > {}
 
 export interface HeroProps {
   /**

@@ -7,7 +7,7 @@ import {
   Link as ChakraLink,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { AnchorHTMLAttributes, forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 import { sanitizeStringForAttribute } from "../../utils/utils";
@@ -29,25 +29,18 @@ export const linkTypesArray = [
 export type LinkTypes = typeof linkTypesArray[number];
 
 export interface LinkProps
-  extends Pick<BoxProps, "as" | "className" | keyof ChakraProps> {
+  extends Pick<BoxProps, "as" | keyof ChakraProps>,
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "color"> {
   /** Used to include or remove visited state styles. Default is true. */
   hasVisitedState?: boolean;
-  /** The `href` attribute for the anchor element. */
-  href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
   /** Used to explicitly set the underline style for a text link. If true, link
    * text will always be underlined; if false, link text will only show
    * underline in hover state. */
   isUnderlined?: boolean;
-  onClick?: (
-    event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
-  ) => void;
-  rel?: string;
   /** Visibly hidden text that will only be read by screenreaders. */
   screenreaderOnlyText?: string;
-  /** Prop that sets the HTML attribute to target where the link should go. */
-  target?: "_blank" | "_parent" | "_self" | "_top";
   /** Controls the link's styles based on the value: action, backwards, default,
    * external, forwards, standalone, and all "button" types. */
   type?: LinkTypes;
@@ -149,8 +142,8 @@ function getStandaloneIcon(children: JSX.Element, linkId: string) {
 }
 
 /**
- * A component that uses an `href` prop or a child anchor `<a>` element, to
- * create an anchor element with added styling and conventions.
+ * A component that renders an anchor element with added styling
+ * and conventions.
  */
 export const Link: ChakraComponent<
   React.ForwardRefExoticComponent<

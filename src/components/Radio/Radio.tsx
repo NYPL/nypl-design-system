@@ -3,17 +3,20 @@ import {
   BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Radio as ChakraRadio,
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, InputHTMLAttributes } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
 
-export interface RadioProps extends BoxProps {
+export interface RadioProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<InputHTMLAttributes<HTMLInputElement>, "color" | "height" | "width"> {
   /** Optional string to populate the HelperErrorText for the standard state. */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
@@ -38,10 +41,6 @@ export interface RadioProps extends BoxProps {
    * `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel`
    * is false. */
   labelText: string | JSX.Element;
-  /** Used to reference the input element in forms. */
-  name?: string;
-  /** Should be passed along with `isChecked` for controlled components. */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the radio's label onscreen or hide it. Refer
