@@ -39,7 +39,6 @@ exports[`Renders the UI snapshot correctly 1`] = `
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
-            role="paragraph"
           >
             Featured
           </p>
@@ -104,7 +103,6 @@ exports[`Renders the UI snapshot correctly 2`] = `
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
-            role="paragraph"
           >
             Featured
           </p>
@@ -169,7 +167,6 @@ exports[`Renders the UI snapshot correctly 3`] = `
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
-            role="paragraph"
           >
             Featured
           </p>
@@ -234,7 +231,6 @@ exports[`Renders the UI snapshot correctly 4`] = `
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
-            role="paragraph"
           >
             Featured
           </p>
@@ -299,7 +295,6 @@ exports[`Renders the UI snapshot correctly 5`] = `
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
-            role="paragraph"
           >
             Featured
           </p>
@@ -364,7 +359,6 @@ exports[`Renders the UI snapshot correctly 6`] = `
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
-            role="paragraph"
           >
             Featured
           </p>
