@@ -4,16 +4,20 @@ import * as TabsStories from "./Tabs.stories";
 import Banner from "../Banner/Banner";
 import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import { changelogData } from "./tabsChangelogData";
 
 <Meta of={TabsStories} />
 
-# Tabs
+<ComponentDocsHeader
+  category="Overlays & Switchers"
+  componentName="Tabs"
+  summary="Renders the Chakra `Tab` component to associate tab buttons with panels."
+  versionAdded="0.24.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.24.0`     |
-| Latest            | `Prerelease` |
+<Canvas of={TabsStories.WithControls} />
 
 ## Table of Contents
 
@@ -33,8 +37,6 @@ import { changelogData } from "./tabsChangelogData";
 <Description of={TabsStories} />
 
 ## Component Props
-
-<Canvas of={TabsStories.WithControls} />
 
 You may pass any Chakra `Box` props, as well as the props below.
 
