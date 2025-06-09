@@ -2,10 +2,11 @@ import {
   BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Checkbox as ChakraCheckbox,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, InputHTMLAttributes } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -22,7 +23,10 @@ interface CheckboxIconProps {
   isIndeterminate?: boolean;
 }
 
-export interface CheckboxProps extends BoxProps, CheckboxIconProps {
+export interface CheckboxProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    CheckboxIconProps,
+    Omit<InputHTMLAttributes<HTMLInputElement>, "color" | "height" | "width"> {
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
@@ -41,11 +45,6 @@ export interface CheckboxProps extends BoxProps, CheckboxIconProps {
   /** The checkbox's label. This will serve as the text content for a `<label>`
    * element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
   labelText: string | JSX.Element;
-  /** The name prop indicates into which group of checkboxes this checkbox
-   * belongs. If none is specified, 'default' will be used */
-  name?: string;
-  /** The action to perform on the `<input>`'s onChange function  */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the checkbox's label onscreen or hide it.

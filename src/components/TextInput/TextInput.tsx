@@ -47,12 +47,26 @@ export const TextInputFormats = {
 // Only used internally in `TextInput` and `SearchBar`.
 export type TextInputVariants = "default" | "searchBar" | "searchBarSelect";
 
-export interface InputProps
-  extends Pick<BoxProps, keyof ChakraProps>,
-    Omit<
-      React.InputHTMLAttributes<HTMLInputElement>,
-      "color" | "height" | "width"
-    > {
+type InputElementProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "color" | "height" | "width"
+>;
+
+type TextAreaElementProps = Omit<
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+  "color" | "height" | "width"
+>;
+
+interface BaseTextInputProps extends Pick<BoxProps, keyof ChakraProps> {
+  type?: TextInputTypes;
+}
+
+export type TextInputPropsWithHTML = BaseTextInputProps &
+  (BaseTextInputProps["type"] extends "textarea"
+    ? TextAreaElementProps
+    : InputElementProps);
+
+export interface InputProps extends TextInputPropsWithHTML {
   /** FOR INTERNAL DS USE ONLY: Adds an aria-label or appends to an existing aria-label for screen readers.*/
   additionalAriaLabel?: string;
   /** FOR INTERNAL DS USE ONLY: additional helper text id(s) to be used for the input's `aria-describedby` value.
@@ -60,8 +74,6 @@ export interface InputProps
   additionalHelperTextIds?: string;
   /** String value used to set the autocomplete attribute. */
   autoComplete?: AutoCompleteValues;
-  /** The starting value of the input field. */
-  defaultValue?: string;
   /** Populates the HelperErrorText for the standard state */
   helperText?: HelperErrorTextType;
   /** ID that other components can cross reference for accessibility purposes */
@@ -81,29 +93,6 @@ export interface InputProps
   /** Provides text for a `Label` component if `showLabel` is set to true;
    * populates an `aria-label` attribute if `showLabel` is set to false. */
   labelText: string | JSX.Element;
-  /** The max number for a `number` TextInput type. */
-  max?: number;
-  /** The max length of the input field. This prop is for all input types
-   * except for the `number` type. */
-  maxLength?: number;
-  /** The min number for a `number` TextInput type. */
-  min?: number;
-  /** Used to reference the input element in forms. */
-  name?: string;
-  /** The action to perform on the `input`/`textarea`'s onChange function  */
-  onChange?: (
-    event:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
-  ) => void;
-  /** The action to perform on the `input`/`textarea`'s onClick function  */
-  onClick?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
-  /** The action to perform on the `input`/`textarea`'s onFocus function  */
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  /** Regex to query the user input against. */
-  pattern?: string;
-  /** Populates the placeholder for the input/textarea elements */
-  placeholder?: string;
   /** Allows the '(required)' text to be changed for language purposes
    * Note: Parenthesis will be added automatically by the component */
   requiredLabelText?: string;
@@ -115,14 +104,8 @@ export interface InputProps
   /** Whether or not to display the "(required)" text in the label text.
    * True by default. */
   showRequiredLabel?: boolean;
-  /** The amount to increase or decrease when using the number type. */
-  step?: number;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
   textInputType?: TextInputVariants;
-  /** HTML Input types as defined by MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input */
-  type?: TextInputTypes;
-  /** Populates the value of the input/textarea elements */
-  value?: string;
 }
 
 /**
@@ -193,11 +176,7 @@ export const TextInput: ChakraComponent<
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
-      const internalOnChange = (
-        e:
-          | React.ChangeEvent<HTMLInputElement>
-          | React.ChangeEvent<HTMLTextAreaElement>
-      ) => {
+      const internalOnChange = (e) => {
         setFinalValue(e.target.value);
         onChange && onChange(e);
       };

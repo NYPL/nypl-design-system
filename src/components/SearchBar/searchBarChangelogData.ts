@@ -18,6 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Removes role=search on the component wrapper.",
       "Removes use of `useNYPLBreakpoints` and replaces `aria-label` with screenreader only styles.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes `action`, `method`, and `onSubmit` props (as HTML equivalents may be used) and updates docs.",
     ],
   },
   {

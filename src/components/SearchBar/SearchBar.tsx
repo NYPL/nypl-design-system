@@ -1,11 +1,12 @@
 import {
   Box,
-  ChakraComponent,
   chakra,
+  ChakraComponent,
+  ChakraProps,
   useMultiStyleConfig,
   BoxProps,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { FormHTMLAttributes, forwardRef } from "react";
 
 import Button from "../Button/Button";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
@@ -51,9 +52,9 @@ export type TextInputProps = Pick<InitialInputProps, "labelText" | "name"> &
     >
   >;
 
-export interface SearchBarProps extends BoxProps {
-  /** Adds 'action' property to the `form` element. */
-  action?: string;
+export interface SearchBarProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<FormHTMLAttributes<HTMLFormElement>, "color"> {
   /** The onClick callback function for the `Button` component. */
   buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** Optional string for the SearchBar's description above the component. */
@@ -77,13 +78,9 @@ export interface SearchBarProps extends BoxProps {
   isRequired?: boolean;
   /** Populates the `aria-label` attribute on the form element. */
   labelText: string;
-  /** Adds 'method' property to the `form` element. */
-  method?: string;
   /** Sets the `Button` variant type to `noBrand` when true;
    * false by default which sets the type to `primary`. */
   noBrandButtonType?: boolean;
-  /** Handler function when the form is submitted. */
-  onSubmit: (event: React.FormEvent) => void;
   /** Required props to render a `Select` element. */
   selectProps?: SelectProps | undefined;
   /** Custom input element to render instead of a `TextInput` element. */

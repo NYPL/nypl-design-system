@@ -3,13 +3,14 @@ import {
   BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   useStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, LabelHTMLAttributes } from "react";
 
-export interface LabelProps extends BoxProps {
-  /** The id of the html element that this `Label` is describing. */
-  htmlFor: string;
+export interface LabelProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<LabelHTMLAttributes<HTMLLabelElement>, "color"> {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Controls whether the label should be inline with the input it goes with.

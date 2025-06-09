@@ -4,15 +4,11 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, {
-  ButtonHTMLAttributes,
-  forwardRef,
-  useEffect,
-  useState,
-} from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import Icon from "../Icons/Icon";
 
@@ -26,11 +22,7 @@ export interface AccordionDataProps {
   panel: string | React.ReactNode;
 }
 
-type HTMLButtonAttributes = Pick<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  "aria-label"
->;
-export interface AccordionProps extends HTMLButtonAttributes {
+export interface AccordionProps extends Omit<BoxProps, "onChange"> {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
   /** ID that other components can cross reference for accessibility purposes */

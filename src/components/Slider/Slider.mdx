@@ -32,12 +32,15 @@ import { changelogData } from "./sliderChangelogData";
 The text input component doubles as a display for the slider's current value.
 For this type of component, the `value` prop must be a single number.
 
+If you are using the `Slider` in a form, pass an HTML `name` attribute for use
+in the form data.
+
 ## Component Props
 
 <Canvas of={SliderStories.WithControls} />
 
-The `Slider` composes a Chakra `Box` component, so you may pass
-any Chakra `Box` prop, as well as the props below.
+The `Slider` composes an HTML `input` element, so you may pass any HTML `input` attributes,
+as well any Chakra style props and the props below.
 
 <ArgTypes of={SliderStories.WithControls} />
 
@@ -57,7 +60,7 @@ visual label will be removed from the UI, but the value will still be used to
 generate the aria-label values for the previously mentioned internal
 elements.
 
-In addition to the `aria-label` attribute, the slider thumb will also contains
+In addition to the `aria-label` attribute, the slider thumb will also contain
 the `aria-valuemin`, `aria-valuemax`, `aria-orientation`, and `aria-valuenow`
 attributes.
 
