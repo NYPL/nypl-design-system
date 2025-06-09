@@ -56,16 +56,19 @@ export const fixedColumnStyles = (
   },
 });
 
-const tableTextSizes = (textSizeValue: string = "body1") => ({
-  columnHeading:
-    textSizeValue === "body1" ? "desktop.body.body2" : "desktop.caption",
-  tableBody:
-    textSizeValue === "body1"
-      ? "desktop.body.body1"
-      : textSizeValue === "body2"
-      ? "desktop.body.body2"
-      : "desktop.caption",
-});
+const tableTextSizes = (textSizeValue: string = "body1") => {
+  const fontSizeMap = {
+    body1: "desktop.body.body1",
+    body2: "desktop.body.body2",
+    caption: "desktop.caption",
+  };
+
+  return {
+    columnHeading:
+      textSizeValue === "body1" ? "desktop.body.body2" : "desktop.caption",
+    tableBody: fontSizeMap[textSizeValue],
+  };
+};
 
 export const baseTRStyles = (
   columnHeadersBackgroundColor = "",
