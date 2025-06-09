@@ -610,7 +610,7 @@ export const ComplexExample = () => {
             />
           </Box>
         </TemplateSidebar>
-        <TemplateMain>
+        <TemplateMain id="mainContent">
           <Heading
             overline="Example"
             subtitle="Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
@@ -714,7 +714,7 @@ export const ComplexExample = () => {
             />
           </Box>
         </TemplateSidebar>
-        <TemplateMain>
+        <TemplateMain id="mainContentTwo">
           <Heading level="h3" size="heading4" text="Heading after a breakout" />
           <Text>
             Maecenas faucibus mollis interdum. Integer posuere erat a ante

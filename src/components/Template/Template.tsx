@@ -34,11 +34,11 @@ const Template: ChakraComponent<
   React.PropsWithChildren<TemplateProps>
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<TemplateProps>>(
-    ({ children, variant = "full" }, ref?) => {
+    ({ children, variant = "full", ...rest }, ref?) => {
       const styles = useStyleConfig("Template", { variant });
 
       return (
-        <Box __css={styles} ref={ref}>
+        <Box __css={styles} ref={ref} {...rest}>
           {children}
         </Box>
       );
@@ -51,18 +51,30 @@ const Template: ChakraComponent<
  * (edge-to-edge). It is most useful for `Breadcrumbs`, `Hero`, or other
  * banner-like components.
  */
-const TemplateBreakout: React.FC<React.PropsWithChildren> = ({ children }) => {
+const TemplateBreakout: React.FC<React.PropsWithChildren> = ({
+  children,
+  ...rest
+}) => {
   const styles = useStyleConfig("TemplateBreakout", {});
 
-  return <Box __css={styles}>{children}</Box>;
+  return (
+    <Box __css={styles} {...rest}>
+      {children}
+    </Box>
+  );
 };
 
 /**
  * This optional component will span the full width of the content area and will
  * render content at a max width of 1280px.
  */
-const TemplateFull: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <Box className="reservoir-template-full">{children}</Box>
+const TemplateFull: React.FC<React.PropsWithChildren> = ({
+  children,
+  ...rest
+}) => (
+  <Box className="reservoir-template-full" {...rest}>
+    {children}
+  </Box>
 );
 
 /**
@@ -73,9 +85,10 @@ const TemplateFull: React.FC<React.PropsWithChildren> = ({ children }) => (
  */
 const TemplateMain: React.FC<React.PropsWithChildren<TemplateMainProps>> = ({
   children,
-  id = "mainContent",
+  // id = "mainContent",
+  ...rest
 }) => (
-  <Box as="main" className="reservoir-template-main" id={id}>
+  <Box as="main" className="reservoir-template-main" {...rest}>
     {children}
   </Box>
 );
@@ -86,8 +99,13 @@ const TemplateMain: React.FC<React.PropsWithChildren<TemplateMainProps>> = ({
  * component and the `variant` prop must be set to "sidebarLeft" or
  * "sidebarRight".
  */
-const TemplateSidebar: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <Box className="reservoir-template-sidebar">{children}</Box>
+const TemplateSidebar: React.FC<React.PropsWithChildren> = ({
+  children,
+  ...rest
+}) => (
+  <Box className="reservoir-template-sidebar" {...rest}>
+    {children}
+  </Box>
 );
 
 export {
