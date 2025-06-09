@@ -60,7 +60,12 @@ export interface NewsletterSignupProps {
   view?: NewsletterSignupViewType;
 }
 
-export type HighlightColorTypes = typeof highlightColorsArray[number];
+export const newsletterHighlightColorsArray = [
+  "ui.gray.medium",
+  ...highlightColorsArray,
+];
+
+export type HighlightColorTypes = typeof newsletterHighlightColorsArray[number];
 
 export type NewsletterSignupViewType =
   | "form"

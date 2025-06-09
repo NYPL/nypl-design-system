@@ -2,11 +2,13 @@ import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Box, VStack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
-import NewsletterSignup, { NewsletterSignupViewType } from "./NewsletterSignup";
+import NewsletterSignup, {
+  newsletterHighlightColorsArray,
+  NewsletterSignupViewType,
+} from "./NewsletterSignup";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
-import { highlightColorsArray } from "../../theme/sharedTypes";
 
 const meta: Meta<typeof NewsletterSignup> = {
   title: "Components/Form Elements/NewsletterSignup",
@@ -37,14 +39,14 @@ const meta: Meta<typeof NewsletterSignup> = {
     id: { control: false },
     highlightColor: {
       control: "select",
-      options: highlightColorsArray,
+      options: newsletterHighlightColorsArray,
       table: {
         type: {
           /** Overrides the imported type from the component file */
           summary: "HighlightColorTypes",
           /**  Makes the type in the description column
            a cute dropdown list of all options */
-          detail: `${highlightColorsArray
+          detail: `${newsletterHighlightColorsArray
             .map((color) => `${color}\n`)
             .join("")}`,
         },
