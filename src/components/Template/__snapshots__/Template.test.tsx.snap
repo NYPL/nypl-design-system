@@ -2,7 +2,7 @@
 
 exports[`Template components renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -60,7 +60,7 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
 
 exports[`Template components renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -118,7 +118,7 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
 
 exports[`Template components renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -167,7 +167,7 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
 
 exports[`Template components renders the UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
     className="css-0"
@@ -216,11 +216,10 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
 
 exports[`Template components renders the UI snapshot correctly 5`] = `
 <div
-  className="css-0"
+  className="css-kle7zy"
 >
   <main
     className="reservoir-template-main css-0"
-    id="mainContent"
   >
     <div
       className="placeholder placeholder--undefined"
@@ -238,11 +237,11 @@ exports[`Template components renders the UI snapshot correctly 5`] = `
 
 exports[`Template components renders the UI snapshot correctly 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
+  data-testid="props"
 >
   <main
     className="reservoir-template-main css-0"
-    id="mainContent"
   >
     <div
       className="placeholder placeholder--undefined"

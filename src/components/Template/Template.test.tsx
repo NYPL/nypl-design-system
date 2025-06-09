@@ -33,7 +33,7 @@ const templateComponents = (variant: TemplateVariant = "full") => (
         <Placeholder>{sidebarLabel(variant)}</Placeholder>
       </TemplateSidebar>
     )}
-    <TemplateMain>{contentMain}</TemplateMain>
+    <TemplateMain id="mainContent">{contentMain}</TemplateMain>
     {variant === "sidebarRight" && (
       <TemplateSidebar>
         <Placeholder>{sidebarLabel(variant)}</Placeholder>
