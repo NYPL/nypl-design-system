@@ -7,8 +7,6 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-import { checkListChildrenError } from "../List/List";
-
 export const textSizesArray = ["default", "body1", "body2", "caption"] as const;
 export type StyledListTextSizes = typeof textSizesArray[number];
 
@@ -62,14 +60,6 @@ export const StyledList: ChakraComponent<
       );
       return null;
     }
-
-    // Makes sure that the passed children elements are `li` elements but
-    // it is not enforced. Only a warning is logged to the console.
-    checkListChildrenError({
-      children,
-      listType: "ul",
-      componentName: "StyledList",
-    });
 
     finalChildren =
       children || listItems.map((item, i) => <li key={i}>{item}</li>);

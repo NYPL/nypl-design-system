@@ -18,6 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `tag` and `mini` values from `textSizesArray`.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes explicit `children` prop as its not required when React.PropsWithChildren is used.",
+      "Removes `checkListChildrenError` function that logs a warning.",
     ],
   },
   {

@@ -123,33 +123,18 @@ export const Layout: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <VStack align="left" spacing="l">
-      <Box>
-        <Heading level="h3" size="heading6">
-          ButtonGroup isDisabled
-        </Heading>
-        <ButtonGroup isDisabled>
-          <Button buttonType="secondary" id="group-disabled-1">
-            Button disabled
-          </Button>
-          <Button buttonType="secondary" id="group-disabled-2">
-            Button disabled
-          </Button>
-        </ButtonGroup>
-      </Box>
-      <Box>
-        <Heading level="h3" size="heading6">
-          Individual Button isDisabled
-        </Heading>
-        <ButtonGroup>
-          <Button buttonType="secondary" id="individual-disabled-1">
-            Button not disabled
-          </Button>
-          <Button buttonType="secondary" id="individual-disabled-2" isDisabled>
-            Button disabled
-          </Button>
-        </ButtonGroup>
-      </Box>
-    </VStack>
+    <Box>
+      <Heading level="h3" size="heading6">
+        isDisabled Set on Second Button
+      </Heading>
+      <ButtonGroup>
+        <Button buttonType="secondary" id="individual-disabled-1">
+          Button not disabled
+        </Button>
+        <Button buttonType="secondary" id="individual-disabled-2" isDisabled>
+          Button disabled
+        </Button>
+      </ButtonGroup>
+    </Box>
   ),
 };

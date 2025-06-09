@@ -123,40 +123,14 @@ export const List: ChakraComponent<
       }
       return null;
     };
-    /**
-     * Checks for `dt` and `dd` elements and consoles a warning if the
-     * children are different HTML elements.
-     */
-    const checkDescriptionChildrenError = () => {
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement) => {
-          if (
-            child.type !== "dt" &&
-            child.type !== "dd" &&
-            child.type !== React.Fragment &&
-            child.props.mdxType !== "dt" &&
-            child.props.mdxType !== "dd" &&
-            child.props.mdxType !== React.Fragment
-          ) {
-            console.warn(
-              "NYPL Reservoir List: Direct children of `List` (description) must " +
-                "be `<dt>`s and `<dd>`s."
-            );
-          }
-        }
-      );
-    };
 
     if (type === "ol" || type === "ul") {
-      checkListChildrenError({ children, listType: type });
       listElement = (
         <Box as={type as As} id={id} ref={ref} __css={styles.base} {...rest}>
           {listChildrenElms(type)}
         </Box>
       );
     } else if (type === "dl") {
-      checkDescriptionChildrenError();
       listElement = (
         <Box as="section" id={id} ref={ref} __css={styles.base} {...rest}>
           {finalTitle}
@@ -168,27 +142,5 @@ export const List: ChakraComponent<
     return listElement;
   })
 );
-
-/**
- * Checks for `li` elements and consoles a warning if the
- * children are different HTML elements.
- */
-export const checkListChildrenError = ({
-  children,
-  listType = "ul",
-  componentName = "List",
-}: {
-  children: React.ReactNode;
-  listType?: ListTypes;
-  componentName?: string;
-}) => {
-  React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
-    if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
-      console.warn(
-        `NYPL Reservoir ${componentName}: Direct children of \`${componentName}\` (${listType}) must be \`<li>\`s.`
-      );
-    }
-  });
-};
 
 export default List;
