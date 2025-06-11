@@ -8,9 +8,10 @@ import {
   chakra,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useState } from "react";
+import { createRef, forwardRef, useEffect, useState } from "react";
 
 import Icon from "../Icons/Icon";
+import { generateComponentId } from "../../utils/utils";
 
 export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
@@ -25,8 +26,6 @@ export interface AccordionDataProps {
 export interface AccordionProps extends Omit<BoxProps, "onChange"> {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
   isDefaultOpen?: boolean;
   /** Whether the contents of the Accordion should always be rendered.
@@ -46,20 +45,20 @@ export interface AccordionProps extends Omit<BoxProps, "onChange"> {
  * Get the minus or plus icon depending on whether the accordion is open or closed.
  */
 const getIcon = ({
-  isExpanded = false,
-  index,
   id,
+  index,
+  isExpanded = false,
 }: {
-  isExpanded?: boolean;
-  index: number;
   id: string;
+  index: number;
+  isExpanded?: boolean;
 }) => {
   const iconName = isExpanded ? "minus" : "plus";
   return (
     <Icon
       className="accordion-icon"
       color="currentColor"
-      id={`accordion-${id}-icon-${index}`}
+      id={`${id}-icon-${index}`}
       name={iconName}
       size="small"
     />
@@ -72,20 +71,20 @@ const getIcon = ({
  * combination that is required for the Chakra `Accordion` component.
  */
 const getElementsFromData = ({
-  data = [],
   ariaLabel,
+  data = [],
+  hoveredButtonIndex,
   id,
   isAlwaysRendered = false,
   panelMaxHeight,
-  hoveredButtonIndex,
   setHoveredButtonIndex,
 }: {
-  data?: AccordionDataProps[];
   ariaLabel: string;
+  data?: AccordionDataProps[];
+  hoveredButtonIndex: number;
   id: string;
   isAlwaysRendered?: boolean;
   panelMaxHeight: string;
-  hoveredButtonIndex: number;
   setHoveredButtonIndex: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   const colorMapLight = {
@@ -235,7 +234,6 @@ const getElementsFromData = ({
  * Accordion component that shows content on toggle. Can be used to display
  * multiple accordion items together.
  */
-
 export const Accordion: ChakraComponent<
   React.ForwardRefExoticComponent<
     AccordionProps & React.RefAttributes<HTMLDivElement>
@@ -254,6 +252,8 @@ export const Accordion: ChakraComponent<
       ...rest
     } = props;
 
+    const mainId = generateComponentId("accordion", id);
+
     // Pass `0` to open the first accordion in the 0-index based array.
     const [expandedPanels, setExpandedPanels] = useState<number[]>(
       isDefaultOpen ? [0] : []
@@ -267,7 +267,7 @@ export const Accordion: ChakraComponent<
     // buttons, add them now.
     const updatedAccordionData = accordionData.map((item) => ({
       ...item,
-      buttonInteractionRef: item.buttonInteractionRef || React.createRef(),
+      buttonInteractionRef: item.buttonInteractionRef || createRef(),
     }));
 
     const handleKeyDown = (e) => {
@@ -313,14 +313,14 @@ export const Accordion: ChakraComponent<
         index={expandedPanels}
         onChange={(expandedIdxs: number[]) => setExpandedPanels(expandedIdxs)}
         onKeyDown={handleKeyDown}
-        id={id}
+        id={mainId}
         ref={ref}
         {...rest}
       >
         {getElementsFromData({
           data: updatedAccordionData,
           ariaLabel,
-          id,
+          id: mainId,
           isAlwaysRendered,
           panelMaxHeight,
           hoveredButtonIndex,

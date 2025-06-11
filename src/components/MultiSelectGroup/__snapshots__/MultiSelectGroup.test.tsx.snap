@@ -20,19 +20,19 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-colors"
+        id="ds-accordion-multi-select-accordion-colors"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
+            aria-controls="accordion-panel-ds-accordion-multi-select-accordion-colors-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-colors-item-0"
+            id="accordion-button-ds-accordion-multi-select-accordion-colors-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -55,7 +55,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
               className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-colors-icon-0"
+              id="ds-accordion-multi-select-accordion-colors-icon-0"
               role="img"
               title="plus icon"
             />
@@ -72,9 +72,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-colors-item-0"
+              aria-labelledby="accordion-button-ds-accordion-multi-select-accordion-colors-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-colors-item-0"
+              id="accordion-panel-ds-accordion-multi-select-accordion-colors-item-0"
               role="region"
             >
               <div
@@ -281,19 +281,19 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-pets"
+        id="ds-accordion-multi-select-accordion-pets"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
+            aria-controls="accordion-panel-ds-accordion-multi-select-accordion-pets-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-pets-item-0"
+            id="accordion-button-ds-accordion-multi-select-accordion-pets-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -316,7 +316,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
               className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-pets-icon-0"
+              id="ds-accordion-multi-select-accordion-pets-icon-0"
               role="img"
               title="plus icon"
             />
@@ -333,9 +333,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-pets-item-0"
+              aria-labelledby="accordion-button-ds-accordion-multi-select-accordion-pets-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-pets-item-0"
+              id="accordion-panel-ds-accordion-multi-select-accordion-pets-item-0"
               role="region"
             >
               <div
@@ -701,19 +701,19 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-tools"
+        id="ds-accordion-multi-select-accordion-tools"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
+            aria-controls="accordion-panel-ds-accordion-multi-select-accordion-tools-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-tools-item-0"
+            id="accordion-button-ds-accordion-multi-select-accordion-tools-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -736,7 +736,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
               className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-tools-icon-0"
+              id="ds-accordion-multi-select-accordion-tools-icon-0"
               role="img"
               title="plus icon"
             />
@@ -753,9 +753,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-tools-item-0"
+              aria-labelledby="accordion-button-ds-accordion-multi-select-accordion-tools-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-tools-item-0"
+              id="accordion-panel-ds-accordion-multi-select-accordion-tools-item-0"
               role="region"
             >
               <div
@@ -1138,19 +1138,19 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-colors"
+        id="ds-accordion-multi-select-accordion-colors"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
+            aria-controls="accordion-panel-ds-accordion-multi-select-accordion-colors-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-colors-item-0"
+            id="accordion-button-ds-accordion-multi-select-accordion-colors-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1173,7 +1173,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
               className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-colors-icon-0"
+              id="ds-accordion-multi-select-accordion-colors-icon-0"
               role="img"
               title="plus icon"
             />
@@ -1190,9 +1190,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-colors-item-0"
+              aria-labelledby="accordion-button-ds-accordion-multi-select-accordion-colors-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-colors-item-0"
+              id="accordion-panel-ds-accordion-multi-select-accordion-colors-item-0"
               role="region"
             >
               <div
@@ -1399,19 +1399,19 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-pets"
+        id="ds-accordion-multi-select-accordion-pets"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
+            aria-controls="accordion-panel-ds-accordion-multi-select-accordion-pets-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-pets-item-0"
+            id="accordion-button-ds-accordion-multi-select-accordion-pets-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1434,7 +1434,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
               className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-pets-icon-0"
+              id="ds-accordion-multi-select-accordion-pets-icon-0"
               role="img"
               title="plus icon"
             />
@@ -1451,9 +1451,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-pets-item-0"
+              aria-labelledby="accordion-button-ds-accordion-multi-select-accordion-pets-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-pets-item-0"
+              id="accordion-panel-ds-accordion-multi-select-accordion-pets-item-0"
               role="region"
             >
               <div
@@ -1819,19 +1819,19 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-tools"
+        id="ds-accordion-multi-select-accordion-tools"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
+            aria-controls="accordion-panel-ds-accordion-multi-select-accordion-tools-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-tools-item-0"
+            id="accordion-button-ds-accordion-multi-select-accordion-tools-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1854,7 +1854,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
               className="chakra-icon accordion-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-tools-icon-0"
+              id="ds-accordion-multi-select-accordion-tools-icon-0"
               role="img"
               title="plus icon"
             />
@@ -1871,9 +1871,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-tools-item-0"
+              aria-labelledby="accordion-button-ds-accordion-multi-select-accordion-tools-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-tools-item-0"
+              id="accordion-panel-ds-accordion-multi-select-accordion-tools-item-0"
               role="region"
             >
               <div

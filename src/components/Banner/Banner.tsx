@@ -5,11 +5,12 @@ import {
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useState } from "react";
+import { cloneElement, forwardRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 import Icon, { IconProps } from "../Icons/Icon";
+import { generateComponentId } from "../../utils/utils";
 
 export const bannerTypesArray = [
   "informative",
@@ -86,8 +87,6 @@ export interface BannerProps extends Omit<BoxProps, "content"> {
   highlightColor?: BannerHighlightColors;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional prop to control whether a `Banner` can be dismissed
    * (closed) by a user. */
   isDismissible?: boolean;
@@ -150,6 +149,7 @@ export const Banner: ChakraComponent<
     } = props;
     const [isOpen, setIsOpen] = useState(true);
     const handleClose = () => setIsOpen(false);
+    const mainId = generateComponentId("banner", id);
     const overrideType = !!(backgroundColor && highlightColor);
     const styles = useMultiStyleConfig("Banner", {
       // Only set the custom `backgroundColor` and `highlightColor` values
@@ -175,19 +175,19 @@ export const Banner: ChakraComponent<
       typeof heading === "string" ? (
         <Heading level="h2" text={heading} {...generalHeadingProps} />
       ) : (
-        React.cloneElement(heading, generalHeadingProps)
+        cloneElement(heading, generalHeadingProps)
       )
     ) : null;
     const dismissibleButton = (
       <Button
         aria-label="Close the banner"
         buttonType="text"
-        id={`${id}-dismissible-button`}
+        id={`${mainId}-dismissible-button`}
         onClick={handleClose}
         __css={styles.dismissibleButton}
       >
         <Icon
-          data-testid={`${id}-dismissible-icon`}
+          data-testid={`${mainId}-dismissible-icon`}
           name="close"
           size="large"
           title="Banner close icon"
@@ -197,7 +197,7 @@ export const Banner: ChakraComponent<
     const finalIcon = icon || (
       <Icon
         className="banner-icon"
-        data-testid={`${id}-banner-icon`}
+        data-testid={`${mainId}-banner-icon`}
         title="Banner announcement icon"
         size="large"
         {...iconProps[type]}
@@ -229,7 +229,7 @@ export const Banner: ChakraComponent<
       <Box
         as="aside"
         data-type={type}
-        id={id}
+        id={mainId}
         ref={ref}
         __css={styles.base}
         {...rest}

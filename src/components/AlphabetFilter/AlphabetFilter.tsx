@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import {
   Box,
   BoxProps,
@@ -8,8 +8,10 @@ import {
   useColorModeValue,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+
 import { Button } from "../Button/Button";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { generateComponentId } from "../../utils/utils";
 
 export interface AlphabetFilterProps extends Omit<BoxProps, "onClick"> {
   /** Array of letters to specify which `Button` components should be set in an `enabled`
@@ -24,8 +26,6 @@ export interface AlphabetFilterProps extends Omit<BoxProps, "onClick"> {
    * a DS Heading component that can be passed in.
    */
   headingText?: string | JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Adds the `disabled` prop to the AlphabetFilter when true. */
   isDisabled?: boolean;
   /** The callback function called when a letter button or the Show All button is clicked. */
@@ -51,7 +51,7 @@ export const AlphabetFilter: ChakraComponent<
     } = props;
 
     const styles = useMultiStyleConfig("AlphabetFilter", {});
-
+    const mainId = generateComponentId("alphabetFilter", id);
     const filterButtons = [
       { text: "#", value: "#" },
       { text: "A", value: "a" },
@@ -82,13 +82,12 @@ export const AlphabetFilter: ChakraComponent<
       { text: "Z", value: "z" },
       { text: "Show All", value: "showAll" },
     ];
-
     const refCurrentLetter = useRef(currentLetter);
     const [selectedLetter, setSelectedLetter] = useState<string>(currentLetter);
 
     // If the parent passes down a new currentLetter, then set the internal state – selectedLetter –
     // to the new currentLetter and update the refCurrentLetter with that value.
-    React.useEffect(() => {
+    useEffect(() => {
       if (currentLetter && currentLetter !== refCurrentLetter.current) {
         setSelectedLetter(currentLetter);
         refCurrentLetter.current = currentLetter;
@@ -141,7 +140,7 @@ export const AlphabetFilter: ChakraComponent<
             item.text === "Show All" ? item.text : "Page " + item.text
           }
           buttonType="text"
-          id={`filter-${item.value}`}
+          id={`${mainId}-filter-${item.value}`}
           isDisabled={isButtonDisabled}
           key={item.value}
           sx={buttonStyles}
@@ -161,13 +160,13 @@ export const AlphabetFilter: ChakraComponent<
     };
 
     return (
-      <Box as="nav" ref={ref} aria-label="Filter by letter">
+      <Box as="nav" id={mainId} ref={ref} aria-label="Filter by letter">
         <ComponentWrapper
-          id={id}
-          __css={styles}
-          {...rest}
+          // @TODO update id so it doesn't render undefined
           headingText={headingText ? headingText : undefined}
           descriptionText={descriptionText ? descriptionText : undefined}
+          __css={styles}
+          {...rest}
         >
           <Flex wrap="wrap">{getFilterLetters()}</Flex>
         </ComponentWrapper>

@@ -3,18 +3,18 @@
 exports[`Accordion Renders the UI snapshot correctly 1`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
-  id="accordian"
+  id="ds-accordion-accordian"
   onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
   >
     <button
-      aria-controls="accordion-panel-accordian-item-0"
+      aria-controls="accordion-panel-ds-accordion-accordian-item-0"
       aria-expanded={false}
       className="chakra-accordion__button css-1rvudez"
       disabled={false}
-      id="accordion-button-accordian-item-0"
+      id="accordion-button-ds-accordion-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -32,7 +32,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="ds-accordion-accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -44,18 +44,18 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
 exports[`Accordion Renders the UI snapshot correctly 2`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
-  id="accordian"
+  id="ds-accordion-accordian"
   onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
   >
     <button
-      aria-controls="accordion-panel-accordian-item-0"
+      aria-controls="accordion-panel-ds-accordion-accordian-item-0"
       aria-expanded={false}
       className="chakra-accordion__button css-1rvudez"
       disabled={false}
-      id="accordion-button-accordian-item-0"
+      id="accordion-button-ds-accordion-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -73,7 +73,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="ds-accordion-accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -85,18 +85,18 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
 exports[`Accordion Renders the UI snapshot correctly 3`] = `
 <div
   className="chakra-accordion css-1t0bvx9"
-  id="accordian"
+  id="ds-accordion-accordian"
   onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
   >
     <button
-      aria-controls="accordion-panel-accordian-item-0"
+      aria-controls="accordion-panel-ds-accordion-accordian-item-0"
       aria-expanded={false}
       className="chakra-accordion__button css-1rvudez"
       disabled={false}
-      id="accordion-button-accordian-item-0"
+      id="accordion-button-ds-accordion-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -114,7 +114,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="ds-accordion-accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -127,18 +127,18 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
   data-testid="testid"
-  id="accordian"
+  id="ds-accordion-accordian"
   onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
   >
     <button
-      aria-controls="accordion-panel-accordian-item-0"
+      aria-controls="accordion-panel-ds-accordion-accordian-item-0"
       aria-expanded={false}
       className="chakra-accordion__button css-1rvudez"
       disabled={false}
-      id="accordion-button-accordian-item-0"
+      id="accordion-button-ds-accordion-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -156,7 +156,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="ds-accordion-accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -168,18 +168,18 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
 exports[`Accordion Renders the UI snapshot correctly 5`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
-  id="accordian"
+  id="ds-accordion-accordian"
   onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
   >
     <button
-      aria-controls="accordion-panel-accordian-item-0"
+      aria-controls="accordion-panel-ds-accordion-accordian-item-0"
       aria-expanded={false}
       className="chakra-accordion__button css-1rvudez"
       disabled={false}
-      id="accordion-button-accordian-item-0"
+      id="accordion-button-ds-accordion-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -197,7 +197,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="ds-accordion-accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -209,18 +209,18 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
 exports[`Accordion Renders the UI snapshot correctly 6`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
-  id="accordian"
+  id="ds-accordion-accordian"
   onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
   >
     <button
-      aria-controls="accordion-panel-accordian-item-0"
+      aria-controls="accordion-panel-ds-accordion-accordian-item-0"
       aria-expanded={false}
       className="chakra-accordion__button css-19i7nb2"
       disabled={false}
-      id="accordion-button-accordian-item-0"
+      id="accordion-button-ds-accordion-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -238,7 +238,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="ds-accordion-accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -250,18 +250,18 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
 exports[`Accordion Renders the UI snapshot correctly 7`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
-  id="accordian"
+  id="ds-accordion-accordian"
   onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
   >
     <button
-      aria-controls="accordion-panel-accordian-item-0"
+      aria-controls="accordion-panel-ds-accordion-accordian-item-0"
       aria-expanded={false}
       className="chakra-accordion__button css-k7suym"
       disabled={false}
-      id="accordion-button-accordian-item-0"
+      id="accordion-button-ds-accordion-accordian-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -279,7 +279,7 @@ exports[`Accordion Renders the UI snapshot correctly 7`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="ds-accordion-accordian-icon-0"
         role="img"
         title="plus icon"
       />

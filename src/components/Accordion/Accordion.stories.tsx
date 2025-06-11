@@ -138,7 +138,6 @@ const meta: Meta<typeof Accordion> = {
         faqData: faqContentData,
       },
     },
-    id: { control: false },
     isDefaultOpen: argsBooleanType(),
     isAlwaysRendered: argsBooleanType(),
     panelMaxHeight: { control: { type: "text" } },
@@ -155,7 +154,6 @@ type Story = StoryObj<typeof Accordion>;
 export const WithControls: Story = {
   args: {
     accordionData,
-    id: "accordion-id",
     isDefaultOpen: false,
     isAlwaysRendered: false,
     panelMaxHeight: undefined,

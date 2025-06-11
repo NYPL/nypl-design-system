@@ -220,3 +220,7 @@ export const getTextFromElement = (
   }
   return getTextFromElement(children);
 };
+
+export const generateComponentId = (name: string, id: string | undefined) => {
+  return `ds-${name}${id ? `-${id}` : ""}`;
+};

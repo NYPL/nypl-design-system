@@ -8,6 +8,7 @@ import {
 import React, { useState, forwardRef, useEffect } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
+import { generateComponentId } from "../../utils/utils";
 
 /*
  * List all the third-party services to be used for basic type checks
@@ -38,8 +39,6 @@ export interface AudioPlayerProps extends BoxProps {
   headingText?: string | JSX.Element;
   /** Optional string to set the text for a `HelperErrorText` component. */
   helperText?: string;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional title to added to the `<iframe>` element for improved accessibility. If omitted, a
    * generic title will be added.
    */
@@ -69,7 +68,7 @@ export const AudioPlayer: ChakraComponent<
         iframeTitle = null,
         ...rest
       } = props;
-
+      const mainId = generateComponentId("audioPlayer", id);
       const [invalidEmbed, setInvalidEmbed] = useState<boolean>(false);
       const [iframeDoc, setIframeDoc] = useState<HTMLIFrameElement | undefined>(
         undefined
@@ -140,7 +139,7 @@ export const AudioPlayer: ChakraComponent<
           headingText={headingText}
           descriptionText={descriptionText}
           helperText={helperText}
-          id={`${id}-componentWrapper`}
+          id={mainId}
           data-testid="audio-player-component"
           ref={ref}
           __css={styles.base}
