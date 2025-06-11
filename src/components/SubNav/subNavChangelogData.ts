@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes explicit `children` prop as its not required when React.PropsWithChildren is used.",
+    ],
+  },
+  {
     date: "2025-04-24",
     version: "3.6.1",
     type: "Update",

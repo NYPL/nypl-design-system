@@ -9,10 +9,10 @@ import Link from "../Link/Link";
 
 # Form
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.23.2`   |
-| Latest            | `3.5.2`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.23.2`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -32,9 +32,14 @@ handle layout and spacing for child input fields. `FormRow` and `FormField`
 components should be used to build the `<form>` structure and to arrange input
 fields as needed.
 
+For forms submitted without JavaScript, pass `action` and `method` attributes
+to specify where form data should be sent and the method by which the form will
+be submitted ("get" or "post"). Otherwise, you may put this information in
+the `button`'s `onSubmit` function.
+
 <Source
   code={`
-<Form id="form-id">
+<Form id="form-id" action="/end/point" method="get">
   <FormRow>
     <FormField>{/* ... */}</FormField>
   </FormRow>
@@ -56,13 +61,17 @@ need to render multiple input components in a horizontal row.
 
 <Canvas of={FormStories.WithControls} />
 
+`Form` composes an HTML `form` element, so you may pass any HTML `form` attributes,
+as well as any Chakra style props and the props below.
+
 <ArgTypes of={FormStories.WithControls} />
 
 ## Accessibility
 
 The `Form` component renders a standard `<form>` element and should be used to
 wrap all form elements. A `Form` should have a `Button` component with a `type`
-of `submit` to submit the form to a server through the `Form`'s `action` prop.
+of `submit` and an `action` attribute to specify where the form data should be
+sent.
 
 Note: An `aria-label` is not required. If one is needed, make sure it is descriptive.
 

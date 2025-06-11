@@ -89,7 +89,11 @@ const MultiSelectTestComponent = ({
       selectedItems={selectedItems}
       onChange={(e) => onChange(e.target.id, multiSelectId)}
       onMixedStateChange={(e) => {
-        onMixedStateChange(e.target.id, multiSelectId, items);
+        onMixedStateChange({
+          parentId: e.target.id,
+          multiSelectId: multiSelectId,
+          items,
+        });
       }}
       onClear={() => onClear(multiSelectId)}
     />

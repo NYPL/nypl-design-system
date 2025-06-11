@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
@@ -19,12 +20,10 @@ export type BannerTypes = typeof messageVariantsArray[number];
 export type BannerBgColors = typeof bgColorsArray[number];
 export type BannerHighlightColors = typeof highlightColorsArray[number];
 
-export interface BannerProps {
+export interface BannerProps extends Omit<BoxProps, "content"> {
   /** Used to set the color of the background for the full component.
    * Refer to how color values are defined and typed in the DS Icon component. */
   backgroundColor?: BannerBgColors;
-  /** Additional `className` to add. */
-  className?: string;
   /** Used to populate the body content of the component. */
   content: string | JSX.Element;
   /** Used to populate the heading element within the component.  A string
@@ -89,7 +88,6 @@ export const Banner: ChakraComponent<
   forwardRef<HTMLDivElement, BannerProps>((props, ref?) => {
     const {
       backgroundColor,
-      className,
       content,
       heading,
       highlightColor,
@@ -179,7 +177,6 @@ export const Banner: ChakraComponent<
     return (
       <Box
         as="aside"
-        className={className}
         data-type={type}
         id={id}
         ref={ref}

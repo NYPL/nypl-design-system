@@ -10,7 +10,6 @@ const meta: Meta<typeof Notification> = {
   title: "Components/Feedback/Notification",
   component: Notification,
   argTypes: {
-    className: { control: false },
     dismissible: {
       table: { defaultValue: { summary: "false" } },
     },
@@ -39,7 +38,6 @@ type Story = StoryObj<typeof Notification>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     dismissible: false,
     icon: undefined,
     id: "notification-id",

@@ -11,8 +11,6 @@ const meta: Meta<typeof Logo> = {
   title: "Components/Media & Icons/Logo",
   component: Logo,
   argTypes: {
-    children: { table: { disable: true } },
-    className: { control: false },
     decorative: argsBooleanType(),
     id: { control: false },
     name: {
@@ -45,7 +43,6 @@ type Story = StoryObj<typeof Logo>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     decorative: true,
     id: "logo-id",
     name: "nyplFullBlack",

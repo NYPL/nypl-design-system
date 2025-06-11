@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Removes deprecated `darkMode` prop."],
+    notes: [
+      "Removes deprecated `darkMode` prop.",
+      "Extends prop interface to include Chakra props or HTML attributes.",
+    ],
   },
   {
     date: "2025-04-10",

@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   ChakraComponent,
   Flex,
@@ -15,9 +16,7 @@ import TagSetFilter, {
   TagSetFilterProps,
 } from "./TagSetFilter";
 
-export interface BaseTagSetProps {
-  /** Additional class for the component. */
-  className?: string;
+export interface BaseTagSetProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
 }
@@ -52,7 +51,6 @@ export const TagSet: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, TagSetProps>((props: TagSetProps, ref?) => {
     const {
-      className,
       id,
       isDismissible = false,
       onClick,
@@ -76,7 +74,7 @@ export const TagSet: ChakraComponent<
     }
 
     return (
-      <Flex className={className} id={id} ref={ref} __css={styles} {...rest}>
+      <Flex id={id} ref={ref} __css={styles} {...rest}>
         {!isFilterType(type) && (
           <TagSetExplore
             tagSetData={tagSetData as TagSetExploreDataProps[]}

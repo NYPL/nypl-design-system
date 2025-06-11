@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
@@ -16,11 +17,9 @@ const thirdPartyServices = ["libsyn", "soundcloud", "spotify"] as const;
 export type ThirdPartyAudioType = typeof thirdPartyServices[number];
 export type AudioType = ThirdPartyAudioType | "file";
 
-export interface AudioPlayerProps {
+export interface AudioPlayerProps extends BoxProps {
   /** Required string used to specify the type of audio playback. */
   audioType: AudioType;
-  /** Optional className you can add in addition to `audio-player`. */
-  className?: string;
   /** Optional string to set the text for the audio player description. */
   descriptionText?: string;
   /** Optional string to set a code snippet provided by Libsyn, SoundCloud or Spotify; the

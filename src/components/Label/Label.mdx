@@ -9,10 +9,10 @@ import Link from "../Link/Link";
 
 # Label
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.10`   |
-| Latest            | `3.5.5`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.10`     |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -31,18 +31,22 @@ import Link from "../Link/Link";
 
 <Canvas of={LabelStories.WithControls} />
 
+`Label` composes an HTML `label` element, so you may pass any HTML `label` attributes,
+as well as any of the Chakra style props and the props below.
+
 <ArgTypes of={LabelStories.WithControls} />
 
 ## Accessibility
 
-The `Label` component is an accessible HTML `<label>` element. The JSX prop
-`htmlFor` should be set to the `id` of the input element that the label is
-associated with. This is the proper way to label inputs so that screenreaders
-can read the label, without the use of the `aria-label` attribute on the input
-element.
+The `Label` component renders an HTML `<label>` element.
+
+The HTML attribute `htmlFor` must be set to the `id` of the input element
+that the label is associated with. This is the proper way to label inputs
+so that screenreaders can read the label, without the use of the `aria-label`
+attribute on the input element.
 
 Note: All form-related Reservoir components already implement this `Label`
-component so there is no need to use this component unless if you are building
+component so there is no need to use this component unless you are building
 a new form-related input component.
 
 Resources:

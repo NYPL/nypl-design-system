@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useColorMode,
@@ -49,9 +50,7 @@ type NotificationContentProps = Omit<BaseProps, "icon">;
 // Used for `Notification`
 type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
 
-export interface NotificationProps extends BasePropsWithoutAlignText {
-  /** Additional `className` to add. */
-  className?: string;
+export interface NotificationProps extends BasePropsWithoutAlignText, BoxProps {
   /** Optional prop to control whether a `Notification` can be dismissed
    * (closed) by a user. */
   dismissible?: boolean;

@@ -12,7 +12,6 @@ const meta: Meta<typeof SubNav> = {
   title: "Components/Navigation/SubNav",
   component: SubNav,
   argTypes: {
-    className: { control: false },
     actionBackgroundColor: {
       control: "select",
       options: bgColorsArray,
@@ -35,7 +34,6 @@ const subNavButtonOnClick = (msg: string = "the button was clicked") => {
 
 export const WithControls: Story = {
   args: {
-    className: undefined,
     actionBackgroundColor: undefined,
     highlightColor: undefined,
     id: "subnav-with-controls",

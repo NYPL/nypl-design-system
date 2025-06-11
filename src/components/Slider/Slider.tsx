@@ -1,7 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   RangeSlider as ChakraRangeSlider,
   RangeSliderFilledTrack as ChakraRangeSliderFilledTrack,
   RangeSliderThumb as ChakraRangeSliderThumb,
@@ -12,7 +14,7 @@ import {
   SliderTrack as ChakraSliderTrack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, InputHTMLAttributes } from "react";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
@@ -20,9 +22,12 @@ import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
 import TextInput, { TextInputTypes } from "../TextInput/TextInput";
 
-export interface SliderProps {
-  /** Additional class name for the Slider component. */
-  className?: string;
+export interface SliderProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<
+      InputHTMLAttributes<HTMLInputElement>,
+      "color" | "defaultValue" | "height" | "onChange" | "value" | "width"
+    > {
   /** The initial value for the single `Slider` or an array of two number
    * values for the `isRangeSlider` case. */
   defaultValue?: number | number[];
@@ -88,7 +93,6 @@ export const Slider: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, SliderProps>((props, ref?) => {
     const {
-      className,
       defaultValue = 0,
       helperText,
       id,
@@ -321,7 +325,6 @@ export const Slider: ChakraComponent<
 
     return (
       <ComponentWrapper
-        className={className}
         helperText={helperText}
         id={id}
         invalidText={invalidText}

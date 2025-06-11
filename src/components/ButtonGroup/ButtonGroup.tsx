@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   ChakraComponent,
   Stack,
@@ -12,11 +13,9 @@ import { LayoutTypes } from "../../helpers/types";
 export const buttonGroupWidthsArray = ["default", "full"] as const;
 export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
 
-export interface ButtonGroupProps {
+export interface ButtonGroupProps extends BoxProps {
   /** Sets the width to "default" (for "fit-content") or "full". */
   buttonWidth?: ButtonGroupWidths;
-  /** Additional className to use. */
-  className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Set's the disabled state to all the internal `Button` components. */

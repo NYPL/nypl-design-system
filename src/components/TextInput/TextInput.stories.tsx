@@ -19,7 +19,6 @@ const meta: Meta<typeof TextInput> = {
       options: autoCompleteValuesArray,
       table: { defaultValue: { summary: "off" } },
     },
-    className: { control: false },
     defaultValue: { control: false },
     helperText: { control: "text" },
     id: { control: false },
@@ -69,7 +68,6 @@ export const WithControls: Story = {
   args: {
     additionalHelperTextIds: undefined,
     autoComplete: undefined,
-    className: undefined,
     defaultValue: undefined,
     helperText: "Choose wisely.",
     id: "textInput-id",
@@ -348,7 +346,6 @@ export const HTMLHelperText: Story = {
 export const Textarea: Story = {
   args: {
     additionalHelperTextIds: undefined,
-    className: undefined,
     defaultValue: undefined,
     helperText: "Let it all out.",
     id: "textarea",

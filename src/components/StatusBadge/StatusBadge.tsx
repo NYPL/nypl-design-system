@@ -1,4 +1,10 @@
-import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  chakra,
+  ChakraComponent,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 import { messageVariantsArray } from "../../theme/sharedTypes";
 
@@ -9,9 +15,7 @@ export const statusBadgeFontSizeArray = [
 ] as const;
 
 export type StatusBadgeTypes = typeof messageVariantsArray[number];
-export interface StatusBadgeProps {
-  /** Additional class for the component */
-  className?: string;
+export interface StatusBadgeProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Semantic type of the status badge. */
@@ -32,7 +36,7 @@ export const StatusBadge: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<StatusBadgeProps>>(
     (props, ref?) => {
-      const { children, className, id, type, ...rest } = props;
+      const { children, id, type, ...rest } = props;
       const styles = useStyleConfig("StatusBadge", {
         labelFontSize: rest["fontSize"],
         variant: type || "neutral",
@@ -43,7 +47,7 @@ export const StatusBadge: ChakraComponent<
       }
 
       return (
-        <Box id={id} className={className} ref={ref} __css={styles} {...rest}>
+        <Box id={id} ref={ref} __css={styles} {...rest}>
           {children}
         </Box>
       );

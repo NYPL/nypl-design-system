@@ -10,7 +10,6 @@ const meta: Meta<typeof StatusBadge> = {
   title: "Components/Content Display/StatusBadge",
   component: StatusBadge,
   argTypes: {
-    className: { control: false },
     fontSize: {
       description: "**Only used for Storybook** - Set the label font size.",
       table: { defaultValue: { summary: "desktop.body.body2" } },
@@ -35,7 +34,6 @@ type Story = StoryObj<typeof StatusBadge>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     fontSize: undefined,
     id: "statusBadge-id",
     type: undefined,

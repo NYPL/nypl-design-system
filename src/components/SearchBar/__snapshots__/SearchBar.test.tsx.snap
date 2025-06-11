@@ -25,7 +25,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
             aria-describedby="basic-helperText"
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input css-0"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-basic"
             name="textInputName"
@@ -40,7 +40,6 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
         </div>
       </div>
       <button
-        aria-label="Search"
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         id="searchbar-button-basic"
@@ -202,7 +201,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
             aria-describedby="withSelect-helperText"
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input css-0"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-withSelect"
             name="textInputName"
@@ -217,7 +216,6 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
         </div>
       </div>
       <button
-        aria-label=""
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         id="searchbar-button-withSelect"
@@ -281,7 +279,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
           <input
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input css-0"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-withoutHelperText"
             name="textInputName"
@@ -296,7 +294,6 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
         </div>
       </div>
       <button
-        aria-label="Search"
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         id="searchbar-button-withoutHelperText"
@@ -345,7 +342,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
             aria-describedby="withClearButton-helperText"
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input css-0"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-withClearButton"
             name="textInputName"
@@ -360,7 +357,6 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
         </div>
       </div>
       <button
-        aria-label=""
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         id="searchbar-button-withClearButton"
@@ -426,7 +422,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
             aria-invalid={true}
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input css-0"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-invalidState"
             name="textInputName"
@@ -448,7 +444,6 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
         />
       </div>
       <button
-        aria-label="Search"
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         id="searchbar-button-invalidState"
@@ -496,7 +491,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
           <input
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input css-0"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={true}
             id="searchbar-textinput-disabledState"
             name="textInputName"
@@ -511,7 +506,6 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
         </div>
       </div>
       <button
-        aria-label=""
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         disabled={true}
@@ -561,7 +555,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
             aria-label="Item Search"
             aria-required={true}
             autoComplete={null}
-            className="chakra-input css-0"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={true}
             id="searchbar-textinput-requiredState"
             name="textInputName"
@@ -576,7 +570,6 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
         </div>
       </div>
       <button
-        aria-label="Search"
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         disabled={true}
@@ -626,7 +619,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
             aria-label="Item Search"
             aria-required={true}
             autoComplete={null}
-            className="chakra-input css-0"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={true}
             id="searchbar-textinput-noBrandButtonType"
             name="textInputName"
@@ -641,7 +634,6 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
         </div>
       </div>
       <button
-        aria-label=""
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         disabled={true}
@@ -687,7 +679,6 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
       className="css-1ik4laa"
     >
       <button
-        aria-label="Search"
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         id="searchbar-button-withHeading"
@@ -731,7 +722,6 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
       className="css-1ik4laa"
     >
       <button
-        aria-label=""
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         id="searchbar-button-withDescription"
@@ -781,7 +771,6 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
       className="css-1ik4laa"
     >
       <button
-        aria-label="Search"
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         id="searchbar-button-withHeadingAndDescription"
@@ -830,7 +819,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
             aria-describedby="chakra-helperText"
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input css-0"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-chakra"
             name="textInputName"
@@ -845,7 +834,6 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
         </div>
       </div>
       <button
-        aria-label=""
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         id="searchbar-button-chakra"
@@ -911,7 +899,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
             aria-describedby="props-helperText"
             aria-label="Item Search"
             autoComplete={null}
-            className="chakra-input css-0"
+            className="chakra-input textInput css-1xdhyk6"
             disabled={false}
             id="searchbar-textinput-props"
             name="textInputName"
@@ -926,7 +914,6 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
         </div>
       </div>
       <button
-        aria-label="Search"
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
         id="searchbar-button-props"

@@ -93,11 +93,11 @@ const MultiSelectGroupStory = (args) => {
                 setActionName("onChange");
               }}
               onMixedStateChange={(e) => {
-                onMixedStateChange(
-                  e.target.id,
-                  multiSelect.id,
-                  multiSelect.items
-                );
+                onMixedStateChange({
+                  parentId: e.target.id,
+                  multiSelectId: multiSelect.id,
+                  items: multiSelect.items,
+                });
                 setActionName("onMixedStateChange");
               }}
               onClear={() => {
@@ -150,11 +150,11 @@ const MultiSelectGroupWithCloseOnBlurStory = (args) => {
                 setActionName("onChange");
               }}
               onMixedStateChange={(e) => {
-                onMixedStateChange(
-                  e.target.id,
-                  multiSelect.id,
-                  multiSelect.items
-                );
+                onMixedStateChange({
+                  parentId: e.target.id,
+                  multiSelectId: multiSelect.id,
+                  items: multiSelect.items,
+                });
                 setActionName("onMixedStateChange");
               }}
               onClear={() => {
@@ -196,11 +196,11 @@ const MultiSelectGroupLayoutStory = () => {
                 onChange(e.target.id, multiSelect.id);
               }}
               onMixedStateChange={(e) => {
-                onMixedStateChange(
-                  e.target.id,
-                  multiSelect.id,
-                  multiSelect.items
-                );
+                onMixedStateChange({
+                  parentId: e.target.id,
+                  multiSelectId: multiSelect.id,
+                  items: multiSelect.items,
+                });
               }}
               onClear={() => {
                 onClear(multiSelect.id);
@@ -231,11 +231,11 @@ const MultiSelectGroupLayoutStory = () => {
                 onChange(e.target.id, `${multiSelect.id}-1`);
               }}
               onMixedStateChange={(e) => {
-                onMixedStateChange(
-                  e.target.id,
-                  `${multiSelect.id}-1`,
-                  multiSelect.items
-                );
+                onMixedStateChange({
+                  parentId: e.target.id,
+                  multiSelectId: `${multiSelect.id}-1`,
+                  items: multiSelect.items,
+                });
               }}
               onClear={() => {
                 onClear(`${multiSelect.id}-1`);
@@ -265,11 +265,11 @@ const MultiSelectGroupLayoutStory = () => {
                 onChange(e.target.id, `${multiSelect.id}-2`);
               }}
               onMixedStateChange={(e) => {
-                onMixedStateChange(
-                  e.target.id,
-                  `${multiSelect.id}-2`,
-                  multiSelect.items
-                );
+                onMixedStateChange({
+                  parentId: e.target.id,
+                  multiSelectId: `${multiSelect.id}-2`,
+                  items: multiSelect.items,
+                });
               }}
               onClear={() => {
                 onClear(`${multiSelect.id}-2`);
@@ -299,11 +299,11 @@ const MultiSelectGroupLayoutStory = () => {
                 onChange(e.target.id, `${multiSelect.id}-3`);
               }}
               onMixedStateChange={(e) => {
-                return onMixedStateChange(
-                  e.target.id,
-                  `${multiSelect.id}-3`,
-                  multiSelect.items
-                );
+                return onMixedStateChange({
+                  parentId: e.target.id,
+                  multiSelectId: `${multiSelect.id}-3`,
+                  items: multiSelect.items,
+                });
               }}
               onClear={() => {
                 onClear(`${multiSelect.id}-3`);
@@ -322,7 +322,6 @@ const meta: Meta<typeof MultiSelectGroup> = {
   title: "Components/Form Elements/MultiSelectGroup",
   component: MultiSelectGroup,
   argTypes: {
-    className: { control: false },
     id: { control: false },
     layout: {
       control: { type: "radio" },
@@ -349,7 +348,6 @@ type Story = StoryObj<typeof MultiSelectGroup>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     id: "multiselect-group",
     labelText: "Label Text",
     layout: "row",

@@ -1,10 +1,16 @@
-import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  chakra,
+  ChakraComponent,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import { forwardRef } from "react";
 
 export const sidebarPlacementArray = ["none", "left", "right"] as const;
 export type SidebarPlacement = typeof sidebarPlacementArray[number];
 
-export interface TemplateProps {
+export interface TemplateProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Renders the `TemplateSidebar` component either on the left or
@@ -12,7 +18,7 @@ export interface TemplateProps {
   sidebar?: SidebarPlacement;
 }
 
-export interface TemplateMainProps {
+export interface TemplateMainProps extends BoxProps {
   /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
    * anchor for the application skip navigation. */
   id?: string;
@@ -46,7 +52,9 @@ const Template: ChakraComponent<
  * and spans edge-to-edge. It is most useful for `Breadcrumbs`, `Hero`,
  * or other banner-like components.
  */
-const TemplateBreakout: React.FC<React.PropsWithChildren> = ({ children }) => {
+const TemplateBreakout: React.FC<React.PropsWithChildren<BoxProps>> = ({
+  children,
+}) => {
   const styles = useStyleConfig("TemplateBreakout", {});
 
   return (
@@ -61,9 +69,9 @@ const TemplateBreakout: React.FC<React.PropsWithChildren> = ({ children }) => {
  * will render below `TemplateBreakout` (if being used) and above the
  * main content and sidebar (if one exists).
  */
-const TemplateTop: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <Box gridArea="top">{children}</Box>
-);
+const TemplateTop: React.FC<React.PropsWithChildren<BoxProps>> = ({
+  children,
+}) => <Box gridArea="top">{children}</Box>;
 
 /**
  * This component renders an HTML `<main>` element with an id of "mainContent".
@@ -105,17 +113,17 @@ const TemplateMainNarrow: React.FC<React.PropsWithChildren<TemplateMainProps>> =
  * prop value of "left" or "right" must be passed to the `Template` wrapper
  * to render the correct CSS styles.
  */
-const TemplateSidebar: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <Box gridArea="sidebar">{children}</Box>
-);
+const TemplateSidebar: React.FC<React.PropsWithChildren<BoxProps>> = ({
+  children,
+}) => <Box gridArea="sidebar">{children}</Box>;
 
 /**
  * This optional component renders content at a max width of 1280px and
  * will always render below the main content and sidebar (if one exists).
  */
-const TemplateBottom: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <Box gridArea="bottom">{children}</Box>
-);
+const TemplateBottom: React.FC<React.PropsWithChildren<BoxProps>> = ({
+  children,
+}) => <Box gridArea="bottom">{children}</Box>;
 
 export {
   Template,

@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   Stack,
   useColorModeValue,
@@ -17,9 +18,7 @@ import TextInput from "../TextInput/TextInput";
 import useDSHeading from "../../hooks/useDSHeading";
 import { highlightColorsArray } from "../../theme/sharedTypes";
 
-export interface NewsletterSignupProps {
-  /** Additional class name to add. */
-  className?: string;
+export interface NewsletterSignupProps extends Omit<BoxProps, "title"> {
   /** Text displayed next to the confirmation icon after a successful email submission */
   confirmationHeading: string;
   /** Detail text for the confirmation view */
@@ -37,8 +36,7 @@ export interface NewsletterSignupProps {
   id?: string;
   /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
-  /** Value to determine the section color highlight.
-   */
+  /** Value to determine the section color highlight. */
   highlightColor?: HighlightColorTypes;
   /** A handler function that will be called when the form is submitted. */
   onSubmit: (event: React.FormEvent<any>) => void;
@@ -87,7 +85,6 @@ export const NewsletterSignup: ChakraComponent<
   forwardRef<HTMLDivElement, NewsletterSignupProps>(
     (
       {
-        className,
         confirmationHeading,
         confirmationText,
         descriptionText,

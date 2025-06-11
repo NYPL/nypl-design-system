@@ -20,7 +20,6 @@ const meta: Meta<typeof Button> = {
       options: buttonTypesArray,
       table: { defaultValue: { summary: "primary" } },
     },
-    className: { control: false },
     displayIcon: {
       control: { type: "boolean" },
       description: "**Only used for Storybook – ** Toggle the icon visibility.",
@@ -62,7 +61,6 @@ export const WithControls: Story = {
   args: {
     buttonText: "Button Text",
     buttonType: "primary",
-    className: undefined,
     displayIcon: false,
     displayIconLeft: true,
     iconType: "search",

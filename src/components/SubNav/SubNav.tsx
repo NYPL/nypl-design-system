@@ -5,6 +5,7 @@ import {
   ChakraComponent,
   useMultiStyleConfig,
   Flex,
+  BoxProps,
 } from "@chakra-ui/react";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
@@ -15,15 +16,13 @@ import { bgColorsArray, highlightColorsArray } from "../../theme/sharedTypes";
 export type actionBackgroundColors = typeof bgColorsArray[number];
 export type highlightColors = typeof highlightColorsArray[number];
 
-export interface SubNavProps {
+export interface SubNavProps extends BoxProps {
   /**
    * The background color to be applied to the hover and active states
    * of the SubNavLink and SubNavButton components.
    * This allows for customization of the action items.
    */
   actionBackgroundColor?: actionBackgroundColors;
-  /** Additional class name for the `SubNav` component. */
-  className?: string;
   /**
    * Custom color for SubNavLink, SubNavButton, and icons.
    */
@@ -49,7 +48,6 @@ export interface SubNavProps {
 
 interface SubNavItemProps {
   id: string;
-  children: React.ReactNode;
   isOutlined?: boolean;
   isSelected?: boolean;
   screenreaderOnlyText?: string;

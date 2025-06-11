@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Extends prop interface to include Chakra props or HTML attributes.",
+    ],
+  },
+  {
     date: "2025-05-22",
     version: "3.6.2",
     type: "Update",

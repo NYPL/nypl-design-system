@@ -9,7 +9,6 @@ const meta: Meta<typeof StructuredContent> = {
   title: "Components/Page Layout/StructuredContent",
   component: StructuredContent,
   argTypes: {
-    className: { control: false },
     id: { control: false },
     "imageProps.aspectRatio": {
       table: {
@@ -64,7 +63,6 @@ export const Controls: Story = {
       "praesent. Tortor at risus viverra adipiscing at. Eu augue ut lectus " +
       "arcu bibendum at varius vel pharetra.",
     calloutText: "This is the callout text",
-    className: undefined,
     headingText: "Heading text",
     id: "structured-content",
     "imageProps.alt": "Image alt text",
@@ -80,7 +78,6 @@ export const Controls: Story = {
     <StructuredContent
       bodyContent={args.bodyContent}
       calloutText={args.calloutText}
-      className={args.className}
       headingText={args.headingText}
       id={args.id}
       imageProps={{

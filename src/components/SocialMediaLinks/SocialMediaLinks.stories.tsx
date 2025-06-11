@@ -122,11 +122,6 @@ const meta: Meta<typeof SocialMediaLinks> = {
         defaultValue: { summary: "none" },
       },
     },
-    className: {
-      table: {
-        disable: false,
-      },
-    },
     color: {
       control: { type: "radio" },
       options: colorTypeArray,
@@ -184,7 +179,6 @@ export const WithControls: Story = {
   args: {
     borders: "none",
     color: "textDefault",
-    className: undefined,
     id: undefined,
     layout: "row",
     linksData: exampleLinkData,

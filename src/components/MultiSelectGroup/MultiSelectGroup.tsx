@@ -1,13 +1,11 @@
-import { chakra, ChakraComponent, Stack } from "@chakra-ui/react";
+import { BoxProps, chakra, ChakraComponent, Stack } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
 import { LayoutTypes } from "../../helpers/types";
 import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
 
-export interface MultiSelectGroupProps {
-  /** Additional className to use. */
-  className?: string;
+export interface MultiSelectGroupProps extends BoxProps {
   /** The id of the MultiSelectGroup. */
   id: string;
   /** The label text rendered within the MultiSelectGroup. */
