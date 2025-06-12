@@ -191,7 +191,7 @@ export const SearchBar: ChakraComponent<
     const buttonElem = (
       <Button
         className="searchButton"
-        buttonType={buttonType}
+        variant={buttonType}
         id={`searchbar-button-${id}`}
         isDisabled={isDisabled}
         onClick={buttonOnClick}

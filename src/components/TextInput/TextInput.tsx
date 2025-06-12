@@ -284,7 +284,7 @@ export const TextInput: ChakraComponent<
         if (isClearable && !isDisabled && !isHidden) {
           clearButtonOutput = (
             <Button
-              buttonType="text"
+              variant="text"
               id={`${id}-clear-btn`}
               onClick={onClearClick}
               sx={styles.clearButton}

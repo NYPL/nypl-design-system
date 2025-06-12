@@ -128,7 +128,7 @@ export const SubNavButton: React.FC<
     <li>
       <Button
         aria-current={isSelected ? "page" : null}
-        buttonType="text"
+        variant="text"
         className={isSelected ? "selectedItem" : ""}
         id={id}
         onClick={onClick}

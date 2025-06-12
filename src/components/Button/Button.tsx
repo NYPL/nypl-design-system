@@ -13,7 +13,7 @@ import Icon from "../Icons/Icon";
 
 export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
 export const buttonSizesArray = ["small", "medium", "large"] as const;
-export const buttonTypesArray = [
+export const buttonVariantsArray = [
   "primary",
   "secondary",
   "text",
@@ -24,13 +24,13 @@ export const buttonTypesArray = [
 
 export type ButtonElementType = typeof buttonElementTypeArray[number];
 export type ButtonSizes = typeof buttonSizesArray[number];
-export type ButtonTypes = typeof buttonTypesArray[number];
+export type ButtonVariants = typeof buttonVariantsArray[number];
 
 export interface ButtonProps
   extends Pick<BoxProps, keyof ChakraProps>,
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {
-  /** The button variation to render based on the `ButtonTypes` type. */
-  buttonType?: ButtonTypes;
+  /** The button variation to render based on the `ButtonVariants` type. */
+  variant?: ButtonVariants;
   /** ID that other components can cross reference for accessibility purposes. */
   id: string;
   /** Adds 'disabled' property to the button. */
@@ -57,7 +57,7 @@ export const Button: ChakraComponent<
   forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
     (props, ref?) => {
       const {
-        buttonType = "primary",
+        variant = "primary",
         children,
         className = "",
         id,
@@ -72,7 +72,7 @@ export const Button: ChakraComponent<
       const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
       let childCount = 0;
       let hasIcon = false;
-      let variant: string | ButtonTypes = buttonType;
+      let finalVariant: string | ButtonVariants = variant;
       let styles: any = {};
 
       if (!id) {
@@ -94,11 +94,11 @@ export const Button: ChakraComponent<
       );
 
       if (childCount === 1 && hasIcon) {
-        variant = "iconOnly";
+        finalVariant = "iconOnly";
       }
 
       styles = useMultiStyleConfig("ReservoirButton", {
-        variant,
+        finalVariant,
         buttonSize: size,
       });
 

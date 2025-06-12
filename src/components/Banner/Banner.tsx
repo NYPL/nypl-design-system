@@ -11,7 +11,7 @@ import Button from "../Button/Button";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 import Icon, { IconProps } from "../Icons/Icon";
 
-export const bannerTypesArray = [
+export const bannerVariantsArray = [
   "informative",
   "negative",
   "neutral",
@@ -19,7 +19,7 @@ export const bannerTypesArray = [
   "recommendation",
   "warning",
 ] as const;
-export type BannerTypes = typeof bannerTypesArray[number];
+export type BannerTypes = typeof bannerVariantsArray[number];
 export const bannerBgColorsArray = [
   "brand.primary-05",
   "section.blogs.primary-05",
@@ -92,7 +92,7 @@ export interface BannerProps extends Omit<BoxProps, "content"> {
    * (closed) by a user. */
   isDismissible?: boolean;
   /** Used to control the component's semantic coloring and iconography. */
-  type?: BannerTypes;
+  variant?: BannerTypes;
 }
 
 const iconProps: Record<BannerTypes, IconProps> = {
@@ -145,27 +145,27 @@ export const Banner: ChakraComponent<
       icon,
       id,
       isDismissible = false,
-      type = "neutral",
+      variant = "neutral",
       ...rest
     } = props;
     const [isOpen, setIsOpen] = useState(true);
     const handleClose = () => setIsOpen(false);
-    const overrideType = !!(backgroundColor && highlightColor);
+    const overrideGivenVariant = !!(backgroundColor && highlightColor);
     const styles = useMultiStyleConfig("Banner", {
       // Only set the custom `backgroundColor` and `highlightColor` values
       // if they are both set.
-      backgroundColor: overrideType ? backgroundColor : undefined,
-      highlightColor: overrideType ? highlightColor : undefined,
+      backgroundColor: overrideGivenVariant ? backgroundColor : undefined,
+      highlightColor: overrideGivenVariant ? highlightColor : undefined,
       // If `backgroundColor` and `highlightColor` are set, then it
-      // overrides the Banner types.
-      variant: overrideType ? undefined : type,
+      // overrides the Banner variant.
+      variant: overrideGivenVariant ? undefined : variant,
     });
     const generalHeadingProps = {
       size: "heading6" as HeadingSizes,
       noSpace: true,
-      color: type === "negative" ? "ui.error.primary" : null,
+      color: variant === "negative" ? "ui.error.primary" : null,
       _dark: {
-        color: type === "negative" ? "dark.ui.error.primary" : null,
+        color: variant === "negative" ? "dark.ui.error.primary" : null,
       },
       paddingBottom: "xs",
     };
@@ -181,7 +181,7 @@ export const Banner: ChakraComponent<
     const dismissibleButton = (
       <Button
         aria-label="Close the banner"
-        buttonType="text"
+        variant="text"
         id={`${id}-dismissible-button`}
         onClick={handleClose}
         __css={styles.dismissibleButton}
@@ -200,7 +200,7 @@ export const Banner: ChakraComponent<
         data-testid={`${id}-banner-icon`}
         title="Banner announcement icon"
         size="large"
-        {...iconProps[type]}
+        {...iconProps[variant]}
         __css={finalHeading ? { marginTop: "xxxs" } : {}}
       />
     );
@@ -228,7 +228,7 @@ export const Banner: ChakraComponent<
     return (
       <Box
         as="aside"
-        data-type={type}
+        data-variant={variant}
         id={id}
         ref={ref}
         __css={styles.base}

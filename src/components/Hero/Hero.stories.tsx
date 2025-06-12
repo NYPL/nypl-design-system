@@ -48,7 +48,7 @@ const otherSubHeaderTextLong = (
     </Text>
     <ButtonGroup>
       <Button id="other-button-example-1">Button</Button>
-      <Button id="other-button-example-2" buttonType="secondary">
+      <Button id="other-button-example-2" variant="secondary">
         Button
       </Button>
     </ButtonGroup>

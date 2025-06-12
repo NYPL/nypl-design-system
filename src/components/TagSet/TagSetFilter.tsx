@@ -128,7 +128,7 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
 
         {tagSetData.length > 1 && isDismissible ? (
           <Button
-            buttonType="text"
+            variant="text"
             data-testid="filter-clear-all"
             id={`ts-filter-clear-all-${id}`}
             onClick={() =>

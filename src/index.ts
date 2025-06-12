@@ -59,7 +59,7 @@ export type {
   ButtonElementType,
   ButtonProps,
   ButtonSizes,
-  ButtonTypes,
+  ButtonVariants,
 } from "./components/Button/Button";
 export { default as ButtonGroup } from "./components/ButtonGroup/ButtonGroup";
 export type { ButtonGroupProps } from "./components/ButtonGroup/ButtonGroup";

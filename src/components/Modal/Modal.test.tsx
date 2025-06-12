@@ -39,7 +39,7 @@ describe("Modal Accessibility", () => {
             Go back
           </Button>
           <p>This is the body content.</p>
-          <Button buttonType="noBrand" id="custom-close2" onClick={onClose}>
+          <Button variant="noBrand" id="custom-close2" onClick={onClose}>
             This is a custom close button.
           </Button>
         </>
@@ -53,7 +53,7 @@ describe("Modal Accessibility", () => {
     };
     const { container } = render(
       <>
-        <Button id="1" onClick={onOpen} buttonType="noBrand">
+        <Button id="1" onClick={onOpen} variant="noBrand">
           Open Modal
         </Button>
         <Modal {...modalProps} />
@@ -227,7 +227,7 @@ describe("useModal", () => {
   };
   const useModalComponent = (
     <>
-      <Button id="1" onClick={onOpen} buttonType="noBrand">
+      <Button id="1" onClick={onOpen} variant="noBrand">
         Open Modal
       </Button>
       <Modal {...modalProps} />

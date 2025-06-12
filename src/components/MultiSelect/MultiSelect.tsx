@@ -294,7 +294,7 @@ export const MultiSelect: ChakraComponent<
       const ExpandToggleButton = (): JSX.Element => {
         return (
           <Button
-            buttonType="text"
+            variant="text"
             fontSize="desktop.button.default"
             id={`view-all-text-btn-${id}`}
             ref={expandToggleButtonRef}

@@ -98,7 +98,7 @@ const ModalStory = () => {
         <Button id="1" onClick={onOpen}>
           Open Modal
         </Button>
-        <Button buttonType="secondary" id="2" onClick={onOpen}>
+        <Button variant="secondary" id="2" onClick={onOpen}>
           I can open the modal, too
         </Button>
       </ButtonGroup>
@@ -135,7 +135,7 @@ const ConfirmationModalStory = () => {
         <Button id="1" onClick={onOpen}>
           Open Confirmation Modal
         </Button>
-        <Button buttonType="secondary" id="2" onClick={onOpen}>
+        <Button variant="secondary" id="2" onClick={onOpen}>
           I can open the modal, too
         </Button>
       </ButtonGroup>

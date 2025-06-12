@@ -109,7 +109,7 @@ recognized and announced by assistive technology.
 
 ## Variants
 
-The `type` prop can be used to render different variants of `Banner`. Each
+The `variant` prop can be used to render different variants of `Banner`. Each
 variant has a different color and iconography.
 
 It is recommended to align the usage of the Banner component to the semantic
@@ -179,7 +179,7 @@ as props to match desired styling.
       marginTop="xxxs"
     />
   }
-  type="informative"
+  variant="informative"
 />
 `}
   language="tsx"
@@ -220,10 +220,10 @@ The `content` prop can accept HTML.
 
 ## Custom Color
 
-It is recommended to rely on the color styles set with the `type` prop.
+It is recommended to rely on the color styles set with the `variant` prop.
 However, in cases where a different color is necessary, a value from a defined
 set of colors can be used. Both `backgroundColor` and `highlightColor` must be
-set in order to override the predefined variant types.
+set in order to override the predefined variants.
 
 - The `backgroundColor` prop can be used to set the color of the entire
   background.

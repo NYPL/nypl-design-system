@@ -159,7 +159,7 @@ export const BaseModal: ChakraComponent<
             <ModalFooter>
               <ButtonGroup>
                 <Button
-                  buttonType="secondary"
+                  variant="secondary"
                   id="modal-cancel-btn"
                   onClick={onCancel}
                 >
