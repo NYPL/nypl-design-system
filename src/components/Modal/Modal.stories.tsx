@@ -20,7 +20,7 @@ const meta: Meta<typeof ModalTrigger> = {
       description:
         "Props to update the internal `Modal` component. This contains the" +
         "`bodyContent`, `closeButtonLabel`, `confirmButtonLabel`, `headingText`, `isOpen`," +
-        "`onClose`, or `onCancel` and `onConfirm`, and `type` props",
+        "`onClose`, or `onCancel` and `onConfirm`, and `variant` props",
     },
   },
 };
@@ -37,7 +37,7 @@ export const WithControls: Story = {
     buttonText: "Button Text",
     id: "modal-trigger",
     modalProps: {
-      type: "default",
+      variant: "default",
       bodyContent: "body text",
       closeButtonLabel: "Close Button",
       headingText: (
@@ -72,7 +72,7 @@ export const WithControls: Story = {
 const ModalStory = () => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
-    type: "default",
+    variant: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>
@@ -114,7 +114,7 @@ const ModalStory = () => {
 const ConfirmationModalStory = () => {
   const { onClose, onOpen, Modal } = useModal();
   const confirmationModalProps = {
-    type: "confirmation",
+    variant: "confirmation",
     bodyContent: <p>This is the body content.</p>,
     closeButtonLabel: "Cancel Button",
     confirmButtonLabel: "Confirm Button",
@@ -147,7 +147,7 @@ const ConfirmationModalStory = () => {
 // The following are additional Modal example Stories.
 export const useModalStory: Story = {
   argTypes: {
-    type: {
+    variant: {
       options: ["default", "confirmation"],
       table: {
         defaultValue: { summary: "default" },
@@ -200,7 +200,7 @@ export const useModalStory: Story = {
 };
 
 const scrollModalProps: BaseModalProps = {
-  type: "default",
+  variant: "default",
   bodyContent: (
     <>
       <Heading text="Content Title" />
@@ -278,7 +278,7 @@ const scrollModalProps: BaseModalProps = {
 };
 
 const defaultHeadingModalProps: BaseModalProps = {
-  type: "default",
+  variant: "default",
   bodyContent: (
     <p>
       The heading of this modal is level "h2" and size "heading4", since no
@@ -290,7 +290,7 @@ const defaultHeadingModalProps: BaseModalProps = {
 };
 
 const confirmationProps: BaseModalProps = {
-  type: "confirmation",
+  variant: "confirmation",
   bodyContent: <p>The action is happening</p>,
   closeButtonLabel: "Cancel action",
   confirmButtonLabel: "Confirm action",

@@ -15,7 +15,7 @@ describe("Modal Accessibility", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "default",
+          variant: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: "Modal Heading Text",
@@ -69,7 +69,7 @@ describe("ModalTrigger", () => {
       buttonText="Button Text"
       id="modal-trigger"
       modalProps={{
-        type: "default",
+        variant: "default",
         bodyContent: "body text",
         closeButtonLabel: "Close Button",
         headingText: "Modal Heading Text",
@@ -104,7 +104,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "default",
+          variant: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: <Heading level="h3">Modal Heading Text</Heading>,
@@ -129,7 +129,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "confirmation",
+          variant: "confirmation",
           bodyContent: "body text",
           closeButtonLabel: "Cancel Button",
           confirmButtonLabel: "Confirm Button",
@@ -168,7 +168,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "default",
+          variant: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: "Modal Heading Text",

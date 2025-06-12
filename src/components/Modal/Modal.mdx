@@ -134,7 +134,7 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
   buttonText="Button Text"
   id="modal-trigger"
   modalProps={{
-    type: "default",
+    variant: "default",
     bodyContent: "body text",
     closeButtonLabel: "Close Button",
     headingText: (
@@ -188,7 +188,7 @@ import { useModal } from "@nypl/design-system-react-components";
 export const ModalStory = (args) => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
-    type: "default",
+    variant: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>
@@ -261,7 +261,7 @@ Notes:
     buttonText="Confirm"
     id="modal-confirmation"
     modalProps={{
-      type: "confirmation",
+      variant: "confirmation",
       bodyContent: "The action is happening",
       closeButtonLabel: "Cancel action",
       confirmButtonLabel: "Confirm action",
@@ -323,7 +323,7 @@ additional icon.
   code={`
 // Example for the ModalTrigger component.
 modalProps={{
-  type: "default",
+  variant: "default",
   bodyContent: "body text",
   closeButtonLabel: "Close Button",
   headingText: (
