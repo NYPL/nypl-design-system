@@ -30,7 +30,7 @@ describe("Hero accessbility tests", () => {
   it("passes for type Primary", async () => {
     const { container } = render(
       <Hero
-        heroType="primary"
+        variant="primary"
         heading={<Heading level="h1" id="a11y-hero" text="Hero Primary" />}
         id="primary-hero"
         subHeaderText="Example Subtitle"
@@ -43,7 +43,7 @@ describe("Hero accessbility tests", () => {
   it("passes for type Tertiary", async () => {
     const { container } = render(
       <Hero
-        heroType="tertiary"
+        variant="tertiary"
         heading={<Heading level="h1" id="a11y-hero" text="Hero Tertiary" />}
         subHeaderText={otherSubHeaderText}
       />
@@ -55,7 +55,7 @@ describe("Hero accessbility tests", () => {
     const { container } = render(
       <Hero
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-        heroType="campaign"
+        variant="campaign"
         heading={<Heading level="h1" id="a11y-hero" text="Hero Campaign" />}
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
@@ -69,7 +69,7 @@ describe("Hero", () => {
   it("renders Primary Hero", () => {
     render(
       <Hero
-        heroType="primary"
+        variant="primary"
         heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
         subHeaderText="Example Subtitle"
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
@@ -90,7 +90,7 @@ describe("Hero", () => {
   it("renders Tertiary Hero", () => {
     render(
       <Hero
-        heroType="tertiary"
+        variant="tertiary"
         heading={<Heading level="h1" id="tertiary-hero" text="Hero Tertiary" />}
         subHeaderText={otherSubHeaderText}
       />
@@ -105,7 +105,7 @@ describe("Hero", () => {
     render(
       <Hero
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-        heroType="campaign"
+        variant="campaign"
         heading={<Heading level="h1" id="campaign-hero" text="Hero Campaign" />}
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
@@ -129,7 +129,7 @@ describe("Hero", () => {
   it("renders custom background and foreground colors", () => {
     render(
       <Hero
-        heroType="primary"
+        variant="primary"
         heading={
           <Heading
             level="h1"
@@ -154,7 +154,7 @@ describe("Hero", () => {
     render(
       <Hero
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-        heroType="primary"
+        variant="primary"
         imageProps={{ src: imageProps.src }}
       />
     );
@@ -167,7 +167,7 @@ describe("Hero", () => {
   it("correctly renders custom image component with internal props", () => {
     render(
       <Hero
-        heroType="campaign"
+        variant="campaign"
         heading={<Heading level="h1" id="campaign-hero" text="Hero" />}
         imageProps={{
           alt: "Should not be the alt text",
@@ -192,23 +192,23 @@ describe("Hero", () => {
     const heading = (
       <Heading level="h1" id="hero-errors" text="Hero with Error Warnings" />
     );
-    const { rerender } = render(<Hero heroType="primary" heading={heading} />);
+    const { rerender } = render(<Hero variant="primary" heading={heading} />);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: It is recommended to use the `backgroundImageSrc` " +
-        "prop for the `'primary'` `heroType` variant."
+        "prop for the `'primary'` variant."
     );
 
     rerender(
       <Hero
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-        heroType="primary"
+        variant="primary"
         heading={heading}
         imageProps={imageProps}
       />
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `imageProps.src` and `imageProps.alt` props have been passed, " +
-        "but the `'primary'` `heroType` variant will not use it."
+        "but the `'primary'` variant will not use it."
     );
   });
 
@@ -219,27 +219,27 @@ describe("Hero", () => {
     );
     const { rerender } = render(
       <Hero
-        heroType="tertiary"
+        variant="tertiary"
         heading={heading}
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: The `'tertiary'` `heroType` variant hero " +
+      "NYPL Reservoir Hero: The `'tertiary'` variant hero " +
         "will not use any of the image props."
     );
 
     rerender(
       <Hero
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-        heroType="tertiary"
+        variant="tertiary"
         heading={heading}
         subHeaderText={otherSubHeaderText}
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: The `'tertiary'` `heroType` variant hero " +
+      "NYPL Reservoir Hero: The `'tertiary'` variant hero " +
         "will not use any of the image props."
     );
   });
@@ -251,7 +251,7 @@ describe("Hero", () => {
     );
     const { rerender } = render(
       <Hero
-        heroType="campaign"
+        variant="campaign"
         heading={heading}
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
@@ -260,12 +260,12 @@ describe("Hero", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: It is recommended to use either the " +
         "`backdropBackgroundColor`, `backgroundImageSrc`, or `imageProps.src` " +
-        "prop for the `'campaign'` `heroType` variant."
+        "prop for the `'campaign'` variant."
     );
 
     rerender(
       <Hero
-        heroType="campaign"
+        variant="campaign"
         heading={heading}
         subHeaderText={otherSubHeaderText}
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
@@ -274,7 +274,7 @@ describe("Hero", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: It is recommended to use either the " +
         "`backdropBackgroundColor`, `backgroundImageSrc`, or `imageProps.src` " +
-        "prop for the `'campaign'` `heroType` variant."
+        "prop for the `'campaign'` variant."
     );
   });
 
@@ -283,7 +283,7 @@ describe("Hero", () => {
     render(
       <Hero
         backdropBackgroundColor="brand.primary"
-        heroType="tertiary"
+        variant="tertiary"
         imageProps={imageProps}
         subHeaderText={otherSubHeaderText}
       />
@@ -291,7 +291,7 @@ describe("Hero", () => {
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `backdropBackgroundColor` prop has been passed, " +
-        "but the `'campaign'` `heroType` variant was not set. It will be ignored."
+        "but the `'campaign'` variant was not set. It will be ignored."
     );
   });
 
@@ -299,7 +299,7 @@ describe("Hero", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <Hero
-        heroType="primary"
+        variant="primary"
         imageProps={imageProps}
         isDarkBackgroundImage
         subHeaderText={otherSubHeaderText}
@@ -308,7 +308,7 @@ describe("Hero", () => {
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Hero: The `isDarkBackgroundImage` prop has been passed, " +
-        "but the `'campaign'` `heroType` variant was not set. It will be ignored."
+        "but the `'campaign'` variant was not set. It will be ignored."
     );
   });
 
@@ -317,7 +317,7 @@ describe("Hero", () => {
     render(
       <Hero
         foregroundColor="ui.black"
-        heroType="campaign"
+        variant="campaign"
         imageProps={imageProps}
         isDarkBackgroundImage
         isDarkText
@@ -338,7 +338,7 @@ describe("Hero", () => {
 
     render(
       <Hero
-        heroType="campaign"
+        variant="campaign"
         imageProps={{
           alt: "Custom NYPL",
           src: "foo.jpg",
@@ -361,7 +361,7 @@ describe("Hero", () => {
     const primary = renderer
       .create(
         <Hero
-          heroType="primary"
+          variant="primary"
           heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
           backgroundImageSrc={getPlaceholderImage("smaller", 0)}
@@ -372,7 +372,7 @@ describe("Hero", () => {
       .create(
         <Hero
           backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-          heroType="campaign"
+          variant="campaign"
           heading={
             <Heading level="h1" id="campaign-hero" text="Hero Campaign" />
           }
@@ -384,7 +384,7 @@ describe("Hero", () => {
     const tertiary = renderer
       .create(
         <Hero
-          heroType="tertiary"
+          variant="tertiary"
           heading={
             <Heading level="h1" id="tertiary-hero" text="Hero Tertiary" />
           }
@@ -395,7 +395,7 @@ describe("Hero", () => {
     const withChakraProps = renderer
       .create(
         <Hero
-          heroType="primary"
+          variant="primary"
           heading={<Heading level="h1" id="chakra" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
           backgroundImageSrc={getPlaceholderImage("smaller", 0)}
@@ -407,7 +407,7 @@ describe("Hero", () => {
     const withOtherProps = renderer
       .create(
         <Hero
-          heroType="primary"
+          variant="primary"
           heading={<Heading level="h1" id="props" text="Hero Primary" />}
           subHeaderText="Example Subtitle"
           backgroundImageSrc={getPlaceholderImage("smaller", 0)}
@@ -428,7 +428,7 @@ describe("Hero", () => {
     const { container } = render(
       <Hero
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-        heroType="primary"
+        variant="primary"
         heading={<Heading level="h1" id="primary-hero" text="Hero Primary" />}
         id="hero-id"
         ref={ref}

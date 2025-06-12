@@ -5,7 +5,7 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
-import Hero, { heroTypesArray } from "./Hero";
+import Hero, { heroVariantsArray } from "./Hero";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
 import { getPlaceholderImage } from "../../utils/utils";
@@ -67,9 +67,9 @@ const meta: Meta<typeof Hero> = {
     backgroundColor: { control: false },
     foregroundColor: { control: false },
     heading: { control: false },
-    heroType: {
+    variant: {
       control: { type: "select" },
-      options: heroTypesArray,
+      options: heroVariantsArray,
       table: { defaultValue: { summary: "primary" } },
     },
     imageProps: { control: false },
@@ -96,7 +96,7 @@ export const WithControls: Story = {
     backgroundImageSrc: undefined,
     foregroundColor: undefined,
     heading: undefined,
-    heroType: "primary",
+    variant: "primary",
     imageProps,
     "imageProps.alt": "",
     "imageProps.src": "",
@@ -105,7 +105,7 @@ export const WithControls: Story = {
     subHeaderText: undefined,
   },
   render: (args) =>
-    (args.heroType === "primary" && (
+    (args.variant === "primary" && (
       <Hero
         {...args}
         backgroundImageSrc={getPlaceholderImage()}
@@ -117,26 +117,26 @@ export const WithControls: Story = {
             text="Hero Primary"
           />
         }
-        heroType={args.heroType}
+        variant={args.variant}
         subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
       />
     )) ||
-    (args.heroType === "tertiary" && (
+    (args.variant === "tertiary" && (
       <Hero
         {...args}
         heading={
           <Heading level="h1" id="1" size="heading2" text="Hero Tertiary" />
         }
-        heroType={args.heroType}
+        variant={args.variant}
         subHeaderText={otherSubHeaderText}
       />
     )) ||
-    (args.heroType === "campaign" && (
+    (args.variant === "campaign" && (
       <Hero
         {...args}
         backgroundImageSrc={getPlaceholderImage()}
         heading={<Heading level="h1" id="1" text="Hero Campaign" />}
-        heroType={args.heroType}
+        variant={args.variant}
         imageProps={args.imageProps}
         subHeaderText={otherSubHeaderText}
       />
@@ -166,7 +166,7 @@ export const Primary: Story = {
           text="Hero Primary"
         />
       }
-      heroType="primary"
+      variant="primary"
     />
   ),
 };
@@ -184,7 +184,7 @@ export const Tertiary: Story = {
             text="Hero Tertiary with Subtitle & Sub-Heading"
           />
         }
-        heroType="tertiary"
+        variant="tertiary"
         subHeaderText={otherSubHeaderText}
       />
       <br />
@@ -197,7 +197,7 @@ export const Tertiary: Story = {
             text="Hero Tertiary with Sub-Heading"
           />
         }
-        heroType="tertiary"
+        variant="tertiary"
         subHeaderText={otherSubHeaderText}
       />
       <br />
@@ -210,7 +210,7 @@ export const Tertiary: Story = {
             text="Hero Tertiary without Additional Elements"
           />
         }
-        heroType="tertiary"
+        variant="tertiary"
       />
     </>
   ),
@@ -228,7 +228,7 @@ export const Campaign: Story = {
         />
         <Hero
           backgroundImageSrc={getPlaceholderImage()}
-          heroType="campaign"
+          variant="campaign"
           heading={
             <Heading
               level="h1"
@@ -252,7 +252,7 @@ export const Campaign: Story = {
         />
         <Hero
           backgroundImageSrc={getPlaceholderImage()}
-          heroType="campaign"
+          variant="campaign"
           heading={
             <Heading
               level="h1"
@@ -274,7 +274,7 @@ export const CampaignDarkBackgroundImage: Story = {
   render: () => (
     <Hero
       backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
-      heroType="campaign"
+      variant="campaign"
       heading={
         <Heading
           level="h1"
@@ -300,7 +300,7 @@ export const CampaignBackgroundColors: Story = {
         />
         <Hero
           backdropBackgroundColor="section.research.primary"
-          heroType="campaign"
+          variant="campaign"
           heading={
             <Heading
               level="h1"
@@ -322,7 +322,7 @@ export const CampaignBackgroundColors: Story = {
           backdropBackgroundColor="section.education.primary"
           backgroundColor="ui.warning.primary"
           foregroundColor="ui.typography.heading"
-          heroType="campaign"
+          variant="campaign"
           heading={
             <Heading
               level="h1"
@@ -348,7 +348,7 @@ export const TextColorStyles: Story = {
         />
         <Hero
           backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-          heroType="campaign"
+          variant="campaign"
           heading={
             <Heading
               level="h1"
@@ -371,7 +371,7 @@ export const TextColorStyles: Story = {
           backgroundColor="ui.status.primary"
           backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
           foregroundColor="ui.error.secondary"
-          heroType="campaign"
+          variant="campaign"
           heading={
             <Heading
               level="h1"
@@ -393,7 +393,7 @@ export const TextColorStyles: Story = {
         <Hero
           backgroundColor="ui.status.primary"
           backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-          heroType="campaign"
+          variant="campaign"
           heading={
             <Heading
               level="h1"
@@ -427,7 +427,7 @@ const CampaignFallBackExample = () => {
       />
       <Hero
         backgroundImageSrc={imageSrc}
-        heroType="campaign"
+        variant="campaign"
         heading={
           <Heading
             level="h1"
