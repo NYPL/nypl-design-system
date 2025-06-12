@@ -18,6 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Removes deprecated `low`, `medium`, `high` values from `statusBadgeTypeArray`.",
       "Removes deprecated `level` prop.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Renames `type` to `variant`.",
     ],
   },
   {
