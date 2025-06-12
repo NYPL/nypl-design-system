@@ -156,7 +156,7 @@ const FilterVariantStory = () => {
       isDismissible
       onClick={handleOnClick}
       tagSetData={tagSetData}
-      type="filter"
+      variant="filter"
     />
   );
 };
@@ -171,7 +171,7 @@ const FilterVariantStory = () => {
 The `tagSetData` prop is an array of objects that contain `iconName`, `id`, and
 `label` properties. The `iconName` is the name of the icon to display through
 the Reservoir `Icon` component and is optional. The `label` _MUST_ be a string
-for the filter type.
+for the filter variant.
 
 Additionally, the data object can take in any additional properties that the
 consuming application may need for logic filtering.

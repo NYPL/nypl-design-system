@@ -30,7 +30,7 @@ export interface TagSetFilterProps {
   /** The array of data to display as tags. */
   tagSetData: TagSetFilterDataProps[];
   /** The `TagSet` variant to render; "filter" by default. */
-  type: "filter";
+  variant: "filter";
 }
 
 /**
