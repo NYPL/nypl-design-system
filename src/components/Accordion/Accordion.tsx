@@ -12,9 +12,9 @@ import React, { forwardRef, useEffect, useState } from "react";
 
 import Icon from "../Icons/Icon";
 
-export type AccordionVariants = "default" | "warning" | "error";
+export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
-  accordionVariant?: AccordionVariants;
+  accordionType?: AccordionTypes;
   ariaLabel?: string;
   /** Ref to the DOM element of the AccordionButton. */
   buttonInteractionRef?: any;
@@ -23,7 +23,7 @@ export interface AccordionDataProps {
 }
 
 export interface AccordionProps extends Omit<BoxProps, "onChange"> {
-  /** Array of data to display, and an optional accordionVariant */
+  /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
@@ -144,7 +144,7 @@ const getElementsFromData = ({
         {/* Get the current state to render the correct icon. */}
         {({ isExpanded }) => {
           const noTypeOrDefaultType =
-            !content.accordionVariant || content.accordionVariant === "default";
+            !content.accordionType || content.accordionType === "default";
           return (
             <>
               <AccordionButton
@@ -165,23 +165,22 @@ const getElementsFromData = ({
                     : undefined
                 }
                 bg={
-                  colorMapLight[content?.accordionVariant] ||
-                  colorMapLight.default
+                  colorMapLight[content?.accordionType] || colorMapLight.default
                 }
                 _hover={{
                   bg: noTypeOrDefaultType
                     ? "transparent"
-                    : colorMapLight[content.accordionVariant],
+                    : colorMapLight[content.accordionType],
                   borderColor: "ui.gray.dark",
                 }}
                 _expanded={{
                   bg: noTypeOrDefaultType
                     ? "ui.gray.light-cool"
-                    : colorMapLight[content.accordionVariant],
+                    : colorMapLight[content.accordionType],
                   _hover: {
                     bg: noTypeOrDefaultType
                       ? "ui.gray.light-cool"
-                      : colorMapLight[content.accordionVariant],
+                      : colorMapLight[content.accordionType],
                   },
                 }}
                 _dark={{
@@ -193,7 +192,7 @@ const getElementsFromData = ({
                   borderStart: "4px solid",
                   borderStartColor: noTypeOrDefaultType
                     ? "dark.ui.border.hover"
-                    : colorMapDark[content.accordionVariant],
+                    : colorMapDark[content.accordionType],
                   borderBottomColor:
                     isLast || isExpanded
                       ? "dark.ui.border.default"

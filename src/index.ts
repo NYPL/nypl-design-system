@@ -31,7 +31,7 @@ export { default as DSProvider } from "./theme/provider";
 // Components
 export { default as Accordion } from "./components/Accordion/Accordion";
 export type {
-  AccordionVariants,
+  AccordionTypes,
   AccordionDataProps,
 } from "./components/Accordion/Accordion";
 export { default as AlphabetFilter } from "./components/AlphabetFilter/AlphabetFilter";

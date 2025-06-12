@@ -1,6 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { argsBooleanType } from "../../helpers/storybookUtils";
+
 import { Accordion, AccordionDataProps } from "./Accordion";
 import Card, { CardHeading, CardContent } from "../Card/Card";
 import Checkbox from "../Checkbox/Checkbox";
@@ -9,7 +10,7 @@ import Heading from "../Heading/Heading";
 
 const accordionData: AccordionDataProps[] = [
   {
-    accordionVariant: "default",
+    accordionType: "default",
     label: "Tom Nook",
     panel: (
       <Card
@@ -35,7 +36,7 @@ const accordionData: AccordionDataProps[] = [
 
 const accordionLongTextData: AccordionDataProps[] = [
   {
-    accordionVariant: "default",
+    accordionType: "default",
     label: "Tom Nook",
     panel: (
       <Card>
@@ -72,7 +73,7 @@ const accordionLongTextData: AccordionDataProps[] = [
 const faqContentData: AccordionDataProps[] = [
   ...accordionData,
   {
-    accordionVariant: "warning",
+    accordionType: "warning",
     label: "Isabelle",
     panel: (
       <Card
@@ -97,7 +98,7 @@ const faqContentData: AccordionDataProps[] = [
     ),
   },
   {
-    accordionVariant: "error",
+    accordionType: "error",
     label: "K.K. Slider",
     panel: (
       <Card
@@ -191,7 +192,7 @@ const onChange = (data) => {
 };
 const getAccordionData = (key): AccordionDataProps[] => [
   {
-    accordionVariant: "default",
+    accordionType: "default",
     label: "Subjects",
     panel: (
       <CheckboxGroup
