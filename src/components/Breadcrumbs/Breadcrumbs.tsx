@@ -82,7 +82,7 @@ const tooltipWrapperOrText = ({
           iconRotation="rotate90"
           id={`${breadcrumbsID}__backarrow`}
           className="breadcrumbs-icon"
-          type="breadcrumbs"
+          variant="breadcrumbs"
         />
       )}
       <span className="breadcrumb-label">{updatedText}</span>
