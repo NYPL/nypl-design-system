@@ -157,11 +157,9 @@ export const AudioPlayer: ChakraComponent<
           )}
           {/* Displays a fallback message to users when JavaScript is disabled. */}
           <noscript>
-            <Box 
-              __css={styles.invalid} 
-            >
-              The audio player requires JavaScript to function. 
-              Please enable JavaScript in your browser settings and refresh the page.
+            <Box __css={styles.invalid}>
+              The audio player requires JavaScript to function. Please enable
+              JavaScript in your browser settings and refresh the page.
             </Box>
           </noscript>
         </ComponentWrapper>
