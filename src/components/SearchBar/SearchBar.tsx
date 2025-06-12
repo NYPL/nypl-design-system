@@ -151,7 +151,7 @@ export const SearchBar: ChakraComponent<
         labelText={selectProps?.labelText}
         name={selectProps?.name}
         onChange={selectProps?.onChange}
-        selectType="searchbar"
+        variant="searchbar"
         value={selectProps?.value}
         __css={styles.select}
         data-select

@@ -130,7 +130,7 @@ export type {
   IconNames,
   IconRotations,
   IconSizes,
-  IconTypes,
+  IconVariants,
   IconProps,
 } from "./components/Icons/Icon";
 export { default as Image } from "./components/Image/Image";
@@ -149,7 +149,7 @@ export type {
   SectionTypes,
 } from "./helpers/types";
 export { default as Link } from "./components/Link/Link";
-export type { LinkProps, LinkTypes } from "./components/Link/Link";
+export type { LinkProps, LinkVariants } from "./components/Link/Link";
 export { default as List } from "./components/List/List";
 export type {
   DescriptionProps,
@@ -214,7 +214,7 @@ export { default as Select } from "./components/Select/Select";
 export type {
   LabelPositions,
   SelectProps,
-  SelectTypes,
+  SelectVariants,
 } from "./components/Select/Select";
 export { default as SimpleGrid } from "./components/Grid/SimpleGrid";
 export type { GridGaps, SimpleGridProps } from "./components/Grid/SimpleGrid";
@@ -232,7 +232,7 @@ export type { SocialMediaLinkDataProps } from "./components/SocialMediaLinks/Soc
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export type {
   StatusBadgeProps,
-  StatusBadgeTypes,
+  StatusBadgeVariants,
 } from "./components/StatusBadge/StatusBadge";
 export { default as StructuredContent } from "./components/StructuredContent/StructuredContent";
 export type {
