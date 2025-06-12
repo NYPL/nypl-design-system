@@ -15,24 +15,11 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
     <a
       className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      rel="nofollow noopener noreferrer"
-      target="_blank"
+      rel={null}
+      target={null}
+      type="external"
     >
       Privacy Policy
-      <span
-        className="css-0"
-      >
-        This link opens in a new window
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1vgifmd"
-        data-file-name="SvgActionLaunch"
-        focusable={false}
-        id="link-privacy-policy-external-icon"
-        role="img"
-        title="External link"
-      />
     </a>
   </div>
   <div
@@ -139,24 +126,11 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
     <a
       className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      rel="nofollow noopener noreferrer"
-      target="_blank"
+      rel={null}
+      target={null}
+      type="external"
     >
       Privacy Policy
-      <span
-        className="css-0"
-      >
-        This link opens in a new window
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1vgifmd"
-        data-file-name="SvgActionLaunch"
-        focusable={false}
-        id="link-privacy-policy-external-icon"
-        role="img"
-        title="External link"
-      />
     </a>
   </div>
   <div
@@ -211,24 +185,11 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
     <a
       className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      rel="nofollow noopener noreferrer"
-      target="_blank"
+      rel={null}
+      target={null}
+      type="external"
     >
       Privacy Policy
-      <span
-        className="css-0"
-      >
-        This link opens in a new window
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1vgifmd"
-        data-file-name="SvgActionLaunch"
-        focusable={false}
-        id="link-privacy-policy-external-icon"
-        role="img"
-        title="External link"
-      />
     </a>
   </div>
   <div
@@ -280,24 +241,11 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
     <a
       className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      rel="nofollow noopener noreferrer"
-      target="_blank"
+      rel={null}
+      target={null}
+      type="external"
     >
       Privacy Policy
-      <span
-        className="css-0"
-      >
-        This link opens in a new window
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1vgifmd"
-        data-file-name="SvgActionLaunch"
-        focusable={false}
-        id="link-privacy-policy-external-icon"
-        role="img"
-        title="External link"
-      />
     </a>
   </div>
   <div
@@ -344,24 +292,11 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
     <a
       className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      rel="nofollow noopener noreferrer"
-      target="_blank"
+      rel={null}
+      target={null}
+      type="external"
     >
       Privacy Policy
-      <span
-        className="css-0"
-      >
-        This link opens in a new window
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1vgifmd"
-        data-file-name="SvgActionLaunch"
-        focusable={false}
-        id="link-privacy-policy-external-icon"
-        role="img"
-        title="External link"
-      />
     </a>
   </div>
   <div
@@ -471,24 +406,11 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
     <a
       className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      rel="nofollow noopener noreferrer"
-      target="_blank"
+      rel={null}
+      target={null}
+      type="external"
     >
       Privacy Policy
-      <span
-        className="css-0"
-      >
-        This link opens in a new window
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1vgifmd"
-        data-file-name="SvgActionLaunch"
-        focusable={false}
-        id="link-privacy-policy-external-icon"
-        role="img"
-        title="External link"
-      />
     </a>
   </div>
   <div
@@ -593,24 +515,11 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
     <a
       className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      rel="nofollow noopener noreferrer"
-      target="_blank"
+      rel={null}
+      target={null}
+      type="external"
     >
       Privacy Policy
-      <span
-        className="css-0"
-      >
-        This link opens in a new window
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1vgifmd"
-        data-file-name="SvgActionLaunch"
-        focusable={false}
-        id="link-privacy-policy-external-icon"
-        role="img"
-        title="External link"
-      />
     </a>
   </div>
   <div
@@ -716,24 +625,11 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
     <a
       className="chakra-link css-1xdhyk6"
       href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-      rel="nofollow noopener noreferrer"
-      target="_blank"
+      rel={null}
+      target={null}
+      type="external"
     >
       Privacy Policy
-      <span
-        className="css-0"
-      >
-        This link opens in a new window
-      </span>
-      <svg
-        aria-hidden={true}
-        className="chakra-icon css-1vgifmd"
-        data-file-name="SvgActionLaunch"
-        focusable={false}
-        id="link-privacy-policy-external-icon"
-        role="img"
-        title="External link"
-      />
     </a>
   </div>
   <div

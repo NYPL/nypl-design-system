@@ -23,7 +23,7 @@ import * as LinkStories from "./Link.stories";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#visited-state-patterns" target="_self">Visited State Patterns</Link>}
-- {<Link href="#all-link-types" target="_self">All Link Types</Link>}
+- {<Link href="#all-link-variants" target="_self">All Link Variants</Link>}
 - {<Link href="#links-with-icons" target="_self">Links With Icons</Link>}
 - {<Link href="#anchor-element-rendering" target="_self">Anchor Element Rendering</Link>}
 - {<Link href="#link-with-routers" target="_self">Link with Routers</Link>}
@@ -102,7 +102,7 @@ component.
 <Link
   hasVisitedState={false}
   href="https://nypl.org"
-  type="action"
+  variant="action"
 >
   NYPL Website
 </Link>
@@ -110,7 +110,7 @@ component.
   language="jsx"
 />
 
-## All Link Types
+## All Link Variants
 
 The `Link` component offers multiple variants for differing UX situations.
 
@@ -136,12 +136,12 @@ IMPORTANT: Links that look like buttons should still act like links and not act
 like buttons. Refer to the <Link href="#accessibility"
 target="_self">Accessibility</Link> section above for clarification.
 
-<Canvas of={LinkStories.AllLinkTypes} />
+<Canvas of={LinkStories.AllLinkVariants} />
 
 ## Links With Icons
 
 To render an `Icon` as part of the link, make sure that the `Link` component
-wraps the `Icon`. Use `type="action"` to apply appropriate styling to
+wraps the `Icon`. Use `variant="action"` to apply appropriate styling to
 links with icons. Icons can be rendered to the left or right of the link text.
 
 <Canvas of={LinkStories.LinksWithIcons} />
@@ -190,7 +190,7 @@ import { Link as ReactRouterLink } from "react-router-dom";
 import { Link } from "@nypl/design-system-react-components";
 // ...
 
-<Link as={ReactRouterLink} type="action" href="#">
+<Link as={ReactRouterLink} variant="action" href="#">
   Next Page
 </Link>
 `} language="jsx" />
@@ -212,7 +212,7 @@ import { Link as NextLink } from "next/link";
 import { Link } from "@nypl/design-system-react-components";
 // ...
 
-<Link as={NextLink} type="action" href="#">
+<Link as={NextLink} variant="action" href="#">
   Next Page
 </Link>
 `} language="jsx" />

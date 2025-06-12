@@ -114,6 +114,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
           id="link-online"
           rel={null}
           target={null}
+          type="buttonPrimary"
         >
           Read Online
         </a>
@@ -123,6 +124,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
           id="link-icon"
           rel={null}
           target={null}
+          type="action"
         >
           <svg
             aria-hidden={true}
@@ -246,6 +248,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
           id="link-online"
           rel={null}
           target={null}
+          type="buttonPrimary"
         >
           Read Online
         </a>
@@ -255,6 +258,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
           id="link-icon"
           rel={null}
           target={null}
+          type="action"
         >
           <svg
             aria-hidden={true}
@@ -315,6 +319,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
           id="link-online"
           rel={null}
           target={null}
+          type="buttonPrimary"
         >
           Read Online
         </a>
@@ -324,6 +329,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
           id="link-icon"
           rel={null}
           target={null}
+          type="action"
         >
           <svg
             aria-hidden={true}

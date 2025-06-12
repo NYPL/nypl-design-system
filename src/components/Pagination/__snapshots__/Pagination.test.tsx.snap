@@ -20,6 +20,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         id="firstPage-Previous"
         rel={null}
         target={null}
+        type="action"
       >
         <svg
           aria-hidden={true}
@@ -129,6 +130,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         id="firstPage-Next"
         rel={null}
         target={null}
+        type="action"
       >
         <span
           className="css-70cl0f"
@@ -177,6 +179,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         id="lastPage-Previous"
         rel={null}
         target={null}
+        type="action"
       >
         <svg
           aria-hidden={true}
@@ -286,6 +289,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         id="lastPage-Next"
         rel={null}
         target={null}
+        type="action"
       >
         <span
           className="css-70cl0f"
@@ -334,6 +338,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         id="middlePage-Previous"
         rel={null}
         target={null}
+        type="action"
       >
         <svg
           aria-hidden={true}
@@ -434,6 +439,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         id="middlePage-Next"
         rel={null}
         target={null}
+        type="action"
       >
         <span
           className="css-70cl0f"
@@ -482,6 +488,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         id="chakra-Previous"
         rel={null}
         target={null}
+        type="action"
       >
         <svg
           aria-hidden={true}
@@ -591,6 +598,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         id="chakra-Next"
         rel={null}
         target={null}
+        type="action"
       >
         <span
           className="css-70cl0f"
@@ -640,6 +648,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         id="props-Previous"
         rel={null}
         target={null}
+        type="action"
       >
         <svg
           aria-hidden={true}
@@ -749,6 +758,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         id="props-Next"
         rel={null}
         target={null}
+        type="action"
       >
         <span
           className="css-70cl0f"
