@@ -199,6 +199,15 @@ export const VideoPlayer: ChakraComponent<
               <Box __css={styles.inside}>{embedElement}</Box>
             </ComponentWrapper>
           )}
+          {/* Displays a fallback message to users when JavaScript is disabled.
+              NOTE: This relies on the component being Server-Side Rendered (SSR) or Statically Generated (SSG).
+          */}
+          <noscript>
+            <Box __css={styles.invalid} style={{ marginTop: "1rem" }}>
+              The video player requires JavaScript to function. Please enable
+              JavaScript in your browser settings and refresh the page.
+            </Box>
+          </noscript>
         </Box>
       );
     }

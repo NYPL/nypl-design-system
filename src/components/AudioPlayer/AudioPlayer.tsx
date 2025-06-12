@@ -155,7 +155,9 @@ export const AudioPlayer: ChakraComponent<
           ) : (
             <>{embedElement}</>
           )}
-          {/* Displays a fallback message to users when JavaScript is disabled. */}
+          {/* Displays a fallback message to users when JavaScript is disabled.
+              NOTE: This relies on the component being Server-Side Rendered (SSR) or Statically Generated (SSG).
+          */}
           <noscript>
             <Box __css={styles.invalid}>
               The audio player requires JavaScript to function. Please enable

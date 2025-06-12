@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds a fallback warning message to the `AudioPlayer` component for browsers with JavaScript disabled.
+- Adds fallback warning messages to the `AudioPlayer` and `VideoPlayer` components on browsers with JavaScript disabled.
 
 ## 3.6.3 (June 9, 2025)
 
