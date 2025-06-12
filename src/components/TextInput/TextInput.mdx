@@ -73,7 +73,7 @@ field a clear button is rendered to clear the input value. Once the clear button
 is clicked, the input value will be cleared, the clear button will become hidden,
 and focus will be set to the input element.
 
-When the `type` prop is set to `"textarea"`, the `<textarea>` element
+When the `inputType` prop is set to `"textarea"`, the `<textarea>` element
 is rendered instead of the `<input>` element. This element follows all the same
 accessibility rules described above.
 
@@ -93,13 +93,13 @@ easier and more efficient to complete for all users. For ease of use, the
 `TextInput` component provides a few methods for incorporating the
 `autocomplete` attribute.
 
-If the `type` prop is set to `"email"`, `"tel"`, or `"url"`, the component will
+If the `inputType` prop is set to `"email"`, `"tel"`, or `"url"`, the component will
 automatically add the `autocomplete` attribute with an appropriate value.
 
 Additionally, the `autoComplete` prop can be used to set the `autocomplete`
 attribute manually. When the `autoComplete` prop is set, its value will be used
 to set the `autocomplete` attribute on the input field. Furthermore, if the
-`type` prop is set to `"email"`, `"tel"`, or `"url"`, the value of the
+`inputType` prop is set to `"email"`, `"tel"`, or `"url"`, the value of the
 `autoComplete` prop will override the value automatically added by the
 component.
 
@@ -135,7 +135,7 @@ when the input is empty, including after it is clicked.
 
 This button has visually hidden text, a "close" icon, and renders on top
 of the input field on the right side. This clear button does not render when
-the `type` prop is set to `"textarea"`.
+the `inputType` prop is set to `"textarea"`.
 
 <Banner
   mb="s"
@@ -152,7 +152,7 @@ the `type` prop is set to `"textarea"`.
     <>
       <strong>IMPORTANT:</strong> The clear button will not render when...
       <List noStyling mb="0">
-        <li>- the `type` prop is set to `"textarea"`</li>
+        <li>- the `inputType` prop is set to `"textarea"`</li>
         <li>- the `isDisabled` prop is set to `true`</li>
       </List>
     </>
@@ -268,7 +268,7 @@ required, the `maxLength` prop can be set to "5" and the `pattern` prop can be
 set to `"[0-9]\*"` to allow only numbers to be entered and limit the number of
 characters to 5.
 
-Note that the `type` prop is not set to "number" in this example and that the
+Note that the `inputType` prop is not set to "number" in this example and that the
 consuming application must handle validating the value entered. Browsers will
 also provide their own validation for the input.
 
