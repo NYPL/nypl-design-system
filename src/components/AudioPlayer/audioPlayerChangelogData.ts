@@ -14,7 +14,9 @@ export const changelogData: ChangelogData[] = [
     version: "3.6.3",
     type: "Update",
     affects: ["Accessibility"],
-    notes: ["Display a fallback warning message on JavaScript-disabled browsers."],
+    notes: [
+      "Display a fallback warning message on JavaScript-disabled browsers.",
+    ],
   },
   {
     date: "2024-03-14",
