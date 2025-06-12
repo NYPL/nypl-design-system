@@ -181,8 +181,8 @@ export const SearchBar: ChakraComponent<
         onChange={textInputProps?.onChange}
         pattern={textInputProps?.pattern}
         placeholder={textInputPlaceholder}
-        textInputType={selectElem ? "searchBarSelect" : "searchBar"}
-        type="text"
+        variant={selectElem ? "searchBarSelect" : "searchBar"}
+        inputType="text"
         value={textInputProps?.value}
         {...stateProps}
       />

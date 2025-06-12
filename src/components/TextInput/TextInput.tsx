@@ -58,11 +58,11 @@ type TextAreaElementProps = Omit<
 >;
 
 interface BaseTextInputProps extends Pick<BoxProps, keyof ChakraProps> {
-  type?: TextInputTypes;
+  inputType?: TextInputTypes;
 }
 
 export type TextInputPropsWithHTML = BaseTextInputProps &
-  (BaseTextInputProps["type"] extends "textarea"
+  (BaseTextInputProps["inputType"] extends "textarea"
     ? TextAreaElementProps
     : InputElementProps);
 
@@ -105,7 +105,7 @@ export interface InputProps extends TextInputPropsWithHTML {
    * True by default. */
   showRequiredLabel?: boolean;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
-  textInputType?: TextInputVariants;
+  variant?: TextInputVariants;
 }
 
 /**
@@ -156,8 +156,8 @@ export const TextInput: ChakraComponent<
         showRequiredLabel = true,
         requiredLabelText,
         step = 1,
-        textInputType = "default",
-        type = "text",
+        variant = "default",
+        inputType = "text",
         value,
         ...rest
       } = props;
@@ -168,10 +168,10 @@ export const TextInput: ChakraComponent<
       const finalRef = ref ? mergedRefs : closedRef;
       const styles = useMultiStyleConfig("TextInput", {
         showLabel,
-        variant: textInputType,
+        variant,
       });
-      const isTextArea = type === "textarea";
-      const isHidden = type === "hidden";
+      const isTextArea = inputType === "textarea";
+      const isHidden = inputType === "hidden";
       let hasAutocomplete = !!autoComplete;
       const finalInvalidText = invalidText
         ? invalidText
@@ -184,9 +184,9 @@ export const TextInput: ChakraComponent<
         ? finalInvalidText
         : helperText;
 
-      if (type === "tel" || type === "url" || type === "email") {
+      if (inputType === "tel" || inputType === "url" || inputType === "email") {
         hasAutocomplete = true;
-        const example = TextInputFormats[type] || "";
+        const example = TextInputFormats[inputType] || "";
         footnote = (
           <>
             Ex: {example}
@@ -228,13 +228,13 @@ export const TextInput: ChakraComponent<
         );
       }
 
-      if (type === "number" && max && min && min > max) {
+      if (inputType === "number" && max && min && min > max) {
         finalIsInvalid = true;
         console.warn(
           "NYPL Reservoir TextInput: The `min` prop is greater than the `max` prop."
         );
       }
-      // When the type is "hidden", the input element needs fewer attributes.
+      // When the inputType is "hidden", the input element needs fewer attributes.
       options = isHidden
         ? {
             defaultValue,
@@ -248,13 +248,13 @@ export const TextInput: ChakraComponent<
             "aria-required": isRequired,
             /** If the `autoComplete` prop is passed, that value will take
              * precedence and will be used here. Otherwise, a value will be set
-             * based on the `type` prop. Lastly, if `autoComplete` is not passed
-             * and a default value is not set based on the `type` prop, then
+             * based on the `inputType` prop. Lastly, if `autoComplete` is not passed
+             * and a default value is not set based on the `inputType` prop, then
              * `autoComplete` will not be set for the input. */
             autoComplete: hasAutocomplete
               ? autoComplete
                 ? autoComplete
-                : type
+                : inputType
               : null,
             defaultValue,
             id,
@@ -271,15 +271,15 @@ export const TextInput: ChakraComponent<
             pattern,
             placeholder,
             ref: finalRef,
-            // The `step` attribute is useful for the number type.
-            step: type === "number" ? step : null,
+            // The `step` attribute is useful for the number inputType.
+            step: inputType === "number" ? step : null,
             ...rest,
             ...ariaAttributes,
           };
       // For `input` and `textarea`, all attributes are the same but `input`
-      // also needs `type` and `value` to render correctly.
+      // also needs `inputType` and `value` to render correctly.
       if (!isTextArea) {
-        options = { type, value: finalValue, ...options } as any;
+        options = { type: inputType, value: finalValue, ...options } as any;
         fieldOutput = <ChakraInput {...options} __css={styles.input} />;
         if (isClearable && !isDisabled && !isHidden) {
           clearButtonOutput = (

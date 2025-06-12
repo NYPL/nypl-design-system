@@ -44,11 +44,11 @@ const meta: Meta<typeof TextInput> = {
     showLabel: argsBooleanType("true"),
     showRequiredLabel: argsBooleanType("true"),
     step: { table: { defaultValue: { summary: "1" } } },
-    textInputType: {
+    variant: {
       control: false,
       table: { defaultValue: { summary: "default" } },
     },
-    type: {
+    inputType: {
       control: { type: "select" },
       options: textInputTypesArray,
       table: { defaultValue: { summary: "text" } },
@@ -92,8 +92,8 @@ export const WithControls: Story = {
     showLabel: true,
     showRequiredLabel: true,
     step: 1,
-    textInputType: "default",
-    type: "text",
+    variant: "default",
+    inputType: "text",
     value: undefined,
   },
   render: (args) => <TextInput {...args} />,
@@ -289,7 +289,7 @@ export const NumberType: Story = {
         max={20}
         min={10}
         placeholder="i.e. 1, 2, 3, etc."
-        type="number"
+        inputType="number"
       />
       <TextInput
         helperText="The min value is 30 and the max value is 5."
@@ -299,7 +299,7 @@ export const NumberType: Story = {
         max={5}
         min={30}
         placeholder="i.e. 1, 2, 3, etc."
-        type="number"
+        inputType="number"
       />
     </VStack>
   ),
@@ -370,13 +370,13 @@ export const Textarea: Story = {
     showLabel: true,
     showRequiredLabel: true,
     step: 1,
-    textInputType: "default",
-    type: "textarea",
+    variant: "default",
+    inputType: "textarea",
     value: undefined,
   },
   argTypes: {
-    type: { control: false },
-    textInputType: { control: false },
+    inputType: { control: false },
+    variant: { control: false },
   },
   render: (args) => <TextInput {...args} />,
 };

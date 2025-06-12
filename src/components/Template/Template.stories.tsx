@@ -237,7 +237,7 @@ export const TemplateFullExample: Story = {
           />
           <Hero
             backgroundImageSrc={getPlaceholderImage()}
-            heroType="primary"
+            variant="primary"
             heading={<Heading level="h1" id="1" text="Hero Primary" />}
             imageProps={{
               alt: "Image example",
@@ -251,7 +251,7 @@ export const TemplateFullExample: Story = {
           <Banner
             content="This is the top content area!"
             heading="Content Top"
-            type="informative"
+            variant="informative"
           />
         </TemplateTop>
         {sidebar === "left" && (
@@ -307,10 +307,14 @@ export const TemplateFullExample: Story = {
                 />
               </FormField>
               <FormField>
-                <TextInput id="url-field" labelText="URL Field" type="url" />
+                <TextInput
+                  id="url-field"
+                  labelText="URL Field"
+                  inputType="url"
+                />
               </FormField>
               <FormField>
-                <TextInput id="age-field" labelText="Age" type="number" />
+                <TextInput id="age-field" labelText="Age" inputType="number" />
               </FormField>
             </FormRow>
             <FormField>
@@ -355,7 +359,7 @@ export const TemplateFullExample: Story = {
           <Banner
             content="This is the bottom content area!"
             heading="Content Bottom"
-            type="informative"
+            variant="informative"
           />
         </TemplateBottom>
       </Template>
@@ -382,7 +386,7 @@ export const TemplateFullExampleNarrow = {
           <Hero
             backgroundColor="section.research.primary"
             foregroundColor="ui.white"
-            heroType="tertiary"
+            variant="tertiary"
             heading={<Heading level="h1" id="1" text="Tertiary Hero" />}
           />
         </TemplateBreakout>
@@ -431,7 +435,7 @@ export const TemplateFullExampleWithFeaturedContent = {
           />
           <Hero
             backgroundImageSrc={getPlaceholderImage()}
-            heroType="campaign"
+            variant="campaign"
             heading={<Heading level="h1" id="1" text="Hero Campaign" />}
             imageProps={{
               alt: "Image example",
@@ -445,7 +449,7 @@ export const TemplateFullExampleWithFeaturedContent = {
           <Banner
             content="This is the top content area!"
             heading="Content Top"
-            type="informative"
+            variant="informative"
           />
         </TemplateTop>
         <TemplateMain>
@@ -476,7 +480,7 @@ export const TemplateFullExampleWithFeaturedContent = {
           <Banner
             content="This is the bottom content area!"
             heading="Content Bottom"
-            type="informative"
+            variant="informative"
           />
         </TemplateBottom>
       </Template>

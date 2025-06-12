@@ -191,7 +191,7 @@ export const Slider: ChakraComponent<
       showHelperInvalidText: false,
       showLabel: false,
       step,
-      type: "number" as TextInputTypes,
+      inputType: "number" as TextInputTypes,
     };
     /**
      * This returns either the "start" or "end" `TextInput` component. Note that
