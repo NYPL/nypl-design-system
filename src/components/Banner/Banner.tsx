@@ -19,7 +19,7 @@ export const bannerVariantsArray = [
   "recommendation",
   "warning",
 ] as const;
-export type BannerTypes = typeof bannerVariantsArray[number];
+export type BannerVariants = typeof bannerVariantsArray[number];
 export const bannerBgColorsArray = [
   "brand.primary-05",
   "section.blogs.primary-05",
@@ -92,10 +92,10 @@ export interface BannerProps extends Omit<BoxProps, "content"> {
    * (closed) by a user. */
   isDismissible?: boolean;
   /** Used to control the component's semantic coloring and iconography. */
-  variant?: BannerTypes;
+  variant?: BannerVariants;
 }
 
-const iconProps: Record<BannerTypes, IconProps> = {
+const iconProps: Record<BannerVariants, IconProps> = {
   neutral: {
     name: "errorOutline",
     title: "Banner neutral icon",

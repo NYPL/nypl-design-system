@@ -42,7 +42,7 @@ type Story = StoryObj<typeof Template>;
 
 const accordionData: AccordionDataProps[] = [
   {
-    accordionType: "default",
+    variant: "default",
     label: "Tom Nook",
     panel: (
       <Card
@@ -68,7 +68,7 @@ const accordionData: AccordionDataProps[] = [
 const faqContentData: AccordionDataProps[] = [
   ...accordionData,
   {
-    accordionType: "warning",
+    variant: "warning",
     label: "Isabelle",
     panel: (
       <Card
@@ -93,7 +93,7 @@ const faqContentData: AccordionDataProps[] = [
     ),
   },
   {
-    accordionType: "error",
+    variant: "error",
     label: "K.K. Slider",
     panel: (
       <Card
