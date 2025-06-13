@@ -203,10 +203,18 @@ export const VideoPlayer: ChakraComponent<
               NOTE: This relies on the component being Server-Side Rendered (SSR) or Statically Generated (SSG).
           */}
           <noscript>
-            <Box __css={styles.invalid} style={{ marginTop: "1rem" }}>
+            <div
+              style={{
+                margin: "1rem 0",
+                backgroundColor: "var(--nypl-colors-ui-bg-default)",
+                border: "1px solid var(--nypl-colors-ui-border-default)",
+                padding: "var(--nypl-space-s)",
+                height: "auto",
+              }}
+            >
               The video player requires JavaScript to function. Please enable
               JavaScript in your browser settings and refresh the page.
-            </Box>
+            </div>
           </noscript>
         </Box>
       );
