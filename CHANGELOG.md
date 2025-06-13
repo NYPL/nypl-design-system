@@ -47,6 +47,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `isDarkMode` function from `Slider` and `Accordion`.
 - Removes `useNYPLBreakpoints` from final component, `SearchBar`, and removes `mediaMatchMock` from test setup since it is no longer necessary.
 - Removes explicit `className` and `children` props in favor of expanded prop type definitions in all components.
+- Removes the use of the `window`'s `scrollIntoView` dependency in the `Tabs` component.
 
 ## Prerelease
 
