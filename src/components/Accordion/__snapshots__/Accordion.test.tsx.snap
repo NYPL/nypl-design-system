@@ -32,7 +32,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -73,7 +73,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -114,7 +114,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -156,7 +156,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -197,7 +197,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -238,7 +238,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -279,7 +279,7 @@ exports[`Accordion Renders the UI snapshot correctly 7`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />

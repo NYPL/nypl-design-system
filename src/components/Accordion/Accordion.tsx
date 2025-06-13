@@ -8,9 +8,10 @@ import {
   chakra,
   ChakraComponent,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useState } from "react";
+import { createRef, forwardRef, useEffect, useState } from "react";
 
 import Icon from "../Icons/Icon";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export type AccordionTypes = "default" | "warning" | "error";
 export interface AccordionDataProps {
@@ -25,8 +26,6 @@ export interface AccordionDataProps {
 export interface AccordionProps extends Omit<BoxProps, "onChange"> {
   /** Array of data to display, and an optional accordionType */
   accordionData: AccordionDataProps[];
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Whether the accordion is open by default only on its initial rendering */
   isDefaultOpen?: boolean;
   /** Whether the contents of the Accordion should always be rendered.
@@ -59,7 +58,7 @@ const getIcon = ({
     <Icon
       className="accordion-icon"
       color="currentColor"
-      id={`accordion-${id}-icon-${index}`}
+      id={`${id}-icon-${index}`}
       name={iconName}
       size="small"
     />
@@ -109,21 +108,21 @@ const getElementsFromData = ({
   return data.map((content, index) => {
     const isLast = index === numAccordionItems - 1;
     // This is done to support both string and DOM element input.
+    const commonProps = {
+      id: `${id}-panel-${index}`,
+      key: index,
+      maxHeight: panelMaxHeight,
+      overflow: "auto",
+    };
     const panel =
       typeof content.panel === "string" ? (
         <AccordionPanel
-          id={`${id}-panel-${index}`}
-          key={index}
+          {...commonProps}
           dangerouslySetInnerHTML={{ __html: content.panel }}
-          maxHeight={panelMaxHeight}
-          overflow="auto"
         />
       ) : (
         <AccordionPanel
-          id={`${id}-panel-${index}`}
-          key={index}
-          maxHeight={panelMaxHeight}
-          overflow="auto"
+          {...commonProps}
           borderBottom={!isLast ? "transparent" : undefined}
         >
           {content.panel}
@@ -253,6 +252,7 @@ export const Accordion: ChakraComponent<
       userClickedOutside,
       ...rest
     } = props;
+    const mainId = useSafeId(id);
 
     // Pass `0` to open the first accordion in the 0-index based array.
     const [expandedPanels, setExpandedPanels] = useState<number[]>(
@@ -267,7 +267,7 @@ export const Accordion: ChakraComponent<
     // buttons, add them now.
     const updatedAccordionData = accordionData.map((item) => ({
       ...item,
-      buttonInteractionRef: item.buttonInteractionRef || React.createRef(),
+      buttonInteractionRef: item.buttonInteractionRef || createRef(),
     }));
 
     const handleKeyDown = (e) => {
@@ -313,17 +313,17 @@ export const Accordion: ChakraComponent<
         index={expandedPanels}
         onChange={(expandedIdxs: number[]) => setExpandedPanels(expandedIdxs)}
         onKeyDown={handleKeyDown}
-        id={id}
+        id={mainId}
         ref={ref}
         {...rest}
       >
         {getElementsFromData({
-          data: updatedAccordionData,
           ariaLabel,
-          id,
+          data: updatedAccordionData,
+          hoveredButtonIndex,
+          id: mainId,
           isAlwaysRendered,
           panelMaxHeight,
-          hoveredButtonIndex,
           setHoveredButtonIndex,
         })}
       </ChakraAccordion>
