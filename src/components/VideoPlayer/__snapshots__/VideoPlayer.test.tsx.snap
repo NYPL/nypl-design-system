@@ -25,10 +25,13 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
   </div>
   <noscript>
     <div
-      className="css-0"
       style={
         {
-          "marginTop": "1rem",
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
         }
       }
     >
@@ -90,10 +93,13 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
   </div>
   <noscript>
     <div
-      className="css-0"
       style={
         {
-          "marginTop": "1rem",
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
         }
       }
     >
@@ -154,10 +160,13 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
   </div>
   <noscript>
     <div
-      className="css-0"
       style={
         {
-          "marginTop": "1rem",
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
         }
       }
     >
@@ -182,10 +191,13 @@ exports[`VideoPlayer renders the UI snapshot correctly 4`] = `
   />
   <noscript>
     <div
-      className="css-0"
       style={
         {
-          "marginTop": "1rem",
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
         }
       }
     >
@@ -220,10 +232,13 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
   </div>
   <noscript>
     <div
-      className="css-0"
       style={
         {
-          "marginTop": "1rem",
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
         }
       }
     >
@@ -258,10 +273,13 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
   </div>
   <noscript>
     <div
-      className="css-0"
       style={
         {
-          "marginTop": "1rem",
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
         }
       }
     >
