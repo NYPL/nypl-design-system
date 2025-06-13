@@ -15,6 +15,7 @@ export const VideoPlayerAspectRatiosArray = [
   "sixteenByNine",
   "square",
 ] as const;
+
 export const VideoPlayerTypesArray = ["vimeo", "youtube"] as const;
 export type VideoPlayerAspectRatios =
   typeof VideoPlayerAspectRatiosArray[number];

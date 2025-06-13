@@ -8,7 +8,6 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { AnchorHTMLAttributes, forwardRef } from "react";
-
 import Icon from "../Icons/Icon";
 import { sanitizeStringForAttribute } from "../../utils/utils";
 

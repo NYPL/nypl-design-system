@@ -16,6 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality"],
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Replaces `highlightColorTypesArray` with shared highlight colors array plus default gray, now `newsletterHighlightColorsArray`. ",
     ],
   },
   {
