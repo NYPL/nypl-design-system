@@ -4,7 +4,7 @@ exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
 <div
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
-  id="ds-audioPlayer-wrapper"
+  id="ds-componentWrapper-ds-audioPlayer"
 />
 `;
 
@@ -12,11 +12,11 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
 <div
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
-  id="ds-audioPlayer-wrapper"
+  id="ds-componentWrapper-ds-audioPlayer"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
-    id="ds-audioPlayer-heading"
+    id="ds-componentWrapper-ds-audioPlayer-heading"
   >
     Audio Player Heading
   </h2>
@@ -30,7 +30,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-audioPlayer-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-ds-audioPlayer"
   >
     <div
       className="css-0"
@@ -48,7 +48,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
 <div
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
-  id="ds-audioPlayer-wrapper"
+  id="ds-componentWrapper-ds-audioPlayer"
 >
   <div
     className="css-0"
@@ -65,7 +65,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
 <div
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
-  id="ds-audioPlayer-wrapper"
+  id="ds-componentWrapper-ds-audioPlayer"
 />
 `;
 
@@ -73,7 +73,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
 <div
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
-  id="ds-audioPlayer-wrapper"
+  id="ds-componentWrapper-ds-audioPlayer"
 >
   <div
     className="css-0"

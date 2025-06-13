@@ -6,7 +6,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
   aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={false}
-  id="basic"
+  id="ds-helperErrorText-basic"
 >
   <div
     className="css-0"
@@ -25,7 +25,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
   aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={true}
-  id="invalid"
+  id="ds-helperErrorText-invalid"
 >
   <div
     className="css-0"
@@ -44,7 +44,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
   aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={true}
-  id="invalid"
+  id="ds-helperErrorText-invalid"
 >
   <div
     className="css-0"
@@ -63,7 +63,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
   aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={true}
-  id="invalid"
+  id="ds-helperErrorText-invalid"
 >
   <div
     className="css-0"
@@ -83,7 +83,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
   aria-live="polite"
   className="css-10g9ftz"
   data-isinvalid={false}
-  id="chakra"
+  id="ds-helperErrorText-chakra"
 >
   <div
     className="css-0"
@@ -103,7 +103,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
   className="css-1xdhyk6"
   data-isinvalid={false}
   data-testid="props"
-  id="props"
+  id="ds-helperErrorText-props"
 >
   <div
     className="css-0"

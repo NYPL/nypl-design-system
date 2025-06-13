@@ -3,7 +3,7 @@
 exports[`Radio Button renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="inputID-wrapper"
+  id="ds-componentWrapper-inputID"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -59,7 +59,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
 exports[`Radio Button renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-checked-wrapper"
+  id="ds-componentWrapper-radio-checked"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -118,7 +118,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
 exports[`Radio Button renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-required-wrapper"
+  id="ds-componentWrapper-radio-required"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -175,7 +175,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
 exports[`Radio Button renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-invalid-wrapper"
+  id="ds-componentWrapper-radio-invalid"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -235,7 +235,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
 exports[`Radio Button renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-disabled-wrapper"
+  id="ds-componentWrapper-radio-disabled"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -295,7 +295,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
 exports[`Radio Button renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
-  id="jsxLabel-wrapper"
+  id="ds-componentWrapper-jsxLabel"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -364,7 +364,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
 exports[`Radio Button renders the UI snapshot correctly 7`] = `
 <div
   className="css-1xdhyk6"
-  id="chakra-wrapper"
+  id="ds-componentWrapper-chakra"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -421,7 +421,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"
-  id="props-wrapper"
+  id="ds-componentWrapper-props"
 >
   <label
     className="chakra-radio css-rfs4w5"

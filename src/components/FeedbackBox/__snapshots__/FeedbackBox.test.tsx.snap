@@ -7,7 +7,7 @@ exports[`FeedbackBox renders the UI snapshot correctly 1`] = `
 >
   <button
     className="chakra-button css-1xdhyk6"
-    id="open"
+    id="ds-button-open"
     onClick={[Function]}
     type="button"
   >

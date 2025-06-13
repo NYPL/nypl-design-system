@@ -3,7 +3,7 @@
 exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
 <div
   className="css-1u8qly9"
-  id="filter-bar-inline-defaultFilterBarNoButtons-wrapper"
+  id="ds-componentWrapper-filter-bar-inline-defaultFilterBarNoButtons"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -97,7 +97,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-colors-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-colors"
                       >
                         <legend>
                           MultiSelect
@@ -105,11 +105,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-colors"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-colors-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="red-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-red"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -121,7 +121,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="red"
+                                id="ds-checkbox-red"
                                 name="Red"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -162,7 +162,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="blue-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-blue"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -174,7 +174,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="blue"
+                                id="ds-checkbox-blue"
                                 name="Blue"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -215,7 +215,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="yellow-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-yellow"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -227,7 +227,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="yellow"
+                                id="ds-checkbox-yellow"
                                 name="Yellow"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -272,7 +272,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-colors-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-colors"
                         >
                           <div
                             className="css-0"
@@ -358,7 +358,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-pets-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-pets"
                       >
                         <legend>
                           MultiSelect
@@ -366,11 +366,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-pets"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-pets-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="cat-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-cat"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -382,7 +382,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="cat"
+                                id="ds-checkbox-cat"
                                 name="Cat"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -423,7 +423,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="dog-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-dog"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -435,7 +435,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="dog"
+                                id="ds-checkbox-dog"
                                 name="Dog"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -476,7 +476,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="corgy-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-corgy"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -488,7 +488,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="corgy"
+                                id="ds-checkbox-corgy"
                                 name="Corgy"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -529,7 +529,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="german-sheperd-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-german-sheperd"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -541,7 +541,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="german-sheperd"
+                                id="ds-checkbox-german-sheperd"
                                 name="German Sheperd"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -582,7 +582,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="afghan-hound-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-afghan-hound"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -594,7 +594,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="afghan-hound"
+                                id="ds-checkbox-afghan-hound"
                                 name="Afghan Hound"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -635,7 +635,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="rat-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-rat"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -647,7 +647,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="rat"
+                                id="ds-checkbox-rat"
                                 name="Rat"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -692,7 +692,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-pets-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-pets"
                         >
                           <div
                             className="css-0"
@@ -778,7 +778,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-tools-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-tools"
                       >
                         <legend>
                           MultiSelect
@@ -786,11 +786,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-tools"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-tools-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="hammer-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-hammer"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -802,7 +802,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="hammer"
+                                id="ds-checkbox-hammer"
                                 name="Hammer"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -843,7 +843,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="skrewdriver-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-skrewdriver"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -855,7 +855,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="skrewdriver"
+                                id="ds-checkbox-skrewdriver"
                                 name="Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -896,7 +896,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="slottet-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-slottet"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -908,7 +908,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="slottet"
+                                id="ds-checkbox-slottet"
                                 name="Slotted Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -949,7 +949,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="phillips-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-phillips"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -961,7 +961,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="phillips"
+                                id="ds-checkbox-phillips"
                                 name="Phillips Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1002,7 +1002,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="allen-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-allen"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -1014,7 +1014,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="allen"
+                                id="ds-checkbox-allen"
                                 name="Allen Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1055,7 +1055,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="whisk-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-whisk"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1067,7 +1067,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="whisk"
+                                id="ds-checkbox-whisk"
                                 name="Whisk"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1112,7 +1112,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-tools-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-tools"
                         >
                           <div
                             className="css-0"
@@ -1135,7 +1135,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
 exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
 <div
   className="css-1u8qly9"
-  id="filter-bar-inline-filterBarWithClearAllButton-wrapper"
+  id="ds-componentWrapper-filter-bar-inline-filterBarWithClearAllButton"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -1229,7 +1229,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-colors-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-colors"
                       >
                         <legend>
                           MultiSelect
@@ -1237,11 +1237,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-colors"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-colors-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="red-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-red"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1253,7 +1253,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="red"
+                                id="ds-checkbox-red"
                                 name="Red"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1294,7 +1294,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="blue-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-blue"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1306,7 +1306,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="blue"
+                                id="ds-checkbox-blue"
                                 name="Blue"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1347,7 +1347,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="yellow-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-yellow"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1359,7 +1359,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="yellow"
+                                id="ds-checkbox-yellow"
                                 name="Yellow"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1404,7 +1404,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-colors-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-colors"
                         >
                           <div
                             className="css-0"
@@ -1490,7 +1490,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-pets-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-pets"
                       >
                         <legend>
                           MultiSelect
@@ -1498,11 +1498,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-pets"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-pets-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="cat-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-cat"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1514,7 +1514,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="cat"
+                                id="ds-checkbox-cat"
                                 name="Cat"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1555,7 +1555,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="dog-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-dog"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1567,7 +1567,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="dog"
+                                id="ds-checkbox-dog"
                                 name="Dog"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1608,7 +1608,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="corgy-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-corgy"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -1620,7 +1620,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="corgy"
+                                id="ds-checkbox-corgy"
                                 name="Corgy"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1661,7 +1661,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="german-sheperd-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-german-sheperd"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -1673,7 +1673,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="german-sheperd"
+                                id="ds-checkbox-german-sheperd"
                                 name="German Sheperd"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1714,7 +1714,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="afghan-hound-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-afghan-hound"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -1726,7 +1726,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="afghan-hound"
+                                id="ds-checkbox-afghan-hound"
                                 name="Afghan Hound"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1767,7 +1767,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="rat-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-rat"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1779,7 +1779,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="rat"
+                                id="ds-checkbox-rat"
                                 name="Rat"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1824,7 +1824,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-pets-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-pets"
                         >
                           <div
                             className="css-0"
@@ -1910,7 +1910,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-tools-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-tools"
                       >
                         <legend>
                           MultiSelect
@@ -1918,11 +1918,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-tools"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-tools-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="hammer-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-hammer"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1934,7 +1934,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="hammer"
+                                id="ds-checkbox-hammer"
                                 name="Hammer"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -1975,7 +1975,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="skrewdriver-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-skrewdriver"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1987,7 +1987,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="skrewdriver"
+                                id="ds-checkbox-skrewdriver"
                                 name="Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2028,7 +2028,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="slottet-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-slottet"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2040,7 +2040,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="slottet"
+                                id="ds-checkbox-slottet"
                                 name="Slotted Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2081,7 +2081,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="phillips-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-phillips"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2093,7 +2093,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="phillips"
+                                id="ds-checkbox-phillips"
                                 name="Phillips Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2134,7 +2134,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="allen-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-allen"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2146,7 +2146,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="allen"
+                                id="ds-checkbox-allen"
                                 name="Allen Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2187,7 +2187,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="whisk-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-whisk"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2199,7 +2199,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="whisk"
+                                id="ds-checkbox-whisk"
                                 name="Whisk"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2244,7 +2244,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-tools-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-tools"
                         >
                           <div
                             className="css-0"
@@ -2262,10 +2262,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
     </fieldset>
     <div
       className="chakra-stack css-11okbqf"
+      id="ds-buttonGroup"
     >
       <button
         className="chakra-button css-1e643n3"
-        id="filterBarWithClearAllButton-clear-all-button"
+        id="ds-button-filterBarWithClearAllButton-clear-all-button"
         onClick={[Function]}
         type="button"
       >
@@ -2279,7 +2280,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
 exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
 <div
   className="css-1u8qly9"
-  id="filter-bar-inline-filterBarWithSubmitAllButton-wrapper"
+  id="ds-componentWrapper-filter-bar-inline-filterBarWithSubmitAllButton"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -2373,7 +2374,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-colors-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-colors"
                       >
                         <legend>
                           MultiSelect
@@ -2381,11 +2382,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-colors"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-colors-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="red-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-red"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2397,7 +2398,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="red"
+                                id="ds-checkbox-red"
                                 name="Red"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2438,7 +2439,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="blue-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-blue"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2450,7 +2451,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="blue"
+                                id="ds-checkbox-blue"
                                 name="Blue"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2491,7 +2492,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="yellow-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-yellow"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2503,7 +2504,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="yellow"
+                                id="ds-checkbox-yellow"
                                 name="Yellow"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2548,7 +2549,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-colors-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-colors"
                         >
                           <div
                             className="css-0"
@@ -2634,7 +2635,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-pets-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-pets"
                       >
                         <legend>
                           MultiSelect
@@ -2642,11 +2643,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-pets"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-pets-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="cat-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-cat"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2658,7 +2659,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="cat"
+                                id="ds-checkbox-cat"
                                 name="Cat"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2699,7 +2700,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="dog-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-dog"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2711,7 +2712,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="dog"
+                                id="ds-checkbox-dog"
                                 name="Dog"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2752,7 +2753,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="corgy-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-corgy"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2764,7 +2765,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="corgy"
+                                id="ds-checkbox-corgy"
                                 name="Corgy"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2805,7 +2806,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="german-sheperd-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-german-sheperd"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2817,7 +2818,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="german-sheperd"
+                                id="ds-checkbox-german-sheperd"
                                 name="German Sheperd"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2858,7 +2859,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="afghan-hound-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-afghan-hound"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2870,7 +2871,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="afghan-hound"
+                                id="ds-checkbox-afghan-hound"
                                 name="Afghan Hound"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2911,7 +2912,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="rat-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-rat"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2923,7 +2924,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="rat"
+                                id="ds-checkbox-rat"
                                 name="Rat"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -2968,7 +2969,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-pets-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-pets"
                         >
                           <div
                             className="css-0"
@@ -3054,7 +3055,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-tools-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-tools"
                       >
                         <legend>
                           MultiSelect
@@ -3062,11 +3063,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-tools"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-tools-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="hammer-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-hammer"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3078,7 +3079,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="hammer"
+                                id="ds-checkbox-hammer"
                                 name="Hammer"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3119,7 +3120,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="skrewdriver-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-skrewdriver"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3131,7 +3132,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="skrewdriver"
+                                id="ds-checkbox-skrewdriver"
                                 name="Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3172,7 +3173,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="slottet-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-slottet"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -3184,7 +3185,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="slottet"
+                                id="ds-checkbox-slottet"
                                 name="Slotted Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3225,7 +3226,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="phillips-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-phillips"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -3237,7 +3238,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="phillips"
+                                id="ds-checkbox-phillips"
                                 name="Phillips Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3278,7 +3279,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="allen-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-allen"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -3290,7 +3291,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="allen"
+                                id="ds-checkbox-allen"
                                 name="Allen Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3331,7 +3332,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="whisk-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-whisk"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3343,7 +3344,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="whisk"
+                                id="ds-checkbox-whisk"
                                 name="Whisk"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3388,7 +3389,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-tools-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-tools"
                         >
                           <div
                             className="css-0"
@@ -3406,10 +3407,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
     </fieldset>
     <div
       className="chakra-stack css-11okbqf"
+      id="ds-buttonGroup"
     >
       <button
         className="chakra-button css-1xdhyk6"
-        id="filterBarWithSubmitAllButton-submit-all-button"
+        id="ds-button-filterBarWithSubmitAllButton-submit-all-button"
         onClick={[Function]}
         type="button"
       >
@@ -3423,7 +3425,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
 exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
 <div
   className="css-1u8qly9"
-  id="filter-bar-inline-filterBarWithButtons-wrapper"
+  id="ds-componentWrapper-filter-bar-inline-filterBarWithButtons"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -3517,7 +3519,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-colors-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-colors"
                       >
                         <legend>
                           MultiSelect
@@ -3525,11 +3527,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-colors"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-colors-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="red-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-red"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3541,7 +3543,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="red"
+                                id="ds-checkbox-red"
                                 name="Red"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3582,7 +3584,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="blue-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-blue"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3594,7 +3596,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="blue"
+                                id="ds-checkbox-blue"
                                 name="Blue"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3635,7 +3637,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="yellow-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-yellow"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3647,7 +3649,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="yellow"
+                                id="ds-checkbox-yellow"
                                 name="Yellow"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3692,7 +3694,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-colors-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-colors"
                         >
                           <div
                             className="css-0"
@@ -3778,7 +3780,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-pets-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-pets"
                       >
                         <legend>
                           MultiSelect
@@ -3786,11 +3788,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-pets"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-pets-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="cat-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-cat"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3802,7 +3804,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="cat"
+                                id="ds-checkbox-cat"
                                 name="Cat"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3843,7 +3845,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="dog-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-dog"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3855,7 +3857,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="dog"
+                                id="ds-checkbox-dog"
                                 name="Dog"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3896,7 +3898,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="corgy-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-corgy"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -3908,7 +3910,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="corgy"
+                                id="ds-checkbox-corgy"
                                 name="Corgy"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -3949,7 +3951,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="german-sheperd-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-german-sheperd"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -3961,7 +3963,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="german-sheperd"
+                                id="ds-checkbox-german-sheperd"
                                 name="German Sheperd"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -4002,7 +4004,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="afghan-hound-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-afghan-hound"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -4014,7 +4016,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="afghan-hound"
+                                id="ds-checkbox-afghan-hound"
                                 name="Afghan Hound"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -4055,7 +4057,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="rat-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-rat"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -4067,7 +4069,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="rat"
+                                id="ds-checkbox-rat"
                                 name="Rat"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -4112,7 +4114,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-pets-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-pets"
                         >
                           <div
                             className="css-0"
@@ -4198,7 +4200,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                     >
                       <fieldset
                         className="css-1u8qly9"
-                        id="multi-select-checkbox-group-tools-checkbox-group"
+                        id="ds-checkboxGroup-multi-select-checkbox-group-tools"
                       >
                         <legend>
                           MultiSelect
@@ -4206,11 +4208,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                         <div
                           className="chakra-stack css-19s3t1h"
                           data-testid="checkbox-group"
-                          id="multi-select-checkbox-group-tools"
+                          id="ds-checkboxGroup-multi-select-checkbox-group-tools-stack"
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="hammer-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-hammer"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -4222,7 +4224,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="hammer"
+                                id="ds-checkbox-hammer"
                                 name="Hammer"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -4263,7 +4265,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="skrewdriver-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-skrewdriver"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -4275,7 +4277,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="skrewdriver"
+                                id="ds-checkbox-skrewdriver"
                                 name="Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -4316,7 +4318,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="slottet-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-slottet"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -4328,7 +4330,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="slottet"
+                                id="ds-checkbox-slottet"
                                 name="Slotted Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -4369,7 +4371,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="phillips-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-phillips"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -4381,7 +4383,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="phillips"
+                                id="ds-checkbox-phillips"
                                 name="Phillips Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -4422,7 +4424,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="allen-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-allen"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -4434,7 +4436,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="allen"
+                                id="ds-checkbox-allen"
                                 name="Allen Skrewdriver"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -4475,7 +4477,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="whisk-wrapper"
+                            id="ds-componentWrapper-ds-checkbox-whisk"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -4487,7 +4489,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 checked={false}
                                 className="chakra-checkbox__input"
                                 disabled={false}
-                                id="whisk"
+                                id="ds-checkbox-whisk"
                                 name="Whisk"
                                 onBlur={[Function]}
                                 onChange={[Function]}
@@ -4532,7 +4534,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
-                          id="multi-select-checkbox-group-tools-helperErrorText"
+                          id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-tools"
                         >
                           <div
                             className="css-0"
@@ -4550,10 +4552,11 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
     </fieldset>
     <div
       className="chakra-stack css-11okbqf"
+      id="ds-buttonGroup"
     >
       <button
         className="chakra-button css-1xdhyk6"
-        id="filterBarWithButtons-submit-all-button"
+        id="ds-button-filterBarWithButtons-submit-all-button"
         onClick={[Function]}
         type="button"
       >
@@ -4561,7 +4564,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
       </button>
       <button
         className="chakra-button css-1e643n3"
-        id="filterBarWithButtons-clear-all-button"
+        id="ds-button-filterBarWithButtons-clear-all-button"
         onClick={[Function]}
         type="button"
       >

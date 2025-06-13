@@ -54,7 +54,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            id="ds-componentWrapper-email-input"
           >
             <label
               className="css-1xdhyk6"
@@ -93,7 +93,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={true}
-              id="email-input-helperText"
+              id="ds-helperErrorText-ds-componentWrapper-email-input"
             >
               <div
                 className="css-0"
@@ -112,7 +112,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
         >
           <button
             className="chakra-button css-1xdhyk6"
-            id="submit"
+            id="ds-button-submit"
             type="submit"
           >
             Submit
@@ -383,7 +383,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            id="ds-componentWrapper-email-input"
           >
             <label
               className="css-1xdhyk6"
@@ -421,7 +421,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              id="email-input-helperText"
+              id="ds-helperErrorText-ds-componentWrapper-email-input"
             >
               <div
                 className="css-0"
@@ -439,7 +439,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
         >
           <button
             className="chakra-button css-1xdhyk6"
-            id="submit"
+            id="ds-button-submit"
             type="submit"
           >
             Submit
@@ -510,7 +510,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            id="ds-componentWrapper-email-input"
           >
             <label
               className="css-1xdhyk6"
@@ -548,7 +548,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              id="email-input-helperText"
+              id="ds-helperErrorText-ds-componentWrapper-email-input"
             >
               <div
                 className="css-0"
@@ -566,7 +566,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
         >
           <button
             className="chakra-button css-1xdhyk6"
-            id="submit"
+            id="ds-button-submit"
             type="submit"
           >
             Submit
@@ -632,7 +632,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            id="ds-componentWrapper-email-input"
           >
             <label
               className="css-1xdhyk6"
@@ -670,7 +670,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              id="email-input-helperText"
+              id="ds-helperErrorText-ds-componentWrapper-email-input"
             >
               <div
                 className="css-0"
@@ -689,7 +689,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
         >
           <button
             className="chakra-button css-1xdhyk6"
-            id="submit"
+            id="ds-button-submit"
             type="submit"
           >
             Submit
@@ -755,7 +755,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            id="ds-componentWrapper-email-input"
           >
             <label
               className="css-1xdhyk6"
@@ -793,7 +793,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              id="email-input-helperText"
+              id="ds-helperErrorText-ds-componentWrapper-email-input"
             >
               <div
                 className="css-0"
@@ -812,7 +812,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
           <button
             className="chakra-button css-1xdhyk6"
             disabled={true}
-            id="submit"
+            id="ds-button-submit"
             type="submit"
           >
             Submit

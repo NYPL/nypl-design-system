@@ -8,7 +8,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
 >
   <div
     className="css-1xdhyk6"
-    id="video-player-without-text-componentWrapper-wrapper"
+    id="ds-componentWrapper-video-player-without-text-componentWrapper"
   >
     <div
       className="css-0"
@@ -34,11 +34,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
 >
   <div
     className="css-1xdhyk6"
-    id="video-player-with-text-componentWrapper-wrapper"
+    id="ds-componentWrapper-video-player-with-text-componentWrapper"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
-      id="video-player-with-text-componentWrapper-heading"
+      id="ds-componentWrapper-video-player-with-text-componentWrapper-heading"
     >
       VideoPlayer Heading
     </h2>
@@ -64,7 +64,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      id="video-player-with-text-componentWrapper-helperText"
+      id="ds-helperErrorText-ds-componentWrapper-video-player-with-text-componentWrapper"
     >
       <div
         className="css-0"
@@ -87,11 +87,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
 >
   <div
     className="css-1xdhyk6"
-    id="video-player-with-text-componentWrapper-wrapper"
+    id="ds-componentWrapper-video-player-with-text-componentWrapper"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
-      id="video-player-with-text-componentWrapper-heading"
+      id="ds-componentWrapper-video-player-with-text-componentWrapper-heading"
     >
       VideoPlayer Heading
     </h2>
@@ -116,7 +116,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
-      id="video-player-with-text-componentWrapper-helperText"
+      id="ds-helperErrorText-ds-componentWrapper-video-player-with-text-componentWrapper"
     >
       <div
         className="css-0"
@@ -155,7 +155,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
 >
   <div
     className="css-1xdhyk6"
-    id="chakra-componentWrapper-wrapper"
+    id="ds-componentWrapper-chakra-componentWrapper"
   >
     <div
       className="css-0"
@@ -181,7 +181,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
 >
   <div
     className="css-1xdhyk6"
-    id="props-componentWrapper-wrapper"
+    id="ds-componentWrapper-props-componentWrapper"
   >
     <div
       className="css-0"

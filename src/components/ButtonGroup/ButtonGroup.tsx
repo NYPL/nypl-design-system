@@ -9,6 +9,7 @@ import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import { LayoutTypes } from "../../helpers/types";
+import { generateComponentId } from "../../utils/utils";
 
 export const buttonGroupWidthsArray = ["default", "full"] as const;
 export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
@@ -16,8 +17,6 @@ export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
 export interface ButtonGroupProps extends BoxProps {
   /** Sets the width to "default" (for "fit-content") or "full". */
   buttonWidth?: ButtonGroupWidths;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Set's the disabled state to all the internal `Button` components. */
   isDisabled?: boolean;
   /** Renders the layout of `Button` components in a row or column. */
@@ -53,6 +52,7 @@ export const ButtonGroup: ChakraComponent<
       const styles = useStyleConfig("ButtonGroup", {
         buttonWidth: buttonWidth,
       });
+      const mainId = generateComponentId("buttonGroup", id);
 
       React.Children.map(
         children as JSX.Element,
@@ -82,7 +82,7 @@ export const ButtonGroup: ChakraComponent<
         <Stack
           className={className}
           direction={{ base: "column", md: layout }}
-          id={id}
+          id={mainId}
           ref={ref}
           // Always set the spacing to "8px".
           spacing="xs"

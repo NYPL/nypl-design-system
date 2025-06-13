@@ -21,7 +21,6 @@ const meta: Meta<typeof Card> = {
   argTypes: {
     backgroundColor: { control: { type: "color" } },
     foregroundColor: { control: { type: "color" } },
-    id: { control: false },
     imageProps: { disable: true },
     "imageProps.alt": {
       control: { type: "text" },
@@ -75,7 +74,6 @@ export const WithControls: Story = {
   args: {
     backgroundColor: undefined,
     foregroundColor: undefined,
-    id: "card-id",
     imageProps: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.aspectRatio": "square",
@@ -97,7 +95,6 @@ export const WithControls: Story = {
     <Card
       backgroundColor={args.backgroundColor}
       foregroundColor={args.foregroundColor}
-      id={args.id}
       imageProps={{
         alt: args["imageProps.alt"],
         aspectRatio: args["imageProps.aspectRatio"],

@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes explicit `children` prop as its not required when React.PropsWithChildren is used.",
       "Extends prop type by Chakra's `BoxProps` so consumers can pass Chakra style props and updates documentation.",
+      "Sets the default id value to `ds-checkboxGroup`.",
     ],
   },
   {

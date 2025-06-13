@@ -10,6 +10,7 @@ import {
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
+import { generateComponentId } from "../../utils/utils";
 
 export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
 export const buttonSizesArray = ["small", "medium", "large"] as const;
@@ -70,6 +71,7 @@ export const Button: ChakraComponent<
         ...rest
       } = props;
       const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
+      const mainId = generateComponentId("button", id);
       let childCount = 0;
       let hasIcon = false;
       let variant: string | ButtonTypes = buttonType;
@@ -77,7 +79,7 @@ export const Button: ChakraComponent<
 
       if (!id) {
         console.warn(
-          "NYPL Reservoir Button: This component's required `id` prop was not passed."
+          "NYPL Reservoir Button: This component's required `id` prop was not passed but the default of `ds-button` is set."
         );
       }
 
@@ -106,7 +108,7 @@ export const Button: ChakraComponent<
         <ChakraButton
           className={className}
           gap={hasIcon ? "xxs" : null}
-          id={id}
+          id={mainId}
           isDisabled={isDisabled}
           ref={ref}
           type={type}

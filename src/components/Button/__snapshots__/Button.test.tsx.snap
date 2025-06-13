@@ -3,7 +3,7 @@
 exports[`Button Snapshot Renders the UI snapshot correctly 1`] = `
 <button
   className="chakra-button css-1xdhyk6"
-  id="button"
+  id="ds-button-button"
   onClick={[MockFunction]}
   type="button"
 >
@@ -15,7 +15,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 2`] = `
 <button
   className="chakra-button css-1xdhyk6"
   disabled={true}
-  id="button"
+  id="ds-button-button"
   onClick={[MockFunction]}
   type="button"
 >
@@ -26,7 +26,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 2`] = `
 exports[`Button Snapshot Renders the UI snapshot correctly 3`] = `
 <button
   className="chakra-button css-1xdhyk6"
-  id="button"
+  id="ds-button-button"
   onClick={[MockFunction]}
   type="button"
 >
@@ -37,7 +37,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 3`] = `
 exports[`Button Snapshot Renders the UI snapshot correctly 4`] = `
 <button
   className="chakra-button css-1xdhyk6"
-  id="button"
+  id="ds-button-button"
   onClick={[MockFunction]}
   type="button"
 >
@@ -48,7 +48,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 4`] = `
 exports[`Button Snapshot Renders the UI snapshot correctly 5`] = `
 <button
   className="chakra-button css-1xdhyk6"
-  id="button"
+  id="ds-button-button"
   onClick={[MockFunction]}
   type="button"
 >
@@ -59,7 +59,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 5`] = `
 exports[`Button Snapshot Renders the UI snapshot correctly 6`] = `
 <button
   className="chakra-button css-1xdhyk6"
-  id="button"
+  id="ds-button-button"
   onClick={[MockFunction]}
   type="button"
 >
@@ -70,7 +70,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 6`] = `
 exports[`Button Snapshot Renders the UI snapshot correctly 7`] = `
 <button
   className="chakra-button css-1xdhyk6"
-  id="button"
+  id="ds-button-button"
   onClick={[MockFunction]}
   type="button"
 >
@@ -81,7 +81,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 7`] = `
 exports[`Button Snapshot Renders the UI snapshot correctly 8`] = `
 <button
   className="chakra-button css-1taqtgi"
-  id="button"
+  id="ds-button-button"
   onClick={[MockFunction]}
   type="button"
 />
@@ -91,7 +91,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 9`] = `
 <button
   className="chakra-button css-1xdhyk6"
   data-testid="testid"
-  id="button"
+  id="ds-button-button"
   onClick={[MockFunction]}
   type="button"
 />

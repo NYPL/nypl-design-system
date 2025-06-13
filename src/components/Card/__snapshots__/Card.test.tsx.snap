@@ -3,15 +3,16 @@
 exports[`Card Renders the UI snapshot correctly 1`] = `
 <div
   className="css-0"
+  id="ds-card-regularCard"
 >
   <div
     className="css-1u8qly9"
     data-cardwrapper={true}
-    id="regularCard"
   >
     <div
       className="css-0"
       data-imagewrapper={true}
+      id="ds-cardImage-img-id-regularCard"
     >
       <div
         className="css-0"
@@ -19,7 +20,7 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
         <img
           alt="Alt text"
           className="css-0"
-          id="img-id-regularCard"
+          id={null}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -45,7 +46,7 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
       >
         <button
           className="chakra-button css-1xdhyk6"
-          id="button1"
+          id="ds-button-button1"
           onClick={[Function]}
           type="submit"
         >
@@ -60,15 +61,16 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
 exports[`Card Renders the UI snapshot correctly 2`] = `
 <div
   className="css-0"
+  id="ds-card-cardWithExtendedStyles"
 >
   <div
     className="edition-card css-1u8qly9"
     data-cardwrapper={true}
-    id="cardWithExtendedStyles"
   >
     <div
       className="css-0"
       data-imagewrapper={true}
+      id="ds-cardImage-img-id-cardWithExtendedStyles"
     >
       <div
         className="css-0"
@@ -76,7 +78,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         <img
           alt="Alt text"
           className="css-0"
-          id="img-id-cardWithExtendedStyles"
+          id={null}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -144,15 +146,16 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
 exports[`Card Renders the UI snapshot correctly 3`] = `
 <div
   className="css-0"
+  id="ds-card-cardWithNoCTAs"
 >
   <div
     className="edition-card css-1u8qly9"
     data-cardwrapper={true}
-    id="cardWithNoCTAs"
   >
     <div
       className="css-0"
       data-imagewrapper={true}
+      id="ds-cardImage-img-id-cardWithNoCTAs"
     >
       <div
         className="css-0"
@@ -160,7 +163,7 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
         <img
           alt="Alt text"
           className="css-0"
-          id="img-id-cardWithNoCTAs"
+          id={null}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -197,15 +200,16 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
 exports[`Card Renders the UI snapshot correctly 4`] = `
 <div
   className="css-0"
+  id="ds-card-cardWithNoContent"
 >
   <div
     className="edition-card css-1u8qly9"
     data-cardwrapper={true}
-    id="cardWithNoContent"
   >
     <div
       className="css-0"
       data-imagewrapper={true}
+      id="ds-cardImage-img-id-cardWithNoContent"
     >
       <div
         className="css-0"
@@ -213,7 +217,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         <img
           alt="Alt text"
           className="css-0"
-          id="img-id-cardWithNoContent"
+          id={null}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -276,11 +280,11 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
 exports[`Card Renders the UI snapshot correctly 5`] = `
 <div
   className="css-0"
+  id="ds-card-cardWithNoImage"
 >
   <div
     className="edition-card css-1u8qly9"
     data-cardwrapper={true}
-    id="cardWithNoImage"
   >
     <div
       className="css-0"
@@ -345,15 +349,16 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
 exports[`Card Renders the UI snapshot correctly 6`] = `
 <div
   className="css-0"
+  id="ds-card-fullclick"
 >
   <div
     className="chakra-linkbox css-2zg2m0"
     data-cardwrapper={true}
-    id="fullclick"
   >
     <div
       className="css-0"
       data-imagewrapper={true}
+      id="ds-cardImage-img-id-fullclick"
     >
       <div
         className="css-0"
@@ -361,7 +366,7 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
         <img
           alt="Alt text"
           className="css-0"
-          id="img-id-fullclick"
+          id={null}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -392,7 +397,7 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
       >
         <button
           className="chakra-button css-1xdhyk6"
-          id="button1"
+          id="ds-button-button1"
           onClick={[Function]}
           type="submit"
         >
@@ -407,15 +412,16 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
 exports[`Card Renders the UI snapshot correctly 7`] = `
 <div
   className="css-0"
+  id="ds-card-cardID"
 >
   <div
     className="css-1u8qly9"
     data-cardwrapper={true}
-    id="cardID"
   >
     <div
       className="css-0"
       data-imagewrapper={true}
+      id="ds-cardImage-img-id-cardWithRightActions"
     >
       <div
         className="css-0"
@@ -423,7 +429,7 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
         <img
           alt="Alt text"
           className="css-0"
-          id="img-id-cardWithRightActions"
+          id={null}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -449,7 +455,7 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
       >
         <button
           className="chakra-button css-1xdhyk6"
-          id="button1"
+          id="ds-button-button1"
           onClick={[Function]}
           type="submit"
         >
@@ -461,7 +467,7 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
       >
         <button
           className="chakra-button css-1xdhyk6"
-          id="button2"
+          id="ds-button-button2"
           onClick={[Function]}
           type="submit"
         >
@@ -476,15 +482,16 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
 exports[`Card Renders the UI snapshot correctly 8`] = `
 <div
   className="css-0"
+  id="ds-card-chakraProps"
 >
   <div
     className="css-2bbtg1"
     data-cardwrapper={true}
-    id="chakraProps"
   >
     <div
       className="css-0"
       data-imagewrapper={true}
+      id="ds-cardImage-img-id-chakraProps"
     >
       <div
         className="css-0"
@@ -492,7 +499,7 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
         <img
           alt="Alt text"
           className="css-0"
-          id="img-id-chakraProps"
+          id={null}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -518,7 +525,7 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
       >
         <button
           className="chakra-button css-1xdhyk6"
-          id="button1"
+          id="ds-button-button1"
           onClick={[Function]}
           type="submit"
         >
@@ -533,16 +540,17 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
 exports[`Card Renders the UI snapshot correctly 9`] = `
 <div
   className="css-0"
+  id="ds-card-otherProps"
 >
   <div
     className="css-1u8qly9"
     data-cardwrapper={true}
     data-testid="card-testid"
-    id="otherProps"
   >
     <div
       className="css-0"
       data-imagewrapper={true}
+      id="ds-cardImage-img-id-otherProps"
     >
       <div
         className="css-0"
@@ -550,7 +558,7 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
         <img
           alt="Alt text"
           className="css-0"
-          id="img-id-otherProps"
+          id={null}
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -578,7 +586,7 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
       >
         <button
           className="chakra-button css-1xdhyk6"
-          id="button1"
+          id="ds-button-button1"
           onClick={[Function]}
           type="submit"
         >

@@ -3,11 +3,11 @@
 exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="id-wrapper"
+  id="ds-componentWrapper-id"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
-    id="id-heading"
+    id="ds-componentWrapper-id-heading"
   >
     heading text
   </h2>
@@ -24,7 +24,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="id-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-id"
   >
     <div
       className="css-0"
@@ -41,7 +41,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
 exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  id="id-wrapper"
+  id="ds-componentWrapper-id"
 >
   <div>
     children elements
@@ -52,11 +52,11 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
 exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  id="id-wrapper"
+  id="ds-componentWrapper-id"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
-    id="id-heading"
+    id="ds-componentWrapper-id-heading"
   >
     heading text
   </h2>
@@ -73,7 +73,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    id="id-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-id"
   >
     <div
       className="css-0"
@@ -90,7 +90,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
 exports[`ComponentWrapper Renders the UI snapshot correctly 4`] = `
 <div
   className="css-kle7zy"
-  id="chakra-wrapper"
+  id="ds-componentWrapper-chakra"
 >
   <div>
     children elements
@@ -102,7 +102,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"
-  id="props-wrapper"
+  id="ds-componentWrapper-props"
 >
   <div>
     children elements

@@ -3,17 +3,18 @@
 exports[`ButtonGroup Snapshot renders the UI snapshot correctly 1`] = `
 <div
   className="chakra-stack css-11okbqf"
+  id="ds-buttonGroup"
 >
   <button
     className="chakra-button css-1xdhyk6"
-    id="btn-1"
+    id="ds-button-btn-1"
     type="button"
   >
     Button
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    id="btn-2"
+    id="ds-button-btn-2"
     type="button"
   >
     Submit
@@ -24,17 +25,18 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 1`] = `
 exports[`ButtonGroup Snapshot renders the UI snapshot correctly 2`] = `
 <div
   className="chakra-stack css-11okbqf"
+  id="ds-buttonGroup"
 >
   <button
     className="chakra-button css-1xdhyk6"
-    id="btn-1"
+    id="ds-button-btn-1"
     type="button"
   >
     Button
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    id="btn-2"
+    id="ds-button-btn-2"
     type="button"
   >
     Submit
@@ -45,17 +47,18 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 2`] = `
 exports[`ButtonGroup Snapshot renders the UI snapshot correctly 3`] = `
 <div
   className="chakra-stack css-1mha6zh"
+  id="ds-buttonGroup"
 >
   <button
     className="chakra-button css-1xdhyk6"
-    id="btn-1"
+    id="ds-button-btn-1"
     type="button"
   >
     Button
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    id="btn-2"
+    id="ds-button-btn-2"
     type="button"
   >
     Submit
@@ -66,17 +69,18 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 3`] = `
 exports[`ButtonGroup Snapshot renders the UI snapshot correctly 4`] = `
 <div
   className="chakra-stack css-apzk22"
+  id="ds-buttonGroup"
 >
   <button
     className="chakra-button css-1xdhyk6"
-    id="btn-1"
+    id="ds-button-btn-1"
     type="button"
   >
     Button
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    id="btn-2"
+    id="ds-button-btn-2"
     type="button"
   >
     Submit
@@ -88,17 +92,18 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 5`] = `
 <div
   className="chakra-stack css-11okbqf"
   data-testid="testid"
+  id="ds-buttonGroup"
 >
   <button
     className="chakra-button css-1xdhyk6"
-    id="btn-1"
+    id="ds-button-btn-1"
     type="button"
   >
     Button
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    id="btn-2"
+    id="ds-button-btn-2"
     type="button"
   >
     Submit

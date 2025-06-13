@@ -11,7 +11,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     <button
       aria-label="Scroll tabs left"
       className="chakra-button css-18qhlcl"
-      id="tabs-previous-basic"
+      id="ds-button-tabs-previous-basic"
       onClick={[Function]}
       type="button"
     >
@@ -84,7 +84,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     <button
       aria-label="Scroll tabs right"
       className="chakra-button css-1djleqc"
-      id="tabs-next-basic"
+      id="ds-button-tabs-next-basic"
       onClick={[Function]}
       type="button"
     >
@@ -159,7 +159,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
     <button
       aria-label="Scroll tabs left"
       className="chakra-button css-18qhlcl"
-      id="tabs-previous-chakra"
+      id="ds-button-tabs-previous-chakra"
       onClick={[Function]}
       type="button"
     >
@@ -232,7 +232,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
     <button
       aria-label="Scroll tabs right"
       className="chakra-button css-1djleqc"
-      id="tabs-next-chakra"
+      id="ds-button-tabs-next-chakra"
       onClick={[Function]}
       type="button"
     >
@@ -308,7 +308,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
     <button
       aria-label="Scroll tabs left"
       className="chakra-button css-18qhlcl"
-      id="tabs-previous-props"
+      id="ds-button-tabs-previous-props"
       onClick={[Function]}
       type="button"
     >
@@ -381,7 +381,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
     <button
       aria-label="Scroll tabs right"
       className="chakra-button css-1djleqc"
-      id="tabs-next-props"
+      id="ds-button-tabs-next-props"
       onClick={[Function]}
       type="button"
     >

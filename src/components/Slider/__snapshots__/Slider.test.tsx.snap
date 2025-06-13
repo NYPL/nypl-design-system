@@ -3,7 +3,7 @@
 exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
 <div
   className="css-1u8qly9"
-  id="defaultRangeSlider-wrapper"
+  id="ds-componentWrapper-defaultRangeSlider"
 >
   <label
     className="css-1xdhyk6"
@@ -17,7 +17,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-ho21zx"
-      id="defaultRangeSlider-textInput-start-wrapper"
+      id="ds-componentWrapper-defaultRangeSlider-textInput-start"
     >
       <div
         className="css-79elbk"
@@ -146,7 +146,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="defaultRangeSlider-textInput-end-wrapper"
+      id="ds-componentWrapper-defaultRangeSlider-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -175,7 +175,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="defaultRangeSlider-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-defaultRangeSlider"
   >
     <div
       className="css-0"
@@ -192,7 +192,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
 exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
 <div
   className="css-1u8qly9"
-  id="errored-wrapper"
+  id="ds-componentWrapper-errored"
 >
   <label
     className="css-1xdhyk6"
@@ -206,7 +206,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-ho21zx"
-      id="errored-textInput-start-wrapper"
+      id="ds-componentWrapper-errored-textInput-start"
     >
       <div
         className="css-79elbk"
@@ -235,7 +235,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={true}
-        id="errored-textInput-start-helperText"
+        id="ds-helperErrorText-ds-componentWrapper-errored-textInput-start"
       />
     </div>
     <div
@@ -344,7 +344,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="errored-textInput-end-wrapper"
+      id="ds-componentWrapper-errored-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -373,7 +373,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={true}
-        id="errored-textInput-end-helperText"
+        id="ds-helperErrorText-ds-componentWrapper-errored-textInput-end"
       />
     </div>
   </div>
@@ -382,7 +382,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    id="errored-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-errored"
   >
     <div
       className="css-0"
@@ -399,7 +399,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
 exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
 <div
   className="css-1u8qly9"
-  id="required-wrapper"
+  id="ds-componentWrapper-required"
 >
   <label
     className="css-1xdhyk6"
@@ -416,7 +416,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-ho21zx"
-      id="required-textInput-start-wrapper"
+      id="ds-componentWrapper-required-textInput-start"
     >
       <div
         className="css-79elbk"
@@ -546,7 +546,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="required-textInput-end-wrapper"
+      id="ds-componentWrapper-required-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -576,7 +576,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="required-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-required"
   >
     <div
       className="css-0"
@@ -593,7 +593,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
 exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
 <div
   className="css-1u8qly9"
-  id="disabled-wrapper"
+  id="ds-componentWrapper-disabled"
 >
   <label
     className="css-1xdhyk6"
@@ -607,7 +607,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-ho21zx"
-      id="disabled-textInput-start-wrapper"
+      id="ds-componentWrapper-disabled-textInput-start"
     >
       <div
         className="css-79elbk"
@@ -738,7 +738,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="disabled-textInput-end-wrapper"
+      id="ds-componentWrapper-disabled-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -767,7 +767,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="disabled-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-disabled"
   >
     <div
       className="css-0"
@@ -784,14 +784,14 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
 exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
 <div
   className="css-1u8qly9"
-  id="noLabels-wrapper"
+  id="ds-componentWrapper-noLabels"
 >
   <div
     className="css-0"
   >
     <div
       className="css-ho21zx"
-      id="noLabels-textInput-start-wrapper"
+      id="ds-componentWrapper-noLabels-textInput-start"
     >
       <div
         className="css-79elbk"
@@ -920,7 +920,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="noLabels-textInput-end-wrapper"
+      id="ds-componentWrapper-noLabels-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -949,7 +949,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="noLabels-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-noLabels"
   />
 </div>
 `;
@@ -957,7 +957,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
 exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
 <div
   className="css-1u8qly9"
-  id="noVisibleValues-wrapper"
+  id="ds-componentWrapper-noVisibleValues"
 >
   <label
     className="css-1xdhyk6"
@@ -1069,7 +1069,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="noVisibleValues-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-noVisibleValues"
   >
     <div
       className="css-0"
@@ -1086,7 +1086,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
 exports[`Slider Range Slider renders the UI snapshot correctly 7`] = `
 <div
   className="css-1u8qly9"
-  id="onlySlider-wrapper"
+  id="ds-componentWrapper-onlySlider"
 >
   <div
     className="css-0"
@@ -1191,7 +1191,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="onlySlider-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-onlySlider"
   />
 </div>
 `;
@@ -1199,7 +1199,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 7`] = `
 exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
 <div
   className="css-1u8qly9"
-  id="defaultSlider-wrapper"
+  id="ds-componentWrapper-defaultSlider"
 >
   <label
     className="css-1xdhyk6"
@@ -1293,7 +1293,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="defaultSlider-textInput-end-wrapper"
+      id="ds-componentWrapper-defaultSlider-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -1322,7 +1322,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="defaultSlider-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-defaultSlider"
   >
     <div
       className="css-0"
@@ -1339,7 +1339,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
 exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
 <div
   className="css-1u8qly9"
-  id="errored-wrapper"
+  id="ds-componentWrapper-errored"
 >
   <label
     className="css-1xdhyk6"
@@ -1433,7 +1433,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="errored-textInput-end-wrapper"
+      id="ds-componentWrapper-errored-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -1462,7 +1462,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={true}
-        id="errored-textInput-end-helperText"
+        id="ds-helperErrorText-ds-componentWrapper-errored-textInput-end"
       />
     </div>
   </div>
@@ -1471,7 +1471,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    id="errored-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-errored"
   >
     <div
       className="css-0"
@@ -1488,7 +1488,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
 exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
 <div
   className="css-1u8qly9"
-  id="required-wrapper"
+  id="ds-componentWrapper-required"
 >
   <label
     className="css-1xdhyk6"
@@ -1585,7 +1585,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="required-textInput-end-wrapper"
+      id="ds-componentWrapper-required-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -1615,7 +1615,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="required-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-required"
   >
     <div
       className="css-0"
@@ -1632,7 +1632,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
 exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
 <div
   className="css-1u8qly9"
-  id="disabled-wrapper"
+  id="ds-componentWrapper-disabled"
 >
   <label
     className="css-1xdhyk6"
@@ -1728,7 +1728,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="disabled-textInput-end-wrapper"
+      id="ds-componentWrapper-disabled-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -1757,7 +1757,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="disabled-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-disabled"
   >
     <div
       className="css-0"
@@ -1774,7 +1774,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
 exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
 <div
   className="css-1u8qly9"
-  id="noLabels-wrapper"
+  id="ds-componentWrapper-noLabels"
 >
   <div
     className="css-0"
@@ -1861,7 +1861,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="noLabels-textInput-end-wrapper"
+      id="ds-componentWrapper-noLabels-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -1890,7 +1890,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="noLabels-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-noLabels"
   />
 </div>
 `;
@@ -1898,7 +1898,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
 exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
 <div
   className="css-1u8qly9"
-  id="noVisibleValues-wrapper"
+  id="ds-componentWrapper-noVisibleValues"
 >
   <label
     className="css-1xdhyk6"
@@ -1986,7 +1986,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="noVisibleValues-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-noVisibleValues"
   >
     <div
       className="css-0"
@@ -2003,7 +2003,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
 exports[`Slider Single Slider renders the UI snapshot correctly 7`] = `
 <div
   className="css-1u8qly9"
-  id="onlySlider-wrapper"
+  id="ds-componentWrapper-onlySlider"
 >
   <div
     className="css-0"
@@ -2084,7 +2084,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="onlySlider-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-onlySlider"
   />
 </div>
 `;
@@ -2092,7 +2092,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 7`] = `
 exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
 <div
   className="css-1y4kn3e"
-  id="chakra-wrapper"
+  id="ds-componentWrapper-chakra"
 >
   <label
     className="css-1xdhyk6"
@@ -2186,7 +2186,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="chakra-textInput-end-wrapper"
+      id="ds-componentWrapper-chakra-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -2215,7 +2215,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="chakra-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-chakra"
   >
     <div
       className="css-0"
@@ -2233,7 +2233,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
 <div
   className="css-1u8qly9"
   data-testid="props"
-  id="props-wrapper"
+  id="ds-componentWrapper-props"
 >
   <label
     className="css-1xdhyk6"
@@ -2327,7 +2327,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
     </div>
     <div
       className="css-1f1uedm"
-      id="props-textInput-end-wrapper"
+      id="ds-componentWrapper-props-textInput-end"
     >
       <div
         className="css-79elbk"
@@ -2356,7 +2356,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="props-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-props"
   >
     <div
       className="css-0"

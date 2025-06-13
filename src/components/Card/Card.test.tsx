@@ -305,7 +305,7 @@ describe("Card", () => {
     expect(container.querySelector("h3")).toBeInTheDocument();
     expect(screen.getByText("The Card Heading")).toBeInTheDocument();
     expect(screen.getByRole("img")).toBeInTheDocument();
-    expect(screen.getByRole("img")).toHaveAttribute("id", "img-id-regularCard");
+    expect(screen.getByRole("img")).toHaveAttribute("id", "ds-cardImage-img");
     expect(screen.getByText("middle column content")).toBeInTheDocument();
     expect(screen.getByText("Example CTA")).toBeInTheDocument();
   });
@@ -317,10 +317,7 @@ describe("Card", () => {
     expect(container.querySelector("h2")).toBeInTheDocument();
     expect(screen.getByText("The Card Heading")).toBeInTheDocument();
     expect(screen.getByRole("img")).toBeInTheDocument();
-    expect(screen.getByRole("img")).toHaveAttribute(
-      "id",
-      "img-id-cardWithExtendedStyles"
-    );
+    expect(screen.getByRole("img")).toHaveAttribute("id", "ds-cardImage-img");
     expect(
       screen.getByText(/Published in New York by Random House/i)
     ).toBeInTheDocument();

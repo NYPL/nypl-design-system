@@ -1,11 +1,13 @@
 import { Box, BoxProps, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-import useDSHeading from "../../hooks/useDSHeading";
 
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import Text from "../Text/Text";
+import useDSHeading from "../../hooks/useDSHeading";
+import { generateComponentId } from "../../utils/utils";
+
 export interface ComponentWrapperProps extends BoxProps {
   /** Optional string to set the text for the component's description */
   descriptionText?: string | JSX.Element;
@@ -17,8 +19,6 @@ export interface ComponentWrapperProps extends BoxProps {
   helperText?: HelperErrorTextType;
   /** Styles that target the helper text. */
   helperTextStyles?: { [key: string]: any };
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -43,10 +43,11 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
         showHelperInvalidText = true,
         ...rest
       } = props;
+      const mainId = generateComponentId("componentWrapper", id);
       const hasChildren = !!children;
       const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
       const footnote = isInvalid ? invalidText : helperText;
-      const finalHeadingText = useDSHeading({ id, title: headingText });
+      const finalHeadingText = useDSHeading({ id: mainId, title: headingText });
 
       // Note: Typescript warns when there are no children passed and
       // doesn't compile. This is meant to log in non-Typescript apps.
@@ -57,13 +58,13 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
       }
 
       return (
-        <Box id={`${id}-wrapper`} ref={ref} __css={styles} {...rest}>
+        <Box id={mainId} ref={ref} __css={styles} {...rest}>
           {finalHeadingText}
           {descriptionText && <Text>{descriptionText}</Text>}
           {children}
           {footnote && (
             <HelperErrorText
-              id={`${id}-helperText`}
+              id={mainId}
               isInvalid={isInvalid}
               isRenderedText={showHelperInvalidText}
               text={footnote}

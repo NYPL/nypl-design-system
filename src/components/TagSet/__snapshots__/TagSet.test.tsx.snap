@@ -464,7 +464,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
     aria-label="Red, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-red-0"
+    id="ds-button-ts-filter-red-0"
     onClick={[Function]}
     type="button"
   >
@@ -485,7 +485,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
     aria-label="Orange, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-orange-1"
+    id="ds-button-ts-filter-orange-1"
     onClick={[Function]}
     type="button"
   >
@@ -506,7 +506,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
     aria-label="Yellow, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-yellow-2"
+    id="ds-button-ts-filter-yellow-2"
     onClick={[Function]}
     type="button"
   >
@@ -527,7 +527,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
     aria-label="Green, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-green-3"
+    id="ds-button-ts-filter-green-3"
     onClick={[Function]}
     type="button"
   >
@@ -548,7 +548,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
     aria-label="Blue, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-blue-4"
+    id="ds-button-ts-filter-blue-4"
     onClick={[Function]}
     type="button"
   >
@@ -569,7 +569,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
     aria-label="Indigo, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-indigo-5"
+    id="ds-button-ts-filter-indigo-5"
     onClick={[Function]}
     type="button"
   >
@@ -590,7 +590,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
     aria-label="Violet, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-violet-6"
+    id="ds-button-ts-filter-violet-6"
     onClick={[Function]}
     type="button"
   >
@@ -618,7 +618,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     aria-label="Red, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-red-0"
+    id="ds-button-ts-filter-red-0"
     onClick={[Function]}
     type="button"
   >
@@ -648,7 +648,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     aria-label="Orange, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-orange-1"
+    id="ds-button-ts-filter-orange-1"
     onClick={[Function]}
     type="button"
   >
@@ -678,7 +678,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     aria-label="Yellow, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-yellow-2"
+    id="ds-button-ts-filter-yellow-2"
     onClick={[Function]}
     type="button"
   >
@@ -708,7 +708,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     aria-label="Green, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-green-3"
+    id="ds-button-ts-filter-green-3"
     onClick={[Function]}
     type="button"
   >
@@ -738,7 +738,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     aria-label="Blue, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-blue-4"
+    id="ds-button-ts-filter-blue-4"
     onClick={[Function]}
     type="button"
   >
@@ -768,7 +768,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     aria-label="Indigo, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-indigo-5"
+    id="ds-button-ts-filter-indigo-5"
     onClick={[Function]}
     type="button"
   >
@@ -798,7 +798,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
     aria-label="Violet, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-violet-6"
+    id="ds-button-ts-filter-violet-6"
     onClick={[Function]}
     type="button"
   >
@@ -835,7 +835,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     aria-label="Red, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-red-0"
+    id="ds-button-ts-filter-red-0"
     onClick={[Function]}
     type="button"
   >
@@ -856,7 +856,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     aria-label="Orange, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-orange-1"
+    id="ds-button-ts-filter-orange-1"
     onClick={[Function]}
     type="button"
   >
@@ -877,7 +877,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     aria-label="Yellow, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-yellow-2"
+    id="ds-button-ts-filter-yellow-2"
     onClick={[Function]}
     type="button"
   >
@@ -898,7 +898,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     aria-label="Green, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-green-3"
+    id="ds-button-ts-filter-green-3"
     onClick={[Function]}
     type="button"
   >
@@ -919,7 +919,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     aria-label="Blue, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-blue-4"
+    id="ds-button-ts-filter-blue-4"
     onClick={[Function]}
     type="button"
   >
@@ -940,7 +940,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     aria-label="Indigo, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-indigo-5"
+    id="ds-button-ts-filter-indigo-5"
     onClick={[Function]}
     type="button"
   >
@@ -961,7 +961,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
     aria-label="Violet, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-violet-6"
+    id="ds-button-ts-filter-violet-6"
     onClick={[Function]}
     type="button"
   >
@@ -981,7 +981,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
   <button
     className="chakra-button css-1xdhyk6"
     data-testid="filter-clear-all"
-    id="ts-filter-clear-all-undefined"
+    id="ds-button-ts-filter-clear-all-undefined"
     onClick={[Function]}
     type="button"
   >
@@ -998,7 +998,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
     aria-label="Red, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-red-0"
+    id="ds-button-ts-filter-red-0"
     onClick={[Function]}
     type="button"
   >
@@ -1019,7 +1019,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
     aria-label="Orange, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-orange-1"
+    id="ds-button-ts-filter-orange-1"
     onClick={[Function]}
     type="button"
   >
@@ -1040,7 +1040,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
     aria-label="Yellow, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-yellow-2"
+    id="ds-button-ts-filter-yellow-2"
     onClick={[Function]}
     type="button"
   >
@@ -1061,7 +1061,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
     aria-label="Green, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-green-3"
+    id="ds-button-ts-filter-green-3"
     onClick={[Function]}
     type="button"
   >
@@ -1082,7 +1082,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
     aria-label="Blue, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-blue-4"
+    id="ds-button-ts-filter-blue-4"
     onClick={[Function]}
     type="button"
   >
@@ -1103,7 +1103,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
     aria-label="Indigo, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-indigo-5"
+    id="ds-button-ts-filter-indigo-5"
     onClick={[Function]}
     type="button"
   >
@@ -1124,7 +1124,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
     aria-label="Violet, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-violet-6"
+    id="ds-button-ts-filter-violet-6"
     onClick={[Function]}
     type="button"
   >
@@ -1153,7 +1153,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
     aria-label="Red, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-red-0"
+    id="ds-button-ts-filter-red-0"
     onClick={[Function]}
     type="button"
   >
@@ -1174,7 +1174,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
     aria-label="Orange, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-orange-1"
+    id="ds-button-ts-filter-orange-1"
     onClick={[Function]}
     type="button"
   >
@@ -1195,7 +1195,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
     aria-label="Yellow, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-yellow-2"
+    id="ds-button-ts-filter-yellow-2"
     onClick={[Function]}
     type="button"
   >
@@ -1216,7 +1216,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
     aria-label="Green, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-green-3"
+    id="ds-button-ts-filter-green-3"
     onClick={[Function]}
     type="button"
   >
@@ -1237,7 +1237,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
     aria-label="Blue, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-blue-4"
+    id="ds-button-ts-filter-blue-4"
     onClick={[Function]}
     type="button"
   >
@@ -1258,7 +1258,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
     aria-label="Indigo, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-indigo-5"
+    id="ds-button-ts-filter-indigo-5"
     onClick={[Function]}
     type="button"
   >
@@ -1279,7 +1279,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
     aria-label="Violet, click to remove filter"
     className="chakra-button css-8bx9xp"
     data-testid="filter-tags"
-    id="ts-filter-violet-6"
+    id="ds-button-ts-filter-violet-6"
     onClick={[Function]}
     type="button"
   >

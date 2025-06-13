@@ -3,7 +3,7 @@
 exports[`Toggle Renders the UI snapshot correctly 1`] = `
 <div
   className="css-1u8qly9"
-  id="inputID-wrapper"
+  id="ds-componentWrapper-inputID"
 >
   <div
     className="css-0"
@@ -67,7 +67,7 @@ exports[`Toggle Renders the UI snapshot correctly 1`] = `
 exports[`Toggle Renders the UI snapshot correctly 2`] = `
 <div
   className="css-1u8qly9"
-  id="Toggle-checked-wrapper"
+  id="ds-componentWrapper-Toggle-checked"
 >
   <div
     className="css-0"
@@ -135,7 +135,7 @@ exports[`Toggle Renders the UI snapshot correctly 2`] = `
 exports[`Toggle Renders the UI snapshot correctly 3`] = `
 <div
   className="css-1u8qly9"
-  id="Toggle-invalid-wrapper"
+  id="ds-componentWrapper-Toggle-invalid"
 >
   <div
     className="css-0"
@@ -203,7 +203,7 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
 exports[`Toggle Renders the UI snapshot correctly 4`] = `
 <div
   className="css-1u8qly9"
-  id="Toggle-disabled-wrapper"
+  id="ds-componentWrapper-Toggle-disabled"
 >
   <div
     className="css-0"
@@ -271,7 +271,7 @@ exports[`Toggle Renders the UI snapshot correctly 4`] = `
 exports[`Toggle Renders the UI snapshot correctly 5`] = `
 <div
   className="css-1u8qly9"
-  id="Toggle-disabled-wrapper"
+  id="ds-componentWrapper-Toggle-disabled"
 >
   <div
     className="css-0"
@@ -339,7 +339,7 @@ exports[`Toggle Renders the UI snapshot correctly 5`] = `
 exports[`Toggle Renders the UI snapshot correctly 6`] = `
 <div
   className="css-7zjd3y"
-  id="chakra-wrapper"
+  id="ds-componentWrapper-chakra"
 >
   <div
     className="css-0"
@@ -404,7 +404,7 @@ exports[`Toggle Renders the UI snapshot correctly 7`] = `
 <div
   className="css-1u8qly9"
   data-testid="props"
-  id="props-wrapper"
+  id="ds-componentWrapper-props"
 >
   <div
     className="css-0"

@@ -21,7 +21,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -76,7 +76,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -136,7 +136,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="column-helperErrorText"
+    id="ds-helperErrorText-column-helperErrorText"
   >
     <div
       className="css-0"
@@ -166,7 +166,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -221,7 +221,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -281,7 +281,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="row-helperErrorText"
+    id="ds-helperErrorText-row-helperErrorText"
   >
     <div
       className="css-0"
@@ -311,7 +311,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -366,7 +366,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -426,7 +426,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="noLabel-helperErrorText"
+    id="ds-helperErrorText-noLabel-helperErrorText"
   >
     <div
       className="css-0"
@@ -456,7 +456,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -511,7 +511,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -571,7 +571,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="helperText-helperErrorText"
+    id="ds-helperErrorText-helperText-helperErrorText"
   >
     <div
       className="css-0"
@@ -606,7 +606,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -661,7 +661,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -721,7 +721,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="invalidText-helperErrorText"
+    id="ds-helperErrorText-invalidText-helperErrorText"
   >
     <div
       className="css-0"
@@ -751,7 +751,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -807,7 +807,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -868,7 +868,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="noRequiredLabel-helperErrorText"
+    id="ds-helperErrorText-noRequiredLabel-helperErrorText"
   >
     <div
       className="css-0"
@@ -901,7 +901,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -957,7 +957,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1018,7 +1018,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="required-helperErrorText"
+    id="ds-helperErrorText-required-helperErrorText"
   >
     <div
       className="css-0"
@@ -1048,7 +1048,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1107,7 +1107,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1171,7 +1171,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    id="invalid-helperErrorText"
+    id="ds-helperErrorText-invalid-helperErrorText"
   >
     <div
       className="css-0"
@@ -1201,7 +1201,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1260,7 +1260,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1324,7 +1324,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="disabled-helperErrorText"
+    id="ds-helperErrorText-disabled-helperErrorText"
   >
     <div
       className="css-0"
@@ -1354,7 +1354,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="arts-wrapper"
+        id="ds-componentWrapper-arts"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1421,7 +1421,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="English-wrapper"
+        id="ds-componentWrapper-English"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1493,7 +1493,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="jsxLabels-helperErrorText"
+    id="ds-helperErrorText-jsxLabels-helperErrorText"
   >
     <div
       className="css-0"
@@ -1523,7 +1523,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1578,7 +1578,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1638,7 +1638,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="chakra-helperErrorText"
+    id="ds-helperErrorText-chakra-helperErrorText"
   >
     <div
       className="css-0"
@@ -1669,7 +1669,7 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
     >
       <div
         className="css-1xdhyk6"
-        id="radio-2-wrapper"
+        id="ds-componentWrapper-radio-2"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1724,7 +1724,7 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        id="radio-3-wrapper"
+        id="ds-componentWrapper-radio-3"
       >
         <label
           className="chakra-radio css-rfs4w5"
@@ -1784,7 +1784,7 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="props-helperErrorText"
+    id="ds-helperErrorText-props-helperErrorText"
   >
     <div
       className="css-0"

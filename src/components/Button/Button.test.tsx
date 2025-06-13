@@ -97,7 +97,7 @@ describe("Button", () => {
     // here we don't want to pass the required prop to make sure the warning appears.
     render(<Button>Submit</Button>);
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Button: This component's required `id` prop was not passed."
+      "NYPL Reservoir Button: This component's required `id` prop was not passed but the default of `ds-button` is set."
     );
   });
 

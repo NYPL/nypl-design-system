@@ -36,7 +36,6 @@ const meta: Meta<typeof Button> = {
       options: iconNamesArray,
       description: "**Only used for Storybook – ** Select an icon. ",
     },
-    id: { control: false },
     isDisabled: { table: { defaultValue: { summary: "false" } } },
     mouseDown: { table: { defaultValue: { summary: "false" } } },
     onClick: { control: false },
@@ -67,7 +66,6 @@ export const WithControls: Story = {
     displayIcon: false,
     displayIconLeft: true,
     iconType: "search",
-    id: "button-id",
     isDisabled: false,
     mouseDown: undefined,
     onClick: undefined,
@@ -83,7 +81,7 @@ export const WithControls: Story = {
     jest: ["Button.test.tsx"],
   },
   render: (args: any) => (
-    <Button id="button-id" {...args}>
+    <Button {...args}>
       {args.displayIcon && args.displayIconLeft && (
         <Icon name={args.iconType} align="left" size="small" />
       )}

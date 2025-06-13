@@ -3,7 +3,7 @@
 exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 <div
   className="css-1u8qly9"
-  id="myTextarea-wrapper"
+  id="ds-componentWrapper-myTextarea"
 >
   <label
     className="css-1xdhyk6"
@@ -34,7 +34,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  id="ds-componentWrapper-myTextInput"
 >
   <label
     className="css-1xdhyk6"
@@ -70,7 +70,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  id="ds-componentWrapper-myTextInput"
 >
   <label
     className="css-1xdhyk6"
@@ -106,7 +106,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  id="ds-componentWrapper-myTextInput"
 >
   <label
     className="css-1xdhyk6"
@@ -138,7 +138,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  id="ds-componentWrapper-myTextInput"
 >
   <div
     className="css-79elbk"
@@ -165,7 +165,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  id="ds-componentWrapper-myTextInput"
 >
   <label
     className="css-1xdhyk6"
@@ -201,7 +201,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="myTextInput-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-myTextInput"
   >
     <div
       className="css-0"
@@ -218,7 +218,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  id="ds-componentWrapper-myTextInput"
 >
   <label
     className="css-1xdhyk6"
@@ -255,7 +255,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    id="myTextInput-helperText"
+    id="ds-helperErrorText-ds-componentWrapper-myTextInput"
   >
     <div
       className="css-0"
@@ -272,7 +272,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  id="ds-componentWrapper-myTextInput"
 >
   <label
     className="css-1xdhyk6"
@@ -308,7 +308,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  id="ds-componentWrapper-myTextInput"
 >
   <label
     className="css-1xdhyk6"
@@ -340,7 +340,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
 <div
   className="css-1y4kn3e"
-  id="chakra-wrapper"
+  id="ds-componentWrapper-chakra"
 >
   <label
     className="css-1xdhyk6"
@@ -373,7 +373,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
 <div
   className="css-1u8qly9"
   data-testid="props"
-  id="props-wrapper"
+  id="ds-componentWrapper-props"
 >
   <label
     className="css-1xdhyk6"
@@ -406,7 +406,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
 <div
   className="css-1u8qly9"
-  id="autocomplete-wrapper"
+  id="ds-componentWrapper-autocomplete"
 >
   <label
     className="css-1xdhyk6"

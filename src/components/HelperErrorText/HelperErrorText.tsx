@@ -7,11 +7,11 @@ import {
 } from "@chakra-ui/react";
 import { forwardRef } from "react";
 
+import { generateComponentId } from "../../utils/utils";
+
 export type HelperErrorTextType = string | JSX.Element;
 
 export interface HelperErrorTextProps extends BoxProps {
-  /** Unique ID for accessibility purposes. */
-  id?: string;
   /** Toggles between helper and invalid styling. */
   isInvalid?: boolean;
   /** Offers the ability to render or not render the content passed in
@@ -48,13 +48,13 @@ export const HelperErrorText: ChakraComponent<
       ref?
     ) => {
       const styles = useMultiStyleConfig("HelperErrorText", { isInvalid });
-
+      const mainId = generateComponentId("helperErrorText", id);
       const props = {
         "aria-atomic": ariaAtomic,
         "aria-live": ariaLive === "off" ? undefined : ariaLive,
         className,
         "data-isinvalid": isInvalid,
-        id,
+        id: mainId,
         ref,
         __css: styles,
         ...rest,

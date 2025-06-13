@@ -3,7 +3,7 @@
 exports[`Checkbox renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="inputID-wrapper"
+  id="ds-componentWrapper-ds-checkbox-inputID"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -15,7 +15,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
       checked={false}
       className="chakra-checkbox__input"
       disabled={false}
-      id="inputID"
+      id="ds-checkbox-inputID"
       name="default"
       onBlur={[Function]}
       onChange={[Function]}
@@ -59,7 +59,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
 exports[`Checkbox renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-checked-wrapper"
+  id="ds-componentWrapper-ds-checkbox-checkbox-checked"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -72,7 +72,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
       checked={true}
       className="chakra-checkbox__input"
       disabled={false}
-      id="checkbox-checked"
+      id="ds-checkbox-checkbox-checked"
       name="default"
       onBlur={[Function]}
       onChange={[Function]}
@@ -127,7 +127,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
 exports[`Checkbox renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-checked-wrapper"
+  id="ds-componentWrapper-ds-checkbox-checkbox-checked"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -140,7 +140,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
       checked={true}
       className="chakra-checkbox__input"
       disabled={false}
-      id="checkbox-checked"
+      id="ds-checkbox-checkbox-checked"
       name="default"
       onBlur={[Function]}
       onChange={[Function]}
@@ -217,7 +217,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
 exports[`Checkbox renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-required-wrapper"
+  id="ds-componentWrapper-ds-checkbox-checkbox-required"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -229,7 +229,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
       checked={false}
       className="chakra-checkbox__input"
       disabled={false}
-      id="checkbox-required"
+      id="ds-checkbox-checkbox-required"
       name="default"
       onBlur={[Function]}
       onChange={[Function]}
@@ -273,7 +273,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
 exports[`Checkbox renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-invalid-wrapper"
+  id="ds-componentWrapper-ds-checkbox-checkbox-invalid"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -286,7 +286,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
       checked={false}
       className="chakra-checkbox__input"
       disabled={false}
-      id="checkbox-invalid"
+      id="ds-checkbox-checkbox-invalid"
       name="default"
       onBlur={[Function]}
       onChange={[Function]}
@@ -332,7 +332,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 exports[`Checkbox renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-disabled-wrapper"
+  id="ds-componentWrapper-ds-checkbox-checkbox-disabled"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -345,7 +345,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
       checked={false}
       className="chakra-checkbox__input"
       disabled={true}
-      id="checkbox-disabled"
+      id="ds-checkbox-checkbox-disabled"
       name="default"
       onBlur={[Function]}
       onChange={[Function]}
@@ -391,7 +391,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
 exports[`Checkbox renders the UI snapshot correctly 7`] = `
 <div
   className="css-1xdhyk6"
-  id="jsxLabel-wrapper"
+  id="ds-componentWrapper-ds-checkbox-jsxLabel"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -403,7 +403,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
       checked={false}
       className="chakra-checkbox__input"
       disabled={false}
-      id="jsxLabel"
+      id="ds-checkbox-jsxLabel"
       name="default"
       onBlur={[Function]}
       onChange={[Function]}
@@ -460,7 +460,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 exports[`Checkbox renders the UI snapshot correctly 8`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-chakra-wrapper"
+  id="ds-componentWrapper-ds-checkbox-checkbox-chakra"
 >
   <label
     className="chakra-checkbox css-1t0bvx9"
@@ -472,7 +472,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
       checked={false}
       className="chakra-checkbox__input"
       disabled={false}
-      id="checkbox-chakra"
+      id="ds-checkbox-checkbox-chakra"
       name="default"
       onBlur={[Function]}
       onChange={[Function]}
@@ -517,7 +517,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
 <div
   className="css-1xdhyk6"
   data-testid="testid"
-  id="checkbox-props-wrapper"
+  id="ds-componentWrapper-ds-checkbox-checkbox-props"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -529,7 +529,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
       checked={false}
       className="chakra-checkbox__input"
       disabled={false}
-      id="checkbox-props"
+      id="ds-checkbox-checkbox-props"
       name="default"
       onBlur={[Function]}
       onChange={[Function]}
