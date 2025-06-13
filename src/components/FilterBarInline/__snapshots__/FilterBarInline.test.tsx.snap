@@ -67,7 +67,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-colors-icon-0"
+                  id="multi-select-accordion-colors-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -328,7 +328,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-pets-icon-0"
+                  id="multi-select-accordion-pets-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -748,7 +748,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-tools-icon-0"
+                  id="multi-select-accordion-tools-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -1199,7 +1199,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-colors-icon-0"
+                  id="multi-select-accordion-colors-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -1460,7 +1460,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-pets-icon-0"
+                  id="multi-select-accordion-pets-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -1880,7 +1880,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-tools-icon-0"
+                  id="multi-select-accordion-tools-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -2343,7 +2343,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-colors-icon-0"
+                  id="multi-select-accordion-colors-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -2604,7 +2604,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-pets-icon-0"
+                  id="multi-select-accordion-pets-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -3024,7 +3024,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-tools-icon-0"
+                  id="multi-select-accordion-tools-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -3487,7 +3487,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-colors-icon-0"
+                  id="multi-select-accordion-colors-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -3748,7 +3748,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-pets-icon-0"
+                  id="multi-select-accordion-pets-icon-0"
                   role="img"
                   title="plus icon"
                 />
@@ -4168,7 +4168,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                   className="chakra-icon accordion-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
-                  id="accordion-multi-select-accordion-tools-icon-0"
+                  id="multi-select-accordion-tools-icon-0"
                   role="img"
                   title="plus icon"
                 />

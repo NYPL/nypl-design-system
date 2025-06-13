@@ -43,7 +43,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
           className="chakra-icon accordion-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
-          id="accordion-multi-select-accordion-multiselect-test-id-icon-0"
+          id="multi-select-accordion-multiselect-test-id-icon-0"
           role="img"
           title="plus icon"
         />
@@ -575,7 +575,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
           className="chakra-icon accordion-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
-          id="accordion-multi-select-accordion-multiselect-test-id-icon-0"
+          id="multi-select-accordion-multiselect-test-id-icon-0"
           role="img"
           title="plus icon"
         />
@@ -1107,7 +1107,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
           className="chakra-icon accordion-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
-          id="accordion-multi-select-accordion-multiselect-test-id-icon-0"
+          id="multi-select-accordion-multiselect-test-id-icon-0"
           role="img"
           title="plus icon"
         />
@@ -1701,7 +1701,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
           className="chakra-icon accordion-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
-          id="accordion-multi-select-accordion-multiselect-test-id-icon-0"
+          id="multi-select-accordion-multiselect-test-id-icon-0"
           role="img"
           title="plus icon"
         />
