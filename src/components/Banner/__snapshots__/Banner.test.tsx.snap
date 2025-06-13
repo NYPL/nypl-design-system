@@ -4,12 +4,13 @@ exports[`Banner renders the UI snapshot correctly 1`] = `
 <aside
   className="css-1xdhyk6"
   data-type="informative"
+  id="ds-banner"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgErrorOutline"
-    data-testid="undefined-banner-icon"
+    data-testid="ds-banner-icon"
     focusable={false}
     role="img"
     title="Banner informative icon"
@@ -31,13 +32,13 @@ exports[`Banner renders the UI snapshot correctly 2`] = `
 <aside
   className="css-1xdhyk6"
   data-type="negative"
-  id="bannerID3"
+  id="ds-banner-bannerID3"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgErrorOutline"
-    data-testid="bannerID3-banner-icon"
+    data-testid="ds-banner-bannerID3-icon"
     focusable={false}
     role="img"
     title="Banner negative icon"
@@ -59,13 +60,13 @@ exports[`Banner renders the UI snapshot correctly 3`] = `
 <aside
   className="css-1xdhyk6"
   data-type="neutral"
-  id="bannerID3"
+  id="ds-banner-bannerID3"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgErrorOutline"
-    data-testid="bannerID3-banner-icon"
+    data-testid="ds-banner-bannerID3-icon"
     focusable={false}
     role="img"
     title="Banner neutral icon"
@@ -87,13 +88,13 @@ exports[`Banner renders the UI snapshot correctly 4`] = `
 <aside
   className="css-1xdhyk6"
   data-type="positive"
-  id="bannerID3"
+  id="ds-banner-bannerID3"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgActionCheckCircle"
-    data-testid="bannerID3-banner-icon"
+    data-testid="ds-banner-bannerID3-icon"
     focusable={false}
     role="img"
     title="Banner positive icon"
@@ -115,13 +116,13 @@ exports[`Banner renders the UI snapshot correctly 5`] = `
 <aside
   className="css-1xdhyk6"
   data-type="recommendation"
-  id="bannerID3"
+  id="ds-banner-bannerID3"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgActionLightbulb"
-    data-testid="bannerID3-banner-icon"
+    data-testid="ds-banner-bannerID3-icon"
     focusable={false}
     role="img"
     title="Banner recommendation icon"
@@ -143,13 +144,13 @@ exports[`Banner renders the UI snapshot correctly 6`] = `
 <aside
   className="css-1xdhyk6"
   data-type="warning"
-  id="bannerID3"
+  id="ds-banner-bannerID3"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgAlertNotificationImportant"
-    data-testid="bannerID3-banner-icon"
+    data-testid="ds-banner-bannerID3-icon"
     focusable={false}
     role="img"
     title="Banner warning icon"
@@ -171,13 +172,13 @@ exports[`Banner renders the UI snapshot correctly 7`] = `
 <aside
   className="css-1xdhyk6"
   data-type="neutral"
-  id="bannerID4"
+  id="ds-banner-bannerID4"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1vgifmd"
     data-file-name="SvgErrorOutline"
-    data-testid="bannerID4-banner-icon"
+    data-testid="ds-banner-bannerID4-icon"
     focusable={false}
     role="img"
     title="Banner neutral icon"
@@ -194,13 +195,13 @@ exports[`Banner renders the UI snapshot correctly 8`] = `
 <aside
   className="css-1xdhyk6"
   data-type="neutral"
-  id="bannerID7"
+  id="ds-banner-bannerID7"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1vgifmd"
     data-file-name="SvgErrorOutline"
-    data-testid="bannerID7-banner-icon"
+    data-testid="ds-banner-bannerID7-icon"
     focusable={false}
     role="img"
     title="Banner neutral icon"
@@ -213,7 +214,7 @@ exports[`Banner renders the UI snapshot correctly 8`] = `
   <button
     aria-label="Close the banner"
     className="chakra-button css-8bx9xp"
-    id="bannerID7-dismissible-button"
+    id="ds-banner-bannerID7-dismissible-button"
     onClick={[Function]}
     type="button"
   >
@@ -221,7 +222,7 @@ exports[`Banner renders the UI snapshot correctly 8`] = `
       aria-hidden={true}
       className="chakra-icon css-1vgifmd"
       data-file-name="SvgClose"
-      data-testid="bannerID7-dismissible-icon"
+      data-testid="ds-banner-bannerID7-dismissible-icon"
       focusable={false}
       role="img"
       title="Banner close icon"
@@ -234,13 +235,13 @@ exports[`Banner renders the UI snapshot correctly 9`] = `
 <aside
   className="css-16h1ce8"
   data-type="neutral"
-  id="chakra"
+  id="ds-banner-chakra"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgErrorOutline"
-    data-testid="chakra-banner-icon"
+    data-testid="ds-banner-chakra-icon"
     focusable={false}
     role="img"
     title="Banner neutral icon"
@@ -263,13 +264,13 @@ exports[`Banner renders the UI snapshot correctly 10`] = `
   className="css-1xdhyk6"
   data-testid="props"
   data-type="neutral"
-  id="props"
+  id="ds-banner-props"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgErrorOutline"
-    data-testid="props-banner-icon"
+    data-testid="ds-banner-props-icon"
     focusable={false}
     role="img"
     title="Banner neutral icon"

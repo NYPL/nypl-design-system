@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Removed explicit `classname` prop."],
+    notes: [
+      "Removed explicit `classname` prop.",
+      "Sets the default id value to `ds-alphabetFilter`.",
+    ],
   },
   {
     date: "2025-02-13",

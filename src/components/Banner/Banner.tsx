@@ -197,7 +197,7 @@ export const Banner: ChakraComponent<
     const finalIcon = icon || (
       <Icon
         className="banner-icon"
-        data-testid={`${mainId}-banner-icon`}
+        data-testid={`${mainId}-icon`}
         title="Banner announcement icon"
         size="large"
         {...iconProps[type]}

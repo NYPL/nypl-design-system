@@ -47,7 +47,6 @@ describe("Banner", () => {
         aria-label="Banner label"
         content={<>Banner content.</>}
         heading="Banner Heading"
-        id="bannerID"
       />
     );
   });
@@ -60,7 +59,6 @@ describe("Banner", () => {
     utils.rerender(
       <Banner
         aria-label="Banner label"
-        id="bannerID"
         content={<>Banner content.</>}
         heading={<Heading level="h4">Custom H4 Heading</Heading>}
       />
@@ -75,7 +73,7 @@ describe("Banner", () => {
   it("renders with an Icon", () => {
     // Since the icon has aria-hidden set to true, we can't get it
     // by its "img" role.
-    const icon = screen.getByTestId("bannerID-banner-icon");
+    const icon = screen.getByTestId("ds-banner-icon");
     expect(icon).toBeInTheDocument();
 
     expect(screen.getByTitle("Banner neutral icon")).toHaveAttribute(
@@ -123,13 +121,14 @@ describe("Banner", () => {
     utils.rerender(
       <Banner
         isDismissible
-        id="bannerID"
         content={<>Banner content.</>}
         heading="Banner Heading"
       />
     );
 
-    expect(screen.getByTestId("bannerID-dismissible-icon")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("ds-banner-dismissible-icon")
+    ).toBeInTheDocument();
     expect(screen.getByTitle("Banner close icon")).toBeInTheDocument();
     expect(screen.getByTitle("Banner close icon")).toHaveAttribute(
       "data-file-name",
