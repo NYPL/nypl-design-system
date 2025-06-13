@@ -6,6 +6,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+import { generateComponentId } from "../../utils/utils";
 
 export interface FieldsetProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes */
@@ -48,16 +49,17 @@ export const Fieldset: ChakraComponent<
       },
       ref?
     ) => {
+      const mainId = generateComponentId("fieldset", id);
       const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
 
       if (!id) {
         console.warn(
-          "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
+          "NYPL Reservoir Fieldset: This component's required `id` prop was not passed and the default `ds-fieldset` is set."
         );
       }
 
       return (
-        <Box as="fieldset" id={id} ref={ref} __css={styles} {...rest}>
+        <Box as="fieldset" id={mainId} ref={ref} __css={styles} {...rest}>
           <legend>
             {legendText}
             {showRequiredLabel && isRequired && <span> (required)</span>}

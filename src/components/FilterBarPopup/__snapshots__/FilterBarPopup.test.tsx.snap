@@ -3,11 +3,11 @@
 exports[`FilterBarPopup renders the UI snapshots correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-defaultFilterBarNoButtons"
+  id="ds-filterBarPopup-defaultFilterBarNoButtons"
 >
   <button
     className="chakra-button css-1llumfr"
-    id="ds-button-filter-bar-defaultFilterBarNoButtons-show-filters"
+    id="ds-button-ds-filterBarPopup-defaultFilterBarNoButtons-show-filters"
     onClick={[Function]}
     type="button"
   >
@@ -19,11 +19,11 @@ exports[`FilterBarPopup renders the UI snapshots correctly 1`] = `
 exports[`FilterBarPopup renders the UI snapshots correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-filterBarWithClearAllButton"
+  id="ds-filterBarPopup-filterBarWithClearAllButton"
 >
   <button
     className="chakra-button css-1llumfr"
-    id="ds-button-filter-bar-filterBarWithClearAllButton-show-filters"
+    id="ds-button-ds-filterBarPopup-filterBarWithClearAllButton-show-filters"
     onClick={[Function]}
     type="button"
   >
@@ -35,11 +35,11 @@ exports[`FilterBarPopup renders the UI snapshots correctly 2`] = `
 exports[`FilterBarPopup renders the UI snapshots correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-filterBarWithSubmitAllButton"
+  id="ds-filterBarPopup-filterBarWithSubmitAllButton"
 >
   <button
     className="chakra-button css-1llumfr"
-    id="ds-button-filter-bar-filterBarWithSubmitAllButton-show-filters"
+    id="ds-button-ds-filterBarPopup-filterBarWithSubmitAllButton-show-filters"
     onClick={[Function]}
     type="button"
   >
@@ -51,11 +51,11 @@ exports[`FilterBarPopup renders the UI snapshots correctly 3`] = `
 exports[`FilterBarPopup renders the UI snapshots correctly 4`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-filterBarWithButtons"
+  id="ds-filterBarPopup-filterBarWithButtons"
 >
   <button
     className="chakra-button css-1llumfr"
-    id="ds-button-filter-bar-filterBarWithButtons-show-filters"
+    id="ds-button-ds-filterBarPopup-filterBarWithButtons-show-filters"
     onClick={[Function]}
     type="button"
   >

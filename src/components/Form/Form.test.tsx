@@ -103,7 +103,7 @@ describe("Form", () => {
 
   it("passes down the `Form`'s id down to its children", () => {
     const { container } = render(
-      <Form id="formId">
+      <Form id="test">
         <FormRow>
           <FormField>
             <TextInput id="textInput" labelText="Input Field" />
@@ -123,26 +123,26 @@ describe("Form", () => {
       </Form>
     );
 
-    expect(container.querySelector("#formId")).toBeInTheDocument();
+    expect(container.querySelector("#ds-form-test")).toBeInTheDocument();
     // The first `FormRow` adds "child0" to its id
-    expect(container.querySelector("#formId-child0")).toBeInTheDocument();
+    expect(container.querySelector("#ds-form-test-child0")).toBeInTheDocument();
     // The first `FormRow`'s first `FormField` adds "grandchild0" to its id
     expect(
-      container.querySelector("#formId-child0-grandchild0")
+      container.querySelector("#ds-form-test-child0-grandchild0")
     ).toBeInTheDocument();
     // The first `FormRow`'s second `FormField` adds "grandchild1" to its id
     expect(
-      container.querySelector("#formId-child0-grandchild1")
+      container.querySelector("#ds-form-test-child0-grandchild1")
     ).toBeInTheDocument();
     // The second `FormRow` adds "child1" to its id
-    expect(container.querySelector("#formId-child1")).toBeInTheDocument();
+    expect(container.querySelector("#ds-form-test-child1")).toBeInTheDocument();
     // The second `FormRow`'s first `FormField` adds "grandchild0" to its id
     expect(
-      container.querySelector("#formId-child1-grandchild0")
+      container.querySelector("#ds-form-test-child1-grandchild0")
     ).toBeInTheDocument();
     // The second `FormRow`'s second `FormField` adds "grandchild1" to its id
     expect(
-      container.querySelector("#formId-child1-grandchild1")
+      container.querySelector("#ds-form-test-child1-grandchild1")
     ).toBeInTheDocument();
   });
 
@@ -191,7 +191,7 @@ describe("Form", () => {
       </Form>
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Form: This component's required `id` prop was not passed."
+      "NYPL Reservoir Form: This component's required `id` prop was not passed and the default `ds-form` is set."
     );
   });
 

@@ -8,19 +8,19 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    id="ds-accordion-multi-select-accordion-multiselect-test-id"
+    id="ds-accordion-multiselect-test-id-accordion"
     onKeyDown={[Function]}
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
     >
       <button
-        aria-controls="accordion-panel-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+        aria-controls="accordion-panel-ds-accordion-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
         className="chakra-accordion__button css-1rvudez"
         disabled={false}
-        id="accordion-button-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+        id="accordion-button-ds-accordion-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -43,7 +43,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
           className="chakra-icon accordion-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
-          id="ds-accordion-multi-select-accordion-multiselect-test-id-icon-0"
+          id="ds-accordion-multiselect-test-id-accordion-icon-0"
           role="img"
           title="plus icon"
         />
@@ -60,9 +60,9 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
         }
       >
         <div
-          aria-labelledby="accordion-button-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+          aria-labelledby="accordion-button-ds-accordion-multiselect-test-id-accordion-item-0"
           className="chakra-accordion__panel css-e7ng5h"
-          id="accordion-panel-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+          id="accordion-panel-ds-accordion-multiselect-test-id-accordion-item-0"
           role="region"
         >
           <div
@@ -73,7 +73,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
             >
               <fieldset
                 className="css-1u8qly9"
-                id="ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id"
+                id="ds-fieldset-multiselect-test-id-checkboxGroup"
               >
                 <legend>
                   multiselect-button-text
@@ -81,11 +81,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                 <div
                   className="chakra-stack css-19s3t1h"
                   data-testid="checkbox-group"
-                  id="ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id-stack"
+                  id="multiselect-test-id-checkboxGroup-stack"
                 >
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-dogs"
+                    id="ds-componentWrapper-dogs"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -97,7 +97,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-dogs"
+                        id="dogs"
                         name="Dogs"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -138,7 +138,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-cats"
+                    id="ds-componentWrapper-cats"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -150,7 +150,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-cats"
+                        id="cats"
                         name="Cats"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -191,7 +191,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-cars"
+                    id="ds-componentWrapper-cars"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -204,7 +204,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={true}
-                        id="ds-checkbox-cars"
+                        id="cars"
                         name="Cars"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -247,7 +247,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-colors"
+                    id="ds-componentWrapper-colors"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -259,7 +259,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-colors"
+                        id="colors"
                         name="Colors"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -300,7 +300,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-red"
+                    id="ds-componentWrapper-red"
                   >
                     <label
                       className="chakra-checkbox css-vbxw2k"
@@ -312,7 +312,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-red"
+                        id="red"
                         name="Red"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -353,7 +353,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-blue"
+                    id="ds-componentWrapper-blue"
                   >
                     <label
                       className="chakra-checkbox css-vbxw2k"
@@ -365,7 +365,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-blue"
+                        id="blue"
                         name="Blue"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -406,7 +406,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-plants"
+                    id="ds-componentWrapper-plants"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -418,7 +418,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-plants"
+                        id="plants"
                         name="Plants"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -459,7 +459,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-furniture"
+                    id="ds-componentWrapper-furniture"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -471,7 +471,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-furniture"
+                        id="furniture"
                         name="Furniture"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -516,7 +516,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
-                  id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id"
+                  id="ds-helperErrorText-multiselect-test-id-checkboxGroup"
                 >
                   <div
                     className="css-0"
@@ -540,19 +540,19 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    id="ds-accordion-multi-select-accordion-multiselect-test-id"
+    id="ds-accordion-multiselect-test-id-accordion"
     onKeyDown={[Function]}
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
     >
       <button
-        aria-controls="accordion-panel-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+        aria-controls="accordion-panel-ds-accordion-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
         className="chakra-accordion__button css-1rvudez"
         disabled={false}
-        id="accordion-button-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+        id="accordion-button-ds-accordion-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -575,7 +575,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
           className="chakra-icon accordion-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
-          id="ds-accordion-multi-select-accordion-multiselect-test-id-icon-0"
+          id="ds-accordion-multiselect-test-id-accordion-icon-0"
           role="img"
           title="plus icon"
         />
@@ -592,9 +592,9 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
         }
       >
         <div
-          aria-labelledby="accordion-button-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+          aria-labelledby="accordion-button-ds-accordion-multiselect-test-id-accordion-item-0"
           className="chakra-accordion__panel css-e7ng5h"
-          id="accordion-panel-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+          id="accordion-panel-ds-accordion-multiselect-test-id-accordion-item-0"
           role="region"
         >
           <div
@@ -605,7 +605,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
             >
               <fieldset
                 className="css-1u8qly9"
-                id="ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id"
+                id="ds-fieldset-multiselect-test-id-checkboxGroup"
               >
                 <legend>
                   multiselect-button-text
@@ -613,11 +613,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                 <div
                   className="chakra-stack css-19s3t1h"
                   data-testid="checkbox-group"
-                  id="ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id-stack"
+                  id="multiselect-test-id-checkboxGroup-stack"
                 >
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-dogs"
+                    id="ds-componentWrapper-dogs"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -629,7 +629,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-dogs"
+                        id="dogs"
                         name="Dogs"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -670,7 +670,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-cats"
+                    id="ds-componentWrapper-cats"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -682,7 +682,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-cats"
+                        id="cats"
                         name="Cats"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -723,7 +723,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-cars"
+                    id="ds-componentWrapper-cars"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -736,7 +736,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={true}
-                        id="ds-checkbox-cars"
+                        id="cars"
                         name="Cars"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -779,7 +779,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-colors"
+                    id="ds-componentWrapper-colors"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -791,7 +791,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-colors"
+                        id="colors"
                         name="Colors"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -832,7 +832,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-red"
+                    id="ds-componentWrapper-red"
                   >
                     <label
                       className="chakra-checkbox css-vbxw2k"
@@ -844,7 +844,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-red"
+                        id="red"
                         name="Red"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -885,7 +885,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-blue"
+                    id="ds-componentWrapper-blue"
                   >
                     <label
                       className="chakra-checkbox css-vbxw2k"
@@ -897,7 +897,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-blue"
+                        id="blue"
                         name="Blue"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -938,7 +938,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-plants"
+                    id="ds-componentWrapper-plants"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -950,7 +950,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-plants"
+                        id="plants"
                         name="Plants"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -991,7 +991,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-furniture"
+                    id="ds-componentWrapper-furniture"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1003,7 +1003,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-furniture"
+                        id="furniture"
                         name="Furniture"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1048,7 +1048,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
-                  id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id"
+                  id="ds-helperErrorText-multiselect-test-id-checkboxGroup"
                 >
                   <div
                     className="css-0"
@@ -1072,19 +1072,19 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    id="ds-accordion-multi-select-accordion-multiselect-test-id"
+    id="ds-accordion-multiselect-test-id-accordion"
     onKeyDown={[Function]}
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
     >
       <button
-        aria-controls="accordion-panel-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+        aria-controls="accordion-panel-ds-accordion-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 1 item currently selected"
         className="chakra-accordion__button css-1rvudez"
         disabled={false}
-        id="accordion-button-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+        id="accordion-button-ds-accordion-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1107,7 +1107,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
           className="chakra-icon accordion-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
-          id="ds-accordion-multi-select-accordion-multiselect-test-id-icon-0"
+          id="ds-accordion-multiselect-test-id-accordion-icon-0"
           role="img"
           title="plus icon"
         />
@@ -1124,9 +1124,9 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
         }
       >
         <div
-          aria-labelledby="accordion-button-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+          aria-labelledby="accordion-button-ds-accordion-multiselect-test-id-accordion-item-0"
           className="chakra-accordion__panel css-e7ng5h"
-          id="accordion-panel-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+          id="accordion-panel-ds-accordion-multiselect-test-id-accordion-item-0"
           role="region"
         >
           <div
@@ -1137,7 +1137,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
             >
               <fieldset
                 className="css-1u8qly9"
-                id="ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id"
+                id="ds-fieldset-multiselect-test-id-checkboxGroup"
               >
                 <legend>
                   multiselect-button-text
@@ -1145,11 +1145,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                 <div
                   className="chakra-stack css-19s3t1h"
                   data-testid="checkbox-group"
-                  id="ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id-stack"
+                  id="multiselect-test-id-checkboxGroup-stack"
                 >
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-dogs"
+                    id="ds-componentWrapper-dogs"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1161,7 +1161,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-dogs"
+                        id="dogs"
                         name="Dogs"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1202,7 +1202,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-cats"
+                    id="ds-componentWrapper-cats"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1214,7 +1214,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-cats"
+                        id="cats"
                         name="Cats"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1255,7 +1255,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-cars"
+                    id="ds-componentWrapper-cars"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1268,7 +1268,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={true}
-                        id="ds-checkbox-cars"
+                        id="cars"
                         name="Cars"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1311,7 +1311,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-colors"
+                    id="ds-componentWrapper-colors"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1323,7 +1323,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-colors"
+                        id="colors"
                         name="Colors"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1395,7 +1395,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-red"
+                    id="ds-componentWrapper-red"
                   >
                     <label
                       className="chakra-checkbox css-vbxw2k"
@@ -1408,7 +1408,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         checked={true}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-red"
+                        id="red"
                         name="Red"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1460,7 +1460,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-blue"
+                    id="ds-componentWrapper-blue"
                   >
                     <label
                       className="chakra-checkbox css-vbxw2k"
@@ -1472,7 +1472,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-blue"
+                        id="blue"
                         name="Blue"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1513,7 +1513,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-plants"
+                    id="ds-componentWrapper-plants"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1525,7 +1525,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-plants"
+                        id="plants"
                         name="Plants"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1566,7 +1566,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-furniture"
+                    id="ds-componentWrapper-furniture"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1578,7 +1578,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-furniture"
+                        id="furniture"
                         name="Furniture"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1623,7 +1623,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
-                  id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id"
+                  id="ds-helperErrorText-multiselect-test-id-checkboxGroup"
                 >
                   <div
                     className="css-0"
@@ -1666,19 +1666,19 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    id="ds-accordion-multi-select-accordion-multiselect-test-id"
+    id="ds-accordion-multiselect-test-id-accordion"
     onKeyDown={[Function]}
   >
     <div
       className="chakra-accordion__item css-1fsnuue"
     >
       <button
-        aria-controls="accordion-panel-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+        aria-controls="accordion-panel-ds-accordion-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 2 items currently selected"
         className="chakra-accordion__button css-1rvudez"
         disabled={false}
-        id="accordion-button-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+        id="accordion-button-ds-accordion-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -1701,7 +1701,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
           className="chakra-icon accordion-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
-          id="ds-accordion-multi-select-accordion-multiselect-test-id-icon-0"
+          id="ds-accordion-multiselect-test-id-accordion-icon-0"
           role="img"
           title="plus icon"
         />
@@ -1718,9 +1718,9 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
         }
       >
         <div
-          aria-labelledby="accordion-button-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+          aria-labelledby="accordion-button-ds-accordion-multiselect-test-id-accordion-item-0"
           className="chakra-accordion__panel css-e7ng5h"
-          id="accordion-panel-ds-accordion-multi-select-accordion-multiselect-test-id-item-0"
+          id="accordion-panel-ds-accordion-multiselect-test-id-accordion-item-0"
           role="region"
         >
           <div
@@ -1731,7 +1731,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
             >
               <fieldset
                 className="css-1u8qly9"
-                id="ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id"
+                id="ds-fieldset-multiselect-test-id-checkboxGroup"
               >
                 <legend>
                   multiselect-button-text
@@ -1739,11 +1739,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                 <div
                   className="chakra-stack css-19s3t1h"
                   data-testid="checkbox-group"
-                  id="ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id-stack"
+                  id="multiselect-test-id-checkboxGroup-stack"
                 >
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-dogs"
+                    id="ds-componentWrapper-dogs"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1755,7 +1755,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-dogs"
+                        id="dogs"
                         name="Dogs"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1796,7 +1796,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-cats"
+                    id="ds-componentWrapper-cats"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1808,7 +1808,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-cats"
+                        id="cats"
                         name="Cats"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1849,7 +1849,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-cars"
+                    id="ds-componentWrapper-cars"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1862,7 +1862,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={true}
-                        id="ds-checkbox-cars"
+                        id="cars"
                         name="Cars"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1905,7 +1905,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-colors"
+                    id="ds-componentWrapper-colors"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -1918,7 +1918,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         checked={true}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-colors"
+                        id="colors"
                         name="Colors"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -1970,7 +1970,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-red"
+                    id="ds-componentWrapper-red"
                   >
                     <label
                       className="chakra-checkbox css-vbxw2k"
@@ -1983,7 +1983,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         checked={true}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-red"
+                        id="red"
                         name="Red"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -2035,7 +2035,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-blue"
+                    id="ds-componentWrapper-blue"
                   >
                     <label
                       className="chakra-checkbox css-vbxw2k"
@@ -2048,7 +2048,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         checked={true}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-blue"
+                        id="blue"
                         name="Blue"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -2100,7 +2100,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-plants"
+                    id="ds-componentWrapper-plants"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -2112,7 +2112,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-plants"
+                        id="plants"
                         name="Plants"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -2153,7 +2153,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    id="ds-componentWrapper-ds-checkbox-furniture"
+                    id="ds-componentWrapper-furniture"
                   >
                     <label
                       className="chakra-checkbox css-1xdhyk6"
@@ -2165,7 +2165,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         checked={false}
                         className="chakra-checkbox__input"
                         disabled={false}
-                        id="ds-checkbox-furniture"
+                        id="furniture"
                         name="Furniture"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -2210,7 +2210,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   aria-live="polite"
                   className="css-1xdhyk6"
                   data-isinvalid={false}
-                  id="ds-helperErrorText-ds-checkboxGroup-multi-select-checkbox-group-multiselect-test-id"
+                  id="ds-helperErrorText-multiselect-test-id-checkboxGroup"
                 >
                   <div
                     className="css-0"

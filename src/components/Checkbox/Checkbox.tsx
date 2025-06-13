@@ -10,7 +10,7 @@ import React, { forwardRef, InputHTMLAttributes } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
-import { generateComponentId, getAriaAttrs } from "../../utils/utils";
+import { getAriaAttrs } from "../../utils/utils";
 import Icon from "../Icons/Icon";
 
 interface CheckboxIconProps {
@@ -92,12 +92,11 @@ export const Checkbox: ChakraComponent<
     } = props;
     const styles = useMultiStyleConfig("Checkbox", {});
     const footnote = isInvalid ? invalidText : helperText;
-    const mainId = generateComponentId("checkbox", id);
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
     const ariaAttributes = getAriaAttrs({
       footnote,
-      id: mainId,
+      id,
       labelText,
       name: "Checkbox",
       showLabel,
@@ -113,7 +112,7 @@ export const Checkbox: ChakraComponent<
       <ComponentWrapper
         helperText={helperText}
         helperTextStyles={styles.helperErrorText}
-        id={mainId}
+        id={id}
         invalidText={invalidText}
         isInvalid={isInvalid}
         showHelperInvalidText={showHelperInvalidText}
@@ -122,7 +121,7 @@ export const Checkbox: ChakraComponent<
         <ChakraCheckbox
           className={className}
           icon={icon}
-          id={mainId}
+          id={id}
           isDisabled={isDisabled}
           isIndeterminate={isIndeterminate}
           isInvalid={isInvalid}

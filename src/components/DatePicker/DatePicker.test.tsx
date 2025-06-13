@@ -242,7 +242,7 @@ describe("DatePicker", () => {
     it("should render with helper text and error text", () => {
       const { rerender } = render(
         <DatePicker
-          id="datePicker"
+          id="id"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           invalidText="Please select a valid date."
@@ -257,7 +257,7 @@ describe("DatePicker", () => {
       const input = screen.getByRole("textbox");
       expect(input).toHaveAttribute(
         "aria-describedby",
-        "datePicker-start-helperText"
+        "ds-datePicker-id-start-helperText"
       );
 
       // When not errored, we expect only the helper text to appear.
@@ -267,7 +267,7 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
-          id="datePicker"
+          id="id"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           invalidText="Please select a valid date."
@@ -286,7 +286,7 @@ describe("DatePicker", () => {
       // The error text replaces the original helper text.
       expect(input).toHaveAttribute(
         "aria-describedby",
-        "datePicker-start-helperText"
+        "ds-datePicker-id-start-helperText"
       );
     });
 
@@ -605,7 +605,7 @@ describe("DatePicker", () => {
     it("should render two input labels and three separate helper text", () => {
       render(
         <DatePicker
-          id="datePicker"
+          id="testLabel"
           labelText="Select the date range you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           helperTextFrom="Note for the 'from' field."
@@ -641,14 +641,14 @@ describe("DatePicker", () => {
       // more general to more specific.
       expect(inputFrom).toHaveAttribute(
         "aria-describedby",
-        "datePicker-helper-text datePicker-start-helperText"
+        "ds-datePicker-testLabel-helper-text ds-datePicker-testLabel-start-helperText"
       );
       // The `toInput` should have an `aria-describedby` value of both the id of
       // the `helperText` and the id of the `helperTextTo` in that order - from
       // more general to more specific.
       expect(inputTo).toHaveAttribute(
         "aria-describedby",
-        "datePicker-helper-text datePicker-end-helperText"
+        "ds-datePicker-testLabel-helper-text ds-datePicker-testLabel-end-helperText"
       );
     });
 
@@ -1075,7 +1075,7 @@ describe("DatePicker", () => {
         <DatePicker labelText="Select the year you want to visit NYPL" />
       );
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir DatePicker: This component's required `id` prop was not passed."
+        "NYPL Reservoir DatePicker: This component's required `id` prop was not passed and the default `ds-datePicker` will be used."
       );
     });
   });

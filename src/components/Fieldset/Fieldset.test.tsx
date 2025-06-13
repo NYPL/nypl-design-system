@@ -83,7 +83,7 @@ describe("Fieldset", () => {
       </Fieldset>
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
+      "NYPL Reservoir Fieldset: This component's required `id` prop was not passed and the default `ds-fieldset` is set."
     );
   });
 

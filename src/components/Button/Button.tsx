@@ -79,7 +79,7 @@ export const Button: ChakraComponent<
 
       if (!id) {
         console.warn(
-          "NYPL Reservoir Button: This component's required `id` prop was not passed but the default of `ds-button` is set."
+          "NYPL Reservoir Button: This component's required `id` prop was not passed and the default of `ds-button` is set."
         );
       }
 

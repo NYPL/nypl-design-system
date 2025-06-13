@@ -26,7 +26,6 @@ const meta: Meta<typeof DatePicker> = {
       options: datePickerTypesArray,
       table: { defaultValue: { summary: "full" } },
     },
-    id: { control: false },
     isDateRange: {
       table: { defaultValue: { summary: "false" } },
     },
@@ -74,7 +73,6 @@ export const WithControls: Story = {
     helperText: "Note that the Library may be closed on Sundays.",
     helperTextFrom: "Select start date.",
     helperTextTo: "Select end date.",
-    id: "datePicker-id",
     initialDate: `1/1/${currentYear}`,
     initialDateTo: `12/31/${currentYear}`,
     invalidText: "Please select a valid date.",

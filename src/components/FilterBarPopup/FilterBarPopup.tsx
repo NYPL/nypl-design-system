@@ -21,14 +21,13 @@ import Heading, { HeadingSizes } from "../Heading/Heading";
 import { LayoutTypes } from "../../helpers/types";
 import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
 import { FilterBarItemsType } from "../FilterBarInline/FilterBarInline";
+import { generateComponentId } from "../../utils/utils";
 
 export interface FilterBarPopupProps extends BoxProps {
   /** Optional string value used to set the text for a `Heading` component, or
    * a DS Heading component that can be passed in.
    */
   heading?: string | JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Only used for internal purposes. */
   isOpen?: boolean;
   /** Function for the global `Clear Filters` button. If passed the `Clear Filters` button will render. */
@@ -78,7 +77,7 @@ export const FilterBarPopup: ChakraComponent<
         totalResults,
         ...rest
       } = props;
-
+      const mainId = generateComponentId("filterBarPopup", id);
       const styles = useMultiStyleConfig("FilterBarPopup", {
         width: "full",
       });
@@ -120,9 +119,9 @@ export const FilterBarPopup: ChakraComponent<
       };
 
       return (
-        <Box id={`filter-bar-${id}`} ref={ref} {...rest}>
+        <Box id={mainId} ref={ref} {...rest}>
           <Button
-            id={`filter-bar-${id}-show-filters`}
+            id={`${mainId}-show-filters`}
             buttonType="secondary"
             onClick={finalOnOpen}
             width={{ base: "100%", md: "fit-content" }}
@@ -153,7 +152,7 @@ export const FilterBarPopup: ChakraComponent<
               <ModalFooter sx={styles.modalFooter}>
                 <ButtonGroup layout="column" buttonWidth="full">
                   <Button
-                    id={`filter-bar-${id}-see-results`}
+                    id={`${mainId}-see-results`}
                     buttonType="primary"
                     type="submit"
                     onClick={onSubmit ? onSubmitAndClose : finalOnClose}
@@ -163,7 +162,7 @@ export const FilterBarPopup: ChakraComponent<
                   </Button>
                   {onClear && (
                     <Button
-                      id={`filter-bar-${id}-clear`}
+                      id={`${mainId}-clear`}
                       buttonType="text"
                       type="reset"
                       onClick={onClearAndFocus}

@@ -8,6 +8,7 @@ import {
 import React, { FormHTMLAttributes, forwardRef } from "react";
 
 import SimpleGrid, { GridGaps } from "../Grid/SimpleGrid";
+import { generateComponentId } from "../../utils/utils";
 
 interface FormBaseProps
   extends Pick<BoxProps, "className" | keyof ChakraProps> {
@@ -98,10 +99,11 @@ export const Form: ChakraComponent<
       onSubmit,
       ...rest
     } = props;
+    const mainId = generateComponentId("form", id);
 
     if (!id) {
       console.warn(
-        "NYPL Reservoir Form: This component's required `id` prop was not passed."
+        "NYPL Reservoir Form: This component's required `id` prop was not passed and the default `ds-form` is set."
       );
     }
 
@@ -116,7 +118,7 @@ export const Form: ChakraComponent<
       children as JSX.Element,
       (child: React.ReactElement, i) => {
         return (
-          child && React.cloneElement(child, { gap, id: `${id}-child${i}` })
+          child && React.cloneElement(child, { gap, id: `${mainId}-child${i}` })
         );
       }
     );
@@ -125,13 +127,13 @@ export const Form: ChakraComponent<
       <Box
         as="form"
         data-testid="ds-form"
-        id={id}
+        id={mainId}
         onSubmit={onSubmit}
         ref={ref}
         {...attributes}
         {...rest}
       >
-        <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
+        <SimpleGrid columns={1} gap={gap} id={`${mainId}-parent`}>
           {alteredChildren}
         </SimpleGrid>
       </Box>

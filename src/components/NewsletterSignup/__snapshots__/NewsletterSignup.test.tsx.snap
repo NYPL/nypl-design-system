@@ -41,16 +41,16 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
     <form
       className="css-1xdhyk6"
       data-testid="ds-form"
-      id="newsletter-form"
+      id="ds-form-newsletter-form"
       onSubmit={[MockFunction]}
     >
       <div
         className="css-fadkce"
-        id="newsletter-form-parent"
+        id="ds-form-newsletter-form-parent"
       >
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child0"
+          id="ds-form-newsletter-form-child0"
         >
           <div
             className="css-1u8qly9"
@@ -108,7 +108,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
         </div>
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child1"
+          id="ds-form-newsletter-form-child1"
         >
           <button
             className="chakra-button css-1xdhyk6"
@@ -370,16 +370,16 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
     <form
       className="css-1xdhyk6"
       data-testid="ds-form"
-      id="newsletter-form"
+      id="ds-form-newsletter-form"
       onSubmit={[MockFunction]}
     >
       <div
         className="css-fadkce"
-        id="newsletter-form-parent"
+        id="ds-form-newsletter-form-parent"
       >
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child0"
+          id="ds-form-newsletter-form-child0"
         >
           <div
             className="css-1u8qly9"
@@ -435,7 +435,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
         </div>
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child1"
+          id="ds-form-newsletter-form-child1"
         >
           <button
             className="chakra-button css-1xdhyk6"
@@ -497,16 +497,16 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
     <form
       className="css-1xdhyk6"
       data-testid="ds-form"
-      id="newsletter-form"
+      id="ds-form-newsletter-form"
       onSubmit={[MockFunction]}
     >
       <div
         className="css-fadkce"
-        id="newsletter-form-parent"
+        id="ds-form-newsletter-form-parent"
       >
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child0"
+          id="ds-form-newsletter-form-child0"
         >
           <div
             className="css-1u8qly9"
@@ -562,7 +562,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
         </div>
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child1"
+          id="ds-form-newsletter-form-child1"
         >
           <button
             className="chakra-button css-1xdhyk6"
@@ -619,16 +619,16 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
     <form
       className="css-1xdhyk6"
       data-testid="ds-form"
-      id="newsletter-form"
+      id="ds-form-newsletter-form"
       onSubmit={[MockFunction]}
     >
       <div
         className="css-fadkce"
-        id="newsletter-form-parent"
+        id="ds-form-newsletter-form-parent"
       >
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child0"
+          id="ds-form-newsletter-form-child0"
         >
           <div
             className="css-1u8qly9"
@@ -685,7 +685,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
         </div>
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child1"
+          id="ds-form-newsletter-form-child1"
         >
           <button
             className="chakra-button css-1xdhyk6"
@@ -742,16 +742,16 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
     <form
       className="css-1xdhyk6"
       data-testid="ds-form"
-      id="newsletter-form"
+      id="ds-form-newsletter-form"
       onSubmit={[MockFunction]}
     >
       <div
         className="css-fadkce"
-        id="newsletter-form-parent"
+        id="ds-form-newsletter-form-parent"
       >
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child0"
+          id="ds-form-newsletter-form-child0"
         >
           <div
             className="css-1u8qly9"
@@ -807,7 +807,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
         </div>
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child1"
+          id="ds-form-newsletter-form-child1"
         >
           <button
             className="chakra-button css-1xdhyk6"

@@ -17,6 +17,7 @@ import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
+import { generateComponentId } from "../../utils/utils";
 
 interface ReactDatePickerAttrs {
   popperClassName: string;
@@ -298,6 +299,7 @@ export const DatePicker: ChakraComponent<
       showRequiredLabel = true,
       ...rest
     } = props;
+    const mainId = generateComponentId("datePicker", id);
     const styles = useMultiStyleConfig("DatePicker", {});
     const finalStyles = isDateRange ? styles : {};
     const initStartDate = initialDate
@@ -390,7 +392,7 @@ export const DatePicker: ChakraComponent<
 
     if (!id) {
       console.warn(
-        "NYPL Reservoir DatePicker: This component's required `id` prop was not passed."
+        "NYPL Reservoir DatePicker: This component's required `id` prop was not passed and the default `ds-datePicker` will be used."
       );
     }
 
@@ -446,12 +448,12 @@ export const DatePicker: ChakraComponent<
               // and `helperText` are displayed. It tells `TextInput` to associate
               // with both helper texts using `aria-describedby`.
               {...(helperTextTo && helperText
-                ? { additionalHelperTextIds: `${id}-helper-text` }
+                ? { additionalHelperTextIds: `${mainId}-helper-text` }
                 : {})}
               {...endCustomTextInputAttrs}
             />
           }
-          id={`${id}-end`}
+          id={`${mainId}-end`}
           name={nameTo}
           onChange={(date: Date) => onChangeDefault(date, "endDate")}
           placeholderText={placeholderTo}
@@ -471,12 +473,12 @@ export const DatePicker: ChakraComponent<
             // and `helperText` are displayed and tells `TextInput` to associate
             // with both helper texts using `aria-describedby`.
             {...(isDateRange && helperTextFrom && helperText
-              ? { additionalHelperTextIds: `${id}-helper-text` }
+              ? { additionalHelperTextIds: `${mainId}-helper-text` }
               : {})}
             {...baseCustomTextInputAttrs}
           />
         }
-        id={`${id}-start`}
+        id={`${mainId}-start`}
         name={nameFrom}
         onChange={(date: Date) => onChangeDefault(date, "startDate")}
         placeholderText={placeholder}
@@ -487,7 +489,7 @@ export const DatePicker: ChakraComponent<
 
     return (
       <DatePickerWrapper
-        id={id}
+        id={mainId}
         isDateRange={isDateRange}
         showLabel={showLabel}
         labelText={labelText}
@@ -495,17 +497,19 @@ export const DatePicker: ChakraComponent<
         showRequiredLabel={showRequiredLabel}
         {...rest}
       >
-        <DateRangeRow id={id} isDateRange={isDateRange}>
-          <FormField id={`${id}-start-form`}>
+        <DateRangeRow id={mainId} isDateRange={isDateRange}>
+          <FormField id={`${mainId}-start-form`}>
             {startDatePickerElement}
           </FormField>
 
           {endDatePickerElement && (
-            <FormField id={`${id}-end-form`}>{endDatePickerElement}</FormField>
+            <FormField id={`${mainId}-end-form`}>
+              {endDatePickerElement}
+            </FormField>
           )}
         </DateRangeRow>
         <HelperErrorText
-          id={`${id}-helper-text`}
+          id={mainId}
           isInvalid={false}
           isRenderedText={isDateRange && showHelperInvalidText}
           text={helperText}

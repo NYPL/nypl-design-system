@@ -91,10 +91,7 @@ describe("Checkbox", () => {
 
   it("Sets the checkbox's ID", () => {
     render(<Checkbox id="inputID" labelText="Test Label" />);
-    expect(screen.getByRole("checkbox")).toHaveAttribute(
-      "id",
-      "ds-checkbox-inputID"
-    );
+    expect(screen.getByRole("checkbox")).toHaveAttribute("id", "inputID");
   });
 
   it("Sets the 'checked' attribute", () => {

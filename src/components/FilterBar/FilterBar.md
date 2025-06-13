@@ -1,6 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import * as FilterBarStories from "./FilterBar.stories";
+import \* as FilterBarStories from "./FilterBar.stories";
 import Link from "../Link/Link";
 
 <Meta of={FilterBarStories} />

@@ -3,7 +3,7 @@
 exports[`Checkbox renders the UI snapshot correctly 1`] = `
 <fieldset
   className="css-1u8qly9"
-  id="ds-checkboxGroup-column"
+  id="ds-fieldset-column"
 >
   <legend>
     column
@@ -11,11 +11,11 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-column-stack"
+    id="column-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-column-0"
+      id="ds-componentWrapper-column-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -27,7 +27,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-column-0"
+          id="column-0"
           name="column"
           onBlur={[Function]}
           onChange={[Function]}
@@ -69,7 +69,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-column-1"
+      id="ds-componentWrapper-column-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -81,7 +81,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-column-1"
+          id="column-1"
           name="column"
           onBlur={[Function]}
           onChange={[Function]}
@@ -127,7 +127,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-column"
+    id="ds-helperErrorText-column"
   >
     <div
       className="css-0"
@@ -139,7 +139,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
 exports[`Checkbox renders the UI snapshot correctly 2`] = `
 <fieldset
   className="css-1u8qly9"
-  id="ds-checkboxGroup-row"
+  id="ds-fieldset-row"
 >
   <legend>
     row
@@ -147,11 +147,11 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
   <div
     className="chakra-stack css-1478f2b"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-row-stack"
+    id="row-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-row-0"
+      id="ds-componentWrapper-row-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -163,7 +163,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-row-0"
+          id="row-0"
           name="row"
           onBlur={[Function]}
           onChange={[Function]}
@@ -205,7 +205,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-row-1"
+      id="ds-componentWrapper-row-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -217,7 +217,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-row-1"
+          id="row-1"
           name="row"
           onBlur={[Function]}
           onChange={[Function]}
@@ -263,7 +263,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-row"
+    id="ds-helperErrorText-row"
   >
     <div
       className="css-0"
@@ -275,7 +275,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
 exports[`Checkbox renders the UI snapshot correctly 3`] = `
 <fieldset
   className="css-1u8qly9"
-  id="ds-checkboxGroup-noLabel"
+  id="ds-fieldset-noLabel"
 >
   <legend>
     no label
@@ -283,11 +283,11 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-noLabel-stack"
+    id="noLabel-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-noLabel-0"
+      id="ds-componentWrapper-noLabel-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -299,7 +299,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-noLabel-0"
+          id="noLabel-0"
           name="noLabel"
           onBlur={[Function]}
           onChange={[Function]}
@@ -341,7 +341,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-noLabel-1"
+      id="ds-componentWrapper-noLabel-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -353,7 +353,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-noLabel-1"
+          id="noLabel-1"
           name="noLabel"
           onBlur={[Function]}
           onChange={[Function]}
@@ -399,7 +399,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-noLabel"
+    id="ds-helperErrorText-noLabel"
   >
     <div
       className="css-0"
@@ -411,7 +411,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
 exports[`Checkbox renders the UI snapshot correctly 4`] = `
 <fieldset
   className="css-1u8qly9"
-  id="ds-checkboxGroup-helperText"
+  id="ds-fieldset-helperText"
 >
   <legend>
     helperText
@@ -419,11 +419,11 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-helperText-stack"
+    id="helperText-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-helperText-0"
+      id="ds-componentWrapper-helperText-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -435,7 +435,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-helperText-0"
+          id="helperText-0"
           name="helperText"
           onBlur={[Function]}
           onChange={[Function]}
@@ -477,7 +477,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-helperText-1"
+      id="ds-componentWrapper-helperText-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -489,7 +489,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-helperText-1"
+          id="helperText-1"
           name="helperText"
           onBlur={[Function]}
           onChange={[Function]}
@@ -535,7 +535,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-helperText"
+    id="ds-helperErrorText-helperText"
   >
     <div
       className="css-0"
@@ -552,7 +552,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
 exports[`Checkbox renders the UI snapshot correctly 5`] = `
 <fieldset
   className="css-1u8qly9"
-  id="ds-checkboxGroup-invalidText"
+  id="ds-fieldset-invalidText"
 >
   <legend>
     invalidText
@@ -560,11 +560,11 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-invalidText-stack"
+    id="invalidText-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-invalidText-0"
+      id="ds-componentWrapper-invalidText-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -576,7 +576,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-invalidText-0"
+          id="invalidText-0"
           name="invalidText"
           onBlur={[Function]}
           onChange={[Function]}
@@ -618,7 +618,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-invalidText-1"
+      id="ds-componentWrapper-invalidText-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -630,7 +630,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-invalidText-1"
+          id="invalidText-1"
           name="invalidText"
           onBlur={[Function]}
           onChange={[Function]}
@@ -676,7 +676,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-invalidText"
+    id="ds-helperErrorText-invalidText"
   >
     <div
       className="css-0"
@@ -688,7 +688,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 exports[`Checkbox renders the UI snapshot correctly 6`] = `
 <fieldset
   className="css-1u8qly9"
-  id="ds-checkboxGroup-noRequiredLabel"
+  id="ds-fieldset-noRequiredLabel"
 >
   <legend>
     no optional or required label
@@ -696,11 +696,11 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-noRequiredLabel-stack"
+    id="noRequiredLabel-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-noRequiredLabel-0"
+      id="ds-componentWrapper-noRequiredLabel-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -712,7 +712,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-noRequiredLabel-0"
+          id="noRequiredLabel-0"
           name="noRequiredLabel"
           onBlur={[Function]}
           onChange={[Function]}
@@ -754,7 +754,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-noRequiredLabel-1"
+      id="ds-componentWrapper-noRequiredLabel-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -766,7 +766,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-noRequiredLabel-1"
+          id="noRequiredLabel-1"
           name="noRequiredLabel"
           onBlur={[Function]}
           onChange={[Function]}
@@ -812,7 +812,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-noRequiredLabel"
+    id="ds-helperErrorText-noRequiredLabel"
   >
     <div
       className="css-0"
@@ -824,7 +824,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
 exports[`Checkbox renders the UI snapshot correctly 7`] = `
 <fieldset
   className="css-1u8qly9"
-  id="ds-checkboxGroup-required"
+  id="ds-fieldset-required"
 >
   <legend>
     required
@@ -835,11 +835,11 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-required-stack"
+    id="required-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-required-0"
+      id="ds-componentWrapper-required-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -851,7 +851,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-required-0"
+          id="required-0"
           name="required"
           onBlur={[Function]}
           onChange={[Function]}
@@ -893,7 +893,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-required-1"
+      id="ds-componentWrapper-required-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -905,7 +905,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-required-1"
+          id="required-1"
           name="required"
           onBlur={[Function]}
           onChange={[Function]}
@@ -951,7 +951,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-required"
+    id="ds-helperErrorText-required"
   >
     <div
       className="css-0"
@@ -963,7 +963,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 exports[`Checkbox renders the UI snapshot correctly 8`] = `
 <fieldset
   className="css-1u8qly9"
-  id="ds-checkboxGroup-invalid"
+  id="ds-fieldset-invalid"
 >
   <legend>
     invalid
@@ -971,11 +971,11 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-invalid-stack"
+    id="invalid-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-invalid-0"
+      id="ds-componentWrapper-invalid-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -988,7 +988,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-invalid-0"
+          id="invalid-0"
           name="invalid"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1032,7 +1032,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-invalid-1"
+      id="ds-componentWrapper-invalid-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1045,7 +1045,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-invalid-1"
+          id="invalid-1"
           name="invalid"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1093,7 +1093,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    id="ds-helperErrorText-ds-checkboxGroup-invalid"
+    id="ds-helperErrorText-invalid"
   >
     <div
       className="css-0"
@@ -1105,7 +1105,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
 exports[`Checkbox renders the UI snapshot correctly 9`] = `
 <fieldset
   className="css-1u8qly9"
-  id="ds-checkboxGroup-disabled"
+  id="ds-fieldset-disabled"
 >
   <legend>
     disabled
@@ -1113,11 +1113,11 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-disabled-stack"
+    id="disabled-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-disabled-0"
+      id="ds-componentWrapper-disabled-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1130,7 +1130,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={true}
-          id="ds-checkbox-disabled-0"
+          id="disabled-0"
           name="disabled"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1174,7 +1174,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-disabled-1"
+      id="ds-componentWrapper-disabled-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1187,7 +1187,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={true}
-          id="ds-checkbox-disabled-1"
+          id="disabled-1"
           name="disabled"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1235,7 +1235,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-disabled"
+    id="ds-helperErrorText-disabled"
   >
     <div
       className="css-0"
@@ -1247,7 +1247,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
 exports[`Checkbox renders the UI snapshot correctly 10`] = `
 <fieldset
   className="css-1u8qly9"
-  id="ds-checkboxGroup-jsxLabels"
+  id="ds-fieldset-jsxLabels"
 >
   <legend>
     jsxLabels
@@ -1255,11 +1255,11 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-jsxLabels-stack"
+    id="jsxLabels-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-jsxLabels-0"
+      id="ds-componentWrapper-jsxLabels-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1271,7 +1271,7 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-jsxLabels-0"
+          id="jsxLabels-0"
           name="jsxLabels"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1325,7 +1325,7 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-jsxLabels-1"
+      id="ds-componentWrapper-jsxLabels-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1337,7 +1337,7 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-jsxLabels-1"
+          id="jsxLabels-1"
           name="jsxLabels"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1395,7 +1395,7 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-jsxLabels"
+    id="ds-helperErrorText-jsxLabels"
   >
     <div
       className="css-0"
@@ -1407,7 +1407,7 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
 exports[`Checkbox renders the UI snapshot correctly 11`] = `
 <fieldset
   className="css-2bbtg1"
-  id="ds-checkboxGroup-chakraProps"
+  id="ds-fieldset-chakraProps"
 >
   <legend>
     chakraProps
@@ -1415,11 +1415,11 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-chakraProps-stack"
+    id="chakraProps-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-chakraProps-0"
+      id="ds-componentWrapper-chakraProps-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1431,7 +1431,7 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-chakraProps-0"
+          id="chakraProps-0"
           name="chakraProps"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1473,7 +1473,7 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-chakraProps-1"
+      id="ds-componentWrapper-chakraProps-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1485,7 +1485,7 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-chakraProps-1"
+          id="chakraProps-1"
           name="chakraProps"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1531,7 +1531,7 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-chakraProps"
+    id="ds-helperErrorText-chakraProps"
   >
     <div
       className="css-0"
@@ -1544,7 +1544,7 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
 <fieldset
   className="css-1u8qly9"
   data-testid="props"
-  id="ds-checkboxGroup-otherProps"
+  id="ds-fieldset-otherProps"
 >
   <legend>
     otherProps
@@ -1552,11 +1552,11 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="ds-checkboxGroup-otherProps-stack"
+    id="otherProps-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-otherProps-0"
+      id="ds-componentWrapper-otherProps-0"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1568,7 +1568,7 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-otherProps-0"
+          id="otherProps-0"
           name="otherProps"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1610,7 +1610,7 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="ds-componentWrapper-ds-checkbox-otherProps-1"
+      id="ds-componentWrapper-otherProps-1"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1622,7 +1622,7 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
           checked={false}
           className="chakra-checkbox__input"
           disabled={false}
-          id="ds-checkbox-otherProps-1"
+          id="otherProps-1"
           name="otherProps"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1668,7 +1668,7 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="ds-helperErrorText-ds-checkboxGroup-otherProps"
+    id="ds-helperErrorText-otherProps"
   >
     <div
       className="css-0"

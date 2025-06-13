@@ -4,31 +4,31 @@ exports[`Form Snapshot renders the UI snapshot correctly 1`] = `
 <form
   className="css-1xdhyk6"
   data-testid="ds-form"
-  id="snapshot-form"
+  id="ds-form-snapshot-form"
 >
   <div
     className="css-fadkce"
-    id="snapshot-form-parent"
+    id="ds-form-snapshot-form-parent"
   >
     <div
       className="css-dofnwd"
-      id="snapshot-form-child0"
+      id="ds-form-snapshot-form-child0"
     >
       <div
         className="css-7ajbp2"
-        id="snapshot-form-child0-grandchild0"
+        id="ds-form-snapshot-form-child0-grandchild0"
       >
         Form Field 1
       </div>
       <div
         className="css-7ajbp2"
-        id="snapshot-form-child0-grandchild1"
+        id="ds-form-snapshot-form-child0-grandchild1"
       >
         Form Field 2
       </div>
       <div
         className="css-7ajbp2"
-        id="snapshot-form-child0-grandchild2"
+        id="ds-form-snapshot-form-child0-grandchild2"
       >
         Form Field 3
       </div>
@@ -41,31 +41,31 @@ exports[`Form Snapshot renders the UI snapshot correctly 2`] = `
 <form
   className="css-16h1ce8"
   data-testid="ds-form"
-  id="chakra"
+  id="ds-form-chakra"
 >
   <div
     className="css-fadkce"
-    id="chakra-parent"
+    id="ds-form-chakra-parent"
   >
     <div
       className="css-dofnwd"
-      id="chakra-child0"
+      id="ds-form-chakra-child0"
     >
       <div
         className="css-7ajbp2"
-        id="chakra-child0-grandchild0"
+        id="ds-form-chakra-child0-grandchild0"
       >
         Form Field 1
       </div>
       <div
         className="css-7ajbp2"
-        id="chakra-child0-grandchild1"
+        id="ds-form-chakra-child0-grandchild1"
       >
         Form Field 2
       </div>
       <div
         className="css-7ajbp2"
-        id="chakra-child0-grandchild2"
+        id="ds-form-chakra-child0-grandchild2"
       >
         Form Field 3
       </div>
@@ -78,31 +78,31 @@ exports[`Form Snapshot renders the UI snapshot correctly 3`] = `
 <form
   className="css-1xdhyk6"
   data-testid="props"
-  id="props"
+  id="ds-form-props"
 >
   <div
     className="css-fadkce"
-    id="props-parent"
+    id="ds-form-props-parent"
   >
     <div
       className="css-dofnwd"
-      id="props-child0"
+      id="ds-form-props-child0"
     >
       <div
         className="css-7ajbp2"
-        id="props-child0-grandchild0"
+        id="ds-form-props-child0-grandchild0"
       >
         Form Field 1
       </div>
       <div
         className="css-7ajbp2"
-        id="props-child0-grandchild1"
+        id="ds-form-props-child0-grandchild1"
       >
         Form Field 2
       </div>
       <div
         className="css-7ajbp2"
-        id="props-child0-grandchild2"
+        id="ds-form-props-child0-grandchild2"
       >
         Form Field 3
       </div>

@@ -169,7 +169,7 @@ describe("Checkbox", () => {
     // The "group" role here is for the `fieldset` element.
     expect(screen.getByRole("group")).toHaveAttribute(
       "id",
-      "ds-checkboxGroup-some-id"
+      "ds-fieldset-some-id"
     );
   });
 

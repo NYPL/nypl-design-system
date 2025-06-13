@@ -6,7 +6,9 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+
 import Image, { ImageProps } from "../Image/Image";
+import { generateComponentId } from "../../utils/utils";
 
 export const featuredContentWidthArray = [
   "oneQuarter",
@@ -30,8 +32,6 @@ export interface FeaturedContentImageProps
 }
 
 export interface FeaturedContentProps extends BoxProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** The text content rendered in the component.  DS components and native HTML can be passed in this prop. */
   textContent: string | JSX.Element;
   /** Whether component will fill the full width of the browser window, instead of just its parent element.
@@ -61,16 +61,18 @@ export const FeaturedContent: ChakraComponent<
   forwardRef<HTMLDivElement, React.PropsWithChildren<FeaturedContentProps>>(
     (props, ref?) => {
       const {
-        textContent,
-        isFullWidth,
+        id,
         imageProps = {
           alt: "",
           position: "end",
           width: "oneHalf",
           src: "",
         },
+        isFullWidth,
+        textContent,
         ...rest
       } = props;
+      const mainId = generateComponentId("featuredContent", id);
       const styles = useMultiStyleConfig("FeaturedContent", {
         imagePosition: imageProps.position,
         imageWidth: imageProps.width,
@@ -91,8 +93,9 @@ export const FeaturedContent: ChakraComponent<
       return (
         <Box
           data-testid="featuredcontent"
-          __css={styles.base}
+          id={mainId}
           ref={ref}
+          __css={styles.base}
           {...rest}
         >
           <Box __css={styles.wrapper} data-wrapper>

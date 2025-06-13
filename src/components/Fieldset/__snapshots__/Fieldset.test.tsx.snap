@@ -3,7 +3,7 @@
 exports[`Fieldset renders the UI snapshot correctly 1`] = `
 <fieldset
   className="css-1xdhyk6"
-  id="fieldset"
+  id="ds-fieldset-fieldset"
 >
   <legend>
     Legend Text
@@ -17,7 +17,7 @@ exports[`Fieldset renders the UI snapshot correctly 1`] = `
 exports[`Fieldset renders the UI snapshot correctly 2`] = `
 <fieldset
   className="css-1xdhyk6"
-  id="fieldset"
+  id="ds-fieldset-fieldset"
 >
   <legend>
     Legend Text
@@ -34,7 +34,7 @@ exports[`Fieldset renders the UI snapshot correctly 2`] = `
 exports[`Fieldset renders the UI snapshot correctly 3`] = `
 <fieldset
   className="css-1xdhyk6"
-  id="fieldset"
+  id="ds-fieldset-fieldset"
 >
   <legend>
     Legend Text
@@ -48,7 +48,7 @@ exports[`Fieldset renders the UI snapshot correctly 3`] = `
 exports[`Fieldset renders the UI snapshot correctly 4`] = `
 <fieldset
   className="css-1xdhyk6"
-  id="fieldset"
+  id="ds-fieldset-fieldset"
 >
   <legend>
     Legend Text
@@ -62,7 +62,7 @@ exports[`Fieldset renders the UI snapshot correctly 4`] = `
 exports[`Fieldset renders the UI snapshot correctly 5`] = `
 <fieldset
   className="css-kle7zy"
-  id="withChakraProps"
+  id="ds-fieldset-withChakraProps"
 >
   <legend>
     Legend Text
@@ -77,7 +77,7 @@ exports[`Fieldset renders the UI snapshot correctly 6`] = `
 <fieldset
   className="css-1xdhyk6"
   data-testid="props"
-  id="withOtherProps"
+  id="ds-fieldset-withOtherProps"
 >
   <legend>
     Legend Text

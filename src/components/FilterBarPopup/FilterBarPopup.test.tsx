@@ -212,12 +212,7 @@ describe("FilterBarPopup", () => {
     });
   });
   it("should clear the selectedItems when 'Clear all filters' button is clicked", async () => {
-    render(
-      <FilterBarTestComponent
-        onClearFilters={jest.fn()}
-        id="filter-bar-test-2"
-      />
-    );
+    render(<FilterBarTestComponent onClearFilters={jest.fn()} id="test-2" />);
     // Open the modal
     userEvent.click(screen.getByRole("button", { name: /show filters/i }));
     // Open menu

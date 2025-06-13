@@ -99,7 +99,6 @@ export const MultiSelect: ChakraComponent<
         width = "full",
         ...rest
       } = props;
-
       const [userClickedOutside, setUserClickedOutside] =
         useState<boolean>(false);
 
@@ -296,7 +295,7 @@ export const MultiSelect: ChakraComponent<
           <Button
             buttonType="text"
             fontSize="desktop.button.default"
-            id={`view-all-text-btn-${id}`}
+            id={`${id}-view-all-btn`}
             ref={expandToggleButtonRef}
             onClick={toggleItemsList}
             __css={styles.viewAllButton}
@@ -387,7 +386,7 @@ export const MultiSelect: ChakraComponent<
 
       const searchInput = (
         <TextInput
-          id={`multi-select-text-input-${id}`}
+          id={`${id}-textInput`}
           labelText={`Search ${buttonText}`}
           isClearable
           isClearableCallback={clearSearchKeyword}
@@ -423,7 +422,7 @@ export const MultiSelect: ChakraComponent<
             ) : (
               <>
                 <CheckboxGroup
-                  id={`multi-select-checkbox-group-${id}`}
+                  id={`${id}-checkboxGroup`}
                   layout="column"
                   isFullWidth
                   isRequired={false}
@@ -461,7 +460,7 @@ export const MultiSelect: ChakraComponent<
               },
             ]}
             aria-label={ariaLabelValue}
-            id={`multi-select-accordion-${id}`}
+            id={`${id}-accordion`}
             isDefaultOpen={isDefaultOpen}
             isAlwaysRendered
             userClickedOutside={userClickedOutside}
@@ -472,7 +471,7 @@ export const MultiSelect: ChakraComponent<
           />
           {selectedItemsCount > 0 && (
             <MultiSelectItemsCountButton
-              id={`ms-${id}-menu-button`}
+              id={`${id}-menu-button`}
               multiSelectId={id}
               multiSelectLabelText={buttonText}
               isOpen={isDefaultOpen}

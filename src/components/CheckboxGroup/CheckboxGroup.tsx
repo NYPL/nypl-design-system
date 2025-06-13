@@ -14,7 +14,6 @@ import HelperErrorText, {
 } from "../HelperErrorText/HelperErrorText";
 import { LayoutTypes } from "../../helpers/types";
 import { spacing } from "../../theme/foundations/spacing";
-import { generateComponentId } from "../../utils/utils";
 
 export interface CheckboxGroupProps extends Omit<BoxProps, "onChange"> {
   /** Populates the initial value of the input */
@@ -90,7 +89,6 @@ export const CheckboxGroup: ChakraComponent<
         value,
         ...rest
       } = props;
-      const mainId = generateComponentId("checkboxGroup", id);
       const footnote = isInvalid ? invalidText : helperText;
       const newChildren: JSX.Element[] = [];
       const spacingProp =
@@ -137,7 +135,7 @@ export const CheckboxGroup: ChakraComponent<
 
       return (
         <Fieldset
-          id={mainId}
+          id={id}
           isLegendHidden={!showLabel}
           isRequired={isRequired}
           legendText={labelText}
@@ -147,7 +145,7 @@ export const CheckboxGroup: ChakraComponent<
         >
           <ChakraCheckboxGroup {...checkboxProps}>
             <Stack
-              id={`${mainId}-stack`}
+              id={`${id}-stack`}
               data-testid="checkbox-group"
               direction={[layout]}
               spacing={spacingProp}
@@ -157,7 +155,7 @@ export const CheckboxGroup: ChakraComponent<
             </Stack>
           </ChakraCheckboxGroup>
           <HelperErrorText
-            id={mainId}
+            id={id}
             isInvalid={isInvalid}
             isRenderedText={showHelperInvalidText}
             text={footnote}
