@@ -194,7 +194,7 @@ export type {
 export { default as Notification } from "./components/Notification/Notification";
 export type {
   NotificationProps,
-  NotificationTypes,
+  NotificationVariants,
 } from "./components/Notification/Notification";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export type { PaginationProps } from "./components/Pagination/Pagination";
