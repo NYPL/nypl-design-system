@@ -50,7 +50,7 @@ export type {
 } from "./components/Banner/Banner";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export type {
-  BreadcrumbsTypes,
+  BreadcrumbsVariants,
   BreadcrumbProps,
   BreadcrumbsDataProps,
 } from "./components/Breadcrumbs/Breadcrumbs";

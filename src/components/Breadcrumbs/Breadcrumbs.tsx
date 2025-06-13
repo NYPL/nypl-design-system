@@ -13,7 +13,7 @@ import Icon from "../Icons/Icon";
 import Tooltip from "../Tooltip/Tooltip";
 import { truncateText } from "../../utils/utils";
 
-export const breadcrumbTypeArray = [
+export const breadcrumbVariantsArray = [
   "blogs",
   "booksAndMore",
   "brand",
@@ -24,7 +24,7 @@ export const breadcrumbTypeArray = [
   "research",
   "whatsOn",
 ] as const;
-export type BreadcrumbsTypes = typeof breadcrumbTypeArray[number];
+export type BreadcrumbsVariants = typeof breadcrumbVariantsArray[number];
 export interface BreadcrumbsDataProps {
   url: string;
   text: string | React.ReactNode;
@@ -35,7 +35,7 @@ export interface BreadcrumbProps extends BoxProps {
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
   /** Used to control how the `Hero` component will be rendered. */
-  breadcrumbsType?: BreadcrumbsTypes;
+  variant?: BreadcrumbsVariants;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Custom Link component for apps with internal routing, defaults to BreadcrumbLink if not passed */
@@ -156,7 +156,7 @@ export const Breadcrumbs: ChakraComponent<
   forwardRef<HTMLDivElement, BreadcrumbProps>((props, ref?) => {
     const {
       breadcrumbsData,
-      breadcrumbsType = "whatsOn",
+      variant = "whatsOn",
       customLinkComponent,
       id,
       ...rest
@@ -169,7 +169,7 @@ export const Breadcrumbs: ChakraComponent<
     }
 
     const styles = useStyleConfig("ReservoirBreadcrumb", {
-      variant: breadcrumbsType,
+      variant,
     });
     const breadcrumbItems = getElementsFromData({
       data: breadcrumbsData,

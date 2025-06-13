@@ -381,7 +381,7 @@ export const TemplateFullExampleNarrow = {
                 text: "Catalog",
               },
             ]}
-            breadcrumbsType="research"
+            variant="research"
           />
           <Hero
             backgroundColor="section.research.primary"
