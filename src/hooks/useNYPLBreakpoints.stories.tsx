@@ -25,7 +25,7 @@ export const BreakPointsExample = () => {
       <Box flexBasis="50%">
         <Heading text="Chakra Syntax" level="h3" size="heading6" />
         <Text>The windows size is currently:</Text>
-        <List type="ul">
+        <List listContainer="ul">
           <li>
             {isLargerThanSmall ? <strong>LARGER</strong> : "smaller"} than small
           </li>
@@ -45,7 +45,7 @@ export const BreakPointsExample = () => {
       <Box flexBasis="50%">
         <Heading text="Semantic Syntax" level="h3" size="heading6" />
         <Text>The windows size is currently:</Text>
-        <List type="ul">
+        <List listContainer="ul">
           <li>
             {isLargerThanSmallMobile ? <strong>LARGER</strong> : "smaller"} than
             small mobile

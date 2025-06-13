@@ -384,7 +384,7 @@ export const Pagination: ChakraComponent<
         __css={styles}
         {...rest}
       >
-        <List type="ul" inline noStyling id={`${id}-list`}>
+        <List listContainer="ul" inline noStyling id={`${id}-list`}>
           {previousLiLink}
           {getPaginationNumbers(selectedPage)}
           {nextLiLink}

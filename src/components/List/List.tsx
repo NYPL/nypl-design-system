@@ -10,8 +10,8 @@ import React, { forwardRef } from "react";
 
 import useDSHeading from "../../hooks/useDSHeading";
 
-export const listTypesArray = ["ol", "ul", "dl"] as const;
-export type ListTypes = typeof listTypesArray[number];
+export const listContainersArray = ["ol", "ul", "dl"] as const;
+export type ListContainers = typeof listContainersArray[number];
 
 export interface DescriptionProps {
   term: string;
@@ -39,7 +39,7 @@ export interface ListProps extends Omit<BoxProps, "title"> {
    * to Description Lists and will render above the list. */
   title?: string | JSX.Element;
   /** The type of list: "ol", "ul", or "dl". "ul" by default. */
-  type: ListTypes;
+  listContainer: ListContainers;
 }
 
 /**
@@ -66,14 +66,14 @@ export const List: ChakraComponent<
       noStyling = false,
       showRowDividers = true,
       title,
-      type = "ul",
+      listContainer = "ul",
       ...rest
     } = props;
     const styles = useMultiStyleConfig("ReservoirList", {
       inline,
       noStyling,
       showRowDividers,
-      variant: type,
+      variant: listContainer,
     });
     const finalTitle = useDSHeading({
       title,
@@ -106,16 +106,16 @@ export const List: ChakraComponent<
      * or ordered, it will return `li` elements. Otherwise, it will return a
      * combination of `dt` and `dd` elements for the description type.
      */
-    const listChildrenElms = (listType: ListTypes) => {
+    const listChildrenElms = (listContainer: ListContainers) => {
       if (children) {
         return children;
       }
       if (!listItems) {
         return null;
       }
-      if (listType === "ol" || listType === "ul") {
+      if (listContainer === "ol" || listContainer === "ul") {
         return listItems.map((item: any, i) => <li key={i}>{item}</li>);
-      } else if (listType === "dl") {
+      } else if (listContainer === "dl") {
         return (listItems as DescriptionProps[]).map((item, i) => [
           <dt key={`${i}-term`}>{item.term}</dt>,
           <dd key={`${i}-des`}>{item.description}</dd>,
@@ -148,19 +148,25 @@ export const List: ChakraComponent<
       );
     };
 
-    if (type === "ol" || type === "ul") {
-      checkListChildrenError({ children, listType: type });
+    if (listContainer === "ol" || listContainer === "ul") {
+      checkListChildrenError({ children, listContainer: listContainer });
       listElement = (
-        <Box as={type as As} id={id} ref={ref} __css={styles.base} {...rest}>
-          {listChildrenElms(type)}
+        <Box
+          as={listContainer as As}
+          id={id}
+          ref={ref}
+          __css={styles.base}
+          {...rest}
+        >
+          {listChildrenElms(listContainer)}
         </Box>
       );
-    } else if (type === "dl") {
+    } else if (listContainer === "dl") {
       checkDescriptionChildrenError();
       listElement = (
         <Box as="section" id={id} ref={ref} __css={styles.base} {...rest}>
           {finalTitle}
-          <dl>{listChildrenElms(type)}</dl>
+          <dl>{listChildrenElms(listContainer)}</dl>
         </Box>
       );
     }
@@ -175,17 +181,17 @@ export const List: ChakraComponent<
  */
 export const checkListChildrenError = ({
   children,
-  listType = "ul",
+  listContainer = "ul",
   componentName = "List",
 }: {
   children: React.ReactNode;
-  listType?: ListTypes;
+  listContainer?: ListContainers;
   componentName?: string;
 }) => {
   React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
     if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
       console.warn(
-        `NYPL Reservoir ${componentName}: Direct children of \`${componentName}\` (${listType}) must be \`<li>\`s.`
+        `NYPL Reservoir ${componentName}: Direct children of \`${componentName}\` (${listContainer}) must be \`<li>\`s.`
       );
     }
   });
