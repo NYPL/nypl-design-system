@@ -14,9 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Bug Fix",
     affects: ["Functionality"],
-    notes: [
-      "Fixes the array of checkbox items so it's not returned as React fragments without keys.",
-    ],
+    notes: ["Fixes the array of checkbox items to return with unique keys."],
   },
   {
     date: "2025-04-24",
