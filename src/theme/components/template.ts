@@ -13,29 +13,28 @@ const Template = defineStyleConfig({
       // 320px screen width - 32px padding = 288px
       minWidth: "288px",
       m: "0 auto",
-      p: responsiveMargin,
+      px: responsiveMargin,
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "auto",
       columnGap: responsiveGap,
       "& > *:not(:last-child)": { mb: responsiveGap },
 
-      /** Set the full and main content areas to span the full width of the
-       * content area from a mobile-first viewpoint. Using -1 for the "last
-       * column" value ensures that these elements span all columns in the grid.
+      /** The "content" area should span the full width of the content area from
+       * a mobile-first viewpoint. Using -1 for the "last column" value ensures
+       * that these elements span all columns in the grid. CSS classes were used
+       * for the "content" and "sidebar" ragions in order to simplify how
+       * variants are handled.
        * */
-      "& .reservoir-template-full": {
-        gridColumn: "1 / -1",
-      },
-      "& .reservoir-template-main": {
+      "& .reservoir-template-content": {
         gridColumn: { base: "1 / -1" },
       },
     };
   }),
   /** If the sidebar is enabled, the starting positions (left or right) and
-   * spans of the main and sidebar content areas are adjusted based on
+   * spans of the "content" and "sidebar" regions are adjusted based on
    * responsive column patterns established by the NYPL design standards.
    *
-   * Main:
+   * Content:
    * - Small mobile:            1/1 width
    * - Large mobile:            1/2 width
    * - Small tablet:            2/3 width
@@ -49,7 +48,7 @@ const Template = defineStyleConfig({
    * */
   variants: {
     sidebarLeft: {
-      "& .reservoir-template-main": {
+      "& .reservoir-template-content": {
         gridColumn: {
           sm: "7 / -1",
           md: "5 / -1",
@@ -66,7 +65,7 @@ const Template = defineStyleConfig({
       },
     },
     sidebarRight: {
-      "& .reservoir-template-main": {
+      "& .reservoir-template-content": {
         gridColumn: {
           sm: "1 / 7",
           md: "1 / 9",
@@ -83,7 +82,7 @@ const Template = defineStyleConfig({
       },
     },
     narrow: {
-      "& .reservoir-template-main": {
+      "& .reservoir-template-content": {
         gridColumn: {
           base: "1 / -1",
           md: "2 / 12",
@@ -92,6 +91,36 @@ const Template = defineStyleConfig({
       },
     },
   },
+});
+
+const TemplateHeader = defineStyleConfig({
+  baseStyle: defineStyle(() => {
+    return {
+      gridColumn: "1 / -1",
+    };
+  }),
+});
+
+const TemplateMain = defineStyleConfig({
+  baseStyle: defineStyle(() => {
+    const { responsiveGap } = useResponsiveSpacing();
+    return {
+      display: "grid",
+      columnGap: responsiveGap,
+      gridColumn: "1 / -1",
+      gridTemplateColumns: "subgrid",
+      gridTemplateRows: "auto",
+      "& > *:not(:last-child)": { mb: responsiveGap },
+    };
+  }),
+});
+
+const TemplateFooter = defineStyleConfig({
+  baseStyle: defineStyle(() => {
+    return {
+      gridColumn: "1 / -1",
+    };
+  }),
 });
 
 const TemplateBreakout = defineStyleConfig({
@@ -106,7 +135,19 @@ const TemplateBreakout = defineStyleConfig({
   }),
 });
 
+const TemplateFull = defineStyleConfig({
+  baseStyle: defineStyle(() => {
+    return {
+      gridColumn: "1 / -1",
+    };
+  }),
+});
+
 export default {
   Template,
   TemplateBreakout,
+  TemplateFooter,
+  TemplateFull,
+  TemplateHeader,
+  TemplateMain,
 };

@@ -1,4 +1,10 @@
-import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  chakra,
+  ChakraComponent,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import { forwardRef } from "react";
 
 export const templateVariantArray = [
@@ -10,18 +16,13 @@ export const templateVariantArray = [
 export type TemplateVariant = typeof templateVariantArray[number];
 
 export interface TemplateProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
-  /** Renders the `TemplateSidebar` component either on the left or
-   * right side of the `TemplateMain` component. */
+  /** Specifies the layout and DOM structure related to the content region. */
   variant?: TemplateVariant;
 }
 
-export interface TemplateMainProps {
-  /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
-   * anchor for the application skip navigation. */
-  id?: string;
-}
+export interface TemplateChildProps extends BoxProps {}
+
+export interface TemplateMainProps extends TemplateChildProps {}
 
 /**
  * The main top-level parent component that wraps all template-related
@@ -47,15 +48,86 @@ const Template: ChakraComponent<
 );
 
 /**
+ * This component renders an HTML `<header>` element.
+ */
+const TemplateHeader: React.FC<React.PropsWithChildren<TemplateChildProps>> = ({
+  children,
+  ...rest
+}) => {
+  const styles = useStyleConfig("TemplateHeader", {});
+
+  return (
+    <Box as="header" __css={styles} {...rest}>
+      {children}
+    </Box>
+  );
+};
+
+/**
+ * This component renders an HTML `<footer>` element.
+ */
+const TemplateFooter: React.FC<React.PropsWithChildren<TemplateChildProps>> = ({
+  children,
+  ...rest
+}) => {
+  const styles = useStyleConfig("TemplateFooter", {});
+
+  return (
+    <Box as="footer" __css={styles} {...rest}>
+      {children}
+    </Box>
+  );
+};
+
+/**
+ * This component renders an HTML `<main>` element.
+ */
+const TemplateMain: React.FC<React.PropsWithChildren<TemplateChildProps>> = ({
+  children,
+  ...rest
+}) => {
+  const styles = useStyleConfig("TemplateMain", {});
+
+  return (
+    <Box as="main" __css={styles} {...rest}>
+      {children}
+    </Box>
+  );
+};
+
+/**
  * This optional component spans the full width of the browser window
  * (edge-to-edge). It is most useful for `Breadcrumbs`, `Hero`, or other
  * banner-like components.
  */
-const TemplateBreakout: React.FC<React.PropsWithChildren> = ({
+const TemplateBreakout: React.FC<React.PropsWithChildren<TemplateChildProps>> =
+  ({ children, ...rest }) => {
+    const styles = useStyleConfig("TemplateBreakout", {});
+
+    return (
+      <Box __css={styles} {...rest}>
+        {children}
+      </Box>
+    );
+  };
+
+/**
+ * This optional component will span the full width of the content area and will
+ * render content at a max width of 1280px.
+ */
+// const TemplateFull: React.FC<React.PropsWithChildren<TemplateChildProps>> = ({
+//   children,
+//   ...rest
+// }) => (
+//   <Box className="reservoir-template-full" {...rest}>
+//     {children}
+//   </Box>
+// );
+const TemplateFull: React.FC<React.PropsWithChildren<TemplateChildProps>> = ({
   children,
   ...rest
 }) => {
-  const styles = useStyleConfig("TemplateBreakout", {});
+  const styles = useStyleConfig("TemplateFull", {});
 
   return (
     <Box __css={styles} {...rest}>
@@ -65,30 +137,13 @@ const TemplateBreakout: React.FC<React.PropsWithChildren> = ({
 };
 
 /**
- * This optional component will span the full width of the content area and will
- * render content at a max width of 1280px.
+ * The width of this component is dependent on the value of the `variant` prop.
  */
-const TemplateFull: React.FC<React.PropsWithChildren> = ({
+const TemplateContent: React.FC<React.PropsWithChildren<TemplateMainProps>> = ({
   children,
   ...rest
 }) => (
-  <Box className="reservoir-template-full" {...rest}>
-    {children}
-  </Box>
-);
-
-/**
- * This component renders an HTML `<main>` element with an id of "mainContent".
- * The "mainContent" id should be used as the consuming application's skip
- * navigation link. The width of this component is dependent on the value of the
- * `variant` prop.
- */
-const TemplateMain: React.FC<React.PropsWithChildren<TemplateMainProps>> = ({
-  children,
-  // id = "mainContent",
-  ...rest
-}) => (
-  <Box as="main" className="reservoir-template-main" {...rest}>
+  <Box className="reservoir-template-content" {...rest}>
     {children}
   </Box>
 );
@@ -99,19 +154,20 @@ const TemplateMain: React.FC<React.PropsWithChildren<TemplateMainProps>> = ({
  * component and the `variant` prop must be set to "sidebarLeft" or
  * "sidebarRight".
  */
-const TemplateSidebar: React.FC<React.PropsWithChildren> = ({
-  children,
-  ...rest
-}) => (
-  <Box className="reservoir-template-sidebar" {...rest}>
-    {children}
-  </Box>
-);
+const TemplateSidebar: React.FC<React.PropsWithChildren<TemplateChildProps>> =
+  ({ children, ...rest }) => (
+    <Box className="reservoir-template-sidebar" {...rest}>
+      {children}
+    </Box>
+  );
 
 export {
   Template,
   TemplateBreakout,
+  TemplateContent,
+  TemplateFooter,
   TemplateFull,
+  TemplateHeader,
   TemplateMain,
   TemplateSidebar,
 };
