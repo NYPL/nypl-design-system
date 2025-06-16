@@ -43,6 +43,8 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
         showHelperInvalidText = true,
         ...rest
       } = props;
+      const mainId = id ? `${id}-componentWrapper` : undefined;
+      const helperErrorTextId = id ? `${id}-helperText` : undefined;
       const hasChildren = !!children;
       const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
       const footnote = isInvalid ? invalidText : helperText;
@@ -57,13 +59,19 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
       }
 
       return (
-        <Box id={`${id}-wrapper`} ref={ref} __css={styles} {...rest}>
+        <Box
+          data-testid="componentWrapper"
+          id={mainId}
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
           {finalHeadingText}
           {descriptionText && <Text>{descriptionText}</Text>}
           {children}
           {footnote && (
             <HelperErrorText
-              id={`${id}-helperText`}
+              id={helperErrorTextId}
               isInvalid={isInvalid}
               isRenderedText={showHelperInvalidText}
               text={footnote}

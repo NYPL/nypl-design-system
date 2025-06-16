@@ -15,6 +15,7 @@ import {
 import Button from "../Button/Button";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 import Icon, { IconProps } from "../Icons/Icon";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export type BannerTypes = typeof messageVariantsArray[number];
 export type BannerBgColors = typeof bgColorsArray[number];
@@ -35,8 +36,6 @@ export interface BannerProps extends Omit<BoxProps, "content"> {
   highlightColor?: BannerHighlightColors;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional prop to control whether a `Banner` can be dismissed
    * (closed) by a user. */
   isDismissible?: boolean;
@@ -97,6 +96,7 @@ export const Banner: ChakraComponent<
       type = "neutral",
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const [isOpen, setIsOpen] = useState(true);
     const handleClose = () => setIsOpen(false);
     const overrideType = !!(backgroundColor && highlightColor);
@@ -131,12 +131,12 @@ export const Banner: ChakraComponent<
       <Button
         aria-label="Close the banner"
         buttonType="text"
-        id={`${id}-dismissible-button`}
+        id={`${mainId}-dismissible-button`}
         onClick={handleClose}
         __css={styles.dismissibleButton}
       >
         <Icon
-          data-testid={`${id}-dismissible-icon`}
+          data-testid={`${mainId}-dismissible-icon`}
           name="close"
           size="large"
           title="Banner close icon"
@@ -146,7 +146,7 @@ export const Banner: ChakraComponent<
     const finalIcon = icon || (
       <Icon
         className="banner-icon"
-        data-testid={`${id}-banner-icon`}
+        data-testid={`${mainId}-banner-icon`}
         title="Banner announcement icon"
         size="large"
         {...iconProps[type]}
@@ -177,8 +177,9 @@ export const Banner: ChakraComponent<
     return (
       <Box
         as="aside"
+        data-testid="banner"
         data-type={type}
-        id={id}
+        id={mainId}
         ref={ref}
         __css={styles.base}
         {...rest}

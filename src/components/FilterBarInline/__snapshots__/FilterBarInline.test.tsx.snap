@@ -3,7 +3,8 @@
 exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
 <div
   className="css-1u8qly9"
-  id="filter-bar-inline-defaultFilterBarNoButtons-wrapper"
+  data-testid="componentWrapper"
+  id="filter-bar-inline-defaultFilterBarNoButtons-componentWrapper"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -32,6 +33,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-colors"
             onKeyDown={[Function]}
           >
@@ -109,7 +111,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="red-wrapper"
+                            data-testid="componentWrapper"
+                            id="red-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -162,7 +165,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="blue-wrapper"
+                            data-testid="componentWrapper"
+                            id="blue-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -215,7 +219,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="yellow-wrapper"
+                            data-testid="componentWrapper"
+                            id="yellow-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -293,6 +298,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-pets"
             onKeyDown={[Function]}
           >
@@ -370,7 +376,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="cat-wrapper"
+                            data-testid="componentWrapper"
+                            id="cat-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -423,7 +430,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="dog-wrapper"
+                            data-testid="componentWrapper"
+                            id="dog-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -476,7 +484,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="corgy-wrapper"
+                            data-testid="componentWrapper"
+                            id="corgy-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -529,7 +538,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="german-sheperd-wrapper"
+                            data-testid="componentWrapper"
+                            id="german-sheperd-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -582,7 +592,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="afghan-hound-wrapper"
+                            data-testid="componentWrapper"
+                            id="afghan-hound-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -635,7 +646,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="rat-wrapper"
+                            data-testid="componentWrapper"
+                            id="rat-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -713,6 +725,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-tools"
             onKeyDown={[Function]}
           >
@@ -790,7 +803,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="hammer-wrapper"
+                            data-testid="componentWrapper"
+                            id="hammer-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -843,7 +857,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="skrewdriver-wrapper"
+                            data-testid="componentWrapper"
+                            id="skrewdriver-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -896,7 +911,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="slottet-wrapper"
+                            data-testid="componentWrapper"
+                            id="slottet-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -949,7 +965,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="phillips-wrapper"
+                            data-testid="componentWrapper"
+                            id="phillips-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -1002,7 +1019,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="allen-wrapper"
+                            data-testid="componentWrapper"
+                            id="allen-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -1055,7 +1073,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="whisk-wrapper"
+                            data-testid="componentWrapper"
+                            id="whisk-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1135,7 +1154,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
 exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
 <div
   className="css-1u8qly9"
-  id="filter-bar-inline-filterBarWithClearAllButton-wrapper"
+  data-testid="componentWrapper"
+  id="filter-bar-inline-filterBarWithClearAllButton-componentWrapper"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -1164,6 +1184,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-colors"
             onKeyDown={[Function]}
           >
@@ -1241,7 +1262,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="red-wrapper"
+                            data-testid="componentWrapper"
+                            id="red-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1294,7 +1316,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="blue-wrapper"
+                            data-testid="componentWrapper"
+                            id="blue-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1347,7 +1370,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="yellow-wrapper"
+                            data-testid="componentWrapper"
+                            id="yellow-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1425,6 +1449,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-pets"
             onKeyDown={[Function]}
           >
@@ -1502,7 +1527,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="cat-wrapper"
+                            data-testid="componentWrapper"
+                            id="cat-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1555,7 +1581,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="dog-wrapper"
+                            data-testid="componentWrapper"
+                            id="dog-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1608,7 +1635,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="corgy-wrapper"
+                            data-testid="componentWrapper"
+                            id="corgy-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -1661,7 +1689,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="german-sheperd-wrapper"
+                            data-testid="componentWrapper"
+                            id="german-sheperd-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -1714,7 +1743,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="afghan-hound-wrapper"
+                            data-testid="componentWrapper"
+                            id="afghan-hound-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -1767,7 +1797,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="rat-wrapper"
+                            data-testid="componentWrapper"
+                            id="rat-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1845,6 +1876,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-tools"
             onKeyDown={[Function]}
           >
@@ -1922,7 +1954,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="hammer-wrapper"
+                            data-testid="componentWrapper"
+                            id="hammer-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -1975,7 +2008,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="skrewdriver-wrapper"
+                            data-testid="componentWrapper"
+                            id="skrewdriver-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2028,7 +2062,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="slottet-wrapper"
+                            data-testid="componentWrapper"
+                            id="slottet-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2081,7 +2116,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="phillips-wrapper"
+                            data-testid="componentWrapper"
+                            id="phillips-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2134,7 +2170,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="allen-wrapper"
+                            data-testid="componentWrapper"
+                            id="allen-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2187,7 +2224,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="whisk-wrapper"
+                            data-testid="componentWrapper"
+                            id="whisk-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2279,7 +2317,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
 exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
 <div
   className="css-1u8qly9"
-  id="filter-bar-inline-filterBarWithSubmitAllButton-wrapper"
+  data-testid="componentWrapper"
+  id="filter-bar-inline-filterBarWithSubmitAllButton-componentWrapper"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -2308,6 +2347,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-colors"
             onKeyDown={[Function]}
           >
@@ -2385,7 +2425,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="red-wrapper"
+                            data-testid="componentWrapper"
+                            id="red-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2438,7 +2479,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="blue-wrapper"
+                            data-testid="componentWrapper"
+                            id="blue-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2491,7 +2533,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="yellow-wrapper"
+                            data-testid="componentWrapper"
+                            id="yellow-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2569,6 +2612,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-pets"
             onKeyDown={[Function]}
           >
@@ -2646,7 +2690,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="cat-wrapper"
+                            data-testid="componentWrapper"
+                            id="cat-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2699,7 +2744,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="dog-wrapper"
+                            data-testid="componentWrapper"
+                            id="dog-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2752,7 +2798,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="corgy-wrapper"
+                            data-testid="componentWrapper"
+                            id="corgy-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2805,7 +2852,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="german-sheperd-wrapper"
+                            data-testid="componentWrapper"
+                            id="german-sheperd-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2858,7 +2906,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="afghan-hound-wrapper"
+                            data-testid="componentWrapper"
+                            id="afghan-hound-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -2911,7 +2960,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="rat-wrapper"
+                            data-testid="componentWrapper"
+                            id="rat-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -2989,6 +3039,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-tools"
             onKeyDown={[Function]}
           >
@@ -3066,7 +3117,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="hammer-wrapper"
+                            data-testid="componentWrapper"
+                            id="hammer-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3119,7 +3171,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="skrewdriver-wrapper"
+                            data-testid="componentWrapper"
+                            id="skrewdriver-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3172,7 +3225,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="slottet-wrapper"
+                            data-testid="componentWrapper"
+                            id="slottet-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -3225,7 +3279,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="phillips-wrapper"
+                            data-testid="componentWrapper"
+                            id="phillips-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -3278,7 +3333,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="allen-wrapper"
+                            data-testid="componentWrapper"
+                            id="allen-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -3331,7 +3387,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="whisk-wrapper"
+                            data-testid="componentWrapper"
+                            id="whisk-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3423,7 +3480,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
 exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
 <div
   className="css-1u8qly9"
-  id="filter-bar-inline-filterBarWithButtons-wrapper"
+  data-testid="componentWrapper"
+  id="filter-bar-inline-filterBarWithButtons-componentWrapper"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -3452,6 +3510,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-colors"
             onKeyDown={[Function]}
           >
@@ -3529,7 +3588,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="red-wrapper"
+                            data-testid="componentWrapper"
+                            id="red-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3582,7 +3642,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="blue-wrapper"
+                            data-testid="componentWrapper"
+                            id="blue-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3635,7 +3696,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="yellow-wrapper"
+                            data-testid="componentWrapper"
+                            id="yellow-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3713,6 +3775,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-pets"
             onKeyDown={[Function]}
           >
@@ -3790,7 +3853,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="cat-wrapper"
+                            data-testid="componentWrapper"
+                            id="cat-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3843,7 +3907,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="dog-wrapper"
+                            data-testid="componentWrapper"
+                            id="dog-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -3896,7 +3961,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="corgy-wrapper"
+                            data-testid="componentWrapper"
+                            id="corgy-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -3949,7 +4015,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="german-sheperd-wrapper"
+                            data-testid="componentWrapper"
+                            id="german-sheperd-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -4002,7 +4069,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="afghan-hound-wrapper"
+                            data-testid="componentWrapper"
+                            id="afghan-hound-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -4055,7 +4123,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="rat-wrapper"
+                            data-testid="componentWrapper"
+                            id="rat-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -4133,6 +4202,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
         >
           <div
             className="chakra-accordion css-1xdhyk6"
+            data-testid="accordion"
             id="multi-select-accordion-tools"
             onKeyDown={[Function]}
           >
@@ -4210,7 +4280,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                         >
                           <div
                             className="css-1xdhyk6"
-                            id="hammer-wrapper"
+                            data-testid="componentWrapper"
+                            id="hammer-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -4263,7 +4334,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="skrewdriver-wrapper"
+                            data-testid="componentWrapper"
+                            id="skrewdriver-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"
@@ -4316,7 +4388,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="slottet-wrapper"
+                            data-testid="componentWrapper"
+                            id="slottet-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -4369,7 +4442,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="phillips-wrapper"
+                            data-testid="componentWrapper"
+                            id="phillips-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -4422,7 +4496,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="allen-wrapper"
+                            data-testid="componentWrapper"
+                            id="allen-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-vbxw2k"
@@ -4475,7 +4550,8 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           </div>
                           <div
                             className="css-1xdhyk6"
-                            id="whisk-wrapper"
+                            data-testid="componentWrapper"
+                            id="whisk-componentWrapper"
                           >
                             <label
                               className="chakra-checkbox css-1xdhyk6"

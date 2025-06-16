@@ -3,7 +3,8 @@
 exports[`Checkbox renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="inputID-wrapper"
+  data-testid="componentWrapper"
+  id="inputID-componentWrapper"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -59,7 +60,8 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
 exports[`Checkbox renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-checked-wrapper"
+  data-testid="componentWrapper"
+  id="checkbox-checked-componentWrapper"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -127,7 +129,8 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
 exports[`Checkbox renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-checked-wrapper"
+  data-testid="componentWrapper"
+  id="checkbox-checked-componentWrapper"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -217,7 +220,8 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
 exports[`Checkbox renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-required-wrapper"
+  data-testid="componentWrapper"
+  id="checkbox-required-componentWrapper"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -273,7 +277,8 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
 exports[`Checkbox renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-invalid-wrapper"
+  data-testid="componentWrapper"
+  id="checkbox-invalid-componentWrapper"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -332,7 +337,8 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 exports[`Checkbox renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-disabled-wrapper"
+  data-testid="componentWrapper"
+  id="checkbox-disabled-componentWrapper"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -391,7 +397,8 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
 exports[`Checkbox renders the UI snapshot correctly 7`] = `
 <div
   className="css-1xdhyk6"
-  id="jsxLabel-wrapper"
+  data-testid="componentWrapper"
+  id="jsxLabel-componentWrapper"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"
@@ -460,7 +467,8 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 exports[`Checkbox renders the UI snapshot correctly 8`] = `
 <div
   className="css-1xdhyk6"
-  id="checkbox-chakra-wrapper"
+  data-testid="componentWrapper"
+  id="checkbox-chakra-componentWrapper"
 >
   <label
     className="chakra-checkbox css-1t0bvx9"
@@ -517,7 +525,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
 <div
   className="css-1xdhyk6"
   data-testid="testid"
-  id="checkbox-props-wrapper"
+  id="checkbox-props-componentWrapper"
 >
   <label
     className="chakra-checkbox css-1xdhyk6"

@@ -310,6 +310,7 @@ export const Accordion: ChakraComponent<
     return (
       <ChakraAccordion
         allowMultiple
+        data-testid="accordion"
         index={expandedPanels}
         onChange={(expandedIdxs: number[]) => setExpandedPanels(expandedIdxs)}
         onKeyDown={handleKeyDown}

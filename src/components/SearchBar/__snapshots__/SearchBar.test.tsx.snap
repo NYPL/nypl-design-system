@@ -3,7 +3,8 @@
 exports[`SearchBar renders the UI snapshot correctly 1`] = `
 <div
   className="css-v54qrt"
-  id="basic-wrapper"
+  data-testid="componentWrapper"
+  id="basic-componentWrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
@@ -16,7 +17,8 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-basic-wrapper"
+        data-testid="componentWrapper"
+        id="searchbar-textinput-basic-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -82,7 +84,8 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
 exports[`SearchBar renders the UI snapshot correctly 2`] = `
 <div
   className="css-v54qrt"
-  id="withSelect-wrapper"
+  data-testid="componentWrapper"
+  id="withSelect-componentWrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
@@ -93,7 +96,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     <div
       className="css-1u8qly9"
       data-select={true}
-      id="searchbar-select-withSelect-wrapper"
+      data-testid="componentWrapper"
+      id="searchbar-select-withSelect-componentWrapper"
     >
       <div
         className="css-0"
@@ -192,7 +196,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-withSelect-wrapper"
+        data-testid="componentWrapper"
+        id="searchbar-textinput-withSelect-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -258,7 +263,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
 exports[`SearchBar renders the UI snapshot correctly 3`] = `
 <div
   className="css-v54qrt"
-  id="withoutHelperText-wrapper"
+  data-testid="componentWrapper"
+  id="withoutHelperText-componentWrapper"
 >
   <form
     aria-label="SearchBar label"
@@ -271,7 +277,8 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-withoutHelperText-wrapper"
+        data-testid="componentWrapper"
+        id="searchbar-textinput-withoutHelperText-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -320,7 +327,8 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
 exports[`SearchBar renders the UI snapshot correctly 4`] = `
 <div
   className="css-v54qrt"
-  id="withClearButton-wrapper"
+  data-testid="componentWrapper"
+  id="withClearButton-componentWrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
@@ -333,7 +341,8 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-withClearButton-wrapper"
+        data-testid="componentWrapper"
+        id="searchbar-textinput-withClearButton-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -399,7 +408,8 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
 exports[`SearchBar renders the UI snapshot correctly 5`] = `
 <div
   className="css-v54qrt"
-  id="invalidState-wrapper"
+  data-testid="componentWrapper"
+  id="invalidState-componentWrapper"
 >
   <form
     aria-label="SearchBar label"
@@ -412,7 +422,8 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-invalidState-wrapper"
+        data-testid="componentWrapper"
+        id="searchbar-textinput-invalidState-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -470,7 +481,8 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
 exports[`SearchBar renders the UI snapshot correctly 6`] = `
 <div
   className="css-v54qrt"
-  id="disabledState-wrapper"
+  data-testid="componentWrapper"
+  id="disabledState-componentWrapper"
 >
   <form
     aria-label="SearchBar label"
@@ -483,7 +495,8 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-disabledState-wrapper"
+        data-testid="componentWrapper"
+        id="searchbar-textinput-disabledState-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -533,7 +546,8 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
 exports[`SearchBar renders the UI snapshot correctly 7`] = `
 <div
   className="css-v54qrt"
-  id="requiredState-wrapper"
+  data-testid="componentWrapper"
+  id="requiredState-componentWrapper"
 >
   <form
     aria-label="SearchBar label"
@@ -546,7 +560,8 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-requiredState-wrapper"
+        data-testid="componentWrapper"
+        id="searchbar-textinput-requiredState-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -597,7 +612,8 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
 exports[`SearchBar renders the UI snapshot correctly 8`] = `
 <div
   className="css-v54qrt"
-  id="noBrandButtonType-wrapper"
+  data-testid="componentWrapper"
+  id="noBrandButtonType-componentWrapper"
 >
   <form
     aria-label="SearchBar label"
@@ -610,7 +626,8 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-noBrandButtonType-wrapper"
+        data-testid="componentWrapper"
+        id="searchbar-textinput-noBrandButtonType-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -661,7 +678,8 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
 exports[`SearchBar renders the UI snapshot correctly 9`] = `
 <div
   className="css-v54qrt"
-  id="withHeading-wrapper"
+  data-testid="componentWrapper"
+  id="withHeading-componentWrapper"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -705,7 +723,8 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
 exports[`SearchBar renders the UI snapshot correctly 10`] = `
 <div
   className="css-v54qrt"
-  id="withDescription-wrapper"
+  data-testid="componentWrapper"
+  id="withDescription-componentWrapper"
 >
   <p
     className="chakra-text css-1xdhyk6"
@@ -748,7 +767,8 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
 exports[`SearchBar renders the UI snapshot correctly 11`] = `
 <div
   className="css-v54qrt"
-  id="withHeadingAndDescription-wrapper"
+  data-testid="componentWrapper"
+  id="withHeadingAndDescription-componentWrapper"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
@@ -797,7 +817,8 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
 exports[`SearchBar renders the UI snapshot correctly 12`] = `
 <div
   className="css-v54qrt"
-  id="chakra-wrapper"
+  data-testid="componentWrapper"
+  id="chakra-componentWrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
@@ -810,7 +831,8 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-chakra-wrapper"
+        data-testid="componentWrapper"
+        id="searchbar-textinput-chakra-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -877,7 +899,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
 <div
   className="css-v54qrt"
   data-testid="props"
-  id="props-wrapper"
+  id="props-componentWrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
@@ -890,7 +912,8 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-props-wrapper"
+        data-testid="componentWrapper"
+        id="searchbar-textinput-props-componentWrapper"
       >
         <div
           className="css-79elbk"

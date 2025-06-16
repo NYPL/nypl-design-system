@@ -54,7 +54,8 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="componentWrapper"
+            id="email-input-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
@@ -383,7 +384,8 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="componentWrapper"
+            id="email-input-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
@@ -510,7 +512,8 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="componentWrapper"
+            id="email-input-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
@@ -632,7 +635,8 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="componentWrapper"
+            id="email-input-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
@@ -755,7 +759,8 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="componentWrapper"
+            id="email-input-componentWrapper"
           >
             <label
               className="css-1xdhyk6"

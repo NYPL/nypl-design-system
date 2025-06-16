@@ -3,13 +3,15 @@
 exports[`Banner renders the UI snapshot correctly 1`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="banner"
   data-type="informative"
+  id="-r0-"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgErrorOutline"
-    data-testid="undefined-banner-icon"
+    data-testid="-r0--banner-icon"
     focusable={false}
     role="img"
     title="Banner informative icon"
@@ -30,6 +32,7 @@ exports[`Banner renders the UI snapshot correctly 1`] = `
 exports[`Banner renders the UI snapshot correctly 2`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="banner"
   data-type="negative"
   id="bannerID3"
 >
@@ -58,6 +61,7 @@ exports[`Banner renders the UI snapshot correctly 2`] = `
 exports[`Banner renders the UI snapshot correctly 3`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="banner"
   data-type="neutral"
   id="bannerID3"
 >
@@ -86,6 +90,7 @@ exports[`Banner renders the UI snapshot correctly 3`] = `
 exports[`Banner renders the UI snapshot correctly 4`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="banner"
   data-type="positive"
   id="bannerID3"
 >
@@ -114,6 +119,7 @@ exports[`Banner renders the UI snapshot correctly 4`] = `
 exports[`Banner renders the UI snapshot correctly 5`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="banner"
   data-type="recommendation"
   id="bannerID3"
 >
@@ -142,6 +148,7 @@ exports[`Banner renders the UI snapshot correctly 5`] = `
 exports[`Banner renders the UI snapshot correctly 6`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="banner"
   data-type="warning"
   id="bannerID3"
 >
@@ -170,6 +177,7 @@ exports[`Banner renders the UI snapshot correctly 6`] = `
 exports[`Banner renders the UI snapshot correctly 7`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="banner"
   data-type="neutral"
   id="bannerID4"
 >
@@ -193,6 +201,7 @@ exports[`Banner renders the UI snapshot correctly 7`] = `
 exports[`Banner renders the UI snapshot correctly 8`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="banner"
   data-type="neutral"
   id="bannerID7"
 >
@@ -233,6 +242,7 @@ exports[`Banner renders the UI snapshot correctly 8`] = `
 exports[`Banner renders the UI snapshot correctly 9`] = `
 <aside
   className="css-16h1ce8"
+  data-testid="banner"
   data-type="neutral"
   id="chakra"
 >

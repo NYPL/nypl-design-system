@@ -27,7 +27,7 @@ export type IconSizes = typeof iconSizesArray[number];
 export type IconTypes = typeof iconTypesArray[number];
 
 export interface IconProps
-  extends Pick<BoxProps, "className" | keyof ChakraProps> {
+  extends Pick<BoxProps, "className" | "id" | keyof ChakraProps> {
   /** Aligns the icon. */
   align?: IconAlign;
   /** Overrides default icon color (black). */
@@ -37,8 +37,6 @@ export interface IconProps
   decorative?: boolean;
   /** Rotates the icon clockwise in increments of 90deg */
   iconRotation?: IconRotations;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** The name of the icon you want to use. */
   name?: IconNames;
   /** Sets the icon size. */
