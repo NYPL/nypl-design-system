@@ -34,7 +34,7 @@ export interface BreadcrumbsDataProps {
 export interface BreadcrumbProps extends BoxProps {
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
-  /** Used to control how the `Hero` component will be rendered. */
+  /** Used to control how the `Breadcrumbs` component will be rendered. */
   variant?: BreadcrumbsVariants;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
