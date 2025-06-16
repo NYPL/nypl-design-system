@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Bug Fix",
+    affects: ["Functionality"],
+    notes: [
+      "Fixes the array of checkbox items so it's not returned as React fragments without keys.",
+    ],
+  },
+  {
     date: "2025-04-24",
     version: "3.6.1",
     type: "Bug Fix",
