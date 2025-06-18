@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
-import Table, { tableBodyTextSizesArray } from "./Table";
+import Table from "./Table";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 import { Stack } from "@chakra-ui/react";
 
@@ -21,10 +21,6 @@ const meta: Meta<typeof Table> = {
     },
     showTitleText: { ...argsBooleanType(), defaultValue: { summary: "false" } },
     tableData: { control: false },
-    tableTextSize: {
-      options: tableBodyTextSizesArray,
-      defaultValue: { summary: "body1" },
-    },
     useColumnStyles: {
       control: { type: "boolean" },
       description:
@@ -163,7 +159,6 @@ export const WithControls: Story = {
     showRowDividers: false,
     showTitleText: false,
     tableData,
-    tableTextSize: "body1",
     titleText: undefined,
     useColumnStyles: false,
     useRowHeaders: false,
@@ -174,6 +169,7 @@ export const WithControls: Story = {
       columnHeaders={args.useColumnStyles ? columnHeadersAlt : columnHeaders}
       columnStyles={args.useColumnStyles ? columnStylesComplex : undefined}
       tableData={args.useColumnStyles ? tableDataAlt : tableData}
+      fontSize="8px"
     ></Table>
   ),
   parameters: {
@@ -202,13 +198,56 @@ export const HideTitleText: Story = {
     <Table
       columnHeaders={columnHeaders}
       id="table-aria-label"
-      showTitleText={false}
       tableData={tableData}
       titleText="Table with aria-label"
     />
   ),
 };
 
+export const FontSize: Story = {
+  render: () => (
+    <>
+      <Stack direction="column" gap="l">
+        <div>
+          <Heading level="h4" size="heading6">
+            desktop.body.body1
+          </Heading>
+          <Table
+            columnHeaders={columnHeaders}
+            fontSize="desktop.body.body1"
+            id="table-font-size-body1"
+            showRowDividers
+            tableData={tableData}
+          />
+        </div>
+        <div>
+          <Heading level="h4" size="heading6">
+            desktop.body.body2
+          </Heading>
+          <Table
+            columnHeaders={columnHeaders}
+            fontSize="desktop.body.body2"
+            id="table-font-size-body2"
+            showRowDividers
+            tableData={tableData}
+          />
+        </div>
+        <div>
+          <Heading level="h4" size="heading6">
+            desktop.caption
+          </Heading>
+          <Table
+            columnHeaders={columnHeaders}
+            fontSize="desktop.caption"
+            id="table-font-size-caption"
+            showRowDividers
+            tableData={tableData}
+          />
+        </div>
+      </Stack>
+    </>
+  ),
+};
 export const RowDividers: Story = {
   render: () => (
     <Table

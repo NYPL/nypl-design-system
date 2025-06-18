@@ -20,6 +20,7 @@ import { changelogData } from "./tableChangelogData";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#title-text" target="_self">Title Text</Link>}
+- {<Link href="#font-size" target="_self">Font Size</Link>}
 - {<Link href="#row-dividers" target="_self">Row Dividers</Link>}
 - {<Link href="#row-headers" target="_self">Row Headers</Link>}
 - {<Link href="#custom-header-colors" target="_self">Custom Header Colors</Link>}
@@ -111,6 +112,31 @@ instead of rendering the visisble header.
 />
 
 <Canvas of={TableStories.HideTitleText} />
+
+## Font Size
+
+The font size of the table content defaults to `1rem` (16px), but a custom size
+can be set using the `fontSize` CSS attribute. The font size of the column
+headers will always be `.75rem` (12px).
+
+Recommended font sizes:
+
+- `desktop.body.body1`
+- `desktop.body.body2`
+- `desktop.caption`
+
+<Source
+  code={`<Table
+  columnHeaders={columnHeaders}
+  fontSize="desktop.body.body1"
+  id="table-font-size-body1"
+  showRowDividers
+  tableData={tableData}
+/>`}
+  language="jsx"
+/>
+
+<Canvas of={TableStories.FontSize} />
 
 ## Row Dividers
 
