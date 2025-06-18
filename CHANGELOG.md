@@ -43,7 +43,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `role="search"` from `Searchbar` wrapper.
 - Removes use of `useNYPLBreakpoints` hook in `FilterBarInline` and `MultiSelectGroup`.
 - Removes `isDarkMode` function from `Slider` and `Accordion`.
-- Removed the `tableTextSize` prop from the `Table` component in favor of using the native `fontSize` CSS prop.
+- Removes the `tableTextSize` prop from the `Table` component in favor of using the native `fontSize` CSS prop.
 
 ## Prerelease
 

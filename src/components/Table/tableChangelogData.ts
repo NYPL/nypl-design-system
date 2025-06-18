@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality", "Styles"],
     notes: [
       "Changes theme name from `CustomTable` to `ReservoirTable` for consistency.",
-      "Removed the `tableTextSize` prop in favor of using the native `fontSize` CSS prop.",
+      "Removes the `tableTextSize` prop in favor of using the native `fontSize` CSS prop.",
     ],
   },
   {
