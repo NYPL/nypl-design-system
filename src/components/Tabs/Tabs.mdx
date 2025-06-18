@@ -4,16 +4,20 @@ import * as TabsStories from "./Tabs.stories";
 import Banner from "../Banner/Banner";
 import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import { changelogData } from "./tabsChangelogData";
 
 <Meta of={TabsStories} />
 
-# Tabs
+<ComponentDocsHeader
+  category="Overlays & Switchers"
+  componentName="Tabs"
+  summary="Displays related content in a tabbed interface"
+  versionAdded="0.24.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.24.0`   |
-| Latest            | `3.6.2`    |
+<Canvas of={TabsStories.WithControls} />
 
 ## Table of Contents
 
@@ -34,7 +38,7 @@ import { changelogData } from "./tabsChangelogData";
 
 ## Component Props
 
-<Canvas of={TabsStories.WithControls} />
+You may pass any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={TabsStories.WithControls} />
 

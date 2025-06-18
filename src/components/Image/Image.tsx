@@ -1,8 +1,10 @@
 import useNativeLazyLoading from "@charlietango/use-native-lazy-loading";
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   useMergeRefs,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
@@ -23,6 +25,7 @@ export const imageRatiosArray = [
   "threeByTwo",
   "twoByOne",
 ] as const;
+
 export const imageSizesArray = [
   "default",
   "xxxsmall",
@@ -70,8 +73,6 @@ export interface ComponentImageProps extends Partial<HTMLImageElement> {
 interface ImageWrapperProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalWrapperStyles?: { [key: string]: any };
-  /** ClassName you can add in addition to 'image' */
-  className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional value to control the aspect ratio of the card image; default
@@ -84,14 +85,13 @@ interface ImageWrapperProps {
 }
 
 export interface ImageProps
-  extends ImageWrapperProps,
-    ImgHTMLAttributes<HTMLImageElement> {
+  extends Pick<BoxProps, keyof ChakraProps>,
+    ImageWrapperProps,
+    Omit<ImgHTMLAttributes<HTMLImageElement>, "color" | "height" | "width"> {
   /** Optionally pass in additional Chakra-based styles only for the figure. */
   additionalFigureStyles?: { [key: string]: any };
   /** Optionally pass in additional Chakra-based styles only for the image. */
   additionalImageStyles?: { [key: string]: any };
-  /** Alternate text description of the image */
-  alt?: string;
   /** Optional value to control the aspect ratio of the card image; default
    * value is `"original"` */
   aspectRatio?: ImageRatios;
@@ -107,14 +107,10 @@ export interface ImageProps
   imageType?: ImageTypes;
   /** Flag to set the internal `Image` component to `isLazy` mode. */
   isLazy?: boolean;
-  /** Additional action to perform in the `img`'s `onerror` attribute function. */
-  onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
-  /** The src attribute is required, and contains the path to the image you want to embed. */
-  src?: string;
 }
 
 const ImageWrapper = chakra(
-  (props: React.PropsWithChildren<ImageWrapperProps>) => {
+  (props: React.PropsWithChildren<ImageWrapperProps & BoxProps>) => {
     const {
       additionalWrapperStyles = {},
       className = "",

@@ -19,7 +19,6 @@ const meta: Meta<typeof VideoPlayer> = {
         defaultValue: { summary: "sixteenByNine" },
       },
     },
-    className: { control: false },
     descriptionText: { control: "text" },
     embedCode: { control: false },
     headingText: { control: "text" },
@@ -45,7 +44,6 @@ type Story = StoryObj<typeof VideoPlayer>;
 export const WithControls: Story = {
   args: {
     aspectRatio: "sixteenByNine",
-    className: undefined,
     descriptionText:
       "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
     embedCode: `<iframe src="https://player.vimeo.com/video/421404144?h=5467db7edd" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`,

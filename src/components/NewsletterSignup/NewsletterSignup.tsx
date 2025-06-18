@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   Stack,
   useColorModeValue,
@@ -15,10 +16,9 @@ import { NewsletterSignupResponse } from "./NewsletterSignupResponse";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import useDSHeading from "../../hooks/useDSHeading";
+import { highlightColorsArray } from "../../theme/sharedTypes";
 
-export interface NewsletterSignupProps {
-  /** Additional class name to add. */
-  className?: string;
+export interface NewsletterSignupProps extends Omit<BoxProps, "title"> {
   /** Text displayed next to the confirmation icon after a successful email submission */
   confirmationHeading: string;
   /** Detail text for the confirmation view */
@@ -36,8 +36,7 @@ export interface NewsletterSignupProps {
   id?: string;
   /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
-  /** Value to determine the section color highlight.
-   */
+  /** Value to determine the section color highlight. */
   highlightColor?: HighlightColorTypes;
   /** A handler function that will be called when the form is submitted. */
   onSubmit: (event: React.FormEvent<any>) => void;
@@ -59,21 +58,12 @@ export interface NewsletterSignupProps {
   view?: NewsletterSignupViewType;
 }
 
-export const highlightColorTypesArray = [
+export const newsletterHighlightColorsArray = [
   "ui.gray.medium",
-  "section.blogs.secondary",
-  "section.books-and-more.primary",
-  "brand.primary",
-  "section.connect.primary",
-  "section.education.primary",
-  "section.locations.primary",
-  "section.research.primary",
-  "section.research-library.lpa",
-  "section.research-library.schomburg",
-  "section.research-library.schwartzman",
-  "section.whats-on.primary",
-] as const;
-export type HighlightColorTypes = typeof highlightColorTypesArray[number];
+  ...highlightColorsArray,
+];
+
+export type HighlightColorTypes = typeof newsletterHighlightColorsArray[number];
 
 export type NewsletterSignupViewType =
   | "form"
@@ -95,7 +85,6 @@ export const NewsletterSignup: ChakraComponent<
   forwardRef<HTMLDivElement, NewsletterSignupProps>(
     (
       {
-        className,
         confirmationHeading,
         confirmationText,
         descriptionText,

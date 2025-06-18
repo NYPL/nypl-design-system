@@ -10,7 +10,6 @@ const meta: Meta<typeof AlphabetFilter> = {
   component: AlphabetFilter,
   argTypes: {
     activeLetters: { control: false },
-    className: { control: false },
     currentLetter: { control: false },
     id: { control: false },
     isDisabled: argsBooleanType(),
@@ -28,7 +27,6 @@ type Story = StoryObj<typeof AlphabetFilter>;
 export const WithControls: Story = {
   args: {
     activeLetters: undefined,
-    className: undefined,
     currentLetter: undefined,
     descriptionText: "This is description text.",
     headingText: "AlphabetFilter",

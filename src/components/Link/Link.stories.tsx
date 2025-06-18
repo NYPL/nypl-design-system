@@ -9,8 +9,6 @@ const meta: Meta<typeof Link> = {
   title: "Components/Navigation/Link",
   component: Link,
   argTypes: {
-    children: { table: { disable: true } },
-    className: { control: false },
     hasVisitedState: argsBooleanType("true"),
     href: { control: { type: "text" } },
     id: { control: false },
@@ -37,8 +35,6 @@ type Story = StoryObj<typeof Link>;
  */
 export const WithControls: Story = {
   args: {
-    children: "Link",
-    className: "custom-class",
     hasVisitedState: true,
     href: "https://nypl.org",
     id: "nypl-link",
@@ -49,7 +45,11 @@ export const WithControls: Story = {
     target: undefined,
     type: "action",
   },
-  render: (args: any) => <Link {...args}>{args.children}</Link>,
+  render: (args: any) => (
+    <Link className="custom-class" {...args}>
+      {args.children}
+    </Link>
+  ),
   parameters: {
     design: {
       type: "figma",

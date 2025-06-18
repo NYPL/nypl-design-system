@@ -15,8 +15,10 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Changes theme name from `CustomSlider` to `ReservoirSlider` for consistency.",
       "Removes `isDarkMode` in favor of Chakra's `_dark` conditional key.",
+      "Removes `name` prop (as HTML equivalent may be used) and updates docs.",
     ],
   },
   {

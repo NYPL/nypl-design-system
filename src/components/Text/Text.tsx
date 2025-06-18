@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   Text as ChakraText,
   chakra,
   useStyleConfig,
@@ -20,9 +21,7 @@ export const textSizesArray = [
 ] as const;
 export type TextSizes = typeof textSizesArray[number];
 
-export interface TextProps {
-  /** Additional class name to render in the `Text` component. */
-  className?: string;
+export interface TextProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional prop used to show bolded text */
@@ -37,8 +36,6 @@ export interface TextProps {
   isLowercase?: boolean;
   /** Optional prop used to remove default spacing */
   noSpace?: boolean;
-  /** Optional prop used to explicitly set the ARIA role */
-  role?: string;
   /** Optional prop to control the text styling */
   size?: TextSizes;
 }
@@ -61,7 +58,6 @@ export const Text: ChakraComponent<
         isUppercase,
         isLowercase,
         noSpace,
-        role,
         size = "default",
         ...rest
       } = props;
@@ -133,7 +129,6 @@ export const Text: ChakraComponent<
           className={className}
           id={id}
           ref={ref}
-          role={role}
           sx={styles}
           {...rest}
         >

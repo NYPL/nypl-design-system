@@ -22,8 +22,6 @@ const meta: Meta<typeof Icon> = {
       options: iconAlignArray,
       table: { defaultValue: { summary: "none" } },
     },
-    children: { table: { disable: true } },
-    className: { control: false },
     color: {
       control: { type: "select" },
       options: iconColorsArray,
@@ -67,7 +65,6 @@ type Story = StoryObj<typeof Icon>;
 export const WithControls: Story = {
   args: {
     align: "none",
-    className: undefined,
     color: "ui.black",
     decorative: true,
     iconRotation: "rotate0",

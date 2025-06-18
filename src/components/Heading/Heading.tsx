@@ -1,10 +1,10 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Heading as ChakraHeading,
   useMultiStyleConfig,
-  HeadingProps as ChakraHeadingProps,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -27,9 +27,7 @@ export const headingLevelsArray = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
 export type HeadingSizes = typeof headingSizesArray[number];
 export type HeadingLevels = typeof headingLevelsArray[number];
 
-export interface HeadingProps extends ChakraHeadingProps {
-  /** Optional className that appears in addition to `heading` */
-  className?: string;
+export interface HeadingProps extends BoxProps {
   /** Optional ID that other components can cross reference for accessibility
    * purposes */
   id?: string;
@@ -90,7 +88,6 @@ export const Heading: ChakraComponent<
   forwardRef<HTMLHeadingElement, React.PropsWithChildren<HeadingProps>>(
     (props, ref?) => {
       const {
-        className,
         id,
         isCapitalized,
         isUppercase,
@@ -214,7 +211,6 @@ export const Heading: ChakraComponent<
           )}
           <ChakraHeading
             as={asHeading}
-            className={className}
             id={id}
             ref={ref}
             sx={{

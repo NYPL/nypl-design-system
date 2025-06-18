@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Table as ChakraTable,
@@ -65,7 +66,6 @@ export const Table: ChakraComponent<
   forwardRef<HTMLTableElement, React.PropsWithChildren<TableProps>>(
     (props, ref?) => {
       const {
-        className,
         columnHeaders = [],
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
@@ -233,7 +233,6 @@ export const Table: ChakraComponent<
         <TableContainer {...containerProps} sx={styles.base}>
           <ChakraTable
             aria-label={titleText && !showTitleText ? titleText : undefined}
-            className={className}
             id={id}
             ref={ref}
             sx={styles.innerTable}

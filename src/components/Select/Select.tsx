@@ -1,7 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Select as ChakraSelect,
   useColorModeValue,
   useMultiStyleConfig,
@@ -20,9 +22,8 @@ export type SelectTypes = typeof selectTypesArray[number];
 export type LabelPositions = typeof labelPositionsArray[number];
 
 export interface SelectProps
-  extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  /** A class name for the `div` parent element. */
-  className?: string;
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "color"> {
   /** The initial value of an uncontrolled component */
   defaultValue?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */
@@ -46,11 +47,6 @@ export interface SelectProps
    * populates an `aria-label` attribute on the select input if `showLabel` is
    * set to `false`. */
   labelText: string;
-  /** Used to reference the select element in forms. */
-  name: string;
-  /** The callback function to get the selected value.
-   * Should be passed along with `value` for controlled components. */
-  onChange?: (event: React.FormEvent) => void;
   /** Placeholder text in the select element. */
   placeholder?: string;
   /** Allows the '(required)' text to be changed for language purposes
@@ -66,9 +62,6 @@ export interface SelectProps
   /** Whether or not to display the "(required)" text in the label text.
    * True by default. */
   showRequiredLabel?: boolean;
-  /** The value of the selected option.
-   * Should be passed along with `onChange` for controlled components. */
-  value?: string;
 }
 
 /**
@@ -87,7 +80,6 @@ export const Select: ChakraComponent<
       const {
         autoComplete,
         children,
-        className,
         defaultValue,
         helperText,
         id,
@@ -168,7 +160,6 @@ export const Select: ChakraComponent<
 
       return (
         <ComponentWrapper
-          className={className}
           helperText={helperText}
           helperTextStyles={{
             marginStart: { sm: "auto", md: `${labelWidth}px` },

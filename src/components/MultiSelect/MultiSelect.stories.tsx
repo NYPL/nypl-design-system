@@ -646,7 +646,11 @@ const MultiSelectWithControlsStory = (args) => {
         setActionName("onChange");
       }}
       onMixedStateChange={(e) => {
-        onMixedStateChange(e.target.id, multiSelectId, args.items);
+        onMixedStateChange({
+          parentId: e.target.id,
+          multiSelectId: multiSelectId,
+          items: args.items,
+        });
         setActionName("onMixedStateChange");
       }}
       onClear={() => {
@@ -702,7 +706,11 @@ const MultiSelectStory = ({
         setActionName("onChange");
       }}
       onMixedStateChange={(e) => {
-        onMixedStateChange(e.target.id, id, items);
+        onMixedStateChange({
+          parentId: e.target.id,
+          multiSelectId: id,
+          items,
+        });
         setActionName("onMixedStateChange");
       }}
       onClear={() => {
@@ -745,7 +753,11 @@ const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
           setActionName("onChange");
         }}
         onMixedStateChange={(e) => {
-          onMixedStateChange(e.target.id, "ms-group-1", items);
+          onMixedStateChange({
+            parentId: e.target.id,
+            multiSelectId: "ms-group-1",
+            items,
+          });
           setActionName("onMixedStateChange");
         }}
         onClear={() => {
@@ -764,7 +776,11 @@ const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
           setActionName("onChange");
         }}
         onMixedStateChange={(e) => {
-          onMixedStateChange(e.target.id, "ms-group-2", items);
+          onMixedStateChange({
+            parentId: e.target.id,
+            multiSelectId: "ms-group-2",
+            items,
+          });
           setActionName("onMixedStateChange");
         }}
         onClear={() => {
@@ -783,7 +799,11 @@ const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
           setActionName("onChange");
         }}
         onMixedStateChange={(e) => {
-          onMixedStateChange(e.target.id, "ms-group-3", items);
+          onMixedStateChange({
+            parentId: e.target.id,
+            multiSelectId: "ms-group-3",
+            items,
+          });
           setActionName("onMixedStateChange");
         }}
         onClear={() => {

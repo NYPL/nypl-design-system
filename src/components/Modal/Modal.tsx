@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   Modal as ChakraModal,
   ModalOverlay,
@@ -15,7 +16,7 @@ import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import useDSHeading from "../../hooks/useDSHeading";
 
-export interface BaseProps {
+export interface BaseProps extends Omit<BoxProps, "scrollBehavior"> {
   /** The content to display in the modal body. */
   bodyContent?: string | JSX.Element;
   /** The text to display in the modal heading, can be a string or JSX Element. */
@@ -177,7 +178,8 @@ export const BaseModal: ChakraComponent<
 /**
  * The `ModalTrigger` component renders a button that you click to open the
  * internal `Modal` component. Note that props to update the internal `Modal`
- * component are passed through to the `modalProps` prop.
+ * component are passed through to the `modalProps` prop. In addition to the
+ * props below, you may pass `modalProps` any Chakra `Box` props.
  */
 export const ModalTrigger: ChakraComponent<
   React.ForwardRefExoticComponent<

@@ -1,12 +1,16 @@
-import { Box, ChakraComponent, chakra, useStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  ChakraComponent,
+  chakra,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Link from "../Link/Link";
 import List from "../List/List";
 
-export interface SkipNavigationProps {
-  /** Additional CSS class name to render in the `nav` element. */
-  className?: string;
+export interface SkipNavigationProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** The anchor target for the main skip link. The default is "#mainContent". */
@@ -28,14 +32,13 @@ export const SkipNavigation: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SkipNavigationProps>>(
     (props, ref?) => {
-      const { className, id, target = "#mainContent", ...rest } = props;
+      const { id, target = "#mainContent", ...rest } = props;
       const styles = useStyleConfig("SkipNavigation");
 
       return (
         <Box
           as="nav"
           aria-label="Skip Navigation"
-          className={className}
           id={id}
           ref={ref}
           __css={styles}

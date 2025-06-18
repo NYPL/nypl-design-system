@@ -9,7 +9,6 @@ const meta: Meta<typeof Checkbox> = {
   title: "Components/Form Elements/Checkbox",
   component: Checkbox,
   argTypes: {
-    className: { control: false },
     helperText: { control: { type: "text" } },
     id: { control: false },
     invalidText: { control: { type: "text" } },
@@ -36,7 +35,6 @@ type Story = StoryObj<typeof Checkbox>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     helperText: "This is the helper text!",
     id: "checkbox_id",
     invalidText: "This is the error text :(",

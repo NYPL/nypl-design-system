@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Drawer,
@@ -34,9 +35,7 @@ export const feedbackBoxViewTypeArray = [
 ] as const;
 export type FeedbackBoxViewType = typeof feedbackBoxViewTypeArray[number];
 
-export interface FeedbackBoxProps {
-  /** Additional class name to add. */
-  className?: string;
+export interface FeedbackBoxProps extends Omit<BoxProps, "onSubmit"> {
   /** Used to add additional information to the default confirmation message in
    * the confirmation view. */
   confirmationText?: string | JSX.Element;
@@ -96,7 +95,6 @@ export const FeedbackBox: ChakraComponent<
   forwardRef<HTMLDivElement, FeedbackBoxProps>(
     (
       {
-        className,
         confirmationText,
         descriptionText,
         hiddenFields,
@@ -284,7 +282,7 @@ export const FeedbackBox: ChakraComponent<
       let finalDrawerMinHeight = drawerMinHeight + "px";
 
       return (
-        <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
+        <Box id={id} ref={ref} sx={styles} {...rest}>
           <Button
             id="open"
             onClick={finalOnOpen}

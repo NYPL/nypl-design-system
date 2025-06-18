@@ -9,7 +9,6 @@ const meta: Meta<typeof Radio> = {
   title: "Components/Form Elements/Radio",
   component: Radio,
   argTypes: {
-    className: { control: false },
     id: { control: false },
     isChecked: { control: false },
     isDisabled: argsBooleanType(),
@@ -32,7 +31,6 @@ type Story = StoryObj<typeof Radio>;
  */
 export const Controls: Story = {
   args: {
-    className: undefined,
     helperText: "This is the helper text!",
     id: "radio-id",
     invalidText: "This is the error text :(",
