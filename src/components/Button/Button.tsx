@@ -11,6 +11,7 @@ import { sizesArray } from "../../theme/sharedTypes";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
 export const buttonTypesArray = [
@@ -31,8 +32,6 @@ export interface ButtonProps
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {
   /** The button variation to render based on the `ButtonTypes` type. */
   buttonType?: ButtonTypes;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id: string;
   /** Adds 'disabled' property to the button. */
   isDisabled?: boolean;
   /** Trigger the Button's action through the `mouseDown` event handler instead
@@ -69,17 +68,12 @@ export const Button: ChakraComponent<
         type = "button",
         ...rest
       } = props;
+      const mainId = useSafeId(id);
       const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
       let childCount = 0;
       let hasIcon = false;
       let variant: string | ButtonTypes = buttonType;
       let styles: any = {};
-
-      if (!id) {
-        console.warn(
-          "NYPL Reservoir Button: This component's required `id` prop was not passed."
-        );
-      }
 
       React.Children.map(
         children as JSX.Element,
@@ -105,8 +99,9 @@ export const Button: ChakraComponent<
       return (
         <ChakraButton
           className={className}
+          data-testid="ds-button"
           gap={hasIcon ? "xxs" : null}
-          id={id}
+          id={mainId}
           isDisabled={isDisabled}
           ref={ref}
           type={type}

@@ -27,8 +27,6 @@ interface CardBaseProps {
 }
 
 interface CardWrapperProps extends BoxProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Main link to use when the full `Card` component should be clickable. */
   mainActionLink?: string;
   /** Additional object for styling the `Card`'s `div` wrapper. */
@@ -313,9 +311,8 @@ export const Card: ChakraComponent<
       );
 
       return (
-        <Box __css={styles.base} ref={ref}>
+        <Box data-testid="ds-card" id={id} ref={ref} __css={styles.base}>
           <CardWrapper
-            id={id}
             mainActionLink={mainActionLink}
             styles={{
               ...styles.wrapper,

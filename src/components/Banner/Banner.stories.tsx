@@ -362,7 +362,7 @@ export const HTMLContent: Story = {
 export const CustomColors: Story = {
   render: () => (
     <Banner
-      backgroundColor="section.research-library.schomburg-05"
+      backgroundColor="red"
       content={`
         Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
         mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum

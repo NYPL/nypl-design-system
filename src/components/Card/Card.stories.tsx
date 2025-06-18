@@ -75,7 +75,6 @@ export const WithControls: Story = {
   args: {
     backgroundColor: undefined,
     foregroundColor: undefined,
-    id: "card-id",
     imageProps: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.aspectRatio": "square",
@@ -97,12 +96,11 @@ export const WithControls: Story = {
     <Card
       backgroundColor={args.backgroundColor}
       foregroundColor={args.foregroundColor}
-      id={args.id}
       imageProps={{
         alt: args["imageProps.alt"],
         aspectRatio: args["imageProps.aspectRatio"],
         component: args["imageProps.component"],
-        id: "card-image-id",
+        // id: "card-image-id",
         isAtEnd: args["imageProps.isAtEnd"],
         isLazy: args["imageProps.isLazy"],
         size: args["imageProps.size"],

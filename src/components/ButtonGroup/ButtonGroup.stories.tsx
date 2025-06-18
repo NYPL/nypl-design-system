@@ -14,7 +14,6 @@ const meta: Meta<typeof ButtonGroup> = {
       options: buttonGroupWidthsArray,
       table: { defaultValue: { summary: "default" } },
     },
-    id: { control: false },
     isDisabled: { table: { defaultValue: { summary: "false" } } },
     layout: {
       control: { type: "radio" },
@@ -34,7 +33,6 @@ type Story = StoryObj<typeof ButtonGroup>;
 export const WithControls: Story = {
   args: {
     buttonWidth: "default",
-    id: "button-id",
     isDisabled: false,
     layout: "row",
   },
