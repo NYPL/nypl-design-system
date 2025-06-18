@@ -4,15 +4,20 @@ import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as TagSetStories from "./TagSet.stories";
 import Link from "../Link/Link";
 import { changelogData } from "./tagSetChangelogData";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Meta of={TagSetStories} />
 
-# TagSet
+<ComponentDocsHeader
+  category="Content Display"
+  componentName="TagSet"
+  summary="Group of tags that allow content to be explored or filtered"
+  versionAdded="1.2.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `1.2.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={TagSetStories.ExploreVariant} />
+<Canvas of={TagSetStories.FilterVariantDismiss} />
 
 ## Table of Contents
 
