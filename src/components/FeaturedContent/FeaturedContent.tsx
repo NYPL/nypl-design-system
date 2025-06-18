@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
@@ -20,16 +21,15 @@ export const featuredContentPositionArray = ["start", "end"] as const;
 export type FeaturedContentPositionType =
   typeof featuredContentPositionArray[number];
 
-export interface FeaturedContentImageProps extends ImageProps {
+export interface FeaturedContentImageProps
+  extends Omit<ImageProps, "position"> {
   /** String value that specifies the width of the image rendered within the component. */
   width?: FeaturedContentWidthType;
   /** String value that specifies the position of the image rendered within the component. */
   position?: FeaturedContentPositionType;
 }
 
-export interface FeaturedContentProps {
-  /** Optional CSS class name to add. */
-  className?: string;
+export interface FeaturedContentProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** The text content rendered in the component.  DS components and native HTML can be passed in this prop. */

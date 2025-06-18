@@ -14,7 +14,6 @@ const meta: Meta<typeof FeedbackBox> = {
     jest: ["FeedbackBox.test.tsx"],
   },
   argTypes: {
-    className: { control: false },
     hiddenFields: { control: false },
     id: { control: false },
     isInvalidComment: { table: { defaultValue: { summary: "false" } } },
@@ -97,7 +96,6 @@ const FeedbackBoxWithControls = (args) => {
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     confirmationText: "",
     descriptionText: "Please share your question or feedback.",
     hiddenFields: undefined,

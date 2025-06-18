@@ -2,17 +2,14 @@ import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Icon from "../Icons/Icon";
-import StatusBadge, {
-  statusBadgeFontSizeArray,
-  statusBadgeTypeArray,
-} from "./StatusBadge";
+import StatusBadge, { statusBadgeFontSizeArray } from "./StatusBadge";
 import Table from "../Table/Table";
+import { messageVariantsArray } from "../../theme/sharedTypes";
 
 const meta: Meta<typeof StatusBadge> = {
   title: "Components/Content Display/StatusBadge",
   component: StatusBadge,
   argTypes: {
-    className: { control: false },
     fontSize: {
       description: "**Only used for Storybook** - Set the label font size.",
       table: { defaultValue: { summary: "desktop.body.body2" } },
@@ -23,7 +20,7 @@ const meta: Meta<typeof StatusBadge> = {
     id: { control: false },
     type: {
       control: { type: "select" },
-      options: statusBadgeTypeArray,
+      options: messageVariantsArray,
     },
   },
 };
@@ -37,7 +34,6 @@ type Story = StoryObj<typeof StatusBadge>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     fontSize: undefined,
     id: "statusBadge-id",
     type: undefined,

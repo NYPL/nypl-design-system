@@ -1,13 +1,13 @@
 import {
   Box,
+  BoxProps,
   ChakraComponent,
+  ChakraProps,
   chakra,
   Link as ChakraLink,
-  LinkProps as ChakraLinkProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
-
+import React, { AnchorHTMLAttributes, forwardRef } from "react";
 import Icon from "../Icons/Icon";
 import { sanitizeStringForAttribute } from "../../utils/utils";
 
@@ -27,27 +27,19 @@ export const linkTypesArray = [
 ] as const;
 export type LinkTypes = typeof linkTypesArray[number];
 
-export interface LinkProps extends ChakraLinkProps {
-  /** Additional class name to render in the `Link` component. */
-  className?: string;
+export interface LinkProps
+  extends Pick<BoxProps, "as" | keyof ChakraProps>,
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "color"> {
   /** Used to include or remove visited state styles. Default is true. */
   hasVisitedState?: boolean;
-  /** The `href` attribute for the anchor element. */
-  href?: string;
   /** ID used for accessibility purposes. */
   id?: string;
   /** Used to explicitly set the underline style for a text link. If true, link
    * text will always be underlined; if false, link text will only show
    * underline in hover state. */
   isUnderlined?: boolean;
-  onClick?: (
-    event: React.MouseEvent<HTMLDivElement | HTMLAnchorElement, MouseEvent>
-  ) => void;
-  rel?: string;
   /** Visibly hidden text that will only be read by screenreaders. */
   screenreaderOnlyText?: string;
-  /** Prop that sets the HTML attribute to target where the link should go. */
-  target?: "_blank" | "_parent" | "_self" | "_top";
   /** Controls the link's styles based on the value: action, backwards, default,
    * external, forwards, standalone, and all "button" types. */
   type?: LinkTypes;
@@ -57,11 +49,15 @@ export interface LinkProps extends ChakraLinkProps {
  * Renders the `Link` children components with a direction arrow icon based
  * on the `"backwards"` or `"forwards"` `type` prop value.
  */
-function getWithDirectionIcon(
-  children: JSX.Element,
-  type: LinkTypes,
-  linkId: string
-) {
+function getWithDirectionIcon({
+  children,
+  type,
+  linkId,
+}: {
+  children: JSX.Element;
+  type: LinkTypes;
+  linkId: string;
+}) {
   const linkProps: any = {
     align: undefined,
     iconRotation: undefined,
@@ -90,11 +86,15 @@ function getWithDirectionIcon(
   );
 }
 
-function getExternalExtraElements(
-  children: JSX.Element,
-  linkId: string,
-  styles: object
-) {
+function getExternalExtraElements({
+  children,
+  linkId,
+  styles,
+}: {
+  children: JSX.Element;
+  linkId: string;
+  styles: object;
+}) {
   const iconId = `${linkId}-external-icon`;
   const extraElements = (
     <>
@@ -141,8 +141,8 @@ function getStandaloneIcon(children: JSX.Element, linkId: string) {
 }
 
 /**
- * A component that uses an `href` prop or a child anchor `<a>` element, to
- * create an anchor element with added styling and conventions.
+ * A component that renders an anchor element with added styling
+ * and conventions.
  */
 export const Link: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -158,7 +158,6 @@ export const Link: ChakraComponent<
     const {
       as = "a",
       children,
-      className,
       hasVisitedState = true,
       href,
       id,
@@ -216,13 +215,17 @@ export const Link: ChakraComponent<
     // do not add an icon.
     const newChildren =
       ((type === "forwards" || type === "backwards") &&
-        getWithDirectionIcon(children as JSX.Element, type, sanitizedId)) ||
+        getWithDirectionIcon({
+          children: children as JSX.Element,
+          type,
+          linkId: sanitizedId,
+        })) ||
       (type === "external" &&
-        getExternalExtraElements(
-          children as JSX.Element,
-          sanitizedId,
-          styles.screenreaderOnly
-        )) ||
+        getExternalExtraElements({
+          children: children as JSX.Element,
+          linkId: sanitizedId,
+          styles: styles.screenreaderOnly,
+        })) ||
       (type === "standalone" &&
         getStandaloneIcon(children as JSX.Element, sanitizedId)) ||
       children;
@@ -234,13 +237,7 @@ export const Link: ChakraComponent<
     ) : null;
 
     return (
-      <ChakraLink
-        as={as}
-        className={className}
-        {...linkProps}
-        sx={styles.base}
-        {...rest}
-      >
+      <ChakraLink as={as} {...linkProps} sx={styles.base} {...rest}>
         {newChildren}
         {screenReaderOnlyElement}
       </ChakraLink>

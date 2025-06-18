@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
@@ -8,14 +9,7 @@ import { forwardRef } from "react";
 
 export type HelperErrorTextType = string | JSX.Element;
 
-type HTMLDivAttributes = Pick<
-  React.HTMLAttributes<HTMLDivElement>,
-  "aria-atomic" | "aria-live"
->;
-
-export interface HelperErrorTextProps extends HTMLDivAttributes {
-  /** Additional className to add. */
-  className?: string;
+export interface HelperErrorTextProps extends BoxProps {
   /** Unique ID for accessibility purposes. */
   id?: string;
   /** Toggles between helper and invalid styling. */

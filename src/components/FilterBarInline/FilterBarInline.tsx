@@ -1,4 +1,4 @@
-import { chakra, ChakraComponent, Stack } from "@chakra-ui/react";
+import { BoxProps, chakra, ChakraComponent, Stack } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
@@ -14,9 +14,7 @@ import Heading, { HeadingSizes } from "../Heading/Heading";
 export type FilterBarItemsType =
   | (boolean | number | number[] | string | string[] | MultiSelectItems)[];
 
-export interface FilterBarInlineProps {
-  /** The className of the FilterBarInline. */
-  className?: string;
+export interface FilterBarInlineProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional string value used to set the text for a `Heading` component, or
@@ -56,7 +54,6 @@ export const FilterBarInline: ChakraComponent<
     (props, ref?) => {
       const {
         children,
-        className,
         id,
         heading,
         layout = "row",
@@ -82,7 +79,6 @@ export const FilterBarInline: ChakraComponent<
 
       return (
         <ComponentWrapper
-          className={className}
           id={`filter-bar-inline-${id}`}
           headingText={finalHeading}
           ref={ref}

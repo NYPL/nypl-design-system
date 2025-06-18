@@ -9,7 +9,6 @@ const meta: Meta<typeof Menu> = {
   title: "Components/Navigation/Menu",
   component: Menu,
   argTypes: {
-    className: { control: false },
     highlightColor: {
       control: "select",
       options: sectionTypeArray,
@@ -376,7 +375,6 @@ const wideListItems: ListItemsData[] = [
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     highlightColor: "blogs",
     id: "Menu-id",
     labelText: "I'm the menu",
@@ -389,6 +387,7 @@ export const WithControls: Story = {
   render: (args: any) => (
     <Menu
       {...args}
+      className="testing"
       labelText={args.labelText}
       listItemsData={defaultListItems}
     />

@@ -1,7 +1,9 @@
 import {
-  Icon as ChakraIcon,
   Box,
+  BoxProps,
   chakra,
+  ChakraProps,
+  Icon as ChakraIcon,
   useStyleConfig,
   ChakraComponent,
 } from "@chakra-ui/react";
@@ -24,11 +26,10 @@ export type IconRotations = typeof iconRotationsArray[number];
 export type IconSizes = typeof iconSizesArray[number];
 export type IconTypes = typeof iconTypesArray[number];
 
-export interface IconProps {
+export interface IconProps
+  extends Pick<BoxProps, "className" | keyof ChakraProps> {
   /** Aligns the icon. */
   align?: IconAlign;
-  /** Optional className that will be added to the parent element */
-  className?: string;
   /** Overrides default icon color (black). */
   color?: IconColors;
   /** Icons designated as decorative will be ignored by screenreaders. True
@@ -67,7 +68,6 @@ export const Icon: ChakraComponent<
     const {
       align = "none",
       children,
-      className,
       color = "ui.black",
       decorative = true,
       iconRotation = "rotate0",
@@ -87,7 +87,6 @@ export const Icon: ChakraComponent<
     });
     const iconProps = {
       "aria-hidden": decorative,
-      className,
       id,
       role: "img",
       title,

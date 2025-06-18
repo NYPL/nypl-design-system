@@ -12,7 +12,6 @@ const meta: Meta<typeof TagSet> = {
   title: "Components/Content Display/TagSet",
   component: TagSet,
   argTypes: {
-    className: { control: false },
     id: { control: false },
     isDismissible: argsBooleanType(),
     onClick: { control: false },
@@ -33,7 +32,6 @@ type Story = StoryObj<typeof TagSet>;
  */
 export const ExploreVariant: Story = {
   args: {
-    className: undefined,
     id: "tagSet-id-explore",
     tagSetData: [
       {
@@ -149,7 +147,6 @@ export const FilterVariant: Story = {
 // The following are additional TagSet example Stories.
 export const FormattingExamples: Story = {
   args: {
-    className: undefined,
     id: undefined,
     isDismissible: undefined,
     onClick: undefined,

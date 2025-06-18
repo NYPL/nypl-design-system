@@ -14,7 +14,11 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Removes `tag` and `mini` values from `textSizesArray`."],
+    notes: [
+      "Removes `tag` and `mini` values from `textSizesArray`.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes explicit `children` prop as its not required when React.PropsWithChildren is used.",
+    ],
   },
   {
     date: "2024-07-25",

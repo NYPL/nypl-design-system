@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
@@ -18,11 +19,9 @@ interface StructuredContentImageProps extends ComponentImageProps {
   position?: StructuredContentImagePosition;
 }
 
-export interface StructuredContentProps {
+export interface StructuredContentProps extends BoxProps {
   /** Optional value to set the text for the callout heading text. */
   calloutText?: string | JSX.Element;
-  /** Additional class name for the `StructuredContent` component. */
-  className?: string;
   /** Optional string value used to set the text for a `Heading` component, or
    * a DS Heading component that can be passed in.
    */
@@ -83,7 +82,6 @@ export const StructuredContent: ChakraComponent<
     (props, ref?) => {
       const {
         calloutText,
-        className,
         headingText,
         id,
         imageProps = {
@@ -140,7 +138,7 @@ export const StructuredContent: ChakraComponent<
       }
 
       return (
-        <Box id={id} className={className} ref={ref} __css={styles} {...rest}>
+        <Box id={id} ref={ref} __css={styles} {...rest}>
           {finalTitle}
           {finalCalloutText}
           {hasImage && (

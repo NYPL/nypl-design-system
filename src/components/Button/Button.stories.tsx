@@ -1,15 +1,12 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Button, {
-  buttonElementTypeArray,
-  buttonSizesArray,
-  buttonTypesArray,
-} from "./Button";
+import Button, { buttonElementTypeArray, buttonTypesArray } from "./Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
 import { iconNamesArray } from "../Icons/iconVariables";
 import Table from "../Table/Table";
+import { sizesArray } from "../../theme/sharedTypes";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Form Elements/Button",
@@ -23,7 +20,6 @@ const meta: Meta<typeof Button> = {
       options: buttonTypesArray,
       table: { defaultValue: { summary: "primary" } },
     },
-    className: { control: false },
     displayIcon: {
       control: { type: "boolean" },
       description: "**Only used for Storybook – ** Toggle the icon visibility.",
@@ -43,7 +39,7 @@ const meta: Meta<typeof Button> = {
     onClick: { control: false },
     size: {
       control: { type: "radio" },
-      options: buttonSizesArray,
+      options: sizesArray,
       table: { defaultValue: { summary: "medium" } },
     },
     type: {
@@ -65,7 +61,6 @@ export const WithControls: Story = {
   args: {
     buttonText: "Button Text",
     buttonType: "primary",
-    className: undefined,
     displayIcon: false,
     displayIconLeft: true,
     iconType: "search",

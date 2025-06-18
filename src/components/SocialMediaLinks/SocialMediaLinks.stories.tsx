@@ -5,11 +5,11 @@ import SocialMediaLinks, {
   SocialMediaLinkDataProps,
   borderTypeArray,
   colorTypeArray,
-  sizeTypeArray,
 } from "./SocialMediaLinks";
 import { layoutTypesArray } from "../../helpers/types";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
+import { sizesArray } from "../../theme/sharedTypes";
 
 const exampleAllLinkData: SocialMediaLinkDataProps[] = [
   {
@@ -122,11 +122,6 @@ const meta: Meta<typeof SocialMediaLinks> = {
         defaultValue: { summary: "none" },
       },
     },
-    className: {
-      table: {
-        disable: false,
-      },
-    },
     color: {
       control: { type: "radio" },
       options: colorTypeArray,
@@ -159,7 +154,7 @@ const meta: Meta<typeof SocialMediaLinks> = {
     },
     size: {
       control: { type: "radio" },
-      options: sizeTypeArray,
+      options: sizesArray,
       table: {
         disable: false,
         defaultValue: { summary: "small" },
@@ -184,7 +179,6 @@ export const WithControls: Story = {
   args: {
     borders: "none",
     color: "textDefault",
-    className: undefined,
     id: undefined,
     layout: "row",
     linksData: exampleLinkData,

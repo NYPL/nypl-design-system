@@ -1,6 +1,7 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { setContainerStyles } from "../../utils/setContainerStyles";
 import { iconSizeStyles } from "../sharedStyles";
+import { screenreaderOnly } from "./globalMixins";
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["button", "select"]);
@@ -19,9 +20,11 @@ const SearchBar = defineMultiStyleConfig({
         },
         "[data-button]": {
           padding: "xs",
-          " > span": {
-            display: "none",
-          },
+          // Even though we only want to apply these styles on mobile, we
+          // cannot pass `isMobileOnly` to this function because the
+          // function uses media queries and this component uses container
+          // queries so styles would switch at slightly different moments.
+          " > span": screenreaderOnly(),
           "> svg": {
             ...iconSizeStyles["medium"],
           },
@@ -54,7 +57,10 @@ const SearchBar = defineMultiStyleConfig({
           paddingBottom: "xs",
           paddingRight: "s",
           " > span": {
-            display: "block",
+            height: "auto",
+            overflow: "unset",
+            position: "relative !important",
+            width: "100%",
           },
           "> svg": {
             ...iconSizeStyles["small"],

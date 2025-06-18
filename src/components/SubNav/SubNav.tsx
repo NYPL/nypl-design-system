@@ -5,74 +5,24 @@ import {
   ChakraComponent,
   useMultiStyleConfig,
   Flex,
+  BoxProps,
 } from "@chakra-ui/react";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
 import List from "../List/List";
 import useScrollFadeStyles from "../../hooks/useScrollFadeStyles";
+import { bgColorsArray, highlightColorsArray } from "../../theme/sharedTypes";
 
-export const actionBackgroundColorsArray = [
-  "brand.primary-05",
-  "section.blogs.primary-05",
-  "section.books-and-more.primary-05",
-  "section.connect.primary-05",
-  "section.education.primary-05",
-  "section.locations.primary-05",
-  "section.research.primary-05",
-  "section.research-library.lpa-05",
-  "section.research-library.schomburg-05",
-  "section.research-library.schwarzman-05",
-  "section.whats-on.primary-05",
-  "dark.brand.primary-05",
-  "dark.section.blogs.primary-05",
-  "dark.section.books-and-more.primary-05",
-  "dark.section.connect.primary-05",
-  "dark.section.education.primary-05",
-  "dark.section.locations.primary-05",
-  "dark.section.research.secondary-05",
-  "dark.section.research-library.lpa-05",
-  "dark.section.research-library.schomburg-05",
-  "dark.section.research-library.schwarzman-05",
-  "dark.section.whats-on.primary-05",
-] as const;
-
-export type actionBackgroundColors = typeof actionBackgroundColorsArray[number];
-
-export const highlightColorsArray = [
-  "brand.primary",
-  "section.blogs.primary",
-  "section.books-and-more.primary",
-  "section.connect.primary",
-  "section.education.primary",
-  "section.locations.primary",
-  "section.research.primary",
-  "section.research-library-lpa.primary",
-  "section.research-library-schomburg.primary",
-  "section.research-library-schwarzman.primary",
-  "section.whats-on.primary",
-  "dark.brand.primary",
-  "dark.section.blogs.primary",
-  "dark.section.books-and-more.primary",
-  "dark.section.connect.primary",
-  "dark.section.education.primary",
-  "dark.section.locations.primary",
-  "dark.section.research.secondary",
-  "dark.section.research-library-lpa.primary",
-  "dark.section.research-library-schomburg.primary",
-  "dark.section.research-library-schwarzman.primary",
-  "dark.section.whats-on.primary",
-];
+export type actionBackgroundColors = typeof bgColorsArray[number];
 export type highlightColors = typeof highlightColorsArray[number];
 
-export interface SubNavProps {
+export interface SubNavProps extends BoxProps {
   /**
    * The background color to be applied to the hover and active states
    * of the SubNavLink and SubNavButton components.
    * This allows for customization of the action items.
    */
   actionBackgroundColor?: actionBackgroundColors;
-  /** Additional class name for the `SubNav` component. */
-  className?: string;
   /**
    * Custom color for SubNavLink, SubNavButton, and icons.
    */
@@ -98,7 +48,6 @@ export interface SubNavProps {
 
 interface SubNavItemProps {
   id: string;
-  children: React.ReactNode;
   isOutlined?: boolean;
   isSelected?: boolean;
   screenreaderOnlyText?: string;

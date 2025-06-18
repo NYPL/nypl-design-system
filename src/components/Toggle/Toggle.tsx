@@ -1,12 +1,14 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Switch,
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, InputHTMLAttributes } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
@@ -15,7 +17,12 @@ import { getAriaAttrs } from "../../utils/utils";
 export const toggleSizesArray = ["default", "small"] as const;
 export type ToggleSizes = typeof toggleSizesArray[number];
 
-export interface ToggleProps {
+export interface ToggleProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<
+      InputHTMLAttributes<HTMLInputElement>,
+      "color" | "height" | "size" | "width"
+    > {
   /** Used for uncontrolled scenarios.  Sets the state of the Toggle when the page first loads.
    *   If true, the toggle will be initially set to the "on" position. */
   defaultChecked?: boolean;
@@ -40,11 +47,6 @@ export interface ToggleProps {
   isRequired?: boolean;
   /** The toggle's label. This will serve as the text content for the `<label>` element */
   labelText: string;
-  /** The name prop indicates the `Toggle`'s form element name. If none is
-   * specified, 'default' will be used. */
-  name?: string;
-  /** The action to perform on the `<input>`'s onChange function  */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The size of the Toggle. Defaults to "large". */
   size?: ToggleSizes;
 }

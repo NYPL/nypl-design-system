@@ -1,14 +1,13 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-export interface FieldsetProps {
-  /** Additional class name to add. */
-  className?: string;
+export interface FieldsetProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes */
   id: string;
   /** Flag to show or hide the text in the `legend` element. False by default. */
@@ -40,7 +39,6 @@ export const Fieldset: ChakraComponent<
     (
       {
         children,
-        className,
         id,
         isLegendHidden = false,
         isRequired = false,
@@ -59,14 +57,7 @@ export const Fieldset: ChakraComponent<
       }
 
       return (
-        <Box
-          as="fieldset"
-          id={id}
-          className={className}
-          ref={ref}
-          __css={styles}
-          {...rest}
-        >
+        <Box as="fieldset" id={id} ref={ref} __css={styles} {...rest}>
           <legend>
             {legendText}
             {showRequiredLabel && isRequired && <span> (required)</span>}

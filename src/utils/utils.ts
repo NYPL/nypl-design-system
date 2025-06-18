@@ -8,7 +8,15 @@ import { AriaAttributes } from "./interfaces";
  * Get an array of values from `start` to `stop` - 1 with an optional
  * `step` between values.
  */
-export const range = (start: number, stop: number, step = 1): number[] => {
+export const range = ({
+  start,
+  stop,
+  step = 1,
+}: {
+  start: number;
+  stop: number;
+  step?: number;
+}): number[] => {
   if (!start) {
     return [];
   }

@@ -33,7 +33,7 @@ exports[`Renders the UI snapshot correctly 1`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
           role="group"
         >
           <p
@@ -98,7 +98,7 @@ exports[`Renders the UI snapshot correctly 2`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
           role="group"
         >
           <p
@@ -163,7 +163,7 @@ exports[`Renders the UI snapshot correctly 3`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
           role="group"
         >
           <p
@@ -228,7 +228,7 @@ exports[`Renders the UI snapshot correctly 4`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
           role="group"
         >
           <p
@@ -293,7 +293,7 @@ exports[`Renders the UI snapshot correctly 5`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
           role="group"
         >
           <p
@@ -358,7 +358,7 @@ exports[`Renders the UI snapshot correctly 6`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
           role="group"
         >
           <p

@@ -74,7 +74,6 @@ const meta: Meta<typeof Tabs> = {
   title: "Components/Overlays & Switchers/Tabs",
   component: Tabs,
   argTypes: {
-    children: { table: { disable: true } },
     defaultIndex: {
       table: { defaultValue: { summary: "0" } },
     },

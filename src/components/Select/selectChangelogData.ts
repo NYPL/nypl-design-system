@@ -13,9 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Styles"],
+    affects: ["Functionality", "Styles"],
     notes: [
       "Changes theme name from `CustomSelect` to `ReservoirSelect` for consistency.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes `name`, `onChange`, and `value` props (as HTML equivalents may be used) and updates docs.",
     ],
   },
   {

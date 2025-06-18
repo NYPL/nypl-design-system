@@ -8,8 +8,6 @@ const meta: Meta<typeof StyledList> = {
   title: "Components/Typography & Styles/StyledList",
   component: StyledList,
   argTypes: {
-    children: { table: { disable: true } },
-    className: { control: false },
     id: { control: false },
     listItems: { control: false },
     style: { control: false },
@@ -57,7 +55,6 @@ const listItems = [
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     id: "nypl-styledlist",
     listItems: itemGroups,
     style: "capped",

@@ -42,7 +42,6 @@ const meta: Meta<typeof Breadcrumbs> = {
       },
       options: breadcrumbTypeArray,
     },
-    className: { control: false },
     id: { control: false },
   },
 };
@@ -58,7 +57,6 @@ export const WithControls: Story = {
   args: {
     breadcrumbsData,
     breadcrumbsType: "whatsOn",
-    className: undefined,
     customLinkComponent: undefined,
     id: "breadcrumbs-id",
   },

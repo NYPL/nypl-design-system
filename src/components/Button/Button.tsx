@@ -1,16 +1,18 @@
 import {
   Box,
+  BoxProps,
   Button as ChakraButton,
   chakra,
   ChakraComponent,
+  ChakraProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import { sizesArray } from "../../theme/sharedTypes";
+import React, { ButtonHTMLAttributes, forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
 export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
-export const buttonSizesArray = ["small", "medium", "large"] as const;
 export const buttonTypesArray = [
   "primary",
   "secondary",
@@ -21,14 +23,14 @@ export const buttonTypesArray = [
 ] as const;
 
 export type ButtonElementType = typeof buttonElementTypeArray[number];
-export type ButtonSizes = typeof buttonSizesArray[number];
+export type ButtonSizes = typeof sizesArray[number];
 export type ButtonTypes = typeof buttonTypesArray[number];
 
-export interface ButtonProps {
+export interface ButtonProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {
   /** The button variation to render based on the `ButtonTypes` type. */
   buttonType?: ButtonTypes;
-  /** Additional className to use. */
-  className?: string;
   /** ID that other components can cross reference for accessibility purposes. */
   id: string;
   /** Adds 'disabled' property to the button. */
@@ -36,14 +38,10 @@ export interface ButtonProps {
   /** Trigger the Button's action through the `mouseDown` event handler instead
    * of `onClick`. `false` by default. */
   mouseDown?: boolean;
-  /** The action to perform on the `<button>`'s onClick function. */
-  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** Visibly hidden text that will only be read by screenreaders. */
   screenreaderOnlyText?: string;
   /** The size of the `Button`. */
   size?: ButtonSizes;
-  /** The HTML button type attribute. */
-  type?: ButtonElementType;
 }
 
 /**

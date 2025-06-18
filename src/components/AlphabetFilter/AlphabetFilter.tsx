@@ -1,6 +1,7 @@
 import React, { forwardRef, useRef, useState } from "react";
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Flex,
@@ -10,12 +11,10 @@ import {
 import { Button } from "../Button/Button";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
-export interface AlphabetFilterProps {
+export interface AlphabetFilterProps extends Omit<BoxProps, "onClick"> {
   /** Array of letters to specify which `Button` components should be set in an `enabled`
    * state. By default, all buttons are `enabled`. */
   activeLetters?: string[];
-  /** A class name for the AlphabetFilter parent div. */
-  className?: string;
   /** The currentLetter can be used to programatically set the selected letter without the
    * user explicitly requesting it. */
   currentLetter?: string;
@@ -42,7 +41,6 @@ export const AlphabetFilter: ChakraComponent<
   forwardRef<HTMLDivElement, AlphabetFilterProps>((props, ref?) => {
     const {
       activeLetters,
-      className,
       currentLetter,
       descriptionText,
       headingText,
@@ -166,7 +164,6 @@ export const AlphabetFilter: ChakraComponent<
       <Box as="nav" ref={ref} aria-label="Filter by letter">
         <ComponentWrapper
           id={id}
-          className={className}
           __css={styles}
           {...rest}
           headingText={headingText ? headingText : undefined}

@@ -48,15 +48,20 @@ no text, it will automatically be configured to use the `"iconOnly"` type.
 
 <Canvas of={ButtonStories.WithControls} />
 
+The `Button` composes an HTML `button` element, so you may pass any `button` attributes,
+as well as the Chakra style props and the props below.
+
 <ArgTypes of={ButtonStories.WithControls} />
 
 ## Accessibility
 
 The Reservoir `Button` component renders an HTML `<button>` element that is
-accessible. `Button`s should be used to perform user actions or submit forms,
-never to link and go to another page. For `Button`s without text and only an
-icon, make sure to pass an `aria-label` value to the `Button`. `Button`s cannot
-have images of text.
+accessible. By default, the `Button` has a `type` attribute of `"button"`.
+If desired, you may explicitly pass `type="submit"` or `type="reset"` instead.
+`Button`s should be used to perform user actions or submit forms, never to link
+and go to another page. For `Button`s without text and only an icon, make sure
+to pass an `aria-label` value to the `Button`. `Button`s cannot have images
+of text.
 
 `Button`s can be rendered in three sizes through the `size` prop: `"small"`,
 `"medium"`, and `"large"`. The default size is `"medium"`. Even though the `"small"`
