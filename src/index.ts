@@ -154,7 +154,7 @@ export { default as List } from "./components/List/List";
 export type {
   DescriptionProps,
   ListProps,
-  ListContainers,
+  ListVariants,
 } from "./components/List/List";
 export { default as Logo } from "./components/Logo/Logo";
 export type { LogoNames, LogoProps, LogoSizes } from "./components/Logo/Logo";

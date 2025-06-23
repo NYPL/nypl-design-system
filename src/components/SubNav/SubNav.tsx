@@ -241,7 +241,7 @@ export const SubNav: ChakraComponent<
             <Flex alignItems="center" gap="s" justify="space-between">
               <Box sx={styles.primaryList}>
                 <List
-                  listContainer="ul"
+                  variant="ul"
                   m="0"
                   sx={{
                     ...styles.scrollableList,
@@ -259,7 +259,7 @@ export const SubNav: ChakraComponent<
                 <List
                   noStyling
                   inline
-                  listContainer="ul"
+                  variant="ul"
                   sx={styles.secondaryActions}
                   m="0"
                   width="fit-content"

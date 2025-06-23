@@ -21,32 +21,32 @@ const fishDescriptions = [
 describe("List Accessibility", () => {
   it("passes axe accessibility test for unordered list", async () => {
     const { container, rerender } = render(
-      <List listContainer="ul">
+      <List variant="ul">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
     );
     expect(await axe(container)).toHaveNoViolations();
 
-    rerender(<List listContainer="ul" listItems={fishArray} />);
+    rerender(<List variant="ul" listItems={fishArray} />);
     expect(await axe(container)).toHaveNoViolations();
   });
   it("passes axe accessibility test for ordered list", async () => {
     const { container, rerender } = render(
-      <List listContainer="ol">
+      <List variant="ol">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
     );
     expect(await axe(container)).toHaveNoViolations();
 
-    rerender(<List listContainer="ol" listItems={fishArray} />);
+    rerender(<List variant="ol" listItems={fishArray} />);
     expect(await axe(container)).toHaveNoViolations();
   });
   it("passes axe accessibility test for description list", async () => {
     const { container } = render(
       <List
-        listContainer="dl"
+        variant="dl"
         title="Animal Crossing Fish"
         listItems={fishDescriptions}
       />
@@ -58,7 +58,7 @@ describe("List Accessibility", () => {
 describe("List", () => {
   it("renders unordered list", () => {
     render(
-      <List listContainer="ul">
+      <List variant="ul">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
@@ -70,7 +70,7 @@ describe("List", () => {
   });
 
   it("renders unordered list with the `listItems` prop", () => {
-    render(<List listContainer="ul" listItems={fishArray} />);
+    render(<List variant="ul" listItems={fishArray} />);
 
     expect(screen.getAllByRole("listitem")).toHaveLength(4);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
@@ -81,7 +81,7 @@ describe("List", () => {
 
   it("renders ordered list", () => {
     render(
-      <List listContainer="ol">
+      <List variant="ol">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
@@ -93,7 +93,7 @@ describe("List", () => {
   });
 
   it("renders ordered list with the `listItems` prop", () => {
-    render(<List listContainer="ol" listItems={fishArray} />);
+    render(<List variant="ol" listItems={fishArray} />);
 
     expect(screen.getAllByRole("listitem")).toHaveLength(4);
     expect(screen.getByText("Mahi-mahi")).toBeInTheDocument();
@@ -104,7 +104,7 @@ describe("List", () => {
 
   it("returns description list", () => {
     render(
-      <List listContainer="dl">
+      <List variant="dl">
         <dt>Mahi-mahi</dt>
         <dd>The mahi-mahi is an ocean fish known...</dd>
       </List>
@@ -119,7 +119,7 @@ describe("List", () => {
   it("returns description list with the `listItems` prop", () => {
     render(
       <List
-        listContainer="dl"
+        variant="dl"
         title="Animal Crossing Fish"
         listItems={fishDescriptions}
       />
@@ -133,7 +133,7 @@ describe("List", () => {
   it("returns description list with custom heading", () => {
     render(
       <List
-        listContainer="dl"
+        variant="dl"
         title={<Heading level="h4">Animal Crossing Fish</Heading>}
         listItems={fishDescriptions}
       />
@@ -147,7 +147,7 @@ describe("List", () => {
   it("consoles a warning when children and the `listItems` prop are both passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <List listContainer="ol" listItems={fishArray}>
+      <List variant="ol" listItems={fishArray}>
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
         <li>Rainbowfish</li>
@@ -162,7 +162,7 @@ describe("List", () => {
 
   it("consoles a warning when no children are passed or the `listItems` prop is not passed", () => {
     const warn = jest.spyOn(console, "warn");
-    render(<List listContainer="ol"></List>);
+    render(<List variant="ol"></List>);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir List: Pass in either `<li>` children or pass data in " +
         "the `listItems` prop, not both."
@@ -172,7 +172,7 @@ describe("List", () => {
   it("consoles a warning when you pass an ordered or unordered list children that aren't <li>s", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <List listContainer="ol">
+      <List variant="ol">
         <span>Mahi-mahi</span>
         <span>Golden trout</span>
         <span>Rainbowfish</span>
@@ -186,7 +186,7 @@ describe("List", () => {
   it("consoles a warning when you pass a description list children that aren't `<dt>`s or `<dd>`s", () => {
     const warn = jest.spyOn(console, "warn");
     render(
-      <List listContainer="dl">
+      <List variant="dl">
         <span>Mahi-mahi</span>
         <span>Golden trout</span>
         <span>Rainbowfish</span>
@@ -200,27 +200,23 @@ describe("List", () => {
 
   it("Renders the UI snapshot correctly", () => {
     const unordered = renderer
-      .create(<List id="unordered" listContainer="ul" listItems={fishArray} />)
+      .create(<List id="unordered" variant="ul" listItems={fishArray} />)
       .toJSON();
     const unorderedNoStyling = renderer
       .create(
-        <List id="ordered" listContainer="ul" listItems={fishArray} noStyling />
+        <List id="ordered" variant="ul" listItems={fishArray} noStyling />
       )
       .toJSON();
     const ordered = renderer
       .create(
-        <List
-          id="unordered-no-styling"
-          listContainer="ol"
-          listItems={fishArray}
-        />
+        <List id="unordered-no-styling" variant="ol" listItems={fishArray} />
       )
       .toJSON();
     const orderedNoStyling = renderer
       .create(
         <List
           id="ordered-no-styling"
-          listContainer="ol"
+          variant="ol"
           listItems={fishArray}
           noStyling
         />
@@ -230,7 +226,7 @@ describe("List", () => {
       .create(
         <List
           id="description"
-          listContainer="dl"
+          variant="dl"
           title="Animal Crossing Fish"
           listItems={fishDescriptions}
         />
@@ -240,7 +236,7 @@ describe("List", () => {
       .create(
         <List
           id="description"
-          listContainer="dl"
+          variant="dl"
           title="Animal Crossing Fish"
           showRowDividers={false}
           listItems={fishDescriptions}
@@ -251,7 +247,7 @@ describe("List", () => {
       .create(
         <List
           id="chakra"
-          listContainer="ul"
+          variant="ul"
           listItems={fishArray}
           p="20px"
           color="ui.error.primary"
@@ -262,7 +258,7 @@ describe("List", () => {
       .create(
         <List
           id="other"
-          listContainer="ul"
+          variant="ul"
           listItems={fishArray}
           data-testid="other"
         />
@@ -272,7 +268,7 @@ describe("List", () => {
       .create(
         <List
           id="chakra"
-          listContainer="dl"
+          variant="dl"
           title="Animal Crossing Fish"
           listItems={fishDescriptions}
           p="20px"
@@ -284,7 +280,7 @@ describe("List", () => {
       .create(
         <List
           id="other"
-          listContainer="dl"
+          variant="dl"
           title="Animal Crossing Fish"
           listItems={fishDescriptions}
           data-testid="other"
@@ -312,7 +308,7 @@ describe("List", () => {
       HTMLDivElement & HTMLUListElement & HTMLOListElement
     >();
     const { container, rerender } = render(
-      <List ref={ref1} listContainer="ul">
+      <List ref={ref1} variant="ul">
         <li>Mahi-mahi</li>
         <li>Golden trout</li>
       </List>
@@ -326,7 +322,7 @@ describe("List", () => {
         listItems={fishDescriptions}
         ref={ref2}
         title="Animal Crossing Fish"
-        listContainer="dl"
+        variant="dl"
       />
     );
 

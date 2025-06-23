@@ -67,7 +67,7 @@ export const StyledList: ChakraComponent<
     // it is not enforced. Only a warning is logged to the console.
     checkListChildrenError({
       children,
-      listContainer: "ul",
+      variant: "ul",
       componentName: "StyledList",
     });
 
