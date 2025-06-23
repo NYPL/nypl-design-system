@@ -105,7 +105,7 @@ export interface InputProps extends TextInputPropsWithHTML {
    * True by default. */
   showRequiredLabel?: boolean;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
-  variant?: TextInputVariants;
+  textInputVariant?: TextInputVariants;
 }
 
 /**
@@ -156,7 +156,7 @@ export const TextInput: ChakraComponent<
         showRequiredLabel = true,
         requiredLabelText,
         step = 1,
-        variant = "default",
+        textInputVariant = "default",
         inputType = "text",
         value,
         ...rest
@@ -168,7 +168,7 @@ export const TextInput: ChakraComponent<
       const finalRef = ref ? mergedRefs : closedRef;
       const styles = useMultiStyleConfig("TextInput", {
         showLabel,
-        variant,
+        variant: textInputVariant,
       });
       const isTextArea = inputType === "textarea";
       const isHidden = inputType === "hidden";

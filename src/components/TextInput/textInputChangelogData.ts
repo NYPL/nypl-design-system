@@ -17,7 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes `defaultValue`, `max`, `maxLength`, `min`, `name`, `onChange`, `onClick`, `onFocus`, `pattern`, `placeholder`, `step`, and `value` props (as HTML equivalents may be used) and updates docs.",
-      "Renames `textInputType` to `variant`, and `type` to `inputType`.",
+      "Renames `textInputType` to `textInputVariant`, and `type` to `inputType`.",
     ],
   },
   {
