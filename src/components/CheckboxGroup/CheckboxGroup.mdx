@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import { changelogData } from "./checkboxGroupChangelogData";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
-import * as CheckboxGroupStories from "./CheckboxGroup.stories";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as CheckboxGroupStories from "./CheckboxGroup.stories";
+import { changelogData } from "./checkboxGroupChangelogData";
 
 <Meta of={CheckboxGroupStories} />
 
-# CheckboxGroup
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="CheckboxGroup"
+  summary="Grouping of related options that allows a user to select one or more options"
+  versionAdded="0.25.1"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.25.1`     |
-| Latest            | `Prerelease` |
+<Canvas of={CheckboxGroupStories.WithControls} />
 
 ## Table of Contents
 
@@ -34,8 +38,6 @@ import Link from "../Link/Link";
 <Description of={CheckboxGroupStories} />
 
 ## Component Props
-
-<Canvas of={CheckboxGroupStories.WithControls} />
 
 The `CheckboxGroup` composes a Chakra `Box` component, so you may pass
 most Chakra `Box` props, as well as the props below. Note, if using the

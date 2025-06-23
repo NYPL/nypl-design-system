@@ -2,18 +2,22 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as MultiSelectStories from "./MultiSelect.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as MultiSelectStories from "./MultiSelect.stories";
 import { changelogData } from "./multiSelectChangelogData";
 
 <Meta of={MultiSelectStories} />
 
-# MultiSelect
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="MultiSelect"
+  summary="Grouping of related options rendered in a menu format that allows a user to select one or more options"
+  versionAdded="1.4.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `1.4.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={MultiSelectStories.withControls} />
 
 ## Table of Contents
 
@@ -43,8 +47,6 @@ import { changelogData } from "./multiSelectChangelogData";
 ## Component Props
 
 The `MultiSelect` renders a non-hierarchical list of items to select from.
-
-<Canvas of={MultiSelectStories.withControls} />
 
 <Source
   code={`

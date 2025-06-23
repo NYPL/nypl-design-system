@@ -1,17 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import { changelogData } from "./filterBarInlineChangelogData";
+
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as FilterBarInlineStories from "./FilterBarInline.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as FilterBarInlineStories from "./FilterBarInline.stories";
+import { changelogData } from "./filterBarInlineChangelogData";
 
 <Meta of={FilterBarInlineStories} />
 
-# FilterBarInline
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="FilterbarInline"
+  summary="Container element for displaying filter components within a page layout"
+  versionAdded="3.2.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `3.2.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={FilterBarInlineStories.WithControls} />
 
 ## Table of Contents
 
@@ -44,8 +49,6 @@ additional `Clear All` and a `Apply Filters` buttons. The two _optional_ buttons
 controlled by the `onClear` or `onSubmit` props respectively.
 
 ## Component Props
-
-<Canvas of={FilterBarInlineStories.WithControls} />
 
 `FilterBarInline` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.

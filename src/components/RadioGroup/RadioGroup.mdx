@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import * as RadioGroupStories from "./RadioGroup.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as RadioGroupStories from "./RadioGroup.stories";
 import { changelogData } from "./radioGroupChangelogData";
 
 <Meta of={RadioGroupStories} />
 
-# RadioGroup
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="RadioGroup"
+  summary="Grouping of related Radio components"
+  versionAdded="0.25.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.25.0`     |
-| Latest            | `Prerelease` |
+<Canvas of={RadioGroupStories.Controls} />
 
 ## Table of Contents
 
@@ -30,8 +34,6 @@ import { changelogData } from "./radioGroupChangelogData";
 <Description of={RadioGroupStories} />
 
 ## Component Props
-
-<Canvas of={RadioGroupStories.Controls} />
 
 The `RadioGroup` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.
