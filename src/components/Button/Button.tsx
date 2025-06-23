@@ -98,7 +98,7 @@ export const Button: ChakraComponent<
       }
 
       styles = useMultiStyleConfig("ReservoirButton", {
-        finalVariant,
+        variant: finalVariant,
         buttonSize: size,
       });
 

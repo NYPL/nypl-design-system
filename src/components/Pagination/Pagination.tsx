@@ -146,7 +146,7 @@ export const Pagination: ChakraComponent<
             ...styles.previousNextElement,
             ...disabledStyles,
           }}
-          type="action"
+          variant="action"
           aria-label={`${isPrevious ? "Previous" : "Next"} page`}
           aria-disabled={isDisabled}
           onClick={

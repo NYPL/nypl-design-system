@@ -207,7 +207,7 @@ export const Link: ChakraComponent<
     const styles = useMultiStyleConfig("Link", {
       finalIsUnderlined,
       hasVisitedState,
-      finalVariant,
+      variant: finalVariant,
     });
     const sanitizedId = id
       ? id

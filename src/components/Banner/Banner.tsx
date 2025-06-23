@@ -150,15 +150,15 @@ export const Banner: ChakraComponent<
     } = props;
     const [isOpen, setIsOpen] = useState(true);
     const handleClose = () => setIsOpen(false);
-    const overrideGivenVariant = !!(backgroundColor && highlightColor);
+    const overrideVariant = !!(backgroundColor && highlightColor);
     const styles = useMultiStyleConfig("Banner", {
       // Only set the custom `backgroundColor` and `highlightColor` values
       // if they are both set.
-      backgroundColor: overrideGivenVariant ? backgroundColor : undefined,
-      highlightColor: overrideGivenVariant ? highlightColor : undefined,
+      backgroundColor: overrideVariant ? backgroundColor : undefined,
+      highlightColor: overrideVariant ? highlightColor : undefined,
       // If `backgroundColor` and `highlightColor` are set, then it
       // overrides the Banner variant.
-      variant: overrideGivenVariant ? undefined : variant,
+      variant: overrideVariant ? undefined : variant,
     });
     const generalHeadingProps = {
       size: "heading6" as HeadingSizes,

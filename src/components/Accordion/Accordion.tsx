@@ -12,7 +12,8 @@ import React, { forwardRef, useEffect, useState } from "react";
 
 import Icon from "../Icons/Icon";
 
-export type AccordionVariants = "default" | "warning" | "error";
+export const accordionVariantsArray = ["default", "warning", "error"] as const;
+export type AccordionVariants = typeof accordionVariantsArray[number];
 export interface AccordionDataProps {
   variant?: AccordionVariants;
   ariaLabel?: string;

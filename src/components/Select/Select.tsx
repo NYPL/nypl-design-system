@@ -16,8 +16,8 @@ import Icon from "../Icons/Icon";
 import Label from "../Label/Label";
 import { getAriaAttrs } from "../../utils/utils";
 
-export const selectVariantsArray = ["default", "searchbar"];
-export const labelPositionsArray = ["default", "inline"];
+export const selectVariantsArray = ["default", "searchbar"] as const;
+export const labelPositionsArray = ["default", "inline"] as const;
 export type SelectVariants = typeof selectVariantsArray[number];
 export type LabelPositions = typeof labelPositionsArray[number];
 

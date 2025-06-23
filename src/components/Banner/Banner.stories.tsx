@@ -64,7 +64,7 @@ export const WithControls: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?variant=design&node-id=86601-97661&mode=design&t=wZy1nqVOOZ4Dzuu2-11",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=86601-97661&mode=design&t=wZy1nqVOOZ4Dzuu2-11",
     },
     jest: ["Banner.test.tsx"],
   },
