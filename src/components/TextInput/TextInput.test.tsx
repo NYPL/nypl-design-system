@@ -16,7 +16,7 @@ describe("TextInput Accessibility", () => {
         labelText="Custom input label"
         onChange={jest.fn()}
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -31,7 +31,7 @@ describe("TextInput Accessibility", () => {
         onChange={jest.fn()}
         placeholder="Input Placeholder"
         showLabel={false}
-        inputType="text"
+        type="text"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -45,7 +45,7 @@ describe("TextInput Accessibility", () => {
         labelText="Custom input label"
         onChange={jest.fn()}
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
         value="input value"
       />
     );
@@ -60,7 +60,7 @@ describe("TextInput Accessibility", () => {
         labelText="Custom textarea label"
         onChange={jest.fn()}
         placeholder="Input Placeholder"
-        inputType="textarea"
+        type="textarea"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -81,7 +81,7 @@ describe("TextInput", () => {
         labelText="Custom Input Label"
         onChange={changeHandler}
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
       />
     );
   });
@@ -113,7 +113,7 @@ describe("TextInput", () => {
         labelText="Custom Email Input Label"
         onChange={changeHandler}
         placeholder="Email Input Placeholder"
-        inputType="email"
+        type="email"
       />
     );
 
@@ -133,7 +133,7 @@ describe("TextInput", () => {
         id="myEmailInput"
         labelText="Custom Email Input Label"
         onChange={changeHandler}
-        inputType="email"
+        type="email"
       />
     );
 
@@ -147,7 +147,7 @@ describe("TextInput", () => {
         id="myTelInput"
         labelText="Custom Tel Input Label"
         onChange={changeHandler}
-        inputType="tel"
+        type="tel"
       />
     );
 
@@ -158,7 +158,7 @@ describe("TextInput", () => {
         id="myURLInput"
         labelText="Custom URL Input Label"
         onChange={changeHandler}
-        inputType="url"
+        type="url"
       />
     );
 
@@ -174,7 +174,7 @@ describe("TextInput", () => {
         id="myEmailInput"
         labelText="Custom Email Input Label"
         onChange={changeHandler}
-        inputType="text"
+        type="text"
       />
     );
 
@@ -186,7 +186,7 @@ describe("TextInput", () => {
         id="myTelInput"
         labelText="Custom Tel Input Label"
         onChange={changeHandler}
-        inputType="text"
+        type="text"
       />
     );
 
@@ -198,7 +198,7 @@ describe("TextInput", () => {
         id="myURLInput"
         labelText="Custom URL Input Label"
         onChange={changeHandler}
-        inputType="email"
+        type="email"
       />
     );
 
@@ -217,7 +217,7 @@ describe("TextInput", () => {
         onChange={changeHandler}
         placeholder="Input Placeholder"
         showRequiredLabel={false}
-        inputType="text"
+        type="text"
       />
     );
 
@@ -234,7 +234,7 @@ describe("TextInput", () => {
         labelText="Custom Input Label"
         onChange={changeHandler}
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
       />
     );
     expect(screen.getByText("Custom Input Label")).toBeInTheDocument();
@@ -251,7 +251,7 @@ describe("TextInput", () => {
         onChange={changeHandler}
         placeholder="Input Placeholder"
         showRequiredLabel={false}
-        inputType="text"
+        type="text"
       />
     );
 
@@ -268,7 +268,7 @@ describe("TextInput", () => {
         onChange={changeHandler}
         placeholder="Input Placeholder"
         showLabel={false}
-        inputType="text"
+        type="text"
       />
     );
 
@@ -298,7 +298,7 @@ describe("TextInput", () => {
         onChange={changeHandler}
         placeholder="Input Placeholder"
         showLabel={false}
-        inputType="text"
+        type="text"
       />
     );
 
@@ -320,7 +320,7 @@ describe("TextInput", () => {
         isInvalid
         labelText="Custom Input Label"
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
       />
     );
 
@@ -341,7 +341,7 @@ describe("TextInput", () => {
         labelText="Custom Input Label"
         placeholder="Input Placeholder"
         showHelperInvalidText={false}
-        inputType="text"
+        type="text"
       />
     );
     expect(screen.queryByText("Custom Helper Text")).not.toBeInTheDocument();
@@ -383,7 +383,7 @@ describe("TextInput", () => {
         maxLength={10}
         onChange={onChangeSpy}
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
       />
     );
     expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
@@ -401,7 +401,7 @@ describe("TextInput", () => {
         pattern="[0-9]+"
         onChange={onChangeSpy}
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
       />
     );
     expect(screen.getByLabelText(/Input Label/i)).toHaveAttribute(
@@ -421,7 +421,7 @@ describe("TextInput", () => {
         labelText="Input Label"
         onChange={onChangeSpy}
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
       />
     );
     const clearButton = screen.queryByRole("button");
@@ -439,7 +439,7 @@ describe("TextInput", () => {
         maxLength={10}
         onChange={onChangeSpy}
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
       />
     );
     let clearButton = screen.queryByRole("button");
@@ -476,7 +476,7 @@ describe("TextInput", () => {
         labelText="Input Label"
         onChange={(e) => setValue(e.target.value)}
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
         value={value}
       />
     );
@@ -507,7 +507,7 @@ describe("TextInput", () => {
         maxLength={10}
         onChange={onChangeSpy}
         placeholder="Input Placeholder"
-        inputType="text"
+        type="text"
       />
     );
     let inputElement = screen.getByRole("textbox");
@@ -534,7 +534,7 @@ describe("TextInput", () => {
         labelText="Input Label"
         max={20}
         min={50}
-        inputType="number"
+        type="number"
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -561,7 +561,7 @@ describe("TextInput", () => {
         id="isClearable-warningn"
         isClearable
         labelText="Custom Input Label"
-        inputType="textarea"
+        type="textarea"
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -578,7 +578,7 @@ describe("Forwarding refs", () => {
         id="inputID-attributes"
         labelText="Input Label"
         placeholder={"Input Placeholder"}
-        inputType="text"
+        type="text"
         ref={ref}
       />
     );
@@ -592,7 +592,7 @@ describe("Forwarding refs", () => {
         id="inputID-attributes"
         labelText="Input Label"
         placeholder={"Input Placeholder"}
-        inputType="textarea"
+        type="textarea"
         ref={ref}
       />
     );
@@ -606,7 +606,7 @@ describe("Hidden input", () => {
       <TextInput
         id="inputID-hidden"
         labelText="Hidden Input Label"
-        inputType="hidden"
+        type="hidden"
         value="hidden"
       />
     );
@@ -626,7 +626,7 @@ describe("Hidden input", () => {
         helperText="Helper Text"
         id="inputID-hidden"
         labelText="Hidden Input Label"
-        inputType="hidden"
+        type="hidden"
         value="hidden"
       />
     );
@@ -643,7 +643,7 @@ describe("Textarea element type", () => {
         id="myTextarea"
         labelText="Custom textarea Label"
         placeholder="Textarea Placeholder"
-        inputType="textarea"
+        type="textarea"
       />
     );
   });
@@ -665,7 +665,7 @@ describe("UI Snapshots", () => {
           id="myTextarea"
           labelText="Custom textarea Label"
           placeholder="Textarea Placeholder"
-          inputType="textarea"
+          type="textarea"
         />
       )
       .toJSON();
@@ -676,7 +676,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          inputType="text"
+          type="text"
         />
       )
       .toJSON();
@@ -688,7 +688,7 @@ describe("UI Snapshots", () => {
           requiredLabelText="Obiligatoire"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          inputType="text"
+          type="text"
         />
       )
       .toJSON();
@@ -698,7 +698,7 @@ describe("UI Snapshots", () => {
           id="myTextInput"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          inputType="text"
+          type="text"
         />
       )
       .toJSON();
@@ -710,7 +710,7 @@ describe("UI Snapshots", () => {
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
           showLabel={false}
-          inputType="text"
+          type="text"
         />
       )
       .toJSON();
@@ -722,7 +722,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          inputType="text"
+          type="text"
         />
       )
       .toJSON();
@@ -734,7 +734,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          inputType="text"
+          type="text"
         />
       )
       .toJSON();
@@ -746,7 +746,7 @@ describe("UI Snapshots", () => {
           isRequired
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          inputType="text"
+          type="text"
         />
       )
       .toJSON();
@@ -757,7 +757,7 @@ describe("UI Snapshots", () => {
           isClearable
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          inputType="text"
+          type="text"
         />
       )
       .toJSON();
@@ -767,7 +767,7 @@ describe("UI Snapshots", () => {
           id="chakra"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          inputType="text"
+          type="text"
           p="20px"
           color="ui.error.primary"
         />
@@ -779,7 +779,7 @@ describe("UI Snapshots", () => {
           id="props"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          inputType="text"
+          type="text"
           data-testid="props"
         />
       )
@@ -791,7 +791,7 @@ describe("UI Snapshots", () => {
           id="autocomplete"
           labelText="Custom Input Label"
           placeholder="Input Placeholder"
-          inputType="text"
+          type="text"
         />
       )
       .toJSON();

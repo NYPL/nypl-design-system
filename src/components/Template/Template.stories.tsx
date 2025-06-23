@@ -307,14 +307,10 @@ export const TemplateFullExample: Story = {
                 />
               </FormField>
               <FormField>
-                <TextInput
-                  id="url-field"
-                  labelText="URL Field"
-                  inputType="url"
-                />
+                <TextInput id="url-field" labelText="URL Field" type="url" />
               </FormField>
               <FormField>
-                <TextInput id="age-field" labelText="Age" inputType="number" />
+                <TextInput id="age-field" labelText="Age" type="number" />
               </FormField>
             </FormRow>
             <FormField>

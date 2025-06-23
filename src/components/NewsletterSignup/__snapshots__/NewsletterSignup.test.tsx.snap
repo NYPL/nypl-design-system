@@ -55,7 +55,6 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
           <div
             className="css-1u8qly9"
             id="email-input-wrapper"
-            type="email"
           >
             <label
               className="css-1xdhyk6"
@@ -74,7 +73,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
                 aria-describedby="email-input-helperText"
                 aria-invalid={true}
                 aria-required={true}
-                autoComplete={null}
+                autoComplete="email"
                 className="chakra-input css-1xdhyk6"
                 disabled={false}
                 id="email-input"
@@ -385,7 +384,6 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
           <div
             className="css-1u8qly9"
             id="email-input-wrapper"
-            type="email"
           >
             <label
               className="css-1xdhyk6"
@@ -401,8 +399,9 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               className="css-79elbk"
             >
               <input
+                aria-describedby="email-input-helperText"
                 aria-required={true}
-                autoComplete={null}
+                autoComplete="email"
                 className="chakra-input css-1xdhyk6"
                 disabled={false}
                 id="email-input"
@@ -416,6 +415,21 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
                 type="email"
                 value=""
               />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+              </div>
             </div>
           </div>
         </div>
@@ -497,7 +511,6 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
           <div
             className="css-1u8qly9"
             id="email-input-wrapper"
-            type="email"
           >
             <label
               className="css-1xdhyk6"
@@ -513,8 +526,9 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               className="css-79elbk"
             >
               <input
+                aria-describedby="email-input-helperText"
                 aria-required={true}
-                autoComplete={null}
+                autoComplete="email"
                 className="chakra-input css-1xdhyk6"
                 disabled={false}
                 id="email-input"
@@ -528,6 +542,21 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
                 type="email"
                 value=""
               />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+              </div>
             </div>
           </div>
         </div>
@@ -604,7 +633,6 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
           <div
             className="css-1u8qly9"
             id="email-input-wrapper"
-            type="email"
           >
             <label
               className="css-1xdhyk6"
@@ -622,7 +650,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               <input
                 aria-describedby="email-input-helperText"
                 aria-required={true}
-                autoComplete={null}
+                autoComplete="email"
                 className="chakra-input css-1xdhyk6"
                 disabled={false}
                 id="email-input"
@@ -646,12 +674,12 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
             >
               <div
                 className="css-0"
-                dangerouslySetInnerHTML={
-                  {
-                    "__html": "You need help.",
-                  }
-                }
-              />
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+                You need help.
+              </div>
             </div>
           </div>
         </div>
@@ -728,7 +756,6 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
           <div
             className="css-1u8qly9"
             id="email-input-wrapper"
-            type="email"
           >
             <label
               className="css-1xdhyk6"
@@ -744,8 +771,9 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               className="css-79elbk"
             >
               <input
+                aria-describedby="email-input-helperText"
                 aria-required={true}
-                autoComplete={null}
+                autoComplete="email"
                 className="chakra-input css-1xdhyk6"
                 disabled={true}
                 id="email-input"
@@ -759,6 +787,21 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
                 type="email"
                 value=""
               />
+            </div>
+            <div
+              aria-atomic={true}
+              aria-live="polite"
+              className="css-1xdhyk6"
+              data-isinvalid={false}
+              id="email-input-helperText"
+            >
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+              </div>
             </div>
           </div>
         </div>

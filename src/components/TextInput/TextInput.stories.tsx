@@ -48,7 +48,7 @@ const meta: Meta<typeof TextInput> = {
       control: false,
       table: { defaultValue: { summary: "default" } },
     },
-    inputType: {
+    type: {
       control: { type: "select" },
       options: textInputTypesArray,
       table: { defaultValue: { summary: "text" } },
@@ -93,7 +93,7 @@ export const WithControls: Story = {
     showRequiredLabel: true,
     step: 1,
     variant: "default",
-    inputType: "text",
+    type: "text",
     value: undefined,
   },
   render: (args) => <TextInput {...args} />,
@@ -289,7 +289,7 @@ export const NumberType: Story = {
         max={20}
         min={10}
         placeholder="i.e. 1, 2, 3, etc."
-        inputType="number"
+        type="number"
       />
       <TextInput
         helperText="The min value is 30 and the max value is 5."
@@ -299,7 +299,7 @@ export const NumberType: Story = {
         max={5}
         min={30}
         placeholder="i.e. 1, 2, 3, etc."
-        inputType="number"
+        type="number"
       />
     </VStack>
   ),
@@ -371,11 +371,11 @@ export const Textarea: Story = {
     showRequiredLabel: true,
     step: 1,
     variant: "default",
-    inputType: "textarea",
+    type: "textarea",
     value: undefined,
   },
   argTypes: {
-    inputType: { control: false },
+    type: { control: false },
     variant: { control: false },
   },
   render: (args) => <TextInput {...args} />,
