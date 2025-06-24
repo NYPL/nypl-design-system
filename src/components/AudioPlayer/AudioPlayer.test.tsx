@@ -59,7 +59,7 @@ describe("AudioPlayer valid render", () => {
   });
 
   it("Renders AudioPlayer container", () => {
-    expect(screen.getByTestId("audioPlayer")).toBeInTheDocument();
+    expect(screen.getByTestId("ds-audioPlayer")).toBeInTheDocument();
   });
 
   it("Renders iframe", () => {

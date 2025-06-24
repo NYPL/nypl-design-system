@@ -3,6 +3,7 @@
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] = `
 <fieldset
   className="css-1xdhyk6"
+  data-testid="ds-fieldset"
   id="multiselect-group-MultiSelectGroup"
 >
   <legend>
@@ -20,7 +21,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        data-testid="accordion"
+        data-testid="ds-accordion"
         id="multi-select-accordion-colors"
         onKeyDown={[Function]}
       >
@@ -86,7 +87,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-colors-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="multi-select-checkbox-group-colors"
                   >
                     <legend>
                       MultiSelect
@@ -94,11 +96,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-colors"
+                      id="multi-select-checkbox-group-colors-stack"
                     >
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="red-componentWrapper"
                       >
                         <label
@@ -152,7 +154,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="blue-componentWrapper"
                       >
                         <label
@@ -206,7 +208,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="yellow-componentWrapper"
                       >
                         <label
@@ -285,7 +287,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        data-testid="accordion"
+        data-testid="ds-accordion"
         id="multi-select-accordion-pets"
         onKeyDown={[Function]}
       >
@@ -351,7 +353,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-pets-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="multi-select-checkbox-group-pets"
                   >
                     <legend>
                       MultiSelect
@@ -359,11 +362,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-pets"
+                      id="multi-select-checkbox-group-pets-stack"
                     >
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="cat-componentWrapper"
                       >
                         <label
@@ -417,7 +420,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="dog-componentWrapper"
                       >
                         <label
@@ -471,7 +474,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="corgy-componentWrapper"
                       >
                         <label
@@ -525,7 +528,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="german-sheperd-componentWrapper"
                       >
                         <label
@@ -579,7 +582,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="afghan-hound-componentWrapper"
                       >
                         <label
@@ -633,7 +636,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="rat-componentWrapper"
                       >
                         <label
@@ -712,7 +715,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        data-testid="accordion"
+        data-testid="ds-accordion"
         id="multi-select-accordion-tools"
         onKeyDown={[Function]}
       >
@@ -778,7 +781,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-tools-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="multi-select-checkbox-group-tools"
                   >
                     <legend>
                       MultiSelect
@@ -786,11 +790,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-tools"
+                      id="multi-select-checkbox-group-tools-stack"
                     >
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="hammer-componentWrapper"
                       >
                         <label
@@ -844,7 +848,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="skrewdriver-componentWrapper"
                       >
                         <label
@@ -898,7 +902,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="slottet-componentWrapper"
                       >
                         <label
@@ -952,7 +956,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="phillips-componentWrapper"
                       >
                         <label
@@ -1006,7 +1010,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="allen-componentWrapper"
                       >
                         <label
@@ -1060,7 +1064,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="whisk-componentWrapper"
                       >
                         <label
@@ -1139,6 +1143,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] = `
 <fieldset
   className="css-1xdhyk6"
+  data-testid="ds-fieldset"
   id="multiselect-group-MultiSelectGroup"
 >
   <legend>
@@ -1156,7 +1161,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        data-testid="accordion"
+        data-testid="ds-accordion"
         id="multi-select-accordion-colors"
         onKeyDown={[Function]}
       >
@@ -1222,7 +1227,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-colors-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="multi-select-checkbox-group-colors"
                   >
                     <legend>
                       MultiSelect
@@ -1230,11 +1236,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-colors"
+                      id="multi-select-checkbox-group-colors-stack"
                     >
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="red-componentWrapper"
                       >
                         <label
@@ -1288,7 +1294,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="blue-componentWrapper"
                       >
                         <label
@@ -1342,7 +1348,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="yellow-componentWrapper"
                       >
                         <label
@@ -1421,7 +1427,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        data-testid="accordion"
+        data-testid="ds-accordion"
         id="multi-select-accordion-pets"
         onKeyDown={[Function]}
       >
@@ -1487,7 +1493,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-pets-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="multi-select-checkbox-group-pets"
                   >
                     <legend>
                       MultiSelect
@@ -1495,11 +1502,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-pets"
+                      id="multi-select-checkbox-group-pets-stack"
                     >
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="cat-componentWrapper"
                       >
                         <label
@@ -1553,7 +1560,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="dog-componentWrapper"
                       >
                         <label
@@ -1607,7 +1614,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="corgy-componentWrapper"
                       >
                         <label
@@ -1661,7 +1668,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="german-sheperd-componentWrapper"
                       >
                         <label
@@ -1715,7 +1722,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="afghan-hound-componentWrapper"
                       >
                         <label
@@ -1769,7 +1776,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="rat-componentWrapper"
                       >
                         <label
@@ -1848,7 +1855,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        data-testid="accordion"
+        data-testid="ds-accordion"
         id="multi-select-accordion-tools"
         onKeyDown={[Function]}
       >
@@ -1914,7 +1921,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-tools-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="multi-select-checkbox-group-tools"
                   >
                     <legend>
                       MultiSelect
@@ -1922,11 +1930,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-tools"
+                      id="multi-select-checkbox-group-tools-stack"
                     >
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="hammer-componentWrapper"
                       >
                         <label
@@ -1980,7 +1988,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="skrewdriver-componentWrapper"
                       >
                         <label
@@ -2034,7 +2042,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="slottet-componentWrapper"
                       >
                         <label
@@ -2088,7 +2096,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="phillips-componentWrapper"
                       >
                         <label
@@ -2142,7 +2150,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="allen-componentWrapper"
                       >
                         <label
@@ -2196,7 +2204,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                       <div
                         className="css-1xdhyk6"
-                        data-testid="componentWrapper"
+                        data-testid="ds-checkbox"
                         id="whisk-componentWrapper"
                       >
                         <label

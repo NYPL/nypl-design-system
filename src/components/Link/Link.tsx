@@ -32,8 +32,6 @@ export interface LinkProps
     Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "color"> {
   /** Used to include or remove visited state styles. Default is true. */
   hasVisitedState?: boolean;
-  /** ID used for accessibility purposes. */
-  id?: string;
   /** Used to explicitly set the underline style for a text link. If true, link
    * text will always be underlined; if false, link text will only show
    * underline in hover state. */
@@ -52,16 +50,16 @@ export interface LinkProps
 function getWithDirectionIcon({
   children,
   type,
-  linkId,
+  id,
 }: {
   children: JSX.Element;
   type: LinkTypes;
-  linkId: string;
+  id: string;
 }) {
   const linkProps: any = {
     align: undefined,
     iconRotation: undefined,
-    id: `${linkId}-direction-icon`,
+    id: `${id}-direction-icon`,
   };
   let icon;
 
@@ -88,14 +86,14 @@ function getWithDirectionIcon({
 
 function getExternalExtraElements({
   children,
-  linkId,
+  id,
   styles,
 }: {
   children: JSX.Element;
-  linkId: string;
+  id: string;
   styles: object;
 }) {
-  const iconId = `${linkId}-external-icon`;
+  const iconId = `${id}-external-icon`;
   const extraElements = (
     <>
       <Box as="span" __css={styles}>
@@ -119,8 +117,8 @@ function getExternalExtraElements({
   );
 }
 
-function getStandaloneIcon(children: JSX.Element, linkId: string) {
-  const iconId = `${linkId}-standalone-icon`;
+function getStandaloneIcon(children: JSX.Element, id: string) {
+  const iconId = `${id}-standalone-icon`;
   const extraElements = (
     <Icon
       align="right"
@@ -218,12 +216,12 @@ export const Link: ChakraComponent<
         getWithDirectionIcon({
           children: children as JSX.Element,
           type,
-          linkId: sanitizedId,
+          id: sanitizedId,
         })) ||
       (type === "external" &&
         getExternalExtraElements({
           children: children as JSX.Element,
-          linkId: sanitizedId,
+          id: sanitizedId,
           styles: styles.screenreaderOnly,
         })) ||
       (type === "standalone" &&

@@ -6,7 +6,9 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+
 import Image, { ImageProps } from "../Image/Image";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export const featuredContentWidthArray = [
   "oneQuarter",
@@ -30,8 +32,6 @@ export interface FeaturedContentImageProps
 }
 
 export interface FeaturedContentProps extends BoxProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** The text content rendered in the component.  DS components and native HTML can be passed in this prop. */
   textContent: string | JSX.Element;
   /** Whether component will fill the full width of the browser window, instead of just its parent element.
@@ -62,6 +62,7 @@ export const FeaturedContent: ChakraComponent<
     (props, ref?) => {
       const {
         textContent,
+        id,
         isFullWidth,
         imageProps = {
           alt: "",
@@ -71,6 +72,7 @@ export const FeaturedContent: ChakraComponent<
         },
         ...rest
       } = props;
+      const mainId = useSafeId(id);
       const styles = useMultiStyleConfig("FeaturedContent", {
         imagePosition: imageProps.position,
         imageWidth: imageProps.width,
@@ -90,26 +92,27 @@ export const FeaturedContent: ChakraComponent<
 
       return (
         <Box
-          data-testid="featuredcontent"
+          data-testid="ds-featuredContent"
+          id={mainId}
           __css={styles.base}
           ref={ref}
           {...rest}
         >
           <Box __css={styles.wrapper} data-wrapper>
             <Box
-              data-testid="featuredcontent-bg-image"
+              data-testid="ds-featuredContent-bgImage"
+              data-imagewrapper
               __css={{
                 ...styles.imgWrapper,
                 backgroundImage: `/**/url(${imageProps.src})`,
               }}
-              data-imagewrapper
             >
               <FeaturedContentImage
                 alt={imageProps.alt}
                 src={imageProps.src ? imageProps.src : undefined}
               />
             </Box>
-            <Box __css={styles.text} data-text>
+            <Box data-text __css={styles.text}>
               {textContent}
             </Box>
           </Box>

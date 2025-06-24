@@ -33,7 +33,6 @@ const meta: Meta<typeof Icon> = {
       options: iconRotationsArray,
       table: { defaultValue: { summary: "rotate0" } },
     },
-    id: { control: false },
     name: {
       control: { type: "select" },
       options: iconNamesArray,

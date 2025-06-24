@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   Modal,
   ModalBody,
@@ -21,11 +22,9 @@ import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
 import { SelectedItems } from "../MultiSelect/MultiSelect";
 import useNYPLBreapoints from "../../hooks/useNYPLBreakpoints";
+import { useSafeId } from "../../hooks/useSafeId";
 
-interface FilterBarCommonProps {
-  children: React.ReactNode;
-  /** The id of the MultiSelect. */
-  id?: string;
+interface FilterBarCommonProps extends BoxProps {
   /** Determines on Mobile if filter modal overlay is open or closed */
   isOpen: boolean;
   /** Heading text of FilterBar */
@@ -105,7 +104,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
         filterWidth,
         ...rest
       } = props;
-
+      const mainId = useSafeId(id);
       const { isLargerThanMedium } = useNYPLBreapoints();
       const finalLayout = isLargerThanMedium ? layout : "column";
       const finalWidth = isLargerThanMedium
@@ -166,7 +165,13 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
         }
       );
       return (
-        <Box id={`filter-bar-${id}`} __css={styles} ref={ref} {...rest}>
+        <Box
+          id={`${mainId}`}
+          data-testid="ds-filterBar"
+          __css={styles}
+          ref={ref}
+          {...rest}
+        >
           {isLargerThanMedium ? (
             <>
               {headingText && (
@@ -224,7 +229,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
           ) : (
             <>
               <Button
-                id={`filter-bar-${id}-show-filters`}
+                id={`${mainId}-show-filters`}
                 buttonType="secondary"
                 onClick={() => {
                   onToggle === undefined ? onOpen() : onToggle();
@@ -250,7 +255,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
                   <ModalFooter sx={styles.modalFooter}>
                     <ButtonGroup layout="row" buttonWidth="full">
                       <Button
-                        id={`filter-bar-${id}-see-results`}
+                        id={`${mainId}-see-results`}
                         type="submit"
                         onClick={() => {
                           onSubmit();
@@ -260,7 +265,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
                         Show Results
                       </Button>
                       <Button
-                        id={`filter-bar-${id}-clear`}
+                        id={`${mainId}-clear`}
                         buttonType="text"
                         type="reset"
                         textAlign="center"

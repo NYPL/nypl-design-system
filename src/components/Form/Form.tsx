@@ -8,22 +8,21 @@ import {
 import React, { FormHTMLAttributes, forwardRef } from "react";
 
 import SimpleGrid, { GridGaps } from "../Grid/SimpleGrid";
+import { useSafeId } from "../../hooks/useSafeId";
 
 interface FormBaseProps
-  extends Pick<BoxProps, "className" | keyof ChakraProps> {
+  extends Pick<BoxProps, "id" | "className" | keyof ChakraProps> {
   /** Optional spacing size; if omitted, the default `large` (2rem / 32px)
    * spacing will be used; ```IMPORTANT: for general form layout, this prop
    * should not be used``` */
   gap?: GridGaps;
-  /** ID that other components can cross reference (internal use) */
-  id: string;
 }
 
 export interface FormChildProps extends Partial<FormBaseProps> {}
 
 export interface FormProps
   extends FormBaseProps,
-    Omit<FormHTMLAttributes<HTMLFormElement>, "color" | "id"> {}
+    Omit<FormHTMLAttributes<HTMLFormElement>, "color"> {}
 
 /** FormRow child-component */
 export const FormRow: ChakraComponent<
@@ -98,13 +97,7 @@ export const Form: ChakraComponent<
       onSubmit,
       ...rest
     } = props;
-
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Form: This component's required `id` prop was not passed."
-      );
-    }
-
+    const mainId = useSafeId(id);
     const attributes: Partial<FormProps> = {};
     action && (attributes["action"] = action);
 
@@ -116,7 +109,7 @@ export const Form: ChakraComponent<
       children as JSX.Element,
       (child: React.ReactElement, i) => {
         return (
-          child && React.cloneElement(child, { gap, id: `${id}-child${i}` })
+          child && React.cloneElement(child, { gap, id: `${mainId}-child${i}` })
         );
       }
     );
@@ -125,13 +118,13 @@ export const Form: ChakraComponent<
       <Box
         as="form"
         data-testid="ds-form"
-        id={id}
+        id={mainId}
         onSubmit={onSubmit}
         ref={ref}
         {...attributes}
         {...rest}
       >
-        <SimpleGrid columns={1} gap={gap} id={`${id}-parent`}>
+        <SimpleGrid columns={1} gap={gap} id={`${mainId}-parent`}>
           {alteredChildren}
         </SimpleGrid>
       </Box>

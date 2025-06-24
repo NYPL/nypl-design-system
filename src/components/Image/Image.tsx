@@ -56,8 +56,6 @@ export interface ComponentImageProps extends Partial<HTMLImageElement> {
   credit?: string;
   /** Fallback image path or URL. */
   fallbackSrc?: string;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Flag to set the internal `Image` component to `isLazy` mode. */
   isLazy?: boolean;
   /** Additional action to perform in the `img`'s `onerror` attribute function. */
@@ -73,8 +71,6 @@ export interface ComponentImageProps extends Partial<HTMLImageElement> {
 interface ImageWrapperProps {
   /** Optionally pass in additional Chakra-based styles. */
   additionalWrapperStyles?: { [key: string]: any };
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional value to control the aspect ratio of the card image; default
    * value is `"original"` */
   ratio?: ImageRatios;
@@ -129,6 +125,7 @@ const ImageWrapper = chakra(
     return (
       <Box
         className={`the-wrap ${className}`}
+        data-testid="ds-imageWrapper"
         id={id}
         __css={{ ...styles.base, ...additionalWrapperStyles }}
         {...rest}
@@ -225,7 +222,7 @@ export const Image: ChakraComponent<
       <Box
         as="img"
         alt={alt}
-        id={id ? id : null}
+        id={id}
         loading={isLazy ? "lazy" : undefined}
         onError={fallbackSrc && onImageError}
         {...srcProp}
@@ -250,7 +247,11 @@ export const Image: ChakraComponent<
     );
 
     return (
-      <Box ref={finalRefs}>
+      <Box
+        id={id ? `${id}-image` : undefined}
+        data-testid="ds-image"
+        ref={finalRefs}
+      >
         {caption || credit ? (
           <Box
             as="figure"

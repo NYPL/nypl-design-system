@@ -14,7 +14,6 @@ const meta: Meta<typeof FeaturedContent> = {
   title: "Components/Basic Elements/FeaturedContent",
   component: FeaturedContent,
   argTypes: {
-    id: { control: false },
     isFullWidth: {
       table: { defaultValue: { summary: "false" } },
     },

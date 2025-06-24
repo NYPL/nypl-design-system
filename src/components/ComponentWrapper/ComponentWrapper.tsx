@@ -43,6 +43,8 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
         showHelperInvalidText = true,
         ...rest
       } = props;
+      // ComponentWrapper does not use the `useSafeId` hook since
+      // it is used as a wrapper component.
       const mainId = id ? `${id}-componentWrapper` : undefined;
       const helperErrorTextId = id ? `${id}-helperText` : undefined;
       const hasChildren = !!children;
@@ -60,7 +62,7 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
 
       return (
         <Box
-          data-testid="componentWrapper"
+          data-testid="ds-componentWrapper"
           id={mainId}
           ref={ref}
           __css={styles}

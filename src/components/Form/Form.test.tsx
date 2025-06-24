@@ -177,24 +177,6 @@ describe("Form", () => {
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <Form>
-        <FormRow>
-          <FormField>
-            <TextInput id="textInput" labelText="Input Field" />
-          </FormField>
-        </FormRow>
-      </Form>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Form: This component's required `id` prop was not passed."
-    );
-  });
-
   it("passes a ref to the form element", () => {
     const ref = React.createRef<HTMLDivElement & HTMLFormElement>();
     const { container } = render(

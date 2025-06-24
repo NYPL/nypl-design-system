@@ -10,13 +10,12 @@ import {
 } from "../MultiSelect/MultiSelect";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Heading, { HeadingSizes } from "../Heading/Heading";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export type FilterBarItemsType =
   | (boolean | number | number[] | string | string[] | MultiSelectItems)[];
 
 export interface FilterBarInlineProps extends BoxProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional string value used to set the text for a `Heading` component, or
    * a DS Heading component that can be passed in.
    */
@@ -63,7 +62,7 @@ export const FilterBarInline: ChakraComponent<
         renderChildren,
         ...rest
       } = props;
-
+      const mainId = useSafeId(id);
       const generalHeadingProps = {
         size: "heading5" as HeadingSizes,
       };
@@ -79,7 +78,8 @@ export const FilterBarInline: ChakraComponent<
 
       return (
         <ComponentWrapper
-          id={`filter-bar-inline-${id}`}
+          id={`${mainId}-filterBarInline`}
+          data-testid="ds-filterBarInline"
           headingText={finalHeading}
           ref={ref}
           {...rest}
@@ -112,7 +112,7 @@ export const FilterBarInline: ChakraComponent<
                 {onSubmit && (
                   <Button
                     buttonType="primary"
-                    id={`${id}-submit-all-button`}
+                    id={`${mainId}-submit-all`}
                     onClick={onSubmit}
                   >
                     Apply filters
@@ -121,7 +121,7 @@ export const FilterBarInline: ChakraComponent<
                 {onClear && (
                   <Button
                     buttonType="text"
-                    id={`${id}-clear-all-button`}
+                    id={`${mainId}-clear-all`}
                     onClick={onClear}
                     textAlign="center"
                   >

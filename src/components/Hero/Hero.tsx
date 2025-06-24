@@ -19,7 +19,7 @@ export interface HeroImageProps
       "alt" | "fallbackSrc" | "id" | "src" | "onError" | "component"
     > {}
 
-export interface HeroProps {
+export interface HeroProps extends BoxProps {
   /**
    * Optional background color for the backdrop only in the `campaign` variant.
    * When both `backdropBackgroundColor` and `backgroundImageSrc` are passed,
@@ -42,8 +42,6 @@ export interface HeroProps {
   heading?: JSX.Element;
   /** Used to control how the `Hero` component will be rendered. */
   heroType?: HeroTypes;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Object used to create and render the `Image` component. You can pass `component`
    * (with its own internal props, which will override) or `src`, `alt`, `id`,
    * `fallBackSrc`, and `onError`. If `imageProps.alt` is left blank, a warning
@@ -299,7 +297,7 @@ export const Hero: ChakraComponent<
 
       return (
         <Box
-          data-testid="hero"
+          data-testid="ds-hero"
           data-responsive-background-image
           id={id}
           ref={ref}

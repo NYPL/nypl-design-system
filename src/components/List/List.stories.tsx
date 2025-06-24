@@ -10,7 +10,6 @@ const meta: Meta<typeof List> = {
   title: "Components/Typography & Styles/List",
   component: List,
   argTypes: {
-    id: { control: false },
     inline: argsBooleanType(),
     listItems: { control: false },
     noStyling: argsBooleanType(),

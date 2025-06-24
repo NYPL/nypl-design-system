@@ -15,7 +15,6 @@ const meta: Meta<typeof FeedbackBox> = {
   },
   argTypes: {
     hiddenFields: { control: false },
-    id: { control: false },
     isInvalidComment: { table: { defaultValue: { summary: "false" } } },
     isInvalidEmail: { table: { defaultValue: { summary: "false" } } },
     isOpen: { table: { disable: true } },

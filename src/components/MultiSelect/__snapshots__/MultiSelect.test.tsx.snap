@@ -8,7 +8,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    data-testid="accordion"
+    data-testid="ds-accordion"
     id="multi-select-accordion-multiselect-test-id"
     onKeyDown={[Function]}
   >
@@ -74,7 +74,8 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
             >
               <fieldset
                 className="css-1u8qly9"
-                id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
+                data-testid="ds-checkboxGroup"
+                id="multi-select-checkbox-group-multiselect-test-id"
               >
                 <legend>
                   multiselect-button-text
@@ -82,11 +83,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                 <div
                   className="chakra-stack css-19s3t1h"
                   data-testid="checkbox-group"
-                  id="multi-select-checkbox-group-multiselect-test-id"
+                  id="multi-select-checkbox-group-multiselect-test-id-stack"
                 >
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="dogs-componentWrapper"
                   >
                     <label
@@ -140,7 +141,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="cats-componentWrapper"
                   >
                     <label
@@ -194,7 +195,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="cars-componentWrapper"
                   >
                     <label
@@ -251,7 +252,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="colors-componentWrapper"
                   >
                     <label
@@ -305,7 +306,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="red-componentWrapper"
                   >
                     <label
@@ -359,7 +360,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="blue-componentWrapper"
                   >
                     <label
@@ -413,7 +414,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="plants-componentWrapper"
                   >
                     <label
@@ -467,7 +468,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="furniture-componentWrapper"
                   >
                     <label
@@ -549,7 +550,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    data-testid="accordion"
+    data-testid="ds-accordion"
     id="multi-select-accordion-multiselect-test-id"
     onKeyDown={[Function]}
   >
@@ -615,7 +616,8 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
             >
               <fieldset
                 className="css-1u8qly9"
-                id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
+                data-testid="ds-checkboxGroup"
+                id="multi-select-checkbox-group-multiselect-test-id"
               >
                 <legend>
                   multiselect-button-text
@@ -623,11 +625,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                 <div
                   className="chakra-stack css-19s3t1h"
                   data-testid="checkbox-group"
-                  id="multi-select-checkbox-group-multiselect-test-id"
+                  id="multi-select-checkbox-group-multiselect-test-id-stack"
                 >
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="dogs-componentWrapper"
                   >
                     <label
@@ -681,7 +683,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="cats-componentWrapper"
                   >
                     <label
@@ -735,7 +737,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="cars-componentWrapper"
                   >
                     <label
@@ -792,7 +794,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="colors-componentWrapper"
                   >
                     <label
@@ -846,7 +848,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="red-componentWrapper"
                   >
                     <label
@@ -900,7 +902,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="blue-componentWrapper"
                   >
                     <label
@@ -954,7 +956,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="plants-componentWrapper"
                   >
                     <label
@@ -1008,7 +1010,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="furniture-componentWrapper"
                   >
                     <label
@@ -1090,7 +1092,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    data-testid="accordion"
+    data-testid="ds-accordion"
     id="multi-select-accordion-multiselect-test-id"
     onKeyDown={[Function]}
   >
@@ -1156,7 +1158,8 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
             >
               <fieldset
                 className="css-1u8qly9"
-                id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
+                data-testid="ds-checkboxGroup"
+                id="multi-select-checkbox-group-multiselect-test-id"
               >
                 <legend>
                   multiselect-button-text
@@ -1164,11 +1167,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                 <div
                   className="chakra-stack css-19s3t1h"
                   data-testid="checkbox-group"
-                  id="multi-select-checkbox-group-multiselect-test-id"
+                  id="multi-select-checkbox-group-multiselect-test-id-stack"
                 >
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="dogs-componentWrapper"
                   >
                     <label
@@ -1222,7 +1225,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="cats-componentWrapper"
                   >
                     <label
@@ -1276,7 +1279,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="cars-componentWrapper"
                   >
                     <label
@@ -1333,7 +1336,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="colors-componentWrapper"
                   >
                     <label
@@ -1418,7 +1421,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="red-componentWrapper"
                   >
                     <label
@@ -1484,7 +1487,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="blue-componentWrapper"
                   >
                     <label
@@ -1538,7 +1541,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="plants-componentWrapper"
                   >
                     <label
@@ -1592,7 +1595,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="furniture-componentWrapper"
                   >
                     <label
@@ -1693,7 +1696,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
 >
   <div
     className="chakra-accordion css-1xdhyk6"
-    data-testid="accordion"
+    data-testid="ds-accordion"
     id="multi-select-accordion-multiselect-test-id"
     onKeyDown={[Function]}
   >
@@ -1759,7 +1762,8 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
             >
               <fieldset
                 className="css-1u8qly9"
-                id="multi-select-checkbox-group-multiselect-test-id-checkbox-group"
+                data-testid="ds-checkboxGroup"
+                id="multi-select-checkbox-group-multiselect-test-id"
               >
                 <legend>
                   multiselect-button-text
@@ -1767,11 +1771,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                 <div
                   className="chakra-stack css-19s3t1h"
                   data-testid="checkbox-group"
-                  id="multi-select-checkbox-group-multiselect-test-id"
+                  id="multi-select-checkbox-group-multiselect-test-id-stack"
                 >
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="dogs-componentWrapper"
                   >
                     <label
@@ -1825,7 +1829,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="cats-componentWrapper"
                   >
                     <label
@@ -1879,7 +1883,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="cars-componentWrapper"
                   >
                     <label
@@ -1936,7 +1940,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="colors-componentWrapper"
                   >
                     <label
@@ -2002,7 +2006,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="red-componentWrapper"
                   >
                     <label
@@ -2068,7 +2072,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="blue-componentWrapper"
                   >
                     <label
@@ -2134,7 +2138,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="plants-componentWrapper"
                   >
                     <label
@@ -2188,7 +2192,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   </div>
                   <div
                     className="css-1xdhyk6"
-                    data-testid="componentWrapper"
+                    data-testid="ds-checkbox"
                     id="furniture-componentWrapper"
                   >
                     <label
