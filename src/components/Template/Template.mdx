@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import * as TemplateStories from "./Template.stories";
 import {
   Template,
   TemplateBreakout,
@@ -12,12 +11,18 @@ import {
   TemplateBottom,
 } from "./Template";
 import Banner from "../Banner/Banner";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import DocsWithImage from "../../utils/components/DocsWithImage";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import List from "../List/List";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
+import * as TemplateStories from "./Template.stories";
+import { changelogData } from "./templateChangelogData";
+import { exampleWrapperStyles } from "../../utils/utils.ts";
 
 import templateBreakout from "/template/templateBreakout.png";
 import templateBottom from "/template/templateBottom.png";
@@ -27,19 +32,13 @@ import templateMainWide from "/template/templateMainWide.png";
 import templateSidebarLeft from "/template/templateSidebarLeft.png";
 import templateSidebarRight from "/template/templateSidebarRight.png";
 import templateTop from "/template/templateTop.png";
-import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import DocsWithImage from "../../utils/components/DocsWithImage";
-import { exampleWrapperStyles } from "../../utils/utils.ts";
-
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./templateChangelogData";
 
 <Meta of={TemplateStories} />
 
 <ComponentDocsHeader
   category="Page layout component"
   componentName="Template"
-  summary="A structural skeleton for composing a standard page layout"
+  summary="Structural skeleton for composing a standard page layout"
   versionAdded="0.3.6"
   versionLatest="Prerelease"
 />
