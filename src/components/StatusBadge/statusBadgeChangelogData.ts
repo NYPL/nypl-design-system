@@ -19,6 +19,7 @@ export const changelogData: ChangelogData[] = [
       "Removes deprecated `level` prop.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Renames `type` to `variant`.",
+      "Replaces `statusBadgeTypeArray` with shared message variants array.",
     ],
   },
   {

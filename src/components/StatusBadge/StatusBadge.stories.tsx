@@ -2,11 +2,9 @@ import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Icon from "../Icons/Icon";
-import StatusBadge, {
-  statusBadgeFontSizeArray,
-  statusBadgeVariantsArray,
-} from "./StatusBadge";
+import StatusBadge, { statusBadgeFontSizeArray } from "./StatusBadge";
 import Table from "../Table/Table";
+import { messageVariantsArray } from "../../theme/sharedTypes";
 
 const meta: Meta<typeof StatusBadge> = {
   title: "Components/Content Display/StatusBadge",
@@ -22,7 +20,7 @@ const meta: Meta<typeof StatusBadge> = {
     id: { control: false },
     variant: {
       control: { type: "select" },
-      options: statusBadgeVariantsArray,
+      options: messageVariantsArray,
     },
   },
 };

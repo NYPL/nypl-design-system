@@ -7,6 +7,7 @@ import {
   ChakraProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import { sizesArray } from "../../theme/sharedTypes";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
@@ -23,8 +24,8 @@ export const buttonVariantsArray = [
 ] as const;
 
 export type ButtonElementType = typeof buttonElementTypeArray[number];
-export type ButtonSizes = typeof buttonSizesArray[number];
 export type ButtonVariants = typeof buttonVariantsArray[number];
+export type ButtonSizes = typeof sizesArray[number];
 
 export interface ButtonProps
   extends Pick<BoxProps, keyof ChakraProps>,

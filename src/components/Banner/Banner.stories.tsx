@@ -1,11 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
-
-import Banner, {
-  bannerBgColorsArray,
-  bannerHighlightColorsArray,
-  bannerVariantsArray,
-} from "./Banner";
+import Banner from "./Banner";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
@@ -13,6 +8,11 @@ import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
+import {
+  bgColorsArray,
+  highlightColorsArray,
+  messageVariantsArray,
+} from "../../theme/sharedTypes";
 
 const meta: Meta<typeof Banner> = {
   title: "Components/Feedback/Banner",
@@ -20,20 +20,20 @@ const meta: Meta<typeof Banner> = {
   argTypes: {
     backgroundColor: {
       control: { type: "select" },
-      options: bannerBgColorsArray,
+      options: bgColorsArray,
     },
     content: { control: false },
     heading: { control: false },
     highlightColor: {
       control: { type: "select" },
-      options: bannerHighlightColorsArray,
+      options: highlightColorsArray,
     },
     icon: { control: false },
     id: { control: false },
     isDismissible: { control: { type: "boolean" } },
     variant: {
       control: { type: "select" },
-      options: bannerVariantsArray,
+      options: messageVariantsArray,
       table: { defaultValue: { summary: "neutral" } },
     },
   },

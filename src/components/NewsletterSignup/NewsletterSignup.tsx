@@ -16,6 +16,7 @@ import { NewsletterSignupResponse } from "./NewsletterSignupResponse";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import useDSHeading from "../../hooks/useDSHeading";
+import { highlightColorsArray } from "../../theme/sharedTypes";
 
 export interface NewsletterSignupProps extends Omit<BoxProps, "title"> {
   /** Text displayed next to the confirmation icon after a successful email submission */
@@ -57,21 +58,12 @@ export interface NewsletterSignupProps extends Omit<BoxProps, "title"> {
   view?: NewsletterSignupViewType;
 }
 
-export const highlightColorTypesArray = [
+export const newsletterHighlightColorsArray = [
   "ui.gray.medium",
-  "section.blogs.secondary",
-  "section.books-and-more.primary",
-  "brand.primary",
-  "section.connect.primary",
-  "section.education.primary",
-  "section.locations.primary",
-  "section.research.primary",
-  "section.research-library.lpa",
-  "section.research-library.schomburg",
-  "section.research-library.schwartzman",
-  "section.whats-on.primary",
-] as const;
-export type HighlightColorTypes = typeof highlightColorTypesArray[number];
+  ...highlightColorsArray,
+];
+
+export type HighlightColorTypes = typeof newsletterHighlightColorsArray[number];
 
 export type NewsletterSignupViewType =
   | "form"

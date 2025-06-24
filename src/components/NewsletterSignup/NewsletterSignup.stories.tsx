@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Box, VStack } from "@chakra-ui/react";
 import { action } from "@storybook/addon-actions";
 import NewsletterSignup, {
+  newsletterHighlightColorsArray,
   NewsletterSignupViewType,
-  highlightColorTypesArray,
 } from "./NewsletterSignup";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
@@ -38,14 +38,14 @@ const meta: Meta<typeof NewsletterSignup> = {
     id: { control: false },
     highlightColor: {
       control: "select",
-      options: highlightColorTypesArray,
+      options: newsletterHighlightColorsArray,
       table: {
         type: {
           /** Overrides the imported type from the component file */
           summary: "HighlightColorTypes",
           /**  Makes the type in the description column
            a cute dropdown list of all options */
-          detail: `${highlightColorTypesArray
+          detail: `${newsletterHighlightColorsArray
             .map((color) => `${color}\n`)
             .join("")}`,
         },

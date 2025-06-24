@@ -6,22 +6,14 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+import { messageVariantsArray } from "../../theme/sharedTypes";
 
 export const statusBadgeFontSizeArray = [
   "desktop.body.body1",
   "desktop.body.body2",
   "desktop.caption",
 ] as const;
-
-export const statusBadgeVariantsArray = [
-  "informative",
-  "negative",
-  "neutral",
-  "positive",
-  "recommendation",
-  "warning",
-] as const;
-export type StatusBadgeVariants = typeof statusBadgeVariantsArray[number];
+export type StatusBadgeVariants = typeof messageVariantsArray[number];
 export interface StatusBadgeProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;

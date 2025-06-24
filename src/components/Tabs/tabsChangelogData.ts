@@ -16,6 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality"],
     notes: [
       "Extends prop interface to include Chakra props or HTML attributes.",
+      "Removes the use of the `window`'s `scrollIntoView` dependency.",
     ],
   },
   {

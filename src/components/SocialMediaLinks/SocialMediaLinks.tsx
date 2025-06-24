@@ -9,15 +9,14 @@ import Link from "../Link/Link";
 import Icon, { IconNames as DsIconNames, IconSizes } from "../Icons/Icon";
 import { LayoutTypes } from "../../helpers/types";
 import React, { forwardRef } from "react";
+import { sizesArray } from "../../theme/sharedTypes";
 
 export const borderTypeArray = ["none", "circular", "straight"] as const;
 export type BorderType = typeof borderTypeArray[number];
 
 export const colorTypeArray = ["link", "textDefault", "textInverse"] as const;
 export type ColorType = typeof colorTypeArray[number];
-
-export const sizeTypeArray = ["small", "medium", "large"] as const;
-export type SizeType = typeof sizeTypeArray[number];
+export type SizeType = typeof sizesArray[number];
 
 type IconNames =
   | "fileTypeGenericDoc"
