@@ -30,7 +30,7 @@ export interface TagSetFilterProps {
   /** The array of data to display as tags. */
   tagSetData: TagSetFilterDataProps[];
   /** The `TagSet` variant to render; "filter" by default. */
-  type: "filter";
+  variant: "filter";
 }
 
 /**
@@ -128,7 +128,7 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
 
         {tagSetData.length > 1 && isDismissible ? (
           <Button
-            buttonType="text"
+            variant="text"
             data-testid="filter-clear-all"
             id={`ts-filter-clear-all-${id}`}
             onClick={() =>

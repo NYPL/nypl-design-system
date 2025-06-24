@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import * as TableStories from "./Table.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as TableStories from "./Table.stories";
 import { changelogData } from "./tableChangelogData";
 
 <Meta of={TableStories} />
 
-# Table
+<ComponentDocsHeader
+  category="Page layout component"
+  componentName="Table"
+  summary="Used to efficiently organize and display tabular data"
+  versionAdded="0.25.9"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.25.9`     |
-| Latest            | `Prerelease` |
+<Canvas of={TableStories.WithControls} />
 
 ## Table of Contents
 
@@ -34,8 +38,6 @@ import { changelogData } from "./tableChangelogData";
 <Description of={TableStories} />
 
 ## Component Props
-
-<Canvas of={TableStories.WithControls} />
 
 You may pass any Chakra `Box` props, as well as the props below.
 

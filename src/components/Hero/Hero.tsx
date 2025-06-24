@@ -10,8 +10,8 @@ import React, { forwardRef } from "react";
 
 import Image, { ComponentImageProps } from "../Image/Image";
 
-export const heroTypesArray = ["primary", "tertiary", "campaign"] as const;
-export type HeroTypes = typeof heroTypesArray[number];
+export const heroVariantsArray = ["primary", "tertiary", "campaign"] as const;
+export type HeroVariants = typeof heroVariantsArray[number];
 export interface HeroImageProps
   extends Omit<BoxProps, "onError">,
     Pick<
@@ -27,21 +27,21 @@ export interface HeroProps {
    */
   backdropBackgroundColor?: string;
   /** Optional hex color value used to override the default background
-   * color for a given `Hero` variation.
-   * Note: not all `Hero` variations utilize this prop. */
+   * color for a given `Hero` variant.
+   * Note: not all `Hero` variants utilize this prop. */
   backgroundColor?: string;
   /** Optional path to an image that will be used as a background image for the
    * `Hero` component.
-   * Note: not all `Hero` variations utilize this prop. */
+   * Note: not all `Hero` variants utilize this prop. */
   backgroundImageSrc?: string;
   /** Optional hex color value used to override the default text color for a
    * given `Hero` variation.
-   * Note: not all `Hero` variations utilize this prop. */
+   * Note: not all `Hero` variants utilize this prop. */
   foregroundColor?: string;
   /** Optional heading element. */
   heading?: JSX.Element;
   /** Used to control how the `Hero` component will be rendered. */
-  heroType?: HeroTypes;
+  variant?: HeroVariants;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Object used to create and render the `Image` component. You can pass `component`
@@ -76,7 +76,7 @@ export const Hero: ChakraComponent<
         backgroundImageSrc,
         foregroundColor,
         heading,
-        heroType,
+        variant,
         id,
         imageProps = {
           alt: "",
@@ -90,7 +90,7 @@ export const Hero: ChakraComponent<
       const styles = useMultiStyleConfig("Hero", {
         foregroundColor,
         isDarkText,
-        variant: heroType,
+        variant,
       });
       const headingStyles = styles.heading;
       // We want to add `Hero`-specific styling to the `Heading` component.
@@ -123,46 +123,46 @@ export const Hero: ChakraComponent<
         );
       }
 
-      if (heroType === "primary") {
+      if (variant === "primary") {
         if (!backgroundImageSrc) {
           console.warn(
             "NYPL Reservoir Hero: It is recommended to use the `backgroundImageSrc` " +
-              "prop for the `'primary'` `heroType` variant."
+              "prop for the `'primary'` variant."
           );
         }
         if (imageProps.alt && imageProps.src) {
           console.warn(
             "NYPL Reservoir Hero: The `imageProps.src` and `imageProps.alt` props have been " +
-              "passed, but the `'primary'` `heroType` variant will not use it."
+              "passed, but the `'primary'` variant will not use it."
           );
         }
       }
-      if (heroType === "tertiary" && (backgroundImageSrc || imageProps.src)) {
+      if (variant === "tertiary" && (backgroundImageSrc || imageProps.src)) {
         console.warn(
-          "NYPL Reservoir Hero: The `'tertiary'` `heroType` variant hero " +
+          "NYPL Reservoir Hero: The `'tertiary'` variant hero " +
             "will not use any of the image props."
         );
       }
       if (
-        heroType === "campaign" &&
+        variant === "campaign" &&
         (!backdropBackgroundColor || !backgroundImageSrc || !imageProps.src)
       ) {
         console.warn(
           "NYPL Reservoir Hero: It is recommended to use either the " +
             "`backdropBackgroundColor`, `backgroundImageSrc`, or " +
-            "`imageProps.src` prop for the `'campaign'` `heroType` variant."
+            "`imageProps.src` prop for the `'campaign'` variant."
         );
       }
-      if (heroType !== "campaign" && backdropBackgroundColor) {
+      if (variant !== "campaign" && backdropBackgroundColor) {
         console.warn(
           "NYPL Reservoir Hero: The `backdropBackgroundColor` prop has been passed, " +
-            "but the `'campaign'` `heroType` variant was not set. It will be ignored."
+            "but the `'campaign'` variant was not set. It will be ignored."
         );
       }
-      if (heroType !== "campaign" && isDarkBackgroundImage) {
+      if (variant !== "campaign" && isDarkBackgroundImage) {
         console.warn(
           "NYPL Reservoir Hero: The `isDarkBackgroundImage` prop has been passed, " +
-            "but the `'campaign'` `heroType` variant was not set. It will be ignored."
+            "but the `'campaign'` variant was not set. It will be ignored."
         );
       }
 
@@ -180,15 +180,15 @@ export const Hero: ChakraComponent<
         ),
       };
 
-      const defaultBackgroundColor = allDefaultBackgroundColors[heroType];
-      if (heroType === "primary") {
+      const defaultBackgroundColor = allDefaultBackgroundColors[variant];
+      if (variant === "primary") {
         backgroundImageStyle = backgroundImageSrc
           ? {
               bgColor: defaultBackgroundColor,
               backgroundImage: `/**/url("${backgroundImageSrc}")`,
             }
           : {};
-      } else if (heroType === "campaign") {
+      } else if (variant === "campaign") {
         /**
          * For better control of the background image in the "campaign" variant,
          * the image and the associated styles were moved into the `:before`
@@ -235,7 +235,7 @@ export const Hero: ChakraComponent<
                 bgColor: allDefaultBackgroundColors["campaignBackdrop"],
               },
             };
-      } else if (heroType === "tertiary") {
+      } else if (variant === "tertiary") {
         const tertiaryBgColor = backgroundColor
           ? backgroundColor
           : defaultBackgroundColor;
@@ -260,7 +260,7 @@ export const Hero: ChakraComponent<
       }
 
       const childrenToRender =
-        heroType === "campaign" ? (
+        variant === "campaign" ? (
           <>
             <Box
               __css={{
@@ -279,7 +279,7 @@ export const Hero: ChakraComponent<
           </>
         ) : (
           <>
-            {heroType !== "primary" && heroType !== "tertiary" && (
+            {variant !== "primary" && variant !== "tertiary" && (
               <Box
                 __css={{
                   ...styles.imgWrapper,
@@ -289,7 +289,7 @@ export const Hero: ChakraComponent<
               </Box>
             )}
             {finalHeading}
-            {heroType === "tertiary" && subHeaderText ? (
+            {variant === "tertiary" && subHeaderText ? (
               <p>{subHeaderText}</p>
             ) : (
               <Box __css={styles.bodyText}>{subHeaderText}</Box>

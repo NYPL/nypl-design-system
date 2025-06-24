@@ -31,7 +31,7 @@ export { default as DSProvider } from "./theme/provider";
 // Components
 export { default as Accordion } from "./components/Accordion/Accordion";
 export type {
-  AccordionTypes,
+  AccordionVariants,
   AccordionDataProps,
 } from "./components/Accordion/Accordion";
 export { default as AlphabetFilter } from "./components/AlphabetFilter/AlphabetFilter";
@@ -43,14 +43,14 @@ export type {
 } from "./components/AudioPlayer/AudioPlayer";
 export { default as Banner } from "./components/Banner/Banner";
 export type {
-  BannerTypes,
+  BannerVariants,
   BannerBgColors,
   BannerHighlightColors,
   BannerProps,
 } from "./components/Banner/Banner";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export type {
-  BreadcrumbsTypes,
+  BreadcrumbsVariants,
   BreadcrumbProps,
   BreadcrumbsDataProps,
 } from "./components/Breadcrumbs/Breadcrumbs";
@@ -59,7 +59,7 @@ export type {
   ButtonElementType,
   ButtonProps,
   ButtonSizes,
-  ButtonTypes,
+  ButtonVariants,
 } from "./components/Button/Button";
 export { default as ButtonGroup } from "./components/ButtonGroup/ButtonGroup";
 export type { ButtonGroupProps } from "./components/ButtonGroup/ButtonGroup";
@@ -120,7 +120,7 @@ export type {
 export { default as HelperErrorText } from "./components/HelperErrorText/HelperErrorText";
 export type { HelperErrorTextProps } from "./components/HelperErrorText/HelperErrorText";
 export { default as Hero } from "./components/Hero/Hero";
-export type { HeroProps, HeroTypes } from "./components/Hero/Hero";
+export type { HeroProps, HeroVariants } from "./components/Hero/Hero";
 export { default as HorizontalRule } from "./components/HorizontalRule/HorizontalRule";
 export type { HorizontalRuleProps } from "./components/HorizontalRule/HorizontalRule";
 export { default as Icon } from "./components/Icons/Icon";
@@ -130,7 +130,7 @@ export type {
   IconNames,
   IconRotations,
   IconSizes,
-  IconTypes,
+  IconVariants,
   IconProps,
 } from "./components/Icons/Icon";
 export { default as Image } from "./components/Image/Image";
@@ -149,12 +149,12 @@ export type {
   SectionTypes,
 } from "./helpers/types";
 export { default as Link } from "./components/Link/Link";
-export type { LinkProps, LinkTypes } from "./components/Link/Link";
+export type { LinkProps, LinkVariants } from "./components/Link/Link";
 export { default as List } from "./components/List/List";
 export type {
   DescriptionProps,
   ListProps,
-  ListTypes,
+  ListVariants,
 } from "./components/List/List";
 export { default as Logo } from "./components/Logo/Logo";
 export type { LogoNames, LogoProps, LogoSizes } from "./components/Logo/Logo";
@@ -194,7 +194,7 @@ export type {
 export { default as Notification } from "./components/Notification/Notification";
 export type {
   NotificationProps,
-  NotificationTypes,
+  NotificationVariants,
 } from "./components/Notification/Notification";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export type { PaginationProps } from "./components/Pagination/Pagination";
@@ -214,7 +214,7 @@ export { default as Select } from "./components/Select/Select";
 export type {
   LabelPositions,
   SelectProps,
-  SelectTypes,
+  SelectVariants,
 } from "./components/Select/Select";
 export { default as SimpleGrid } from "./components/Grid/SimpleGrid";
 export type { GridGaps, SimpleGridProps } from "./components/Grid/SimpleGrid";
@@ -232,7 +232,7 @@ export type { SocialMediaLinkDataProps } from "./components/SocialMediaLinks/Soc
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export type {
   StatusBadgeProps,
-  StatusBadgeTypes,
+  StatusBadgeVariants,
 } from "./components/StatusBadge/StatusBadge";
 export { default as StructuredContent } from "./components/StructuredContent/StructuredContent";
 export type {

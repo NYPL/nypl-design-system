@@ -105,7 +105,7 @@ export interface InputProps extends TextInputPropsWithHTML {
    * True by default. */
   showRequiredLabel?: boolean;
   /** FOR INTERNAL DS USE ONLY: the input variant to display. */
-  textInputType?: TextInputVariants;
+  textInputVariant?: TextInputVariants;
 }
 
 /**
@@ -156,7 +156,7 @@ export const TextInput: ChakraComponent<
         showRequiredLabel = true,
         requiredLabelText,
         step = 1,
-        textInputType = "default",
+        textInputVariant = "default",
         type = "text",
         value,
         ...rest
@@ -168,7 +168,7 @@ export const TextInput: ChakraComponent<
       const finalRef = ref ? mergedRefs : closedRef;
       const styles = useMultiStyleConfig("TextInput", {
         showLabel,
-        variant: textInputType,
+        variant: textInputVariant,
       });
       const isTextArea = type === "textarea";
       const isHidden = type === "hidden";
@@ -284,7 +284,7 @@ export const TextInput: ChakraComponent<
         if (isClearable && !isDisabled && !isHidden) {
           clearButtonOutput = (
             <Button
-              buttonType="text"
+              variant="text"
               id={`${id}-clear-btn`}
               onClick={onClearClick}
               sx={styles.clearButton}

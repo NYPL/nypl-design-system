@@ -131,35 +131,35 @@ describe("Button Snapshot", () => {
       .toJSON();
     const secondary = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType="secondary">
+        <Button id="button" onClick={jest.fn()} variant="secondary">
           Seconday
         </Button>
       )
       .toJSON();
     const callout = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType="callout">
+        <Button id="button" onClick={jest.fn()} variant="callout">
           Callout
         </Button>
       )
       .toJSON();
     const pill = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType="pill">
+        <Button id="button" onClick={jest.fn()} variant="pill">
           Pill
         </Button>
       )
       .toJSON();
     const text = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType="text">
+        <Button id="button" onClick={jest.fn()} variant="text">
           Text
         </Button>
       )
       .toJSON();
     const noBrand = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType="noBrand">
+        <Button id="button" onClick={jest.fn()} variant="noBrand">
           NoBrand
         </Button>
       )
