@@ -168,7 +168,6 @@ export const WithControls: Story = {
       columnHeaders={args.useColumnStyles ? columnHeadersAlt : columnHeaders}
       columnStyles={args.useColumnStyles ? columnStylesComplex : undefined}
       tableData={args.useColumnStyles ? tableDataAlt : tableData}
-      fontSize="8px"
     ></Table>
   ),
   parameters: {
