@@ -25,6 +25,7 @@ export const imageRatiosArray = [
   "threeByTwo",
   "twoByOne",
 ] as const;
+
 export const imageSizesArray = [
   "default",
   "xxxsmall",
@@ -91,8 +92,6 @@ export interface ImageProps
   additionalFigureStyles?: { [key: string]: any };
   /** Optionally pass in additional Chakra-based styles only for the image. */
   additionalImageStyles?: { [key: string]: any };
-  /** Alternate text description of the image */
-  alt?: string;
   /** Optional value to control the aspect ratio of the card image; default
    * value is `"original"` */
   aspectRatio?: ImageRatios;
@@ -108,10 +107,6 @@ export interface ImageProps
   imageType?: ImageTypes;
   /** Flag to set the internal `Image` component to `isLazy` mode. */
   isLazy?: boolean;
-  /** Additional action to perform in the `img`'s `onerror` attribute function. */
-  onError?: (event: React.SyntheticEvent<HTMLImageElement>) => void;
-  /** The src attribute is required, and contains the path to the image you want to embed. */
-  src?: string;
 }
 
 const ImageWrapper = chakra(

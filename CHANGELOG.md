@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `useResponsiveSpacing` hook.
 - Adds docs for `Responsive Grid` Style Guide.
+- Consolidates message variants, sizes, highlight colors, and background colors arrays into shared constants
 
 ### Updates
 
@@ -25,6 +26,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the grid layout of the content for the `Hero` `"primary"` variant.
 - Changes the names of theme objects that conflict with Chakra's base names from `Custom` to `Reservoir` for consistency. This impacts theme objects for `Breadcrumbs`, `Button`, `Select`, `Slider`, and `Table`.
 - Replaces positional function args with object references in utility functions/components when there are 3 or more arguments.
+- Updates `Table`'s `tableTextSize` prop to accept `caption`.
 
 ### Removals
 
@@ -46,6 +48,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `isDarkMode` function from `Slider` and `Accordion`.
 - Removes `useNYPLBreakpoints` from final component, `SearchBar`, and removes `mediaMatchMock` from test setup since it is no longer necessary.
 - Removes explicit `className` and `children` props in favor of expanded prop type definitions in all components.
+- Removes the use of the `window`'s `scrollIntoView` dependency in the `Tabs` component.
 
 ## Prerelease
 

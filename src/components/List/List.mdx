@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as ListStories from "./List.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as ListStories from "./List.stories";
 import { changelogData } from "./listChangelogData";
 
 <Meta of={ListStories} />
 
-# List
+<ComponentDocsHeader
+  category="Typography & styles component"
+  componentName="List"
+  summary="Renders related items in a list format using a <ul>, <ol>, or <dl> element"
+  versionAdded="0.7.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.7.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={ListStories.WithControls} />
 
 ## Table of Contents
 
@@ -27,10 +31,8 @@ import { changelogData } from "./listChangelogData";
 
 <Description of={ListStories} />
 
-<Canvas of={ListStories.WithControls} />
-
 `List` composes a Chakra `Box` component, so you may pass
-any Chakra `Box` prop, as well as the props below.
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={ListStories.WithControls} />
 

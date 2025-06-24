@@ -35,11 +35,11 @@ import Link from "../Link/Link";
 
 <Description of={SearchBarStories} />
 
-The main wrapper element that is rendered is a `<form>` DOM element. All the
-props passed to `SearchBar` will apply to the `<form>` element and its children.
-The `SearchBar` component will render a `Select` component (optional),
-`TextInput` component, `Button` component, and `HelperErrorText` component
-based on the required props.
+The main wrapper element that is rendered is a `<form>` DOM element.
+
+Based on the props passed, the `SearchBar` component will render a `Select`
+component (optional),`TextInput` component, `Button` component, and
+`HelperErrorText` component.
 
 The `Select` dropdown narrows the search within a specific category, typically
 title or author. Toggle the `Select` through the Controls.
@@ -52,7 +52,7 @@ aria-labels are used to make these children components accessible.
 <Canvas of={SearchBarStories.WithControls} />
 
 The `SearchBar` composes a Chakra `Box` component, so you may pass
-any Chakra `Box` prop, as well as the props below.
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={SearchBarStories.WithControls} />
 

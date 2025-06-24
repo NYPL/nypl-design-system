@@ -3,16 +3,20 @@ import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 import * as HelperErrorTextStories from "./HelperErrorText.stories";
 import { changelogData } from "./helperErrorTextChangelogData";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 
 <Meta of={HelperErrorTextStories} />
 
-# HelperErrorText
+<ComponentDocsHeader
+  category="Content Display"
+  componentName="HelperErrorText"
+  summary="Accessible container for rendering supporting text"
+  versionAdded="0.0.10"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.0.10`     |
-| Latest            | `Prerelease` |
+<Canvas of={HelperErrorTextStories.WithControls} />
 
 ## Table of Contents
 
@@ -29,10 +33,8 @@ import Link from "../Link/Link";
 
 ## Component Props
 
-<Canvas of={HelperErrorTextStories.WithControls} />
-
 `HelperErrorText` composes a Chakra `Box` component, so you may pass
-any Chakra `Box` prop, as well as the props below.
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={HelperErrorTextStories.WithControls} />
 

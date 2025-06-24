@@ -7,14 +7,27 @@ import React, { useEffect, useRef } from "react";
  * Returns a ref for the TabList component.
  */
 export const useScrollTabIntoView = (index: number) => {
-  const tablistRef = useRef<HTMLDivElement>();
+  const tablistRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const selectedTab = tablistRef?.current?.querySelector(
+    const container = tablistRef?.current;
+    const selectedTab = container?.querySelector(
       "[role=tab][aria-selected=true]"
     );
-    // scroll only horizontally
-    selectedTab?.scrollIntoView({ block: "nearest" });
+
+    if (!selectedTab) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const tabRect = selectedTab.getBoundingClientRect();
+
+    const isTabPartiallyHiddenLeft = tabRect.left < containerRect.left;
+    const isTabPartiallyHiddenRight = tabRect.right > containerRect.right;
+
+    if (isTabPartiallyHiddenLeft) {
+      container.scrollLeft -= containerRect.left - tabRect.left;
+    } else if (isTabPartiallyHiddenRight) {
+      container.scrollLeft += tabRect.right - containerRect.right;
+    }
   }, [index]);
 
   return tablistRef;

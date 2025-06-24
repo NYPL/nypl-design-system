@@ -5,11 +5,11 @@ import SocialMediaLinks, {
   SocialMediaLinkDataProps,
   borderTypeArray,
   colorTypeArray,
-  sizeTypeArray,
 } from "./SocialMediaLinks";
 import { layoutTypesArray } from "../../helpers/types";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
+import { sizesArray } from "../../theme/sharedTypes";
 
 const exampleAllLinkData: SocialMediaLinkDataProps[] = [
   {
@@ -154,7 +154,7 @@ const meta: Meta<typeof SocialMediaLinks> = {
     },
     size: {
       control: { type: "radio" },
-      options: sizeTypeArray,
+      options: sizesArray,
       table: {
         disable: false,
         defaultValue: { summary: "small" },

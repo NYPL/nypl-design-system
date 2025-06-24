@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Flex,
@@ -30,7 +31,7 @@ export interface SelectedItems {
   [name: string]: { items: string[] };
 }
 
-export interface MultiSelectProps {
+export interface MultiSelectProps extends BoxProps {
   /** The button text rendered within the MultiSelect. */
   buttonText: string;
   /** Determines whether the component will toggle to the closed state

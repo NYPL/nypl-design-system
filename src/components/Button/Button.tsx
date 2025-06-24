@@ -7,12 +7,12 @@ import {
   ChakraProps,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
+import { sizesArray } from "../../theme/sharedTypes";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 
 import Icon from "../Icons/Icon";
 
 export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
-export const buttonSizesArray = ["small", "medium", "large"] as const;
 export const buttonTypesArray = [
   "primary",
   "secondary",
@@ -23,7 +23,7 @@ export const buttonTypesArray = [
 ] as const;
 
 export type ButtonElementType = typeof buttonElementTypeArray[number];
-export type ButtonSizes = typeof buttonSizesArray[number];
+export type ButtonSizes = typeof sizesArray[number];
 export type ButtonTypes = typeof buttonTypesArray[number];
 
 export interface ButtonProps
@@ -38,14 +38,10 @@ export interface ButtonProps
   /** Trigger the Button's action through the `mouseDown` event handler instead
    * of `onClick`. `false` by default. */
   mouseDown?: boolean;
-  /** The action to perform on the `<button>`'s onClick function. */
-  onClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
   /** Visibly hidden text that will only be read by screenreaders. */
   screenreaderOnlyText?: string;
   /** The size of the `Button`. */
   size?: ButtonSizes;
-  /** The HTML button type attribute. */
-  type?: ButtonElementType;
 }
 
 /**
