@@ -129,7 +129,7 @@ const getElementsFromData = ({
           breadcrumbsData,
           customLinkComponent,
           renderIcon,
-          id,
+          id: `${id ? `${id}-${index}` : undefined}`,
           isCurrentPage,
         })}
       </BreadcrumbItem>

@@ -42,7 +42,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
           className="chakra-icon breadcrumbs-icon css-1vgifmd"
           data-file-name="SvgArrow"
           focusable={false}
-          id="breadcrumbs-test-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
@@ -120,7 +120,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
           className="chakra-icon breadcrumbs-icon css-1vgifmd"
           data-file-name="SvgArrow"
           focusable={false}
-          id="breadcrumbs-test-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
@@ -198,7 +198,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
           className="chakra-icon breadcrumbs-icon css-1vgifmd"
           data-file-name="SvgArrow"
           focusable={false}
-          id="breadcrumbs-test-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
@@ -276,7 +276,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
           className="chakra-icon breadcrumbs-icon css-1vgifmd"
           data-file-name="SvgArrow"
           focusable={false}
-          id="breadcrumbs-test-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
@@ -354,7 +354,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
           className="chakra-icon breadcrumbs-icon css-1vgifmd"
           data-file-name="SvgArrow"
           focusable={false}
-          id="breadcrumbs-test-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
@@ -432,7 +432,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 6`] = `
           className="chakra-icon breadcrumbs-icon css-1vgifmd"
           data-file-name="SvgArrow"
           focusable={false}
-          id="breadcrumbs-test-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
@@ -510,7 +510,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
           className="chakra-icon breadcrumbs-icon css-1vgifmd"
           data-file-name="SvgArrow"
           focusable={false}
-          id="breadcrumbs-test-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />

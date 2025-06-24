@@ -17,8 +17,6 @@ export interface ComponentWrapperProps extends BoxProps {
   helperText?: HelperErrorTextType;
   /** Styles that target the helper text. */
   helperTextStyles?: { [key: string]: any };
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
