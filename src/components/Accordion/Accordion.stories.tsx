@@ -10,7 +10,7 @@ import Heading from "../Heading/Heading";
 
 const accordionData: AccordionDataProps[] = [
   {
-    accordionType: "default",
+    variant: "default",
     label: "Tom Nook",
     panel: (
       <Card
@@ -36,7 +36,7 @@ const accordionData: AccordionDataProps[] = [
 
 const accordionLongTextData: AccordionDataProps[] = [
   {
-    accordionType: "default",
+    variant: "default",
     label: "Tom Nook",
     panel: (
       <Card>
@@ -73,7 +73,7 @@ const accordionLongTextData: AccordionDataProps[] = [
 const faqContentData: AccordionDataProps[] = [
   ...accordionData,
   {
-    accordionType: "warning",
+    variant: "warning",
     label: "Isabelle",
     panel: (
       <Card
@@ -98,7 +98,7 @@ const faqContentData: AccordionDataProps[] = [
     ),
   },
   {
-    accordionType: "error",
+    variant: "error",
     label: "K.K. Slider",
     panel: (
       <Card
@@ -192,7 +192,7 @@ const onChange = (data) => {
 };
 const getAccordionData = (key): AccordionDataProps[] => [
   {
-    accordionType: "default",
+    variant: "default",
     label: "Subjects",
     panel: (
       <CheckboxGroup

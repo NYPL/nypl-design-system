@@ -19,6 +19,7 @@ export const changelogData: ChangelogData[] = [
       "Changes theme name from `CustomBreadcrumbs` to `ReservoirBreadcrumbs` for consistency.",
       "Replaces positional function arguments with objects for `tooltipWrapperOrText` and `getElementsFromData`.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Renames `breadcrumbsType` to `variant`.",
     ],
   },
   {

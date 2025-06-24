@@ -58,7 +58,7 @@ const MultiSelectItemsCountButton = forwardRef<
   return (
     <Button
       id={`ms-count-button-${multiSelectId}`}
-      buttonType="pill"
+      variant="pill"
       size="small"
       aria-label={selectedItemsAriaLabel}
       data-testid="multi-select-close-button-testid"

@@ -140,7 +140,7 @@ export const AlphabetFilter: ChakraComponent<
           aria-label={
             item.text === "Show All" ? item.text : "Page " + item.text
           }
-          buttonType="text"
+          variant="text"
           id={`filter-${item.value}`}
           isDisabled={isButtonDisabled}
           key={item.value}
