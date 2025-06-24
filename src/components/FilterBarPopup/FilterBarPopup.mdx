@@ -1,17 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import { changelogData } from "./filterBarPopupChangelogData";
+
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as FilterBarPopupStories from "./FilterBarPopup.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as FilterBarPopupStories from "./FilterBarPopup.stories";
+import { changelogData } from "./filterBarPopupChangelogData";
 
 <Meta of={FilterBarPopupStories} />
 
-# FilterBarPopup
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="FilterbarPopup"
+  summary="Container element for displaying filter components in a modal window"
+  versionAdded="3.3.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `3.3.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={FilterBarPopupStories.WithControls} />
 
 ## Table of Contents
 
@@ -47,8 +52,6 @@ call the `onSubmit` function if passed and close the modal.
 Related component: [FilterBarInline](../?path=/docs/components-form-elements-FilterBarInline--docs)
 
 ## Component Props
-
-<Canvas of={FilterBarPopupStories.WithControls} />
 
 `FilterBarPopup` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.

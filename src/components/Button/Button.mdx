@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
-import { changelogData } from "./buttonChangelogData";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
-import * as ButtonStories from "./Button.stories";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as ButtonStories from "./Button.stories";
+import { changelogData } from "./buttonChangelogData";
 
 <Meta of={ButtonStories} />
 
-# Button
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Button"
+  summary="Native button element used to trigger an action or event"
+  versionAdded="0.0.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.0.4`      |
-| Latest            | `Prerelease` |
+<Canvas of={ButtonStories.WithControls} />
 
 ## Table of Contents
 
@@ -42,8 +46,6 @@ When one and only one `Icon` component is passed inside a `Button` component wit
 no text, it will automatically be configured to use the `"iconOnly"` type.
 
 ## Component Props
-
-<Canvas of={ButtonStories.WithControls} />
 
 The `Button` composes an HTML `button` element, so you may pass any `button` attributes,
 as well as the Chakra style props and the props below.
