@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Fixes the keyless fragments for `Checkbox` items in the `Multiselect` component.
 
+### Adds
+
+- Adds fallback warning messages to the `AudioPlayer` and `VideoPlayer` components on browsers with JavaScript disabled.
+
 ## 3.6.3 (June 9, 2025)
 
 ### Adds

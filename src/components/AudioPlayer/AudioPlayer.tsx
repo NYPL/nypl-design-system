@@ -155,6 +155,22 @@ export const AudioPlayer: ChakraComponent<
           ) : (
             <>{embedElement}</>
           )}
+          {/* Displays a fallback message to users when JavaScript is disabled.
+              NOTE: This relies on the component being Server-Side Rendered (SSR) or Statically Generated (SSG).
+          */}
+          <noscript>
+            <div
+              style={{
+                margin: "1rem 0",
+                backgroundColor: "var(--nypl-colors-ui-bg-default)",
+                border: "1px solid var(--nypl-colors-ui-border-default)",
+                padding: "var(--nypl-space-s)",
+              }}
+            >
+              The audio player requires JavaScript to function. Please enable
+              JavaScript in your browser settings and refresh the page.
+            </div>
+          </noscript>
         </ComponentWrapper>
       );
     }
