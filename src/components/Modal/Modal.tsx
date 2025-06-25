@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   Modal as ChakraModal,
   ModalOverlay,
@@ -13,10 +14,9 @@ import {
 import React, { forwardRef } from "react";
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import useDSHeading from "../../hooks/useDSHeading";
 
-export interface BaseProps {
+export interface BaseProps extends Omit<BoxProps, "scrollBehavior"> {
   /** The content to display in the modal body. */
   bodyContent?: string | JSX.Element;
   /** The text to display in the modal heading, can be a string or JSX Element. */
@@ -35,7 +35,7 @@ export interface ConfirmationModalProps {
   /* Function to call when the modal action is confirmed. */
   onConfirm: () => void;
   /** The `Modal` variant to render. */
-  type: "confirmation";
+  variant: "confirmation";
   /** The label for the close button. This prop is used for the
    * "cancel" button in the confirmation variant. */
   closeButtonLabel?: string;
@@ -50,7 +50,7 @@ export interface DefaultModalProps {
   /* Function to call when the modal is closed. */
   onClose?: () => void;
   /** The `Modal` variant to render. */
-  type: "default";
+  variant: "default";
   /** The label for the confirm button. This prop is not used
    * in the default variant. */
   confirmButtonLabel?: never;
@@ -78,8 +78,10 @@ export interface ModalProps {
 }
 
 // Type guard for the `Modal` variant.
-export function isDefaultType(type: BaseModalProps["type"]): type is "default" {
-  return type === "default";
+export function isDefaultVariant(
+  variant: BaseModalProps["variant"]
+): variant is "default" {
+  return variant === "default";
 }
 
 export const BaseModal: ChakraComponent<
@@ -94,16 +96,12 @@ export const BaseModal: ChakraComponent<
     onCancel,
     onConfirm,
     onClose,
-    type = "default",
+    variant = "default",
     id,
     isOpen,
     ...rest
   } = props;
-  const xlarge = "xl";
-  const fullSize = "full";
-  const { isLargerThanMobile } = useNYPLBreakpoints();
-  // For larger screens, set the size to xl, otherwise set it to full.
-  const size = isLargerThanMobile ? xlarge : fullSize;
+
   const finalTitle = useDSHeading({
     title: headingText,
     id,
@@ -111,8 +109,8 @@ export const BaseModal: ChakraComponent<
   });
 
   if (
-    (!isDefaultType(type) && onClose) ||
-    (isDefaultType(type) && (onCancel || onConfirm))
+    (!isDefaultVariant(variant) && onClose) ||
+    (isDefaultVariant(variant) && (onCancel || onConfirm))
   ) {
     console.warn(
       "NYPL Reservoir Modal: A combination of `onClose`, `onConfirm`, `onCancel`, and `confirmButtonLabel` props have been passed, but they can not be used as they are currently configured. Either pass the `onClose` prop (with the default type) or pass the `onCancel`, `onConfirm`, and `confirmButtonLabel` props (with the confirmation type)."
@@ -121,13 +119,13 @@ export const BaseModal: ChakraComponent<
 
   return (
     <>
-      {isDefaultType(type) ? (
+      {isDefaultVariant(variant) ? (
         <ChakraModal
           id={id}
           isOpen={isOpen}
           onClose={onClose}
           scrollBehavior="inside"
-          size={size}
+          size={{ base: "full", md: "xl" }}
           {...rest}
         >
           <ModalOverlay />
@@ -150,7 +148,7 @@ export const BaseModal: ChakraComponent<
           isOpen={isOpen}
           onClose={onCancel}
           scrollBehavior="inside"
-          size={size}
+          size={{ base: "full", md: "xl" }}
           {...rest}
         >
           <ModalOverlay />
@@ -161,7 +159,7 @@ export const BaseModal: ChakraComponent<
             <ModalFooter>
               <ButtonGroup>
                 <Button
-                  buttonType="secondary"
+                  variant="secondary"
                   id="modal-cancel-btn"
                   onClick={onCancel}
                 >
@@ -182,7 +180,8 @@ export const BaseModal: ChakraComponent<
 /**
  * The `ModalTrigger` component renders a button that you click to open the
  * internal `Modal` component. Note that props to update the internal `Modal`
- * component are passed through to the `modalProps` prop.
+ * component are passed through to the `modalProps` prop. In addition to the
+ * props below, you may pass `modalProps` any Chakra `Box` props.
  */
 export const ModalTrigger: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -210,12 +209,12 @@ export const ModalTrigger: ChakraComponent<
           <Button id="modal-open-btn" onClick={onOpen} ref={ref}>
             {buttonText}
           </Button>
-          {isDefaultType(modalProps.type) ? (
+          {isDefaultVariant(modalProps.variant) ? (
             <BaseModal
               bodyContent={modalProps.bodyContent}
               headingText={modalProps.headingText}
               id={modalProps.id}
-              type={modalProps.type}
+              variant={modalProps.variant}
               isOpen={isOpen}
               onClose={onCloseHandler}
               closeButtonLabel={modalProps.closeButtonLabel}
@@ -230,7 +229,7 @@ export const ModalTrigger: ChakraComponent<
               onConfirm={onConfirmHandler}
               onCancel={onCancelHandler}
               id={modalProps.id}
-              type={modalProps.type}
+              variant={modalProps.variant}
               isOpen={isOpen}
               {...rest}
             />
@@ -257,18 +256,18 @@ export function useModal(): any {
       onCancel,
       onConfirm,
       onClose,
-      type,
+      variant,
       id,
       ...rest
     }: React.PropsWithChildren<BaseModalProps>) => {
       return (
         <>
-          {isDefaultType(type) ? (
+          {isDefaultVariant(variant) ? (
             <BaseModal
               bodyContent={bodyContent}
               headingText={headingText}
               id={id}
-              type={type}
+              variant={variant}
               isOpen={isOpen}
               onClose={onClose}
               closeButtonLabel={closeButtonLabel}
@@ -283,7 +282,7 @@ export function useModal(): any {
               onConfirm={onConfirm}
               onCancel={onCancel}
               id={id}
-              type={type}
+              variant={variant}
               isOpen={isOpen}
               {...rest}
             />

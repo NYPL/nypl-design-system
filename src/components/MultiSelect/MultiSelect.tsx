@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Flex,
@@ -30,7 +31,7 @@ export interface SelectedItems {
   [name: string]: { items: string[] };
 }
 
-export interface MultiSelectProps {
+export interface MultiSelectProps extends BoxProps {
   /** The button text rendered within the MultiSelect. */
   buttonText: string;
   /** Determines whether the component will toggle to the closed state
@@ -293,7 +294,7 @@ export const MultiSelect: ChakraComponent<
       const ExpandToggleButton = (): JSX.Element => {
         return (
           <Button
-            buttonType="text"
+            variant="text"
             fontSize="desktop.button.default"
             id={`view-all-text-btn-${id}`}
             ref={expandToggleButtonRef}
@@ -452,14 +453,14 @@ export const MultiSelect: ChakraComponent<
           <Accordion
             accordionData={[
               {
-                accordionType: "default",
+                variant: "default",
                 // Pass the ref for interaction with the accordion button.
                 buttonInteractionRef: accordionButtonRef,
                 label: accordionLabel,
                 panel: accordionPanel,
               },
             ]}
-            ariaLabel={ariaLabelValue}
+            aria-label={ariaLabelValue}
             id={`multi-select-accordion-${id}`}
             isDefaultOpen={isDefaultOpen}
             isAlwaysRendered

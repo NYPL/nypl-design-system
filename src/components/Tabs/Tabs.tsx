@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   Tab,
   TabList,
@@ -26,7 +27,7 @@ export interface TabsDataProps {
   label: string;
   content: string | React.ReactNode;
 }
-export interface TabsProps {
+export interface TabsProps extends Omit<BoxProps, "onChange"> {
   /** The index of the tab to display on the initial render. */
   defaultIndex?: number;
   /** ID that other components can cross reference for accessibility purposes */
@@ -75,8 +76,8 @@ const getElementsFromData = (
     const tempTab = (
       <Tab
         fontSize={{
-          base: "mobile.subtitle.subtitle1",
-          md: "desktop.subtitle.subtitle1",
+          base: "mobile.tab.tab1",
+          md: "desktop.tab.tab1",
         }}
         key={index}
         onClick={useHash ? () => onClickHash(`tab${index + 1}`) : undefined}

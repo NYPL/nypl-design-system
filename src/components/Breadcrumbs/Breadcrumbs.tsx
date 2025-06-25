@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   Breadcrumb as ChakraBreadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -12,7 +13,7 @@ import Icon from "../Icons/Icon";
 import Tooltip from "../Tooltip/Tooltip";
 import { truncateText } from "../../utils/utils";
 
-export const breadcrumbTypeArray = [
+export const breadcrumbVariantsArray = [
   "blogs",
   "booksAndMore",
   "brand",
@@ -23,24 +24,22 @@ export const breadcrumbTypeArray = [
   "research",
   "whatsOn",
 ] as const;
-export type BreadcrumbsTypes = typeof breadcrumbTypeArray[number];
+export type BreadcrumbsVariants = typeof breadcrumbVariantsArray[number];
 export interface BreadcrumbsDataProps {
   url: string;
   text: string | React.ReactNode;
   linkProps?: any;
 }
 
-export interface BreadcrumbProps {
+export interface BreadcrumbProps extends BoxProps {
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
-  /** Used to control how the `Hero` component will be rendered. */
-  breadcrumbsType?: BreadcrumbsTypes;
-  /** className you can add in addition to 'input' */
-  className?: string;
+  /** Used to control how the `Breadcrumbs` component will be rendered. */
+  variant?: BreadcrumbsVariants;
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
   /** Custom Link component for apps with internal routing, defaults to BreadcrumbLink if not passed */
-  customLinkComponent?: any;
+  customLinkComponent?: React.ElementType;
 }
 
 const breadcrumbTextLength = 40;
@@ -49,13 +48,19 @@ const breadcrumbTextLength = 40;
  * Truncate breadcrumb text if it is more than 40 characters in length and
  * then add ellipsis at the end.
  */
-const tooltipWrapperOrText = (
-  breadcrumbsData: BreadcrumbsDataProps,
+const tooltipWrapperOrText = ({
+  breadcrumbsData,
   breadcrumbsID,
   customLinkComponent,
   renderIcon = false,
-  isCurrentPage = false
-) => {
+  isCurrentPage = false,
+}: {
+  breadcrumbsData: BreadcrumbsDataProps;
+  breadcrumbsID: string;
+  customLinkComponent: React.ElementType;
+  renderIcon?: boolean;
+  isCurrentPage?: boolean;
+}) => {
   const textLength = (breadcrumbsData.text as string).length;
   const renderTooltip = textLength >= breadcrumbTextLength;
   // If the text is more than 40 characters in length, truncate it.
@@ -77,7 +82,7 @@ const tooltipWrapperOrText = (
           iconRotation="rotate90"
           id={`${breadcrumbsID}__backarrow`}
           className="breadcrumbs-icon"
-          type="breadcrumbs"
+          variant="breadcrumbs"
         />
       )}
       <span className="breadcrumb-label">{updatedText}</span>
@@ -100,11 +105,15 @@ const tooltipWrapperOrText = (
   return breadcrumbLink;
 };
 
-const getElementsFromData = (
-  data: BreadcrumbsDataProps[],
-  breadcrumbsID?: string,
-  customLinkComponent?: any
-) => {
+const getElementsFromData = ({
+  data,
+  breadcrumbsID,
+  customLinkComponent,
+}: {
+  data: BreadcrumbsDataProps[];
+  breadcrumbsID?: string;
+  customLinkComponent?: React.ElementType;
+}) => {
   if (!data?.length) {
     return null;
   }
@@ -118,13 +127,13 @@ const getElementsFromData = (
     const isCurrentPage = index === data.length - 1;
     return (
       <BreadcrumbItem key={index}>
-        {tooltipWrapperOrText(
+        {tooltipWrapperOrText({
           breadcrumbsData,
           breadcrumbsID,
           customLinkComponent,
           renderIcon,
-          isCurrentPage
-        )}
+          isCurrentPage,
+        })}
       </BreadcrumbItem>
     );
   });
@@ -147,8 +156,7 @@ export const Breadcrumbs: ChakraComponent<
   forwardRef<HTMLDivElement, BreadcrumbProps>((props, ref?) => {
     const {
       breadcrumbsData,
-      breadcrumbsType = "whatsOn",
-      className,
+      variant = "whatsOn",
       customLinkComponent,
       id,
       ...rest
@@ -160,19 +168,18 @@ export const Breadcrumbs: ChakraComponent<
       );
     }
 
-    const styles = useStyleConfig("CustomBreadcrumb", {
-      variant: breadcrumbsType,
+    const styles = useStyleConfig("ReservoirBreadcrumb", {
+      variant,
     });
-    const breadcrumbItems = getElementsFromData(
-      breadcrumbsData,
-      id,
-      customLinkComponent
-    );
+    const breadcrumbItems = getElementsFromData({
+      data: breadcrumbsData,
+      breadcrumbsID: id,
+      customLinkComponent,
+    });
 
     return (
       <ChakraBreadcrumb
         aria-label="Breadcrumb"
-        className={className}
         id={id}
         ref={ref}
         __css={styles}

@@ -9,7 +9,6 @@ const meta: Meta<typeof Heading> = {
   title: "Components/Typography & Styles/Heading",
   component: Heading,
   argTypes: {
-    className: { control: false },
     id: { control: false },
     isCapitalized: argsBooleanType(),
     isUppercase: argsBooleanType(),
@@ -41,7 +40,6 @@ type Story = StoryObj<typeof Heading>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     id: "heading-id",
     isCapitalized: false,
     isUppercase: false,
@@ -154,67 +152,6 @@ export const SizeStyles: Story = {
         level="h1"
         size="heading8"
         text="(heading8) Lorem ipsum dolor"
-      />
-    </VStack>
-  ),
-};
-
-export const DefaultStylesDeprecated: Story = {
-  name: "Deprecated Styles",
-  render: () => (
-    <VStack align="left" spacing="l">
-      <Heading
-        id="heading-one"
-        level="one"
-        noSpace
-        text="(one) Lorem ipsum dolor"
-      />
-      <Heading id="heading-two" level="two" text="(two) Lorem ipsum dolor" />
-      <Heading
-        id="heading-three"
-        level="three"
-        text="(three) Lorem ipsum dolor"
-      />
-      <Heading id="heading-four" level="four" text="(four) Lorem ipsum dolor" />
-      <Heading id="heading-five" level="five" text="(five) Lorem ipsum dolor" />
-      <Heading
-        id="heading-six"
-        color="inheret"
-        level="six"
-        text="(six) Lorem ipsum dolor"
-      />
-    </VStack>
-  ),
-};
-
-export const SizeStylesDeprecated: Story = {
-  name: "Deprecated Sizes",
-  render: () => (
-    <VStack align="left" spacing="l">
-      <Heading
-        id="heading-primary"
-        level="one"
-        noSpace
-        size="primary"
-        text="(primary) Lorem ipsum dolor"
-      />
-      <Heading
-        id="heading-secondary"
-        level="one"
-        size="secondary"
-        text="(secondary) Lorem ipsum dolor"
-      />
-      <Heading
-        id="heading-tertiary"
-        level="one"
-        size="tertiary"
-        text="(tertiary) Lorem ipsum dolor"
-      />
-      <Heading
-        id="heading-callout"
-        level="one"
-        size="callout"
-        text="(callout) Lorem ipsum dolor"
       />
     </VStack>
   ),

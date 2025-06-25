@@ -8,8 +8,6 @@ const meta: Meta<typeof StyledList> = {
   title: "Components/Typography & Styles/StyledList",
   component: StyledList,
   argTypes: {
-    children: { table: { disable: true } },
-    className: { control: false },
     id: { control: false },
     listItems: { control: false },
     style: { control: false },
@@ -57,7 +55,6 @@ const listItems = [
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     id: "nypl-styledlist",
     listItems: itemGroups,
     style: "capped",
@@ -94,24 +91,6 @@ export const FontSizes: Story = {
           Caption
         </Heading>
         <StyledList textSize="caption" listItems={listItems} />
-      </Box>
-    </VStack>
-  ),
-};
-export const DeprecatedFontSizes: Story = {
-  render: () => (
-    <VStack align="stretch" spacing="l">
-      <Box>
-        <Heading level="h3" size="heading6">
-          Tag
-        </Heading>
-        <StyledList textSize="tag" listItems={listItems} />
-      </Box>
-      <Box>
-        <Heading level="h3" size="heading6">
-          Mini
-        </Heading>
-        <StyledList textSize="mini" listItems={listItems} />
       </Box>
     </VStack>
   ),

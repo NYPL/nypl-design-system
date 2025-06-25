@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Modal,
@@ -21,9 +22,7 @@ import { LayoutTypes } from "../../helpers/types";
 import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
 import { FilterBarItemsType } from "../FilterBarInline/FilterBarInline";
 
-export interface FilterBarPopupProps {
-  /** The className of the FilterBarInline. */
-  className?: string;
+export interface FilterBarPopupProps extends BoxProps {
   /** Optional string value used to set the text for a `Heading` component, or
    * a DS Heading component that can be passed in.
    */
@@ -124,7 +123,7 @@ export const FilterBarPopup: ChakraComponent<
         <Box id={`filter-bar-${id}`} ref={ref} {...rest}>
           <Button
             id={`filter-bar-${id}-show-filters`}
-            buttonType="secondary"
+            variant="secondary"
             onClick={finalOnOpen}
             width={{ base: "100%", md: "fit-content" }}
           >
@@ -155,7 +154,7 @@ export const FilterBarPopup: ChakraComponent<
                 <ButtonGroup layout="column" buttonWidth="full">
                   <Button
                     id={`filter-bar-${id}-see-results`}
-                    buttonType="primary"
+                    variant="primary"
                     type="submit"
                     onClick={onSubmit ? onSubmitAndClose : finalOnClose}
                     ref={showResultsButtonRef}
@@ -165,7 +164,7 @@ export const FilterBarPopup: ChakraComponent<
                   {onClear && (
                     <Button
                       id={`filter-bar-${id}-clear`}
-                      buttonType="text"
+                      variant="text"
                       type="reset"
                       onClick={onClearAndFocus}
                       textAlign="center"

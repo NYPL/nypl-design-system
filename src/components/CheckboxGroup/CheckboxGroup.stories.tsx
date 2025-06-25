@@ -13,7 +13,6 @@ const meta: Meta<typeof CheckboxGroup> = {
   title: "Components/Form Elements/CheckboxGroup",
   component: CheckboxGroup,
   argTypes: {
-    children: { table: { disable: true } },
     defaultValue: { control: false },
     id: { control: false },
     isDisabled: {

@@ -7,8 +7,6 @@ const meta: Meta<typeof Text> = {
   title: "Components/Typography & Styles/Text",
   component: Text,
   argTypes: {
-    children: { table: { disable: true } },
-    className: { control: false },
     isBold: argsBooleanType(),
     isItalic: argsBooleanType(),
     isCapitalized: argsBooleanType(),
@@ -38,7 +36,6 @@ type Story = StoryObj<typeof Text>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     isBold: false,
     isItalic: false,
     isCapitalized: false,
@@ -96,14 +93,6 @@ export const RecommendedOptions: Story = {
       <Text size="subtitle2">Subtitle 2</Text>
       <Text size="overline1">Overline 1</Text>
       <Text size="overline2">Overline 2</Text>
-    </>
-  ),
-};
-export const DeprecatedOptions: Story = {
-  render: () => (
-    <>
-      <Text size="tag">Tag text (deprecated)</Text>
-      <Text size="mini">Mini text (deprecated)</Text>
     </>
   ),
 };

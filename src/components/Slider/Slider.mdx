@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 import * as SliderStories from "./Slider.stories";
 import { changelogData } from "./sliderChangelogData";
 
 <Meta of={SliderStories} />
 
-# Slider
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Slider"
+  summary="Input element that allows a user to select a value or range of values from a predefined range"
+  versionAdded="0.25.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.4`   |
-| Latest            | `3.3.2`    |
+<Canvas of={SliderStories.WithControls} />
 
 ## Table of Contents
 
@@ -32,9 +36,13 @@ import { changelogData } from "./sliderChangelogData";
 The text input component doubles as a display for the slider's current value.
 For this type of component, the `value` prop must be a single number.
 
+If you are using the `Slider` in a form, pass an HTML `name` attribute for use
+in the form data.
+
 ## Component Props
 
-<Canvas of={SliderStories.WithControls} />
+The `Slider` composes an HTML `input` element, so you may pass any HTML `input`
+attributes, as well any Chakra style props and the props below.
 
 <ArgTypes of={SliderStories.WithControls} />
 
@@ -54,7 +62,7 @@ visual label will be removed from the UI, but the value will still be used to
 generate the aria-label values for the previously mentioned internal
 elements.
 
-In addition to the `aria-label` attribute, the slider thumb will also contains
+In addition to the `aria-label` attribute, the slider thumb will also contain
 the `aria-valuemin`, `aria-valuemax`, `aria-orientation`, and `aria-valuenow`
 attributes.
 

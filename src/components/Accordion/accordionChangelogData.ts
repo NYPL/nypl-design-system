@@ -10,6 +10,19 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: [
+      "Removes `ariaLabel` prop and instructs developers to use the native HTML attribute instead.",
+      "Removes `isDarkMode` in favor of Chakra's `_dark` conditional key.",
+      "Replaces positional function arguments with objects for `getIcon` and `getElementsFromData`.",
+      "Extends prop definition to include Chakra's `BoxProps`",
+      "Renames `accordionType` to `variant`.",
+    ],
+  },
+  {
     date: "2025-02-21",
     version: "3.5.4",
     type: "Update",

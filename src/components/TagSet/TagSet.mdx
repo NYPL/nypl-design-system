@@ -4,15 +4,20 @@ import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as TagSetStories from "./TagSet.stories";
 import Link from "../Link/Link";
 import { changelogData } from "./tagSetChangelogData";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Meta of={TagSetStories} />
 
-# TagSet
+<ComponentDocsHeader
+  category="Content Display"
+  componentName="TagSet"
+  summary="Group of tags that allow content to be explored or filtered"
+  versionAdded="1.2.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.2.0`    |
-| Latest            | `3.6.0`    |
+<Canvas of={TagSetStories.ExploreVariant} />
+<Canvas of={TagSetStories.FilterVariantDismiss} />
 
 ## Table of Contents
 
@@ -39,6 +44,9 @@ Notes:
 - The `isDismissible` and `onClick` props are not used in this variant.
 
 <Canvas of={TagSetStories.ExploreVariant} />
+
+`TagSet` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={TagSetStories.ExploreVariant} />
 
@@ -153,7 +161,7 @@ const FilterVariantStory = () => {
       isDismissible
       onClick={handleOnClick}
       tagSetData={tagSetData}
-      type="filter"
+      variant="filter"
     />
   );
 };
@@ -168,7 +176,7 @@ const FilterVariantStory = () => {
 The `tagSetData` prop is an array of objects that contain `iconName`, `id`, and
 `label` properties. The `iconName` is the name of the icon to display through
 the Reservoir `Icon` component and is optional. The `label` _MUST_ be a string
-for the filter type.
+for the filter variant.
 
 Additionally, the data object can take in any additional properties that the
 consuming application may need for logic filtering.

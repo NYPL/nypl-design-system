@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
-import Notification, { notificationTypesArray } from "./Notification";
+import Notification, { notificationVariantsArray } from "./Notification";
 import Text from "../Text/Text";
 import Heading from "../Heading/Heading";
 
@@ -10,7 +10,6 @@ const meta: Meta<typeof Notification> = {
   title: "Components/Feedback/Notification",
   component: Notification,
   argTypes: {
-    className: { control: false },
     dismissible: {
       table: { defaultValue: { summary: "false" } },
     },
@@ -19,15 +18,12 @@ const meta: Meta<typeof Notification> = {
     isCentered: {
       table: { defaultValue: { summary: "false" } },
     },
-    noMargin: {
-      table: { defaultValue: { summary: "false" } },
-    },
     notificationContent: { control: false },
-    notificationType: {
+    variant: {
       control: {
         type: "radio",
       },
-      options: notificationTypesArray,
+      options: notificationVariantsArray,
       table: { defaultValue: { summary: "standard" } },
     },
   },
@@ -42,13 +38,10 @@ type Story = StoryObj<typeof Notification>;
  */
 export const WithControls: Story = {
   args: {
-    ariaLabel: "Notification label",
-    className: undefined,
     dismissible: false,
     icon: undefined,
     id: "notification-id",
     isCentered: false,
-    noMargin: false,
     notificationHeading: "Notification Heading",
     notificationContent: (
       <>
@@ -60,7 +53,7 @@ export const WithControls: Story = {
         luctus, nisi erat porttitor ligula.
       </>
     ),
-    notificationType: "standard",
+    variant: "standard",
     showIcon: true,
   },
   parameters: {
@@ -72,7 +65,7 @@ export const WithControls: Story = {
   },
   render: (args) => (
     <div style={{ border: "1px solid #ccc" }}>
-      <Notification {...args} />
+      <Notification aria-label="Notification label" {...args} />
     </div>
   ),
 };
@@ -95,7 +88,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="announcement"
+        variant="announcement"
         notificationHeading="Announcement Notification"
         notificationContent={
           <>
@@ -109,7 +102,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="warning"
+        variant="warning"
         notificationHeading="Warning Notification"
         notificationContent={
           <>
@@ -135,7 +128,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="announcement"
+        variant="announcement"
         notificationContent={
           <>
             This is an "announcement" Notification without a heading. Cras
@@ -148,7 +141,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="warning"
+        variant="warning"
         notificationContent={
           <>
             This is a "warning" Notification without a heading. Cras mattis
@@ -300,7 +293,7 @@ export const Dismissible: Story = {
           nascetur ridiculus mus.
         </>
       }
-      notificationType="announcement"
+      variant="announcement"
     />
   ),
 };

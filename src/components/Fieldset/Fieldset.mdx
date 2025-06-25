@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
-import { changelogData } from "./fieldsetChangelogData";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
 import * as FieldsetStories from "./Fieldset.stories";
-import { Link } from "../Link/Link";
+import { changelogData } from "./fieldsetChangelogData";
 
 <Meta of={FieldsetStories} />
 
-# Fieldset
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Fieldset"
+  summary="Renders a fieldset element for wrapping form components"
+  versionAdded="0.25.3"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.3`   |
-| Latest            | `3.5.5`    |
+<Canvas of={FieldsetStories.WithControls} />
 
 ## Table of Contents
 
@@ -27,7 +31,8 @@ import { Link } from "../Link/Link";
 
 ## Component Props
 
-<Canvas of={FieldsetStories.WithControls} />
+`Fieldset` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={FieldsetStories.WithControls} />
 

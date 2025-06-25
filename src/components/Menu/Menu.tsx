@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Flex,
@@ -16,9 +17,7 @@ import Image from "../Image/Image";
 import React, { forwardRef, useRef, useState } from "react";
 import { SectionTypes } from "../../helpers/types";
 
-export interface MenuProps {
-  /** Optional CSS class name that will be added to the component's parent element. */
-  className?: string;
+export interface MenuProps extends BoxProps {
   /** Optional ID string that other components can cross reference for accessibility purposes. */
   id?: string;
   /** Optional string used to identify and highlight an item when the menu opens. The value should

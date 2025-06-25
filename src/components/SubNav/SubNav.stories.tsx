@@ -5,21 +5,16 @@ import Hero from "../Hero/Hero";
 import Icon from "../Icons/Icon";
 import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 
-import SubNav, {
-  SubNavButton,
-  SubNavLink,
-  actionBackgroundColorsArray,
-  highlightColorsArray,
-} from "./SubNav";
+import SubNav, { SubNavButton, SubNavLink } from "./SubNav";
+import { bgColorsArray, highlightColorsArray } from "../../theme/sharedTypes";
 
 const meta: Meta<typeof SubNav> = {
   title: "Components/Navigation/SubNav",
   component: SubNav,
   argTypes: {
-    className: { control: false },
     actionBackgroundColor: {
       control: "select",
-      options: actionBackgroundColorsArray,
+      options: bgColorsArray,
       defaultValue: { summary: "blogs" },
     },
     highlightColor: {
@@ -39,7 +34,6 @@ const subNavButtonOnClick = (msg: string = "the button was clicked") => {
 
 export const WithControls: Story = {
   args: {
-    className: undefined,
     actionBackgroundColor: undefined,
     highlightColor: undefined,
     id: "subnav-with-controls",
@@ -480,7 +474,7 @@ export const Placement: Story = {
             text="Research Catalog"
           />
         }
-        heroType="tertiary"
+        variant="tertiary"
       />
       <SubNav
         actionBackgroundColor="section.research.primary-05"

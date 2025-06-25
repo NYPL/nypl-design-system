@@ -92,7 +92,7 @@ exports[`Heading renders the UI snapshot correctly 8`] = `
 exports[`Heading renders the UI snapshot correctly 9`] = `
 <hgroup
   aria-roledescription="Heading group"
-  className="css-0"
+  className="css-1xdhyk6"
   role="group"
 >
   <p
@@ -114,7 +114,7 @@ exports[`Heading renders the UI snapshot correctly 9`] = `
 exports[`Heading renders the UI snapshot correctly 10`] = `
 <hgroup
   aria-roledescription="Heading group"
-  className="css-0"
+  className="css-1xdhyk6"
   role="group"
 >
   <h1
@@ -136,7 +136,7 @@ exports[`Heading renders the UI snapshot correctly 10`] = `
 exports[`Heading renders the UI snapshot correctly 11`] = `
 <hgroup
   aria-roledescription="Heading group"
-  className="css-0"
+  className="css-1xdhyk6"
   role="group"
 >
   <p

@@ -200,7 +200,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
                   >
                     {showSubmitAll && (
                       <Button
-                        buttonType="primary"
+                        variant="primary"
                         id={`${id}-submit-all-button`}
                         onClick={onSubmit}
                       >
@@ -209,7 +209,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
                     )}
                     {showClearAll && (
                       <Button
-                        buttonType="text"
+                        variant="text"
                         id={`${id}-clear-all-button`}
                         onClick={onClear}
                         textAlign="center"
@@ -225,7 +225,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
             <>
               <Button
                 id={`filter-bar-${id}-show-filters`}
-                buttonType="secondary"
+                variant="secondary"
                 onClick={() => {
                   onToggle === undefined ? onOpen() : onToggle();
                 }}
@@ -261,7 +261,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
                       </Button>
                       <Button
                         id={`filter-bar-${id}-clear`}
-                        buttonType="text"
+                        variant="text"
                         type="reset"
                         textAlign="center"
                         onClick={onClear}

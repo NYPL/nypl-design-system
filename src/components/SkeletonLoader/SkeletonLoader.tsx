@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Skeleton as ChakraSkeleton,
@@ -17,9 +18,7 @@ export const skeletonLoaderImageRatiosArray = [
 export type SkeletonLoaderImageRatios =
   typeof skeletonLoaderImageRatiosArray[number];
 
-export interface SkeletonLoaderProps {
-  /** Additional class name for the Skeleton component. */
-  className?: string;
+export interface SkeletonLoaderProps extends BoxProps {
   /** Optional numeric value to control the number of lines for content
    * placeholder; default value is `3`. */
   contentSize?: number;
@@ -63,7 +62,6 @@ export const SkeletonLoader: ChakraComponent<
   forwardRef<HTMLDivElement, React.PropsWithChildren<SkeletonLoaderProps>>(
     (props, ref?) => {
       const {
-        className,
         contentSize = 3,
         headingSize = 1,
         imageAspectRatio = "square",
@@ -89,11 +87,15 @@ export const SkeletonLoader: ChakraComponent<
        * "heading" and "content" areas defined by the `type` argument. The last
        * element will have width of `lastWidth`.
        */
-      const getSkeletonElements = (
-        type: string,
+      const getSkeletonElements = ({
+        type,
         size = 1,
-        lastWidth = "80%"
-      ) => {
+        lastWidth = "80%",
+      }: {
+        type: string;
+        size?: number;
+        lastWidth?: string;
+      }) => {
         return new Array(size).fill(null).map((_, i) => {
           const width = i === size - 1 ? lastWidth : "100%";
           const marginBottomValue =
@@ -114,14 +116,7 @@ export const SkeletonLoader: ChakraComponent<
       };
 
       return (
-        <Box
-          className={className}
-          id={id}
-          ref={ref}
-          __css={styles.base}
-          style={{ width }}
-          {...rest}
-        >
+        <Box id={id} ref={ref} __css={styles.base} style={{ width }} {...rest}>
           {showImage && (
             <ChakraSkeleton sx={styles.loader}>
               <Box __css={{ ...styles.element, ...styles.image }} />
@@ -130,12 +125,20 @@ export const SkeletonLoader: ChakraComponent<
           <Box className={layout} __css={styles.container}>
             {showHeading && (
               <Box __css={styles.section}>
-                {getSkeletonElements("heading", headingSize, "80%")}
+                {getSkeletonElements({
+                  type: "heading",
+                  size: headingSize,
+                  lastWidth: "80%",
+                })}
               </Box>
             )}
             {showContent && (
               <Box __css={styles.section}>
-                {getSkeletonElements("content", contentSize, "30%")}
+                {getSkeletonElements({
+                  type: "content",
+                  size: contentSize,
+                  lastWidth: "30%",
+                })}
               </Box>
             )}
             {showButton && (

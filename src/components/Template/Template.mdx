@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import * as TemplateStories from "./Template.stories";
 import {
   Template,
   TemplateBreakout,
@@ -9,26 +8,25 @@ import {
   TemplateMain,
 } from "./Template";
 import Banner from "../Banner/Banner";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import DocsWithImage from "../../utils/components/DocsWithImage";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 import List from "../List/List";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
-
-import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import DocsWithImage from "../../utils/components/DocsWithImage";
-import { exampleWrapperStyles } from "../../utils/utils.ts";
-
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import * as TemplateStories from "./Template.stories";
 import { changelogData } from "./templateChangelogData";
+import { exampleWrapperStyles } from "../../utils/utils.ts";
 
 <Meta of={TemplateStories} />
 
 <ComponentDocsHeader
   category="Page layout component"
   componentName="Template"
-  summary="A structural skeleton for composing a standard page layout"
+  summary="Structural skeleton for composing a standard page layout"
   versionAdded="0.3.6"
   versionLatest="Prerelease"
 />
@@ -81,6 +79,9 @@ import {
 />
 
 ## Component Props
+
+The `Template` and its children compose Chakra `Box` components, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={TemplateStories.WithControls} />
 
@@ -253,7 +254,7 @@ a page.
 
 <DocsWithImage
   docs={
-    <List type="ul">
+    <List variant="ul">
       <li>
         Ideal for <code>Breadcrumbs</code>, <code>FilterbarInline</code>,{" "}
         <code>Hero</code>, and <code>SubNav</code> components
@@ -289,7 +290,7 @@ a page.
 
 <DocsWithImage
   docs={
-    <List type="ul">
+    <List variant="ul">
       <li>
         Ideal for <code>Banner</code>, <code>FilterbarInline</code>,{" "}
         <code>FeaturedContent</code>, and <code>NewsletterSignup</code> (bottom
@@ -321,7 +322,7 @@ a page.
 
 <DocsWithImage
   docs={
-    <List type="ul">
+    <List variant="ul">
       <li>Ideal for secondary navigation and filtering elements</li>
       <li>
         Often positioned below <code>TemplateFull</code> and always positioned
@@ -357,7 +358,7 @@ a page.
 
 <DocsWithImage
   docs={
-    <List type="ul">
+    <List variant="ul">
       <li>Should be used for the main content of a page</li>
       <li>
         Often positioned below <code>TemplateFull</code> and always positions to
@@ -447,7 +448,7 @@ Use the `variant` prop to set the template layout
 
 <DocsWithImage
   docs={
-    <List type="ul">
+    <List variant="ul">
       <li>Ideal for displaying content that is primarily text</li>
       <li>
         Max width of <code>821px</code>
@@ -486,7 +487,7 @@ Use the `variant` prop to set the template layout
 
 <DocsWithImage
   docs={
-    <List type="ul">
+    <List variant="ul">
       <li>
         Ideal for displaying secondary navigation, featured content, and
         recommendations
@@ -599,7 +600,7 @@ Use the `variant` prop to set the template layout
 <DocsWithImage
   docs={
     <>
-      <List type="ul">
+      <List variant="ul">
         <li>
           The <code>Template</code> component should be used with the NYPL
           universal <code>Header</code> and <code>Footer</code> to compose pages

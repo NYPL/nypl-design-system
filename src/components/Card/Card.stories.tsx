@@ -20,7 +20,6 @@ const meta: Meta<typeof Card> = {
   component: Card,
   argTypes: {
     backgroundColor: { control: { type: "color" } },
-    className: { control: false },
     foregroundColor: { control: { type: "color" } },
     id: { control: false },
     imageProps: { disable: true },
@@ -75,7 +74,6 @@ type Story = StoryObj<typeof Card>;
 export const WithControls: Story = {
   args: {
     backgroundColor: undefined,
-    className: undefined,
     foregroundColor: undefined,
     id: "card-id",
     imageProps: undefined,
@@ -98,7 +96,6 @@ export const WithControls: Story = {
   render: (args) => (
     <Card
       backgroundColor={args.backgroundColor}
-      className={args.className}
       foregroundColor={args.foregroundColor}
       id={args.id}
       imageProps={{
@@ -134,7 +131,7 @@ export const WithControls: Story = {
           Primary
         </Button>
         <Button
-          buttonType="secondary"
+          variant="secondary"
           id="main-button2"
           onClick={action("clicked")}
           type="submit"
@@ -593,7 +590,7 @@ export const FallbackImage: Story = {
         consectetur est at lobortis.
       </CardContent>
       <CardActions>
-        <Link type="button" href="#">
+        <Link type="buttonPrimary" href="#">
           Reserve
         </Link>
         <Link href="#url" type="forwards">
@@ -632,7 +629,7 @@ export const HeadingAsLink: Story = {
         clicking with a mouse.
       </CardContent>
       <CardActions>
-        <Link href="#" type="button">
+        <Link href="#" type="buttonPrimary">
           Button
         </Link>
         <Link href="#" type="forwards">
@@ -862,7 +859,7 @@ export const CardWithRightSideCardActions: Story = {
         <Button
           onClick={action("clicked")}
           id="main-button2"
-          buttonType="secondary"
+          variant="secondary"
           type="submit"
         >
           Secondary

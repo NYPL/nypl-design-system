@@ -10,6 +10,24 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+    ],
+  },
+  {
+    date: "2025-05-22",
+    version: "3.6.2",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Removes use of `useNYPLBreakpoints` and replaces with equivalent CSS.",
+    ],
+  },
+  {
     date: "2025-02-13",
     version: "3.5.4",
     type: "Update",

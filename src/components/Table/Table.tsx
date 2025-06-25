@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Table as ChakraTable,
@@ -13,19 +14,13 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 
 interface CustomColors {
   backgroundColor?: string;
   color?: string;
 }
 
-export const tableBodyTextSizesArray = ["body1", "body2"] as const;
-export type TableBodyTextSizes = typeof tableBodyTextSizesArray[number];
-
-export interface TableProps {
-  /** Additional class name for the `Table` component. */
-  className?: string;
+export interface TableProps extends BoxProps {
   /** Array of string values used to populate the `Table` column headers.
    * For improved accessibility, column headers are required. */
   columnHeaders: string[];
@@ -37,10 +32,6 @@ export interface TableProps {
    * Any style can be passed, but the most common use would be to pass "width"
    * and "maxWidth" to set custom column widths. */
   columnStyles?: object[];
-  /** The size of the table body text. */
-  tableTextSize?: TableBodyTextSizes;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** If true, horizontal scrolling will be enabled for the table content.  */
   isScrollable?: boolean;
   /** If true, a border will be displayed between each row in the `Table`
@@ -71,13 +62,10 @@ export const Table: ChakraComponent<
   forwardRef<HTMLTableElement, React.PropsWithChildren<TableProps>>(
     (props, ref?) => {
       const {
-        className,
         columnHeaders = [],
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
         columnStyles = [],
-        tableTextSize = "body1",
-        id,
         isScrollable = false,
         showRowDividers = false,
         showTitleText = true,
@@ -93,12 +81,21 @@ export const Table: ChakraComponent<
       columnHeadersTextColor &&
         (customColors["color"] = columnHeadersTextColor);
 
-      const { isLargerThanMobile } = useNYPLBreakpoints();
+      // If the screen width is smaller than the `md` breakpoint and
+      // `isScrollable` is false, we should not apply the column styles
+      const responsiveColumnStyle = (styleObj: object): object => {
+        const updatedStyle = Object.fromEntries(
+          Object.entries(styleObj).map(([key, value]) => [
+            key,
+            { base: isScrollable ? value : undefined, md: value },
+          ])
+        );
+        return updatedStyle;
+      };
 
-      const styles = useMultiStyleConfig("CustomTable", {
+      const styles = useMultiStyleConfig("ReservoirTable", {
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
-        tableTextSize,
         isScrollable,
         showRowDividers,
         useRowHeaders,
@@ -180,11 +177,8 @@ export const Table: ChakraComponent<
                       scope="row"
                       key={key}
                       sx={
-                        isScrollable
-                          ? columnStyles[key]
-                          : isLargerThanMobile
-                          ? columnStyles[key]
-                          : undefined
+                        columnStyles.length &&
+                        responsiveColumnStyle(columnStyles[key])
                       }
                     >
                       {cellContent(key, column)}
@@ -194,11 +188,8 @@ export const Table: ChakraComponent<
                     <ChakraTd
                       key={key}
                       sx={
-                        isScrollable
-                          ? columnStyles[key]
-                          : isLargerThanMobile
-                          ? columnStyles[key]
-                          : undefined
+                        columnStyles.length &&
+                        responsiveColumnStyle(columnStyles[key])
                       }
                     >
                       {cellContent(key, column)}
@@ -237,8 +228,6 @@ export const Table: ChakraComponent<
         <TableContainer {...containerProps} sx={styles.base}>
           <ChakraTable
             aria-label={titleText && !showTitleText ? titleText : undefined}
-            className={className}
-            id={id}
             ref={ref}
             sx={styles.innerTable}
             {...rest}

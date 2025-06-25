@@ -4,15 +4,19 @@ import * as StatusBadgeStories from "./StatusBadge.stories";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import Link from "../Link/Link";
 import { changelogData } from "./statusBadgeChangelogData";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Meta of={StatusBadgeStories} />
 
-# StatusBadge
+<ComponentDocsHeader
+  category="Content Display"
+  componentName="StatusBadge"
+  summary="Label to indicate status or importance"
+  versionAdded="0.18.7"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.18.7`   |
-| Latest            | `3.5.4`    |
+<Canvas of={StatusBadgeStories.WithControls} />
 
 ## Table of Contents
 
@@ -31,7 +35,8 @@ import { changelogData } from "./statusBadgeChangelogData";
 
 ## Component Props
 
-<Canvas of={StatusBadgeStories.WithControls} />
+`StatusBadge` composes a Chakra `Box` component, so you may pass any Chakra `Box` props,
+as well as the props below.
 
 <ArgTypes of={StatusBadgeStories.WithControls} />
 
@@ -53,23 +58,15 @@ variant. In this way, the user will be able to understand the priority of the
 
 The component offers two props for setting the visual style:
 
-- `type`
-- `level` (deprecated)
+- `variant`
+- `fontSize`
 
-### Type
+### Variant
 
-- The semantic `type` variants align with specific uses.
+- The semantic variants align with specific uses.
 - Refer to the table below for the recommended purpose of each variant.
 
-<Canvas of={StatusBadgeStories.Types} />
-
-### Level (deprecated)
-
-- The `level` variants have been deprecated in favor of the semantic `type`
-  variants.
-- For backward compatibility, the `level` prop will override the `type` prop.
-
-<Canvas of={StatusBadgeStories.Levels} />
+<Canvas of={StatusBadgeStories.Variants} />
 
 ## Font Size
 
@@ -106,12 +103,12 @@ The default label font size is `desktop.body.body2`.
   code={`
 // Icon first (add margin-right)
 
-<StatusBadge level="high">
+<StatusBadge type="negative">
   <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
   On-Site Access Only
 </StatusBadge>
 
-<StatusBadge font-size="caption" type="warning">
+<StatusBadge font-size="caption" variant="warning">
   <Icon
     color="ui.warning.secondary"
     mr="xs"
@@ -123,12 +120,12 @@ The default label font size is `desktop.body.body2`.
 
 // Icon second (add margin-left)
 
-<StatusBadge level="low">
+<StatusBadge variant="neutral">
   Registration Required
   <Icon color="ui.black" ml="xs" name="actionIdentityFilled" size="medium" />
 </StatusBadge>
 
-<StatusBadge font-size="body1" type="informative">
+<StatusBadge font-size="body1" variant="informative">
   Includes audio
   <Icon color="ui.link.secondary" ml="xs" name="headset" size="medium" />
 </StatusBadge>

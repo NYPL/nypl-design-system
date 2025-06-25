@@ -1,37 +1,24 @@
-import { Box, chakra, ChakraComponent, useStyleConfig } from "@chakra-ui/react";
+import {
+  Box,
+  BoxProps,
+  chakra,
+  ChakraComponent,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+import { messageVariantsArray } from "../../theme/sharedTypes";
 
 export const statusBadgeFontSizeArray = [
   "desktop.body.body1",
   "desktop.body.body2",
   "desktop.caption",
 ] as const;
-
-export const statusBadgeLevelArray = ["low", "medium", "high"] as const;
-export type StatusBadgeLevels = typeof statusBadgeLevelArray[number];
-
-export const statusBadgeTypeArray = [
-  "informative",
-  "negative",
-  "neutral",
-  "positive",
-  "recommendation",
-  "warning",
-  "low",
-  "medium",
-  "high",
-] as const;
-export type StatusBadgeTypes = typeof statusBadgeTypeArray[number];
-export interface StatusBadgeProps {
-  /** Additional class for the component */
-  className?: string;
+export type StatusBadgeVariants = typeof messageVariantsArray[number];
+export interface StatusBadgeProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes */
   id?: string;
-  /** Level of the status badge. This prop has been deprecated in favor of the
-   * `type` prop. */
-  level?: StatusBadgeLevels;
   /** Semantic type of the status badge. */
-  type?: StatusBadgeTypes;
+  variant?: StatusBadgeVariants;
 }
 
 /**
@@ -48,11 +35,10 @@ export const StatusBadge: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<StatusBadgeProps>>(
     (props, ref?) => {
-      const { children, className, id, level, type, ...rest } = props;
-      const finalVariant = level ? level : type ? type : "low";
+      const { children, id, variant, ...rest } = props;
       const styles = useStyleConfig("StatusBadge", {
         labelFontSize: rest["fontSize"],
-        variant: finalVariant,
+        variant: variant || "neutral",
       });
 
       if (!children) {
@@ -60,7 +46,7 @@ export const StatusBadge: ChakraComponent<
       }
 
       return (
-        <Box id={id} className={className} ref={ref} __css={styles} {...rest}>
+        <Box id={id} ref={ref} __css={styles} {...rest}>
           {children}
         </Box>
       );

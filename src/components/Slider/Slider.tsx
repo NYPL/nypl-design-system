@@ -1,7 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   RangeSlider as ChakraRangeSlider,
   RangeSliderFilledTrack as ChakraRangeSliderFilledTrack,
   RangeSliderThumb as ChakraRangeSliderThumb,
@@ -10,10 +12,9 @@ import {
   SliderFilledTrack as ChakraSliderFilledTrack,
   SliderThumb as ChakraSliderThumb,
   SliderTrack as ChakraSliderTrack,
-  useColorMode,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, InputHTMLAttributes } from "react";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
@@ -21,9 +22,12 @@ import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
 import TextInput, { TextInputTypes } from "../TextInput/TextInput";
 
-export interface SliderProps {
-  /** Additional class name for the Slider component. */
-  className?: string;
+export interface SliderProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<
+      InputHTMLAttributes<HTMLInputElement>,
+      "color" | "defaultValue" | "height" | "onChange" | "value" | "width"
+    > {
   /** The initial value for the single `Slider` or an array of two number
    * values for the `isRangeSlider` case. */
   defaultValue?: number | number[];
@@ -89,7 +93,6 @@ export const Slider: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, SliderProps>((props, ref?) => {
     const {
-      className,
       defaultValue = 0,
       helperText,
       id,
@@ -133,7 +136,6 @@ export const Slider: ChakraComponent<
     }
 
     const [currentValue, setCurrentValue] = useStateWithDependencies(value);
-    const isDarkMode = useColorMode().colorMode === "dark";
 
     let finalIsInvalid = isInvalid;
     // In the Range Slider, if the first value is bigger than the second value,
@@ -150,8 +152,7 @@ export const Slider: ChakraComponent<
         "NYPL Reservoir Slider: The `min` prop is greater than the `max` prop."
       );
     }
-    const styles = useMultiStyleConfig("CustomSlider", {
-      isDarkMode,
+    const styles = useMultiStyleConfig("ReservoirSlider", {
       isDisabled,
       isInvalid: finalIsInvalid,
       showBoxes,
@@ -324,7 +325,6 @@ export const Slider: ChakraComponent<
 
     return (
       <ComponentWrapper
-        className={className}
         helperText={helperText}
         id={id}
         invalidText={invalidText}

@@ -6,6 +6,8 @@ import SearchBar from "./SearchBar";
 import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
 import Heading from "../Heading/Heading";
 import { argsBooleanType } from "../../helpers/storybookUtils";
+import { Box, Button, Flex, TextInput } from "../..";
+import Checkbox from "../Checkbox/Checkbox";
 
 const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",
@@ -17,7 +19,6 @@ const meta: Meta<typeof SearchBar> = {
       control: false,
       table: { defaultValue: { summary: "null" } },
     },
-    className: { control: false },
     id: { control: false },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),
@@ -60,7 +61,6 @@ export const WithControls: Story = {
   args: {
     action: undefined,
     buttonOnClick: undefined,
-    className: undefined,
     helperText: "Search for items in Animal Crossing New Horizons",
     id: "searchBar-id",
     invalidText: "Could not find the item :(",
@@ -244,6 +244,23 @@ export const DisabledState: Story = {
       }}
     />
   ),
+};
+
+export const WithSearchElement: Story = {
+  render: () => (
+    <search>
+      {/* TODO: Replace with Searchbar component. */}
+      <Heading size="heading6"> Search items </Heading>
+      <Flex justifyContent="align-content">
+        <TextInput id="search-input" labelText="Search" showLabel={false} />
+        <Button id="search-btn">Search</Button>
+      </Flex>
+      <Box sx={{ marginTop: "s" }}>
+        <Checkbox id="public-domain" labelText="Only public domain" />
+      </Box>
+    </search>
+  ),
+  name: "Search Landmark Element Example",
 };
 
 export const WithCustomHeading: Story = {

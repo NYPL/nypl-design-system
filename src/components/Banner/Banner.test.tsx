@@ -44,7 +44,7 @@ describe("Banner", () => {
   beforeEach(() => {
     utils = render(
       <Banner
-        ariaLabel="Banner label"
+        aria-label="Banner label"
         content={<>Banner content.</>}
         heading="Banner Heading"
         id="bannerID"
@@ -59,7 +59,7 @@ describe("Banner", () => {
   it("renders a custom heading level", () => {
     utils.rerender(
       <Banner
-        ariaLabel="Banner label"
+        aria-label="Banner label"
         id="bannerID"
         content={<>Banner content.</>}
         heading={<Heading level="h4">Custom H4 Heading</Heading>}
@@ -142,12 +142,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="informative"
+        variant="informative"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "informative"
     );
   });
@@ -156,12 +156,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="negative"
+        variant="negative"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "negative"
     );
   });
@@ -170,12 +170,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="neutral"
+        variant="neutral"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "neutral"
     );
   });
@@ -184,12 +184,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="positive"
+        variant="positive"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "positive"
     );
   });
@@ -198,12 +198,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="recommendation"
+        variant="recommendation"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "recommendation"
     );
   });
@@ -212,12 +212,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="warning"
+        variant="warning"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "warning"
     );
   });
@@ -258,7 +258,7 @@ describe("Banner", () => {
         <Banner
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="informative"
+          variant="informative"
         />
       )
       .toJSON();
@@ -268,7 +268,7 @@ describe("Banner", () => {
           id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="negative"
+          variant="negative"
         />
       )
       .toJSON();
@@ -278,7 +278,7 @@ describe("Banner", () => {
           id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="neutral"
+          variant="neutral"
         />
       )
       .toJSON();
@@ -288,7 +288,7 @@ describe("Banner", () => {
           id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="positive"
+          variant="positive"
         />
       )
       .toJSON();
@@ -298,7 +298,7 @@ describe("Banner", () => {
           id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="recommendation"
+          variant="recommendation"
         />
       )
       .toJSON();
@@ -308,7 +308,7 @@ describe("Banner", () => {
           id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="warning"
+          variant="warning"
         />
       )
       .toJSON();

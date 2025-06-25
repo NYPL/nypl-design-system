@@ -2,18 +2,22 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as MultiSelectStories from "./MultiSelect.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as MultiSelectStories from "./MultiSelect.stories";
 import { changelogData } from "./multiSelectChangelogData";
 
 <Meta of={MultiSelectStories} />
 
-# MultiSelect
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="MultiSelect"
+  summary="Grouping of related checkboxes rendered in a menu format that allows a user to select one or more options"
+  versionAdded="1.4.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.4.0`    |
-| Latest            | `3.6.1`    |
+<Canvas of={MultiSelectStories.withControls} />
 
 ## Table of Contents
 
@@ -43,8 +47,6 @@ import { changelogData } from "./multiSelectChangelogData";
 ## Component Props
 
 The `MultiSelect` renders a non-hierarchical list of items to select from.
-
-<Canvas of={MultiSelectStories.withControls} />
 
 <Source
   code={`
@@ -79,6 +81,9 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
 `}
   language="jsx"
 />
+
+`MultiSelect` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={MultiSelectStories.withControls} />
 
@@ -777,7 +782,11 @@ function MultiSelectGroupExample() {
           setActionName("onChange");
         }}
         onMixedStateChange={(e) => {
-          onMixedStateChange(e.target.id, "ms-group-1", items);
+          onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: "ms-group-1",
+              items: items,
+            });
           setActionName("onMixedStateChange");
         }}
         onClear={() => {

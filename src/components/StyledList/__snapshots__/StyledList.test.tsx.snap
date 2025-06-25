@@ -105,7 +105,8 @@ exports[`StyledList Renders the UI snapshot correctly 5`] = `
 
 exports[`StyledList Renders the UI snapshot correctly 6`] = `
 <ul
-  className="css-1xdhyk6"
+  className="css-kle7zy"
+  id="chakra"
 >
   <li>
     Mahi-mahi
@@ -125,45 +126,7 @@ exports[`StyledList Renders the UI snapshot correctly 6`] = `
 exports[`StyledList Renders the UI snapshot correctly 7`] = `
 <ul
   className="css-1xdhyk6"
->
-  <li>
-    Mahi-mahi
-  </li>
-  <li>
-    Golden trout
-  </li>
-  <li>
-    Rainbowfish
-  </li>
-  <li>
-    Suckerfish
-  </li>
-</ul>
-`;
-
-exports[`StyledList Renders the UI snapshot correctly 8`] = `
-<ul
-  className="css-kle7zy"
-  id="chakra"
->
-  <li>
-    Mahi-mahi
-  </li>
-  <li>
-    Golden trout
-  </li>
-  <li>
-    Rainbowfish
-  </li>
-  <li>
-    Suckerfish
-  </li>
-</ul>
-`;
-
-exports[`StyledList Renders the UI snapshot correctly 9`] = `
-<ul
-  className="css-1xdhyk6"
+  data-testid="other"
   id="other"
 >
   <li>

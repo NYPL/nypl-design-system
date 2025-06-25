@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   ChakraComponent,
   Flex,
@@ -15,9 +16,7 @@ import TagSetFilter, {
   TagSetFilterProps,
 } from "./TagSetFilter";
 
-export interface BaseTagSetProps {
-  /** Additional class for the component. */
-  className?: string;
+export interface BaseTagSetProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
 }
@@ -28,8 +27,10 @@ export type TagSetTypeProps = TagSetFilterProps | TagSetExploreProps;
 export type TagSetProps = BaseTagSetProps & TagSetTypeProps;
 
 // Type guard so we can make sure we have a "filter" `TagSet` variant.
-export function isFilterType(type: TagSetProps["type"]): type is "filter" {
-  return type === "filter";
+export function isFilterVariant(
+  variant: TagSetProps["variant"]
+): variant is "filter" {
+  return variant === "filter";
 }
 
 /**
@@ -52,17 +53,16 @@ export const TagSet: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, TagSetProps>((props: TagSetProps, ref?) => {
     const {
-      className,
       id,
       isDismissible = false,
       onClick,
       tagSetData = [],
-      type = "filter",
+      variant = "filter",
       ...rest
     } = props;
     const styles = useStyleConfig("TagSet", {});
 
-    if (!isFilterType(type)) {
+    if (!isFilterVariant(variant)) {
       if (isDismissible) {
         console.warn(
           "NYPL Reservoir TagSet: The `isDismissible` prop will be ignored when the `type` prop is set to 'explore'."
@@ -76,20 +76,20 @@ export const TagSet: ChakraComponent<
     }
 
     return (
-      <Flex className={className} id={id} ref={ref} __css={styles} {...rest}>
-        {!isFilterType(type) && (
+      <Flex id={id} ref={ref} __css={styles} {...rest}>
+        {!isFilterVariant(variant) && (
           <TagSetExplore
             tagSetData={tagSetData as TagSetExploreDataProps[]}
-            type={type}
+            variant={variant}
           />
         )}
-        {isFilterType(type) && (
+        {isFilterVariant(variant) && (
           <TagSetFilter
             id={id}
             isDismissible={isDismissible}
             onClick={onClick}
             tagSetData={tagSetData as TagSetFilterDataProps[]}
-            type={type}
+            variant={variant}
           />
         )}
       </Flex>

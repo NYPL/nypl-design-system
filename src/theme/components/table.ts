@@ -1,7 +1,6 @@
 import { useColorModeValue } from "@chakra-ui/react";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
-import { TableBodyTextSizes } from "../../components/Table/Table";
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["base", "innerTable"]);
@@ -9,7 +8,6 @@ const { defineMultiStyleConfig, definePartsStyle } =
 interface BaseStyleProps extends StyleFunctionProps {
   columnHeadersBackgroundColor?: string;
   columnHeadersTextColor?: string;
-  tableTextSize?: TableBodyTextSizes;
   isScrollable?: boolean;
   showRowDividers?: boolean;
   useRowHeaders?: boolean;
@@ -56,15 +54,6 @@ export const fixedColumnStyles = (
   },
 });
 
-const tableTextSizes = (textSizeValue: string = "body1") => ({
-  columnHeading:
-    textSizeValue === "body2"
-      ? "desktop.caption.caption1"
-      : "desktop.body.body2",
-  tableBody:
-    textSizeValue === "body2" ? "desktop.body.body2" : "desktop.body.body1",
-});
-
 export const baseTRStyles = (
   columnHeadersBackgroundColor = "",
   isScrollable = false,
@@ -97,7 +86,6 @@ export const baseTRStyles = (
 export const baseCellStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
-  tableTextSize = null,
   isScrollable = false,
   showRowDividers = false
 ) => ({
@@ -105,7 +93,6 @@ export const baseCellStyles = (
   borderBottom: showRowDividers ? "1px solid" : "0",
   borderColor: CellBorderColorStyles(),
   display: isScrollable ? undefined : { base: "flex", md: "table-cell" },
-  fontSize: tableTextSizes(tableTextSize).tableBody,
   gap: "s",
   letterSpacing: "0",
   lineHeight: 1.5,
@@ -151,7 +138,6 @@ export const baseCellStyles = (
 export const baseTHStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
-  tableTextSize = "",
   isScrollable = false,
   showRowDividers = false,
   useRowHeaders = false
@@ -159,7 +145,6 @@ export const baseTHStyles = (
   ...baseCellStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    tableTextSize,
     isScrollable,
     showRowDividers
   ),
@@ -167,7 +152,7 @@ export const baseTHStyles = (
     ? columnHeadersTextColor
     : "ui.typography.heading",
   fontWeight: "bold",
-  fontSize: tableTextSizes(tableTextSize).columnHeading,
+  fontSize: "unset",
   textTransform: "uppercase",
 
   _first: {
@@ -182,14 +167,12 @@ export const baseTHStyles = (
 export const baseTDStyles = (
   columnHeadersBackgroundColor = "",
   columnHeadersTextColor = "",
-  tableTextSize = "",
   isScrollable = false,
   showRowDividers = false
 ) => ({
   ...baseCellStyles(
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    tableTextSize,
     isScrollable,
     showRowDividers
   ),
@@ -205,7 +188,6 @@ export const baseStyle = definePartsStyle(
   ({
     columnHeadersBackgroundColor,
     columnHeadersTextColor,
-    tableTextSize,
     isScrollable,
     showRowDividers,
     useRowHeaders,
@@ -260,7 +242,6 @@ export const baseStyle = definePartsStyle(
             : undefined,
           color: "ui.typography.heading",
           fontWeight: "medium",
-          fontSize: tableTextSizes(tableTextSize).tableBody,
           textTransform: "capitalize",
           verticalAlign: "top",
           _dark: {
@@ -276,6 +257,7 @@ export const baseStyle = definePartsStyle(
           ? undefined
           : { base: "none", md: "table-header-group" },
         th: {
+          fontSize: "desktop.caption",
           _first: {
             backgroundColor: columnHeadersBackgroundColor
               ? columnHeadersBackgroundColor
@@ -301,7 +283,6 @@ export const baseStyle = definePartsStyle(
       th: baseTHStyles(
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
-        tableTextSize,
         isScrollable,
         showRowDividers,
         useRowHeaders
@@ -309,7 +290,6 @@ export const baseStyle = definePartsStyle(
       td: baseTDStyles(
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
-        tableTextSize,
         isScrollable,
         showRowDividers
       ),

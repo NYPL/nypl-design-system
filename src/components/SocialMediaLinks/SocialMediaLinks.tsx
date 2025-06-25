@@ -1,18 +1,22 @@
-import { ChakraComponent, chakra, useStyleConfig } from "@chakra-ui/react";
+import {
+  BoxProps,
+  ChakraComponent,
+  chakra,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import List from "../List/List";
 import Link from "../Link/Link";
 import Icon, { IconNames as DsIconNames, IconSizes } from "../Icons/Icon";
 import { LayoutTypes } from "../../helpers/types";
 import React, { forwardRef } from "react";
+import { sizesArray } from "../../theme/sharedTypes";
 
 export const borderTypeArray = ["none", "circular", "straight"] as const;
 export type BorderType = typeof borderTypeArray[number];
 
 export const colorTypeArray = ["link", "textDefault", "textInverse"] as const;
 export type ColorType = typeof colorTypeArray[number];
-
-export const sizeTypeArray = ["small", "medium", "large"] as const;
-export type SizeType = typeof sizeTypeArray[number];
+export type SizeType = typeof sizesArray[number];
 
 type IconNames =
   | "fileTypeGenericDoc"
@@ -41,9 +45,7 @@ export interface SocialMediaLinkDataProps {
   url: string;
 }
 
-interface BaseSocialMediaLinksProps {
-  /** Optional className you can add in addition to "social-media-links." */
-  className?: string;
+interface BaseSocialMediaLinksProps extends BoxProps {
   /** Any of three optional values that will change the color of the svg and label text (if any). */
   color?: ColorType;
   /** ID that other components can cross-reference for accessibility purposes. */
@@ -82,7 +84,6 @@ export const SocialMediaLinks: ChakraComponent<
     const {
       borders = "none",
       color = "textDefault",
-      className,
       id,
       linksData,
       layout = "row",
@@ -133,11 +134,10 @@ export const SocialMediaLinks: ChakraComponent<
 
     return (
       <List
-        type="ul"
+        variant="ul"
         listItems={LinksDataComponents}
         inline={layout === "row"}
         noStyling={true}
-        className={className}
         id={id}
         __css={styles}
         ref={ref}

@@ -49,7 +49,7 @@ type Story = StoryObj<typeof Template>;
 
 const accordionData: AccordionDataProps[] = [
   {
-    accordionType: "default",
+    variant: "default",
     label: "Tom Nook",
     panel: (
       <Card
@@ -75,7 +75,7 @@ const accordionData: AccordionDataProps[] = [
 const faqContentData: AccordionDataProps[] = [
   ...accordionData,
   {
-    accordionType: "warning",
+    variant: "warning",
     label: "Isabelle",
     panel: (
       <Card
@@ -100,7 +100,7 @@ const faqContentData: AccordionDataProps[] = [
     ),
   },
   {
-    accordionType: "error",
+    variant: "error",
     label: "K.K. Slider",
     panel: (
       <Card
@@ -252,11 +252,11 @@ export const FullExample: Story = {
           />
           <Hero
             backgroundImageSrc={getPlaceholderImage()}
-            heroType="campaign"
-            heading={<Heading level="h1" id="1" text="Hero Campaign" />}
+            variant="primary"
+            heading={<Heading level="h1" id="1" text="Hero Primary" />}
             imageProps={{
               alt: "Image example",
-              src: getPlaceholderImage("smaller"),
+              src: getPlaceholderImage(),
             }}
             isDarkBackgroundImage
             subHeaderText={otherSubHeaderText}
@@ -267,7 +267,7 @@ export const FullExample: Story = {
             <Banner
               content="This is a full area!"
               heading="Full"
-              type="informative"
+              variant="informative"
             />
           </TemplateFull>
           {variant === "sidebarLeft" && (
@@ -379,7 +379,7 @@ export const FullExample: Story = {
             <Banner
               content="This is a full area!"
               heading="Full"
-              type="informative"
+              variant="informative"
             />
           </TemplateFull>
         </TemplateMain>
@@ -402,12 +402,12 @@ export const NarrowExample = {
                 text: "Catalog",
               },
             ]}
-            breadcrumbsType="research"
+            variant="research"
           />
           <Hero
             backgroundColor="section.research.primary"
             foregroundColor="ui.white"
-            heroType="tertiary"
+            variant="tertiary"
             heading={<Heading level="h1" id="1" text="Narrow content" />}
           />
         </TemplateBreakout>
@@ -416,7 +416,7 @@ export const NarrowExample = {
             <Banner
               content="This is a full area!"
               heading="Full"
-              type="informative"
+              variant="informative"
             />
           </TemplateFull>
           <TemplateContent>
@@ -446,7 +446,7 @@ export const NarrowExample = {
             <Banner
               content="This is a full area!"
               heading="Full"
-              type="informative"
+              variant="informative"
             />
           </TemplateFull>
         </TemplateMain>
@@ -473,7 +473,7 @@ export const FeaturedContentExample = {
           />
           <Hero
             backgroundImageSrc={getPlaceholderImage()}
-            heroType="campaign"
+            variant="campaign"
             heading={<Heading level="h1" id="1" text="Hero Campaign" />}
             imageProps={{
               alt: "Image example",
@@ -488,7 +488,7 @@ export const FeaturedContentExample = {
             <Banner
               content="This is a full area!"
               heading="Full"
-              type="informative"
+              variant="informative"
             />
           </TemplateFull>
           <TemplateContent>
@@ -519,7 +519,7 @@ export const FeaturedContentExample = {
             <Banner
               content="This is a full area!"
               heading="Full"
-              type="informative"
+              variant="informative"
             />
           </TemplateFull>
         </TemplateMain>
@@ -548,10 +548,10 @@ export const ComplexExample = () => {
             />
             <Hero
               backgroundImageSrc={getPlaceholderImage()}
-              heroType="tertiary"
               heading={
                 <Heading level="h1" id="1" text="Complex template example" />
               }
+              variant="tertiary"
             />
           </TemplateBreakout>
           <TemplateBreakout>
@@ -649,7 +649,7 @@ export const ComplexExample = () => {
             <Banner
               content="This is a full area!"
               heading="Full"
-              type="informative"
+              variant="informative"
             />
           </TemplateFull>
           <TemplateContent id="skip-to">
@@ -756,7 +756,7 @@ export const ComplexExample = () => {
             <Banner
               content="This is a full area!"
               heading="Full"
-              type="informative"
+              variant="informative"
             />
           </TemplateFull>
           <TemplateContent id="mainContentTwo">
@@ -838,14 +838,14 @@ export const ComplexExample = () => {
             <Banner
               content="This is a full area!"
               heading="Full"
-              type="informative"
+              variant="informative"
             />
           </TemplateFull>
           <TemplateFull>
             <Banner
               content="This is a full area!"
               heading="Full"
-              type="informative"
+              variant="informative"
             />
           </TemplateFull>
         </TemplateMain>
@@ -853,7 +853,7 @@ export const ComplexExample = () => {
           <Banner
             content="This is a footer area!"
             heading="Footer region"
-            type="warning"
+            variant="warning"
           />
         </TemplateFooter>
       </Template>

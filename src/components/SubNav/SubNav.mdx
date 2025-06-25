@@ -12,10 +12,10 @@ import { changelogData } from "./subNavChangelogData";
 
 # SubNav
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `3.5.0`    |
-| Latest            | `3.6.1`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `3.5.0`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -38,6 +38,9 @@ import { changelogData } from "./subNavChangelogData";
 ## Component Props
 
 <Canvas of={SubNavStories.WithControls} />
+
+`SubNav` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={SubNavStories.WithControls} />
 
@@ -67,7 +70,7 @@ the DS `Button` and `Link` components, respectively, with the addition of the
 <Source
   code={`
 <SubNavButton
-  buttonType="text"
+  variant="text"
   id="subnav-button"
   onClick={onClickHandler}
   screenreaderOnlyText="for NYPL.org"
@@ -107,7 +110,7 @@ import {
   primaryActions={
     <>
       <SubNavButton
-        buttonType="text"
+        variant="text"
         id="subnav-button"
         onClick={onClickHandler}
         screenreaderOnlyText="for NYPL.org"
@@ -202,7 +205,7 @@ button label or link text.
 <Source
   code={`
 <SubNavButton
-  buttonType="text"
+  variant="text"
   id="subnav-button-account"
   onClick={onClickHandler}
   screenreaderOnlyText="for NYPL.org"

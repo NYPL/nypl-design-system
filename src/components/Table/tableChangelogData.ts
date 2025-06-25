@@ -10,6 +10,26 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Changes theme name from `CustomTable` to `ReservoirTable` for consistency.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes the `tableTextSize` prop in favor of using the native `fontSize` CSS prop.",
+    ],
+  },
+  {
+    date: "2025-05-22",
+    version: "3.6.2",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Removes use of `useNYPLBreakpoints` and replaces with equivalent Chakra syntax.",
+    ],
+  },
+  {
     date: "2024-11-07",
     version: "3.4.2",
     type: "Bug Fix",

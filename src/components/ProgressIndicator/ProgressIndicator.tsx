@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   CircularProgress as ChakraCircularProgress,
@@ -25,9 +26,7 @@ export type ProgressIndicatorTypes = typeof progressIndicatorTypesArray[number];
 export type ProgressIndicatorLabelPlacements =
   typeof progressIndicatorLabelPlacementsArray[number];
 
-interface BaseProgressIndicatorProps {
-  /** The darkMode prop is deprecated and should no longer be used. */
-  darkMode?: boolean;
+interface BaseProgressIndicatorProps extends BoxProps {
   /** ID that other components can cross reference for accessibility purposes. */
   id: string;
   /** Whether the `ProgressIndicator` should be linear or circular. */
@@ -74,7 +73,6 @@ export const ProgressIndicator: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, ProgressIndicatorProps>((props, ref?) => {
     const {
-      darkMode = false,
       id,
       indicatorType = "linear",
       isIndeterminate = false,
@@ -87,7 +85,6 @@ export const ProgressIndicator: ChakraComponent<
     } = props;
     const finalLabelPlacement = labelPlacement ?? "bottom";
     const styles = useMultiStyleConfig("ProgressIndicator", {
-      darkMode,
       size,
       labelPlacement: finalLabelPlacement,
     });

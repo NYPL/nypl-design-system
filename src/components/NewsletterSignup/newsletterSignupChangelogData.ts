@@ -10,6 +10,25 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Replaces `highlightColorTypesArray` with shared highlight colors array plus default gray, now `newsletterHighlightColorsArray`. ",
+    ],
+  },
+  {
+    date: "2025-05-22",
+    version: "3.6.2",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Removes use of `useNYPLBreakpoints` and replaces with equivalent Chakra syntax.",
+    ],
+  },
+  {
     date: "2025-04-10",
     version: "3.6.0",
     type: "Update",

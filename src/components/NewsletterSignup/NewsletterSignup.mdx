@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
-import * as NewsletterSignupStories from "./NewsletterSignup.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as NewsletterSignupStories from "./NewsletterSignup.stories";
 import { changelogData } from "./newsletterSignupChangelogData";
 
 <Meta of={NewsletterSignupStories} />
 
-# NewsletterSignup
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="NewsletterSignup"
+  summary="Used to render and control the full NYPL newsletter signup experience"
+  versionAdded="2.1.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `2.1.0`    |
-| Latest            | `3.6.0`    |
+<Canvas of={NewsletterSignupStories.WithControls} />
 
 ## Table of Contents
 
@@ -33,7 +37,8 @@ import { changelogData } from "./newsletterSignupChangelogData";
 
 ## Component Props
 
-<Canvas of={NewsletterSignupStories.WithControls} />
+`NewsletterSignup` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={NewsletterSignupStories.WithControls} />
 

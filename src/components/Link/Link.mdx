@@ -12,10 +12,10 @@ import * as LinkStories from "./Link.stories";
 
 # Link
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `3.4.2`    |
+| Component Version | DS Version   |
+| ----------------- | ------------ |
+| Added             | `0.0.4`      |
+| Latest            | `Prerelease` |
 
 ## Table of Contents
 
@@ -23,7 +23,7 @@ import * as LinkStories from "./Link.stories";
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#visited-state-patterns" target="_self">Visited State Patterns</Link>}
-- {<Link href="#all-link-types" target="_self">All Link Types</Link>}
+- {<Link href="#all-link-variants" target="_self">All Link Variants</Link>}
 - {<Link href="#links-with-icons" target="_self">Links With Icons</Link>}
 - {<Link href="#anchor-element-rendering" target="_self">Anchor Element Rendering</Link>}
 - {<Link href="#link-with-routers" target="_self">Link with Routers</Link>}
@@ -37,14 +37,17 @@ import * as LinkStories from "./Link.stories";
 
 <Canvas of={LinkStories.WithControls} />
 
+`Link` composes an HTML `a` element, so you may pass any HTML `a` attributes,
+as well as the Chakra `as` prop, any of the Chakra style props, and the props below.
+
 <ArgTypes of={LinkStories.WithControls} />
 
 ## Accessibility
 
-The `Link` component renders an `<a>` element with the `href` attribute, so the
-`Link` component should be used for navigation. If an `onClick` action is
-required, a `Button` component should be used instead. In simple terms, a link
-goes somewhere and a button does something.
+The `Link` component should be passed an HTML `href` attribute and be used
+for navigation. If an `onClick` action is required, a `Button` component
+should be used instead. In simple terms, a link goes somewhere and a button
+does something.
 
 Despite these best practices and recommendations, it is possible to pass an
 `onClick` prop to the `Link` component because there are some very specific use
@@ -99,7 +102,7 @@ component.
 <Link
   hasVisitedState={false}
   href="https://nypl.org"
-  type="action"
+  variant="action"
 >
   NYPL Website
 </Link>
@@ -107,7 +110,7 @@ component.
   language="jsx"
 />
 
-## All Link Types
+## All Link Variants
 
 The `Link` component offers multiple variants for differing UX situations.
 
@@ -127,19 +130,18 @@ or related pages.
 
 Use the button variants when a link needs to be highlighted or emphasized within
 a CTA element. For example, a link to a book detail page from cards within a
-search results set. Please note that the actual `button` variant has been
-deprecated.
+search results set.
 
 IMPORTANT: Links that look like buttons should still act like links and not act
 like buttons. Refer to the <Link href="#accessibility"
 target="_self">Accessibility</Link> section above for clarification.
 
-<Canvas of={LinkStories.AllLinkTypes} />
+<Canvas of={LinkStories.AllLinkVariants} />
 
 ## Links With Icons
 
 To render an `Icon` as part of the link, make sure that the `Link` component
-wraps the `Icon`. Use `type="action"` to apply appropriate styling to
+wraps the `Icon`. Use `variant="action"` to apply appropriate styling to
 links with icons. Icons can be rendered to the left or right of the link text.
 
 <Canvas of={LinkStories.LinksWithIcons} />
@@ -147,7 +149,7 @@ links with icons. Icons can be rendered to the left or right of the link text.
 ## DS v3 Breaking Change
 
 Previous versions of the Design System allowed an anchor element to be passed
-as a child if the `href` prop was not used.
+as a child if no `href` was passed.
 
 <Source
   code={`
@@ -159,11 +161,11 @@ import { Link } from "@nypl/design-system-react-components";
 </Link>
 `} language="jsx" />
 
-In DS 3.0.0+, this pattern is no longer supported. The `href` prop should be
+In DS 3.0.0+, this pattern is no longer supported. The `href` attribute should be
 passed to render an accessible and valid link. There are cases where the `href`
-prop is not required, such as when using with an application framework router.
-For more information and recommended routing patterns, see the following
-sections.
+attribute is not required, such as when using the component with an application
+framework router. For more information and recommended routing patterns, see the
+following sections.
 
 ## Link with Routers
 
@@ -188,7 +190,7 @@ import { Link as ReactRouterLink } from "react-router-dom";
 import { Link } from "@nypl/design-system-react-components";
 // ...
 
-<Link as={ReactRouterLink} type="action" href="#">
+<Link as={ReactRouterLink} variant="action" href="#">
   Next Page
 </Link>
 `} language="jsx" />
@@ -210,7 +212,7 @@ import { Link as NextLink } from "next/link";
 import { Link } from "@nypl/design-system-react-components";
 // ...
 
-<Link as={NextLink} type="action" href="#">
+<Link as={NextLink} variant="action" href="#">
   Next Page
 </Link>
 `} language="jsx" />

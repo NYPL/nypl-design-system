@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Drawer,
@@ -25,7 +26,6 @@ import RadioGroup from "../RadioGroup/RadioGroup";
 import Text from "../Text/Text";
 import TextInput, { TextInputRefType } from "../TextInput/TextInput";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import useFeedbackBoxReducer from "./useFeedbackBoxReducer";
 
 export const feedbackBoxViewTypeArray = [
@@ -35,9 +35,7 @@ export const feedbackBoxViewTypeArray = [
 ] as const;
 export type FeedbackBoxViewType = typeof feedbackBoxViewTypeArray[number];
 
-export interface FeedbackBoxProps {
-  /** Additional class name to add. */
-  className?: string;
+export interface FeedbackBoxProps extends Omit<BoxProps, "onSubmit"> {
   /** Used to add additional information to the default confirmation message in
    * the confirmation view. */
   confirmationText?: string | JSX.Element;
@@ -97,7 +95,6 @@ export const FeedbackBox: ChakraComponent<
   forwardRef<HTMLDivElement, FeedbackBoxProps>(
     (
       {
-        className,
         confirmationText,
         descriptionText,
         hiddenFields,
@@ -127,8 +124,6 @@ export const FeedbackBox: ChakraComponent<
       // Helps keep track of form field state values.
       const { state, setCategory, setComment, setEmail, clearValues } =
         useFeedbackBoxReducer();
-      // Hook into NYPL breakpoint
-      const { isLargerThanMobile } = useNYPLBreakpoints();
       // Chakra's hook to control Drawer's actions.
       const disclosure = useDisclosure();
       const finalIsOpen = isOpen ? isOpen : disclosure.isOpen;
@@ -185,7 +180,6 @@ export const FeedbackBox: ChakraComponent<
         isFormView && notificationText ? (
           <Notification
             isCentered
-            noMargin
             notificationContent={notificationText}
             showIcon={false}
             p="0"
@@ -288,7 +282,7 @@ export const FeedbackBox: ChakraComponent<
       let finalDrawerMinHeight = drawerMinHeight + "px";
 
       return (
-        <Box className={className} id={id} ref={ref} sx={styles} {...rest}>
+        <Box id={id} ref={ref} sx={styles} {...rest}>
           <Button
             id="open"
             onClick={finalOnOpen}
@@ -309,7 +303,7 @@ export const FeedbackBox: ChakraComponent<
 
             <DrawerContent sx={styles.drawerContent}>
               <Button
-                buttonType="text"
+                variant="text"
                 id="close-btn"
                 onClick={closeAndResetForm}
                 sx={styles.closeButton}
@@ -357,9 +351,9 @@ export const FeedbackBox: ChakraComponent<
                               id={`${id}-category`}
                               isDisabled={isSubmitted}
                               labelText="What is your feedback about?"
-                              layout={isLargerThanMobile ? "row" : "column"}
                               name={`${id}-category`}
                               onChange={(selected) => setCategory(selected)}
+                              sx={styles.radioGroup}
                             >
                               <Radio
                                 id="comment"
@@ -419,7 +413,7 @@ export const FeedbackBox: ChakraComponent<
                       <FormField>
                         <ButtonGroup buttonWidth="full" id="submit-cancel">
                           <Button
-                            buttonType="secondary"
+                            variant="secondary"
                             id="cancel"
                             isDisabled={isSubmitted}
                             key="cancel"
@@ -475,7 +469,7 @@ export const FeedbackBox: ChakraComponent<
                         <ButtonGroup buttonWidth="full" id="submit-cancel">
                           <Button
                             id="return-browsing"
-                            buttonType="secondary"
+                            variant="secondary"
                             onClick={closeAndResetForm}
                           >
                             Return to Browsing
@@ -513,7 +507,7 @@ export const FeedbackBox: ChakraComponent<
                           <Button
                             id="return-browsing2"
                             key="return-browsing2"
-                            buttonType="secondary"
+                            variant="secondary"
                             onClick={closeAndResetForm}
                           >
                             Return to Browsing

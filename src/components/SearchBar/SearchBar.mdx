@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./searchBarChangelogData";
 
-import * as SearchBarStories from "./SearchBar.stories";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as SearchBarStories from "./SearchBar.stories";
+import { changelogData } from "./searchBarChangelogData";
 
 <Meta of={SearchBarStories} />
 
-# SearchBar
+<ComponentDocsHeader
+  category="Form element"
+  componentName="SearchBar"
+  summary="Form container with text input and button that submits a search query"
+  versionAdded="0.0.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `3.6.1`    |
+<Canvas of={SearchBarStories.WithControls} />
 
 ## Table of Contents
 
@@ -31,11 +35,11 @@ import Link from "../Link/Link";
 
 <Description of={SearchBarStories} />
 
-The main wrapper element that is rendered is a `<form>` DOM element. All the
-props passed to `SearchBar` will apply to the `<form>` element and its children.
-The `SearchBar` component will render a `Select` component (optional),
-`TextInput` component, `Button` component, and `HelperErrorText` component
-based on the required props.
+The main wrapper element that is rendered is a `<form>` DOM element.
+
+Based on the props passed, the `SearchBar` component will render a `Select`
+component (optional),`TextInput` component, `Button` component, and
+`HelperErrorText` component.
 
 The `Select` dropdown narrows the search within a specific category, typically
 title or author. Toggle the `Select` through the Controls.
@@ -45,7 +49,8 @@ aria-labels are used to make these children components accessible.
 
 ## Component Props
 
-<Canvas of={SearchBarStories.WithControls} />
+The `SearchBar` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={SearchBarStories.WithControls} />
 
@@ -54,8 +59,9 @@ aria-labels are used to make these children components accessible.
 The `SearchBar` component is implemented with Reservoir `Select`, `TextInput`,
 and `Button` accessible components. This a "complete" component that renders an
 HTML `<form>` element that is submitted with a `<button>` element of `type="submit"`.
-The `<form>` element also has a `role="search"` attribute that allows
-screenreaders to pick up this entire search form.
+
+The `Searchbar`, along with any other search/filter functionality, must be wrapped in a container with role="search", for a screenreader to recognize it correctly.
+See [search in "ARIA Landmarks"](../?path=/docs/accessibility-guide-aria-landmarks--docs#search).
 
 Resources:
 

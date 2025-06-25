@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   RadioGroup as ChakraRadioGroup,
@@ -15,9 +16,7 @@ import { spacing } from "../../theme/foundations/spacing";
 import Radio from "../Radio/Radio";
 import { LayoutTypes } from "../../helpers/types";
 
-export interface RadioGroupProps {
-  /** Additional class name. */
-  className?: string;
+export interface RadioGroupProps extends Omit<BoxProps, "onChange"> {
   /** Populates the initial value of the input */
   defaultValue?: string;
   /** Optional string to populate the HelperErrorText for standard state */
@@ -160,7 +159,11 @@ export const RadioGroup: ChakraComponent<
             {showRequiredLabel && isRequired && <span> (required)</span>}
           </Box>
           <ChakraRadioGroup {...radioGroupProps}>
-            <Stack direction={[layout]} spacing={spacingProp}>
+            <Stack
+              className="radioGroupStack"
+              direction={[layout]}
+              spacing={spacingProp}
+            >
               {newChildren}
             </Stack>
           </ChakraRadioGroup>

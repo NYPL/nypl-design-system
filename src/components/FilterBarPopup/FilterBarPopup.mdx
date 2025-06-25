@@ -1,17 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import { changelogData } from "./filterBarPopupChangelogData";
+
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as FilterBarPopupStories from "./FilterBarPopup.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as FilterBarPopupStories from "./FilterBarPopup.stories";
+import { changelogData } from "./filterBarPopupChangelogData";
 
 <Meta of={FilterBarPopupStories} />
 
-# FilterBarPopup
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="FilterbarPopup"
+  summary="Container element for displaying filter components in a modal window"
+  versionAdded="3.3.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `3.3.0`    |
-| Latest            | `3.3.0`    |
+<Canvas of={FilterBarPopupStories.WithControls} />
 
 ## Table of Contents
 
@@ -48,7 +53,8 @@ Related component: [FilterBarInline](../?path=/docs/components-form-elements-Fil
 
 ## Component Props
 
-<Canvas of={FilterBarPopupStories.WithControls} />
+`FilterBarPopup` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={FilterBarPopupStories.WithControls} />
 
@@ -214,8 +220,13 @@ const renderMultiSelect = ({ isBlockElement, multiSelectWidth }) => {
         isBlockElement={isBlockElement}
         onChange={(e) => onChange(e.target.id, multiSelect.id)}
         onMixedStateChange={(e) => {
-          return onMixedStateChange(e.target.id, multiSelect.id, multiSelect.items);
-        }}
+          return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
+          }
+        }
         onClear={() => onClear(multiSelect.id)}
         width={multiSelectWidth}
       />
