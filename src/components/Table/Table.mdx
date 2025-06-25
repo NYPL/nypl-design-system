@@ -118,14 +118,17 @@ instead of rendering the visisble header.
 ## Font Size
 
 The font size of the table content defaults to `1rem` (16px), but a custom size
-can be set using the `fontSize` CSS attribute. The font size of the column
-headers will always be `.75rem` (12px).
+can be set using the `fontSize` CSS attribute.
 
-Recommended font sizes:
+Recommended font sizes (design tokens):
 
 - `desktop.body.body1`
 - `desktop.body.body2`
 - `desktop.caption`
+
+For mobile viewports, the font size of the column headers will align with the
+font size of the table content. However, for desktop viewport, the font size of
+the column headers will always be `.75rem` (12px).
 
 <Source
   code={`<Table
