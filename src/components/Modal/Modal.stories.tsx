@@ -34,12 +34,13 @@ type Story = StoryObj<typeof ModalTrigger>;
  */
 export const WithControls: Story = {
   args: {
-    buttonText: "Button Text",
+    buttonText: "Open Modal",
     id: "modal-trigger",
     modalProps: {
       variant: "default",
-      bodyContent: "body text",
-      closeButtonLabel: "Close Button",
+      bodyContent:
+        "Modal body text. Et perspiciatis ad nulla vel autem sed. Ad sequi cupiditate veritatis voluptas itaque aspernatur illo nostrum sequi eius soluta consectetur dolorem. Odit eum est officiis et natus doloribus sed in id. Voluptatum sed repellendus delectus voluptas sit omnis aut eius laboriosam corrupti.",
+      closeButtonLabel: "Close Modal",
       headingText: (
         <Heading
           level="h3"
