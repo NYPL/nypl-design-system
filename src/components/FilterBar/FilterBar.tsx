@@ -166,7 +166,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
       );
       return (
         <Box
-          id={`${mainId}`}
+          id={mainId}
           data-testid="ds-filterBar"
           __css={styles}
           ref={ref}

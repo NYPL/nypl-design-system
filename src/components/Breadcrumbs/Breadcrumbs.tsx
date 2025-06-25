@@ -56,7 +56,7 @@ const tooltipWrapperOrText = ({
   breadcrumbsData: BreadcrumbsDataProps;
   customLinkComponent: React.ElementType;
   renderIcon?: boolean;
-  id: string;
+  id?: string;
   isCurrentPage?: boolean;
 }) => {
   const textLength = (breadcrumbsData.text as string).length;
