@@ -50,6 +50,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `useNYPLBreakpoints` from final component, `SearchBar`, and removes `mediaMatchMock` from test setup since it is no longer necessary.
 - Removes explicit `className` and `children` props in favor of expanded prop type definitions in all components.
 - Removes the use of the `window`'s `scrollIntoView` dependency in the `Tabs` component.
+- Removes the `tableTextSize` prop from the `Table` component in favor of using the native `fontSize` CSS prop.
 
 ## Prerelease
 

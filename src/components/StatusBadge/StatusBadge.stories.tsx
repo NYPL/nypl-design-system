@@ -56,6 +56,7 @@ export const Variants: Story = {
   render: () => (
     <Table
       columnHeaders={["", "Variant", "Purpose", "Examples"]}
+      fontSize="desktop.body.body2"
       tableData={[
         [
           <>
@@ -108,7 +109,6 @@ export const Variants: Story = {
           "Recommended for you, Related",
         ],
       ]}
-      tableTextSize="body2"
     />
   ),
 };
