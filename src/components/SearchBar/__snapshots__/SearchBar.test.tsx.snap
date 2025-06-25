@@ -17,7 +17,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-textInput"
         id="basic-textInput-componentWrapper"
       >
         <div
@@ -98,7 +98,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     <div
       className="css-1u8qly9"
       data-select={true}
-      data-testid="ds-componentWrapper"
+      data-testid="ds-select"
       id="withSelect-select-componentWrapper"
     >
       <div
@@ -198,7 +198,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-textInput"
         id="withSelect-textInput-componentWrapper"
       >
         <div
@@ -281,7 +281,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-textInput"
         id="withoutHelperText-textInput-componentWrapper"
       >
         <div
@@ -346,7 +346,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-textInput"
         id="withClearButton-textInput-componentWrapper"
       >
         <div
@@ -429,7 +429,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-textInput"
         id="invalidState-textInput-componentWrapper"
       >
         <div
@@ -504,7 +504,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-textInput"
         id="disabledState-textInput-componentWrapper"
       >
         <div
@@ -570,7 +570,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-textInput"
         id="requiredState-textInput-componentWrapper"
       >
         <div
@@ -637,7 +637,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-textInput"
         id="noBrandButtonType-textInput-componentWrapper"
       >
         <div
@@ -742,6 +742,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
 >
   <p
     className="chakra-text css-1xdhyk6"
+    data-testid="ds-text"
   >
     A description
   </p>
@@ -794,6 +795,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
   </h2>
   <p
     className="chakra-text css-1xdhyk6"
+    data-testid="ds-text"
   >
     A description
   </p>
@@ -848,7 +850,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-textInput"
         id="chakra-textInput-componentWrapper"
       >
         <div
@@ -931,7 +933,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-textInput"
         id="props-textInput-componentWrapper"
       >
         <div

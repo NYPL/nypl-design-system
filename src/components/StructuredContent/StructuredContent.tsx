@@ -26,8 +26,6 @@ export interface StructuredContentProps extends BoxProps {
    * a DS Heading component that can be passed in.
    */
   headingText?: string | JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Object used to create and render the `Image` component. */
   imageProps?: StructuredContentImageProps;
   /** Required value to set the text for the body content. */
@@ -119,7 +117,11 @@ export const StructuredContent: ChakraComponent<
       });
       const calloutTextUpdate = calloutText ? (
         typeof calloutText === "string" ? (
-          <Heading id={`${id}-callout`} level="h3" size="heading5">
+          <Heading
+            id={id ? `${id}-callout` : undefined}
+            level="h3"
+            size="heading5"
+          >
             {calloutText}
           </Heading>
         ) : (
@@ -138,7 +140,13 @@ export const StructuredContent: ChakraComponent<
       }
 
       return (
-        <Box id={id} ref={ref} __css={styles} {...rest}>
+        <Box
+          data-testid="ds-structuredContent"
+          id={id}
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
           {finalTitle}
           {finalCalloutText}
           {hasImage && (

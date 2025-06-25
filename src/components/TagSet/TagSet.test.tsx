@@ -108,7 +108,7 @@ describe("TagSet Explore", () => {
     // Seven icon names were passed to display.
     render(<TagSet tagSetData={exploreTagSetData.withIcon} type="explore" />);
 
-    expect(screen.getAllByTestId("ts-icon")).toHaveLength(7);
+    expect(screen.getAllByTestId("ds-tagSetExplore-icon")).toHaveLength(7);
   });
 
   it("logs a warning when the `isDismissible` prop is passed", () => {
@@ -218,7 +218,7 @@ describe("TagSet Filter", () => {
       />
     );
 
-    expect(screen.getAllByTestId("ts-icon")).toHaveLength(7);
+    expect(screen.getAllByTestId("ds-tagSetFilter-icon")).toHaveLength(7);
   });
 
   it("renders close icons when `isDismissible` is true", () => {
@@ -232,7 +232,7 @@ describe("TagSet Filter", () => {
       />
     );
 
-    expect(screen.getAllByTestId("filter-close-icon")).toHaveLength(7);
+    expect(screen.getAllByTestId("ds-tagSetFilter-close-icon")).toHaveLength(7);
   });
 
   it("renders the correct aria-label when `isDismissible` is true", () => {

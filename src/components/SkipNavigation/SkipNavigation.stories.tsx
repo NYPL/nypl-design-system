@@ -7,7 +7,6 @@ const meta: Meta<typeof SkipNavigation> = {
   title: "Components/Navigation/SkipNavigation",
   component: SkipNavigation,
   argTypes: {
-    id: { control: false },
     target: { control: false },
   },
 };

@@ -28,7 +28,6 @@ const meta: Meta<typeof Template> = {
   title: "Components/Page Layout/Template",
   component: Template,
   argTypes: {
-    id: { control: false },
     sidebar: {
       control: { type: "radio" },
       options: sidebarPlacementArray,

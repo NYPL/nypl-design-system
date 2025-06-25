@@ -542,18 +542,6 @@ describe("TextInput", () => {
     );
   });
 
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <TextInput labelText="Custom Input Label" />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
-    );
-  });
-
   it("logs a warning when `isClearable` is set to true for `textarea` type", () => {
     const warn = jest.spyOn(console, "warn");
     render(

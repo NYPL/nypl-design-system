@@ -3,6 +3,7 @@
 exports[`StructuredContent renders the UI snapshot 1`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-structuredContent"
   id="withHTMLStringContent"
 >
   <h2
@@ -81,6 +82,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
 exports[`StructuredContent renders the UI snapshot 2`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-structuredContent"
   id="withHTMLDOMContent"
 >
   <h2
@@ -193,6 +195,7 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
 exports[`StructuredContent renders the UI snapshot 3`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-structuredContent"
   id="withoutAnImage"
 >
   <h2
@@ -223,6 +226,7 @@ exports[`StructuredContent renders the UI snapshot 3`] = `
 exports[`StructuredContent renders the UI snapshot 4`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-structuredContent"
   id="withImageWithoutCaptionOrCredit"
 >
   <h2
@@ -263,6 +267,7 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
 exports[`StructuredContent renders the UI snapshot 5`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-structuredContent"
   id="withoutHeading"
 >
   <h3
@@ -334,6 +339,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
 exports[`StructuredContent renders the UI snapshot 6`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-structuredContent"
   id="withoutCalloutText"
 >
   <h2
@@ -357,6 +363,7 @@ exports[`StructuredContent renders the UI snapshot 6`] = `
 exports[`StructuredContent renders the UI snapshot 7`] = `
 <div
   className="css-kle7zy"
+  data-testid="ds-structuredContent"
   id="withChakraProps"
 >
   <h2

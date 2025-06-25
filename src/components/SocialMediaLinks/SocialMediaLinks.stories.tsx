@@ -130,11 +130,6 @@ const meta: Meta<typeof SocialMediaLinks> = {
         defaultValue: { summary: "textDefault" },
       },
     },
-    id: {
-      table: {
-        disable: false,
-      },
-    },
     layout: {
       control: { type: "radio" },
       options: layoutTypesArray,

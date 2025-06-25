@@ -8,7 +8,6 @@ const meta: Meta<typeof StyledList> = {
   title: "Components/Typography & Styles/StyledList",
   component: StyledList,
   argTypes: {
-    id: { control: false },
     listItems: { control: false },
     style: { control: false },
     textSize: {

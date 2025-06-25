@@ -37,8 +37,6 @@ export interface TableProps extends BoxProps {
   columnStyles?: object[];
   /** The size of the table body text. */
   tableTextSize?: TableBodyTextSizes;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** If true, horizontal scrolling will be enabled for the table content.  */
   isScrollable?: boolean;
   /** If true, a border will be displayed between each row in the `Table`
@@ -235,10 +233,14 @@ export const Table: ChakraComponent<
         : undefined;
 
       return (
-        <TableContainer {...containerProps} sx={styles.base}>
+        <TableContainer
+          data-testid="ds-table"
+          id={id}
+          {...containerProps}
+          sx={styles.base}
+        >
           <ChakraTable
             aria-label={titleText && !showTitleText ? titleText : undefined}
-            id={id}
             ref={ref}
             sx={styles.innerTable}
             {...rest}

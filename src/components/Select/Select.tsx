@@ -154,6 +154,7 @@ export const Select: ChakraComponent<
 
       return (
         <ComponentWrapper
+          data-testid="ds-select"
           helperText={helperText}
           helperTextStyles={{
             marginStart: { sm: "auto", md: `${labelWidth}px` },
@@ -170,7 +171,7 @@ export const Select: ChakraComponent<
               <Box ref={labelRef}>
                 <Label
                   htmlFor={mainId}
-                  id={`${id}-label`}
+                  id={`${mainId}-label`}
                   isInlined
                   isRequired={showRequiredLabel && isRequired}
                   requiredLabelText={requiredLabelText}

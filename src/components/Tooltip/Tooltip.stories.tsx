@@ -19,7 +19,6 @@ const meta: Meta<typeof Tooltip> = {
   title: "Components/Overlays & Switchers/Tooltip",
   component: Tooltip,
   argTypes: {
-    id: { control: false },
     isDisabled: argsBooleanType(),
     offset: { control: false },
     placement: {

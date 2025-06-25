@@ -20,6 +20,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
   </h2>
   <p
     className="chakra-text css-1xdhyk6"
+    data-testid="ds-text"
   >
     Audio Player description text.
   </p>

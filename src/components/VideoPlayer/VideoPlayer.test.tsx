@@ -25,7 +25,7 @@ describe("VideoPlayer", () => {
     });
 
     it("Renders VideoPlayer container", () => {
-      expect(screen.getByTestId("video-player-component")).toBeInTheDocument();
+      expect(screen.getByTestId("ds-videoPlayer")).toBeInTheDocument();
     });
 
     it("Renders VideoPlayer iframe", () => {

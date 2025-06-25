@@ -1033,6 +1033,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
   >
     <p
       className="chakra-text css-1xdhyk6"
+      data-testid="ds-text"
     >
       This is description text.
     </p>

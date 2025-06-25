@@ -13,8 +13,6 @@ import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 export interface TooltipProps extends Omit<BoxProps, "content"> {
   /** Value used to populate the tooltip content. */
   content: string | number | React.ReactNode;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Adds the `disabled` prop to the Tooltip when true. */
   isDisabled?: boolean;
   /** Wraps the children of the tooltip in `ComponentWrapper` with `tabIndex=0` when true. */
@@ -73,6 +71,7 @@ export const Tooltip: ChakraComponent<
           closeOnEsc
           closeOnMouseDown
           hasArrow
+          id={id}
           isDisabled={isDisabled}
           label={content}
           openDelay={500}

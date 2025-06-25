@@ -4,6 +4,7 @@ exports[`Label Renders the UI snapshot correctly 1`] = `
 <nav
   aria-label="Skip Navigation"
   className="css-1xdhyk6"
+  data-testid="ds-skipNavigation"
 >
   <ul
     className="css-1xdhyk6"
@@ -36,6 +37,7 @@ exports[`Label Renders the UI snapshot correctly 2`] = `
 <nav
   aria-label="Skip Navigation"
   className="css-1xdhyk6"
+  data-testid="ds-skipNavigation"
 >
   <ul
     className="css-1xdhyk6"
@@ -68,6 +70,7 @@ exports[`Label Renders the UI snapshot correctly 3`] = `
 <nav
   aria-label="Skip Navigation"
   className="css-kle7zy"
+  data-testid="ds-skipNavigation"
 >
   <ul
     className="css-1xdhyk6"

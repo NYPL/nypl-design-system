@@ -776,18 +776,6 @@ describe("Slider", () => {
       expect(endingInput).toHaveValue(79);
     });
 
-    it("logs a warning when there is no `id` passed", () => {
-      const warn = jest.spyOn(console, "warn");
-      render(
-        // @ts-ignore: Typescript complains when a required prop is not passed, but
-        // here we don't want to pass the required prop to make sure the warning appears.
-        <Slider labelText="Label" />
-      );
-      expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Slider: This component's required `id` prop was not passed."
-      );
-    });
-
     it("updates the value programmatically through the `value` prop", () => {
       let value = [15, 76];
 

@@ -3,6 +3,7 @@
 exports[`Tabs renders the UI snapshot correctly 1`] = `
 <div
   className="chakra-tabs css-19sk4h4"
+  data-testid="ds-tabs"
   id="basic"
 >
   <div
@@ -12,7 +13,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       aria-label="Scroll tabs left"
       className="chakra-button css-18qhlcl"
       data-testid="ds-button"
-      id="tabs-previous-basic"
+      id="basic-tabs-previous"
       onClick={[Function]}
       type="button"
     >
@@ -21,7 +22,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-previous-icon-basic"
+        id="basic-tabs-previous-icon"
         role="img"
         title="previous arrow"
       />
@@ -86,7 +87,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
       aria-label="Scroll tabs right"
       className="chakra-button css-1djleqc"
       data-testid="ds-button"
-      id="tabs-next-basic"
+      id="basic-tabs-next"
       onClick={[Function]}
       type="button"
     >
@@ -95,7 +96,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-next-icon-basic"
+        id="basic-tabs-next-icon"
         role="img"
         title="next arrow"
       />
@@ -153,6 +154,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
 exports[`Tabs renders the UI snapshot correctly 2`] = `
 <div
   className="chakra-tabs css-mz7vzl"
+  data-testid="ds-tabs"
   id="chakra"
 >
   <div
@@ -162,7 +164,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
       aria-label="Scroll tabs left"
       className="chakra-button css-18qhlcl"
       data-testid="ds-button"
-      id="tabs-previous-chakra"
+      id="chakra-tabs-previous"
       onClick={[Function]}
       type="button"
     >
@@ -171,7 +173,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-previous-icon-chakra"
+        id="chakra-tabs-previous-icon"
         role="img"
         title="previous arrow"
       />
@@ -236,7 +238,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
       aria-label="Scroll tabs right"
       className="chakra-button css-1djleqc"
       data-testid="ds-button"
-      id="tabs-next-chakra"
+      id="chakra-tabs-next"
       onClick={[Function]}
       type="button"
     >
@@ -245,7 +247,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-next-icon-chakra"
+        id="chakra-tabs-next-icon"
         role="img"
         title="next arrow"
       />
@@ -313,7 +315,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
       aria-label="Scroll tabs left"
       className="chakra-button css-18qhlcl"
       data-testid="ds-button"
-      id="tabs-previous-props"
+      id="props-tabs-previous"
       onClick={[Function]}
       type="button"
     >
@@ -322,7 +324,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-previous-icon-props"
+        id="props-tabs-previous-icon"
         role="img"
         title="previous arrow"
       />
@@ -387,7 +389,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
       aria-label="Scroll tabs right"
       className="chakra-button css-1djleqc"
       data-testid="ds-button"
-      id="tabs-next-props"
+      id="props-tabs-next"
       onClick={[Function]}
       type="button"
     >
@@ -396,7 +398,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-next-icon-props"
+        id="props-tabs-next-icon"
         role="img"
         title="next arrow"
       />

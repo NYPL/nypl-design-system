@@ -17,7 +17,6 @@ const meta: Meta<typeof StatusBadge> = {
       control: { type: "radio" },
       options: statusBadgeFontSizeArray,
     },
-    id: { control: false },
     type: {
       control: { type: "select" },
       options: messageVariantsArray,

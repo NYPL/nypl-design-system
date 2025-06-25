@@ -19,7 +19,6 @@ const meta: Meta<typeof Slider> = {
       table: { defaultValue: { summary: "0" } },
     },
     helperText: { control: "text" },
-    id: { control: false },
     invalidText: { control: "text" },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),

@@ -16,8 +16,6 @@ export const statusBadgeFontSizeArray = [
 
 export type StatusBadgeTypes = typeof messageVariantsArray[number];
 export interface StatusBadgeProps extends BoxProps {
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Semantic type of the status badge. */
   type?: StatusBadgeTypes;
 }
@@ -47,7 +45,13 @@ export const StatusBadge: ChakraComponent<
       }
 
       return (
-        <Box id={id} ref={ref} __css={styles} {...rest}>
+        <Box
+          data-testid="ds-statusBadge"
+          id={id}
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
           {children}
         </Box>
       );

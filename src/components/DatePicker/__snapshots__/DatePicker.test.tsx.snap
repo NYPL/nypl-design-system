@@ -35,7 +35,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             />
             <div
               className="css-1u8qly9"
-              data-testid="ds-componentWrapper"
+              data-testid="ds-textInput"
               id="basic-datePicker-start-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -90,7 +90,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             />
             <div
               className="css-1u8qly9"
-              data-testid="ds-componentWrapper"
+              data-testid="ds-textInput"
               id="basic-datePicker-end-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -180,7 +180,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             />
             <div
               className="css-1u8qly9"
-              data-testid="ds-componentWrapper"
+              data-testid="ds-textInput"
               id="no-label-datePicker-start-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -235,7 +235,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             />
             <div
               className="css-1u8qly9"
-              data-testid="ds-componentWrapper"
+              data-testid="ds-textInput"
               id="no-label-datePicker-end-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -325,7 +325,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             />
             <div
               className="css-1u8qly9"
-              data-testid="ds-componentWrapper"
+              data-testid="ds-textInput"
               id="custom-format-datePicker-start-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -380,7 +380,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             />
             <div
               className="css-1u8qly9"
-              data-testid="ds-componentWrapper"
+              data-testid="ds-textInput"
               id="custom-format-datePicker-end-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -470,7 +470,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             />
             <div
               className="css-1u8qly9"
-              data-testid="ds-componentWrapper"
+              data-testid="ds-textInput"
               id="invalid-datePicker-start-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -544,7 +544,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             />
             <div
               className="css-1u8qly9"
-              data-testid="ds-componentWrapper"
+              data-testid="ds-textInput"
               id="invalid-datePicker-end-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -658,7 +658,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             />
             <div
               className="css-1u8qly9"
-              data-testid="ds-componentWrapper"
+              data-testid="ds-textInput"
               id="disabled-datePicker-start-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -713,7 +713,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             />
             <div
               className="css-1u8qly9"
-              data-testid="ds-componentWrapper"
+              data-testid="ds-textInput"
               id="disabled-datePicker-end-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
@@ -796,7 +796,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
         />
         <div
           className="css-1u8qly9"
-          data-testid="ds-componentWrapper"
+          data-testid="ds-textInput"
           id="basic-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -868,7 +868,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
         />
         <div
           className="css-1u8qly9"
-          data-testid="ds-componentWrapper"
+          data-testid="ds-textInput"
           id="no-label-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -933,7 +933,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
         />
         <div
           className="css-1u8qly9"
-          data-testid="ds-componentWrapper"
+          data-testid="ds-textInput"
           id="custom-format-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -1005,7 +1005,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
         />
         <div
           className="css-1u8qly9"
-          data-testid="ds-componentWrapper"
+          data-testid="ds-textInput"
           id="invalid-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -1096,7 +1096,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
         />
         <div
           className="css-1u8qly9"
-          data-testid="ds-componentWrapper"
+          data-testid="ds-textInput"
           id="disabled-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -1186,7 +1186,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
         />
         <div
           className="css-1u8qly9"
-          data-testid="ds-componentWrapper"
+          data-testid="ds-textInput"
           id="chakra-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
@@ -1276,7 +1276,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
         />
         <div
           className="css-1u8qly9"
-          data-testid="ds-componentWrapper"
+          data-testid="ds-textInput"
           id="props-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}

@@ -3,13 +3,13 @@
 exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  data-testid="video-player-component"
+  data-testid="ds-videoPlayer"
   id="video-player-without-text"
 >
   <div
     className="css-1xdhyk6"
     data-testid="ds-componentWrapper"
-    id="video-player-without-text-componentWrapper-componentWrapper"
+    id="video-player-without-text-componentWrapper"
   >
     <div
       className="css-0"
@@ -30,23 +30,24 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
 exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  data-testid="video-player-component"
+  data-testid="ds-videoPlayer"
   id="video-player-with-text"
 >
   <div
     className="css-1xdhyk6"
     data-testid="ds-componentWrapper"
-    id="video-player-with-text-componentWrapper-componentWrapper"
+    id="video-player-with-text-componentWrapper"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
       data-testid="ds-heading"
-      id="video-player-with-text-componentWrapper-heading"
+      id="video-player-with-text-heading"
     >
       VideoPlayer Heading
     </h2>
     <p
       className="chakra-text css-1xdhyk6"
+      data-testid="ds-text"
     >
       VideoPlayer description
     </p>
@@ -68,7 +69,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
-      id="video-player-with-text-componentWrapper-helperText"
+      id="video-player-with-text-helperText"
     >
       <div
         className="css-0"
@@ -86,23 +87,24 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
 exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  data-testid="video-player-component"
+  data-testid="ds-videoPlayer"
   id="video-player-with-text"
 >
   <div
     className="css-1xdhyk6"
     data-testid="ds-componentWrapper"
-    id="video-player-with-text-componentWrapper-componentWrapper"
+    id="video-player-with-text-componentWrapper"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
       data-testid="ds-heading"
-      id="video-player-with-text-componentWrapper-heading"
+      id="video-player-with-text-heading"
     >
       VideoPlayer Heading
     </h2>
     <p
       className="chakra-text css-1xdhyk6"
+      data-testid="ds-text"
     >
       VideoPlayer description
     </p>
@@ -123,7 +125,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
-      id="video-player-with-text-componentWrapper-helperText"
+      id="video-player-with-text-helperText"
     >
       <div
         className="css-0"
@@ -141,7 +143,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
 exports[`VideoPlayer renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
-  data-testid="video-player-component"
+  data-testid="ds-videoPlayer"
   id="video-player-error"
 >
   <span
@@ -157,13 +159,13 @@ exports[`VideoPlayer renders the UI snapshot correctly 4`] = `
 exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
 <div
   className="css-kle7zy"
-  data-testid="video-player-component"
+  data-testid="ds-videoPlayer"
   id="chakra"
 >
   <div
     className="css-1xdhyk6"
     data-testid="ds-componentWrapper"
-    id="chakra-componentWrapper-componentWrapper"
+    id="chakra-componentWrapper"
   >
     <div
       className="css-0"
@@ -190,7 +192,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
   <div
     className="css-1xdhyk6"
     data-testid="ds-componentWrapper"
-    id="props-componentWrapper-componentWrapper"
+    id="props-componentWrapper"
   >
     <div
       className="css-0"

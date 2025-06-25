@@ -12,7 +12,6 @@ const meta: Meta<typeof TagSet> = {
   title: "Components/Content Display/TagSet",
   component: TagSet,
   argTypes: {
-    id: { control: false },
     isDismissible: argsBooleanType(),
     onClick: { control: false },
     tagSetData: { control: false },

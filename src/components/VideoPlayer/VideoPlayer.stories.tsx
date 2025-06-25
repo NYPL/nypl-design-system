@@ -23,7 +23,6 @@ const meta: Meta<typeof VideoPlayer> = {
     embedCode: { control: false },
     headingText: { control: "text" },
     helperText: { control: "text" },
-    id: { control: false },
     iframeTitle: { control: "text" },
     showHelperInvalidText: argsBooleanType("true"),
     videoId: { control: "text" },
