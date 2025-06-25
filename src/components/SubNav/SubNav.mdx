@@ -1,21 +1,25 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import Banner from "../Banner/Banner";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import List from "../List/List";
 import * as SubNavStories from "./SubNav.stories";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./subNavChangelogData";
 
 <Meta of={SubNavStories} />
 
-# SubNav
+<ComponentDocsHeader
+  category="Navigation component"
+  componentName="SubNav"
+  summary="Renders a group of secondary navigation and action items"
+  versionAdded="3.5.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `3.5.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={SubNavStories.WithControls} />
 
 ## Table of Contents
 
@@ -36,8 +40,6 @@ import { changelogData } from "./subNavChangelogData";
 <Description of={SubNavStories} />
 
 ## Component Props
-
-<Canvas of={SubNavStories.WithControls} />
 
 `SubNav` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.
