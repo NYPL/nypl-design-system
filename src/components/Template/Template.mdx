@@ -166,8 +166,9 @@ The structural child components are used to define the main regions on a page.
         Positioned above any other <code>Template</code> child components
       </li>
       <li>
-        It is recommended to use the <code>TemplateBreakout</code> child
-        component inside the <code>TemplateHeader</code> component
+        To help align with NYPL design patterns, it is recommended to use the{" "}
+        <code>TemplateBreakout</code> child component inside the{" "}
+        <code>TemplateHeader</code> component
       </li>
     </List>
   }
@@ -637,12 +638,12 @@ Use the `variant` prop to set the template layout
 <Source
   code={`
 import {
-  SkipNavigation,
   Template,
   TemplateBreakout,
+  TemplateContent,
   TemplateFull,
-  TemplateSidebar,
   TemplateMain,
+  TemplateSidebar,
 } from "@nypl/design-system-react-components";
 //...
 <style>
@@ -665,13 +666,14 @@ import {
   ></script>
 </div>
 <DSProvider>
-  <SkipNavigation />
-  <Template sidebar="...">
+  <Template variant="...">
     <TemplateBreakout>...</TemplateBreakout>
-    <TemplateFull>...</TemplateFull>
-    <TemplateSidebar>...</TemplateSidebar>
-    <TemplateMain>...</TemplateMain>
-    <TemplateFull>...</TemplateFull>
+    <TemplateMain id="mainContent">
+      <TemplateFull>...</TemplateFull>
+      <TemplateSidebar>...</TemplateSidebar>
+      <TemplateContent>...</TemplateContent>
+      <TemplateFull>...</TemplateFull>
+    </TemplateMain>
   </Template>
 </DSProvider>
 <div id="nypl-footer"></div>

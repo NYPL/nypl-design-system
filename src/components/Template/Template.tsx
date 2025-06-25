@@ -54,7 +54,7 @@ const TemplateHeader: React.FC<React.PropsWithChildren<TemplateChildProps>> = ({
   children,
   ...rest
 }) => {
-  const styles = useStyleConfig("TemplateHeader", {});
+  const styles = useStyleConfig("TemplateFull", {});
 
   return (
     <Box as="header" __css={styles} {...rest}>
@@ -70,7 +70,7 @@ const TemplateFooter: React.FC<React.PropsWithChildren<TemplateChildProps>> = ({
   children,
   ...rest
 }) => {
-  const styles = useStyleConfig("TemplateFooter", {});
+  const styles = useStyleConfig("TemplateFull", {});
 
   return (
     <Box as="footer" __css={styles} {...rest}>
@@ -115,14 +115,6 @@ const TemplateBreakout: React.FC<React.PropsWithChildren<TemplateChildProps>> =
  * This optional component will span the full width of the content area and will
  * render content at a max width of 1280px.
  */
-// const TemplateFull: React.FC<React.PropsWithChildren<TemplateChildProps>> = ({
-//   children,
-//   ...rest
-// }) => (
-//   <Box className="reservoir-template-full" {...rest}>
-//     {children}
-//   </Box>
-// );
 const TemplateFull: React.FC<React.PropsWithChildren<TemplateChildProps>> = ({
   children,
   ...rest

@@ -93,14 +93,6 @@ const Template = defineStyleConfig({
   },
 });
 
-const TemplateHeader = defineStyleConfig({
-  baseStyle: defineStyle(() => {
-    return {
-      gridColumn: "1 / -1",
-    };
-  }),
-});
-
 const TemplateMain = defineStyleConfig({
   baseStyle: defineStyle(() => {
     const { responsiveGap } = useResponsiveSpacing();
@@ -111,14 +103,6 @@ const TemplateMain = defineStyleConfig({
       gridTemplateColumns: "subgrid",
       gridTemplateRows: "auto",
       "& > *:not(:last-child)": { mb: responsiveGap },
-    };
-  }),
-});
-
-const TemplateFooter = defineStyleConfig({
-  baseStyle: defineStyle(() => {
-    return {
-      gridColumn: "1 / -1",
     };
   }),
 });
@@ -146,8 +130,6 @@ const TemplateFull = defineStyleConfig({
 export default {
   Template,
   TemplateBreakout,
-  TemplateFooter,
   TemplateFull,
-  TemplateHeader,
   TemplateMain,
 };

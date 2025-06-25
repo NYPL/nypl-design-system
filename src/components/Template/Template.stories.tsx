@@ -188,13 +188,12 @@ const otherSubHeaderText =
  */
 export const WithControls: Story = {
   args: {
-    id: "template-with-controls",
     variant: "sidebarLeft",
   },
   render: (args) => {
     const { variant } = args;
     return (
-      <Template {...args}>
+      <Template id="template-with-controls" {...args}>
         <TemplateHeader>
           <TemplateBreakout>
             <Placeholder variant="short">Breakout</Placeholder>
@@ -584,7 +583,7 @@ export const ComplexExample = () => {
               />
             </Box>
             <SubNav
-              id="asdasd"
+              id="complex-example-subnav"
               primaryActions={
                 <>
                   <SubNavLink href="#" id="link-1">
