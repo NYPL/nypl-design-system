@@ -67,6 +67,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
+      data-testid="ds-helperErrorText"
       id="video-player-with-text-componentWrapper-helperText"
     >
       <div
@@ -121,6 +122,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
+      data-testid="ds-helperErrorText"
       id="video-player-with-text-componentWrapper-helperText"
     >
       <div

@@ -19,8 +19,6 @@ export interface DescriptionProps {
 }
 
 export interface ListProps extends Omit<BoxProps, "title"> {
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Display the list in a row. */
   inline?: boolean;
   /** Data to render if children are not passed. For `listTypes` ordered `"ol"`

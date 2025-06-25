@@ -178,6 +178,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="defaultRangeSlider-helperText"
   >
     <div
@@ -240,6 +241,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={true}
+        data-testid="ds-helperErrorText"
         id="errored-textInput-start-helperText"
       />
     </div>
@@ -379,6 +381,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={true}
+        data-testid="ds-helperErrorText"
         id="errored-textInput-end-helperText"
       />
     </div>
@@ -388,6 +391,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
+    data-testid="ds-helperErrorText"
     id="errored-helperText"
   >
     <div
@@ -585,6 +589,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="required-helperText"
   >
     <div
@@ -779,6 +784,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="disabled-helperText"
   >
     <div
@@ -964,6 +970,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="noLabels-helperText"
   />
 </div>
@@ -1085,6 +1092,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="noVisibleValues-helperText"
   >
     <div
@@ -1208,6 +1216,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="onlySlider-helperText"
   />
 </div>
@@ -1341,6 +1350,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="defaultSlider-helperText"
   >
     <div
@@ -1483,6 +1493,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
         aria-live="polite"
         className="css-1xdhyk6"
         data-isinvalid={true}
+        data-testid="ds-helperErrorText"
         id="errored-textInput-end-helperText"
       />
     </div>
@@ -1492,6 +1503,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
+    data-testid="ds-helperErrorText"
     id="errored-helperText"
   >
     <div
@@ -1638,6 +1650,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="required-helperText"
   >
     <div
@@ -1782,6 +1795,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="disabled-helperText"
   >
     <div
@@ -1917,6 +1931,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="noLabels-helperText"
   />
 </div>
@@ -2014,6 +2029,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="noVisibleValues-helperText"
   >
     <div
@@ -2113,6 +2129,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="onlySlider-helperText"
   />
 </div>
@@ -2246,6 +2263,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="chakra-helperText"
   >
     <div
@@ -2388,6 +2406,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="props-helperText"
   >
     <div

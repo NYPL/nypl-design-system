@@ -185,7 +185,7 @@ describe("Notification", () => {
     );
 
     const dismissibleIcon = utils.container.querySelector(
-      "#notificationID-dismissible-notification-icon"
+      "#notificationID-dismissible-icon"
     );
     expect(dismissibleIcon).toBeInTheDocument();
     expect(screen.getByTitle("Notification close icon")).toBeInTheDocument();

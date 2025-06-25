@@ -18,8 +18,6 @@ import React, { forwardRef, useRef, useState } from "react";
 import { SectionTypes } from "../../helpers/types";
 
 export interface MenuProps extends BoxProps {
-  /** Optional ID string that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional string used to identify and highlight an item when the menu opens. The value should
    * match the id associated with one of the items. */
   selectedItem?: string;

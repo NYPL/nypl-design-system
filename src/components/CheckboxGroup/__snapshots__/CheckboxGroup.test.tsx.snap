@@ -130,6 +130,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="column-helperErrorText"
   >
     <div
@@ -269,6 +270,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="row-helperErrorText"
   >
     <div
@@ -408,6 +410,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="noLabel-helperErrorText"
   >
     <div
@@ -547,6 +550,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="helperText-helperErrorText"
   >
     <div
@@ -691,6 +695,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="invalidText-helperErrorText"
   >
     <div
@@ -830,6 +835,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="noRequiredLabel-helperErrorText"
   >
     <div
@@ -972,6 +978,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="required-helperErrorText"
   >
     <div
@@ -1117,6 +1124,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
+    data-testid="ds-helperErrorText"
     id="invalid-helperErrorText"
   >
     <div
@@ -1262,6 +1270,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="disabled-helperErrorText"
   >
     <div
@@ -1425,6 +1434,7 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="jsxLabels-helperErrorText"
   >
     <div
@@ -1564,6 +1574,7 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="chakraProps-helperErrorText"
   >
     <div
@@ -1703,6 +1714,7 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="otherProps-helperErrorText"
   >
     <div

@@ -52,6 +52,7 @@ export const HelperErrorText: ChakraComponent<
         "aria-live": ariaLive === "off" ? undefined : ariaLive,
         className,
         "data-isinvalid": isInvalid,
+        "data-testid": "ds-helperErrorText",
         id,
         ref,
         __css: styles,

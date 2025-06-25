@@ -21,8 +21,6 @@ export interface BaseProps extends Omit<BoxProps, "scrollBehavior"> {
   bodyContent?: string | JSX.Element;
   /** The text to display in the modal heading, can be a string or JSX Element. */
   headingText?: string | JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Boolean to determine if the modal is open or closed. */
   isOpen?: boolean;
 }
@@ -67,11 +65,9 @@ export type ModalTypeProps = ConfirmationModalProps | DefaultModalProps;
 // And here combine the special types with the base props.
 export type BaseModalProps = BaseProps & ModalTypeProps;
 
-export interface ModalProps {
+export interface ModalProps extends BoxProps {
   /** The text to display on the button that opens the modal. */
   buttonText?: string;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Props to update the internal `Modal` component. This contains the
    * `bodyContent`, `headingText`, `isOpen`, and the modal type props. */
   modalProps: BaseModalProps;
@@ -119,6 +115,7 @@ export const BaseModal: ChakraComponent<
     <>
       {isDefaultType(type) ? (
         <ChakraModal
+          data-testid="ds-modal"
           id={id}
           isOpen={isOpen}
           onClose={onClose}
@@ -142,6 +139,7 @@ export const BaseModal: ChakraComponent<
         </ChakraModal>
       ) : (
         <ChakraModal
+          data-testid="ds-modal"
           id={id}
           isOpen={isOpen}
           onClose={onCancel}
@@ -188,7 +186,7 @@ export const ModalTrigger: ChakraComponent<
   React.PropsWithChildren<ModalProps>
 > = chakra(
   forwardRef<HTMLButtonElement, React.PropsWithChildren<ModalProps>>(
-    ({ buttonText, id, modalProps, ...rest }, ref?) => {
+    ({ buttonText, modalProps, ...rest }, ref?) => {
       const { isOpen, onOpen, onClose } = useDisclosure();
       const onCloseHandler = () => {
         modalProps.onClose && modalProps.onClose();

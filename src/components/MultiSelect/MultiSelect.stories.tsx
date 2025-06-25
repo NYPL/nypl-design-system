@@ -277,9 +277,6 @@ const meta: Meta<typeof MultiSelect> = {
     defaultItemsVisible: {
       table: { defaultValue: { summary: "5" } },
     },
-    id: {
-      control: false,
-    },
     closeOnBlur: {
       table: { defaultValue: { summary: "false" } },
     },

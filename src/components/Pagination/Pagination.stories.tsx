@@ -14,7 +14,6 @@ const meta: Meta<typeof Pagination> = {
   argTypes: {
     currentPage: { control: false },
     getPageHref: { control: false },
-    id: { control: false },
     initialPage: { control: false, table: { defaultValue: { summary: "1" } } },
     onPageChange: { control: false },
   },

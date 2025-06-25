@@ -14,7 +14,6 @@ const meta: Meta<typeof Notification> = {
       table: { defaultValue: { summary: "false" } },
     },
     icon: { control: false },
-    id: { control: false },
     isCentered: {
       table: { defaultValue: { summary: "false" } },
     },

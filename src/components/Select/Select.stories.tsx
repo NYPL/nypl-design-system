@@ -14,7 +14,6 @@ const meta: Meta<typeof Select> = {
   argTypes: {
     defaultValue: { control: false },
     helperText: { control: "text" },
-    id: { control: false },
     invalidText: { control: "text" },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),

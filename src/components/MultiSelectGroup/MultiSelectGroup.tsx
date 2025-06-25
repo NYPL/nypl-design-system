@@ -4,10 +4,9 @@ import React, { forwardRef } from "react";
 import Fieldset from "../Fieldset/Fieldset";
 import { LayoutTypes } from "../../helpers/types";
 import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export interface MultiSelectGroupProps extends BoxProps {
-  /** The id of the MultiSelectGroup. */
-  id: string;
   /** The label text rendered within the MultiSelectGroup. */
   labelText: string;
   /** Renders the layout of `MultiSelect` components in a row or column. */
@@ -50,10 +49,12 @@ export const MultiSelectGroup: ChakraComponent<
       renderMultiSelect,
       ...rest
     } = props;
+    const mainId = useSafeId(id);
 
     return (
       <Fieldset
-        id={`multiselect-group-${id}`}
+        data-testid={`ds-multiSelectGroup`}
+        id={`${mainId}-fieldset`}
         legendText={labelText}
         isLegendHidden={!showLabel}
         {...rest}
@@ -61,9 +62,9 @@ export const MultiSelectGroup: ChakraComponent<
         <Stack
           className={className}
           columnGap="xs"
-          data-testid={`multiselect-group-${id}`}
+          data-testid={`${mainId}-multiselectGroup-stack`}
           direction={{ base: "column", md: layout }}
-          id={id}
+          id={mainId}
           ref={ref}
           rowGap="xs"
           spacing="xs"

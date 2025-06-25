@@ -14,7 +14,6 @@ const meta: Meta<typeof Menu> = {
       options: sectionTypeArray,
       defaultValue: { summary: "blogs" },
     },
-    id: { control: false },
     labelText: { description: "Set menu button text." },
     listAlignment: {
       options: ["left", "right"],

@@ -307,7 +307,7 @@ describe("MultiSelect", () => {
     expect(screen.getByLabelText("Red")).toBeChecked();
     expect(screen.getByLabelText("Blue")).toBeChecked();
     expect(
-      screen.getByTestId("multi-select-close-button-testid")
+      screen.getByTestId("ds-multiSelectItemsCountButton")
     ).toBeInTheDocument();
   });
 
@@ -328,7 +328,7 @@ describe("MultiSelect", () => {
     );
     expect(screen.getAllByRole("checkbox")).toHaveLength(8);
     expect(
-      screen.queryByTestId("multi-select-close-button-testid")
+      screen.queryByTestId("ds-multiSelectItemsCountButton")
     ).not.toBeInTheDocument();
   });
 
@@ -616,7 +616,7 @@ describe("MultiSelect", () => {
       <MultiSelectTestComponent multiSelectId="multiselect-test-id" />
     );
     expect(
-      screen.queryByTestId("multi-select-close-button-testid")
+      screen.queryByTestId("ds-multiSelectItemsCountButton")
     ).not.toBeInTheDocument();
 
     // Open menu
@@ -625,9 +625,7 @@ describe("MultiSelect", () => {
     rerender(<MultiSelectTestComponent multiSelectId="multiselect-test-id" />);
     // Check on item
     userEvent.click(screen.queryByRole("checkbox", { name: /dogs/i }));
-    const countButton = screen.queryByTestId(
-      "multi-select-close-button-testid"
-    );
+    const countButton = screen.queryByTestId("ds-multiSelectItemsCountButton");
 
     // Check for the selectedItems count button to be present and reflect the count of selectedItems
     expect(countButton).toBeInTheDocument();
@@ -639,7 +637,7 @@ describe("MultiSelect", () => {
     expect(countButton).toHaveTextContent("3");
 
     // Close menu
-    userEvent.click(screen.queryByTestId("multi-select-close-button-testid"));
+    userEvent.click(screen.queryByTestId("ds-multiSelectItemsCountButton"));
     // Count button is still present
     expect(countButton).toHaveTextContent("3");
     // Click count button

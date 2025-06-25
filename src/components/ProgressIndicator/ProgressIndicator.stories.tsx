@@ -13,7 +13,6 @@ const meta: Meta<typeof ProgressIndicator> = {
   title: "Components/Feedback/ProgressIndicator",
   component: ProgressIndicator,
   argTypes: {
-    id: { control: false },
     indicatorType: {
       controls: { type: "select" },
       options: progressIndicatorTypesArray,

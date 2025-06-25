@@ -16,7 +16,6 @@ const meta: Meta<typeof RadioGroup> = {
   title: "Components/Form Elements/RadioGroup",
   component: RadioGroup,
   argTypes: {
-    id: { control: false },
     isDisabled: argsBooleanType(),
     isFullWidth: argsBooleanType(),
     isInvalid: argsBooleanType(),

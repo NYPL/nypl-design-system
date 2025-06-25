@@ -22,8 +22,6 @@ export interface PaginationProps extends BoxProps {
    * to use for a link's `href` attribute. This is used when the current
    * page should refresh when navigating. */
   getPageHref?: undefined | ((pageNumber: number) => string);
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** The initially selected page (default value is 1). */
   initialPage?: number;
   /** The callback function called when an item is selected and the current
@@ -139,19 +137,18 @@ export const Pagination: ChakraComponent<
 
       return (
         <Link
+          aria-label={`${isPrevious ? "Previous" : "Next"} page`}
+          aria-disabled={isDisabled}
           href={changeUrls ? getPageHref(pageNumber) : "#"}
-          id={`${id}-${text}`}
+          type="action"
+          onClick={
+            changeUrls ? undefined : isPrevious ? previousPage : nextPage
+          }
           __css={{
             ...styles.link,
             ...styles.previousNextElement,
             ...disabledStyles,
           }}
-          type="action"
-          aria-label={`${isPrevious ? "Previous" : "Next"} page`}
-          aria-disabled={isDisabled}
-          onClick={
-            changeUrls ? undefined : isPrevious ? previousPage : nextPage
-          }
         >
           {!isPrevious && (
             <Text
@@ -241,7 +238,6 @@ export const Pagination: ChakraComponent<
       return (
         <Link
           href={changeUrls ? getPageHref(item as number) : "#"}
-          id={`${id}-${item}`}
           aria-label={`Page ${item}`}
           aria-current={isSelectedPage ? "page" : undefined}
           onClick={
@@ -377,14 +373,15 @@ export const Pagination: ChakraComponent<
     return (
       <Box
         as="nav"
-        id={id}
         aria-label="Pagination"
+        data-testid="ds-pagination"
+        id={id}
         role="navigation"
         ref={ref}
         __css={styles}
         {...rest}
       >
-        <List type="ul" inline noStyling id={`${id}-list`}>
+        <List type="ul" inline noStyling>
           {previousLiLink}
           {getPaginationNumbers(selectedPage)}
           {nextLiLink}

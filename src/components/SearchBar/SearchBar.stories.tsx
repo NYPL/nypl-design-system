@@ -19,7 +19,6 @@ const meta: Meta<typeof SearchBar> = {
       control: false,
       table: { defaultValue: { summary: "null" } },
     },
-    id: { control: false },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),
     isRequired: argsBooleanType(),

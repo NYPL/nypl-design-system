@@ -322,7 +322,6 @@ const meta: Meta<typeof MultiSelectGroup> = {
   title: "Components/Form Elements/MultiSelectGroup",
   component: MultiSelectGroup,
   argTypes: {
-    id: { control: false },
     layout: {
       control: { type: "radio" },
       options: layoutTypesArray,

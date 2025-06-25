@@ -9,7 +9,6 @@ const meta: Meta<typeof Radio> = {
   title: "Components/Form Elements/Radio",
   component: Radio,
   argTypes: {
-    id: { control: false },
     isChecked: { control: false },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),
