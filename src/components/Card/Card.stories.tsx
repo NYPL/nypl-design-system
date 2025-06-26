@@ -131,7 +131,7 @@ export const WithControls: Story = {
           Primary
         </Button>
         <Button
-          buttonType="secondary"
+          variant="secondary"
           id="main-button2"
           onClick={action("clicked")}
           type="submit"
@@ -859,7 +859,7 @@ export const CardWithRightSideCardActions: Story = {
         <Button
           onClick={action("clicked")}
           id="main-button2"
-          buttonType="secondary"
+          variant="secondary"
           type="submit"
         >
           Secondary

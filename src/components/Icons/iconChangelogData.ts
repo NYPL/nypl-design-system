@@ -18,6 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Removes the depreacted `IconRotationTypes` type.",
       "Adds `currentColor` option to `iconColorsArray`",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Renames `iconType` to `variant`.",
     ],
   },
   {

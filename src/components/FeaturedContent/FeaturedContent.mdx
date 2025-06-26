@@ -3,15 +3,19 @@ import { changelogData } from "./featuredContentChangelogData";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as FeaturedContentStories from "./FeaturedContent.stories";
 import Link from "../Link/Link";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Meta of={FeaturedContentStories} />
 
-# Featured Content
+<ComponentDocsHeader
+  category="Basic Element"
+  componentName="FeaturedContent"
+  summary="A full-width container that visually emphasizes an image and text block"
+  versionAdded="2.1.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `2.1.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={FeaturedContentStories.WithControls} />
 
 ## Table of Contents
 
@@ -25,12 +29,12 @@ import Link from "../Link/Link";
 
 ## Overview
 
+<Description of={FeaturedContentStories} />
+
 The `FeaturedContent` component provides a method to visually emphasize a text
 block with an image, within a full page layout.
 
 ## Component Props
-
-<Canvas of={FeaturedContentStories.WithControls} />
 
 `FeaturedContent` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.

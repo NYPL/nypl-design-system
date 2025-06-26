@@ -43,7 +43,7 @@ export const WithControls: Story = {
   },
   render: (args) => (
     <ButtonGroup {...args}>
-      <Button buttonType="secondary" id="group-1">
+      <Button variant="secondary" id="group-1">
         Button
       </Button>
       <Button id="group-2">Submit</Button>
@@ -60,7 +60,7 @@ export const Width: Story = {
           default fit-content
         </Heading>
         <ButtonGroup>
-          <Button buttonType="secondary" id="width-fit-1">
+          <Button variant="secondary" id="width-fit-1">
             Button
           </Button>
           <Button id="width-fit-2">Submit</Button>
@@ -71,7 +71,7 @@ export const Width: Story = {
           full width
         </Heading>
         <ButtonGroup buttonWidth="full">
-          <Button buttonType="secondary" id="width-full-1">
+          <Button variant="secondary" id="width-full-1">
             Button
           </Button>
           <Button id="width-full-2">Submit</Button>
@@ -89,7 +89,7 @@ export const Layout: Story = {
           default row
         </Heading>
         <ButtonGroup>
-          <Button buttonType="secondary" id="row-1">
+          <Button variant="secondary" id="row-1">
             Button
           </Button>
           <Button id="row-2">Submit</Button>
@@ -100,7 +100,7 @@ export const Layout: Story = {
           column
         </Heading>
         <ButtonGroup layout="column">
-          <Button buttonType="secondary" id="column-1">
+          <Button variant="secondary" id="column-1">
             Button
           </Button>
           <Button id="column-2">Submit</Button>
@@ -111,7 +111,7 @@ export const Layout: Story = {
           column layout with full-width
         </Heading>
         <ButtonGroup buttonWidth="full" layout="column">
-          <Button buttonType="secondary" id="column-full-1">
+          <Button variant="secondary" id="column-full-1">
             Button
           </Button>
           <Button id="column-full-2">Submit</Button>
@@ -129,10 +129,10 @@ export const Disabled: Story = {
           ButtonGroup isDisabled
         </Heading>
         <ButtonGroup isDisabled>
-          <Button buttonType="secondary" id="group-disabled-1">
+          <Button variant="secondary" id="group-disabled-1">
             Button disabled
           </Button>
-          <Button buttonType="secondary" id="group-disabled-2">
+          <Button variant="secondary" id="group-disabled-2">
             Button disabled
           </Button>
         </ButtonGroup>
@@ -142,10 +142,10 @@ export const Disabled: Story = {
           Individual Button isDisabled
         </Heading>
         <ButtonGroup>
-          <Button buttonType="secondary" id="individual-disabled-1">
+          <Button variant="secondary" id="individual-disabled-1">
             Button not disabled
           </Button>
-          <Button buttonType="secondary" id="individual-disabled-2" isDisabled>
+          <Button variant="secondary" id="individual-disabled-2" isDisabled>
             Button disabled
           </Button>
         </ButtonGroup>

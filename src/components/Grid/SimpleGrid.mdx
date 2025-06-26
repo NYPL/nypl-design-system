@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
-import * as SimpleGridStories from "./SimpleGrid.stories";
-import Link from "../Link/Link";
-import { changelogData } from "./simpleGridChangelogData";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as SimpleGridStories from "./SimpleGrid.stories";
+import { changelogData } from "./simpleGridChangelogData";
 
 <Meta of={SimpleGridStories} />
 
-# SimpleGrid
+<ComponentDocsHeader
+  category="Page layout component"
+  componentName="SimpleGrid"
+  summary="Container for rendering a basic grid layout"
+  versionAdded="0.25.1"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.25.1`     |
-| Latest            | `Prerelease` |
+<Canvas of={SimpleGridStories.WithControls} />
 
 ## Table of Contents
 
@@ -36,8 +40,6 @@ tablet breakpoint will be dropped and only the mobile breakpoint (1 item per
 row) will be triggered.
 
 ## Component Props
-
-<Canvas of={SimpleGridStories.WithControls} />
 
 You may pass any Chakra `Box` props, as well as the props below.
 

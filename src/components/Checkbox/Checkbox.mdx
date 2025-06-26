@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as CheckboxStories from "./Checkbox.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as CheckboxStories from "./Checkbox.stories";
 import { changelogData } from "./checkboxChangelogData";
 
 <Meta of={CheckboxStories} />
 
-# Checkbox
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Checkbox"
+  summary="Input element that allows a user to toggle between checked and not checked states."
+  versionAdded="0.1.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.1.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={CheckboxStories.WithControls} />
 
 ## Table of Contents
 
@@ -35,8 +39,6 @@ Please note that the examples on this page show the `Checkbox` component in isol
 DS `CheckboxGroup` component. The `CheckboxGroup` component will handle all the states and data management.
 
 ## Component Props
-
-<Canvas of={CheckboxStories.WithControls} />
 
 The `Checkbox` composes an HTML `input` element, so you may pass any HTML `input` attributes,
 as well any Chakra style props and the props below.

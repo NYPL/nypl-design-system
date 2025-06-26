@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Meta, Source } from "@storybook/blocks";
 
-import * as AudioPlayerStories from "./AudioPlayer.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as AudioPlayerStories from "./AudioPlayer.stories";
 import { changelogData } from "./audioPlayerChangelogData";
 
 <Meta of={AudioPlayerStories} />
 
-# Audio Player
+<ComponentDocsHeader
+  category="Media & icon component"
+  componentName="AudioPlayer"
+  summary="Used to embed an audio stream from a 3rd party provider"
+  versionAdded="1.2.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `1.2.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={AudioPlayerStories.WithControls} />
 
 ## Table of Contents
 
@@ -35,8 +39,6 @@ of locally hosted audio files. That functionality will be added in a future
 version of the component.
 
 ## Component Props
-
-<Canvas of={AudioPlayerStories.WithControls} />
 
 The `AudioPlayer` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.

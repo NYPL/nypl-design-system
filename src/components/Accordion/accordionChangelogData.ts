@@ -19,6 +19,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `isDarkMode` in favor of Chakra's `_dark` conditional key.",
       "Replaces positional function arguments with objects for `getIcon` and `getElementsFromData`.",
       "Extends prop definition to include Chakra's `BoxProps`",
+      "Renames `accordionType` to `variant`.",
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },

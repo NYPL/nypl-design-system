@@ -156,7 +156,7 @@ export const NewsletterSignup: ChakraComponent<
             {showPrivacyLink && (
               <Link
                 href={privacyPolicyLink}
-                type="external"
+                variant="external"
                 isUnderlined={false}
                 __css={styles.privacy}
               >
