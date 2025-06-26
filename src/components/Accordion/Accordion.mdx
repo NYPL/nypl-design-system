@@ -2,18 +2,22 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import * as AccordionStories from "./Accordion.stories";
 import Banner from "../Banner/Banner";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
 import { changelogData } from "./accordionChangelogData";
 
 <Meta of={AccordionStories} />
 
-# Accordion
+<ComponentDocsHeader
+  category="Overlays & Switchers component"
+  componentName="Accordion"
+  summary="Interactive container used to reveal a hidden content block"
+  versionAdded="0.1.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.1.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={AccordionStories.WithControls} />
 
 ## Table of Contents
 
@@ -103,8 +107,6 @@ present as a key in the `accordionData` entries, the key will override
 the `aria-label` passed to the `Accordion`.
 
 ## Component Props
-
-<Canvas of={AccordionStories.WithControls} />
 
 You may pass any Chakra `Box` props, as well as the props below.
 
