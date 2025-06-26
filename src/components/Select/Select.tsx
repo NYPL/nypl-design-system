@@ -16,9 +16,9 @@ import Icon from "../Icons/Icon";
 import Label from "../Label/Label";
 import { getAriaAttrs } from "../../utils/utils";
 
-export const selectTypesArray = ["default", "searchbar"];
-export const labelPositionsArray = ["default", "inline"];
-export type SelectTypes = typeof selectTypesArray[number];
+export const selectVariantsArray = ["default", "searchbar"] as const;
+export const labelPositionsArray = ["default", "inline"] as const;
+export type SelectVariants = typeof selectVariantsArray[number];
 export type LabelPositions = typeof labelPositionsArray[number];
 
 export interface SelectProps
@@ -53,7 +53,7 @@ export interface SelectProps
    * Note: Parenthesis will be added automatically by the component */
   requiredLabelText?: string;
   /** The variant to display. */
-  selectType?: SelectTypes;
+  variant?: SelectVariants;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the select's label onscreen or hide it. Refer
@@ -92,7 +92,7 @@ export const Select: ChakraComponent<
         name,
         onChange,
         placeholder,
-        selectType = "default",
+        variant = "default",
         showHelperInvalidText = true,
         showLabel = true,
         showRequiredLabel = true,
@@ -103,7 +103,7 @@ export const Select: ChakraComponent<
       const [labelWidth, setLabelWidth] = useState<number>(0);
       const labelRef = useRef<HTMLDivElement>(null);
       const styles = useMultiStyleConfig("ReservoirSelect", {
-        variant: selectType,
+        variant,
         labelPosition,
       });
       const finalInvalidText = invalidText

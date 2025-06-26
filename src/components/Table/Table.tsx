@@ -20,9 +20,6 @@ interface CustomColors {
   color?: string;
 }
 
-export const tableBodyTextSizesArray = ["body1", "body2", "caption"] as const;
-export type TableBodyTextSizes = typeof tableBodyTextSizesArray[number];
-
 export interface TableProps extends BoxProps {
   /** Array of string values used to populate the `Table` column headers.
    * For improved accessibility, column headers are required. */
@@ -35,10 +32,6 @@ export interface TableProps extends BoxProps {
    * Any style can be passed, but the most common use would be to pass "width"
    * and "maxWidth" to set custom column widths. */
   columnStyles?: object[];
-  /** The size of the table body text. */
-  tableTextSize?: TableBodyTextSizes;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** If true, horizontal scrolling will be enabled for the table content.  */
   isScrollable?: boolean;
   /** If true, a border will be displayed between each row in the `Table`
@@ -73,8 +66,6 @@ export const Table: ChakraComponent<
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
         columnStyles = [],
-        tableTextSize = "body1",
-        id,
         isScrollable = false,
         showRowDividers = false,
         showTitleText = true,
@@ -105,7 +96,6 @@ export const Table: ChakraComponent<
       const styles = useMultiStyleConfig("ReservoirTable", {
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
-        tableTextSize,
         isScrollable,
         showRowDividers,
         useRowHeaders,
@@ -238,7 +228,6 @@ export const Table: ChakraComponent<
         <TableContainer {...containerProps} sx={styles.base}>
           <ChakraTable
             aria-label={titleText && !showTitleText ? titleText : undefined}
-            id={id}
             ref={ref}
             sx={styles.innerTable}
             {...rest}

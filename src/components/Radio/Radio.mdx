@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
-import * as RadioStories from "./Radio.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as RadioStories from "./Radio.stories";
 import { changelogData } from "./radioChangelogData";
 
 <Meta of={RadioStories} />
 
-# Radio
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Radio"
+  summary="Input element that allows a user to select a single item from a list of related options"
+  versionAdded="0.22.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.22.0`     |
-| Latest            | `Prerelease` |
+<Canvas of={RadioStories.Controls} />
 
 ## Table of Contents
 
@@ -34,8 +38,6 @@ component inside the Design System `RadioGroup` component. The `RadioGroup`
 component will handle all the states and data management.
 
 ## Component Props
-
-<Canvas of={RadioStories.Controls} />
 
 The `Radio` composes an HTML `input` element, so you may pass any HTML `input` attributes,
 as well any Chakra style props and the props below.

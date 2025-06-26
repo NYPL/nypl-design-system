@@ -141,7 +141,7 @@ describe("Notification", () => {
         id="notificationID"
         notificationContent={<>Notification content.</>}
         notificationHeading="Notification Heading"
-        notificationType="announcement"
+        variant="announcement"
       />
     );
 
@@ -157,7 +157,7 @@ describe("Notification", () => {
         id="notificationID"
         notificationContent={<>Notification content.</>}
         notificationHeading="Notification Heading"
-        notificationType="warning"
+        variant="warning"
       />
     );
 
@@ -207,7 +207,7 @@ describe("Notification", () => {
           id="notificationID2"
           notificationContent={<>Notification content.</>}
           notificationHeading="Notification Heading"
-          notificationType="announcement"
+          variant="announcement"
         />
       )
       .toJSON();
@@ -217,7 +217,7 @@ describe("Notification", () => {
           id="notificationID3"
           notificationContent={<>Notification content.</>}
           notificationHeading="Notification Heading"
-          notificationType="warning"
+          variant="warning"
         />
       )
       .toJSON();

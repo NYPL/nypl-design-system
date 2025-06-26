@@ -26,7 +26,7 @@ export interface TagSetExploreProps {
   /** The array of data to display as tags. */
   tagSetData: TagSetExploreDataProps[];
   /** The `TagSet` variant to render; "filter" by default. */
-  type: "explore";
+  variant: "explore";
 }
 
 /**

@@ -42,7 +42,7 @@ type Story = StoryObj<typeof Template>;
 
 const accordionData: AccordionDataProps[] = [
   {
-    accordionType: "default",
+    variant: "default",
     label: "Tom Nook",
     panel: (
       <Card
@@ -68,7 +68,7 @@ const accordionData: AccordionDataProps[] = [
 const faqContentData: AccordionDataProps[] = [
   ...accordionData,
   {
-    accordionType: "warning",
+    variant: "warning",
     label: "Isabelle",
     panel: (
       <Card
@@ -93,7 +93,7 @@ const faqContentData: AccordionDataProps[] = [
     ),
   },
   {
-    accordionType: "error",
+    variant: "error",
     label: "K.K. Slider",
     panel: (
       <Card
@@ -237,7 +237,7 @@ export const TemplateFullExample: Story = {
           />
           <Hero
             backgroundImageSrc={getPlaceholderImage()}
-            heroType="primary"
+            variant="primary"
             heading={<Heading level="h1" id="1" text="Hero Primary" />}
             imageProps={{
               alt: "Image example",
@@ -251,7 +251,7 @@ export const TemplateFullExample: Story = {
           <Banner
             content="This is the top content area!"
             heading="Content Top"
-            type="informative"
+            variant="informative"
           />
         </TemplateTop>
         {sidebar === "left" && (
@@ -355,7 +355,7 @@ export const TemplateFullExample: Story = {
           <Banner
             content="This is the bottom content area!"
             heading="Content Bottom"
-            type="informative"
+            variant="informative"
           />
         </TemplateBottom>
       </Template>
@@ -377,12 +377,12 @@ export const TemplateFullExampleNarrow = {
                 text: "Catalog",
               },
             ]}
-            breadcrumbsType="research"
+            variant="research"
           />
           <Hero
             backgroundColor="section.research.primary"
             foregroundColor="ui.white"
-            heroType="tertiary"
+            variant="tertiary"
             heading={<Heading level="h1" id="1" text="Tertiary Hero" />}
           />
         </TemplateBreakout>
@@ -431,7 +431,7 @@ export const TemplateFullExampleWithFeaturedContent = {
           />
           <Hero
             backgroundImageSrc={getPlaceholderImage()}
-            heroType="campaign"
+            variant="campaign"
             heading={<Heading level="h1" id="1" text="Hero Campaign" />}
             imageProps={{
               alt: "Image example",
@@ -445,7 +445,7 @@ export const TemplateFullExampleWithFeaturedContent = {
           <Banner
             content="This is the top content area!"
             heading="Content Top"
-            type="informative"
+            variant="informative"
           />
         </TemplateTop>
         <TemplateMain>
@@ -476,7 +476,7 @@ export const TemplateFullExampleWithFeaturedContent = {
           <Banner
             content="This is the bottom content area!"
             heading="Content Bottom"
-            type="informative"
+            variant="informative"
           />
         </TemplateBottom>
       </Template>

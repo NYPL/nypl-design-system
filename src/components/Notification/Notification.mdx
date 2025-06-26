@@ -3,16 +3,20 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 import * as NotificationStories from "./Notification.stories";
 import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import { changelogData } from "./notificationChangelogData";
 
 <Meta of={NotificationStories} />
 
-# Notification
+<ComponentDocsHeader
+  category="Feedback component"
+  componentName="Notification"
+  summary="Callout that displays important messages"
+  versionAdded="0.23.2"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.23.2`     |
-| Latest            | `Prerelease` |
+<Canvas of={NotificationStories.WithControls} />
 
 ## Table of Contents
 
@@ -36,8 +40,6 @@ component. It has been added to help illustrate how the `Notification` sits
 within a parent element.
 
 ## Component Props
-
-<Canvas of={NotificationStories.WithControls} />
 
 `Notification` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.
@@ -69,7 +71,7 @@ inside the button, an `aria-label` attribute is added to the button.
 ### Language Patterns
 
 When the `Notification` component is rendered, the text within the component
-should always include wording that aligns with the type of notitication that is
+should always include wording that aligns with the variant of notitication that is
 being delivered. For example, if the notification is a warning or error, the
 heading or body copy within the notification should use the words `"warning"` or
 `"error"` and provide a clear description of the existing or potential isssue.

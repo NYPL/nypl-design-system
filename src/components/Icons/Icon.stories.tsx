@@ -47,7 +47,7 @@ const meta: Meta<typeof Icon> = {
       control: false,
       table: { defaultValue: { summary: "`${name} icon`" } },
     },
-    type: {
+    variant: {
       control: false,
       table: { defaultValue: { summary: "default" } },
     },
@@ -71,7 +71,7 @@ export const WithControls: Story = {
     name: "check",
     size: "xxlarge",
     title: undefined,
-    type: "default",
+    variant: "default",
   },
   render: (args) => <Icon {...args} />,
   parameters: {
