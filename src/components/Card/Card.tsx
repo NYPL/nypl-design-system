@@ -1,4 +1,3 @@
-import React, { forwardRef } from "react";
 import {
   Box,
   BoxProps,
@@ -9,9 +8,12 @@ import {
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import { LayoutTypes } from "../../helpers/types";
+import React, { forwardRef } from "react";
+
 import Heading from "../Heading/Heading";
 import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
+import { LayoutTypes } from "../../helpers/types";
+import { useSafeId } from "../../hooks/useSafeId";
 
 interface CustomColorProps {
   backgroundColor?: string;
@@ -27,8 +29,6 @@ interface CardBaseProps {
 }
 
 interface CardWrapperProps extends BoxProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Main link to use when the full `Card` component should be clickable. */
   mainActionLink?: string;
   /** Additional object for styling the `Card`'s `div` wrapper. */
@@ -104,7 +104,7 @@ function CardImage(
   });
 
   return (
-    <Box __css={styles} data-imagewrapper>
+    <Box data-testid="ds-cardImage" __css={styles} data-imagewrapper>
       <Image
         alt={alt}
         aspectRatio={aspectRatio}
@@ -131,7 +131,7 @@ export const CardContent: React.FC<React.PropsWithChildren<any>> = chakra(
     const { children, ...rest } = props;
     const styles = useStyleConfig("CardContent");
     return children ? (
-      <Box __css={styles} {...rest}>
+      <Box data-testid="ds-cardContent" __css={styles} {...rest}>
         {children}
       </Box>
     ) : null;
@@ -151,7 +151,7 @@ export const CardActions: React.FC<React.PropsWithChildren<any>> = chakra(
     });
 
     return children ? (
-      <Box __css={styles} {...rest}>
+      <Box data-testid="ds-cardActions" __css={styles} {...rest}>
         {children}
       </Box>
     ) : null;
@@ -165,13 +165,18 @@ export const CardActions: React.FC<React.PropsWithChildren<any>> = chakra(
  */
 const CardWrapper: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<CardWrapperProps>>(
-    ({ children, id, mainActionLink, styles, ...rest }, ref) =>
+    ({ children, mainActionLink, styles, ...rest }, ref) =>
       mainActionLink ? (
-        <ChakraLinkBox id={id} ref={ref} sx={styles} {...rest}>
+        <ChakraLinkBox
+          data-testid="ds-cardWrapper"
+          ref={ref}
+          sx={styles}
+          {...rest}
+        >
           {children}
         </ChakraLinkBox>
       ) : (
-        <Box id={id} ref={ref} sx={styles} {...rest}>
+        <Box data-testid="ds-cardWrapper" ref={ref} sx={styles} {...rest}>
           {children}
         </Box>
       )
@@ -190,7 +195,9 @@ function CardLinkOverlay({
   mainActionLink,
 }: React.PropsWithChildren<CardWrapperProps>) {
   return mainActionLink ? (
-    <ChakraLinkOverlay href={mainActionLink}>{children}</ChakraLinkOverlay>
+    <ChakraLinkOverlay data-testid="ds-cardLinkOverlay" href={mainActionLink}>
+      {children}
+    </ChakraLinkOverlay>
   ) : (
     <>{children}</>
   );
@@ -230,6 +237,7 @@ export const Card: ChakraComponent<
         mainActionLink,
         ...rest
       } = props;
+      const mainId = useSafeId(id);
       const hasImage = imageProps.src || imageProps.component;
       const finalImageAspectRatio = imageProps.component
         ? "original"
@@ -313,9 +321,8 @@ export const Card: ChakraComponent<
       );
 
       return (
-        <Box __css={styles.base} ref={ref}>
+        <Box data-testid="ds-card" id={mainId} ref={ref} __css={styles.base}>
           <CardWrapper
-            id={id}
             mainActionLink={mainActionLink}
             styles={{
               ...styles.wrapper,

@@ -7,18 +7,21 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withHTMLStringContent-heading"
   >
     Heading text
   </h2>
   <h3
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withHTMLStringContent-callout"
   >
     This is the callout text
   </h3>
   <div
     className="css-0"
+    data-testid="ds-image"
   >
     <figure
       className="css-0"
@@ -26,7 +29,6 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        id={null}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
       <figcaption
@@ -81,18 +83,21 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withHTMLDOMContent-heading"
   >
     Heading text
   </h2>
   <h3
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withHTMLDOMContent-callout"
   >
     This is the callout text
   </h3>
   <div
     className="css-0"
+    data-testid="ds-image"
   >
     <figure
       className="css-0"
@@ -100,7 +105,6 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        id={null}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
       <figcaption
@@ -189,12 +193,14 @@ exports[`StructuredContent renders the UI snapshot 3`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withoutAnImage-heading"
   >
     Heading text
   </h2>
   <h3
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withoutAnImage-callout"
   >
     This is the callout text
@@ -217,23 +223,25 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withImageWithoutCaptionOrCredit-heading"
   >
     Heading text
   </h2>
   <h3
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withImageWithoutCaptionOrCredit-callout"
   >
     This is the callout text
   </h3>
   <div
     className="css-0"
+    data-testid="ds-image"
   >
     <img
       alt="Image alt text"
       className="css-0"
-      id={null}
       src="https://images.nypl.org/index.php?id=swope_243048&t=r"
     />
   </div>
@@ -255,12 +263,14 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
 >
   <h3
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withoutHeading-callout"
   >
     This is the callout text
   </h3>
   <div
     className="css-0"
+    data-testid="ds-image"
   >
     <figure
       className="css-0"
@@ -268,7 +278,6 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        id={null}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
       <figcaption
@@ -323,6 +332,7 @@ exports[`StructuredContent renders the UI snapshot 6`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withoutCalloutText-heading"
   >
     Heading text
@@ -345,18 +355,21 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withChakraProps-heading"
   >
     Heading text
   </h2>
   <h3
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withChakraProps-callout"
   >
     This is the callout text
   </h3>
   <div
     className="css-0"
+    data-testid="ds-image"
   >
     <figure
       className="css-0"
@@ -364,7 +377,6 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        id={null}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
       <figcaption
@@ -420,18 +432,21 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withOtherProps-heading"
   >
     Heading text
   </h2>
   <h3
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withOtherProps-callout"
   >
     This is the callout text
   </h3>
   <div
     className="css-0"
+    data-testid="ds-image"
   >
     <figure
       className="css-0"
@@ -439,7 +454,6 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
       <img
         alt="Image alt text"
         className="css-0"
-        id={null}
         src="https://images.nypl.org/index.php?id=swope_243048&t=r"
       />
       <figcaption

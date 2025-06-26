@@ -16,7 +16,6 @@ const meta: Meta<typeof Fieldset> = {
   title: "Components/Form Elements/Fieldset",
   component: Fieldset,
   argTypes: {
-    id: { control: false },
     isLegendHidden: { table: { defaultValue: { summary: "false" } } },
     isRequired: { table: { defaultValue: { summary: "false" } } },
     legendText: { control: { type: "text" } },

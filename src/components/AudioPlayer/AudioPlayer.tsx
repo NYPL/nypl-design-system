@@ -133,7 +133,7 @@ export const AudioPlayer: ChakraComponent<
           descriptionText={descriptionText}
           helperText={helperText}
           id={id}
-          data-testid="audioPlayer"
+          data-testid="ds-audioPlayer"
           ref={ref}
           __css={styles.base}
           {...rest}

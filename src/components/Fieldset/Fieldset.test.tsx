@@ -73,20 +73,6 @@ describe("Fieldset", () => {
     expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
   });
 
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <Fieldset legendText="Legend Text">
-        <p>Some other fields</p>
-      </Fieldset>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
-    );
-  });
-
   it("renders the UI snapshot correctly", () => {
     const basic = renderer
       .create(

@@ -3,7 +3,7 @@
 exports[`SearchBar renders the UI snapshot correctly 1`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="basic-componentWrapper"
 >
   <form
@@ -17,7 +17,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="componentWrapper"
+        data-testid="ds-componentWrapper"
         id="searchbar-textinput-basic-componentWrapper"
       >
         <div
@@ -44,6 +44,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         id="searchbar-button-basic"
         type="submit"
       >
@@ -84,7 +85,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
 exports[`SearchBar renders the UI snapshot correctly 2`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="withSelect-componentWrapper"
 >
   <form
@@ -96,7 +97,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     <div
       className="css-1u8qly9"
       data-select={true}
-      data-testid="componentWrapper"
+      data-testid="ds-componentWrapper"
       id="searchbar-select-withSelect-componentWrapper"
     >
       <div
@@ -196,7 +197,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="componentWrapper"
+        data-testid="ds-componentWrapper"
         id="searchbar-textinput-withSelect-componentWrapper"
       >
         <div
@@ -223,6 +224,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         id="searchbar-button-withSelect"
         type="submit"
       >
@@ -263,7 +265,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
 exports[`SearchBar renders the UI snapshot correctly 3`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="withoutHelperText-componentWrapper"
 >
   <form
@@ -277,7 +279,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="componentWrapper"
+        data-testid="ds-componentWrapper"
         id="searchbar-textinput-withoutHelperText-componentWrapper"
       >
         <div
@@ -303,6 +305,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         id="searchbar-button-withoutHelperText"
         type="submit"
       >
@@ -327,7 +330,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
 exports[`SearchBar renders the UI snapshot correctly 4`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="withClearButton-componentWrapper"
 >
   <form
@@ -341,7 +344,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="componentWrapper"
+        data-testid="ds-componentWrapper"
         id="searchbar-textinput-withClearButton-componentWrapper"
       >
         <div
@@ -368,6 +371,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         id="searchbar-button-withClearButton"
         type="submit"
       >
@@ -408,7 +412,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
 exports[`SearchBar renders the UI snapshot correctly 5`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="invalidState-componentWrapper"
 >
   <form
@@ -422,7 +426,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="componentWrapper"
+        data-testid="ds-componentWrapper"
         id="searchbar-textinput-invalidState-componentWrapper"
       >
         <div
@@ -457,6 +461,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         id="searchbar-button-invalidState"
         type="submit"
       >
@@ -481,7 +486,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
 exports[`SearchBar renders the UI snapshot correctly 6`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="disabledState-componentWrapper"
 >
   <form
@@ -495,7 +500,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="componentWrapper"
+        data-testid="ds-componentWrapper"
         id="searchbar-textinput-disabledState-componentWrapper"
       >
         <div
@@ -521,6 +526,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         disabled={true}
         id="searchbar-button-disabledState"
         type="submit"
@@ -546,7 +552,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
 exports[`SearchBar renders the UI snapshot correctly 7`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="requiredState-componentWrapper"
 >
   <form
@@ -560,7 +566,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="componentWrapper"
+        data-testid="ds-componentWrapper"
         id="searchbar-textinput-requiredState-componentWrapper"
       >
         <div
@@ -587,6 +593,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         disabled={true}
         id="searchbar-button-requiredState"
         type="submit"
@@ -612,7 +619,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
 exports[`SearchBar renders the UI snapshot correctly 8`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="noBrandButtonType-componentWrapper"
 >
   <form
@@ -626,7 +633,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="componentWrapper"
+        data-testid="ds-componentWrapper"
         id="searchbar-textinput-noBrandButtonType-componentWrapper"
       >
         <div
@@ -653,6 +660,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         disabled={true}
         id="searchbar-button-noBrandButtonType"
         type="submit"
@@ -678,11 +686,12 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
 exports[`SearchBar renders the UI snapshot correctly 9`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="withHeading-componentWrapper"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withHeading-heading"
   >
     A Heading
@@ -699,6 +708,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         id="searchbar-button-withHeading"
         type="submit"
       >
@@ -723,7 +733,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
 exports[`SearchBar renders the UI snapshot correctly 10`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="withDescription-componentWrapper"
 >
   <p
@@ -743,6 +753,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         id="searchbar-button-withDescription"
         type="submit"
       >
@@ -767,11 +778,12 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
 exports[`SearchBar renders the UI snapshot correctly 11`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="withHeadingAndDescription-componentWrapper"
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="withHeadingAndDescription-heading"
   >
     A Heading
@@ -793,6 +805,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         id="searchbar-button-withHeadingAndDescription"
         type="submit"
       >
@@ -817,7 +830,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
 exports[`SearchBar renders the UI snapshot correctly 12`] = `
 <div
   className="css-v54qrt"
-  data-testid="componentWrapper"
+  data-testid="ds-componentWrapper"
   id="chakra-componentWrapper"
 >
   <form
@@ -831,7 +844,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="componentWrapper"
+        data-testid="ds-componentWrapper"
         id="searchbar-textinput-chakra-componentWrapper"
       >
         <div
@@ -858,6 +871,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         id="searchbar-button-chakra"
         type="submit"
       >
@@ -912,7 +926,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        data-testid="componentWrapper"
+        data-testid="ds-componentWrapper"
         id="searchbar-textinput-props-componentWrapper"
       >
         <div
@@ -939,6 +953,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
       <button
         className="chakra-button searchButton css-8bx9xp"
         data-button={true}
+        data-testid="ds-button"
         id="searchbar-button-props"
         type="submit"
       >

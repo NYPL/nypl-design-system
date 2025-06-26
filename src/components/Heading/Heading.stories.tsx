@@ -9,7 +9,6 @@ const meta: Meta<typeof Heading> = {
   title: "Components/Typography & Styles/Heading",
   component: Heading,
   argTypes: {
-    id: { control: false },
     isCapitalized: argsBooleanType(),
     isUppercase: argsBooleanType(),
     isLowercase: argsBooleanType(),

@@ -167,10 +167,7 @@ describe("Checkbox", () => {
     );
 
     // The "group" role here is for the `fieldset` element.
-    expect(screen.getByRole("group")).toHaveAttribute(
-      "id",
-      "some-id-checkbox-group"
-    );
+    expect(screen.getByRole("group")).toHaveAttribute("id", "some-id");
   });
 
   it("sets the next value through the onChange function", () => {
@@ -288,20 +285,6 @@ describe("Checkbox", () => {
     expect(Checkboxes[0]).toHaveAttribute("aria-invalid");
     expect(Checkboxes[1]).toHaveAttribute("aria-invalid");
     expect(Checkboxes[2]).toHaveAttribute("aria-invalid");
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <CheckboxGroup labelText="column" name="column">
-        <Checkbox id="checkbox1" value="1" labelText="Checkbox 1" />
-      </CheckboxGroup>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
-    );
   });
 
   it("updates the selected checkboxes programmatically through the `value` prop", () => {

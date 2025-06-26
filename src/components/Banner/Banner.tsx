@@ -177,7 +177,7 @@ export const Banner: ChakraComponent<
     return (
       <Box
         as="aside"
-        data-testid="banner"
+        data-testid="ds-banner"
         data-variant={variant}
         id={mainId}
         ref={ref}

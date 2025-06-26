@@ -162,7 +162,7 @@ export const AlphabetFilter: ChakraComponent<
       <Box
         as="nav"
         aria-label="Filter by letter"
-        data-testid="alphabetFilter"
+        data-testid="ds-alphabetFilter"
         id={id}
         ref={ref}
       >

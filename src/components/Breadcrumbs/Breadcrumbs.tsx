@@ -34,12 +34,10 @@ export interface BreadcrumbsDataProps {
 export interface BreadcrumbProps extends BoxProps {
   /** Breadcrumb links as an array */
   breadcrumbsData: BreadcrumbsDataProps[];
-  /** Used to control how the `Breadcrumbs` component will be rendered. */
-  variant?: BreadcrumbsVariants;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Custom Link component for apps with internal routing, defaults to BreadcrumbLink if not passed */
   customLinkComponent?: React.ElementType;
+  /** Used to control how the `Breadcrumbs` component will be rendered. */
+  variant?: BreadcrumbsVariants;
 }
 
 const breadcrumbTextLength = 40;
@@ -50,15 +48,15 @@ const breadcrumbTextLength = 40;
  */
 const tooltipWrapperOrText = ({
   breadcrumbsData,
-  breadcrumbsID,
   customLinkComponent,
   renderIcon = false,
+  id,
   isCurrentPage = false,
 }: {
   breadcrumbsData: BreadcrumbsDataProps;
-  breadcrumbsID: string;
   customLinkComponent: React.ElementType;
   renderIcon?: boolean;
+  id?: string;
   isCurrentPage?: boolean;
 }) => {
   const textLength = (breadcrumbsData.text as string).length;
@@ -80,7 +78,7 @@ const tooltipWrapperOrText = ({
           name="arrow"
           size="small"
           iconRotation="rotate90"
-          id={`${breadcrumbsID}__backarrow`}
+          id={id ? `${id}-breadcrumbs-backarrow` : undefined}
           className="breadcrumbs-icon"
           variant="breadcrumbs"
         />
@@ -94,7 +92,7 @@ const tooltipWrapperOrText = ({
   const breadcrumbLink = renderTooltip ? (
     <Tooltip
       content={breadcrumbsData.text}
-      id={`breadcrumb-${breadcrumbsID}-tooltip`}
+      id={id ? `${id}-breadcrumb-tooltip` : undefined}
     >
       {linkWrapper}
     </Tooltip>
@@ -107,12 +105,12 @@ const tooltipWrapperOrText = ({
 
 const getElementsFromData = ({
   data,
-  breadcrumbsID,
   customLinkComponent,
+  id,
 }: {
   data: BreadcrumbsDataProps[];
-  breadcrumbsID?: string;
   customLinkComponent?: React.ElementType;
+  id?: string;
 }) => {
   if (!data?.length) {
     return null;
@@ -129,9 +127,9 @@ const getElementsFromData = ({
       <BreadcrumbItem key={index}>
         {tooltipWrapperOrText({
           breadcrumbsData,
-          breadcrumbsID,
           customLinkComponent,
           renderIcon,
+          id: `${id ? `${id}-${index}` : undefined}`,
           isCurrentPage,
         })}
       </BreadcrumbItem>
@@ -173,13 +171,14 @@ export const Breadcrumbs: ChakraComponent<
     });
     const breadcrumbItems = getElementsFromData({
       data: breadcrumbsData,
-      breadcrumbsID: id,
       customLinkComponent,
+      id,
     });
 
     return (
       <ChakraBreadcrumb
         aria-label="Breadcrumb"
+        data-testid="ds-breadcrumbs"
         id={id}
         ref={ref}
         __css={styles}
