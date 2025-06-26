@@ -7,7 +7,18 @@ import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import Banner from "./Banner";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Banner Accessibility", () => {
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <Banner content={<>Banner content.</>} heading="Banner Heading" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
   it("passes axe accessibility test with heading", async () => {
     const { container } = render(
       <Banner
@@ -52,6 +63,17 @@ describe("Banner", () => {
     );
   });
 
+  it("should randomly generate an id if no id was passed", () => {
+    utils.rerender(
+      <Banner
+        aria-label="Banner label"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+      />
+    );
+    expect(screen.getByTestId("ds-banner")).toHaveAttribute("id", "test-id");
+  });
+
   it("renders Banner heading child component", () => {
     expect(screen.getByText("Banner Heading")).toBeInTheDocument();
   });
@@ -73,6 +95,14 @@ describe("Banner", () => {
   });
 
   it("renders with an Icon", () => {
+    utils.rerender(
+      <Banner
+        aria-label="Banner label"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        id="bannerID"
+      />
+    );
     // Since the icon has aria-hidden set to true, we can't get it
     // by its "img" role.
     const icon = screen.getByTestId("bannerID-banner-icon");

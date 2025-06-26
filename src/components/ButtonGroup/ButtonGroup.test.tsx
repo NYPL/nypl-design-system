@@ -21,6 +21,21 @@ describe("ButtonGroup Accessibility", () => {
 });
 
 describe("ButtonGroup", () => {
+  it("should not render an id if it's not passed", () => {
+    render(
+      <ButtonGroup>
+        <Button buttonType="secondary" id="btn-1">
+          Button
+        </Button>
+        <Button id="btn-2">Submit</Button>
+        <p data-test="paragraph">This is not a button</p>
+      </ButtonGroup>
+    );
+
+    const container = screen.getByTestId("ds-buttonGroup");
+    expect(container).not.toHaveAttribute("id");
+  });
+
   it("renders only Button components", () => {
     render(
       <ButtonGroup>

@@ -47,7 +47,6 @@ export const AlphabetFilter: ChakraComponent<
       onClick,
       ...rest
     } = props;
-
     const styles = useMultiStyleConfig("AlphabetFilter", {});
 
     const filterButtons = [

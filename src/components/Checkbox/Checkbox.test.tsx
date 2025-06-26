@@ -7,10 +7,22 @@ import renderer from "react-test-renderer";
 
 import Checkbox from "./Checkbox";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Checkbox Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
     const { container } = render(
       <Checkbox id="inputID" onChange={jest.fn()} labelText="Test Label" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <Checkbox onChange={jest.fn()} labelText="Test Label" />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -46,6 +58,14 @@ describe("Checkbox Accessibility", () => {
 });
 
 describe("Checkbox", () => {
+  it("should randomly generate an id if no id was passed", () => {
+    render(<Checkbox labelText="Test Label" />);
+    expect(screen.getByTestId("ds-checkbox")).toHaveAttribute(
+      "id",
+      "test-id-componentWrapper"
+    );
+  });
+
   it("Renders with a checkbox input and label", () => {
     render(<Checkbox id="inputID" labelText="Test Label" />);
     expect(screen.getByLabelText("Test Label")).toBeInTheDocument();

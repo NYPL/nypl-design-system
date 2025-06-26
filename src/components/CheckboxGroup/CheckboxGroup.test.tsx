@@ -8,7 +8,23 @@ import renderer from "react-test-renderer";
 import CheckboxGroup from "./CheckboxGroup";
 import Checkbox from "../Checkbox/Checkbox";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("CheckboxGroup Accessibility", () => {
+  it("passes axe accessibility with no id ", async () => {
+    const { container } = render(
+      <CheckboxGroup labelText="CheckboxGroup example" name="a11y-test">
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
+        <Checkbox id="checkbox5" value="5" labelText="Checkbox 5" />
+      </CheckboxGroup>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
   it("passes axe accessibility with string labels ", async () => {
     const { container } = render(
       <CheckboxGroup
@@ -76,6 +92,20 @@ describe("CheckboxGroup Accessibility", () => {
 });
 
 describe("Checkbox", () => {
+  it("should randomly generate an id if no id was passed", () => {
+    render(
+      <CheckboxGroup labelText="Test Label" name="test1">
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
+      </CheckboxGroup>
+    );
+    expect(screen.getByTestId("ds-checkboxGroup")).toHaveAttribute(
+      "id",
+      "test-id"
+    );
+  });
+
   it("renders with Checkbox inputs and a label", () => {
     render(
       <CheckboxGroup id="checkboxGroup" labelText="Test Label" name="test1">

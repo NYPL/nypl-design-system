@@ -5,13 +5,13 @@ exports[`Banner renders the UI snapshot correctly 1`] = `
   className="css-1xdhyk6"
   data-testid="ds-banner"
   data-type="informative"
-  id="-r0-"
+  id="test-id"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgErrorOutline"
-    data-testid="-r0--banner-icon"
+    data-testid="test-id-banner-icon"
     focusable={false}
     role="img"
     title="Banner informative icon"

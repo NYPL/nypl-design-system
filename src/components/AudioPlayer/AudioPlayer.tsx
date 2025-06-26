@@ -129,11 +129,11 @@ export const AudioPlayer: ChakraComponent<
       return (
         <ComponentWrapper
           className={`audioplayer ${className}`}
-          headingText={headingText}
+          data-testid="ds-audioPlayer"
           descriptionText={descriptionText}
+          headingText={headingText}
           helperText={helperText}
           id={id}
-          data-testid="ds-audioPlayer"
           ref={ref}
           __css={styles.base}
           {...rest}
