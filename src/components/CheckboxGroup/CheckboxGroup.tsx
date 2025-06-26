@@ -113,7 +113,7 @@ export const CheckboxGroup: ChakraComponent<
         );
       }
 
-      const checkboxGroupContent = useMemo(
+      const checkboxGroupContextValue = useMemo(
         () => ({
           isDisabled,
           isInvalid,
@@ -144,7 +144,7 @@ export const CheckboxGroup: ChakraComponent<
               spacing={spacingProp}
               ref={ref}
             >
-              <CheckboxGroupContext.Provider value={checkboxGroupContent}>
+              <CheckboxGroupContext.Provider value={checkboxGroupContextValue}>
                 {children}
               </CheckboxGroupContext.Provider>
             </Stack>

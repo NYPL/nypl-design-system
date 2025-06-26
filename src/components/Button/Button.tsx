@@ -10,27 +10,29 @@ import {
 import { sizesArray } from "../../theme/sharedTypes";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 
-import Icon from "../Icons/Icon";
+import { useButtonGroup } from "../ButtonGroup/ButtonGroupContext";
 
 export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
-export const buttonTypesArray = [
+export const buttonSizesArray = ["small", "medium", "large"] as const;
+export const buttonVariantsArray = [
   "primary",
   "secondary",
   "text",
   "callout",
   "pill",
+  "iconOnly",
   "noBrand",
 ] as const;
 
 export type ButtonElementType = typeof buttonElementTypeArray[number];
+export type ButtonVariants = typeof buttonVariantsArray[number];
 export type ButtonSizes = typeof sizesArray[number];
-export type ButtonTypes = typeof buttonTypesArray[number];
 
 export interface ButtonProps
   extends Pick<BoxProps, keyof ChakraProps>,
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {
-  /** The button variation to render based on the `ButtonTypes` type. */
-  buttonType?: ButtonTypes;
+  /** The button variation to render based on the `ButtonVariants` type. */
+  variant?: ButtonVariants;
   /** ID that other components can cross reference for accessibility purposes. */
   id: string;
   /** Adds 'disabled' property to the button. */
@@ -57,7 +59,7 @@ export const Button: ChakraComponent<
   forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
     (props, ref?) => {
       const {
-        buttonType = "primary",
+        variant = "primary",
         children,
         className = "",
         id,
@@ -69,10 +71,9 @@ export const Button: ChakraComponent<
         type = "button",
         ...rest
       } = props;
+      const groupProps = useButtonGroup();
       const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
-      let childCount = 0;
       let hasIcon = false;
-      let variant: string | ButtonTypes = buttonType;
       let styles: any = {};
 
       if (!id) {
@@ -81,21 +82,7 @@ export const Button: ChakraComponent<
         );
       }
 
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement) => {
-          childCount++;
-          if (child !== undefined && child !== null) {
-            if (child.type === Icon || child?.props?.mdxType === "Icon") {
-              hasIcon = true;
-            }
-          }
-        }
-      );
-
-      if (childCount === 1 && hasIcon) {
-        variant = "iconOnly";
-      }
+      console.log("variant -->", variant);
 
       styles = useMultiStyleConfig("ReservoirButton", {
         variant,
@@ -107,7 +94,7 @@ export const Button: ChakraComponent<
           className={className}
           gap={hasIcon ? "xxs" : null}
           id={id}
-          isDisabled={isDisabled}
+          isDisabled={groupProps?.isDisabled || isDisabled}
           ref={ref}
           type={type}
           {...btnCallback}

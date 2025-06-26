@@ -116,7 +116,7 @@ export const RadioGroup: ChakraComponent<
         );
       }
 
-      const radioGroupContent = useMemo(
+      const radioGroupContextValue = useMemo(
         () => ({
           isDisabled,
           isInvalid,
@@ -143,7 +143,7 @@ export const RadioGroup: ChakraComponent<
               direction={[layout]}
               spacing={spacingProp}
             >
-              <RadioGroupContext.Provider value={radioGroupContent}>
+              <RadioGroupContext.Provider value={radioGroupContextValue}>
                 {children}
               </RadioGroupContext.Provider>
             </Stack>

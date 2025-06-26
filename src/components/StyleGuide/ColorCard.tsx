@@ -1044,7 +1044,7 @@ export const DataTable = (props: PropsWithChildren<DataTableProps>) => {
       marginStart="xxs"
       name="check"
       size="medium"
-      type="default"
+      variant="default"
       verticalAlign="text-bottom"
     />
   );

@@ -1,7 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Button, { buttonElementTypeArray, buttonTypesArray } from "./Button";
+import Button, { buttonElementTypeArray, buttonVariantsArray } from "./Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
 import { iconNamesArray } from "../Icons/iconVariables";
@@ -15,9 +15,9 @@ const meta: Meta<typeof Button> = {
     buttonText: {
       description: "**Only used for Storybook – ** Set the button label text.",
     },
-    buttonType: {
+    variant: {
       control: { type: "select" },
-      options: buttonTypesArray,
+      options: buttonVariantsArray,
       table: { defaultValue: { summary: "primary" } },
     },
     displayIcon: {
@@ -60,7 +60,7 @@ type Story = StoryObj<typeof Button>;
 export const WithControls: Story = {
   args: {
     buttonText: "Button Text",
-    buttonType: "primary",
+    variant: "primary",
     displayIcon: false,
     displayIconLeft: true,
     iconType: "search",
@@ -96,7 +96,7 @@ export const WithControls: Story = {
 export const ButtonGroups: Story = {
   render: () => (
     <ButtonGroup>
-      <Button buttonType="secondary" id="group-1">
+      <Button variant="secondary" id="group-1">
         Button
       </Button>
       <Button id="group-2">Submit</Button>
@@ -117,7 +117,7 @@ export const TextWithIcon: Story = {
         </Button>
       </VStack>
       <ButtonGroup>
-        <Button buttonType="secondary" id="icon-left">
+        <Button variant="secondary" id="icon-left">
           <Icon
             name="arrow"
             iconRotation="rotate90"
@@ -126,7 +126,7 @@ export const TextWithIcon: Story = {
           />
           Previous
         </Button>
-        <Button buttonType="secondary" id="icon-right">
+        <Button variant="secondary" id="icon-right">
           Next
           <Icon
             name="arrow"
@@ -143,13 +143,13 @@ export const TextWithIcon: Story = {
 export const IconOnly: Story = {
   render: () => (
     <ButtonGroup>
-      <Button aria-label="Previous" buttonType="secondary" id="prev-btn">
+      <Button aria-label="Previous" variant="iconOnly" id="prev-btn">
         <Icon name="arrow" iconRotation="rotate90" size="small" />
       </Button>
-      <Button aria-label="Next" buttonType="secondary" id="next-btn">
+      <Button aria-label="Next" variant="iconOnly" id="next-btn">
         <Icon name="arrow" iconRotation="rotate270" size="small" />
       </Button>
-      <Button aria-label="Close" buttonType="secondary" id="close-btn">
+      <Button aria-label="Close" variant="iconOnly" id="close-btn">
         <Icon name="close" size="small" />
       </Button>
     </ButtonGroup>
@@ -158,10 +158,10 @@ export const IconOnly: Story = {
 export const Patterns: Story = {
   render: () => (
     <ButtonGroup>
-      <Button buttonType="callout" id="donate-btn">
+      <Button variant="callout" id="donate-btn">
         Donate to this library
       </Button>
-      <Button buttonType="secondary" id="top-btn">
+      <Button variant="secondary" id="top-btn">
         Back to Top
         <Icon
           name="arrow"
@@ -174,23 +174,23 @@ export const Patterns: Story = {
     </ButtonGroup>
   ),
 };
-export const ButtonTypes: Story = {
+export const ButtonVariants: Story = {
   render: () => (
     <ButtonGroup alignItems="center">
       <Button id="primary-btn">Primary</Button>
-      <Button buttonType="secondary" id="secondary-btn">
+      <Button variant="secondary" id="secondary-btn">
         Secondary
       </Button>
-      <Button buttonType="text" id="text-btn">
+      <Button variant="text" id="text-btn">
         Text
       </Button>
-      <Button buttonType="callout" id="callout-btn">
+      <Button variant="callout" id="callout-btn">
         Callout
       </Button>
-      <Button buttonType="noBrand" id="nobrand-btn">
+      <Button variant="noBrand" id="nobrand-btn">
         No Brand
       </Button>
-      <Button buttonType="pill" id="pill-btn">
+      <Button variant="pill" id="pill-btn">
         Pill
       </Button>
     </ButtonGroup>
@@ -225,61 +225,61 @@ const buttonData = [
   ],
   [
     "secondary",
-    <Button buttonType="secondary" id="s-small" key="s-small" size="small">
+    <Button variant="secondary" id="s-small" key="s-small" size="small">
       Secondary
     </Button>,
-    <Button buttonType="secondary" id="s-medium" key="s-medium" size="medium">
+    <Button variant="secondary" id="s-medium" key="s-medium" size="medium">
       Secondary
     </Button>,
-    <Button buttonType="secondary" id="s-large" key="s-large" size="large">
+    <Button variant="secondary" id="s-large" key="s-large" size="large">
       Secondary
     </Button>,
   ],
   [
     "text",
-    <Button buttonType="text" id="t-small" key="t-small" size="small">
+    <Button variant="text" id="t-small" key="t-small" size="small">
       Text
     </Button>,
-    <Button buttonType="text" id="t-medium" key="t-medium" size="medium">
+    <Button variant="text" id="t-medium" key="t-medium" size="medium">
       Text
     </Button>,
-    <Button buttonType="text" id="t-large" key="t-large" size="large">
+    <Button variant="text" id="t-large" key="t-large" size="large">
       Text
     </Button>,
   ],
   [
     "callout",
-    <Button buttonType="callout" id="c-small" key="c-small" size="small">
+    <Button variant="callout" id="c-small" key="c-small" size="small">
       Callout
     </Button>,
-    <Button buttonType="callout" id="c-medium" key="c-medium" size="medium">
+    <Button variant="callout" id="c-medium" key="c-medium" size="medium">
       Callout
     </Button>,
-    <Button buttonType="callout" id="c-large" key="c-large" size="large">
+    <Button variant="callout" id="c-large" key="c-large" size="large">
       Callout
     </Button>,
   ],
   [
     "noBrand",
-    <Button buttonType="noBrand" id="nb-small" key="nb-small" size="small">
+    <Button variant="noBrand" id="nb-small" key="nb-small" size="small">
       No Brand
     </Button>,
-    <Button buttonType="noBrand" id="nb-medium" key="nb-medium" size="medium">
+    <Button variant="noBrand" id="nb-medium" key="nb-medium" size="medium">
       No Brand
     </Button>,
-    <Button buttonType="noBrand" id="nb-large" key="nb-large" size="large">
+    <Button variant="noBrand" id="nb-large" key="nb-large" size="large">
       No Brand
     </Button>,
   ],
   [
     "pill",
-    <Button buttonType="pill" id="pill-small" key="pill-small" size="small">
+    <Button variant="pill" id="pill-small" key="pill-small" size="small">
       Pill
     </Button>,
-    <Button buttonType="pill" id="pill-medium" key="pill-medium" size="medium">
+    <Button variant="pill" id="pill-medium" key="pill-medium" size="medium">
       Pill
     </Button>,
-    <Button buttonType="pill" id="pill-large" key="pill-large" size="large">
+    <Button variant="pill" id="pill-large" key="pill-large" size="large">
       Pill
     </Button>,
   ],

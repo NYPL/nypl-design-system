@@ -3,16 +3,20 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 import * as ProgressIndicatorStories from "./ProgressIndicator.stories";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./progressIndicatorChangelogData";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 
 <Meta of={ProgressIndicatorStories} />
 
-# ProgressIndicator
+<ComponentDocsHeader
+  category="Feedback component"
+  componentName="ProgressIndicator"
+  summary="Displays progress status of a task"
+  versionAdded="0.25.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.25.4`     |
-| Latest            | `Prerelease` |
+<Canvas of={ProgressIndicatorStories.WithControls} />
 
 ## Table of Contents
 
@@ -32,8 +36,6 @@ import Link from "../Link/Link";
 <Description of={ProgressIndicatorStories} />
 
 ## Component Props
-
-<Canvas of={ProgressIndicatorStories.WithControls} />
 
 The `ProgressIndicator` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.

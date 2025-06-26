@@ -474,7 +474,7 @@ export const Placement: Story = {
             text="Research Catalog"
           />
         }
-        heroType="tertiary"
+        variant="tertiary"
       />
       <SubNav
         actionBackgroundColor="section.research.primary-05"

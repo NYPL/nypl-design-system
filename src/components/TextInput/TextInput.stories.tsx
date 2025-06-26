@@ -44,7 +44,7 @@ const meta: Meta<typeof TextInput> = {
     showLabel: argsBooleanType("true"),
     showRequiredLabel: argsBooleanType("true"),
     step: { table: { defaultValue: { summary: "1" } } },
-    textInputType: {
+    variant: {
       control: false,
       table: { defaultValue: { summary: "default" } },
     },
@@ -92,7 +92,7 @@ export const WithControls: Story = {
     showLabel: true,
     showRequiredLabel: true,
     step: 1,
-    textInputType: "default",
+    variant: "default",
     type: "text",
     value: undefined,
   },
@@ -370,13 +370,13 @@ export const Textarea: Story = {
     showLabel: true,
     showRequiredLabel: true,
     step: 1,
-    textInputType: "default",
+    variant: "default",
     type: "textarea",
     value: undefined,
   },
   argTypes: {
     type: { control: false },
-    textInputType: { control: false },
+    variant: { control: false },
   },
   render: (args) => <TextInput {...args} />,
 };

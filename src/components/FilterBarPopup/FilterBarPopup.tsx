@@ -123,7 +123,7 @@ export const FilterBarPopup: ChakraComponent<
         <Box id={`filter-bar-${id}`} ref={ref} {...rest}>
           <Button
             id={`filter-bar-${id}-show-filters`}
-            buttonType="secondary"
+            variant="secondary"
             onClick={finalOnOpen}
             width={{ base: "100%", md: "fit-content" }}
           >
@@ -154,7 +154,7 @@ export const FilterBarPopup: ChakraComponent<
                 <ButtonGroup layout="column" buttonWidth="full">
                   <Button
                     id={`filter-bar-${id}-see-results`}
-                    buttonType="primary"
+                    variant="primary"
                     type="submit"
                     onClick={onSubmit ? onSubmitAndClose : finalOnClose}
                     ref={showResultsButtonRef}
@@ -164,7 +164,7 @@ export const FilterBarPopup: ChakraComponent<
                   {onClear && (
                     <Button
                       id={`filter-bar-${id}-clear`}
-                      buttonType="text"
+                      variant="text"
                       type="reset"
                       onClick={onClearAndFocus}
                       textAlign="center"

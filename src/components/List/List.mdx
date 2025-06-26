@@ -62,7 +62,7 @@ may still use this name. In the Reservoir Design System, we will use the
 - [W3C Using description lists](https://www.w3.org/WAI/WCAG21/Techniques/html/H40.html)
 - [MDN dl: The Description List element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
 
-To render a description list, pass in `"dl"` to the `type` prop. The optional
+To render a description list, pass in `"dl"` to the `variant` prop. The optional
 `title` prop will now render above the description list element. This type of
 list renders `dt` and `dd` elements.
 
@@ -72,7 +72,7 @@ By default, the `"dl"` description list will render row dividers between each
 
 <Source
   code={`
-<List type="dl">
+<List variant="dl">
   <dt>Term</dt>
   <dd>Description</dd>
 </List>
@@ -96,7 +96,7 @@ In the following example, the heading is an `h4` defined as:
 const listHeading = <Heading level="h4">Middle-Earth Peoples</Heading>;
 // ...
 
-<List type="dl" title={listHeading}>
+<List variant="dl" title={listHeading}>
   <dt>Balrogs</dt>
   <dd>Demonic creatures of fire and shadow...</dd>
   <dt>Dwarves</dt>
@@ -127,7 +127,7 @@ stored as an array of strings, then that data array can be passed into `listItem
 <Source
   code={`
 // With \`li\` elements
-<List type={ul}>
+<List variant={ul}>
   <li>Mahi-mahi</li>
   <li>Golden trout</li>
   <li>Rainbowfish</li>
@@ -141,7 +141,7 @@ stored as an array of strings, then that data array can be passed into `listItem
   code={`
 // With \`itemList\` data prop
 const fishArray = ["Mahi-mahi", "Golden trout", "Rainbowfish", "Suckerfish"];
-<List type={ul} listItems={fishArray} />
+<List variant={ul} listItems={fishArray} />
 `}
   language="jsx"
 />
@@ -156,7 +156,7 @@ object must have two keys, `term` and `description`.
 <Source
   code={`
 // With \`dt\`/\`dd\` elements
-<List type="dl" title="Animal Crossing Fish">
+<List variant="dl" title="Animal Crossing Fish">
   <dt>Mahi-mahi</dt>
   <dd>The mahi-mahi is an ocean fish known...</dd>
   <dt>Golden trout</dt>
@@ -192,7 +192,7 @@ const fishDescriptions = [
   }
 ];
 // ...
-<List listItems={fishDescriptions} title="Animal Crossing Fish" type="dl" />
+<List listItems={fishDescriptions} title="Animal Crossing Fish" variant="dl" />
 `}
   language="jsx"
 />

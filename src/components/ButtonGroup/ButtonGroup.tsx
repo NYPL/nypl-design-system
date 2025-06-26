@@ -5,9 +5,10 @@ import {
   Stack,
   useStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useMemo } from "react";
 
 import { LayoutTypes } from "../../helpers/types";
+import { ButtonGroupContext } from "./ButtonGroupContext";
 
 export const buttonGroupWidthsArray = ["default", "full"] as const;
 export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
@@ -17,6 +18,8 @@ export interface ButtonGroupProps extends BoxProps {
   buttonWidth?: ButtonGroupWidths;
   /** ID that other components can cross reference for accessibility purposes. */
   id?: string;
+  /** Set's the disabled state to all the internal `Button` components. */
+  isDisabled?: boolean;
   /** Renders the layout of `Button` components in a row or column. */
   layout?: LayoutTypes;
 }
@@ -40,12 +43,18 @@ export const ButtonGroup: ChakraComponent<
         children,
         className = "",
         id,
+        isDisabled = false,
         layout = "row",
         ...rest
       } = props;
       const styles = useStyleConfig("ButtonGroup", {
         buttonWidth: buttonWidth,
       });
+
+      const buttonGroupContextValue = useMemo(
+        () => ({ isDisabled }),
+        [isDisabled]
+      );
 
       return (
         <Stack
@@ -58,7 +67,9 @@ export const ButtonGroup: ChakraComponent<
           sx={styles}
           {...rest}
         >
-          {children}
+          <ButtonGroupContext.Provider value={buttonGroupContextValue}>
+            {children}
+          </ButtonGroupContext.Provider>
         </Stack>
       );
     }

@@ -27,8 +27,10 @@ export type TagSetTypeProps = TagSetFilterProps | TagSetExploreProps;
 export type TagSetProps = BaseTagSetProps & TagSetTypeProps;
 
 // Type guard so we can make sure we have a "filter" `TagSet` variant.
-export function isFilterType(type: TagSetProps["type"]): type is "filter" {
-  return type === "filter";
+export function isFilterVariant(
+  variant: TagSetProps["variant"]
+): variant is "filter" {
+  return variant === "filter";
 }
 
 /**
@@ -55,12 +57,12 @@ export const TagSet: ChakraComponent<
       isDismissible = false,
       onClick,
       tagSetData = [],
-      type = "filter",
+      variant = "filter",
       ...rest
     } = props;
     const styles = useStyleConfig("TagSet", {});
 
-    if (!isFilterType(type)) {
+    if (!isFilterVariant(variant)) {
       if (isDismissible) {
         console.warn(
           "NYPL Reservoir TagSet: The `isDismissible` prop will be ignored when the `type` prop is set to 'explore'."
@@ -75,19 +77,19 @@ export const TagSet: ChakraComponent<
 
     return (
       <Flex id={id} ref={ref} __css={styles} {...rest}>
-        {!isFilterType(type) && (
+        {!isFilterVariant(variant) && (
           <TagSetExplore
             tagSetData={tagSetData as TagSetExploreDataProps[]}
-            type={type}
+            variant={variant}
           />
         )}
-        {isFilterType(type) && (
+        {isFilterVariant(variant) && (
           <TagSetFilter
             id={id}
             isDismissible={isDismissible}
             onClick={onClick}
             tagSetData={tagSetData as TagSetFilterDataProps[]}
-            type={type}
+            variant={variant}
           />
         )}
       </Flex>
