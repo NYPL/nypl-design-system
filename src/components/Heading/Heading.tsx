@@ -40,8 +40,6 @@ export interface HeadingProps extends BoxProps {
   /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
    * `Heading` will default to `<h2>` */
   level?: HeadingLevels;
-  /** Optional prop used to remove default spacing */
-  noSpace?: boolean;
   /** String to populate the overline element */
   overline?: string;
   /** Optional size used to override the default styles of the native HTML `<h>`
@@ -93,7 +91,6 @@ export const Heading: ChakraComponent<
         isUppercase,
         isLowercase,
         level = "h2",
-        noSpace,
         overline,
         size,
         subtitle,
@@ -109,7 +106,6 @@ export const Heading: ChakraComponent<
         isCapitalized,
         isUppercase,
         isLowercase,
-        noSpace,
         url,
       });
 

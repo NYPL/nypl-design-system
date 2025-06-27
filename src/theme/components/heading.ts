@@ -2,12 +2,6 @@ import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 
 import { baseLinkStyles } from "./link";
 
-const margins = {
-  marginTop: "0",
-  marginStart: "0",
-  marginEnd: "0",
-};
-
 // This function creates a set of function that helps us
 // create multipart component styles.
 const { defineMultiStyleConfig, definePartsStyle } =
@@ -15,54 +9,6 @@ const { defineMultiStyleConfig, definePartsStyle } =
 
 // Heading Styles
 export const headings = {
-  one: definePartsStyle({
-    base: {
-      fontSize: "heading.primary", // var(--nypl-fontSizes-4);
-      fontWeight: "heading.primary",
-      letterSpacing: "0",
-      lineHeight: "1.1",
-      ...margins,
-      width: "auto",
-      a: { textUnderlineOffset: "4px" },
-    },
-  }),
-  two: definePartsStyle({
-    base: {
-      fontSize: "heading.secondary", // var(--nypl-fontSizes-3);
-      fontWeight: "heading.secondary",
-      lineHeight: "1.25",
-      ...margins,
-      width: "auto",
-      a: { textUnderlineOffset: "3px" },
-    },
-  }),
-  three: definePartsStyle({
-    base: {
-      fontSize: "heading.tertiary", // var(--nypl-fontSizes-2);
-      fontWeight: "heading.tertiary",
-      lineHeight: "1.25",
-      ...margins,
-      width: "auto",
-    },
-  }),
-  four: definePartsStyle({
-    base: {
-      fontSize: "heading.callout", // var(--nypl-fontSizes-1);
-      fontWeight: "heading.callout",
-      lineHeight: "1.15",
-      ...margins,
-      width: "auto",
-    },
-  }),
-  fallback: definePartsStyle({
-    base: {
-      fontSize: "1", // var(--nypl-fontSizes-1);
-      fontWeight: "regular",
-      lineHeight: "1.15",
-      ...margins,
-      width: "auto",
-    },
-  }),
   display1: definePartsStyle({
     base: {
       fontSize: {
@@ -201,7 +147,7 @@ const variants = {
 
 const Heading = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({ isCapitalized, isUppercase, isLowercase, noSpace }) => ({
+    ({ isCapitalized, isUppercase, isLowercase }) => ({
       base: {
         "a:only-child": {
           ...baseLinkStyles,
@@ -219,10 +165,6 @@ const Heading = defineMultiStyleConfig({
         _dark: {
           color: "dark.ui.typography.heading",
         },
-      },
-      headingWrapper: {
-        marginBottom: noSpace ? "0" : "s",
-        ...margins,
       },
     })
   ),
