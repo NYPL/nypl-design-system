@@ -21,6 +21,9 @@ export const baseButtonStyle = {
   textDecoration: "none",
   transitionDuration: "var(--nypl-transition-duration-normal)",
   wordWrap: "normal",
+  "&:has(svg)": {
+    gap: "xxs",
+  },
   svg: {
     fill: "currentColor",
   },

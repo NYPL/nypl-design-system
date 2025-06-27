@@ -61,7 +61,6 @@ export const Button: ChakraComponent<
       const {
         variant = "primary",
         children,
-        className = "",
         id,
         isDisabled = false,
         mouseDown = false,
@@ -73,7 +72,6 @@ export const Button: ChakraComponent<
       } = props;
       const groupProps = useButtonGroup();
       const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
-      let hasIcon = false;
       let styles: any = {};
 
       if (!id) {
@@ -82,8 +80,6 @@ export const Button: ChakraComponent<
         );
       }
 
-      console.log("variant -->", variant);
-
       styles = useMultiStyleConfig("ReservoirButton", {
         variant,
         buttonSize: size,
@@ -91,8 +87,6 @@ export const Button: ChakraComponent<
 
       return (
         <ChakraButton
-          className={className}
-          gap={hasIcon ? "xxs" : null}
           id={id}
           isDisabled={groupProps?.isDisabled || isDisabled}
           ref={ref}
