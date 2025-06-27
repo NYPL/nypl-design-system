@@ -146,7 +146,7 @@ export const SearchBar: ChakraComponent<
         labelText={selectProps?.labelText}
         name={selectProps?.name}
         onChange={selectProps?.onChange}
-        selectType="searchbar"
+        variant="searchbar"
         value={selectProps?.value}
         __css={styles.select}
         data-select
@@ -176,7 +176,7 @@ export const SearchBar: ChakraComponent<
         onChange={textInputProps?.onChange}
         pattern={textInputProps?.pattern}
         placeholder={textInputPlaceholder}
-        textInputType={selectElem ? "searchBarSelect" : "searchBar"}
+        textInputVariant={selectElem ? "searchBarSelect" : "searchBar"}
         type="text"
         value={textInputProps?.value}
         {...stateProps}
@@ -186,13 +186,13 @@ export const SearchBar: ChakraComponent<
     const buttonElem = (
       <Button
         className="searchButton"
-        buttonType={buttonType}
+        data-button
         id={`${mainId}-submit-button`}
         isDisabled={isDisabled}
         onClick={buttonOnClick}
         type="submit"
+        variant={buttonType}
         sx={styles.button}
-        data-button
       >
         <Icon align="left" id={`${mainId}-submit-icon`} name="search" />
         <span>Search</span>

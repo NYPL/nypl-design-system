@@ -15,7 +15,7 @@ describe("Modal Accessibility", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "default",
+          variant: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: "Modal Heading Text",
@@ -39,7 +39,7 @@ describe("Modal Accessibility", () => {
             Go back
           </Button>
           <p>This is the body content.</p>
-          <Button buttonType="noBrand" id="custom-close2" onClick={onClose}>
+          <Button variant="noBrand" id="custom-close2" onClick={onClose}>
             This is a custom close button.
           </Button>
         </>
@@ -53,7 +53,7 @@ describe("Modal Accessibility", () => {
     };
     const { container } = render(
       <>
-        <Button id="1" onClick={onOpen} buttonType="noBrand">
+        <Button id="1" onClick={onOpen} variant="noBrand">
           Open Modal
         </Button>
         <Modal {...modalProps} />
@@ -69,7 +69,7 @@ describe("ModalTrigger", () => {
       buttonText="Button Text"
       id="modal-trigger"
       modalProps={{
-        type: "default",
+        variant: "default",
         bodyContent: "body text",
         closeButtonLabel: "Close Button",
         headingText: "Modal Heading Text",
@@ -104,7 +104,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "default",
+          variant: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: <Heading level="h3">Modal Heading Text</Heading>,
@@ -129,7 +129,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "confirmation",
+          variant: "confirmation",
           bodyContent: "body text",
           closeButtonLabel: "Cancel Button",
           confirmButtonLabel: "Confirm Button",
@@ -168,7 +168,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "default",
+          variant: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: "Modal Heading Text",
@@ -227,7 +227,7 @@ describe("useModal", () => {
   };
   const useModalComponent = (
     <>
-      <Button id="1" onClick={onOpen} buttonType="noBrand">
+      <Button id="1" onClick={onOpen} variant="noBrand">
         Open Modal
       </Button>
       <Modal {...modalProps} />

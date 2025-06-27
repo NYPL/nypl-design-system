@@ -10,7 +10,7 @@ describe("ButtonGroup Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <ButtonGroup>
-        <Button buttonType="secondary" id="btn-1">
+        <Button variant="secondary" id="btn-1">
           Button
         </Button>
         <Button id="btn-2">Submit</Button>
@@ -24,7 +24,7 @@ describe("ButtonGroup", () => {
   it("renders only Button components", () => {
     render(
       <ButtonGroup>
-        <Button buttonType="secondary" id="btn-1">
+        <Button variant="secondary" id="btn-1">
           Button
         </Button>
         <Button id="btn-2">Submit</Button>
@@ -39,7 +39,7 @@ describe("ButtonGroup", () => {
   it("sets all `Button` children as disabled if isDisabled is true", () => {
     const { rerender } = render(
       <ButtonGroup>
-        <Button buttonType="secondary" id="btn-1">
+        <Button variant="secondary" id="btn-1">
           Button
         </Button>
         <Button id="btn-2">Submit</Button>
@@ -51,7 +51,7 @@ describe("ButtonGroup", () => {
 
     rerender(
       <ButtonGroup isDisabled>
-        <Button buttonType="secondary" id="btn-1">
+        <Button variant="secondary" id="btn-1">
           Button
         </Button>
         <Button id="btn-2">Submit</Button>
@@ -66,7 +66,7 @@ describe("ButtonGroup", () => {
     const warn = jest.spyOn(console, "warn");
     render(
       <ButtonGroup>
-        <Button buttonType="secondary" id="btn-1">
+        <Button variant="secondary" id="btn-1">
           Button
         </Button>
         <Button id="btn-2">Submit</Button>
@@ -82,7 +82,7 @@ describe("ButtonGroup", () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(
       <ButtonGroup isDisabled ref={ref}>
-        <Button buttonType="secondary" id="btn-ref">
+        <Button variant="secondary" id="btn-ref">
           Button
         </Button>
       </ButtonGroup>
@@ -97,7 +97,7 @@ describe("ButtonGroup Snapshot", () => {
     const basic = renderer
       .create(
         <ButtonGroup>
-          <Button buttonType="secondary" id="btn-1">
+          <Button variant="secondary" id="btn-1">
             Button
           </Button>
           <Button id="btn-2">Submit</Button>
@@ -107,7 +107,7 @@ describe("ButtonGroup Snapshot", () => {
     const fullWidth = renderer
       .create(
         <ButtonGroup buttonWidth="full">
-          <Button buttonType="secondary" id="btn-1">
+          <Button variant="secondary" id="btn-1">
             Button
           </Button>
           <Button id="btn-2">Submit</Button>
@@ -117,7 +117,7 @@ describe("ButtonGroup Snapshot", () => {
     const column = renderer
       .create(
         <ButtonGroup layout="column">
-          <Button buttonType="secondary" id="btn-1">
+          <Button variant="secondary" id="btn-1">
             Button
           </Button>
           <Button id="btn-2">Submit</Button>
@@ -127,7 +127,7 @@ describe("ButtonGroup Snapshot", () => {
     const withChakraProps = renderer
       .create(
         <ButtonGroup p="s" color="ui.error.primary">
-          <Button buttonType="secondary" id="btn-1">
+          <Button variant="secondary" id="btn-1">
             Button
           </Button>
           <Button id="btn-2">Submit</Button>
@@ -137,7 +137,7 @@ describe("ButtonGroup Snapshot", () => {
     const withOtherProps = renderer
       .create(
         <ButtonGroup data-testid="testid">
-          <Button buttonType="secondary" id="btn-1">
+          <Button variant="secondary" id="btn-1">
             Button
           </Button>
           <Button id="btn-2">Submit</Button>

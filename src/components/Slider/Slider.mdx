@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 import * as SliderStories from "./Slider.stories";
 import { changelogData } from "./sliderChangelogData";
 
 <Meta of={SliderStories} />
 
-# Slider
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Slider"
+  summary="Input element that allows a user to select a value or range of values from a predefined range"
+  versionAdded="0.25.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.25.4`     |
-| Latest            | `Prerelease` |
+<Canvas of={SliderStories.WithControls} />
 
 ## Table of Contents
 
@@ -37,10 +41,8 @@ in the form data.
 
 ## Component Props
 
-<Canvas of={SliderStories.WithControls} />
-
-The `Slider` composes an HTML `input` element, so you may pass any HTML `input` attributes,
-as well any Chakra style props and the props below.
+The `Slider` composes an HTML `input` element, so you may pass any HTML `input`
+attributes, as well any Chakra style props and the props below.
 
 <ArgTypes of={SliderStories.WithControls} />
 

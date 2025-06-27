@@ -140,10 +140,10 @@ export const Pagination: ChakraComponent<
           aria-label={`${isPrevious ? "Previous" : "Next"} page`}
           aria-disabled={isDisabled}
           href={changeUrls ? getPageHref(pageNumber) : "#"}
-          type="action"
           onClick={
             changeUrls ? undefined : isPrevious ? previousPage : nextPage
           }
+          variant="action"
           __css={{
             ...styles.link,
             ...styles.previousNextElement,
@@ -381,7 +381,7 @@ export const Pagination: ChakraComponent<
         __css={styles}
         {...rest}
       >
-        <List type="ul" inline noStyling>
+        <List inline noStyling variant="ul">
           {previousLiLink}
           {getPaginationNumbers(selectedPage)}
           {nextLiLink}

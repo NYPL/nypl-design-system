@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as TextStories from "./Text.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as TextStories from "./Text.stories";
 import { changelogData } from "./textChangelogData";
 
 <Meta of={TextStories} />
 
-# Text
+<ComponentDocsHeader
+  category="Typography & styles component"
+  componentName="Text"
+  summary="Text container used for paragraph text elements"
+  versionAdded="0.25.1"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.25.1`     |
-| Latest            | `Prerelease` |
+<Canvas of={TextStories.WithControls} />
 
 ## Table of Contents
 
@@ -29,8 +33,6 @@ The `Text` component renders a basic `<p>` element and can be used to render
 text for differing content types, including multiple subtitle variants.
 
 ## Component Props
-
-<Canvas of={TextStories.WithControls} />
 
 You may pass any Chakra `Box` props, as well as the props below.
 

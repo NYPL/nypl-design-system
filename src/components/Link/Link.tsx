@@ -11,7 +11,7 @@ import React, { AnchorHTMLAttributes, forwardRef } from "react";
 import Icon from "../Icons/Icon";
 import { sanitizeStringForAttribute } from "../../utils/utils";
 
-export const linkTypesArray = [
+export const linkVariantsArray = [
   "action",
   "backwards",
   "buttonPrimary",
@@ -25,7 +25,7 @@ export const linkTypesArray = [
   "forwards",
   "standalone",
 ] as const;
-export type LinkTypes = typeof linkTypesArray[number];
+export type LinkVariants = typeof linkVariantsArray[number];
 
 export interface LinkProps
   extends Pick<BoxProps, "as" | keyof ChakraProps>,
@@ -40,7 +40,7 @@ export interface LinkProps
   screenreaderOnlyText?: string;
   /** Controls the link's styles based on the value: action, backwards, default,
    * external, forwards, standalone, and all "button" types. */
-  type?: LinkTypes;
+  variant?: LinkVariants;
 }
 
 /**
@@ -49,12 +49,12 @@ export interface LinkProps
  */
 function getWithDirectionIcon({
   children,
-  type,
   id,
+  variant,
 }: {
   children: JSX.Element;
-  type: LinkTypes;
   id: string;
+  variant: LinkVariants;
 }) {
   const linkProps: any = {
     align: undefined,
@@ -65,10 +65,10 @@ function getWithDirectionIcon({
 
   // An icon needs a position in order for it to be created and
   // rendered in the link.
-  if (type === "backwards") {
+  if (variant === "backwards") {
     linkProps.align = "left";
     linkProps.iconRotation = "rotate90";
-  } else if (type === "forwards") {
+  } else if (variant === "forwards") {
     linkProps.align = "right";
     linkProps.iconRotation = "rotate270";
   }
@@ -77,9 +77,9 @@ function getWithDirectionIcon({
 
   return (
     <>
-      {type === "backwards" && icon}
+      {variant === "backwards" && icon}
       {children}
-      {type === "forwards" && icon}
+      {variant === "forwards" && icon}
     </>
   );
 }
@@ -163,17 +163,19 @@ export const Link: ChakraComponent<
       onClick,
       screenreaderOnlyText,
       target,
-      type = "default",
+      variant = "default",
       ...rest
     } = props;
     // Set initial underline style for certain variants
     const finalIsUnderlined =
-      type === "backwards" || type === "forwards" || type === "standalone"
+      variant === "backwards" ||
+      variant === "forwards" ||
+      variant === "standalone"
         ? false
         : isUnderlined;
-    const rel = type === "external" ? "nofollow noopener noreferrer" : null;
+    const rel = variant === "external" ? "nofollow noopener noreferrer" : null;
     const internalTarget =
-      type === "external" ? "_blank" : target ? target : null;
+      variant === "external" ? "_blank" : target ? target : null;
     // Merge the necessary props alongside any extra props for the
     // anchor element.
     const linkProps = {
@@ -185,46 +187,46 @@ export const Link: ChakraComponent<
       target: internalTarget,
       ...rest,
     };
-    // The "default" type.
-    let variant = "link";
+    // The "default" variant.
+    let finalVariant = "link";
 
     if (
-      type === "action" ||
-      type === "backwards" ||
-      type === "external" ||
-      type === "forwards" ||
-      type === "standalone"
+      variant === "action" ||
+      variant === "backwards" ||
+      variant === "external" ||
+      variant === "forwards" ||
+      variant === "standalone"
     ) {
-      variant = "moreLink";
-    } else if (type.includes("button")) {
-      variant = type;
+      finalVariant = "moreLink";
+    } else if (variant.includes("button")) {
+      finalVariant = variant;
     }
     const styles = useMultiStyleConfig("Link", {
       finalIsUnderlined,
       hasVisitedState,
-      variant,
+      variant: finalVariant,
     });
     const sanitizedId = id
       ? id
       : sanitizeStringForAttribute(`link-${children as string}`);
-    // Render with specific direction arrows if the type is "forwards" or
-    // "backwards". Or render with the launch icon if the type is "external". Or
-    // render with a smaller right-arrow if the type is "standalone." Otherwise,
+    // Render with specific direction arrows if the variant is "forwards" or
+    // "backwards". Or render with the launch icon if the variant is "external". Or
+    // render with a smaller right-arrow if the variant is "standalone." Otherwise,
     // do not add an icon.
     const newChildren =
-      ((type === "forwards" || type === "backwards") &&
+      ((variant === "forwards" || variant === "backwards") &&
         getWithDirectionIcon({
           children: children as JSX.Element,
-          type,
           id: sanitizedId,
+          variant,
         })) ||
-      (type === "external" &&
+      (variant === "external" &&
         getExternalExtraElements({
           children: children as JSX.Element,
           id: sanitizedId,
           styles: styles.screenreaderOnly,
         })) ||
-      (type === "standalone" &&
+      (variant === "standalone" &&
         getStandaloneIcon(children as JSX.Element, sanitizedId)) ||
       children;
 

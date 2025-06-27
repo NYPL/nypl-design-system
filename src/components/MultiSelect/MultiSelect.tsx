@@ -294,7 +294,7 @@ export const MultiSelect: ChakraComponent<
       const ExpandToggleButton = (): JSX.Element => {
         return (
           <Button
-            buttonType="text"
+            variant="text"
             fontSize="desktop.button.default"
             id={`${mainId}-view-all-text-btn`}
             ref={expandToggleButtonRef}
@@ -454,7 +454,7 @@ export const MultiSelect: ChakraComponent<
           <Accordion
             accordionData={[
               {
-                accordionType: "default",
+                variant: "default",
                 // Pass the ref for interaction with the accordion button.
                 buttonInteractionRef: accordionButtonRef,
                 label: accordionLabel,

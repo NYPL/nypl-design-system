@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./tooltipChangelogData";
 
-import * as TooltipStories from "./Tooltip.stories";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as TooltipStories from "./Tooltip.stories";
+import { changelogData } from "./tooltipChangelogData";
 
 <Meta of={TooltipStories} />
 
-# Tooltip
+<ComponentDocsHeader
+  category="Overlays & Switchers component"
+  componentName="Tooltip"
+  summary="Displays contextual information when a user interacts with an element"
+  versionAdded="1.1.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `1.1.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={TooltipStories.WithControls} />
 
 ## Table of Contents
 
@@ -31,8 +35,6 @@ A brief, informative message that appears when a user hovers or focuses on an
 element.
 
 ## Component Props
-
-<Canvas of={TooltipStories.WithControls} />
 
 You may pass any Chakra `Box` props, as well as the props below.
 

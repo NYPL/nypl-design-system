@@ -491,7 +491,7 @@ export const DatePicker: ChakraComponent<
         showRequiredLabel={showRequiredLabel}
         {...rest}
       >
-        <DateRangeRow isDateRange={isDateRange}>
+        <DateRangeRow id={mainId} isDateRange={isDateRange}>
           <FormField id={`${mainId}-startForm`}>
             {startDatePickerElement}
           </FormField>
