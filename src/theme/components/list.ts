@@ -1,8 +1,6 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 
-import { textMargin } from "./global";
-
 // This function creates a set of function that helps us
 // create multipart component styles.
 const { defineMultiStyleConfig, definePartsStyle } =
@@ -51,7 +49,6 @@ export const baseSectionDescriptionStyles = (showRowDividers = true) => ({
 });
 // For specific component variants
 export const unorderedStyles = (props: ListBaseStyle = {}) => ({
-  ...textMargin,
   listStyle: "none",
   li: {
     _before: {
@@ -116,9 +113,7 @@ const List = defineMultiStyleConfig({
     ul: definePartsStyle((props) => ({
       base: unorderedStyles(props),
     })),
-    ol: definePartsStyle({
-      base: textMargin,
-    }),
+    ol: definePartsStyle({}),
     dl: ({ showRowDividers }) =>
       definePartsStyle({
         base: descriptionStyles(showRowDividers),
