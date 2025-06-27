@@ -266,7 +266,7 @@ export const HTMLContent: Story = {
             Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
             mollis interdum.
           </Text>
-          <Text noSpace>
+          <Text>
             Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
             <b>
               Cum sociis natoque penatibus et magnis dis parturient montes,

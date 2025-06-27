@@ -199,7 +199,7 @@ export const FeedbackBox: ChakraComponent<
       );
       const descriptionElement =
         isFormView && descriptionText ? (
-          <Text color={descriptionColor} fontWeight="medium" noSpace>
+          <Text color={descriptionColor} fontWeight="medium">
             {descriptionText}
           </Text>
         ) : undefined;

@@ -1435,7 +1435,7 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
       <HStack alignItems="top">
         <Box width="80%">
           <Heading
-            noSpace
+            
             size="heading5"
             border="none"
             color={textColor}
@@ -1446,7 +1446,7 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
           <Text
             fontWeight="medium"
             lineHeight="20px"
-            noSpace
+            
             size="tag"
             m="0"
             color={textColor}
@@ -1460,7 +1460,7 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
               fontWeight="medium"
               lineHeight="20px"
               m="0"
-              noSpace
+              
               size="tag"
             >
               <span style={{ fontWeight: "bold" }}>Source:</span> {colorSource}
@@ -1471,7 +1471,7 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
               color={textColor}
               fontWeight="medium"
               lineHeight="20px"
-              noSpace
+              
               size="tag"
             >
               <span style={{ fontWeight: "bold" }}>Notes:</span> {notes}

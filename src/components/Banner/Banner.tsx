@@ -111,7 +111,6 @@ export const Banner: ChakraComponent<
     });
     const generalHeadingProps = {
       size: "heading6" as HeadingSizes,
-      noSpace: true,
       color: variant === "negative" ? "ui.error.primary" : null,
       _dark: {
         color: variant === "negative" ? "dark.ui.error.primary" : null,

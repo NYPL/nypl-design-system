@@ -19,7 +19,6 @@ export const ComponentVersionTable = (props: ComponentVersionTableProps) => {
       borderColor="ui.border.default"
       borderRadius="4px"
       height="fit-content"
-      noSpace
       px="s"
       py="xxs"
       size="caption"

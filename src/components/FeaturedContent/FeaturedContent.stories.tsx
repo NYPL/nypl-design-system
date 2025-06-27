@@ -98,7 +98,7 @@ export const WithControls: Story = {
 export const LayoutVariations: Story = {
   render: () => (
     <SimpleGrid columns={1} maxWidth="1280px" margin="auto">
-      <Text noSpace>
+      <Text>
         The examples below are within a container with the max-width set to
         1280px.
       </Text>
@@ -320,7 +320,7 @@ export const textContentVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Text noSpace>
+            <Text>
               This text should have a header. This text should have a header.
               This text should have a header. This text should have a header.
               This text should have a header. This text should have a header.
@@ -343,9 +343,7 @@ export const textContentVariations: Story = {
             <Heading level="h2" size="heading5">
               Not recommended
             </Heading>
-            <Text noSpace>
-              This does not fill the space and could use more.
-            </Text>
+            <Text>This does not fill the space and could use more.</Text>
           </div>
         }
         imageProps={{

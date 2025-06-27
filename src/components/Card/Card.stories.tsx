@@ -887,7 +887,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid1-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -909,7 +908,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid2-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -931,7 +929,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid3-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -953,7 +950,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid4-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -975,7 +971,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid5-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -997,7 +992,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid6-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -1028,7 +1022,6 @@ export const StackExample: Story = {
         <CardHeading
           level="h3"
           id="stack1-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -1053,7 +1046,6 @@ export const StackExample: Story = {
         <CardHeading
           level="h3"
           id="stack2-heading2"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -1078,7 +1070,6 @@ export const StackExample: Story = {
         <CardHeading
           level="h3"
           id="stack3-heading3"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >

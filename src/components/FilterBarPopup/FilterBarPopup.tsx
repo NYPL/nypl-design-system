@@ -85,7 +85,6 @@ export const FilterBarPopup: ChakraComponent<
 
       const generalHeadingProps = {
         size: "heading5" as HeadingSizes,
-        noSpace: true,
       };
       // If `heading is a string, then we want the default heading,
       // otherwise, use whatever the user passed in.
