@@ -16,7 +16,7 @@ import {
   iconNamesArray,
   iconRotationsArray,
   iconSizesArray,
-  iconTypesArray,
+  iconVariantsArray,
 } from "./iconVariables";
 
 export type IconAlign = typeof iconAlignArray[number];
@@ -24,7 +24,7 @@ export type IconColors = typeof iconColorsArray[number];
 export type IconNames = typeof iconNamesArray[number];
 export type IconRotations = typeof iconRotationsArray[number];
 export type IconSizes = typeof iconSizesArray[number];
-export type IconTypes = typeof iconTypesArray[number];
+export type IconVariants = typeof iconVariantsArray[number];
 
 export interface IconProps
   extends Pick<BoxProps, "className" | "id" | keyof ChakraProps> {
@@ -46,7 +46,7 @@ export interface IconProps
    * visible but is needed for screenreaders to describe the graphic. */
   title?: string;
   /** FOR INTERNAL DS USE ONLY: the icon variant to display. */
-  type?: IconTypes;
+  variant?: IconVariants;
 }
 
 /**
@@ -73,7 +73,7 @@ export const Icon: ChakraComponent<
       name,
       size = "default",
       title = `${name} icon`,
-      type = "default",
+      variant = "default",
       ...rest
     } = props;
     const styles = useStyleConfig("ReservoirIcon", {
@@ -81,7 +81,7 @@ export const Icon: ChakraComponent<
       color,
       iconRotation,
       size,
-      variant: type,
+      variant,
     });
     const iconProps = {
       "aria-hidden": decorative,

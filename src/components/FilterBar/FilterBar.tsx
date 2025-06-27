@@ -166,7 +166,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
       );
       return (
         <Box
-          id={`${mainId}`}
+          id={mainId}
           data-testid="ds-filterBar"
           __css={styles}
           ref={ref}
@@ -205,7 +205,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
                   >
                     {showSubmitAll && (
                       <Button
-                        buttonType="primary"
+                        variant="primary"
                         id={`${id}-submit-all-button`}
                         onClick={onSubmit}
                       >
@@ -214,7 +214,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
                     )}
                     {showClearAll && (
                       <Button
-                        buttonType="text"
+                        variant="text"
                         id={`${id}-clear-all-button`}
                         onClick={onClear}
                         textAlign="center"
@@ -230,10 +230,10 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
             <>
               <Button
                 id={`${mainId}-show-filters`}
-                buttonType="secondary"
                 onClick={() => {
                   onToggle === undefined ? onOpen() : onToggle();
                 }}
+                variant="secondary"
               >
                 {`Show Filter ${getSelectedItemsCount()}`}
               </Button>
@@ -266,10 +266,10 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
                       </Button>
                       <Button
                         id={`${mainId}-clear`}
-                        buttonType="text"
+                        onClick={onClear}
                         type="reset"
                         textAlign="center"
-                        onClick={onClear}
+                        variant="text"
                       >
                         Clear Filters
                       </Button>

@@ -31,63 +31,63 @@ describe("StatusBadge", () => {
   it("renders the UI snapshot correctly", () => {
     const neutral = renderer
       .create(
-        <StatusBadge id="neutral" type="neutral">
+        <StatusBadge id="neutral" variant="neutral">
           Neutral type
         </StatusBadge>
       )
       .toJSON();
     const informative = renderer
       .create(
-        <StatusBadge id="informative" type="informative">
+        <StatusBadge id="informative" variant="informative">
           Informative type
         </StatusBadge>
       )
       .toJSON();
     const positive = renderer
       .create(
-        <StatusBadge id="positive" type="positive">
+        <StatusBadge id="positive" variant="positive">
           Positive type
         </StatusBadge>
       )
       .toJSON();
     const negative = renderer
       .create(
-        <StatusBadge id="negative" type="negative">
+        <StatusBadge id="negative" variant="negative">
           Negative type
         </StatusBadge>
       )
       .toJSON();
     const warning = renderer
       .create(
-        <StatusBadge id="warning" type="warning">
+        <StatusBadge id="warning" variant="warning">
           Warning type
         </StatusBadge>
       )
       .toJSON();
     const recommendation = renderer
       .create(
-        <StatusBadge id="recommendation" type="recommendation">
+        <StatusBadge id="recommendation" variant="recommendation">
           Recommendation type
         </StatusBadge>
       )
       .toJSON();
     const body1 = renderer
       .create(
-        <StatusBadge fontSize="desktop.body.body1" id="body1" type="neutral">
+        <StatusBadge fontSize="desktop.body.body1" id="body1" variant="neutral">
           Font size body1
         </StatusBadge>
       )
       .toJSON();
     const body2 = renderer
       .create(
-        <StatusBadge fontSize="desktop.body.body2" id="body2" type="neutral">
+        <StatusBadge fontSize="desktop.body.body2" id="body2" variant="neutral">
           Font size body2
         </StatusBadge>
       )
       .toJSON();
     const caption = renderer
       .create(
-        <StatusBadge fontSize="desktop.caption" id="caption" type="neutral">
+        <StatusBadge fontSize="desktop.caption" id="caption" variant="neutral">
           Font size caption
         </StatusBadge>
       )

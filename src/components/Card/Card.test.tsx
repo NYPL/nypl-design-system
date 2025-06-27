@@ -151,10 +151,10 @@ describe("Card", () => {
         </div>
       </CardContent>
       <CardActions>
-        <Link id="link-online" href="online" type="buttonPrimary">
+        <Link id="link-online" href="online" variant="buttonPrimary">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type="action">
+        <Link id="link-icon" href="#url" variant="action">
           <Icon
             align="left"
             iconRotation="rotate0"
@@ -200,10 +200,10 @@ describe("Card", () => {
         The Card Heading
       </CardHeading>
       <CardActions>
-        <Link id="link-online" href="online" type="buttonPrimary">
+        <Link id="link-online" href="online" variant="buttonPrimary">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type="action">
+        <Link id="link-icon" href="#url" variant="action">
           <Icon
             align="left"
             iconRotation="rotate0"
@@ -222,10 +222,10 @@ describe("Card", () => {
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Link id="link-online" href="online" type="buttonPrimary">
+        <Link id="link-online" href="online" variant="buttonPrimary">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type="action">
+        <Link id="link-icon" href="#url" variant="action">
           <Icon
             align="left"
             iconRotation="rotate0"

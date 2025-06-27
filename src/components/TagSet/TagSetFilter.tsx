@@ -29,7 +29,7 @@ export interface TagSetFilterProps extends Omit<BoxProps, "onClick"> {
   /** The array of data to display as tags. */
   tagSetData: TagSetFilterDataProps[];
   /** The `TagSet` variant to render; "filter" by default. */
-  type?: "filter";
+  variant?: "filter";
 }
 
 /**
@@ -127,13 +127,13 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
 
         {tagSetData.length > 1 && isDismissible ? (
           <Button
-            buttonType="text"
             data-testid="ds-tagSetFilter-clear-all"
             id={`${id}-clear-all`}
             onClick={() =>
               finalOnClick({ id: "clear-filters", label: "Clear filters" })
             }
             size="small"
+            variant="text"
           >
             Clear filters
           </Button>

@@ -158,7 +158,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="booksAndMore"
+          variant="booksAndMore"
           id="breadcrumbs-test"
         />
       )
@@ -167,7 +167,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="blogs"
+          variant="blogs"
           id="breadcrumbs-test"
         />
       )
@@ -176,7 +176,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="locations"
+          variant="locations"
           id="breadcrumbs-test"
         />
       )
@@ -185,7 +185,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="education"
+          variant="education"
           id="breadcrumbs-test"
         />
       )

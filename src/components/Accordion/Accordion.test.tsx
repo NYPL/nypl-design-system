@@ -389,7 +389,7 @@ describe("Accordion", () => {
     ];
 
     const primary = renderer
-      .create(<Accordion accordionData={accordionData} id="accordian" />)
+      .create(<Accordion accordionData={accordionData} />)
       .toJSON();
     const defaultOpen = renderer
       .create(
@@ -399,7 +399,7 @@ describe("Accordion", () => {
     const withError = renderer
       .create(
         <Accordion
-          accordionData={[{ ...accordionData[0], accordionType: "error" }]}
+          accordionData={[{ ...accordionData[0], variant: "error" }]}
           id="accordian"
           isDefaultOpen
         />
@@ -408,7 +408,7 @@ describe("Accordion", () => {
     const withWarning = renderer
       .create(
         <Accordion
-          accordionData={[{ ...accordionData[0], accordionType: "warning" }]}
+          accordionData={[{ ...accordionData[0], variant: "warning" }]}
           id="accordian"
           isDefaultOpen
         />

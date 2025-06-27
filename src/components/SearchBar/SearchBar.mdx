@@ -1,17 +1,17 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
+
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import { changelogData } from "./searchBarChangelogData";
-
-import * as SearchBarStories from "./SearchBar.stories";
 import Link from "../Link/Link";
+import * as SearchBarStories from "./SearchBar.stories";
+import { changelogData } from "./searchBarChangelogData";
 
 <Meta of={SearchBarStories} />
 
 <ComponentDocsHeader
   category="Form element"
   componentName="SearchBar"
-  summary="A form container with text input and button that submits a search query"
+  summary="Form container with text input and button that submits a search query"
   versionAdded="0.0.4"
   versionLatest="Prerelease"
 />
@@ -48,8 +48,6 @@ Note: The labels for the `Select` and `TextInput` components are not visible but
 aria-labels are used to make these children components accessible.
 
 ## Component Props
-
-<Canvas of={SearchBarStories.WithControls} />
 
 The `SearchBar` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.

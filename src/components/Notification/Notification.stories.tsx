@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
-import Notification, { notificationTypesArray } from "./Notification";
+import Notification, { notificationVariantsArray } from "./Notification";
 import Text from "../Text/Text";
 import Heading from "../Heading/Heading";
 
@@ -18,11 +18,11 @@ const meta: Meta<typeof Notification> = {
       table: { defaultValue: { summary: "false" } },
     },
     notificationContent: { control: false },
-    notificationType: {
+    variant: {
       control: {
         type: "radio",
       },
-      options: notificationTypesArray,
+      options: notificationVariantsArray,
       table: { defaultValue: { summary: "standard" } },
     },
   },
@@ -52,7 +52,7 @@ export const WithControls: Story = {
         luctus, nisi erat porttitor ligula.
       </>
     ),
-    notificationType: "standard",
+    variant: "standard",
     showIcon: true,
   },
   parameters: {
@@ -87,7 +87,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="announcement"
+        variant="announcement"
         notificationHeading="Announcement Notification"
         notificationContent={
           <>
@@ -101,7 +101,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="warning"
+        variant="warning"
         notificationHeading="Warning Notification"
         notificationContent={
           <>
@@ -127,7 +127,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="announcement"
+        variant="announcement"
         notificationContent={
           <>
             This is an "announcement" Notification without a heading. Cras
@@ -140,7 +140,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="warning"
+        variant="warning"
         notificationContent={
           <>
             This is a "warning" Notification without a heading. Cras mattis
@@ -292,7 +292,7 @@ export const Dismissible: Story = {
           nascetur ridiculus mus.
         </>
       }
-      notificationType="announcement"
+      variant="announcement"
     />
   ),
 };

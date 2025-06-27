@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
-import List, { listTypesArray } from "./List";
+import List, { listVariantsArray } from "./List";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof List> = {
@@ -15,9 +15,9 @@ const meta: Meta<typeof List> = {
     noStyling: argsBooleanType(),
     showRowDividers: argsBooleanType("true"),
     title: { control: { type: "text" } },
-    type: {
+    variant: {
       control: { type: "radio" },
-      options: listTypesArray,
+      options: listVariantsArray,
       table: { defaultValue: { summary: "ul" } },
     },
   },
@@ -122,11 +122,11 @@ export const WithControls: Story = {
     noStyling: false,
     showRowDividers: true,
     title: "Middle-Earth Peoples",
-    type: "ul",
+    variant: "ul",
   },
   render: (args) => (
     <List {...args}>
-      {args.type !== "dl"
+      {args.variant !== "dl"
         ? itemGroups.map((item, i) => <li key={i}>{item}</li>)
         : descriptions.map((item, i) => [
             <dt key={`dt_${i}`}>{item.term}</dt>,
@@ -155,10 +155,10 @@ export const DescriptionList: Story = {
     inline: { control: false },
     showRowDividers: { control: { type: "boolean" } },
     noStyling: { control: false },
-    type: { control: false },
+    variant: { control: false },
   },
   render: (args) => (
-    <List {...args} type="dl">
+    <List {...args} variant="dl">
       {descriptions.map((item, i) => [
         <dt key={`dt_${i}`}>{item.term}</dt>,
         <dd key={`dd_${i}`}>{item.description}</dd>,
@@ -181,10 +181,10 @@ export const DescriptionListWithCustomHeading: Story = {
   argTypes: {
     inline: { control: false },
     noStyling: { control: false },
-    type: { control: false },
+    variant: { control: false },
   },
   render: (args) => (
-    <List {...args} type="dl">
+    <List {...args} variant="dl">
       {descriptions
         // just for a shorter example
         .slice(0, 2)
@@ -204,10 +204,10 @@ export const DescriptionListWithLinks: Story = {
   argTypes: {
     inline: { control: false },
     noStyling: { control: false },
-    type: { table: { disable: true } },
+    variant: { table: { disable: true } },
   },
   render: (args) => (
-    <List {...args} type="dl">
+    <List {...args} variant="dl">
       <dt>Authors</dt>
       <dd>
         <a href="#">Chirwa, Ephraim Wadonda, author</a>
@@ -262,7 +262,7 @@ export const ListWithDataProps: Story = {
   argTypes: {
     inline: { control: false },
     noStyling: { control: false },
-    type: { control: false },
+    variant: { control: false },
   },
-  render: (args) => <List {...args} type="dl" />,
+  render: (args) => <List {...args} variant="dl" />,
 };

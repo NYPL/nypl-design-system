@@ -16,11 +16,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
     </legend>
     <div
       className="css-1vpopwd"
-      id="undefined-formRow"
+      id="basic-formRow"
     >
       <div
         className="css-7ajbp2"
-        id="undefined-formRow-grandchild0"
+        id="basic-formRow-grandchild0"
       >
         <div
           className="react-datepicker-wrapper"
@@ -75,7 +75,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
       </div>
       <div
         className="css-7ajbp2"
-        id="undefined-formRow-grandchild1"
+        id="basic-formRow-grandchild1"
       >
         <div
           className="react-datepicker-wrapper"
@@ -161,11 +161,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
     </legend>
     <div
       className="css-1vpopwd"
-      id="undefined-formRow"
+      id="no-label-formRow"
     >
       <div
         className="css-7ajbp2"
-        id="undefined-formRow-grandchild0"
+        id="no-label-formRow-grandchild0"
       >
         <div
           className="react-datepicker-wrapper"
@@ -220,7 +220,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
       </div>
       <div
         className="css-7ajbp2"
-        id="undefined-formRow-grandchild1"
+        id="no-label-formRow-grandchild1"
       >
         <div
           className="react-datepicker-wrapper"
@@ -306,11 +306,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
     </legend>
     <div
       className="css-1vpopwd"
-      id="undefined-formRow"
+      id="custom-format-formRow"
     >
       <div
         className="css-7ajbp2"
-        id="undefined-formRow-grandchild0"
+        id="custom-format-formRow-grandchild0"
       >
         <div
           className="react-datepicker-wrapper"
@@ -365,7 +365,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
       </div>
       <div
         className="css-7ajbp2"
-        id="undefined-formRow-grandchild1"
+        id="custom-format-formRow-grandchild1"
       >
         <div
           className="react-datepicker-wrapper"
@@ -451,11 +451,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
     </legend>
     <div
       className="css-1vpopwd"
-      id="undefined-formRow"
+      id="invalid-formRow"
     >
       <div
         className="css-7ajbp2"
-        id="undefined-formRow-grandchild0"
+        id="invalid-formRow-grandchild0"
       >
         <div
           className="react-datepicker-wrapper"
@@ -529,7 +529,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
       </div>
       <div
         className="css-7ajbp2"
-        id="undefined-formRow-grandchild1"
+        id="invalid-formRow-grandchild1"
       >
         <div
           className="react-datepicker-wrapper"
@@ -639,11 +639,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
     </legend>
     <div
       className="css-1vpopwd"
-      id="undefined-formRow"
+      id="disabled-formRow"
     >
       <div
         className="css-7ajbp2"
-        id="undefined-formRow-grandchild0"
+        id="disabled-formRow-grandchild0"
       >
         <div
           className="react-datepicker-wrapper"
@@ -698,7 +698,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
       </div>
       <div
         className="css-7ajbp2"
-        id="undefined-formRow-grandchild1"
+        id="disabled-formRow-grandchild1"
       >
         <div
           className="react-datepicker-wrapper"

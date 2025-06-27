@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as MultiSelectGroupStories from "./MultiSelectGroup.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as MultiSelectGroupStories from "./MultiSelectGroup.stories";
 import { changelogData } from "./multiSelectGroupChangelogData";
 
 <Meta of={MultiSelectGroupStories} />
 
-# MultiSelectGroup
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="MultiSelectGroup"
+  summary="Grouping of related MultiSelect components"
+  versionAdded="1.4.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `1.4.0`      |
-| Latest            | `Prerelease` |
+<Canvas of={MultiSelectGroupStories.WithControls} />
 
 ## Table of Contents
 
@@ -29,8 +33,6 @@ import { changelogData } from "./multiSelectGroupChangelogData";
 <Description of={MultiSelectGroupStories} />
 
 ## Component Props
-
-<Canvas of={MultiSelectGroupStories.WithControls} />
 
 `MultiSelectGroup` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.

@@ -1,19 +1,23 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as DatePickerStories from "./DatePicker.stories";
-import { changelogData } from "./datePickerChangelogData";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 import Table from "../Table/Table";
+import * as DatePickerStories from "./DatePicker.stories";
+import { changelogData } from "./datePickerChangelogData";
 
 <Meta of={DatePickerStories} />
 
-# DatePicker
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="DatePicker"
+  summary="Input element that allows a user to enter or select a single date value or a date range"
+  versionAdded="0.24.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.24.0`     |
-| Latest            | `Prerelease` |
+<Canvas of={DatePickerStories.WithControls} />
 
 ## Table of Contents
 
@@ -36,8 +40,6 @@ only they year as input. Initial date values and max and min date values can
 also be added through props.
 
 ## Component Props
-
-<Canvas of={DatePickerStories.WithControls} />
 
 The `DatePicker` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.

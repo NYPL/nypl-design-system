@@ -4,7 +4,7 @@ exports[`Banner renders the UI snapshot correctly 1`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-banner"
-  data-type="informative"
+  data-variant="informative"
   id="test-id"
 >
   <svg
@@ -34,7 +34,7 @@ exports[`Banner renders the UI snapshot correctly 2`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-banner"
-  data-type="negative"
+  data-variant="negative"
   id="bannerID3"
 >
   <svg
@@ -64,7 +64,7 @@ exports[`Banner renders the UI snapshot correctly 3`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-banner"
-  data-type="neutral"
+  data-variant="neutral"
   id="bannerID3"
 >
   <svg
@@ -94,7 +94,7 @@ exports[`Banner renders the UI snapshot correctly 4`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-banner"
-  data-type="positive"
+  data-variant="positive"
   id="bannerID3"
 >
   <svg
@@ -124,7 +124,7 @@ exports[`Banner renders the UI snapshot correctly 5`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-banner"
-  data-type="recommendation"
+  data-variant="recommendation"
   id="bannerID3"
 >
   <svg
@@ -154,7 +154,7 @@ exports[`Banner renders the UI snapshot correctly 6`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-banner"
-  data-type="warning"
+  data-variant="warning"
   id="bannerID3"
 >
   <svg
@@ -184,7 +184,7 @@ exports[`Banner renders the UI snapshot correctly 7`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-banner"
-  data-type="neutral"
+  data-variant="neutral"
   id="bannerID4"
 >
   <svg
@@ -208,7 +208,7 @@ exports[`Banner renders the UI snapshot correctly 8`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-banner"
-  data-type="neutral"
+  data-variant="neutral"
   id="bannerID7"
 >
   <svg
@@ -250,7 +250,7 @@ exports[`Banner renders the UI snapshot correctly 9`] = `
 <aside
   className="css-16h1ce8"
   data-testid="ds-banner"
-  data-type="neutral"
+  data-variant="neutral"
   id="chakra"
 >
   <svg
@@ -280,7 +280,7 @@ exports[`Banner renders the UI snapshot correctly 10`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="props"
-  data-type="neutral"
+  data-variant="neutral"
   id="props"
 >
   <svg
