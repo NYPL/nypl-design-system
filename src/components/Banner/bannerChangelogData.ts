@@ -18,6 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Renames `type` to `variant`.",
       "Replaces `bannerTypesArray`, `bannerBgColorsArray`, and `bannerHighlightColorsArray` with shared message variants and background/highlight colors arrays.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },
   {

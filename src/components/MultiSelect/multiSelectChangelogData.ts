@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Extends prop definition to include Chakra's `BoxProps`"],
+    notes: [
+      "Extends prop definition to include Chakra's `BoxProps`",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
+    ],
   },
   {
     date: "2025-04-24",

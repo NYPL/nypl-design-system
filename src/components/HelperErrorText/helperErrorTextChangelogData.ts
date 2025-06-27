@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes `ariaAtomic` and `ariaLive` props and instructs developers to use the native HTML attributes instead.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },
   {

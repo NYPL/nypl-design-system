@@ -19,6 +19,7 @@ export const changelogData: ChangelogData[] = [
       "Updates the grid layout for the `primary` variant.",
       "Extends prop interface to include Chakra props or HTML attributes.",
       "Renames `heroType` to `variant`.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },
   {

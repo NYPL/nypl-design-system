@@ -20,6 +20,7 @@ export const changelogData: ChangelogData[] = [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Renames `type` to `variant`.",
       "Replaces `statusBadgeTypeArray` with shared message variants array.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },
   {
