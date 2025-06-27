@@ -2,7 +2,7 @@
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="basic-form-field"
 >
   <fieldset
@@ -142,7 +142,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="no-label-form-field"
 >
   <fieldset
@@ -282,7 +282,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="custom-format-form-field"
 >
   <fieldset
@@ -422,7 +422,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="invalid-form-field"
 >
   <fieldset
@@ -603,7 +603,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="disabled-form-field"
 >
   <fieldset
@@ -748,7 +748,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="basic-form-field"
 >
   <div
@@ -817,7 +817,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="no-label-form-field"
 >
   <div
@@ -879,7 +879,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="custom-format-form-field"
 >
   <div
@@ -948,7 +948,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="invalid-form-field"
 >
   <div
@@ -1035,7 +1035,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="disabled-form-field"
 >
   <div
@@ -1121,7 +1121,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
 <div
-  className="css-1h2oq49"
+  className="css-1oqgnrx"
   id="chakra-form-field"
 >
   <div
@@ -1207,7 +1207,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   data-testid="datepicker"
   id="props-form-field"
 >

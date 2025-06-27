@@ -220,7 +220,6 @@ export const Heading: ChakraComponent<
             <Text
               aria-roledescription="Subtitle"
               mt="xs"
-              noSpace
               role="paragraph"
               size={subtitleSize}
             >
