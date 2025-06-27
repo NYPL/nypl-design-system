@@ -26,7 +26,6 @@ const meta: Meta<typeof DatePicker> = {
       options: datePickerTypesArray,
       table: { defaultValue: { summary: "full" } },
     },
-    id: { control: false },
     isDateRange: {
       table: { defaultValue: { summary: "false" } },
     },

@@ -15,7 +15,6 @@ const meta: Meta<typeof AudioPlayer> = {
     embedCode: { control: false },
     headingText: { control: "text" },
     helperText: { control: "text" },
-    id: { control: false },
     iframeTitle: { control: "text" },
   },
 };

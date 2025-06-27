@@ -67,7 +67,6 @@ const meta: Meta<typeof FilterBarPopup> = {
   component: FilterBarPopup,
   argTypes: {
     heading: { control: false },
-    id: { control: false },
     isOpen: { table: { disable: true } },
     onClear: {
       description:

@@ -3,7 +3,8 @@
 exports[`Select Renders the UI snapshot correctly 1`] = `
 <div
   className="css-1u8qly9"
-  id="select-wrapper"
+  data-testid="ds-componentWrapper"
+  id="select-componentWrapper"
 >
   <div
     className="css-0"
@@ -75,7 +76,8 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
 exports[`Select Renders the UI snapshot correctly 2`] = `
 <div
   className="css-1u8qly9"
-  id="select-wrapper"
+  data-testid="ds-componentWrapper"
+  id="select-componentWrapper"
 >
   <div
     className="css-0"
@@ -148,7 +150,8 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
 exports[`Select Renders the UI snapshot correctly 3`] = `
 <div
   className="css-1u8qly9"
-  id="select-wrapper"
+  data-testid="ds-componentWrapper"
+  id="select-componentWrapper"
 >
   <div
     className="css-0"
@@ -238,7 +241,8 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
 exports[`Select Renders the UI snapshot correctly 4`] = `
 <div
   className="css-1u8qly9"
-  id="select-wrapper"
+  data-testid="ds-componentWrapper"
+  id="select-componentWrapper"
 >
   <div
     className="css-0"
@@ -327,7 +331,8 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
 exports[`Select Renders the UI snapshot correctly 5`] = `
 <div
   className="css-1u8qly9"
-  id="select-wrapper"
+  data-testid="ds-componentWrapper"
+  id="select-componentWrapper"
 >
   <div
     className="css-0"
@@ -403,7 +408,8 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
 exports[`Select Renders the UI snapshot correctly 6`] = `
 <div
   className="css-1u8qly9"
-  id="select-wrapper"
+  data-testid="ds-componentWrapper"
+  id="select-componentWrapper"
 >
   <div
     className="css-0"
@@ -479,7 +485,8 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
 exports[`Select Renders the UI snapshot correctly 7`] = `
 <div
   className="css-1u8qly9"
-  id="select-wrapper"
+  data-testid="ds-componentWrapper"
+  id="select-componentWrapper"
 >
   <div
     className="css-0"
@@ -553,7 +560,8 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
 exports[`Select Renders the UI snapshot correctly 8`] = `
 <div
   className="css-1y4kn3e"
-  id="chakra-wrapper"
+  data-testid="ds-componentWrapper"
+  id="chakra-componentWrapper"
 >
   <div
     className="css-0"
@@ -626,7 +634,7 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
 <div
   className="css-1u8qly9"
   data-testid="props"
-  id="props-wrapper"
+  id="props-componentWrapper"
 >
   <div
     className="css-0"

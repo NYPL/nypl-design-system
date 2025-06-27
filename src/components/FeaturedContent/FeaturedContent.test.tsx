@@ -62,8 +62,10 @@ describe("FeaturedContent", () => {
     expect(
       screen.getByText("Spotlight on the Public Domain")
     ).toBeInTheDocument();
-    expect(screen.getByTestId("featuredcontent-bg-image")).toBeInTheDocument();
-    expect(screen.getByTestId("featuredcontent-bg-image")).toHaveStyle(
+    expect(
+      screen.getByTestId("ds-featuredContent-bgImage")
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("ds-featuredContent-bgImage")).toHaveStyle(
       `background-image: url(${getPlaceholderImage("smaller", 0)});`
     );
   });

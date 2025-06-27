@@ -9,6 +9,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -54,7 +55,8 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="ds-componentWrapper"
+            id="email-input-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
@@ -112,6 +114,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
         >
           <button
             className="chakra-button css-1xdhyk6"
+            data-testid="ds-button"
             id="submit"
             type="submit"
           >
@@ -133,6 +136,7 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -205,6 +209,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -274,6 +279,7 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -338,6 +344,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -383,7 +390,8 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="ds-componentWrapper"
+            id="email-input-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
@@ -439,6 +447,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
         >
           <button
             className="chakra-button css-1xdhyk6"
+            data-testid="ds-button"
             id="submit"
             type="submit"
           >
@@ -460,6 +469,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -510,7 +520,8 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="ds-componentWrapper"
+            id="email-input-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
@@ -566,6 +577,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
         >
           <button
             className="chakra-button css-1xdhyk6"
+            data-testid="ds-button"
             id="submit"
             type="submit"
           >
@@ -587,6 +599,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -632,7 +645,8 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="ds-componentWrapper"
+            id="email-input-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
@@ -689,6 +703,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
         >
           <button
             className="chakra-button css-1xdhyk6"
+            data-testid="ds-button"
             id="submit"
             type="submit"
           >
@@ -710,6 +725,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -755,7 +771,8 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="ds-componentWrapper"
+            id="email-input-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
@@ -811,6 +828,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
         >
           <button
             className="chakra-button css-1xdhyk6"
+            data-testid="ds-button"
             disabled={true}
             id="submit"
             type="submit"

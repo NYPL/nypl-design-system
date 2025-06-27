@@ -10,7 +10,6 @@ const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
   argTypes: {
     helperText: { control: { type: "text" } },
-    id: { control: false },
     invalidText: { control: { type: "text" } },
     isChecked: argsBooleanType(),
     isDisabled: argsBooleanType(),

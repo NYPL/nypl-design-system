@@ -378,7 +378,7 @@ describe("Accordion", () => {
     ];
 
     const primary = renderer
-      .create(<Accordion accordionData={accordionData} id="accordian" />)
+      .create(<Accordion accordionData={accordionData} />)
       .toJSON();
     const defaultOpen = renderer
       .create(

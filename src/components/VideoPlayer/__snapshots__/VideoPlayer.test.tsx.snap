@@ -8,7 +8,8 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
 >
   <div
     className="css-1xdhyk6"
-    id="video-player-without-text-componentWrapper-wrapper"
+    data-testid="ds-componentWrapper"
+    id="video-player-without-text-componentWrapper-componentWrapper"
   >
     <div
       className="css-0"
@@ -34,10 +35,12 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
 >
   <div
     className="css-1xdhyk6"
-    id="video-player-with-text-componentWrapper-wrapper"
+    data-testid="ds-componentWrapper"
+    id="video-player-with-text-componentWrapper-componentWrapper"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
+      data-testid="ds-heading"
       id="video-player-with-text-componentWrapper-heading"
     >
       VideoPlayer Heading
@@ -87,10 +90,12 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
 >
   <div
     className="css-1xdhyk6"
-    id="video-player-with-text-componentWrapper-wrapper"
+    data-testid="ds-componentWrapper"
+    id="video-player-with-text-componentWrapper-componentWrapper"
   >
     <h2
       className="chakra-heading css-1xdhyk6"
+      data-testid="ds-heading"
       id="video-player-with-text-componentWrapper-heading"
     >
       VideoPlayer Heading
@@ -155,7 +160,8 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
 >
   <div
     className="css-1xdhyk6"
-    id="chakra-componentWrapper-wrapper"
+    data-testid="ds-componentWrapper"
+    id="chakra-componentWrapper-componentWrapper"
   >
     <div
       className="css-0"
@@ -181,7 +187,8 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
 >
   <div
     className="css-1xdhyk6"
-    id="props-componentWrapper-wrapper"
+    data-testid="ds-componentWrapper"
+    id="props-componentWrapper-componentWrapper"
   >
     <div
       className="css-0"

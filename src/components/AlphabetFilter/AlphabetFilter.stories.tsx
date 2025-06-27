@@ -11,7 +11,6 @@ const meta: Meta<typeof AlphabetFilter> = {
   argTypes: {
     activeLetters: { control: false },
     currentLetter: { control: false },
-    id: { control: false },
     isDisabled: argsBooleanType(),
     onClick: { control: false },
   },
@@ -30,7 +29,6 @@ export const WithControls: Story = {
     currentLetter: undefined,
     descriptionText: "This is description text.",
     headingText: "AlphabetFilter",
-    id: "alphabet-filter-id",
     isDisabled: false,
     onClick: undefined,
   },

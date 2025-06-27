@@ -23,6 +23,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
       />
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="notificationID1-heading"
       >
         Notification Heading
@@ -64,6 +65,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
       />
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="notificationID2-heading"
       >
         Notification Heading
@@ -105,6 +107,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
       />
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="notificationID3-heading"
       >
         Notification Heading
@@ -172,6 +175,7 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
     >
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="notificationID5-heading"
       >
         Notification Heading
@@ -247,6 +251,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
   <button
     aria-label="Close the notification"
     className="chakra-button css-8bx9xp"
+    data-testid="ds-button"
     id="notificationID7-notification-dismissible-button"
     onClick={[Function]}
     type="button"
@@ -287,6 +292,7 @@ exports[`Notification renders the UI snapshot correctly 8`] = `
       />
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="chakra-heading"
       >
         Notification Heading
@@ -329,6 +335,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
       />
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="props-heading"
       >
         Notification Heading

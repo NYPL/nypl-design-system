@@ -7,7 +7,6 @@ const meta: Meta<typeof Label> = {
   title: "Components/Form Elements/Label",
   component: Label,
   argTypes: {
-    id: { control: false },
     isInlined: { table: { disable: true } },
     text: {
       description: "Only used for Storybook",

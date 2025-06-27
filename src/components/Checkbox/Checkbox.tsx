@@ -10,8 +10,9 @@ import React, { forwardRef, InputHTMLAttributes } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
-import { getAriaAttrs } from "../../utils/utils";
 import Icon from "../Icons/Icon";
+import { getAriaAttrs } from "../../utils/utils";
+import { useSafeId } from "../../hooks/useSafeId";
 
 interface CheckboxIconProps {
   /** When using the Checkbox as a "controlled" form element, you can specify
@@ -29,8 +30,6 @@ export interface CheckboxProps
     Omit<InputHTMLAttributes<HTMLInputElement>, "color" | "height" | "width"> {
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -90,29 +89,25 @@ export const Checkbox: ChakraComponent<
       value,
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const styles = useMultiStyleConfig("Checkbox", {});
     const footnote = isInvalid ? invalidText : helperText;
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
     const ariaAttributes = getAriaAttrs({
       footnote,
-      id,
+      id: mainId,
       labelText,
       name: "Checkbox",
       showLabel,
     });
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Checkbox: This component's required `id` prop was not passed."
-      );
-    }
-
     return (
       <ComponentWrapper
+        data-testid="ds-checkbox"
         helperText={helperText}
         helperTextStyles={styles.helperErrorText}
-        id={id}
+        id={mainId}
         invalidText={invalidText}
         isInvalid={isInvalid}
         showHelperInvalidText={showHelperInvalidText}
@@ -121,7 +116,7 @@ export const Checkbox: ChakraComponent<
         <ChakraCheckbox
           className={className}
           icon={icon}
-          id={id}
+          id={mainId}
           isDisabled={isDisabled}
           isIndeterminate={isIndeterminate}
           isInvalid={isInvalid}

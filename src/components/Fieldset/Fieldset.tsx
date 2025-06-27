@@ -6,10 +6,9 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export interface FieldsetProps extends BoxProps {
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Flag to show or hide the text in the `legend` element. False by default. */
   isLegendHidden?: boolean;
   /** Flag to render "required" in the `legend`. True by default. */
@@ -48,16 +47,18 @@ export const Fieldset: ChakraComponent<
       },
       ref?
     ) => {
+      const mainId = useSafeId(id);
       const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
 
-      if (!id) {
-        console.warn(
-          "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
-        );
-      }
-
       return (
-        <Box as="fieldset" id={id} ref={ref} __css={styles} {...rest}>
+        <Box
+          as="fieldset"
+          id={mainId}
+          data-testid="ds-fieldset"
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
           <legend>
             {legendText}
             {showRequiredLabel && isRequired && <span> (required)</span>}

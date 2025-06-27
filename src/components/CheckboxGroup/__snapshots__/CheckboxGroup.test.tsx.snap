@@ -3,7 +3,8 @@
 exports[`Checkbox renders the UI snapshot correctly 1`] = `
 <fieldset
   className="css-1u8qly9"
-  id="column-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="column"
 >
   <legend>
     column
@@ -11,11 +12,12 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="column"
+    id="column-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="column-0-wrapper"
+      data-testid="ds-checkbox"
+      id="column-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -69,7 +71,8 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="column-1-wrapper"
+      data-testid="ds-checkbox"
+      id="column-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -139,7 +142,8 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
 exports[`Checkbox renders the UI snapshot correctly 2`] = `
 <fieldset
   className="css-1u8qly9"
-  id="row-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="row"
 >
   <legend>
     row
@@ -147,11 +151,12 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
   <div
     className="chakra-stack css-1478f2b"
     data-testid="checkbox-group"
-    id="row"
+    id="row-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="row-0-wrapper"
+      data-testid="ds-checkbox"
+      id="row-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -205,7 +210,8 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="row-1-wrapper"
+      data-testid="ds-checkbox"
+      id="row-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -275,7 +281,8 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
 exports[`Checkbox renders the UI snapshot correctly 3`] = `
 <fieldset
   className="css-1u8qly9"
-  id="noLabel-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="noLabel"
 >
   <legend>
     no label
@@ -283,11 +290,12 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="noLabel"
+    id="noLabel-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="noLabel-0-wrapper"
+      data-testid="ds-checkbox"
+      id="noLabel-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -341,7 +349,8 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="noLabel-1-wrapper"
+      data-testid="ds-checkbox"
+      id="noLabel-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -411,7 +420,8 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
 exports[`Checkbox renders the UI snapshot correctly 4`] = `
 <fieldset
   className="css-1u8qly9"
-  id="helperText-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="helperText"
 >
   <legend>
     helperText
@@ -419,11 +429,12 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="helperText"
+    id="helperText-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="helperText-0-wrapper"
+      data-testid="ds-checkbox"
+      id="helperText-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -477,7 +488,8 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="helperText-1-wrapper"
+      data-testid="ds-checkbox"
+      id="helperText-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -552,7 +564,8 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
 exports[`Checkbox renders the UI snapshot correctly 5`] = `
 <fieldset
   className="css-1u8qly9"
-  id="invalidText-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="invalidText"
 >
   <legend>
     invalidText
@@ -560,11 +573,12 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="invalidText"
+    id="invalidText-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="invalidText-0-wrapper"
+      data-testid="ds-checkbox"
+      id="invalidText-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -618,7 +632,8 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="invalidText-1-wrapper"
+      data-testid="ds-checkbox"
+      id="invalidText-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -688,7 +703,8 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 exports[`Checkbox renders the UI snapshot correctly 6`] = `
 <fieldset
   className="css-1u8qly9"
-  id="noRequiredLabel-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="noRequiredLabel"
 >
   <legend>
     no optional or required label
@@ -696,11 +712,12 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="noRequiredLabel"
+    id="noRequiredLabel-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="noRequiredLabel-0-wrapper"
+      data-testid="ds-checkbox"
+      id="noRequiredLabel-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -754,7 +771,8 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="noRequiredLabel-1-wrapper"
+      data-testid="ds-checkbox"
+      id="noRequiredLabel-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -824,7 +842,8 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
 exports[`Checkbox renders the UI snapshot correctly 7`] = `
 <fieldset
   className="css-1u8qly9"
-  id="required-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="required"
 >
   <legend>
     required
@@ -835,11 +854,12 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="required"
+    id="required-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="required-0-wrapper"
+      data-testid="ds-checkbox"
+      id="required-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -893,7 +913,8 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="required-1-wrapper"
+      data-testid="ds-checkbox"
+      id="required-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -963,7 +984,8 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 exports[`Checkbox renders the UI snapshot correctly 8`] = `
 <fieldset
   className="css-1u8qly9"
-  id="invalid-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="invalid"
 >
   <legend>
     invalid
@@ -971,11 +993,12 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="invalid"
+    id="invalid-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="invalid-0-wrapper"
+      data-testid="ds-checkbox"
+      id="invalid-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1032,7 +1055,8 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="invalid-1-wrapper"
+      data-testid="ds-checkbox"
+      id="invalid-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1105,7 +1129,8 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
 exports[`Checkbox renders the UI snapshot correctly 9`] = `
 <fieldset
   className="css-1u8qly9"
-  id="disabled-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="disabled"
 >
   <legend>
     disabled
@@ -1113,11 +1138,12 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="disabled"
+    id="disabled-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="disabled-0-wrapper"
+      data-testid="ds-checkbox"
+      id="disabled-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1174,7 +1200,8 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="disabled-1-wrapper"
+      data-testid="ds-checkbox"
+      id="disabled-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1247,7 +1274,8 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
 exports[`Checkbox renders the UI snapshot correctly 10`] = `
 <fieldset
   className="css-1u8qly9"
-  id="jsxLabels-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="jsxLabels"
 >
   <legend>
     jsxLabels
@@ -1255,11 +1283,12 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="jsxLabels"
+    id="jsxLabels-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="jsxLabels-0-wrapper"
+      data-testid="ds-checkbox"
+      id="jsxLabels-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1325,7 +1354,8 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="jsxLabels-1-wrapper"
+      data-testid="ds-checkbox"
+      id="jsxLabels-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1407,7 +1437,8 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
 exports[`Checkbox renders the UI snapshot correctly 11`] = `
 <fieldset
   className="css-2bbtg1"
-  id="chakraProps-checkbox-group"
+  data-testid="ds-checkboxGroup"
+  id="chakraProps"
 >
   <legend>
     chakraProps
@@ -1415,11 +1446,12 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="chakraProps"
+    id="chakraProps-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="chakraProps-0-wrapper"
+      data-testid="ds-checkbox"
+      id="chakraProps-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1473,7 +1505,8 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="chakraProps-1-wrapper"
+      data-testid="ds-checkbox"
+      id="chakraProps-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1544,7 +1577,7 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
 <fieldset
   className="css-1u8qly9"
   data-testid="props"
-  id="otherProps-checkbox-group"
+  id="otherProps"
 >
   <legend>
     otherProps
@@ -1552,11 +1585,12 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
   <div
     className="chakra-stack css-19s3t1h"
     data-testid="checkbox-group"
-    id="otherProps"
+    id="otherProps-stack"
   >
     <div
       className="css-1xdhyk6"
-      id="otherProps-0-wrapper"
+      data-testid="ds-checkbox"
+      id="otherProps-0-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"
@@ -1610,7 +1644,8 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      id="otherProps-1-wrapper"
+      data-testid="ds-checkbox"
+      id="otherProps-1-componentWrapper"
     >
       <label
         className="chakra-checkbox css-1xdhyk6"

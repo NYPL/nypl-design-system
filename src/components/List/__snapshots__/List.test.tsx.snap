@@ -87,6 +87,7 @@ exports[`List Renders the UI snapshot correctly 5`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="description-heading"
   >
     Animal Crossing Fish
@@ -117,6 +118,7 @@ exports[`List Renders the UI snapshot correctly 6`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="description-heading"
   >
     Animal Crossing Fish
@@ -188,6 +190,7 @@ exports[`List Renders the UI snapshot correctly 9`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="chakra-heading"
   >
     Animal Crossing Fish
@@ -219,6 +222,7 @@ exports[`List Renders the UI snapshot correctly 10`] = `
 >
   <h2
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="other-heading"
   >
     Animal Crossing Fish

@@ -17,8 +17,6 @@ export interface ComponentWrapperProps extends BoxProps {
   helperText?: HelperErrorTextType;
   /** Styles that target the helper text. */
   helperTextStyles?: { [key: string]: any };
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -43,6 +41,10 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
         showHelperInvalidText = true,
         ...rest
       } = props;
+      // ComponentWrapper does not use the `useSafeId` hook since
+      // it is used as a wrapper component.
+      const mainId = id ? `${id}-componentWrapper` : undefined;
+      const helperErrorTextId = id ? `${id}-helperText` : undefined;
       const hasChildren = !!children;
       const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
       const footnote = isInvalid ? invalidText : helperText;
@@ -57,13 +59,19 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
       }
 
       return (
-        <Box id={`${id}-wrapper`} ref={ref} __css={styles} {...rest}>
+        <Box
+          data-testid="ds-componentWrapper"
+          id={mainId}
+          ref={ref}
+          __css={styles}
+          {...rest}
+        >
           {finalHeadingText}
           {descriptionText && <Text>{descriptionText}</Text>}
           {children}
           {footnote && (
             <HelperErrorText
-              id={`${id}-helperText`}
+              id={helperErrorTextId}
               isInvalid={isInvalid}
               isRenderedText={showHelperInvalidText}
               text={footnote}

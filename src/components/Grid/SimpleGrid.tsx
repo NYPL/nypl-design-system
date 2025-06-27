@@ -25,8 +25,6 @@ export interface SimpleGridProps extends BoxProps {
    * will be used; `IMPORTANT: for standard grid layouts, this prop should
    * not be used.` */
   gap?: GridGaps;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
 }
 
 export const SimpleGrid: ChakraComponent<
