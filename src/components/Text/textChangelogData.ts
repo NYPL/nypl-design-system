@@ -13,10 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Functionality", "Styles"],
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes `role` prop (as Chakra equivalent may be used) and updates docs.",
+      "Removes default spacing.",
     ],
   },
   {
