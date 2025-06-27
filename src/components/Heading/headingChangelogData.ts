@@ -13,7 +13,7 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Functionality", "Styles"],
     notes: [
       "Replaces the error thrown with a console.warn.",
       "Removes deprecated values for size and levels.",
