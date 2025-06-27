@@ -44,7 +44,7 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
       // ComponentWrapper does not use the `useSafeId` hook since
       // it is used as a wrapper component.
       const mainId = id ? `${id}-componentWrapper` : undefined;
-      const helperErrorTextId = id ? `${id}-helperText` : undefined;
+      const helperErrorTextId = id ? `${id}-helperErrorText` : undefined;
       const hasChildren = !!children;
       const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
       const footnote = isInvalid ? invalidText : helperText;

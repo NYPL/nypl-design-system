@@ -7,6 +7,11 @@ import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
 import useMultiSelect from "../../hooks/useMultiSelect";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 const multiSelectItems = [
   {
     id: "colors",
@@ -61,7 +66,7 @@ interface FilterBarTestComponentProps {
   onSubmit?: () => void;
 }
 const FilterBarTestComponent = ({
-  id = "filterbar-id",
+  id,
   onClearFilters,
   onSubmit,
 }: FilterBarTestComponentProps) => {
@@ -167,6 +172,11 @@ describe("FilterBarInline Accessibility", () => {
     expect(screen.getByRole("button", { name: /colors/i })).toBeInTheDocument();
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("should have no axe violations with no id", async () => {
+    const { container } = render(<FilterBarTestComponent />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
 describe("FilterBarInline", () => {
@@ -181,6 +191,15 @@ describe("FilterBarInline", () => {
     };
     window.resizeTo(1024, 600);
   });
+
+  it("should randomly generate an id if no id was passed", () => {
+    render(<FilterBarTestComponent />);
+    expect(screen.getByTestId("ds-filterBarInline")).toHaveAttribute(
+      "id",
+      "test-id-componentWrapper"
+    );
+  });
+
   it("should render a 'Clear all filters' button when showClearAll prop is passed", () => {
     render(
       <FilterBarTestComponent

@@ -219,7 +219,7 @@ const DatePickerWrapper: React.FC<
   }) => {
     const styles = useMultiStyleConfig("DatePicker", {});
     return (
-      <FormField id={`${id}-formField`} {...rest}>
+      <FormField id={id} {...rest}>
         {isDateRange ? (
           <Fieldset
             className={className}

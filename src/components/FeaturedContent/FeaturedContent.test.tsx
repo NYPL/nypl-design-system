@@ -27,7 +27,7 @@ const defaultImageProps = {
 };
 
 describe("FeaturedContent accessibility tests", () => {
-  it("passes for default layout", async () => {
+  it("passes axe accessibility for default layout", async () => {
     const { container } = render(
       <FeaturedContent
         isFullWidth={false}
@@ -37,7 +37,7 @@ describe("FeaturedContent accessibility tests", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
-  it("passes for full layout", async () => {
+  it("passes axe accessibility for full layout", async () => {
     const { container } = render(
       <FeaturedContent
         isFullWidth={true}
@@ -50,6 +50,17 @@ describe("FeaturedContent accessibility tests", () => {
 });
 
 describe("FeaturedContent", () => {
+  it("should not render an id if it's not passed", () => {
+    render(
+      <FeaturedContent
+        isFullWidth={false}
+        imageProps={defaultImageProps}
+        textContent={textContent}
+      />
+    );
+    expect(screen.getByTestId("ds-featuredContent")).not.toHaveAttribute("id");
+  });
+
   it("renders the given image and text block", () => {
     render(
       <FeaturedContent

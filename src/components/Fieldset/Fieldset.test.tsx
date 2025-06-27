@@ -15,6 +15,15 @@ describe("Fieldset Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility with id", async () => {
+    const { container } = render(
+      <Fieldset legendText="Legend Text">
+        <p>Some other fields</p>
+      </Fieldset>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility with the legend hidden", async () => {
     const { container } = render(
       <Fieldset id="fieldset" legendText="Legend Text" isLegendHidden>
@@ -26,6 +35,17 @@ describe("Fieldset Accessibility", () => {
 });
 
 describe("Fieldset", () => {
+  it("should not render an id if it's not passed", () => {
+    render(
+      <Fieldset legendText="Legend Text">
+        <p>Some other fields</p>
+      </Fieldset>
+    );
+
+    const container = screen.getByTestId("ds-fieldset");
+    expect(container).not.toHaveAttribute("id");
+  });
+
   it("renders text in a legend and fieldset along with its children", () => {
     render(
       <Fieldset id="fieldset" legendText="Legend Text">

@@ -45,6 +45,7 @@ export const SimpleGrid: ChakraComponent<
       return (
         <ChakraSimpleGrid
           columns={responsiveCols}
+          data-testid="ds-simpleGrid"
           gap={gap}
           id={id}
           ref={ref}

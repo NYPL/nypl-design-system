@@ -8,7 +8,6 @@ import {
 import React, { forwardRef } from "react";
 
 import Image, { ImageProps } from "../Image/Image";
-import { useSafeId } from "../../hooks/useSafeId";
 
 export const featuredContentWidthArray = [
   "oneQuarter",
@@ -72,7 +71,6 @@ export const FeaturedContent: ChakraComponent<
         },
         ...rest
       } = props;
-      const mainId = useSafeId(id);
       const styles = useMultiStyleConfig("FeaturedContent", {
         imagePosition: imageProps.position,
         imageWidth: imageProps.width,
@@ -93,9 +91,9 @@ export const FeaturedContent: ChakraComponent<
       return (
         <Box
           data-testid="ds-featuredContent"
-          id={mainId}
-          __css={styles.base}
+          id={id}
           ref={ref}
+          __css={styles.base}
           {...rest}
         >
           <Box __css={styles.wrapper} data-wrapper>

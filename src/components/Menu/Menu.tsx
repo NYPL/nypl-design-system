@@ -294,12 +294,8 @@ export const Menu: ChakraComponent<
 
       const initialRef = useRef();
       return (
-        <Box ref={ref}>
-          <ChakraMenu
-            id={id}
-            initialFocusRef={selected ? initialRef : null}
-            {...rest}
-          >
+        <Box data-testid="ds-menu" id={id} ref={ref}>
+          <ChakraMenu initialFocusRef={selected ? initialRef : null} {...rest}>
             {({ isOpen }) => (
               <Flex
                 flexDirection={

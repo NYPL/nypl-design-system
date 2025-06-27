@@ -58,7 +58,7 @@ describe("Button", () => {
     );
   });
 
-  it("should not render an id if it's not passed", () => {
+  it("should randomly generate an id if no id was passed", () => {
     utils.rerender(<Button onClick={onClick}>Submit</Button>);
 
     expect(screen.getByTestId("ds-button")).toHaveAttribute("id", "test-id");

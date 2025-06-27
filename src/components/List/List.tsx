@@ -149,14 +149,28 @@ export const List: ChakraComponent<
     if (variant === "ol" || variant === "ul") {
       checkListChildrenError({ children, variant });
       listElement = (
-        <Box as={variant as As} id={id} ref={ref} __css={styles.base} {...rest}>
+        <Box
+          as={variant as As}
+          data-testid="ds-list"
+          id={id}
+          ref={ref}
+          __css={styles.base}
+          {...rest}
+        >
           {listChildrenElms(variant)}
         </Box>
       );
     } else if (variant === "dl") {
       checkDescriptionChildrenError();
       listElement = (
-        <Box as="section" id={id} ref={ref} __css={styles.base} {...rest}>
+        <Box
+          as="section"
+          data-testid="ds-list"
+          id={id}
+          ref={ref}
+          __css={styles.base}
+          {...rest}
+        >
           {finalTitle}
           <dl>{listChildrenElms(variant)}</dl>
         </Box>

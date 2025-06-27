@@ -23,6 +23,11 @@ describe("Link Accessibility", () => {
 });
 
 describe("Link", () => {
+  it("should not render an id if it's not passed", () => {
+    render(<Link href="#test">Test</Link>);
+    expect(screen.getByRole("link")).not.toHaveAttribute("id");
+  });
+
   it("can pass in an icon and text as children and url as prop", () => {
     const utils = render(
       <Link href="#passed-in-link" variant="action">

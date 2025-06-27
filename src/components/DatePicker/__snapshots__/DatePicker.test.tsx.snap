@@ -4,7 +4,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 <div
   className="css-7ajbp2"
   data-testid="ds-datePicker"
-  id="basic-formField"
+  id="basic"
 >
   <fieldset
     className="css-13wylk3"
@@ -16,10 +16,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
     </legend>
     <div
       className="css-1vpopwd"
+      data-testid="ds-simpleGrid"
       id="basic-formRow"
     >
       <div
         className="css-7ajbp2"
+        data-testid="ds-simpleGrid"
         id="basic-formRow-grandchild0"
       >
         <div
@@ -43,6 +45,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             >
               <label
                 className="css-1xdhyk6"
+                data-testid="ds-label"
                 htmlFor="basic-datePicker-start-textInput"
                 id="basic-datePicker-start-textInput-label"
               >
@@ -75,6 +78,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
       </div>
       <div
         className="css-7ajbp2"
+        data-testid="ds-simpleGrid"
         id="basic-formRow-grandchild1"
       >
         <div
@@ -98,6 +102,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             >
               <label
                 className="css-1xdhyk6"
+                data-testid="ds-label"
                 htmlFor="basic-datePicker-end-textInput"
                 id="basic-datePicker-end-textInput-label"
               >
@@ -149,7 +154,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 <div
   className="css-7ajbp2"
   data-testid="ds-datePicker"
-  id="no-label-formField"
+  id="no-label"
 >
   <fieldset
     className="css-13wylk3"
@@ -161,10 +166,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
     </legend>
     <div
       className="css-1vpopwd"
+      data-testid="ds-simpleGrid"
       id="no-label-formRow"
     >
       <div
         className="css-7ajbp2"
+        data-testid="ds-simpleGrid"
         id="no-label-formRow-grandchild0"
       >
         <div
@@ -188,6 +195,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             >
               <label
                 className="css-1xdhyk6"
+                data-testid="ds-label"
                 htmlFor="no-label-datePicker-start-textInput"
                 id="no-label-datePicker-start-textInput-label"
               >
@@ -220,6 +228,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
       </div>
       <div
         className="css-7ajbp2"
+        data-testid="ds-simpleGrid"
         id="no-label-formRow-grandchild1"
       >
         <div
@@ -243,6 +252,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             >
               <label
                 className="css-1xdhyk6"
+                data-testid="ds-label"
                 htmlFor="no-label-datePicker-end-textInput"
                 id="no-label-datePicker-end-textInput-label"
               >
@@ -294,7 +304,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 <div
   className="css-7ajbp2"
   data-testid="ds-datePicker"
-  id="custom-format-formField"
+  id="custom-format"
 >
   <fieldset
     className="css-13wylk3"
@@ -306,10 +316,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
     </legend>
     <div
       className="css-1vpopwd"
+      data-testid="ds-simpleGrid"
       id="custom-format-formRow"
     >
       <div
         className="css-7ajbp2"
+        data-testid="ds-simpleGrid"
         id="custom-format-formRow-grandchild0"
       >
         <div
@@ -333,6 +345,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             >
               <label
                 className="css-1xdhyk6"
+                data-testid="ds-label"
                 htmlFor="custom-format-datePicker-start-textInput"
                 id="custom-format-datePicker-start-textInput-label"
               >
@@ -365,6 +378,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
       </div>
       <div
         className="css-7ajbp2"
+        data-testid="ds-simpleGrid"
         id="custom-format-formRow-grandchild1"
       >
         <div
@@ -388,6 +402,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             >
               <label
                 className="css-1xdhyk6"
+                data-testid="ds-label"
                 htmlFor="custom-format-datePicker-end-textInput"
                 id="custom-format-datePicker-end-textInput-label"
               >
@@ -439,7 +454,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 <div
   className="css-7ajbp2"
   data-testid="ds-datePicker"
-  id="invalid-formField"
+  id="invalid"
 >
   <fieldset
     className="css-13wylk3"
@@ -451,10 +466,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
     </legend>
     <div
       className="css-1vpopwd"
+      data-testid="ds-simpleGrid"
       id="invalid-formRow"
     >
       <div
         className="css-7ajbp2"
+        data-testid="ds-simpleGrid"
         id="invalid-formRow-grandchild0"
       >
         <div
@@ -478,6 +495,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             >
               <label
                 className="css-1xdhyk6"
+                data-testid="ds-label"
                 htmlFor="invalid-datePicker-start-textInput"
                 id="invalid-datePicker-start-textInput-label"
               >
@@ -512,7 +530,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 className="css-1xdhyk6"
                 data-isinvalid={true}
                 data-testid="ds-helperErrorText"
-                id="invalid-datePicker-start-textInput-helperText"
+                id="invalid-datePicker-start-textInput-helperErrorText"
               >
                 <div
                   className="css-0"
@@ -529,6 +547,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
       </div>
       <div
         className="css-7ajbp2"
+        data-testid="ds-simpleGrid"
         id="invalid-formRow-grandchild1"
       >
         <div
@@ -552,6 +571,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             >
               <label
                 className="css-1xdhyk6"
+                data-testid="ds-label"
                 htmlFor="invalid-datePicker-end-textInput"
                 id="invalid-datePicker-end-textInput-label"
               >
@@ -586,7 +606,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 className="css-1xdhyk6"
                 data-isinvalid={true}
                 data-testid="ds-helperErrorText"
-                id="invalid-datePicker-end-textInput-helperText"
+                id="invalid-datePicker-end-textInput-helperErrorText"
               >
                 <div
                   className="css-0"
@@ -627,7 +647,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 <div
   className="css-7ajbp2"
   data-testid="ds-datePicker"
-  id="disabled-formField"
+  id="disabled"
 >
   <fieldset
     className="css-13wylk3"
@@ -639,10 +659,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
     </legend>
     <div
       className="css-1vpopwd"
+      data-testid="ds-simpleGrid"
       id="disabled-formRow"
     >
       <div
         className="css-7ajbp2"
+        data-testid="ds-simpleGrid"
         id="disabled-formRow-grandchild0"
       >
         <div
@@ -666,6 +688,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             >
               <label
                 className="css-1xdhyk6"
+                data-testid="ds-label"
                 htmlFor="disabled-datePicker-start-textInput"
                 id="disabled-datePicker-start-textInput-label"
               >
@@ -698,6 +721,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
       </div>
       <div
         className="css-7ajbp2"
+        data-testid="ds-simpleGrid"
         id="disabled-formRow-grandchild1"
       >
         <div
@@ -721,6 +745,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             >
               <label
                 className="css-1xdhyk6"
+                data-testid="ds-label"
                 htmlFor="disabled-datePicker-end-textInput"
                 id="disabled-datePicker-end-textInput-label"
               >
@@ -777,10 +802,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 <div
   className="css-7ajbp2"
   data-testid="ds-datePicker"
-  id="basic-formField"
+  id="basic"
 >
   <div
     className="css-7ajbp2"
+    data-testid="ds-simpleGrid"
     id="basic-startForm"
   >
     <div
@@ -804,6 +830,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
         >
           <label
             className="css-1xdhyk6"
+            data-testid="ds-label"
             htmlFor="basic-datePicker-start-textInput"
             id="basic-datePicker-start-textInput-label"
           >
@@ -849,10 +876,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 <div
   className="css-7ajbp2"
   data-testid="ds-datePicker"
-  id="no-label-formField"
+  id="no-label"
 >
   <div
     className="css-7ajbp2"
+    data-testid="ds-simpleGrid"
     id="no-label-startForm"
   >
     <div
@@ -914,10 +942,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 <div
   className="css-7ajbp2"
   data-testid="ds-datePicker"
-  id="custom-format-formField"
+  id="custom-format"
 >
   <div
     className="css-7ajbp2"
+    data-testid="ds-simpleGrid"
     id="custom-format-startForm"
   >
     <div
@@ -941,6 +970,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
         >
           <label
             className="css-1xdhyk6"
+            data-testid="ds-label"
             htmlFor="custom-format-datePicker-start-textInput"
             id="custom-format-datePicker-start-textInput-label"
           >
@@ -986,10 +1016,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 <div
   className="css-7ajbp2"
   data-testid="ds-datePicker"
-  id="invalid-formField"
+  id="invalid"
 >
   <div
     className="css-7ajbp2"
+    data-testid="ds-simpleGrid"
     id="invalid-startForm"
   >
     <div
@@ -1013,6 +1044,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
         >
           <label
             className="css-1xdhyk6"
+            data-testid="ds-label"
             htmlFor="invalid-datePicker-start-textInput"
             id="invalid-datePicker-start-textInput-label"
           >
@@ -1047,7 +1079,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             className="css-1xdhyk6"
             data-isinvalid={true}
             data-testid="ds-helperErrorText"
-            id="invalid-datePicker-start-textInput-helperText"
+            id="invalid-datePicker-start-textInput-helperErrorText"
           >
             <div
               className="css-0"
@@ -1077,10 +1109,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 <div
   className="css-7ajbp2"
   data-testid="ds-datePicker"
-  id="disabled-formField"
+  id="disabled"
 >
   <div
     className="css-7ajbp2"
+    data-testid="ds-simpleGrid"
     id="disabled-startForm"
   >
     <div
@@ -1104,6 +1137,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
         >
           <label
             className="css-1xdhyk6"
+            data-testid="ds-label"
             htmlFor="disabled-datePicker-start-textInput"
             id="disabled-datePicker-start-textInput-label"
           >
@@ -1137,7 +1171,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             className="css-1xdhyk6"
             data-isinvalid={false}
             data-testid="ds-helperErrorText"
-            id="disabled-datePicker-start-textInput-helperText"
+            id="disabled-datePicker-start-textInput-helperErrorText"
           >
             <div
               className="css-0"
@@ -1167,10 +1201,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
 <div
   className="css-1h2oq49"
   data-testid="ds-datePicker"
-  id="chakra-formField"
+  id="chakra"
 >
   <div
     className="css-7ajbp2"
+    data-testid="ds-simpleGrid"
     id="chakra-startForm"
   >
     <div
@@ -1194,6 +1229,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
         >
           <label
             className="css-1xdhyk6"
+            data-testid="ds-label"
             htmlFor="chakra-datePicker-start-textInput"
             id="chakra-datePicker-start-textInput-label"
           >
@@ -1227,7 +1263,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             className="css-1xdhyk6"
             data-isinvalid={false}
             data-testid="ds-helperErrorText"
-            id="chakra-datePicker-start-textInput-helperText"
+            id="chakra-datePicker-start-textInput-helperErrorText"
           >
             <div
               className="css-0"
@@ -1257,10 +1293,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
 <div
   className="css-7ajbp2"
   data-testid="datepicker"
-  id="props-formField"
+  id="props"
 >
   <div
     className="css-7ajbp2"
+    data-testid="ds-simpleGrid"
     id="props-startForm"
   >
     <div
@@ -1284,6 +1321,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
         >
           <label
             className="css-1xdhyk6"
+            data-testid="ds-label"
             htmlFor="props-datePicker-start-textInput"
             id="props-datePicker-start-textInput-label"
           >
@@ -1317,7 +1355,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
             className="css-1xdhyk6"
             data-isinvalid={false}
             data-testid="ds-helperErrorText"
-            id="props-datePicker-start-textInput-helperText"
+            id="props-datePicker-start-textInput-helperErrorText"
           >
             <div
               className="css-0"

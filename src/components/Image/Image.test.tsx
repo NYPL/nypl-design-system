@@ -50,6 +50,11 @@ describe("Image", () => {
     "QpLjFbruJsPcGSCp6ET6DCrNQeWFsRVaM2Co99ewZjLuY42kdpBEXjcw9HPcTjKKZw141sK" +
     "BNOoFfNMueYaHtNjNI";
 
+  it("should not render an id if it's not passed", () => {
+    render(<Image alt="" src="test.png" />);
+    expect(screen.getByRole("img")).not.toHaveAttribute("id");
+  });
+
   // @TODO - test when it does come into view.
   it("does not render an image src when `isLazy` is true until it is 'inView'", () => {
     const src = getPlaceholderImage("smaller", 0);

@@ -56,6 +56,16 @@ describe("List Accessibility", () => {
 });
 
 describe("List", () => {
+  it("should not render an id if it's not passed", () => {
+    render(
+      <List variant="ul">
+        <li>Mahi-mahi</li>
+        <li>Golden trout</li>
+      </List>
+    );
+    expect(screen.getByTestId("ds-list")).not.toHaveAttribute("id");
+  });
+
   it("renders unordered list", () => {
     render(
       <List variant="ul">

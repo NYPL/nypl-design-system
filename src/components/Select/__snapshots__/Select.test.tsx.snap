@@ -14,6 +14,7 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
     >
       <label
         className="css-1xdhyk6"
+        data-testid="ds-label"
         htmlFor="select"
         id="select-label"
       >
@@ -87,6 +88,7 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
     >
       <label
         className="css-1xdhyk6"
+        data-testid="ds-label"
         htmlFor="select"
         id="select-label"
       >
@@ -161,6 +163,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
     >
       <label
         className="css-1xdhyk6"
+        data-testid="ds-label"
         htmlFor="select"
         id="select-label"
       >
@@ -225,7 +228,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
     className="css-bl03f5"
     data-isinvalid={true}
     data-testid="ds-helperErrorText"
-    id="select-helperText"
+    id="select-helperErrorText"
   >
     <div
       className="css-0"
@@ -253,6 +256,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     >
       <label
         className="css-1xdhyk6"
+        data-testid="ds-label"
         htmlFor="select"
         id="select-label"
       >
@@ -316,7 +320,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     className="css-bl03f5"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-    id="select-helperText"
+    id="select-helperErrorText"
   >
     <div
       className="css-0"
@@ -344,6 +348,7 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
     >
       <label
         className="css-1xdhyk6"
+        data-testid="ds-label"
         htmlFor="select"
         id="select-label"
       >
@@ -421,6 +426,7 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
     >
       <label
         className="css-1xdhyk6"
+        data-testid="ds-label"
         htmlFor="select"
         id="select-label"
       >
@@ -498,6 +504,7 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
     >
       <label
         className="css-1xdhyk6"
+        data-testid="ds-label"
         htmlFor="select"
         id="select-label"
       >
@@ -573,6 +580,7 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
     >
       <label
         className="css-1xdhyk6"
+        data-testid="ds-label"
         htmlFor="chakra"
         id="chakra-label"
       >
@@ -646,6 +654,7 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
     >
       <label
         className="css-1xdhyk6"
+        data-testid="ds-label"
         htmlFor="props"
         id="props-label"
       >

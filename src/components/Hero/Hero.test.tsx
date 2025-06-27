@@ -66,6 +66,17 @@ describe("Hero accessbility tests", () => {
 });
 
 describe("Hero", () => {
+  it("should not render an id if it's not passed", () => {
+    render(
+      <Hero
+        variant="primary"
+        heading={<Heading level="h1" text="Hero Primary" />}
+        subHeaderText="Example Subtitle"
+      />
+    );
+    expect(screen.getByTestId("ds-hero")).not.toHaveAttribute("id");
+  });
+
   it("renders Primary Hero", () => {
     render(
       <Hero
