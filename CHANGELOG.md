@@ -51,7 +51,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes explicit `className` and `children` props in favor of expanded prop type definitions in all components.
 - Removes the use of the `window`'s `scrollIntoView` dependency in the `Tabs` component.
 - Removes the `tableTextSize` prop from the `Table` component in favor of using the native `fontSize` CSS prop.
-- Removes `Children.map` logic from `Button`, `ButtonGroup`, `Card`, `CheckboxGroup`, `Form`, `List`, `RadioGroup`, and `Tooltip`.
+- Removes `Children.map` logic from `Button`, `ButtonGroup`, `Card`, `CheckboxGroup`, `Form`, `List`, `RadioGroup`, and `Tooltip` to reduce complexity and improve performance.
 
 ## Prerelease
 
