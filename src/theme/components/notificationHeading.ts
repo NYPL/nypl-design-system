@@ -1,22 +1,22 @@
-import { NotificationTypes } from "../../components/Notification/Notification";
+import { NotificationVariants } from "../../components/Notification/Notification";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 
 interface NotificationHeadingBaseStyle extends StyleFunctionProps {
   icon: boolean;
   isCentered: boolean;
-  notificationType: NotificationTypes;
+  variant: NotificationVariants;
 }
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["heading"]);
 
 const baseStyle = definePartsStyle(
-  ({ icon, isCentered, notificationType }: NotificationHeadingBaseStyle) => {
+  ({ icon, isCentered, variant }: NotificationHeadingBaseStyle) => {
     let color = "ui.typography.heading";
-    if (notificationType === "announcement") {
+    if (variant === "announcement") {
       color = "ui.success.primary";
-    } else if (notificationType === "warning") {
+    } else if (variant === "warning") {
       color = "ui.error.primary";
     }
     return {
@@ -28,9 +28,9 @@ const baseStyle = definePartsStyle(
       w: "fit-content",
       _dark: {
         borderBottomColor:
-          notificationType === "standard"
+          variant === "standard"
             ? "ui.status.primary"
-            : notificationType === "announcement"
+            : variant === "announcement"
             ? "dark.ui.success.primary"
             : "dark.ui.error.primary",
         borderBottomStyle: isCentered ? "solid" : "none",
@@ -43,9 +43,9 @@ const baseStyle = definePartsStyle(
         ml: icon && !isCentered ? "xs" : "0",
         _dark: {
           borderLeftColor:
-            notificationType === "standard"
+            variant === "standard"
               ? "ui.status.primary"
-              : notificationType === "announcement"
+              : variant === "announcement"
               ? "dark.ui.success.primary"
               : "dark.ui.error.primary",
           borderLeftStyle: !isCentered ? "solid" : "none",

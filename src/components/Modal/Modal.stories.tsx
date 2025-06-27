@@ -19,7 +19,7 @@ const meta: Meta<typeof ModalTrigger> = {
       description:
         "Props to update the internal `Modal` component. This contains the" +
         "`bodyContent`, `closeButtonLabel`, `confirmButtonLabel`, `headingText`, `isOpen`," +
-        "`onClose`, or `onCancel` and `onConfirm`, and `type` props",
+        "`onClose`, or `onCancel` and `onConfirm`, and `variant` props",
     },
   },
 };
@@ -33,12 +33,13 @@ type Story = StoryObj<typeof ModalTrigger>;
  */
 export const WithControls: Story = {
   args: {
-    buttonText: "Button Text",
+    buttonText: "Open Modal",
     id: "modal-trigger",
     modalProps: {
-      type: "default",
-      bodyContent: "body text",
-      closeButtonLabel: "Close Button",
+      variant: "default",
+      bodyContent:
+        "Modal body text. Et perspiciatis ad nulla vel autem sed. Ad sequi cupiditate veritatis voluptas itaque aspernatur illo nostrum sequi eius soluta consectetur dolorem. Odit eum est officiis et natus doloribus sed in id. Voluptatum sed repellendus delectus voluptas sit omnis aut eius laboriosam corrupti.",
+      closeButtonLabel: "Close Modal",
       headingText: (
         <Heading
           level="h3"
@@ -71,7 +72,7 @@ export const WithControls: Story = {
 const ModalStory = () => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
-    type: "default",
+    variant: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>
@@ -97,7 +98,7 @@ const ModalStory = () => {
         <Button id="1" onClick={onOpen}>
           Open Modal
         </Button>
-        <Button buttonType="secondary" id="2" onClick={onOpen}>
+        <Button variant="secondary" id="2" onClick={onOpen}>
           I can open the modal, too
         </Button>
       </ButtonGroup>
@@ -113,7 +114,7 @@ const ModalStory = () => {
 const ConfirmationModalStory = () => {
   const { onClose, onOpen, Modal } = useModal();
   const confirmationModalProps = {
-    type: "confirmation",
+    variant: "confirmation",
     bodyContent: <p>This is the body content.</p>,
     closeButtonLabel: "Cancel Button",
     confirmButtonLabel: "Confirm Button",
@@ -134,7 +135,7 @@ const ConfirmationModalStory = () => {
         <Button id="1" onClick={onOpen}>
           Open Confirmation Modal
         </Button>
-        <Button buttonType="secondary" id="2" onClick={onOpen}>
+        <Button variant="secondary" id="2" onClick={onOpen}>
           I can open the modal, too
         </Button>
       </ButtonGroup>
@@ -146,7 +147,7 @@ const ConfirmationModalStory = () => {
 // The following are additional Modal example Stories.
 export const useModalStory: Story = {
   argTypes: {
-    type: {
+    variant: {
       options: ["default", "confirmation"],
       table: {
         defaultValue: { summary: "default" },
@@ -199,7 +200,7 @@ export const useModalStory: Story = {
 };
 
 const scrollModalProps: BaseModalProps = {
-  type: "default",
+  variant: "default",
   bodyContent: (
     <>
       <Heading text="Content Title" />
@@ -277,7 +278,7 @@ const scrollModalProps: BaseModalProps = {
 };
 
 const defaultHeadingModalProps: BaseModalProps = {
-  type: "default",
+  variant: "default",
   bodyContent: (
     <p>
       The heading of this modal is level "h2" and size "heading4", since no
@@ -289,7 +290,7 @@ const defaultHeadingModalProps: BaseModalProps = {
 };
 
 const confirmationProps: BaseModalProps = {
-  type: "confirmation",
+  variant: "confirmation",
   bodyContent: <p>The action is happening</p>,
   closeButtonLabel: "Cancel action",
   confirmButtonLabel: "Confirm action",

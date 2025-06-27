@@ -54,7 +54,6 @@ const MultiSelectItemsCountButton = forwardRef<
   return (
     <Button
       aria-label={selectedItemsAriaLabel}
-      buttonType="pill"
       data-testid="ds-multiSelectItemsCountButton"
       id={`${id}-count-button`}
       onClick={() => {
@@ -64,6 +63,7 @@ const MultiSelectItemsCountButton = forwardRef<
         accordionButtonRef.current?.focus();
       }}
       size="small"
+      variant="pill"
       __css={styles}
     >
       {selectedItemsCount}

@@ -18,6 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Removes deprecated `secondary` and `fiftyFifty` variants.",
       "Updates the grid layout for the `primary` variant.",
       "Extends prop interface to include Chakra props or HTML attributes.",
+      "Renames `heroType` to `variant`.",
     ],
   },
   {

@@ -984,7 +984,7 @@ const FilterBarTagSetStory = () => {
         isDismissible
         onClick={handleOnClick}
         tagSetData={tagSetData}
-        type="filter"
+        variant="filter"
       />
     </>
   );

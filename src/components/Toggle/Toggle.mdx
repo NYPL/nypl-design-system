@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as ToggleStories from "./Toggle.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as ToggleStories from "./Toggle.stories";
 import { changelogData } from "./toggleChangelogData";
 
 <Meta of={ToggleStories} />
 
-# Toggle
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Toggle"
+  summary="Input element used to quickly switch between enabled and disabled states"
+  versionAdded="0.25.8"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.25.8`     |
-| Latest            | `Prerelease` |
+<Canvas of={ToggleStories.WithControls} />
 
 ## Table of Contents
 
@@ -44,10 +48,8 @@ should be short and to the point, often three words or less.
 
 ## Component Props
 
-<Canvas of={ToggleStories.WithControls} />
-
-The `Toggle` composes an HTML `input` element, so you may pass any HTML `input` attributes,
-as well any Chakra style props and the props below.
+The `Toggle` composes an HTML `input` element, so you may pass any HTML `input`
+attributes, as well any Chakra style props and the props below.
 
 <ArgTypes of={ToggleStories.WithControls} />
 

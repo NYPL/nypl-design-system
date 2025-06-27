@@ -111,19 +111,19 @@ export const FilterBarInline: ChakraComponent<
               >
                 {onSubmit && (
                   <Button
-                    buttonType="primary"
                     id={`${mainId}-submit-all`}
                     onClick={onSubmit}
+                    variant="primary"
                   >
                     Apply filters
                   </Button>
                 )}
                 {onClear && (
                   <Button
-                    buttonType="text"
                     id={`${mainId}-clear-all`}
                     onClick={onClear}
                     textAlign="center"
+                    variant="text"
                   >
                     Clear all filters
                   </Button>

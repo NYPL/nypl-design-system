@@ -42,7 +42,7 @@ import { changelogData } from "./heroChangelogData";
 The `Hero` will contain a required `h1` page title and may also include optional
 descriptive text and images.
 
-There are currently three main hero types: `"primary"`, `"tertiary"`, and
+There are currently three main hero variants: `"primary"`, `"tertiary"`, and
 `"campaign"`.
 
 For the variations that use image `alt`, `fallbackSrc`, `onError`, and `src`
@@ -52,7 +52,7 @@ properties, the `imageProps` prop should be used:
   code={`
 <Hero
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_243025&t=w"
-  heroType="campaign"
+  variant="campaign"
   heading={<Heading level="h1" id="campaign-hero" text="Hero Campaign" />}
   imageProps={{
     alt: "Image example",
@@ -87,11 +87,11 @@ through `Heading`'s `level="h1"`.
 
 ## Active Variants
 
-Each `Hero` variation can be rendered through the `heroType` prop.
+Each `Hero` variation can be rendered through the `variant` prop.
 
 ### Primary
 
-The `"primary"` hero type can be used with the `backgroundColor`, `backgroundImageSrc`,
+The `"primary"` hero variant can be used with the `backgroundColor`, `backgroundImageSrc`,
 `foregroundColor`, ` heading`, and `subHeaderText` props. The minimum props
 that should be used are `backgroundImageSrc`and`heading`.
 
@@ -111,7 +111,7 @@ that should be used are `backgroundImageSrc`and`heading`.
       text="Hero Primary"
     />
   }
-  heroType="primary"
+  variant="primary"
 />
 `}
   language="jsx"
@@ -119,7 +119,7 @@ that should be used are `backgroundImageSrc`and`heading`.
 
 ### Tertiary
 
-The `"tertiary"` hero type can be used with the `backgroundColor`, `foregroundColor`,
+The `"tertiary"` hero variant can be used with the `backgroundColor`, `foregroundColor`,
 `heading`, and `subHeaderText` props. The minimum prop to use is the `heading`
 prop.
 
@@ -137,7 +137,7 @@ prop.
       text="Hero Tertiary with Subtitle & Sub-Heading"
     />
   }
-  heroType="tertiary"
+  variant="tertiary"
   subHeaderText={
     <>
       With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
@@ -162,7 +162,7 @@ prop.
       text="Hero Tertiary with Sub-Heading"
     />
   }
-  heroType="tertiary"
+  variant="tertiary"
   subHeaderText={
     <>
       With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
@@ -187,7 +187,7 @@ prop.
       text="Hero Tertiary without Additional Elements"
     />
   }
-  heroType="tertiary"
+  variant="tertiary"
 />
 `}
   language="jsx"
@@ -195,7 +195,7 @@ prop.
 
 ### Campaign
 
-The `"campaign"` hero type can be used with the `backdropBackgroundColor`,
+The `"campaign"` hero variant can be used with the `backdropBackgroundColor`,
 `backgroundColor`, `backgroundImageSrc`, `foregroundColor`, `heading`,
 `imageProps`, and `subHeaderText` props. The minimum props to use are
 `backgroundImageSrc`, `heading`, and `imageProps`.
@@ -214,7 +214,7 @@ props should be used.
   code={`
 <Hero
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -243,7 +243,7 @@ props should be used.
   code={`
 <Hero
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -284,7 +284,7 @@ props should be used.
       </Text>
       <ButtonGroup>
         <Button id="other-button-example-1">Button</Button>
-        <Button id="other-button-example-2" buttonType="secondary">
+        <Button id="other-button-example-2" variant="secondary">
           Button
         </Button>
       </ButtonGroup>
@@ -306,7 +306,7 @@ be converted to black & white and darkened to 60% black.
   code={`
 <Hero
   backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -345,7 +345,7 @@ the `backgroundImageSrc` will take precedence.
   code={`
 <Hero
   backdropBackgroundColor="section.research.primary"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -377,7 +377,7 @@ the `backgroundImageSrc` will take precedence.
   backdropBackgroundColor="section.education.primary"
   backgroundColor="ui.warning.primary"
   foregroundColor="ui.typography.heading"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -421,7 +421,7 @@ should not be used at the same time.
   code={`
 <Hero
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -442,7 +442,7 @@ should not be used at the same time.
   backgroundColor="ui.status.primary"
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
   foregroundColor="ui.error.secondary"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -462,7 +462,7 @@ should not be used at the same time.
 <Hero
   backgroundColor="ui.status.primary"
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -502,7 +502,7 @@ const CampaignFallBackExample = () => {
   return (
     <Hero
       backgroundImageSrc={imageSrc}
-      heroType="campaign"
+      variant="campaign"
       heading={
         <Heading
           level="h1"

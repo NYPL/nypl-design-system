@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
 import * as IconStories from "./Icon.stories";
 import { changelogData } from "./iconChangelogData";
-import Link from "../Link/Link";
 
 <Meta of={IconStories} />
 
-# Icon
+<ComponentDocsHeader
+  category="Media & icon component"
+  componentName="Icon"
+  summary="Renders commonly used icons in SVG format"
+  versionAdded="0.0.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.0.4`      |
-| Latest            | `Prerelease` |
+<Canvas of={IconStories.WithControls} />
 
 ## Table of Contents
 
@@ -31,8 +35,6 @@ import Link from "../Link/Link";
 <Description of={IconStories.WithControls} />
 
 ## Component Props
-
-<Canvas of={IconStories.WithControls} />
 
 You may pass any Chakra style props, as well as the props below.
 

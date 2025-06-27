@@ -309,10 +309,10 @@ export const FeedbackBox: ChakraComponent<
 
             <DrawerContent sx={styles.drawerContent}>
               <Button
-                buttonType="text"
                 id={`${mainId}-feedback-close`}
                 onClick={closeAndResetForm}
                 sx={styles.closeButton}
+                variant="text"
               >
                 <Icon color="ui.black" name="minus" size="medium" />
                 <span>Close {title}</span>
@@ -426,11 +426,11 @@ export const FeedbackBox: ChakraComponent<
                           id={`${mainId}-submit-cancel`}
                         >
                           <Button
-                            buttonType="secondary"
                             id={`${mainId}-cancel`}
                             isDisabled={isSubmitted}
                             key="cancel"
                             onClick={closeAndResetForm}
+                            variant="secondary"
                           >
                             Cancel
                           </Button>
@@ -482,7 +482,7 @@ export const FeedbackBox: ChakraComponent<
                         <ButtonGroup buttonWidth="full" id="submit-cancel">
                           <Button
                             id="return-browsing"
-                            buttonType="secondary"
+                            variant="secondary"
                             onClick={closeAndResetForm}
                           >
                             Return to Browsing
@@ -523,8 +523,8 @@ export const FeedbackBox: ChakraComponent<
                           <Button
                             id={`${mainId}-return-browsing2`}
                             key={`${mainId}-return-browsing2`}
-                            buttonType="secondary"
                             onClick={closeAndResetForm}
+                            variant="secondary"
                           >
                             Return to Browsing
                           </Button>

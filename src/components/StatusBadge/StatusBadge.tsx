@@ -13,11 +13,10 @@ export const statusBadgeFontSizeArray = [
   "desktop.body.body2",
   "desktop.caption",
 ] as const;
-
-export type StatusBadgeTypes = typeof messageVariantsArray[number];
+export type StatusBadgeVariants = typeof messageVariantsArray[number];
 export interface StatusBadgeProps extends BoxProps {
   /** Semantic type of the status badge. */
-  type?: StatusBadgeTypes;
+  variant?: StatusBadgeVariants;
 }
 
 /**
@@ -34,10 +33,10 @@ export const StatusBadge: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<StatusBadgeProps>>(
     (props, ref?) => {
-      const { children, id, type, ...rest } = props;
+      const { children, id, variant, ...rest } = props;
       const styles = useStyleConfig("StatusBadge", {
         labelFontSize: rest["fontSize"],
-        variant: type || "neutral",
+        variant: variant || "neutral",
       });
 
       if (!children) {

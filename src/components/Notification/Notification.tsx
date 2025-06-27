@@ -15,12 +15,12 @@ import Heading from "../Heading/Heading";
 import Icon, { IconColors, IconNames, IconSizes } from "../Icons/Icon";
 import { useSafeId } from "../../hooks/useSafeId";
 
-export const notificationTypesArray = [
+export const notificationVariantsArray = [
   "standard",
   "announcement",
   "warning",
 ] as const;
-export type NotificationTypes = typeof notificationTypesArray[number];
+export type NotificationVariants = typeof notificationVariantsArray[number];
 
 interface BaseProps extends BoxProps {
   /** Optional prop to control text alignment in `NotificationContent` */
@@ -36,7 +36,7 @@ interface BaseProps extends BoxProps {
   notificationHeading?: string | JSX.Element;
   /** Optional prop to control the coloring of the `Notification` text and the
    * visibility of an applicable icon. */
-  notificationType?: NotificationTypes;
+  variant?: NotificationVariants;
   /** Prop to display the `Notification` icon. Defaults to `true`. */
   showIcon?: boolean;
 }
@@ -68,11 +68,11 @@ export const NotificationHeading: ChakraComponent<
   >,
   NotificationHeadingProps
 > = chakra((props: React.PropsWithChildren<NotificationHeadingProps>) => {
-  const { children, icon, id, isCentered, notificationType, ...rest } = props;
+  const { children, icon, id, isCentered, variant, ...rest } = props;
   const styles = useMultiStyleConfig("NotificationHeading", {
     icon,
     isCentered,
-    notificationType,
+    variant,
   });
   // Only if a heading child was passed, then either render the string in the
   // default NotificationHeading h4 with its default styles, or render the
@@ -129,7 +129,7 @@ export const NotificationContent: ChakraComponent<
     children,
     isCentered,
     notificationHeading,
-    notificationType,
+    variant,
     showIcon,
     ...rest
   } = props;
@@ -137,7 +137,7 @@ export const NotificationContent: ChakraComponent<
     alignText,
     isCentered,
     notificationHeading,
-    notificationType,
+    variant,
     showIcon,
   });
 
@@ -167,7 +167,7 @@ export const Notification: ChakraComponent<
       isCentered = false,
       notificationContent,
       notificationHeading,
-      notificationType = "standard",
+      variant = "standard",
       showIcon = true,
       ...rest
     } = props;
@@ -178,7 +178,7 @@ export const Notification: ChakraComponent<
     const styles = useMultiStyleConfig("Notification", {
       isCentered,
       notificationHeading,
-      notificationType,
+      variant,
       showIcon,
     });
 
@@ -227,7 +227,7 @@ export const Notification: ChakraComponent<
         <Icon
           className="notification-icon"
           id={`${mainId}-notification-icon`}
-          {...iconProps[notificationType]}
+          {...iconProps[variant]}
           {...baseIconProps}
         />
       );
@@ -241,9 +241,9 @@ export const Notification: ChakraComponent<
     const dismissibleButton = dismissible && (
       <Button
         aria-label="Close the notification"
-        buttonType="text"
-        id={`${mainId}-dismissible-button`}
+        id={`${id}-notification-dismissible-button`}
         onClick={handleClose}
+        variant="text"
         __css={styles.dismissibleButton}
       >
         <Icon
@@ -261,7 +261,7 @@ export const Notification: ChakraComponent<
         icon={iconElem}
         id={mainId}
         isCentered={isCentered}
-        notificationType={notificationType}
+        variant={variant}
       >
         {notificationHeading}
       </NotificationHeading>
@@ -273,7 +273,7 @@ export const Notification: ChakraComponent<
         alignText={alignText}
         isCentered={isCentered}
         notificationHeading={notificationHeading}
-        notificationType={notificationType}
+        variant={variant}
         showIcon={showIcon}
       >
         {notificationContent}
@@ -289,7 +289,7 @@ export const Notification: ChakraComponent<
         as="aside"
         className={className}
         data-testid="ds-notification"
-        data-type={notificationType}
+        data-type={variant}
         id={mainId}
         ref={ref}
         __css={styles}

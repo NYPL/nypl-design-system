@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import { changelogData } from "./formChangelogData";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 
-import * as FormStories from "./Form.stories";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as FormStories from "./Form.stories";
+import { changelogData } from "./formChangelogData";
 
 <Meta of={FormStories} />
 
-# Form
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Form"
+  summary="Used to render a standardized layout for related form elements"
+  versionAdded="0.23.2"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.23.2`     |
-| Latest            | `Prerelease` |
+<Canvas of={FormStories.WithControls} />
 
 ## Table of Contents
 
@@ -58,8 +62,6 @@ Reservoir Design System (DS) (`Button`, `Select`, `TextInput`, etc.).
 need to render multiple input components in a horizontal row.
 
 ## Component Props
-
-<Canvas of={FormStories.WithControls} />
 
 `Form` composes an HTML `form` element, so you may pass any HTML `form` attributes,
 as well as any Chakra style props and the props below.

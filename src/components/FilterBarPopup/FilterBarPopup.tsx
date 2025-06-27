@@ -128,8 +128,8 @@ export const FilterBarPopup: ChakraComponent<
         >
           <Button
             id={`${mainId}-show-filters`}
-            buttonType="secondary"
             onClick={finalOnOpen}
+            variant="secondary"
             width={{ base: "100%", md: "fit-content" }}
           >
             {`Show filters`}
@@ -159,20 +159,20 @@ export const FilterBarPopup: ChakraComponent<
                 <ButtonGroup layout="column" buttonWidth="full">
                   <Button
                     id={`${mainId}-see-results`}
-                    buttonType="primary"
                     type="submit"
                     onClick={onSubmit ? onSubmitAndClose : finalOnClose}
                     ref={showResultsButtonRef}
+                    variant="primary"
                   >
                     {`Show ${totalResults ?? ""} results`}
                   </Button>
                   {onClear && (
                     <Button
                       id={`${mainId}-clear`}
-                      buttonType="text"
                       type="reset"
                       onClick={onClearAndFocus}
                       textAlign="center"
+                      variant="text"
                     >
                       Clear all filters
                     </Button>

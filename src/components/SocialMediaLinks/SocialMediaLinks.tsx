@@ -137,8 +137,8 @@ export const SocialMediaLinks: ChakraComponent<
         inline={layout === "row"}
         listItems={LinksDataComponents}
         noStyling={true}
-        type="ul"
         ref={ref}
+        variant="ul"
         __css={styles}
         {...rest}
       />

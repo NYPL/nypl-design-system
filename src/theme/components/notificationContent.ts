@@ -1,4 +1,4 @@
-import { NotificationTypes } from "../../components/Notification/Notification";
+import { NotificationVariants } from "../../components/Notification/Notification";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 
@@ -6,7 +6,7 @@ interface NotificationContentBaseStyle extends StyleFunctionProps {
   alignText: boolean;
   isCentered: boolean;
   notificationHeading: string;
-  notificationType: NotificationTypes;
+  variant: NotificationVariants;
   showIcon: boolean;
 }
 
@@ -17,24 +17,23 @@ const baseStyle = definePartsStyle(
   ({
     isCentered,
     notificationHeading,
-    notificationType,
+    variant,
     showIcon,
   }: NotificationContentBaseStyle) => {
     return {
       display: "flex",
       justifyContent: "center",
       content: {
-        color:
-          notificationType === "warning" ? "ui.error.primary" : "currentColor",
+        color: variant === "warning" ? "ui.error.primary" : "currentColor",
         paddingStart:
           !isCentered && showIcon ? (notificationHeading ? "l" : "xs") : "0",
         pt: !isCentered ? "xxs" : "0",
         w: "100%",
         _dark: {
           borderLeftColor:
-            notificationType === "standard"
+            variant === "standard"
               ? "ui.status.primary"
-              : notificationType === "announcement"
+              : variant === "announcement"
               ? "dark.ui.success.primary"
               : "dark.ui.error.primary",
           borderLeftStyle: !isCentered ? "solid" : "none",
