@@ -33,7 +33,7 @@ describe("Pagination", () => {
   const getPageHref = (page: number) => `page=${page}`;
 
   describe("Rendering", () => {
-    it("should randomly generate an id if no id was passed", () => {
+    it("should not render an id if it's not passed", () => {
       render(
         <Pagination pageCount={5} initialPage={3} getPageHref={getPageHref} />
       );

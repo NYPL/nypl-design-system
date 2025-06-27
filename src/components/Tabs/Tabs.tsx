@@ -241,7 +241,7 @@ export const Tabs: ChakraComponent<
         <ChakraTabs
           data-testid="ds-tabs"
           defaultIndex={defaultIndex}
-          id={id}
+          id={mainId}
           // The following lazy loads each panel whenever it is needed.
           isLazy
           index={tabIndex}

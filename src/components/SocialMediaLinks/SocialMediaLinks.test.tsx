@@ -73,6 +73,12 @@ describe("SocialMediaLinks Accessibility", () => {
 });
 
 describe("SocialMediaLinks", () => {
+  it("should not render an id if it's not passed", () => {
+    render(<SocialMediaLinks linksData={dataArray} />);
+    const socialMediaLinks = screen.getByTestId("ds-socialMediaLinks");
+    expect(socialMediaLinks).not.toHaveAttribute("id");
+  });
+
   it("Renders default", () => {
     render(<SocialMediaLinks linksData={dataArray} />);
 

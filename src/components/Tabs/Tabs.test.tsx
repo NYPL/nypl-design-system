@@ -6,6 +6,11 @@ import renderer from "react-test-renderer";
 
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "./Tabs";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 export const animalCrossing = [
   {
     label: "Tom Nook",
@@ -74,6 +79,12 @@ describe("Tabs Accessibility", () => {
 
 describe("Tabs", () => {
   const getTabByName = (name: string) => screen.getByRole("tab", { name });
+
+  it("should randomly generate an id if no id was passed", () => {
+    render(<Tabs tabsData={animalCrossing} />);
+    const tabs = screen.getByTestId("ds-tabs");
+    expect(tabs).toHaveAttribute("id", "test-id");
+  });
 
   it("renders all tabs but only one panel at a time with children", () => {
     render(

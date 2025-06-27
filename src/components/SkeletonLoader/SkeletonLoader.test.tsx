@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
@@ -13,6 +13,11 @@ describe("SkeletonLoader Accessibility", () => {
 });
 
 describe("SkeletonLoader", () => {
+  it("should not render an id if it's not passed", () => {
+    render(<SkeletonLoader />);
+    const skeletonLoader = screen.getByTestId("ds-skeletonLoader");
+    expect(skeletonLoader).not.toHaveAttribute("id");
+  });
   it("renders default layout", () => {
     const { container } = render(
       <SkeletonLoader className="skeleton-loader" id="skeleton" />
