@@ -74,11 +74,29 @@ exports[`Button Snapshot Renders the UI snapshot correctly 7`] = `
   onClick={[MockFunction]}
   type="button"
 >
-  NoBrand
+  <svg
+    aria-hidden={true}
+    className="chakra-icon css-1vgifmd"
+    data-file-name="SvgArrow"
+    focusable={false}
+    role="img"
+    title="arrow icon"
+  />
 </button>
 `;
 
 exports[`Button Snapshot Renders the UI snapshot correctly 8`] = `
+<button
+  className="chakra-button css-1xdhyk6"
+  id="button"
+  onClick={[MockFunction]}
+  type="button"
+>
+  NoBrand
+</button>
+`;
+
+exports[`Button Snapshot Renders the UI snapshot correctly 9`] = `
 <button
   className="chakra-button css-1taqtgi"
   id="button"
@@ -87,7 +105,7 @@ exports[`Button Snapshot Renders the UI snapshot correctly 8`] = `
 />
 `;
 
-exports[`Button Snapshot Renders the UI snapshot correctly 9`] = `
+exports[`Button Snapshot Renders the UI snapshot correctly 10`] = `
 <button
   className="chakra-button css-1xdhyk6"
   data-testid="testid"
