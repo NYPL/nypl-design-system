@@ -106,6 +106,12 @@ const reservoirSpacingTokens = {
       py: reservoirSpacingValues["s"],
     },
   },
+  heading: {
+    default: reservoirSpacingValues["s"],
+  },
+  helper: {
+    default: reservoirSpacingValues["xxs"],
+  },
   input: {
     group: {
       button: {
@@ -135,9 +141,18 @@ const reservoirSpacingTokens = {
     xl: reservoirSpacingValues["xl"],
     xxl: reservoirSpacingValues["xxl"],
   },
+  label: {
+    default: reservoirSpacingValues["xxs"],
+  },
+  legend: {
+    default: reservoirSpacingValues["xs"],
+  },
   page: {
     hstack: reservoirSpacingValues["l"],
     vstack: reservoirSpacingValues["l"],
+  },
+  paragraph: {
+    default: reservoirSpacingValues["s"],
   },
   table: {
     column: reservoirSpacingValues["l"],

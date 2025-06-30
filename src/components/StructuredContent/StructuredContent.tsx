@@ -115,7 +115,7 @@ export const StructuredContent: ChakraComponent<
         );
       const finalTitle = useDSHeading({
         additionalStyles: {
-          mb: "s",
+          mb: "heading.default",
         },
         id,
         title: headingText,

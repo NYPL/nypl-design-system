@@ -6,13 +6,13 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
   id="id-wrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
     id="id-heading"
   >
     heading text
   </h2>
   <p
-    className="chakra-text css-1xdhyk6"
+    className="chakra-text css-ap6r8h"
   >
     description text
   </p>
@@ -55,13 +55,13 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
   id="id-wrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
     id="id-heading"
   >
     heading text
   </h2>
   <p
-    className="chakra-text css-1xdhyk6"
+    className="chakra-text css-ap6r8h"
   >
     description text
   </p>

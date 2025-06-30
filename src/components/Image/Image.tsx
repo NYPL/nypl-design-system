@@ -262,6 +262,7 @@ export const Image: ChakraComponent<
                 <HelperErrorText
                   aria-live="off"
                   aria-atomic={false}
+                  mt="helper.default"
                   text={caption}
                 />
               )}
@@ -269,6 +270,7 @@ export const Image: ChakraComponent<
                 <HelperErrorText
                   aria-live="off"
                   aria-atomic={false}
+                  mt="helper.default"
                   text={credit}
                 />
               )}

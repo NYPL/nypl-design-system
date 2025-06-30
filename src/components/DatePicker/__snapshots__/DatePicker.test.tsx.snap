@@ -128,7 +128,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
       id="basic-helper-text"
     >
@@ -268,7 +268,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
       id="no-label-helper-text"
     >
@@ -408,7 +408,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
       id="custom-format-helper-text"
     >
@@ -584,7 +584,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
       id="invalid-helper-text"
     >
@@ -729,7 +729,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
       id="disabled-helper-text"
     >
@@ -808,7 +808,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="basic-helper-text"
   />
@@ -870,7 +870,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="no-label-helper-text"
   />
@@ -939,7 +939,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="custom-format-helper-text"
   />
@@ -1026,7 +1026,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="invalid-helper-text"
   />
@@ -1112,7 +1112,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="disabled-helper-text"
   />
@@ -1198,7 +1198,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="chakra-helper-text"
   />
@@ -1285,7 +1285,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="props-helper-text"
   />

@@ -508,6 +508,7 @@ export const DatePicker: ChakraComponent<
           id={`${id}-helper-text`}
           isInvalid={false}
           isRenderedText={isDateRange && showHelperInvalidText}
+          mt="helper.default"
           text={helperText}
         />
       </DatePickerWrapper>

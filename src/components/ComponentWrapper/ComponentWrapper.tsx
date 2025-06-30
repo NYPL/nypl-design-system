@@ -46,7 +46,13 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
       const hasChildren = !!children;
       const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
       const footnote = isInvalid ? invalidText : helperText;
-      const finalHeadingText = useDSHeading({ id, title: headingText });
+      const finalHeadingText = useDSHeading({
+        id,
+        title: headingText,
+        additionalStyles: {
+          mb: "heading.default",
+        },
+      });
 
       // Note: Typescript warns when there are no children passed and
       // doesn't compile. This is meant to log in non-Typescript apps.
@@ -59,7 +65,9 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
       return (
         <Box id={`${id}-wrapper`} ref={ref} __css={styles} {...rest}>
           {finalHeadingText}
-          {descriptionText && <Text>{descriptionText}</Text>}
+          {descriptionText && (
+            <Text mb="paragraph.default">{descriptionText}</Text>
+          )}
           {children}
           {footnote && (
             <HelperErrorText
