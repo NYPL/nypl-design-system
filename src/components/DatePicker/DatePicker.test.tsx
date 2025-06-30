@@ -40,7 +40,7 @@ describe("DatePicker Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it("passes axe accessibility for a single date input wiht no id", async () => {
+  it("passes axe accessibility for a single date input with no id", async () => {
     const { container } = render(
       <DatePicker labelText="Select the date you want to visit NYPL" />
     );
@@ -113,7 +113,7 @@ describe("DatePicker", () => {
   };
 
   describe("Single input", () => {
-    it("should randomly generate an id if no id was passed", () => {
+    it("should add an id to the component even if none is passed", () => {
       render(
         <DatePicker labelText="Select the full date you want to visit NYPL" />
       );

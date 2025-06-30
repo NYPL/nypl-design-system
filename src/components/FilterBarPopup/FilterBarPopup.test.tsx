@@ -193,7 +193,7 @@ describe("FilterBarPopup", () => {
     };
     window.resizeTo(300, 300);
   });
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(<FilterBarTestComponent />);
     expect(screen.getByTestId("ds-filterBarPopup")).toHaveAttribute(
       "id",

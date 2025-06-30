@@ -34,7 +34,7 @@ describe("StyledList Accessibility", () => {
 });
 
 describe("StyledList", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(
       <StyledList>
         <li>Mahi-mahi</li>

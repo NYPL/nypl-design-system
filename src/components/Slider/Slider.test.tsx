@@ -124,7 +124,7 @@ describe("Slider Accessibility", () => {
 
 describe("Slider", () => {
   describe("Single Slider", () => {
-    it("should randomly generate an id if no id was passed", () => {
+    it("should add an id to the component even if none is passed", () => {
       render(
         <Slider
           defaultValue={50}
@@ -636,7 +636,7 @@ describe("Slider", () => {
   });
 
   describe("Range Slider", () => {
-    it("should randomly generate an id if no id was passed", () => {
+    it("should add an id to the component even if none is passed", () => {
       render(
         <Slider
           defaultValue={[25, 75]}

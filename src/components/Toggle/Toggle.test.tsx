@@ -34,7 +34,7 @@ describe("Toggle", () => {
     changeHandler = jest.fn();
   });
 
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(<Toggle labelText="Test Label" />);
     const toggleInput = screen.getByTestId("ds-toggle");
     expect(toggleInput).toHaveAttribute("id", "test-id-componentWrapper");

@@ -130,7 +130,7 @@ export const accordionDataWithAriaLabel = [
 ];
 
 describe("Accordion", () => {
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(<Accordion accordionData={[accordionData[0]]} />);
 
     expect(screen.getByTestId("ds-accordion")).toHaveAttribute("id", "test-id");

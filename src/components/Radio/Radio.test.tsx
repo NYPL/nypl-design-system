@@ -47,7 +47,7 @@ describe("Radio Accessibility", () => {
 });
 
 describe("Radio Button", () => {
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(<Radio labelText="Test Label" />);
     const radioInput = screen.getByTestId("ds-radio");
     expect(radioInput).toHaveAttribute("id", "test-id-componentWrapper");

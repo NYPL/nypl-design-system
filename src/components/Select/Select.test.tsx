@@ -56,7 +56,7 @@ describe("Select Accessibility", () => {
 });
 
 describe("Select", () => {
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(
       <Select labelText="Test Label" name="test-select">
         {baseOptions}

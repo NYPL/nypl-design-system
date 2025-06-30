@@ -58,7 +58,7 @@ describe("Checkbox Accessibility", () => {
 });
 
 describe("Checkbox", () => {
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(<Checkbox labelText="Test Label" />);
     expect(screen.getByTestId("ds-checkbox")).toHaveAttribute(
       "id",

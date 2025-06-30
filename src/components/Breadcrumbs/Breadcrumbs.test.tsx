@@ -59,7 +59,7 @@ describe("Breadcrumbs Accessibility", () => {
 });
 
 describe("Breadcrumbs", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
 
     const container = screen.getByTestId("ds-breadcrumbs");

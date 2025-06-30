@@ -50,7 +50,7 @@ describe("Image", () => {
     "QpLjFbruJsPcGSCp6ET6DCrNQeWFsRVaM2Co99ewZjLuY42kdpBEXjcw9HPcTjKKZw141sK" +
     "BNOoFfNMueYaHtNjNI";
 
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(<Image alt="" src="test.png" />);
     expect(screen.getByRole("img")).not.toHaveAttribute("id");
   });

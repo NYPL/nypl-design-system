@@ -117,7 +117,7 @@ describe("MulitSelectGroup Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     const handleChangeMock = jest.fn();
     render(
       <MultiSelectGroup

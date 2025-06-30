@@ -37,7 +37,7 @@ describe("Form Accessibility", () => {
 });
 
 describe("Form", () => {
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(<Form />);
     const form = screen.getByTestId("ds-form");
     expect(form).toHaveAttribute("id", "test-id");

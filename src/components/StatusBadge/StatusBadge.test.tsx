@@ -15,7 +15,7 @@ describe("StatusBadge Accessibility", () => {
 });
 
 describe("StatusBadge", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(<StatusBadge>Registration Required</StatusBadge>);
     const badge = screen.getByTestId("ds-statusBadge");
     expect(badge).not.toHaveAttribute("id");

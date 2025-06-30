@@ -345,7 +345,7 @@ describe("Card", () => {
   );
   let container;
 
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(cardNoId);
     expect(screen.getByTestId("ds-card")).toHaveAttribute("id", "test-id");
   });

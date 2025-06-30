@@ -38,7 +38,7 @@ describe("FeedbackBox Accessibility", () => {
 describe("FeedbackBox", () => {
   let onSubmit = jest.fn();
 
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(<FeedbackBox onSubmit={onSubmit} title="Help and Feedback" />);
 
     const container = screen.getByTestId("ds-feedbackBox");

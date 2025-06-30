@@ -50,7 +50,7 @@ describe("FeaturedContent accessibility tests", () => {
 });
 
 describe("FeaturedContent", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(
       <FeaturedContent
         isFullWidth={false}

@@ -133,7 +133,7 @@ describe("StructuredContent Accessibility", () => {
 });
 
 describe("StructuredContent", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(
       <StructuredContent
         bodyContent={htmlStringBodyContent}

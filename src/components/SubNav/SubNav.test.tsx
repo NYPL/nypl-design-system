@@ -86,7 +86,7 @@ describe("SubNav Accessibility", () => {
 });
 
 describe("SubNav Component", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(
       <SubNav
         primaryActions={
