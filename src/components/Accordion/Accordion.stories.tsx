@@ -154,7 +154,6 @@ type Story = StoryObj<typeof Accordion>;
 export const WithControls: Story = {
   args: {
     accordionData,
-    id: "controlsId",
     isDefaultOpen: false,
     isAlwaysRendered: false,
     panelMaxHeight: undefined,

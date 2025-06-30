@@ -42,7 +42,6 @@ export const WithControls: Story = {
   args: {
     content:
       "This is a tooltip with information describing the hovered object.",
-    id: "tooltip-id",
     isDisabled: false,
     offset: undefined,
     placement: undefined,

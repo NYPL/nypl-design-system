@@ -37,7 +37,6 @@ export const WithControls: Story = {
     embedCode: libsynPlayerEmbedCode,
     headingText: "Audio Title",
     helperText: "Audio helper text lorem ipsum dolor simet.",
-    id: "audioplayer-id",
     iframeTitle: "Libsyn Audio",
   },
   parameters: {

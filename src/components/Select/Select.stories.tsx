@@ -51,7 +51,6 @@ export const WithControls: Story = {
   args: {
     defaultValue: undefined,
     helperText: "This is the helper text.",
-    id: "select-id",
     invalidText: "This is the error text :(",
     isDisabled: false,
     isInvalid: false,

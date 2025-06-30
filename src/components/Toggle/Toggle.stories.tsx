@@ -34,7 +34,6 @@ export const WithControls: Story = {
   args: {
     defaultChecked: false,
     helperText: "This is the helper text!",
-    id: "toggle-1",
     invalidText: "",
     isChecked: undefined,
     isDisabled: false,

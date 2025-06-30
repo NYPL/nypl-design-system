@@ -61,7 +61,6 @@ export const WithControls: Story = {
   args: {
     defaultValue: ["4"],
     helperText: "This is the helper text for the full group.",
-    id: "checkboxGroup-id",
     invalidText: "This is the error text :(",
     isDisabled: false,
     isFullWidth: false,

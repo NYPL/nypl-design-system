@@ -24,7 +24,6 @@ type Story = StoryObj<typeof Label>;
 export const WithControls: Story = {
   args: {
     htmlFor: "id-of-input-element",
-    id: "label-id",
     isRequired: false,
     text: "A label for a villager.",
   },

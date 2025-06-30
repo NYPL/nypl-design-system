@@ -61,7 +61,6 @@ export const WithControls: Story = {
     action: undefined,
     buttonOnClick: undefined,
     helperText: "Search for items in Animal Crossing New Horizons",
-    id: "searchBar-id",
     invalidText: "Could not find the item :(",
     isDisabled: false,
     isInvalid: false,
@@ -194,7 +193,6 @@ export const HelperErrorTextComponentExample: Story = {
 
 export const SearchAutocomplete: Story = {
   args: {
-    id: "autocomplete",
     isDisabled: false,
     isInvalid: false,
     isRequired: false,
