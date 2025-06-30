@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Documentation"],
     notes: [
       "Renames `type` to `variant`.",
-      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },
   {

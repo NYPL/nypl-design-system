@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality"],
     notes: [
       "Removed explicit `classname` prop.",
-      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },
   {
