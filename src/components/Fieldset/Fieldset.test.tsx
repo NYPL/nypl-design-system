@@ -15,7 +15,7 @@ describe("Fieldset Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it("passes axe accessibility with id", async () => {
+  it("passes axe accessibility with no id", async () => {
     const { container } = render(
       <Fieldset legendText="Legend Text">
         <p>Some other fields</p>
@@ -35,7 +35,7 @@ describe("Fieldset Accessibility", () => {
 });
 
 describe("Fieldset", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(
       <Fieldset legendText="Legend Text">
         <p>Some other fields</p>

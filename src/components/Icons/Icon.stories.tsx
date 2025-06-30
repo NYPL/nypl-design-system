@@ -67,7 +67,6 @@ export const WithControls: Story = {
     color: "ui.black",
     decorative: true,
     iconRotation: "rotate0",
-    id: "icon-id",
     name: "check",
     size: "xxlarge",
     title: undefined,

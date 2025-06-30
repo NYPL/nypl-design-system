@@ -116,7 +116,6 @@ const descriptions = [
  */
 export const WithControls: Story = {
   args: {
-    id: "nypl-list",
     inline: false,
     listItems: undefined,
     noStyling: false,
@@ -146,7 +145,6 @@ export const WithControls: Story = {
 // The following are additional List example Stories.
 export const DescriptionList: Story = {
   args: {
-    id: "nypl-list2",
     noStyling: false,
     showRowDividers: true,
     title: "Middle-Earth Peoples",
@@ -174,7 +172,6 @@ export const DescriptionList: Story = {
 };
 export const DescriptionListWithCustomHeading: Story = {
   args: {
-    id: "nypl-list3",
     noStyling: false,
     title: <Heading level="h4">Middle-Earth Peoples</Heading>,
   },

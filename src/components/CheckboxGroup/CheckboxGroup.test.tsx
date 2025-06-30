@@ -92,7 +92,7 @@ describe("CheckboxGroup Accessibility", () => {
 });
 
 describe("Checkbox", () => {
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(
       <CheckboxGroup labelText="Test Label" name="test1">
         <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />

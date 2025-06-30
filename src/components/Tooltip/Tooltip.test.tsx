@@ -75,7 +75,7 @@ describe("Tooltip accessibility", () => {
 
 // @TODO WHY?
 describe.skip("Tooltip", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(<TooltipOnButton content={tooltipContent} />);
     const tooltip = screen.getByTestId("ds-tooltip");
     expect(tooltip).not.toHaveAttribute("id");

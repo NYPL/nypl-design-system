@@ -35,7 +35,6 @@ type Story = StoryObj<typeof Checkbox>;
 export const WithControls: Story = {
   args: {
     helperText: "This is the helper text!",
-    id: "checkbox_id",
     invalidText: "This is the error text :(",
     isChecked: undefined,
     isDisabled: false,

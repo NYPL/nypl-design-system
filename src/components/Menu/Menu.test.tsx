@@ -30,7 +30,7 @@ describe("Menu Accessibility", () => {
 });
 
 describe("Menu opens and closes", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(<Menu labelText="Menu" listItemsData={defaultListItems} />);
     expect(screen.getByTestId("ds-menu")).not.toHaveAttribute("id");
   });

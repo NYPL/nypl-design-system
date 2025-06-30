@@ -58,7 +58,7 @@ describe("Button", () => {
     );
   });
 
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     utils.rerender(<Button onClick={onClick}>Submit</Button>);
 
     expect(screen.getByTestId("ds-button")).toHaveAttribute("id", "test-id");

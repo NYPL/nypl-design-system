@@ -192,7 +192,7 @@ describe("FilterBarInline", () => {
     window.resizeTo(1024, 600);
   });
 
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(<FilterBarTestComponent />);
     expect(screen.getByTestId("ds-filterBarInline")).toHaveAttribute(
       "id",

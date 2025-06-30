@@ -63,7 +63,7 @@ describe("Banner", () => {
     );
   });
 
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     utils.rerender(
       <Banner
         aria-label="Banner label"

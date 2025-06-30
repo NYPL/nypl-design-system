@@ -93,7 +93,7 @@ describe("RadioGroup Accessibility", () => {
 });
 
 describe("RadioGroup", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(
       <RadioGroup labelText="Test Label" name="test1">
         <Radio id="radio2" value="2" labelText="Radio 2" />

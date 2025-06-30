@@ -30,7 +30,6 @@ type Story = StoryObj<typeof Pagination>;
 export const URLUpdates: Story = {
   args: {
     getPageHref: hrefProps.getPageHref,
-    id: "pagination-id",
     initialPage: hrefProps.computedCurrentPage || 1,
     pageCount: 10,
   },
@@ -46,7 +45,6 @@ export const URLUpdates: Story = {
 };
 export const UnchangingURL: Story = {
   args: {
-    id: "pagination-id-2",
     initialPage: 7,
     onPageChange: (selectedPage) => {
       console.log(`Current page: ${selectedPage}`);

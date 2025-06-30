@@ -10,11 +10,12 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
+    date: "2025-06-12",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Accessibility", "Functionality"],
     notes: [
+      "Display a fallback warning message on JavaScript-disabled browsers.",
       "Removed explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
     ],

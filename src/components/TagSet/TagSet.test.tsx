@@ -98,7 +98,7 @@ describe("TagSet Accessibility", () => {
 });
 
 describe("TagSet Explore", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(<TagSet tagSetData={exploreTagSetData.simple} variant="explore" />);
     const tagSet = screen.getByTestId("ds-tagSet");
     expect(tagSet).not.toHaveAttribute("id");

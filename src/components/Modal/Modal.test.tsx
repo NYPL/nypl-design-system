@@ -81,7 +81,7 @@ describe("ModalTrigger", () => {
 
   // @TODO: Chakra doesn't seem to propagate the data-testid
   // for their Modal component.
-  // it("should not render an id if it's not passed", () => {
+  // it("should not render an id if none is passed", () => {
   //   render(modalTrigger());
   //   screen.getByText("Button Text").click();
 
@@ -243,7 +243,7 @@ describe("useModal", () => {
 
   // @TODO: Chakra doesn't seem to propagate the data-testid
   // for their Modal component.
-  // it("should not render an id if it's not passed", () => {
+  // it("should not render an id if none is passed", () => {
   //   render(useModalComponent);
   //   screen.getByText("Open Modal").click();
 

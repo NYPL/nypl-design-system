@@ -347,7 +347,6 @@ type Story = StoryObj<typeof MultiSelectGroup>;
  */
 export const WithControls: Story = {
   args: {
-    id: "multiselect-group",
     labelText: "Label Text",
     layout: "row",
     multiSelectWidth: "fitContent",

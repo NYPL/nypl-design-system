@@ -13,7 +13,7 @@ describe("HorizontalRule Accessibility", () => {
 });
 
 describe("HorizontalRule", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(<HorizontalRule />);
     expect(screen.getByRole("separator")).not.toHaveAttribute("id");
   });

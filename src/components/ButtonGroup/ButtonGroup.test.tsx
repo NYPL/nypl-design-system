@@ -21,7 +21,7 @@ describe("ButtonGroup Accessibility", () => {
 });
 
 describe("ButtonGroup", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(
       <ButtonGroup>
         <Button id="btn-1" variant="secondary">

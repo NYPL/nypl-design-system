@@ -73,7 +73,7 @@ describe("ProgressIndicator Accessibility", () => {
 });
 
 describe("ProgressIndicator", () => {
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(<ProgressIndicator labelText="Linear" value={50} />);
     expect(screen.getByTestId("ds-progressIndicator")).toHaveAttribute(
       "id",

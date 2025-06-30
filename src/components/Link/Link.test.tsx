@@ -23,7 +23,7 @@ describe("Link Accessibility", () => {
 });
 
 describe("Link", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(<Link href="#test">Test</Link>);
     expect(screen.getByRole("link")).not.toHaveAttribute("id");
   });

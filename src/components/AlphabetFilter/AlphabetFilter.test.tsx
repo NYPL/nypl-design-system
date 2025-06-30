@@ -30,7 +30,7 @@ describe("AlphabetFilter accessibility", () => {
 });
 
 describe("AlphabetFilter", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(<AlphabetFilter onClick={onClick} />);
 
     const container = screen.getByTestId("ds-alphabetFilter");

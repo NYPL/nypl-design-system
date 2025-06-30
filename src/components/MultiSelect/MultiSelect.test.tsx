@@ -142,7 +142,7 @@ describe("MultiSelect", () => {
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
 
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(
       <MultiSelect
         buttonText="Multiselect button text"

@@ -24,7 +24,7 @@ describe("VideoPlayer", () => {
       utils = render(<VideoPlayer videoType="youtube" videoId={videoId} />);
     });
 
-    it("should not render an id if it's not passed", () => {
+    it("should not render an id if none is passed", () => {
       const videoPlayer = screen.getByTestId("ds-videoPlayer");
       expect(videoPlayer).not.toHaveAttribute("id");
     });

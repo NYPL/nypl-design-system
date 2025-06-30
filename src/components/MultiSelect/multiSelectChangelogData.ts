@@ -20,6 +20,13 @@ export const changelogData: ChangelogData[] = [
     ],
   },
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Bug Fix",
+    affects: ["Functionality"],
+    notes: ["Fixes the array of checkbox items to return with unique keys."],
+  },
+  {
     date: "2025-04-24",
     version: "3.6.1",
     type: "Bug Fix",

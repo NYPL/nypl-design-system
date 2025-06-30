@@ -49,7 +49,6 @@ type Story = StoryObj<typeof ProgressIndicator>;
  */
 export const WithControls: Story = {
   args: {
-    id: "progressIndicator-id",
     indicatorType: "linear",
     isIndeterminate: false,
     labelText: "Progress",

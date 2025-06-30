@@ -13,7 +13,7 @@ describe("SkipNavigation Accessibility", () => {
 });
 
 describe("SkipNavigation", () => {
-  it("should not render an id if it's not passed", () => {
+  it("should not render an id if none is passed", () => {
     render(<SkipNavigation />);
     const nav = screen.getByTestId("ds-skipNavigation");
     expect(nav).not.toHaveAttribute("id");

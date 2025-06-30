@@ -39,7 +39,6 @@ export const WithControls: Story = {
   args: {
     dismissible: false,
     icon: undefined,
-    id: "notification-id",
     isCentered: false,
     notificationHeading: "Notification Heading",
     notificationContent: (

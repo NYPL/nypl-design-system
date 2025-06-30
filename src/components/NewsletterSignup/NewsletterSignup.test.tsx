@@ -28,7 +28,6 @@ describe("NewsletterSignup Accessibility", () => {
     const { container } = render(
       <NewsletterSignup
         className="my-class"
-        id="my-id"
         formHelperText="Form helper"
         onSubmit={onSubmit}
         onChange={onChange}
@@ -143,7 +142,7 @@ describe("NewsletterSignup Unit Tests", () => {
   const onChange = jest.fn();
   const valueEmail = "";
 
-  it("should randomly generate an id if no id was passed", () => {
+  it("should add an id to the component even if none is passed", () => {
     render(
       <NewsletterSignup
         onSubmit={onSubmit}

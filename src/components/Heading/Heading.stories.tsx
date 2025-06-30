@@ -39,7 +39,6 @@ type Story = StoryObj<typeof Heading>;
  */
 export const WithControls: Story = {
   args: {
-    id: "heading-id",
     isCapitalized: false,
     isUppercase: false,
     isLowercase: false,

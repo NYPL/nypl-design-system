@@ -49,7 +49,6 @@ export const WithControls: Story = {
     headingText: "NYPL Video",
     helperText:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
-    id: "videoPlayer-id",
     iframeTitle: undefined,
     showHelperInvalidText: true,
     videoId: undefined,
