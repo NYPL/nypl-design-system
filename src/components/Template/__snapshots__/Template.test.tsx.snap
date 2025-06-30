@@ -2,10 +2,10 @@
 
 exports[`Template components renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
-    className="css-fd96ed"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -14,45 +14,45 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
     </div>
   </div>
   <div
-    className="css-1q0thn5"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Content Top
+      Top content
     </div>
   </div>
   <div
-    className="css-s7bsmx"
+    className="reservoir-template-sidebar css-0"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Left Sidebar
+      Left sidebar
     </div>
   </div>
   <main
-    className="css-n7iznt"
+    className="css-0"
     id="mainContent"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Main Content
+      Main content
     </div>
     <div
       className="placeholder placeholder--short"
     >
-      More Content
+      More content
     </div>
   </main>
   <div
-    className="css-1yhc1wu"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
     >
-      Content Bottom
+      Bottom content
     </div>
   </div>
 </div>
@@ -60,10 +60,10 @@ exports[`Template components renders the UI snapshot correctly 1`] = `
 
 exports[`Template components renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
-    className="css-fd96ed"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -72,45 +72,45 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
     </div>
   </div>
   <div
-    className="css-1q0thn5"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Content Top
+      Top content
     </div>
   </div>
   <main
-    className="css-n7iznt"
+    className="css-0"
     id="mainContent"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Main Content
+      Main content
     </div>
     <div
       className="placeholder placeholder--short"
     >
-      More Content
+      More content
     </div>
   </main>
   <div
-    className="css-s7bsmx"
+    className="reservoir-template-sidebar css-0"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Right Sidebar
+      Right sidebar
     </div>
   </div>
   <div
-    className="css-1yhc1wu"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
     >
-      Content Bottom
+      Bottom content
     </div>
   </div>
 </div>
@@ -118,10 +118,10 @@ exports[`Template components renders the UI snapshot correctly 2`] = `
 
 exports[`Template components renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
-    className="css-fd96ed"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -130,36 +130,36 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
     </div>
   </div>
   <div
-    className="css-1q0thn5"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Content Top
+      Top content
     </div>
   </div>
   <main
-    className="css-n7iznt"
+    className="css-0"
     id="mainContent"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Main Content
+      Main content
     </div>
     <div
       className="placeholder placeholder--short"
     >
-      More Content
+      More content
     </div>
   </main>
   <div
-    className="css-1yhc1wu"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
     >
-      Content Bottom
+      Bottom content
     </div>
   </div>
 </div>
@@ -167,10 +167,10 @@ exports[`Template components renders the UI snapshot correctly 3`] = `
 
 exports[`Template components renders the UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
 >
   <div
-    className="css-fd96ed"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
@@ -179,36 +179,36 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
     </div>
   </div>
   <div
-    className="css-1q0thn5"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Content Top
+      Top content
     </div>
   </div>
   <main
-    className="css-n7iznt"
+    className="css-0"
     id="mainContent"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Main Content
+      Main content
     </div>
     <div
       className="placeholder placeholder--short"
     >
-      More Content
+      More content
     </div>
   </main>
   <div
-    className="css-1yhc1wu"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--short"
     >
-      Content Bottom
+      Bottom content
     </div>
   </div>
 </div>
@@ -216,21 +216,20 @@ exports[`Template components renders the UI snapshot correctly 4`] = `
 
 exports[`Template components renders the UI snapshot correctly 5`] = `
 <div
-  className="css-0"
+  className="css-kle7zy"
 >
   <main
-    className="css-n7iznt"
-    id="mainContent"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Main Content
+      Main content
     </div>
     <div
       className="placeholder placeholder--short"
     >
-      More Content
+      More content
     </div>
   </main>
 </div>
@@ -238,21 +237,21 @@ exports[`Template components renders the UI snapshot correctly 5`] = `
 
 exports[`Template components renders the UI snapshot correctly 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
+  data-testid="props"
 >
   <main
-    className="css-n7iznt"
-    id="mainContent"
+    className="css-0"
   >
     <div
       className="placeholder placeholder--undefined"
     >
-      Main Content
+      Main content
     </div>
     <div
       className="placeholder placeholder--short"
     >
-      More Content
+      More content
     </div>
   </main>
 </div>

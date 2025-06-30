@@ -43,7 +43,6 @@ type Story = StoryObj<typeof Logo>;
 export const WithControls: Story = {
   args: {
     decorative: true,
-    id: "logo-id",
     name: "nyplFullBlack",
     size: "large",
     sizeBasedOn: "width",

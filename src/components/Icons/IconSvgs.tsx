@@ -9,9 +9,11 @@ import actionHelpDefault from "../../../icons/svg/action-help-default.svg";
 import actionHelpOutline from "../../../icons/svg/action-help-outline.svg";
 import actionHome from "../../../icons/svg/action-home.svg";
 import actionIdentity from "../../../icons/svg/action-identity.svg";
+import actionInfo from "../../../icons/svg/action-info.svg";
 import actionIdentityFilled from "../../../icons/svg/action-identity-filled.svg";
 import actionLaunch from "../../../icons/svg/action-launch.svg";
 import actionLightbulb from "../../../icons/svg/action-lightbulb.svg";
+import actionList from "../../../icons/svg/action-list.svg";
 import actionLockClosed from "../../../icons/svg/action-lock-closed.svg";
 import actionPayment from "../../../icons/svg/action-payment.svg";
 import actionPower from "../../../icons/svg/action-power.svg";
@@ -56,6 +58,7 @@ import locator from "../../../icons/svg/locator.svg";
 import mapsPlace from "../../../icons/svg/maps-place.svg";
 import minus from "../../../icons/svg/minus.svg";
 import moonCrescent from "../../../icons/svg/moon-crescent.svg";
+import navigationApps from "../../../icons/svg/navigation-apps.svg";
 import navigationMoreVert from "../../../icons/svg/navigation-more-vert.svg";
 import navigationSubdirectoryArrowLeft from "../../../icons/svg/navigation-subdirectory-arrow-left.svg";
 import navigationSubdirectoryArrowRight from "../../../icons/svg/navigation-subdirectory-arrow-right.svg";
@@ -92,8 +95,10 @@ export default {
   actionHome,
   actionIdentity,
   actionIdentityFilled,
+  actionInfo,
   actionLaunch,
   actionLightbulb,
+  actionList,
   actionLockClosed,
   actionPayment,
   actionPower,
@@ -139,6 +144,7 @@ export default {
   minus,
   moonCrescent,
   navigationMoreVert,
+  navigationApps,
   navigationSubdirectoryArrowLeft,
   navigationSubdirectoryArrowRight,
   plus,

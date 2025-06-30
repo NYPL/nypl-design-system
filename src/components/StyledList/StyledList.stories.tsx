@@ -54,7 +54,6 @@ const listItems = [
  */
 export const WithControls: Story = {
   args: {
-    id: "nypl-styledlist",
     listItems: itemGroups,
     style: "capped",
     textSize: "default",

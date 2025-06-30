@@ -48,7 +48,6 @@ type Story = StoryObj<typeof FeaturedContent>;
 
 export const WithControls: Story = {
   args: {
-    id: "FeaturedContent-id",
     imageProps: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.position": "end",

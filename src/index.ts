@@ -272,11 +272,8 @@ export type {
 export {
   Template,
   TemplateBreakout,
-  TemplateTop,
   TemplateMain,
-  TemplateMainNarrow,
   TemplateSidebar,
-  TemplateBottom,
 } from "./components/Template/Template";
 export { default as Text } from "./components/Text/Text";
 export type { TextProps, TextSizes } from "./components/Text/Text";

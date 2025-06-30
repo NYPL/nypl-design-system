@@ -34,7 +34,6 @@ type Story = StoryObj<typeof Fieldset>;
 export const WithControls: Story = {
   ...FieldsetTemplate,
   args: {
-    id: "fieldset-id",
     isLegendHidden: false,
     isRequired: false,
     legendText: "This is the legend text",

@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./paginationChangelogData";
 
-import * as PaginationStories from "./Pagination.stories";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as PaginationStories from "./Pagination.stories";
+import { changelogData } from "./paginationChangelogData";
 
 <Meta of={PaginationStories} />
 
-# Pagination
+<ComponentDocsHeader
+  category="Navigation component"
+  componentName="Pagination"
+  summary="Used to navigate to the next or previous page within an experience or list of results"
+  versionAdded="0.0.10"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.0.10`     |
-| Latest            | `Prerelease` |
+<Canvas of={PaginationStories.UnchangingURL} />
 
 ## Table of Contents
 

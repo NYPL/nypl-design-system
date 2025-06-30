@@ -35,7 +35,6 @@ export const WithControls: Story = {
   args: {
     actionBackgroundColor: undefined,
     highlightColor: undefined,
-    id: "subnav-with-controls",
   },
 
   render: (args: any) => (

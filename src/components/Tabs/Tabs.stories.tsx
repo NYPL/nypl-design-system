@@ -94,7 +94,6 @@ export const WithControls: Story = {
   args: {
     tabsData: animalCrossingData,
     defaultIndex: 0,
-    id: "tabs-id",
     onChange: undefined,
     useHash: false,
   },

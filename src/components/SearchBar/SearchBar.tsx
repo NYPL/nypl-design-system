@@ -142,7 +142,7 @@ export const SearchBar: ChakraComponent<
     // Render the `Select` component.
     const selectElem = selectProps && (
       <Select
-        id={selectProps?.id || `${mainId}-select`}
+        id={`${selectProps?.id || mainId}-select`}
         labelText={selectProps?.labelText}
         name={selectProps?.name}
         onChange={selectProps?.onChange}
@@ -165,7 +165,7 @@ export const SearchBar: ChakraComponent<
         aria-describedby={footnote ? `${mainId}-helperText` : undefined}
         className="textInput"
         defaultValue={textInputProps?.defaultValue}
-        id={textInputProps?.id || `${mainId}-textInput`}
+        id={`${textInputProps?.id || mainId}-textInput`}
         isClearable={textInputProps?.isClearable}
         isClearableCallback={textInputProps?.isClearableCallback}
         labelText={textInputProps?.labelText}

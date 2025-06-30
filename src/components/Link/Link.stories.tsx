@@ -36,7 +36,6 @@ export const WithControls: Story = {
   args: {
     hasVisitedState: true,
     href: "https://nypl.org",
-    id: "nypl-link",
     isUnderlined: true,
     onClick: undefined,
     rel: undefined,
@@ -46,7 +45,7 @@ export const WithControls: Story = {
   },
   render: (args: any) => (
     <Link className="custom-class" {...args}>
-      {args.children}
+      Link
     </Link>
   ),
   parameters: {
