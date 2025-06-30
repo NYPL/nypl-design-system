@@ -28,8 +28,8 @@ export const WithControls: Story = {
   args: {
     activeLetters: undefined,
     currentLetter: undefined,
-    descriptionText: "This is description text.",
-    headingText: "AlphabetFilter",
+    descriptionText: "",
+    headingText: "",
     id: "alphabet-filter-id",
     isDisabled: false,
     onClick: undefined,
