@@ -16,6 +16,7 @@ const Fieldset = defineStyleConfig({
       padding: 0,
       legend: {
         color: "ui.typography.heading",
+        mb: "xs",
         ...labelLegendText,
         ...screenreaderStyles,
         span: {
