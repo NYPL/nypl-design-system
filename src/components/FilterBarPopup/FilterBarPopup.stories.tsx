@@ -92,7 +92,6 @@ type Story = StoryObj<typeof FilterBarPopup>;
  */
 export const WithControls: Story = {
   args: {
-    id: "filterbar-popup-id",
     heading: "FilterBarPopup",
   },
   render: (args) => <FilterBarPopupStory {...args} />,

@@ -32,7 +32,6 @@ type Story = StoryObj<typeof TagSet>;
  */
 export const ExploreVariant: Story = {
   args: {
-    id: "tagSet-id-explore",
     tagSetData: [
       {
         label: (

@@ -13,6 +13,7 @@ import useDSHeading from "../../hooks/useDSHeading";
 import Button from "../Button/Button";
 import Heading from "../Heading/Heading";
 import Icon, { IconColors, IconNames, IconSizes } from "../Icons/Icon";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export const notificationVariantsArray = [
   "standard",
@@ -21,13 +22,11 @@ export const notificationVariantsArray = [
 ] as const;
 export type NotificationVariants = typeof notificationVariantsArray[number];
 
-interface BaseProps {
+interface BaseProps extends BoxProps {
   /** Optional prop to control text alignment in `NotificationContent` */
   alignText?: boolean;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional prop to control horizontal alignment of the `Notification` content */
   isCentered?: boolean;
   /** Optional content to be rendered in a `NotificationHeading` component. A
@@ -42,13 +41,12 @@ interface BaseProps {
   showIcon?: boolean;
 }
 
+// Used for `Notification`
+type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
 // Used for `NotificationHeading`
 type NotificationHeadingProps = Omit<BasePropsWithoutAlignText, "showIcon">;
 // Used for `NotificationContent`
 type NotificationContentProps = Omit<BaseProps, "icon">;
-
-// Used for `Notification`
-type BasePropsWithoutAlignText = Omit<BaseProps, "alignText">;
 
 export interface NotificationProps extends BasePropsWithoutAlignText, BoxProps {
   /** Optional prop to control whether a `Notification` can be dismissed
@@ -104,7 +102,12 @@ export const NotificationHeading: ChakraComponent<
   });
 
   return (
-    <Box as="header" __css={styles} {...rest}>
+    <Box
+      as="header"
+      data-testid="ds-notificationHeading"
+      __css={styles}
+      {...rest}
+    >
       {icon}
       {children && finalTitle}
     </Box>
@@ -139,7 +142,7 @@ export const NotificationContent: ChakraComponent<
   });
 
   return (
-    <Box __css={styles} {...rest}>
+    <Box data-testid="ds-notificationContent" __css={styles} {...rest}>
       {children && <Box __css={styles.content}>{children}</Box>}
     </Box>
   );
@@ -168,6 +171,7 @@ export const Notification: ChakraComponent<
       showIcon = true,
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const [isOpen, setIsOpen] = useState(true);
     const { colorMode } = useColorMode();
     const handleClose = () => setIsOpen(false);
@@ -190,7 +194,7 @@ export const Notification: ChakraComponent<
       // If a custom icon is passed, add specific `Notification` styles.
       if (icon)
         return React.cloneElement(icon, {
-          id: `${id}-custom-notification-icon`,
+          id: `${mainId}-custom-notification-icon`,
           ...baseIconProps,
         });
       interface IconProps {
@@ -222,7 +226,7 @@ export const Notification: ChakraComponent<
       return (
         <Icon
           className="notification-icon"
-          id={`${id}-notification-icon`}
+          id={`${mainId}-notification-icon`}
           {...iconProps[variant]}
           {...baseIconProps}
         />
@@ -237,14 +241,14 @@ export const Notification: ChakraComponent<
     const dismissibleButton = dismissible && (
       <Button
         aria-label="Close the notification"
-        variant="text"
         id={`${id}-notification-dismissible-button`}
         onClick={handleClose}
+        variant="text"
         __css={styles.dismissibleButton}
       >
         <Icon
           fill={dismissibleButtonIconColor}
-          id={`${id}-dismissible-notification-icon`}
+          id={`${mainId}-dismissible-icon`}
           name="close"
           size="large"
           title="Notification close icon"
@@ -255,7 +259,7 @@ export const Notification: ChakraComponent<
     const childHeading = (notificationHeading || showIcon) && (
       <NotificationHeading
         icon={iconElem}
-        id={id}
+        id={mainId}
         isCentered={isCentered}
         variant={variant}
       >
@@ -284,8 +288,9 @@ export const Notification: ChakraComponent<
       <Box
         as="aside"
         className={className}
+        data-testid="ds-notification"
         data-type={variant}
-        id={id}
+        id={mainId}
         ref={ref}
         __css={styles}
         {...rest}

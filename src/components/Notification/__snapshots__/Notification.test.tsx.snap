@@ -3,6 +3,7 @@
 exports[`Notification renders the UI snapshot correctly 1`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-notification"
   data-type="standard"
   id="notificationID1"
 >
@@ -11,6 +12,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
@@ -31,6 +33,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -45,6 +48,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
 exports[`Notification renders the UI snapshot correctly 2`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-notification"
   data-type="announcement"
   id="notificationID2"
 >
@@ -53,6 +57,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
@@ -73,6 +78,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -87,6 +93,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
 exports[`Notification renders the UI snapshot correctly 3`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-notification"
   data-type="warning"
   id="notificationID3"
 >
@@ -95,6 +102,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
@@ -115,6 +123,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -129,6 +138,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
 exports[`Notification renders the UI snapshot correctly 4`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-notification"
   data-type="standard"
   id="notificationID4"
 >
@@ -137,6 +147,7 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
@@ -150,6 +161,7 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -164,6 +176,7 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
 exports[`Notification renders the UI snapshot correctly 5`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-notification"
   data-type="standard"
   id="notificationID5"
 >
@@ -172,6 +185,7 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <h4
         className="chakra-heading css-1xdhyk6"
@@ -183,6 +197,7 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -197,6 +212,7 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
 exports[`Notification renders the UI snapshot correctly 6`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-notification"
   data-type="standard"
   id="notificationID6"
 >
@@ -205,6 +221,7 @@ exports[`Notification renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -219,6 +236,7 @@ exports[`Notification renders the UI snapshot correctly 6`] = `
 exports[`Notification renders the UI snapshot correctly 7`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-notification"
   data-type="standard"
   id="notificationID7"
 >
@@ -227,6 +245,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
@@ -240,6 +259,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -261,7 +281,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
       className="chakra-icon css-vj9769"
       data-file-name="SvgClose"
       focusable={false}
-      id="notificationID7-dismissible-notification-icon"
+      id="notificationID7-dismissible-icon"
       role="img"
       title="Notification close icon"
     />
@@ -272,6 +292,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
 exports[`Notification renders the UI snapshot correctly 8`] = `
 <aside
   className="css-kle7zy"
+  data-testid="ds-notification"
   data-type="standard"
   id="chakra"
 >
@@ -280,6 +301,7 @@ exports[`Notification renders the UI snapshot correctly 8`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
@@ -300,6 +322,7 @@ exports[`Notification renders the UI snapshot correctly 8`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -323,6 +346,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
@@ -343,6 +367,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"

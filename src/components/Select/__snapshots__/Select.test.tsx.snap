@@ -56,7 +56,7 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
           className="chakra-icon chakra-select__icon css-1nreziu"
           data-file-name="SvgArrow"
           focusable={false}
-          id="select-icon"
+          id="select-select-icon"
           role="presentation"
           style={
             {
@@ -130,7 +130,7 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
           className="chakra-icon chakra-select__icon css-1nreziu"
           data-file-name="SvgArrow"
           focusable={false}
-          id="select-icon"
+          id="select-select-icon"
           role="presentation"
           style={
             {
@@ -205,7 +205,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
           className="chakra-icon chakra-select__icon css-3u73el"
           data-file-name="SvgArrow"
           focusable={false}
-          id="select-icon"
+          id="select-select-icon"
           role="presentation"
           style={
             {
@@ -224,6 +224,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={true}
+    data-testid="ds-helperErrorText"
     id="select-helperText"
   >
     <div
@@ -295,7 +296,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
           className="chakra-icon chakra-select__icon css-1nreziu"
           data-file-name="SvgArrow"
           focusable={false}
-          id="select-icon"
+          id="select-select-icon"
           role="presentation"
           style={
             {
@@ -314,6 +315,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="select-helperText"
   >
     <div
@@ -388,7 +390,7 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
           className="chakra-icon chakra-select__icon css-1nreziu"
           data-file-name="SvgArrow"
           focusable={false}
-          id="select-icon"
+          id="select-select-icon"
           role="presentation"
           style={
             {
@@ -465,7 +467,7 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
           className="chakra-icon chakra-select__icon css-1nreziu"
           data-file-name="SvgArrow"
           focusable={false}
-          id="select-icon"
+          id="select-select-icon"
           role="presentation"
           style={
             {
@@ -540,7 +542,7 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
           className="chakra-icon chakra-select__icon css-1nreziu"
           data-file-name="SvgArrow"
           focusable={false}
-          id="select-icon"
+          id="select-select-icon"
           role="presentation"
           style={
             {
@@ -613,7 +615,7 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
           className="chakra-icon chakra-select__icon css-1nreziu"
           data-file-name="SvgArrow"
           focusable={false}
-          id="chakra-icon"
+          id="chakra-select-icon"
           role="presentation"
           style={
             {
@@ -686,7 +688,7 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
           className="chakra-icon chakra-select__icon css-1nreziu"
           data-file-name="SvgArrow"
           focusable={false}
-          id="props-icon"
+          id="props-select-icon"
           role="presentation"
           style={
             {

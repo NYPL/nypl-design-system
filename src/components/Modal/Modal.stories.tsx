@@ -14,7 +14,6 @@ const meta: Meta<typeof ModalTrigger> = {
   component: ModalTrigger,
   argTypes: {
     buttonText: { control: { type: "text" } },
-    id: { control: false },
     modalProps: {
       control: { type: "object" },
       description:
@@ -35,7 +34,6 @@ type Story = StoryObj<typeof ModalTrigger>;
 export const WithControls: Story = {
   args: {
     buttonText: "Open Modal",
-    id: "modal-trigger",
     modalProps: {
       variant: "default",
       bodyContent:

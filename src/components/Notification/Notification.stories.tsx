@@ -14,7 +14,6 @@ const meta: Meta<typeof Notification> = {
       table: { defaultValue: { summary: "false" } },
     },
     icon: { control: false },
-    id: { control: false },
     isCentered: {
       table: { defaultValue: { summary: "false" } },
     },
@@ -40,7 +39,6 @@ export const WithControls: Story = {
   args: {
     dismissible: false,
     icon: undefined,
-    id: "notification-id",
     isCentered: false,
     notificationHeading: "Notification Heading",
     notificationContent: (

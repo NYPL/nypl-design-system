@@ -57,6 +57,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
   >
     <div
       className="css-0"

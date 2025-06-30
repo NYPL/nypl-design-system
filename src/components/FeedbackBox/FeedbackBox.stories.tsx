@@ -98,7 +98,6 @@ export const WithControls: Story = {
     confirmationText: "",
     descriptionText: "Please share your question or feedback.",
     hiddenFields: undefined,
-    id: "feedbackBox-id",
     isInvalidComment: false,
     isInvalidEmail: true,
     isOpen: undefined,

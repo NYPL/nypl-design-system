@@ -14,7 +14,6 @@ const meta: Meta<typeof Select> = {
   argTypes: {
     defaultValue: { control: false },
     helperText: { control: "text" },
-    id: { control: false },
     invalidText: { control: "text" },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),
@@ -52,7 +51,6 @@ export const WithControls: Story = {
   args: {
     defaultValue: undefined,
     helperText: "This is the helper text.",
-    id: "select-id",
     invalidText: "This is the error text :(",
     isDisabled: false,
     isInvalid: false,

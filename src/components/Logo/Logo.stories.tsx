@@ -12,7 +12,6 @@ const meta: Meta<typeof Logo> = {
   component: Logo,
   argTypes: {
     decorative: argsBooleanType(),
-    id: { control: false },
     name: {
       control: { type: "select" },
       options: logoNamesArray,
@@ -44,7 +43,6 @@ type Story = StoryObj<typeof Logo>;
 export const WithControls: Story = {
   args: {
     decorative: true,
-    id: "logo-id",
     name: "nyplFullBlack",
     size: "large",
     sizeBasedOn: "width",

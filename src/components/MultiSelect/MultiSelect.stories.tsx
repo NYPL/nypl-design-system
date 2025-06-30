@@ -277,9 +277,6 @@ const meta: Meta<typeof MultiSelect> = {
     defaultItemsVisible: {
       table: { defaultValue: { summary: "5" } },
     },
-    id: {
-      control: false,
-    },
     closeOnBlur: {
       table: { defaultValue: { summary: "false" } },
     },
@@ -320,7 +317,6 @@ type Story = StoryObj<typeof MultiSelect>;
 export const withControls: Story = {
   args: {
     buttonText: "MultiSelect",
-    id: "multi-select-id",
     closeOnBlur: true,
     isBlockElement: true,
     isDefaultOpen: false,

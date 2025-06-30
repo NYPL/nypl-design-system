@@ -52,7 +52,6 @@ export const WithControls: Story = {
   args: {
     defaultValue: 50,
     helperText: "Pass in a value from the min 0 to the max 100 values.",
-    id: "slider-id",
     invalidText: "Oh no this is an error :(",
     isDisabled: false,
     isInvalid: false,
@@ -113,7 +112,6 @@ export const RangeSliderWithControls: Story = {
   args: {
     defaultValue: [25, 75],
     helperText: "Pass in a value from the min 0 to the max 100 values.",
-    id: "slider-range-id",
     invalidText: "Oh no this is an error :(",
     isDisabled: false,
     isInvalid: false,

@@ -36,7 +36,6 @@ export const WithControls: Story = {
   args: {
     hasVisitedState: true,
     href: "https://nypl.org",
-    id: "nypl-link",
     isUnderlined: true,
     onClick: undefined,
     rel: undefined,

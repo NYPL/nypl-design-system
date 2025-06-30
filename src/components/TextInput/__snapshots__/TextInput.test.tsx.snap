@@ -207,6 +207,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="myTextInput-helperText"
   >
     <div
@@ -262,6 +263,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
+    data-testid="ds-helperErrorText"
     id="myTextInput-helperText"
   >
     <div

@@ -17,12 +17,10 @@ export type LogoNames = typeof logoNamesArray[number];
 export type LogoSizes = typeof logoSizesArray[number];
 
 export interface LogoProps
-  extends Pick<BoxProps, "className" | keyof ChakraProps> {
+  extends Pick<BoxProps, "id" | "className" | keyof ChakraProps> {
   /** Logos designated as decorative will be ignored by screenreaders. False
    * by default. */
   decorative?: boolean;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** The name of the logo you want to use. */
   name?: LogoNames;
   /** Sets the logo size. */
@@ -119,7 +117,7 @@ export const Logo: ChakraComponent<
     }
 
     return (
-      <Box ref={ref} __css={styles}>
+      <Box data-testid="ds-logo" ref={ref} __css={styles}>
         {childSVG}
       </Box>
     );

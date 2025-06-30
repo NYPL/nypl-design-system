@@ -35,7 +35,6 @@ const meta: Meta<typeof NewsletterSignup> = {
     formHelperText: {
       control: "text",
     },
-    id: { control: false },
     highlightColor: {
       control: "select",
       options: newsletterHighlightColorsArray,

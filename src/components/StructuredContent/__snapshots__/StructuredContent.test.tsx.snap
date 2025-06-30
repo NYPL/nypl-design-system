@@ -38,6 +38,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
           aria-atomic={false}
           className="css-1xdhyk6"
           data-isinvalid={false}
+          data-testid="ds-helperErrorText"
         >
           <div
             className="css-0"
@@ -52,6 +53,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
           aria-atomic={false}
           className="css-1xdhyk6"
           data-isinvalid={false}
+          data-testid="ds-helperErrorText"
         >
           <div
             className="css-0"
@@ -114,6 +116,7 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
           aria-atomic={false}
           className="css-1xdhyk6"
           data-isinvalid={false}
+          data-testid="ds-helperErrorText"
         >
           <div
             className="css-0"
@@ -128,6 +131,7 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
           aria-atomic={false}
           className="css-1xdhyk6"
           data-isinvalid={false}
+          data-testid="ds-helperErrorText"
         >
           <div
             className="css-0"
@@ -287,6 +291,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
           aria-atomic={false}
           className="css-1xdhyk6"
           data-isinvalid={false}
+          data-testid="ds-helperErrorText"
         >
           <div
             className="css-0"
@@ -301,6 +306,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
           aria-atomic={false}
           className="css-1xdhyk6"
           data-isinvalid={false}
+          data-testid="ds-helperErrorText"
         >
           <div
             className="css-0"
@@ -386,6 +392,7 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
           aria-atomic={false}
           className="css-1xdhyk6"
           data-isinvalid={false}
+          data-testid="ds-helperErrorText"
         >
           <div
             className="css-0"
@@ -400,6 +407,7 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
           aria-atomic={false}
           className="css-1xdhyk6"
           data-isinvalid={false}
+          data-testid="ds-helperErrorText"
         >
           <div
             className="css-0"
@@ -463,6 +471,7 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
           aria-atomic={false}
           className="css-1xdhyk6"
           data-isinvalid={false}
+          data-testid="ds-helperErrorText"
         >
           <div
             className="css-0"
@@ -477,6 +486,7 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
           aria-atomic={false}
           className="css-1xdhyk6"
           data-isinvalid={false}
+          data-testid="ds-helperErrorText"
         >
           <div
             className="css-0"

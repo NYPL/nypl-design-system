@@ -3,16 +3,17 @@
 exports[`Radio Button renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-group-column"
+  data-testid="ds-radioGroup"
+  id="column"
 >
   <span
     className="css-0"
-    id="rg-span-title-column"
+    id="column-span-title"
   >
     column
   </span>
   <div
-    aria-labelledby="rg-span-title-column"
+    aria-labelledby="column-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -138,6 +139,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="column-helperErrorText"
   >
     <div
@@ -150,16 +152,17 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
 exports[`Radio Button renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-group-row"
+  data-testid="ds-radioGroup"
+  id="row"
 >
   <span
     className="css-0"
-    id="rg-span-title-row"
+    id="row-span-title"
   >
     row
   </span>
   <div
-    aria-labelledby="rg-span-title-row"
+    aria-labelledby="row-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -285,6 +288,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="row-helperErrorText"
   >
     <div
@@ -297,16 +301,17 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
 exports[`Radio Button renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-group-noLabel"
+  data-testid="ds-radioGroup"
+  id="noLabel"
 >
   <span
     className="css-0"
-    id="rg-span-title-noLabel"
+    id="noLabel-span-title"
   >
     no label
   </span>
   <div
-    aria-labelledby="rg-span-title-noLabel"
+    aria-labelledby="noLabel-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -432,6 +437,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="noLabel-helperErrorText"
   >
     <div
@@ -444,16 +450,17 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
 exports[`Radio Button renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-group-helperText"
+  data-testid="ds-radioGroup"
+  id="helperText"
 >
   <span
     className="css-0"
-    id="rg-span-title-helperText"
+    id="helperText-span-title"
   >
     helperText
   </span>
   <div
-    aria-labelledby="rg-span-title-helperText"
+    aria-labelledby="helperText-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -579,6 +586,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="helperText-helperErrorText"
   >
     <div
@@ -596,16 +604,17 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
 exports[`Radio Button renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-group-invalidText"
+  data-testid="ds-radioGroup"
+  id="invalidText"
 >
   <span
     className="css-0"
-    id="rg-span-title-invalidText"
+    id="invalidText-span-title"
   >
     invalidText
   </span>
   <div
-    aria-labelledby="rg-span-title-invalidText"
+    aria-labelledby="invalidText-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -731,6 +740,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="invalidText-helperErrorText"
   >
     <div
@@ -743,16 +753,17 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
 exports[`Radio Button renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-group-noRequiredLabel"
+  data-testid="ds-radioGroup"
+  id="noRequiredLabel"
 >
   <span
     className="css-0"
-    id="rg-span-title-noRequiredLabel"
+    id="noRequiredLabel-span-title"
   >
     no optional or required label
   </span>
   <div
-    aria-labelledby="rg-span-title-noRequiredLabel"
+    aria-labelledby="noRequiredLabel-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -880,6 +891,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="noRequiredLabel-helperErrorText"
   >
     <div
@@ -892,11 +904,12 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
 exports[`Radio Button renders the UI snapshot correctly 7`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-group-required"
+  data-testid="ds-radioGroup"
+  id="required"
 >
   <span
     className="css-0"
-    id="rg-span-title-required"
+    id="required-span-title"
   >
     required
     <span>
@@ -904,7 +917,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     </span>
   </span>
   <div
-    aria-labelledby="rg-span-title-required"
+    aria-labelledby="required-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -1032,6 +1045,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="required-helperErrorText"
   >
     <div
@@ -1044,16 +1058,17 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
 exports[`Radio Button renders the UI snapshot correctly 8`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-group-invalid"
+  data-testid="ds-radioGroup"
+  id="invalid"
 >
   <span
     className="css-0"
-    id="rg-span-title-invalid"
+    id="invalid-span-title"
   >
     invalid
   </span>
   <div
-    aria-labelledby="rg-span-title-invalid"
+    aria-labelledby="invalid-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -1187,6 +1202,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
+    data-testid="ds-helperErrorText"
     id="invalid-helperErrorText"
   >
     <div
@@ -1199,16 +1215,17 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
 exports[`Radio Button renders the UI snapshot correctly 9`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-group-disabled"
+  data-testid="ds-radioGroup"
+  id="disabled"
 >
   <span
     className="css-0"
-    id="rg-span-title-disabled"
+    id="disabled-span-title"
   >
     disabled
   </span>
   <div
-    aria-labelledby="rg-span-title-disabled"
+    aria-labelledby="disabled-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -1342,6 +1359,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="disabled-helperErrorText"
   >
     <div
@@ -1354,16 +1372,17 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
 exports[`Radio Button renders the UI snapshot correctly 10`] = `
 <div
   className="css-1xdhyk6"
-  id="radio-group-jsxLabels"
+  data-testid="ds-radioGroup"
+  id="jsxLabels"
 >
   <span
     className="css-0"
-    id="rg-span-title-jsxLabels"
+    id="jsxLabels-span-title"
   >
     RadioGroup example
   </span>
   <div
-    aria-labelledby="rg-span-title-jsxLabels"
+    aria-labelledby="jsxLabels-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -1513,6 +1532,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="jsxLabels-helperErrorText"
   >
     <div
@@ -1525,16 +1545,17 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
 exports[`Radio Button renders the UI snapshot correctly 11`] = `
 <div
   className="css-kle7zy"
-  id="radio-group-chakra"
+  data-testid="ds-radioGroup"
+  id="chakra"
 >
   <span
     className="css-0"
-    id="rg-span-title-chakra"
+    id="chakra-span-title"
   >
     chakra
   </span>
   <div
-    aria-labelledby="rg-span-title-chakra"
+    aria-labelledby="chakra-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -1660,6 +1681,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="chakra-helperErrorText"
   >
     <div
@@ -1673,16 +1695,16 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"
-  id="radio-group-props"
+  id="props"
 >
   <span
     className="css-0"
-    id="rg-span-title-props"
+    id="props-span-title"
   >
     props
   </span>
   <div
-    aria-labelledby="rg-span-title-props"
+    aria-labelledby="props-span-title"
     className="chakra-radio-group css-0"
     role="radiogroup"
   >
@@ -1808,6 +1830,7 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
+    data-testid="ds-helperErrorText"
     id="props-helperErrorText"
   >
     <div
