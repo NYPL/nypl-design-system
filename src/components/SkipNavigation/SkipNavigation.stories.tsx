@@ -20,7 +20,6 @@ type Story = StoryObj<typeof SkipNavigation>;
  */
 export const WithControls: Story = {
   args: {
-    id: "skip-nav",
     target: "#mainContent",
   },
   render: (args) => (

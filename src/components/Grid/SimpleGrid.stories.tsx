@@ -33,7 +33,6 @@ export const WithControls: Story = {
   args: {
     columns: undefined,
     gap: "grid.l",
-    id: "simpleGrid-id",
   },
   parameters: {
     design: {

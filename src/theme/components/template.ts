@@ -13,62 +13,123 @@ const Template = defineStyleConfig({
       // 320px screen width - 32px padding = 288px
       minWidth: "288px",
       m: "0 auto",
-      p: responsiveMargin,
-      gridTemplateAreas: `"breakout" "top" "main" "bottom"`,
-      gridTemplateColumns: "100%",
+      px: responsiveMargin,
+      gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "auto",
       columnGap: responsiveGap,
       "& > *:not(:last-child)": { mb: responsiveGap },
+
+      /** The "content" area should span the full width of the content area from
+       * a mobile-first viewpoint. Using -1 for the "last column" value ensures
+       * that these elements span all columns in the grid. CSS classes were used
+       * for the "content" and "sidebar" ragions in order to simplify how
+       * variants are handled.
+       * */
+      "& .reservoir-template-content": {
+        gridColumn: { base: "1 / -1" },
+      },
     };
   }),
+  /** If the sidebar is enabled, the starting positions (left or right) and
+   * spans of the "content" and "sidebar" regions are adjusted based on
+   * responsive column patterns established by the NYPL design standards.
+   *
+   * Content:
+   * - Small mobile:            1/1 width
+   * - Large mobile:            1/2 width
+   * - Small tablet:            2/3 width
+   * - Large tablet & desktop:  3/4 width
+   *
+   * Sidebar:
+   * - Small mobile:            1/1 width
+   * - Large mobile:            1/2 width
+   * - Small tablet:            1/3 width
+   * - Large tablet & desktop:  1/4 width
+   * */
   variants: {
-    left: {
-      gridTemplateAreas: {
-        base: `"breakout" "top" "sidebar" "main" "bottom"`,
-        md: `"breakout breakout" "top top" "sidebar main" "bottom bottom"`,
+    sidebarLeft: {
+      "& .reservoir-template-content": {
+        gridColumn: {
+          sm: "7 / -1",
+          md: "5 / -1",
+          lg: "4 / -1",
+        },
       },
-      gridTemplateColumns: {
-        base: "100%",
-        md: "repeat(2, minmax(100px, 1fr))",
-        lg: "minmax(100px, 1fr) minmax(200px, 2fr)",
-        xl: "minmax(100px, 1fr) minmax(300px, 3fr)",
+      "& .reservoir-template-sidebar": {
+        gridColumn: {
+          base: "1 / -1",
+          sm: "1 / 7",
+          md: "1 / 5",
+          lg: "1 / 4",
+        },
       },
     },
-    right: {
-      gridTemplateAreas: {
-        base: `"breakout" "top" "main" "sidebar" "bottom"`,
-        md: `"breakout breakout" "top top" "main sidebar" "bottom bottom"`,
+    sidebarRight: {
+      "& .reservoir-template-content": {
+        gridColumn: {
+          sm: "1 / 7",
+          md: "1 / 9",
+          lg: "1 / 10",
+        },
       },
-      gridTemplateColumns: {
-        base: "100%",
-        md: "repeat(2, minmax(100px, 1fr))",
-        lg: "minmax(200px, 2fr) minmax(100px, 1fr)",
-        xl: "minmax(300px, 3fr) minmax(100px, 1fr)",
+      "& .reservoir-template-sidebar": {
+        gridColumn: {
+          base: "1 / -1",
+          sm: "7 / -1",
+          md: "9 / -1",
+          lg: "10 / -1",
+        },
+      },
+    },
+    narrow: {
+      "& .reservoir-template-content": {
+        gridColumn: {
+          base: "1 / -1",
+          md: "2 / 12",
+          lg: "3 / 11",
+        },
       },
     },
   },
+});
+
+const TemplateMain = defineStyleConfig({
+  baseStyle: defineStyle(() => {
+    const { responsiveGap } = useResponsiveSpacing();
+    return {
+      display: "grid",
+      columnGap: responsiveGap,
+      gridColumn: "1 / -1",
+      gridTemplateColumns: "subgrid",
+      gridTemplateRows: "auto",
+      "& > *:not(:last-child)": { mb: responsiveGap },
+    };
+  }),
 });
 
 const TemplateBreakout = defineStyleConfig({
   baseStyle: defineStyle(() => {
     const { responsiveMargin } = useResponsiveSpacing();
     return {
-      width: "100vw",
+      gridColumn: "1 / -1",
       ml: "calc(-50vw + 50%)",
       px: responsiveMargin,
+      width: "100vw",
     };
   }),
 });
 
-const TemplateMainNarrow = defineStyleConfig({
-  baseStyle: defineStyle({
-    maxWidth: "720px",
-    m: "0 auto",
+const TemplateFull = defineStyleConfig({
+  baseStyle: defineStyle(() => {
+    return {
+      gridColumn: "1 / -1",
+    };
   }),
 });
 
 export default {
   Template,
   TemplateBreakout,
-  TemplateMainNarrow,
+  TemplateFull,
+  TemplateMain,
 };

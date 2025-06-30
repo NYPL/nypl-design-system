@@ -43,7 +43,6 @@ export const Controls: Story = {
   args: {
     defaultValue: "4",
     helperText: "This is the helper text for the full group.",
-    id: "radioGroup-id",
     invalidText: "An error occurred :(",
     isDisabled: false,
     isFullWidth: false,

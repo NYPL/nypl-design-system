@@ -34,7 +34,6 @@ type Story = StoryObj<typeof StatusBadge>;
 export const WithControls: Story = {
   args: {
     fontSize: undefined,
-    id: "statusBadge-id",
     variant: undefined,
   },
   parameters: {

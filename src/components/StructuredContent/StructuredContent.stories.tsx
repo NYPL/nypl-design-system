@@ -63,7 +63,6 @@ export const Controls: Story = {
       "arcu bibendum at varius vel pharetra.",
     calloutText: "This is the callout text",
     headingText: "Heading text",
-    id: "structured-content",
     "imageProps.alt": "Image alt text",
     "imageProps.aspectRatio": "square",
     "imageProps.caption": "Image caption",

@@ -19,6 +19,15 @@ export const changelogData: ChangelogData[] = [
     ],
   },
   {
+    date: "2025-06-12",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Accessibility"],
+    notes: [
+      "Display a fallback warning message on JavaScript-disabled browsers.",
+    ],
+  },
+  {
     date: "2024-03-14",
     version: "3.0.0",
     type: "Update",

@@ -31,7 +31,6 @@ type Story = StoryObj<typeof Radio>;
 export const Controls: Story = {
   args: {
     helperText: "This is the helper text!",
-    id: "radio-id",
     invalidText: "This is the error text :(",
     isChecked: undefined,
     isDisabled: false,

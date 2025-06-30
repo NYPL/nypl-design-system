@@ -128,7 +128,7 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
         {tagSetData.length > 1 && isDismissible ? (
           <Button
             data-testid="ds-tagSetFilter-clear-all"
-            id={`${id}-clear-all`}
+            id={`${id ? `${id}-` : ""}tagSetFilter-clear-all`}
             onClick={() =>
               finalOnClick({ id: "clear-filters", label: "Clear filters" })
             }

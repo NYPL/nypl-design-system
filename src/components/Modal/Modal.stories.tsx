@@ -34,7 +34,6 @@ type Story = StoryObj<typeof ModalTrigger>;
 export const WithControls: Story = {
   args: {
     buttonText: "Open Modal",
-    id: "modal-trigger",
     modalProps: {
       variant: "default",
       bodyContent:

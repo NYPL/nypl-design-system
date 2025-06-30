@@ -96,7 +96,6 @@ type Story = StoryObj<typeof FilterBarInline>;
  */
 export const WithControls: Story = {
   args: {
-    id: "filterbar-inline-id",
     heading: "FilterBarInline",
     layout: "row",
   },
