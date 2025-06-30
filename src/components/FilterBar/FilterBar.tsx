@@ -170,7 +170,7 @@ export const FilterBar: React.FC<React.PropsWithChildren<any>> = chakra(
           {isLargerThanMedium ? (
             <>
               {headingText && (
-                <Heading text={headingText} level="h2" size="heading4" />
+                <Heading text={headingText} level="h2" mb="s" size="heading4" />
               )}
               <Stack
                 alignItems={layout === "row" ? "flex-end" : null}

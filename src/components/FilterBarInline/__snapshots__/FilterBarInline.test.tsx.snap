@@ -6,7 +6,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
   id="filter-bar-inline-defaultFilterBarNoButtons-wrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
   >
     FilterBar
   </h2>
@@ -1138,7 +1138,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
   id="filter-bar-inline-filterBarWithClearAllButton-wrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
   >
     FilterBar
   </h2>
@@ -2282,7 +2282,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
   id="filter-bar-inline-filterBarWithSubmitAllButton-wrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
   >
     FilterBar
   </h2>
@@ -3426,7 +3426,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
   id="filter-bar-inline-filterBarWithButtons-wrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
   >
     FilterBar
   </h2>

@@ -1438,11 +1438,10 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
             {backgroundColor}
           </Heading>
           <Text
-            fontWeight="medium"
-            lineHeight="20px"
-            size="tag"
-            m="0"
             color={textColor}
+            fontSize="var(--nypl-fontSizes-desktop-caption) !important"
+            fontWeight="medium"
+            m="0 !important"
           >
             <span style={{ fontWeight: "bold" }}>CSS:</span>{" "}
             {`var(${cssVarName})`}
@@ -1450,10 +1449,9 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
           {colorSource && (
             <Text
               color={textColor}
+              fontSize="var(--nypl-fontSizes-desktop-caption) !important"
               fontWeight="medium"
-              lineHeight="20px"
-              m="0"
-              size="tag"
+              m="0 !important"
             >
               <span style={{ fontWeight: "bold" }}>Source:</span> {colorSource}
             </Text>
