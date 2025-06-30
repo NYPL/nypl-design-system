@@ -46,7 +46,7 @@ export const WithControls: Story = {
   },
   render: (args: any) => (
     <Link className="custom-class" {...args}>
-      {args.children}
+      Link
     </Link>
   ),
   parameters: {
