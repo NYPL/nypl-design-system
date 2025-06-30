@@ -52,7 +52,7 @@ export const TagSetExplore: React.FC<TagSetExploreProps> = chakra(
             <TooltipWrapper key={key} label={tagSet.label}>
               <Box
                 data-testid="ds-tagSetExplore"
-                id={`${tagSet.id}-tagSetExplore-${key}`}
+                id={`${tagSet.id ? `${tagSet.id}-` : ""}tagSetExplore-${key}`}
                 __css={styles}
               >
                 {tagSet.iconName ? (
