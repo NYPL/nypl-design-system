@@ -23,6 +23,21 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
       />
     </div>
   </div>
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The video player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
 </div>
 `;
 
@@ -76,6 +91,21 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       />
     </div>
   </div>
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The video player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
 </div>
 `;
 
@@ -128,6 +158,21 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       />
     </div>
   </div>
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The video player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
 </div>
 `;
 
@@ -144,6 +189,21 @@ exports[`VideoPlayer renders the UI snapshot correctly 4`] = `
       }
     }
   />
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The video player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
 </div>
 `;
 
@@ -170,6 +230,21 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
       />
     </div>
   </div>
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The video player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
 </div>
 `;
 
@@ -196,5 +271,20 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
       />
     </div>
   </div>
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "height": "auto",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The video player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
 </div>
 `;
