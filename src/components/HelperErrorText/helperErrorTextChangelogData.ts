@@ -17,7 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes `ariaAtomic` and `ariaLive` props and instructs developers to use the native HTML attributes instead.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
-      "Removed default spacing values from all internal elements.",
+      "Removes default external spacing.",
     ],
   },
   {
