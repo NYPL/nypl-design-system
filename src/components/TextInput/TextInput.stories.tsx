@@ -170,7 +170,7 @@ export const BrowserStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Invalid
         </Heading>
         <TextInput
@@ -183,7 +183,7 @@ export const BrowserStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Disabled
         </Heading>
         <TextInput

@@ -1,4 +1,4 @@
-import { Stack } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
@@ -23,6 +23,7 @@ const otherSubHeaderTextLong = (
   <>
     <Heading
       level="h2"
+      mb="s"
       size="heading3"
       subtitle="Lorem Parturient Bibendum Aenean Cras"
     >
@@ -31,7 +32,7 @@ const otherSubHeaderTextLong = (
     <Heading level="h3" size="heading6">
       Subheading
     </Heading>
-    <Text>
+    <Text mb="s">
       Donec ullamcorper nulla non metus auctor fringilla. Cras mattis elit{" "}
       <Link href="https://www.nypl.org/locations/snfl/childrens">
         The New York Public Library
@@ -110,12 +111,15 @@ export const WithControls: Story = {
         {...args}
         backgroundImageSrc={getPlaceholderImage()}
         heading={
-          <Heading
-            level="h1"
-            id="1"
-            subtitle="Example Subtitle"
-            text="Hero Primary"
-          />
+          <Box mb="s">
+            <Heading
+              level="h1"
+              id="1"
+              subtitle="Example Subtitle"
+              text="Hero Primary"
+              mb="s"
+            />
+          </Box>
         }
         variant={args.variant}
         subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
@@ -135,7 +139,7 @@ export const WithControls: Story = {
       <Hero
         {...args}
         backgroundImageSrc={getPlaceholderImage()}
-        heading={<Heading level="h1" id="1" text="Hero Campaign" />}
+        heading={<Heading level="h1" id="1" mb="s" text="Hero Campaign" />}
         variant={args.variant}
         imageProps={args.imageProps}
         subHeaderText={otherSubHeaderText}
@@ -157,13 +161,17 @@ export const Primary: Story = {
     <Hero
       backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
       heading={
-        <Heading
-          id="primary-hero"
-          level="h1"
-          overline="Hero Example"
-          subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
-          text="Hero Primary"
-        />
+        <div>
+          <Box>
+            <Heading
+              id="primary-hero"
+              level="h1"
+              overline="Hero Example"
+              subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
+              text="Hero Primary"
+            />
+          </Box>
+        </div>
       }
       variant="primary"
     />
@@ -222,6 +230,7 @@ export const Campaign: Story = {
         <Heading
           id="campaign-hero-default"
           level="h4"
+          mb="s"
           size="heading6"
           text="Campaign Hero at Default Height"
         />
@@ -233,6 +242,7 @@ export const Campaign: Story = {
               level="h1"
               id="campaign-hero-default-heading"
               text="Hero Campaign"
+              mb="s"
             />
           }
           imageProps={{
@@ -246,6 +256,7 @@ export const Campaign: Story = {
         <Heading
           id="campaign-hero-long-text"
           level="h4"
+          mb="s"
           size="heading6"
           text="Campaign Hero with Long Text"
         />
@@ -259,6 +270,7 @@ export const Campaign: Story = {
               overline="Example"
               subtitle="Donec id elit non mi porta gravida at eget metus."
               text="Hero Campaign"
+              mb="s"
             />
           }
           imageProps={imageProps}
@@ -278,6 +290,7 @@ export const CampaignDarkBackgroundImage: Story = {
         <Heading
           level="h1"
           id="campaign-hero-default-heading"
+          mb="s"
           text="Hero Campaign"
         />
       }
@@ -294,6 +307,7 @@ export const CampaignBackgroundColors: Story = {
         <Heading
           id="campaign-hero-custom-background-color"
           level="h4"
+          mb="s"
           size="heading6"
           text="Campaign Hero with backdrop background color"
         />
@@ -304,6 +318,7 @@ export const CampaignBackgroundColors: Story = {
             <Heading
               level="h1"
               id="campaign-hero-long-text-heading"
+              mb="s"
               text="Hero Campaign"
             />
           }
@@ -314,6 +329,7 @@ export const CampaignBackgroundColors: Story = {
       <div>
         <Heading
           id="campaign-hero-custom-background-and-foreground-colors"
+          mb="s"
           size="heading6"
           text="Campaign Hero with separate backdrop and foreground background design token color"
         />
@@ -326,6 +342,7 @@ export const CampaignBackgroundColors: Story = {
             <Heading
               level="h1"
               id="campaign-hero-long-text-heading"
+              mb="s"
               text="Hero Campaign"
             />
           }
@@ -342,6 +359,7 @@ export const TextColorStyles: Story = {
       <div>
         <Heading
           id="campaign-hero-default"
+          mb="s"
           size="heading6"
           text="Campaign Hero with Default Colors"
         />
@@ -351,6 +369,7 @@ export const TextColorStyles: Story = {
           heading={
             <Heading
               level="h1"
+              mb="s"
               id="campaign-hero-default-heading"
               text="Hero Campaign"
             />
@@ -363,6 +382,7 @@ export const TextColorStyles: Story = {
       <div>
         <Heading
           id="campaign-hero-default"
+          mb="s"
           size="heading6"
           text="Campaign Hero with Custom Background and Text Colors"
         />
@@ -374,6 +394,7 @@ export const TextColorStyles: Story = {
           heading={
             <Heading
               level="h1"
+              mb="s"
               id="campaign-hero-default-heading"
               text="Hero Campaign"
             />
@@ -386,6 +407,7 @@ export const TextColorStyles: Story = {
       <div>
         <Heading
           id="campaign-hero-long-text"
+          mb="s"
           size="heading6"
           text='Campaign Hero with Custom Background Color and "Dark" Text'
         />
@@ -397,8 +419,7 @@ export const TextColorStyles: Story = {
             <Heading
               level="h1"
               id="campaign-hero-long-text-heading"
-              overline="Example"
-              subtitle="Donec id elit non mi porta gravida at eget metus."
+              mb="s"
               text="Hero Campaign"
             />
           }
@@ -418,9 +439,10 @@ const CampaignFallBackExample = () => {
     "https://iiif.nypl.org/iiif/2/105224/full/!900,900/0/default.jpg";
 
   return (
-    <Stack spacing="l">
+    <Stack spacing="0">
       <Heading
         id="campaign-hero-default"
+        mb="s"
         size="heading6"
         text="Campaign Hero with fallback image"
       />
@@ -431,6 +453,7 @@ const CampaignFallBackExample = () => {
           <Heading
             level="h1"
             id="campaign-fallback-image"
+            mb="s"
             text="Hero Campaign"
           />
         }

@@ -240,7 +240,7 @@ const FilterBarInlineHeadingStory = () => {
   };
 
   return (
-    <VStack align="left">
+    <VStack align="left" spacing="l">
       <FilterBarInline
         heading={<Heading level="h3">Custom H3 Heading</Heading>}
         renderChildren={renderFilterComponents}

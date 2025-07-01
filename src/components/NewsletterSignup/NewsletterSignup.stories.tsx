@@ -230,7 +230,7 @@ export const ComponentStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Form View (default)
         </Heading>
         <NewsletterSignup
@@ -245,7 +245,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Form View with Invalid Email
         </Heading>
         <NewsletterSignup
@@ -261,7 +261,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Submitting View (disabled inputs)
         </Heading>
         <NewsletterSignup
@@ -276,7 +276,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Confirmation View
         </Heading>
         <NewsletterSignup
@@ -292,7 +292,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Confirmation View with Custom Element Confirmation Message
         </Heading>
         <NewsletterSignup
@@ -316,7 +316,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Error View
         </Heading>
         <NewsletterSignup
@@ -332,7 +332,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Error View with Custom Element Error Message
         </Heading>
         <NewsletterSignup
