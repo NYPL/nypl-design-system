@@ -187,6 +187,9 @@ export const ButtonVariants: Story = {
       <Button variant="callout" id="callout-btn">
         Callout
       </Button>
+      <Button variant="iconOnly" id="nobrand-btn">
+        <Icon name="close" size="small" />
+      </Button>
       <Button variant="noBrand" id="nobrand-btn">
         No Brand
       </Button>
@@ -257,6 +260,18 @@ const buttonData = [
     </Button>,
     <Button variant="callout" id="c-large" key="c-large" size="large">
       Callout
+    </Button>,
+  ],
+  [
+    "iconOnly",
+    <Button variant="iconOnly" id="io-small" key="io-small" size="small">
+      <Icon name="close" size="small" />
+    </Button>,
+    <Button variant="iconOnly" id="io-medium" key="io-medium" size="medium">
+      <Icon name="close" size="small" />
+    </Button>,
+    <Button variant="iconOnly" id="io-large" key="io-large" size="large">
+      <Icon name="close" size="small" />
     </Button>,
   ],
   [

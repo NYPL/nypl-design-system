@@ -70,7 +70,7 @@ export const Button: ChakraComponent<
         type = "button",
         ...rest
       } = props;
-      const groupProps = useButtonGroup();
+      const isButtonGroupDisabled = useButtonGroup();
       const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
       let styles: any = {};
 
@@ -88,7 +88,9 @@ export const Button: ChakraComponent<
       return (
         <ChakraButton
           id={id}
-          isDisabled={groupProps?.isDisabled || isDisabled}
+          // ButtonGroup's `isDisabled` state takes precendence
+          // over the individual button
+          isDisabled={isButtonGroupDisabled || isDisabled}
           ref={ref}
           type={type}
           {...btnCallback}

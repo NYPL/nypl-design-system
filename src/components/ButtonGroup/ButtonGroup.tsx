@@ -5,7 +5,7 @@ import {
   Stack,
   useStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useMemo } from "react";
+import React, { forwardRef } from "react";
 
 import { LayoutTypes } from "../../helpers/types";
 import { ButtonGroupContext } from "./ButtonGroupContext";
@@ -51,11 +51,6 @@ export const ButtonGroup: ChakraComponent<
         buttonWidth: buttonWidth,
       });
 
-      const buttonGroupContextValue = useMemo(
-        () => ({ isDisabled }),
-        [isDisabled]
-      );
-
       return (
         <Stack
           className={className}
@@ -67,7 +62,7 @@ export const ButtonGroup: ChakraComponent<
           sx={styles}
           {...rest}
         >
-          <ButtonGroupContext.Provider value={buttonGroupContextValue}>
+          <ButtonGroupContext.Provider value={isDisabled}>
             {children}
           </ButtonGroupContext.Provider>
         </Stack>

@@ -21,7 +21,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `type` and `onClick` props (as HTML equivalents may be used) and updates docs.",
       "Renames `buttonType` to `variant`.",
       "Replaces `buttonSizesArray` with shared sizes array.",
-      "Removes `Children.map` logic and asks consuming apps to pass the `iconOnly` variant if the button only contains an icon. Also adds a hook to consume `ButtonGroup` context and moves `gap` style to theme file.",
+      "Removes `Children.map` logic; consuming apps must now use the `iconOnly` variant for icon-only buttons.",
     ],
   },
   {
