@@ -23,7 +23,11 @@ export const ComponentDocsHeader = ({
   versionLatest,
 }: ComponentDocsHeaderProps) => {
   return (
-    <Box display={{ base: "block", md: "grid" }} gridTemplateColumns="3fr 1fr">
+    <Box
+      display={{ base: "block", sm: "grid" }}
+      gap="s"
+      gridTemplateColumns="3fr 1fr"
+    >
       {
         <Heading
           level="h1"

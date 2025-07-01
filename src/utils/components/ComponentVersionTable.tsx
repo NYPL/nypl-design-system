@@ -20,15 +20,14 @@ export const ComponentVersionTable = (props: ComponentVersionTableProps) => {
       borderRadius="4px"
       height="fit-content"
       px="s"
-      py="xxs"
+      py="xs"
       size="caption"
       width={{ base: "100%", md: "fit-content" }}
     >
-      <Box as="span" fontSize="12px !important">
+      <Box as="span" display="block" fontSize="12px !important" mb="xxs">
         <strong>Added:</strong> v{added}
       </Box>
-      <br />
-      <Box as="span" fontSize="12px !important">
+      <Box as="span" display="block" fontSize="12px !important">
         <strong>Latest:</strong> {finalLatest}
       </Box>
     </Text>
