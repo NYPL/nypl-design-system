@@ -195,6 +195,11 @@ export const Heading: ChakraComponent<
               ...styles.base,
               ...wrapperStyles,
             };
+      /** When overline or subtitle is passed, the ...rest props should not be
+       * applied to the <h> element and should only be applied to the <hgroup>
+       * element. The conditional statement below is written such that when
+       * neither of those props are passed, ...rest is a applied. */
+      const headingRest = !overline && !subtitle && { ...rest };
 
       /** The final text elements that will make up the rendered component. */
       const finalContent = (
@@ -216,7 +221,7 @@ export const Heading: ChakraComponent<
             sx={{
               ...headingStyles,
             }}
-            {...rest}
+            {...headingRest}
           >
             {content}
           </ChakraHeading>
