@@ -1,34 +1,38 @@
 import { Meta, Source } from "@storybook/blocks";
+import ComponentDocsHeader from "../utils/components/ComponentDocsHeader";
 
 <Meta title="Hooks/useNYPLTheme" />
 
-# useNYPLTheme
+<ComponentDocsHeader
+  category="Reservoir Custom Hook"
+  componentName="useNYPLTheme"
+  summary="Provides consuming apps with NYPL-specific style values"
+  versionAdded="0.25.2"
+  versionLatest="0.25.2"
+/>
 
-| Hook Version | DS Version |
-| ------------ | ---------- |
-| Added        | `0.25.2`   |
-| Latest       | `0.25.2`   |
+<Source
+  code={`
+import {
+  useNYPLTheme
+} from "@nypl/design-system-react-components";
+// ...
+const theme = useNYPLTheme();
+`}
+  language="jsx"
+/>
+
+## Usage
 
 This custom hook is based on Chakra UI's `useTheme` hook. If your application
 does not use CSS or SCSS files and you want to write CSS-in-JS styles in your
 React components, the `useNYPLTheme` hook will provide you with NYPL-specific
 style values.
 
-## Usage
-
 This hook depends on the `DSProvider` component and if the function is used
 outside of this wrapper component, then the theme object will be empty. After
 importing and rendering the `DSProvider` wrapper component, your children
 components can use this hook function.
-
-<Source
-  code={`
-import { useNYPLTheme } from "@nypl/design-system-react-components";
-// ...
-const theme = useNYPLTheme();
-`}
-  language="jsx"
-/>
 
 The `theme` variable will be a JS object with design token style values.
 This will allow you to use NYPL-specific styles in your components through CSS-in-JS.

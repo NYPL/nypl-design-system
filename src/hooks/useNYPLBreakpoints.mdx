@@ -1,15 +1,26 @@
 import { Canvas, Meta, Source } from "@storybook/blocks";
 import { BreakPointsExample } from "./useNYPLBreakpoints.stories";
+import ComponentDocsHeader from "../utils/components/ComponentDocsHeader";
 import Link from "../components/Link/Link";
 
 <Meta title="Hooks/useNYPLBreakpoints" />
 
-# useNYPLBreakpoints
+<ComponentDocsHeader
+  category="Reservoir Custom Hook"
+  componentName="useNYPLBreakpoints"
+  summary="Provides methods to execute code based on the current breakpoint"
+  versionAdded="1.0.4"
+  versionLatest="Prerelease"
+/>
 
-| Hook Version | DS Version   |
-| ------------ | ------------ |
-| Added        | `1.0.4`      |
-| Latest       | `Prerelease` |
+<Source
+  code={`
+import {
+  useNYPLBreakpoints
+} from "@nypl/design-system-react-components";
+`}
+  language="jsx"
+/>
 
 ## Table of Contents
 
