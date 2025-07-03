@@ -5,6 +5,11 @@ import renderer from "react-test-renderer";
 
 import Select from "./Select";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 const baseProps = {
   helperText: "This is the helper text.",
   id: "select",
@@ -27,6 +32,19 @@ describe("Select Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <Select
+        helperText="This is the helper text."
+        labelText="What is your favorite color?"
+        name="color"
+      >
+        {baseOptions}
+      </Select>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test with hidden label", async () => {
     const { container } = render(
       <Select {...baseProps} showLabel={false}>
@@ -38,6 +56,16 @@ describe("Select Accessibility", () => {
 });
 
 describe("Select", () => {
+  it("should add an id to the component even if none is passed", () => {
+    render(
+      <Select labelText="Test Label" name="test-select">
+        {baseOptions}
+      </Select>
+    );
+    const selectInput = screen.getByTestId("ds-select");
+    expect(selectInput).toHaveAttribute("id", "test-id-componentWrapper");
+  });
+
   it("renders a label, select, option, and helper text DOM elements", () => {
     render(<Select {...baseProps}>{baseOptions}</Select>);
 

@@ -7,11 +7,29 @@ import renderer from "react-test-renderer";
 
 import TextInput, { TextInputRefType } from "./TextInput";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the input element", async () => {
     const { container } = render(
       <TextInput
         id="textInput"
+        isRequired
+        labelText="Custom input label"
+        onChange={jest.fn()}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <TextInput
         isRequired
         labelText="Custom input label"
         onChange={jest.fn()}
@@ -83,6 +101,23 @@ describe("TextInput", () => {
         placeholder="Input Placeholder"
         type="text"
       />
+    );
+  });
+
+  it("should add an id to the component even if none is passed", () => {
+    utils.rerender(
+      <TextInput
+        isRequired
+        labelText="Custom Input Label"
+        onChange={changeHandler}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+
+    expect(screen.getByTestId("ds-textInput")).toHaveAttribute(
+      "id",
+      "test-id-componentWrapper"
     );
   });
 

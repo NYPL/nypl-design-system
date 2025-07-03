@@ -8,7 +8,7 @@ import renderer from "react-test-renderer";
 import Radio from "../Radio/Radio";
 import RadioGroup from "./RadioGroup";
 
-describe("Radio Accessibility", () => {
+describe("RadioGroup Accessibility", () => {
   it("passes axe accessibility with string labels", async () => {
     const { container } = render(
       <RadioGroup
@@ -75,9 +75,36 @@ describe("Radio Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+  it("passes axe accessibility with no id", async () => {
+    const { container } = render(
+      <RadioGroup
+        labelText="Test Label"
+        name="test4"
+        helperText="This is the helper text for the full group."
+        invalidText="This is the error text :("
+      >
+        <Radio value="2" labelText="Radio 2" />
+        <Radio value="3" labelText="Radio 3" />
+        <Radio value="4" labelText="Radio 4" />
+      </RadioGroup>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
-describe("Radio Button", () => {
+describe("RadioGroup", () => {
+  it("should not render an id if none is passed", () => {
+    render(
+      <RadioGroup labelText="Test Label" name="test1">
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
+      </RadioGroup>
+    );
+    const radioInput = screen.getByTestId("ds-radioGroup");
+    expect(radioInput).not.toHaveAttribute("id");
+  });
+
   it("renders with radio inputs and a label", () => {
     render(
       <RadioGroup id="radioGroup" labelText="Test Label" name="test1">

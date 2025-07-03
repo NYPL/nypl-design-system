@@ -4,7 +4,6 @@ exports[`Renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-featuredContent"
-  id="-r0-"
 >
   <div
     className="css-0"
@@ -74,7 +73,6 @@ exports[`Renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-featuredContent"
-  id="-r2-"
 >
   <div
     className="css-0"
@@ -144,7 +142,6 @@ exports[`Renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-featuredContent"
-  id="-r4-"
 >
   <div
     className="css-0"
@@ -214,7 +211,6 @@ exports[`Renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-featuredContent"
-  id="-r6-"
 >
   <div
     className="css-0"
@@ -284,7 +280,6 @@ exports[`Renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-featuredContent"
-  id="-r8-"
 >
   <div
     className="css-0"
@@ -354,7 +349,6 @@ exports[`Renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-featuredContent"
-  id="-ra-"
 >
   <div
     className="css-0"

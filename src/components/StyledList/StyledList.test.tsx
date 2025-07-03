@@ -34,6 +34,17 @@ describe("StyledList Accessibility", () => {
 });
 
 describe("StyledList", () => {
+  it("should not render an id if none is passed", () => {
+    render(
+      <StyledList>
+        <li>Mahi-mahi</li>
+        <li>Golden trout</li>
+      </StyledList>
+    );
+    const styledList = screen.getByTestId("ds-styledList");
+    expect(styledList).not.toHaveAttribute("id");
+  });
+
   it("renders unordered list", () => {
     render(
       <StyledList>

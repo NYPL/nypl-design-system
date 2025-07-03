@@ -6,9 +6,19 @@ import renderer from "react-test-renderer";
 
 import Radio from "./Radio";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Radio Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
     const { container } = render(<Radio id="inputID" labelText="Test Label" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(<Radio labelText="Test Label" />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
@@ -37,6 +47,11 @@ describe("Radio Accessibility", () => {
 });
 
 describe("Radio Button", () => {
+  it("should add an id to the component even if none is passed", () => {
+    render(<Radio labelText="Test Label" />);
+    const radioInput = screen.getByTestId("ds-radio");
+    expect(radioInput).toHaveAttribute("id", "test-id-componentWrapper");
+  });
   it("renders with a radio input and label", () => {
     render(<Radio id="inputID" labelText="Test Label" />);
     expect(screen.getByLabelText("Test Label")).toBeInTheDocument();

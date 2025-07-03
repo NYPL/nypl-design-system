@@ -5,6 +5,11 @@ import renderer from "react-test-renderer";
 
 import NewsletterSignup from "./NewsletterSignup";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 // If you want to see what's happening, insert below render()
 // screen.debug();
 
@@ -18,6 +23,24 @@ describe("NewsletterSignup Accessibility", () => {
   const onSubmit = jest.fn();
   const onChange = jest.fn();
   const valueEmail = "";
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <NewsletterSignup
+        className="my-class"
+        formHelperText="Form helper"
+        onSubmit={onSubmit}
+        onChange={onChange}
+        valueEmail={valueEmail}
+        title={titleString}
+        errorHeading={errorHeading}
+        confirmationHeading={confirmationHeading}
+        confirmationText={confirmationText}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("Form state w/ all optional props (displayed and undisplayed) passes accessibility", async () => {
     const { container } = render(
       <NewsletterSignup
@@ -118,6 +141,25 @@ describe("NewsletterSignup Unit Tests", () => {
   const onSubmit = jest.fn();
   const onChange = jest.fn();
   const valueEmail = "";
+
+  it("should add an id to the component even if none is passed", () => {
+    render(
+      <NewsletterSignup
+        onSubmit={onSubmit}
+        onChange={onChange}
+        valueEmail={valueEmail}
+        title={titleString}
+        errorHeading={errorHeading}
+        confirmationHeading={confirmationHeading}
+        confirmationText={confirmationText}
+      />
+    );
+    expect(screen.getByTestId("ds-newsletterSignup")).toHaveAttribute(
+      "id",
+      "test-id"
+    );
+  });
+
   it("Renders the Minimum Required Elements for the Form", () => {
     render(
       <NewsletterSignup

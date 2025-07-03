@@ -84,7 +84,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
-      id="video-player-with-text-helperText"
+      id="video-player-with-text-helperErrorText"
     >
       <div
         className="css-0"
@@ -155,7 +155,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
-      id="video-player-with-text-helperText"
+      id="video-player-with-text-helperErrorText"
     >
       <div
         className="css-0"

@@ -6,6 +6,11 @@ import { useEffect } from "react";
 import MultiSelect from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 const items = [
   { id: "dogs", name: "Dogs", isDisabled: false },
   { id: "cats", name: "Cats", isDisabled: false },
@@ -107,7 +112,6 @@ describe("MultiSelect Accessibility", () => {
   it("should have no axe violations for the 'multi-select' component", async () => {
     const { container } = render(
       <MultiSelect
-        id="multiselect-test-id"
         buttonText="Multiselect button text"
         isDefaultOpen={false}
         isSearchable={false}
@@ -137,6 +141,26 @@ describe("MultiSelect", () => {
 
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
+
+  it("should add an id to the component even if none is passed", () => {
+    render(
+      <MultiSelect
+        buttonText="Multiselect button text"
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
+        defaultItemsVisible={defaultItemsVisible}
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    expect(screen.getByTestId("ds-multiSelect")).toHaveAttribute(
+      "id",
+      "test-id"
+    );
+  });
 
   it("should initially render with provided id", () => {
     const { container } = render(

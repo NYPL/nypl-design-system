@@ -13,6 +13,11 @@ describe("Heading Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(<Heading level="h1" text="Heading 1" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test with hgroup element", async () => {
     const { container } = render(
       <Heading
@@ -28,6 +33,10 @@ describe("Heading Accessibility", () => {
 });
 
 describe("Heading", () => {
+  it("should not render an id if none is passed", () => {
+    render(<Heading level="h1" text="Heading 1" />);
+    expect(screen.getByRole("heading")).not.toHaveAttribute("id");
+  });
   it("renders and HTML heading element with the correct level", () => {
     render(<Heading id="h1" level="h1" text="Heading 1" />);
     expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();

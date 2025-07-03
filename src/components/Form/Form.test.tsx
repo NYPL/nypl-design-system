@@ -6,9 +6,19 @@ import renderer from "react-test-renderer";
 import Form, { FormRow, FormField } from "./Form";
 import TextInput from "../TextInput/TextInput";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Form Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(<Form id="form" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(<Form />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
@@ -27,6 +37,12 @@ describe("Form Accessibility", () => {
 });
 
 describe("Form", () => {
+  it("should add an id to the component even if none is passed", () => {
+    render(<Form />);
+    const form = screen.getByTestId("ds-form");
+    expect(form).toHaveAttribute("id", "test-id");
+  });
+
   it("renders a <form> element", () => {
     render(<Form id="form" />);
     expect(screen.getByTestId("ds-form")).toBeInTheDocument();

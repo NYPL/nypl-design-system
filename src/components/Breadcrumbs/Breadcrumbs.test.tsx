@@ -59,6 +59,13 @@ describe("Breadcrumbs Accessibility", () => {
 });
 
 describe("Breadcrumbs", () => {
+  it("should not render an id if none is passed", () => {
+    render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
+
+    const container = screen.getByTestId("ds-breadcrumbs");
+    expect(container).not.toHaveAttribute("id");
+  });
+
   it("Renders a tag with custom text", () => {
     render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
 

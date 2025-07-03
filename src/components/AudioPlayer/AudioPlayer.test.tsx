@@ -58,6 +58,11 @@ describe("AudioPlayer valid render", () => {
     );
   });
 
+  it("should not render an id if none is passed", () => {
+    const container = screen.getByTestId("ds-audioPlayer");
+    expect(container).not.toHaveAttribute("id");
+  });
+
   it("Renders AudioPlayer container", () => {
     expect(screen.getByTestId("ds-audioPlayer")).toBeInTheDocument();
   });

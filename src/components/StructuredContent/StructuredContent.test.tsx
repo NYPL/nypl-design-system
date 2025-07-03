@@ -133,6 +133,27 @@ describe("StructuredContent Accessibility", () => {
 });
 
 describe("StructuredContent", () => {
+  it("should not render an id if none is passed", () => {
+    render(
+      <StructuredContent
+        bodyContent={htmlStringBodyContent}
+        calloutText="This is the callout text"
+        headingText="Heading text"
+        imageProps={{
+          alt: "Image alt text",
+          aspectRatio: "original",
+          caption: "Image caption",
+          credit: "Image credit",
+          position: "left",
+          size: "medium",
+          src: getPlaceholderImage("smaller", 0),
+        }}
+      />
+    );
+    const structuredContent = screen.getByTestId("ds-structuredContent");
+    expect(structuredContent).not.toHaveAttribute("id");
+  });
+
   it("renders two headings, an image, and body text", () => {
     render(
       <StructuredContent

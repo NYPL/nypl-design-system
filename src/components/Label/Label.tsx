@@ -50,6 +50,7 @@ export const Label: ChakraComponent<
     return (
       <Box
         as="label"
+        data-testid="ds-label"
         id={id}
         htmlFor={htmlFor}
         ref={ref}

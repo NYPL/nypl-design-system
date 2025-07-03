@@ -78,7 +78,7 @@ export const FilterBarInline: ChakraComponent<
 
       return (
         <ComponentWrapper
-          id={`${mainId}-filterBarInline`}
+          id={mainId}
           data-testid="ds-filterBarInline"
           headingText={finalHeading}
           ref={ref}

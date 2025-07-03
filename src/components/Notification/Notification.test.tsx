@@ -7,7 +7,21 @@ import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import Notification from "./Notification";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Notification Accessibility", () => {
+  it("passes axe accessibility test no id", async () => {
+    const { container } = render(
+      <Notification
+        notificationContent={<>Notification content.</>}
+        notificationHeading="Notification Heading"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
   it("passes axe accessibility test with heading", async () => {
     const { container } = render(
       <Notification
@@ -69,6 +83,20 @@ describe("Notification", () => {
 
   it("renders Notification heading child component", () => {
     expect(screen.getByText("Notification Heading")).toBeInTheDocument();
+  });
+
+  it("should add an id to the component even if none is passed", () => {
+    utils.rerender(
+      <Notification
+        aria-label="Notification label"
+        notificationContent={<>Notification content.</>}
+        notificationHeading={<Heading level="h4">Custom H4 Heading</Heading>}
+      />
+    );
+    expect(screen.getByTestId("ds-notification")).toHaveAttribute(
+      "id",
+      "test-id"
+    );
   });
 
   it("renders a custom heading level", () => {

@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import React from "react";
 import renderer from "react-test-renderer";
 
 import TagSet from "./TagSet";
@@ -99,6 +98,12 @@ describe("TagSet Accessibility", () => {
 });
 
 describe("TagSet Explore", () => {
+  it("should not render an id if none is passed", () => {
+    render(<TagSet tagSetData={exploreTagSetData.simple} variant="explore" />);
+    const tagSet = screen.getByTestId("ds-tagSet");
+    expect(tagSet).not.toHaveAttribute("id");
+  });
+
   it("renders tags", () => {
     // Seven color tags were passed as tags to display.
     render(<TagSet tagSetData={exploreTagSetData.simple} variant="explore" />);

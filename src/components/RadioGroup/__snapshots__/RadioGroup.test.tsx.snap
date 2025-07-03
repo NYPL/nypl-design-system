@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Radio Button renders the UI snapshot correctly 1`] = `
+exports[`RadioGroup renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-radioGroup"
@@ -22,7 +22,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -78,7 +78,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label
@@ -149,7 +149,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 2`] = `
+exports[`RadioGroup renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-radioGroup"
@@ -171,7 +171,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -227,7 +227,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label
@@ -298,7 +298,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 3`] = `
+exports[`RadioGroup renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-radioGroup"
@@ -320,7 +320,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -376,7 +376,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label
@@ -447,7 +447,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 4`] = `
+exports[`RadioGroup renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-radioGroup"
@@ -469,7 +469,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -525,7 +525,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label
@@ -601,7 +601,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 5`] = `
+exports[`RadioGroup renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-radioGroup"
@@ -623,7 +623,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -679,7 +679,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label
@@ -750,7 +750,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 6`] = `
+exports[`RadioGroup renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-radioGroup"
@@ -772,7 +772,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -829,7 +829,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label
@@ -901,7 +901,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 7`] = `
+exports[`RadioGroup renders the UI snapshot correctly 7`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-radioGroup"
@@ -926,7 +926,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -983,7 +983,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label
@@ -1055,7 +1055,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 8`] = `
+exports[`RadioGroup renders the UI snapshot correctly 8`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-radioGroup"
@@ -1077,7 +1077,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -1137,7 +1137,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label
@@ -1212,7 +1212,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 9`] = `
+exports[`RadioGroup renders the UI snapshot correctly 9`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-radioGroup"
@@ -1234,7 +1234,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -1294,7 +1294,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label
@@ -1369,7 +1369,7 @@ exports[`Radio Button renders the UI snapshot correctly 9`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 10`] = `
+exports[`RadioGroup renders the UI snapshot correctly 10`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-radioGroup"
@@ -1391,7 +1391,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="arts-componentWrapper"
       >
         <label
@@ -1459,7 +1459,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="English-componentWrapper"
       >
         <label
@@ -1542,7 +1542,7 @@ exports[`Radio Button renders the UI snapshot correctly 10`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 11`] = `
+exports[`RadioGroup renders the UI snapshot correctly 11`] = `
 <div
   className="css-kle7zy"
   data-testid="ds-radioGroup"
@@ -1564,7 +1564,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -1620,7 +1620,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label
@@ -1691,7 +1691,7 @@ exports[`Radio Button renders the UI snapshot correctly 11`] = `
 </div>
 `;
 
-exports[`Radio Button renders the UI snapshot correctly 12`] = `
+exports[`RadioGroup renders the UI snapshot correctly 12`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"
@@ -1713,7 +1713,7 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
     >
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-2-componentWrapper"
       >
         <label
@@ -1769,7 +1769,7 @@ exports[`Radio Button renders the UI snapshot correctly 12`] = `
       </div>
       <div
         className="css-1xdhyk6"
-        data-testid="ds-componentWrapper"
+        data-testid="ds-radio"
         id="radio-3-componentWrapper"
       >
         <label

@@ -4,12 +4,12 @@ exports[`FeedbackBox renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
   data-testid="ds-feedbackBox"
-  id="-r0-"
+  id="test-id"
 >
   <button
     className="chakra-button css-1xdhyk6"
     data-testid="ds-button"
-    id="-r0--feedback-open"
+    id="test-id-feedback-open"
     onClick={[Function]}
     type="button"
   >
