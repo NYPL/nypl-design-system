@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Documentation"],
-    notes: ["Renames `type` to `variant`."],
+    notes: [
+      "Renames `type` to `variant`.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+    ],
   },
   {
     date: "2025-05-22",

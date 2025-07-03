@@ -21,6 +21,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `type` and `onClick` props (as HTML equivalents may be used) and updates docs.",
       "Renames `buttonType` to `variant`.",
       "Replaces `buttonSizesArray` with shared sizes array.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
     ],
   },
   {

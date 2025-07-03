@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
@@ -43,6 +44,19 @@ You may pass any Chakra `Box` props, as well as the props below.
 <ArgTypes of={ButtonGroupStories.WithControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an `id` value for
+      accessibility requirements. If no `id` is passed, a random `id` will be
+      generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  type="recommendation"
+/>
 
 This component is a wrapper around the `Button` component. For accessibility
 information on the `Button` component, see the [Button
