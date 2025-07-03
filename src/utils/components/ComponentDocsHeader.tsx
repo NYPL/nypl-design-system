@@ -10,9 +10,9 @@ export interface ComponentDocsHeaderProps {
   /** A brief summary of the component */
   summary: string;
   /** The DS version when the component was added */
-  versionAdded: string;
+  versionAdded?: string;
   /** The DS version with the most recent version of the component */
-  versionLatest: string;
+  versionLatest?: string;
 }
 
 export const ComponentDocsHeader = ({
@@ -34,9 +34,11 @@ export const ComponentDocsHeader = ({
           {componentName}
         </Heading>
       }
-      <Box display="flex" justifyContent={{ base: undefined, md: "right" }}>
-        <ComponentVersionTable added={versionAdded} latest={versionLatest} />
-      </Box>
+      {versionAdded && versionLatest && (
+        <Box display="flex" justifyContent={{ base: undefined, md: "right" }}>
+          <ComponentVersionTable added={versionAdded} latest={versionLatest} />
+        </Box>
+      )}
     </Box>
   );
 };
