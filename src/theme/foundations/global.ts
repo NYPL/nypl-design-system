@@ -1,5 +1,4 @@
 import { activeFocus } from "../components/global";
-// import { textMargin } from "../components/global";
 
 /**
  * These rules affect all the global elements on the `body` element of the

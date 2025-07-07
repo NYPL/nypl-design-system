@@ -1,4 +1,4 @@
-import { Box, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
@@ -111,15 +111,13 @@ export const WithControls: Story = {
         {...args}
         backgroundImageSrc={getPlaceholderImage()}
         heading={
-          <Box mb="s">
-            <Heading
-              level="h1"
-              id="1"
-              subtitle="Example Subtitle"
-              text="Hero Primary"
-              mb="s"
-            />
-          </Box>
+          <Heading
+            id="1"
+            level="h1"
+            mb="s"
+            subtitle="Example Subtitle"
+            text="Hero Primary"
+          />
         }
         variant={args.variant}
         subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
@@ -161,17 +159,13 @@ export const Primary: Story = {
     <Hero
       backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
       heading={
-        <div>
-          <Box>
-            <Heading
-              id="primary-hero"
-              level="h1"
-              overline="Hero Example"
-              subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
-              text="Hero Primary"
-            />
-          </Box>
-        </div>
+        <Heading
+          id="primary-hero"
+          level="h1"
+          overline="Hero Example"
+          subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
+          text="Hero Primary"
+        />
       }
       variant="primary"
     />

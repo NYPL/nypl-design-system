@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Box } from "@chakra-ui/react";
 
 import Logo from "./Logo";
 import Heading from "../Heading/Heading";
@@ -85,7 +86,7 @@ const logoRow = (logo, opts: any = {}) => {
 
   if (logo.indexOf("White") !== -1 || logo.indexOf("Negative") !== -1) {
     styles.backgroundColor = "var(--nypl-colors-dark-ui-bg-default)";
-    styles.color = "var(--nypl-colors-ui-white) !important";
+    styles.color = "var(--nypl-colors-ui-white)";
     styles.paddingBottom = "var(--nypl-space-l)";
     styles.paddingTop = "var(--nypl-space-l)";
   }
@@ -94,12 +95,12 @@ const logoRow = (logo, opts: any = {}) => {
   }
 
   return (
-    <div style={styles} key={key}>
+    <Box style={styles} key={key}>
       <Heading color={styles.color} level="h4" mb="s" size="heading6">
         {displayValue}
       </Heading>
       <Logo name={logo} size={size} sizeBasedOn={sizeBasedOn} />
-    </div>
+    </Box>
   );
 };
 const logos = [];
