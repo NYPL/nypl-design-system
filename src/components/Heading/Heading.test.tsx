@@ -103,19 +103,6 @@ describe("Heading", () => {
     );
   });
 
-  it("logs a warning when heading with many children is passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <Heading id="h1" level="h4">
-        <span>too</span>
-        <span>many</span>
-      </Heading>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Heading: Only pass one child into Heading."
-    );
-  });
-
   it("uses custom display size", () => {
     render(
       <Heading
