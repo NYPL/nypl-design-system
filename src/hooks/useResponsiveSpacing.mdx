@@ -1,34 +1,18 @@
 import { Meta, Source } from "@storybook/blocks";
 import { Box } from "@chakra-ui/react";
 import Banner from "../components/Banner/Banner";
+import ComponentDocsHeader from "../utils/components/ComponentDocsHeader";
 import useResponsiveSpacing from "../hooks/useResponsiveSpacing";
 
 <Meta title="Hooks/useResponsiveSpacing" />
 
-# useResponsiveSpacing
-
-| Hook Version | DS Version   |
-| ------------ | ------------ |
-| Added        | `Prerelease` |
-| Latest       | `Prerelease` |
-
-The `useResponsiveSpacing` hook returns responsive gap and padding values that
-align with NYPL design standards for responsive grids and columns. The values
-will adjust based on the width of the viewport.
-
-<Banner
-  content={
-    <>
-      <strong>RECOMMENDATION:</strong> DS components, including the Template
-      component, use this hook and the preset values internally, so this hook
-      should be used for custom layouts or components.
-    </>
-  }
-  mb="s"
-  type="recommendation"
+<ComponentDocsHeader
+  category="Reservoir Custom Hook"
+  componentName="useResponsiveSpacing"
+  summary="Provides responsive spacing values that align with NYPL design standards"
+  versionAdded="Prerelease"
+  versionLatest="Prerelease"
 />
-
-## Usage
 
 <Source
   code={`
@@ -43,6 +27,24 @@ const {
 } = useResponsiveSpacing();
 `}
   language="jsx"
+/>
+
+## Usage
+
+The `useResponsiveSpacing` hook returns responsive gap and padding values that
+align with NYPL design standards for responsive grids and columns. The values
+will adjust based on the width of the viewport.
+
+<Banner
+  content={
+    <>
+      <strong>RECOMMENDATION:</strong> DS components, including the Template
+      component, use this hook and the preset values internally, so this hook
+      should be used for custom layouts or components.
+    </>
+  }
+  mb="s"
+  variant="recommendation"
 />
 
 ## responsiveGap
