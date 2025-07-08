@@ -127,10 +127,5 @@
     "vite-plugin-dts": "2.1.0",
     "vite-plugin-svgr": "4.3.0",
     "@storybook/addon-docs": "9.0.16"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
   }
 }
