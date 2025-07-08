@@ -13,8 +13,6 @@ export const textSizesArray = ["default", "body1", "body2", "caption"] as const;
 export type StyledListTextSizes = typeof textSizesArray[number];
 
 export interface StyledListProps extends Omit<BoxProps, "style"> {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Data to render if `li` children elements are not passed. It must be an
    * array of strings or JSX elements. */
   listItems?: (string | JSX.Element)[];
@@ -75,7 +73,14 @@ export const StyledList: ChakraComponent<
       children || listItems.map((item, i) => <li key={i}>{item}</li>);
 
     return (
-      <Box as="ul" id={id} ref={ref} {...rest} __css={styles}>
+      <Box
+        as="ul"
+        data-testid="ds-styledList"
+        id={id}
+        ref={ref}
+        {...rest}
+        __css={styles}
+      >
         {finalChildren}
       </Box>
     );

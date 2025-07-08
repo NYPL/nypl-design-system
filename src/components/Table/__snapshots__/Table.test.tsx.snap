@@ -3,10 +3,11 @@
 exports[`Table renders the UI snapshot correctly 1`] = `
 <div
   className="chakra-table__container css-zipzvv"
+  data-testid="ds-table"
+  id="basic"
 >
   <table
     className="chakra-table css-1xdhyk6"
-    id="basic"
   >
     <thead
       className="css-0"
@@ -421,10 +422,11 @@ exports[`Table renders the UI snapshot correctly 1`] = `
 exports[`Table renders the UI snapshot correctly 2`] = `
 <div
   className="chakra-table__container css-zipzvv"
+  data-testid="ds-table"
+  id="withCaption"
 >
   <table
     className="chakra-table css-1xdhyk6"
-    id="withCaption"
   >
     <caption
       className="css-18i7bby"
@@ -844,11 +846,12 @@ exports[`Table renders the UI snapshot correctly 2`] = `
 exports[`Table renders the UI snapshot correctly 3`] = `
 <div
   className="chakra-table__container css-zipzvv"
+  data-testid="ds-table"
+  id="withCaption"
 >
   <table
     aria-label="this is the caption"
     className="chakra-table css-1xdhyk6"
-    id="withCaption"
   >
     <thead
       className="css-0"
@@ -1263,10 +1266,11 @@ exports[`Table renders the UI snapshot correctly 3`] = `
 exports[`Table renders the UI snapshot correctly 4`] = `
 <div
   className="chakra-table__container css-zipzvv"
+  data-testid="ds-table"
+  id="withHeaders"
 >
   <table
     className="chakra-table css-1xdhyk6"
-    id="withHeaders"
   >
     <caption
       className="css-18i7bby"
@@ -1686,10 +1690,11 @@ exports[`Table renders the UI snapshot correctly 4`] = `
 exports[`Table renders the UI snapshot correctly 5`] = `
 <div
   className="chakra-table__container css-zipzvv"
+  data-testid="ds-table"
+  id="withHeaders"
 >
   <table
     className="chakra-table css-1xdhyk6"
-    id="withHeaders"
   >
     <caption
       className="css-18i7bby"
@@ -2113,10 +2118,11 @@ exports[`Table renders the UI snapshot correctly 5`] = `
 exports[`Table renders the UI snapshot correctly 6`] = `
 <div
   className="chakra-table__container css-zipzvv"
+  data-testid="ds-table"
+  id="withHeaders"
 >
   <table
     className="chakra-table css-1xdhyk6"
-    id="withHeaders"
   >
     <caption
       className="css-18i7bby"
@@ -2540,10 +2546,11 @@ exports[`Table renders the UI snapshot correctly 6`] = `
 exports[`Table renders the UI snapshot correctly 7`] = `
 <div
   className="chakra-table__container css-zipzvv"
+  data-testid="ds-table"
+  id="chakra"
 >
   <table
     className="chakra-table css-kle7zy"
-    id="chakra"
   >
     <thead
       className="css-0"
@@ -2958,11 +2965,12 @@ exports[`Table renders the UI snapshot correctly 7`] = `
 exports[`Table renders the UI snapshot correctly 8`] = `
 <div
   className="chakra-table__container css-zipzvv"
+  data-testid="ds-table"
+  id="props"
 >
   <table
     className="chakra-table css-1xdhyk6"
     data-testid="props"
-    id="props"
   >
     <thead
       className="css-0"
@@ -3377,10 +3385,11 @@ exports[`Table renders the UI snapshot correctly 8`] = `
 exports[`Table renders the UI snapshot correctly 9`] = `
 <div
   className="chakra-table__container css-zipzvv"
+  data-testid="ds-table"
+  id="jsx-example"
 >
   <table
     className="chakra-table css-1xdhyk6"
-    id="jsx-example"
   >
     <thead
       className="css-0"

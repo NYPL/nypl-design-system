@@ -10,7 +10,6 @@ const meta: Meta<typeof Toggle> = {
   component: Toggle,
   argTypes: {
     defaultChecked: { control: false },
-    id: { control: false },
     key: { table: { disable: true } },
     name: { control: false },
     onChange: { control: false },

@@ -15,6 +15,15 @@ describe("Label Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <Label id="label" htmlFor="some-input-id">
+        Cupcakes
+      </Label>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test with required text", async () => {
     const { container } = render(
       <Label id="label" htmlFor="some-input-id" isRequired>
@@ -26,6 +35,11 @@ describe("Label Accessibility", () => {
 });
 
 describe("Label", () => {
+  it("should not render an id if none is passed", () => {
+    render(<Label htmlFor="some-input-id">Cupcakes</Label>);
+    expect(screen.getByTestId("ds-label")).not.toHaveAttribute("id");
+  });
+
   it("renders a label element when passed text as children", () => {
     render(
       <Label id="label" htmlFor="some-input-id">

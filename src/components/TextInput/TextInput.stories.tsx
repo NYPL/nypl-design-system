@@ -21,7 +21,6 @@ const meta: Meta<typeof TextInput> = {
     },
     defaultValue: { control: false },
     helperText: { control: "text" },
-    id: { control: false },
     invalidText: { control: "text" },
     isClearable: argsBooleanType(),
     isClearableCallback: { control: false },

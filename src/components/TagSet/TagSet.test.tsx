@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import React from "react";
 import renderer from "react-test-renderer";
 
 import TagSet from "./TagSet";
@@ -99,6 +98,12 @@ describe("TagSet Accessibility", () => {
 });
 
 describe("TagSet Explore", () => {
+  it("should not render an id if none is passed", () => {
+    render(<TagSet tagSetData={exploreTagSetData.simple} variant="explore" />);
+    const tagSet = screen.getByTestId("ds-tagSet");
+    expect(tagSet).not.toHaveAttribute("id");
+  });
+
   it("renders tags", () => {
     // Seven color tags were passed as tags to display.
     render(<TagSet tagSetData={exploreTagSetData.simple} variant="explore" />);
@@ -112,7 +117,7 @@ describe("TagSet Explore", () => {
       <TagSet tagSetData={exploreTagSetData.withIcon} variant="explore" />
     );
 
-    expect(screen.getAllByTestId("ts-icon")).toHaveLength(7);
+    expect(screen.getAllByTestId("ds-tagSetExplore-icon")).toHaveLength(7);
   });
 
   it("logs a warning when the `isDismissible` prop is passed", () => {
@@ -226,7 +231,7 @@ describe("TagSet Filter", () => {
       />
     );
 
-    expect(screen.getAllByTestId("ts-icon")).toHaveLength(7);
+    expect(screen.getAllByTestId("ds-tagSetFilter-icon")).toHaveLength(7);
   });
 
   it("renders close icons when `isDismissible` is true", () => {
@@ -240,7 +245,7 @@ describe("TagSet Filter", () => {
       />
     );
 
-    expect(screen.getAllByTestId("filter-close-icon")).toHaveLength(7);
+    expect(screen.getAllByTestId("ds-tagSetFilter-close-icon")).toHaveLength(7);
   });
 
   it("renders the correct aria-label when `isDismissible` is true", () => {

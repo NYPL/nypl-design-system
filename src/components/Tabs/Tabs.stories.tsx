@@ -77,7 +77,6 @@ const meta: Meta<typeof Tabs> = {
     defaultIndex: {
       table: { defaultValue: { summary: "0" } },
     },
-    id: { control: false },
     onChange: { control: false },
     tabsData: { control: false },
     useHash: argsBooleanType(),

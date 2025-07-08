@@ -6,7 +6,6 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
-import { useSafeId } from "../../hooks/useSafeId";
 
 export interface FieldsetProps extends BoxProps {
   /** Flag to show or hide the text in the `legend` element. False by default. */
@@ -47,13 +46,12 @@ export const Fieldset: ChakraComponent<
       },
       ref?
     ) => {
-      const mainId = useSafeId(id);
       const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
 
       return (
         <Box
           as="fieldset"
-          id={mainId}
+          id={id}
           data-testid="ds-fieldset"
           ref={ref}
           __css={styles}

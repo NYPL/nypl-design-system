@@ -120,12 +120,7 @@ export const FilterBarPopup: ChakraComponent<
       };
 
       return (
-        <Box
-          id={`${mainId}-filterBarPopup`}
-          data-testid="ds-filterBarPopup"
-          ref={ref}
-          {...rest}
-        >
+        <Box id={mainId} data-testid="ds-filterBarPopup" ref={ref} {...rest}>
           <Button
             id={`${mainId}-show-filters`}
             onClick={finalOnOpen}

@@ -247,11 +247,7 @@ export const Image: ChakraComponent<
     );
 
     return (
-      <Box
-        id={id ? `${id}-image` : undefined}
-        data-testid="ds-image"
-        ref={finalRefs}
-      >
+      <Box id={id} data-testid="ds-image" ref={finalRefs}>
         {caption || credit ? (
           <Box
             as="figure"

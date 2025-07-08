@@ -89,6 +89,7 @@ export const Radio: ChakraComponent<
 
     return (
       <ComponentWrapper
+        data-testid="ds-radio"
         helperText={helperText}
         helperTextStyles={styles.helperErrorText}
         id={mainId}

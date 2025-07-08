@@ -99,7 +99,7 @@ export const ProgressIndicator: ChakraComponent<
       finalValue = 0;
     }
     const progressProps = {
-      id: mainId,
+      id: `${mainId}-progress`,
       // If the label is visually shown, associate it with the progress indicator.
       // Otherwise, the `aria-label` will be added.
       "aria-label": showLabel ? undefined : labelText,
@@ -124,7 +124,7 @@ export const ProgressIndicator: ChakraComponent<
             {showLabel && (
               <Label
                 id={`${mainId}-label`}
-                htmlFor={mainId}
+                htmlFor={`${mainId}-progress`}
                 sx={styles.circularLabel}
               >
                 {labelText}
@@ -137,7 +137,11 @@ export const ProgressIndicator: ChakraComponent<
       return (
         <>
           {showLabel && (
-            <Label id={`${mainId}-label`} htmlFor={mainId} mb="xxs">
+            <Label
+              id={`${mainId}-label`}
+              htmlFor={`${mainId}-progress`}
+              mb="xxs"
+            >
               {labelText}
             </Label>
           )}
@@ -152,7 +156,13 @@ export const ProgressIndicator: ChakraComponent<
     };
 
     return (
-      <Box ref={ref} __css={styles} {...rest}>
+      <Box
+        data-testid="ds-progressIndicator"
+        id={mainId}
+        ref={ref}
+        __css={styles}
+        {...rest}
+      >
         {progressComponent(indicatorType)}
       </Box>
     );

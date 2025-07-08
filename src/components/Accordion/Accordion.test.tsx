@@ -7,6 +7,11 @@ import renderer from "react-test-renderer";
 import Accordion from "./Accordion";
 import Card, { CardContent, CardHeading } from "../Card/Card";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Accordion Accessibility", () => {
   it("passes axe accessibility test for one item", async () => {
     const { container } = render(
@@ -125,6 +130,12 @@ export const accordionDataWithAriaLabel = [
 ];
 
 describe("Accordion", () => {
+  it("should add an id to the component even if none is passed", () => {
+    render(<Accordion accordionData={[accordionData[0]]} />);
+
+    expect(screen.getByTestId("ds-accordion")).toHaveAttribute("id", "test-id");
+  });
+
   it("renders a visible button with a label to click on", () => {
     render(<Accordion accordionData={[accordionData[0]]} />);
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });

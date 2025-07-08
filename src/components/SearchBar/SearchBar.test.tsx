@@ -7,6 +7,11 @@ import renderer from "react-test-renderer";
 import Heading from "../Heading/Heading";
 import SearchBar, { SelectProps, TextInputProps } from "./SearchBar";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 const optionsGroup = [
   { text: "Art", value: "art" },
   { text: "Bushes", value: "bushes" },
@@ -40,6 +45,19 @@ describe("SearchBar Accessibility", () => {
       <SearchBar
         helperText={helperText}
         id="id"
+        invalidText={invalidText}
+        labelText={labelText}
+        onSubmit={jest.fn()}
+        textInputProps={textInputProps}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <SearchBar
+        helperText={helperText}
         invalidText={invalidText}
         labelText={labelText}
         onSubmit={jest.fn()}
@@ -89,6 +107,22 @@ describe("SearchBar", () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+  });
+
+  it("should add an id to the component even if none is passed", () => {
+    render(
+      <SearchBar
+        helperText={helperText}
+        labelText={labelText}
+        onSubmit={searchBarSubmit}
+        textInputProps={textInputProps}
+      />
+    );
+
+    expect(screen.getByTestId("ds-searchBar")).toHaveAttribute(
+      "id",
+      "test-id-componentWrapper"
+    );
   });
 
   it("renders the basic form", () => {

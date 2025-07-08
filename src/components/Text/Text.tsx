@@ -22,8 +22,6 @@ export const textSizesArray = [
 export type TextSizes = typeof textSizesArray[number];
 
 export interface TextProps extends BoxProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional prop used to show bolded text */
   isBold?: boolean;
   /** Optional prop used to show itlicized text */
@@ -127,6 +125,7 @@ export const Text: ChakraComponent<
       return (
         <ChakraText
           className={className}
+          data-testid="ds-text"
           id={id}
           ref={ref}
           sx={styles}

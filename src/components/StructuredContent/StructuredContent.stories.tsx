@@ -9,7 +9,6 @@ const meta: Meta<typeof StructuredContent> = {
   title: "Components/Page Layout/StructuredContent",
   component: StructuredContent,
   argTypes: {
-    id: { control: false },
     "imageProps.aspectRatio": {
       table: {
         defaultValue: { summary: "square" },

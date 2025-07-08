@@ -10,6 +10,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
 >
   <ul
     className="css-1xdhyk6"
+    data-testid="ds-list"
   >
     <li>
       <a
@@ -159,6 +160,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
 >
   <ul
     className="css-1xdhyk6"
+    data-testid="ds-list"
   >
     <li>
       <a
@@ -308,6 +310,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
 >
   <ul
     className="css-1xdhyk6"
+    data-testid="ds-list"
   >
     <li>
       <a
@@ -449,6 +452,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
 >
   <ul
     className="css-1xdhyk6"
+    data-testid="ds-list"
   >
     <li>
       <a
@@ -598,6 +602,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
 >
   <ul
     className="css-1xdhyk6"
+    data-testid="ds-list"
   >
     <li>
       <a

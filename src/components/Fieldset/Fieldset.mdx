@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
@@ -37,6 +38,19 @@ any Chakra `Box` props, as well as the props below.
 <ArgTypes of={FieldsetStories.WithControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an `id` value for
+      accessibility requirements. If no `id` is passed, a random `id` will be
+      generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  type="recommendation"
+/>
 
 This is a simple component but is very important to use when building web forms.
 Syntactically, the `Fieldset` component is used to group form elements. Semantically,

@@ -28,11 +28,6 @@ export interface SubNavProps extends BoxProps {
    */
   highlightColor?: highlightColors;
   /**
-   * Optional unique ID for accessibility, allowing other components
-   * to reference this element.
-   */
-  id?: string;
-  /**
    * Primary actions displayed on the left side of the SubNav.
    * Use SubNavButton and SubNavLink components, which mirror
    * the DS Button and Link.
@@ -136,15 +131,17 @@ export const SubNav: ChakraComponent<
   SubNavProps
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SubNavProps>>(
-    (props, _ref?) => {
-      const {
-        className,
+    (
+      {
         actionBackgroundColor,
+        className,
+        id,
         highlightColor,
         primaryActions,
         secondaryActions,
-      } = props;
-
+      },
+      _ref?
+    ) => {
       const { scrollableRef, showRightFade } = useScrollFadeStyles();
 
       if (actionBackgroundColor !== undefined && highlightColor === undefined) {
@@ -186,6 +183,8 @@ export const SubNav: ChakraComponent<
           as="nav"
           aria-label="Sub-navigation menu"
           className={className}
+          data-testid="ds-subNav"
+          id={id}
           __css={styles.base}
         >
           <Box __css={styles.container}>

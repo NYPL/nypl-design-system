@@ -7,6 +7,11 @@ import renderer from "react-test-renderer";
 import DatePicker, { DatePickerTypes, FullDateType } from "./DatePicker";
 import { TextInputRefType } from "../TextInput/TextInput";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 /** This adds a "0" padding for date values under "10". */
 const strPad = (n: number) => String("0" + n).slice(-2);
 const monthArray: string[] = [
@@ -35,6 +40,13 @@ describe("DatePicker Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility for a single date input with no id", async () => {
+    const { container } = render(
+      <DatePicker labelText="Select the date you want to visit NYPL" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility with hidden label", async () => {
     const { container } = render(
       <DatePicker
@@ -50,6 +62,16 @@ describe("DatePicker Accessibility", () => {
     const { container } = render(
       <DatePicker
         id="datePicker"
+        isDateRange
+        labelText="Select the date range you want to visit NYPL"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility for a date range with no id", async () => {
+    const { container } = render(
+      <DatePicker
         isDateRange
         labelText="Select the date range you want to visit NYPL"
       />
@@ -91,6 +113,16 @@ describe("DatePicker", () => {
   };
 
   describe("Single input", () => {
+    it("should add an id to the component even if none is passed", () => {
+      render(
+        <DatePicker labelText="Select the full date you want to visit NYPL" />
+      );
+
+      expect(screen.getByTestId("ds-datePicker")).toHaveAttribute(
+        "id",
+        "test-id"
+      );
+    });
     it("should render the basic date input field including a date", () => {
       render(
         <DatePicker

@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/blocks";
 
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
@@ -53,6 +54,18 @@ as well as the Chakra style props and the props below.
 <ArgTypes of={ButtonStories.WithControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an `id` value for
+      accessibility requirements. If no `id` is passed, a random `id` will be
+      generated.
+    </>
+  }
+  my="s"
+  type="recommendation"
+/>
 
 The Reservoir `Button` component renders an HTML `<button>` element that is
 accessible. By default, the `Button` has a `type` attribute of `"button"`.

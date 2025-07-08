@@ -3,6 +3,7 @@
 exports[`SimpleGrid Renders the SimpleGrid UI snapshot correctly 1`] = `
 <div
   className="css-bjq6jk"
+  data-testid="ds-simpleGrid"
   id="test-grid"
 />
 `;
@@ -10,6 +11,7 @@ exports[`SimpleGrid Renders the SimpleGrid UI snapshot correctly 1`] = `
 exports[`SimpleGrid Renders the SimpleGrid UI snapshot correctly 2`] = `
 <div
   className="css-161u8yz"
+  data-testid="ds-simpleGrid"
   id="chakra"
 />
 `;

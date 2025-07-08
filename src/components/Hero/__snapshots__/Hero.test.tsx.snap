@@ -86,7 +86,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
       <div
         className="css-0"
         data-testid="ds-image"
-        id="image-example-image"
+        id="image-example"
       >
         <img
           alt="Image example"

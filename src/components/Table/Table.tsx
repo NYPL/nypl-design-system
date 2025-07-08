@@ -66,6 +66,7 @@ export const Table: ChakraComponent<
         columnHeadersBackgroundColor,
         columnHeadersTextColor,
         columnStyles = [],
+        id,
         isScrollable = false,
         showRowDividers = false,
         showTitleText = true,
@@ -225,7 +226,12 @@ export const Table: ChakraComponent<
         : undefined;
 
       return (
-        <TableContainer {...containerProps} sx={styles.base}>
+        <TableContainer
+          data-testid="ds-table"
+          id={id}
+          {...containerProps}
+          sx={styles.base}
+        >
           <ChakraTable
             aria-label={titleText && !showTitleText ? titleText : undefined}
             ref={ref}

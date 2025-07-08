@@ -13,6 +13,7 @@ import React, { forwardRef, InputHTMLAttributes } from "react";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export const toggleSizesArray = ["default", "small"] as const;
 export type ToggleSizes = typeof toggleSizesArray[number];
@@ -28,8 +29,6 @@ export interface ToggleProps
   defaultChecked?: boolean;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -80,6 +79,7 @@ export const Toggle: ChakraComponent<
       size = "default",
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const styles = useMultiStyleConfig("Toggle", { isDisabled, size });
     const switchStyles = useStyleConfig("Switch", { size });
     const footnote = isInvalid ? invalidText : helperText;
@@ -91,24 +91,19 @@ export const Toggle: ChakraComponent<
       showLabel: true,
     });
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Toggle: This component's required `id` prop was not passed."
-      );
-    }
-
     return (
       <ComponentWrapper
+        data-testid="ds-toggle"
         helperText={helperText}
         helperTextStyles={styles.helperErrorText}
-        id={id}
+        id={mainId}
         invalidText={invalidText}
         isInvalid={isInvalid}
         {...rest}
       >
         <Box __css={styles}>
           <Switch
-            id={id}
+            id={mainId}
             isDisabled={isDisabled}
             isInvalid={isInvalid}
             isRequired={isRequired}

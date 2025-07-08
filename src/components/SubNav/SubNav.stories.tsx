@@ -22,7 +22,6 @@ const meta: Meta<typeof SubNav> = {
       options: highlightColorsArray,
       defaultValue: { summary: "blogs" },
     },
-    id: { control: false },
     secondaryActions: {},
     primaryActions: {},
   },
