@@ -51,9 +51,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes explicit `className` and `children` props in favor of expanded prop type definitions in all components.
 - Removes the use of the `window`'s `scrollIntoView` dependency in the `Tabs` component.
 - Removes the `tableTextSize` prop from the `Table` component in favor of using the native `fontSize` CSS prop.
-- Removed `noSpace` prop from Heading component.
-- Removed `noSpace` prop from Text component.
-- Removed default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
+- Removes `Children.map` logic from `Button`, `ButtonGroup`, `Card`, `CheckboxGroup`, `List`, `RadioGroup`, and `Tooltip` to reduce complexity and improve performance.
+- Removes `noSpace` prop from Heading component.
+- Removes `noSpace` prop from Text component.
+- Removes default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
 
 ## Prerelease
 

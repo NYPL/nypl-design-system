@@ -38,12 +38,10 @@ import { changelogData } from "./buttonChangelogData";
 - `"secondary"` is used for actions that move the user back, such as cancellations.
 - `"text"` is used for equally weighted actions in a text based list.
 - `"callout"` is used for call to action text such as "Donate".
+- `"iconOnly"` is used to apply proper styling when the button contains an icon, but no text.
 - `"noBrand"` is a variant used when there is no brand and will display the
   background color as black.
 - `"pill"` is used for equally weighted actions within cards and always in a set.
-
-When one and only one `Icon` component is passed inside a `Button` component with
-no text, it will automatically be configured to use the `"iconOnly"` type.
 
 ## Component Props
 
@@ -97,7 +95,8 @@ The icon can be placed to the left or the right of the button text.
 <Canvas of={ButtonStories.TextWithIcon} />
 
 Text in a button is optional if an icon is rendered, but make sure that there
-is an `aria-label` passed to the `Button` component `aria-label="Previous"`.
+is an `aria-label` passed to the `Button` component `aria-label="Previous"` and
+that the variant is set to `iconOnly`.
 
 <Canvas of={ButtonStories.IconOnly} />
 

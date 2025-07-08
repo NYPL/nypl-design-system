@@ -191,6 +191,9 @@ export const Heading: ChakraComponent<
               ...styles.base,
               ...wrapperStyles,
             };
+      /** If there is an `overline` or a `subtitle`, `...rest` will be passed to
+       * the `<hgroup>`, otherwise, it will be passed directly to the `<h>`. */
+      const headingRest = !overline && !subtitle && { ...rest };
 
       /** The final text elements that will make up the rendered component. */
       const finalContent = (
@@ -212,7 +215,7 @@ export const Heading: ChakraComponent<
             sx={{
               ...headingStyles,
             }}
-            {...rest}
+            {...headingRest}
           >
             {content}
           </ChakraHeading>
