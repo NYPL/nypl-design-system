@@ -20,7 +20,7 @@ const config: StorybookConfig = {
         },
       },
     },
-    "@storybook/addon-jest"
+    "@storybook/addon-jest",
   ],
 
   // This gets added automatically through react-vite,
