@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import Icon from "./Icon";

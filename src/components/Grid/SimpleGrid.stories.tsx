@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import SimpleGrid, { gridGapsArray } from "./SimpleGrid";
 import Card, { CardHeading, CardContent } from "../Card/Card";

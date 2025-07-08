@@ -7,8 +7,6 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
     "@storybook/addon-designs",
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
     {
       name: "@storybook/addon-docs",
       options: {
@@ -22,7 +20,7 @@ const config: StorybookConfig = {
         },
       },
     },
-    "@storybook/addon-jest",
+    "@storybook/addon-jest"
   ],
 
   // This gets added automatically through react-vite,
