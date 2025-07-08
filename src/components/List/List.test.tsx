@@ -179,35 +179,6 @@ describe("List", () => {
     );
   });
 
-  it("consoles a warning when you pass an ordered or unordered list children that aren't <li>s", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <List variant="ol">
-        <span>Mahi-mahi</span>
-        <span>Golden trout</span>
-        <span>Rainbowfish</span>
-      </List>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir List: Direct children of `List` (ol) must be `<li>`s."
-    );
-  });
-
-  it("consoles a warning when you pass a description list children that aren't `<dt>`s or `<dd>`s", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <List variant="dl">
-        <span>Mahi-mahi</span>
-        <span>Golden trout</span>
-        <span>Rainbowfish</span>
-      </List>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir List: Direct children of `List` (description) must be " +
-        "`<dt>`s and `<dd>`s."
-    );
-  });
-
   it("Renders the UI snapshot correctly", () => {
     const unordered = renderer
       .create(<List id="unordered" variant="ul" listItems={fishArray} />)

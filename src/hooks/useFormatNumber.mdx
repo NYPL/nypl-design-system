@@ -1,18 +1,15 @@
 import { Meta, Source } from "@storybook/blocks";
+import ComponentDocsHeader from "../utils/components/ComponentDocsHeader";
 
 <Meta title="Hooks/useFormatNumber" />
 
-# useFormatNumber
-
-| Hook Version | DS Version |
-| ------------ | ---------- |
-| Added        | `3.5.3`    |
-| Latest       | `3.5.3`    |
-
-`useFormatNumber` provides a number with commas and handles a range of numbers.
-The formatting is based on standards from the NYPL Writing Style Guide.
-
-## Usage
+<ComponentDocsHeader
+  category="Reservoir Custom Hook"
+  componentName="useFormatNumber"
+  summary="Provides number formatting based on standards from the NYPL Writing Style Guide"
+  versionAdded="3.5.3"
+  versionLatest="3.5.3"
+/>
 
 <Source
   code={`
@@ -22,6 +19,8 @@ import {
 `}
   language="jsx"
 />
+
+## Usage
 
 The `formatNumber` function formats a number to use commas when
 appropriate and also handles the formatting of a number range.
@@ -54,3 +53,7 @@ const suggestedPriceRange = formatNumber(100, 20000);
   copies worldwide. Suggested retail price: $ {suggestedPriceRange}.
 </Text>
 `} language="jsx" />
+
+## Resources
+
+- [NYPL Writing Style Guide (June 2025)](https://docs.google.com/document/d/1xV9D5QFpRHjwMA-lFFwkhZdhy0uo5UfF_UIYT8ecrcg/edit?pli=1&tab=t.0#heading=h.ohqxdjiaku8n)

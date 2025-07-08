@@ -164,6 +164,13 @@ describe("Button Snapshot", () => {
         </Button>
       )
       .toJSON();
+    const iconOnly = renderer
+      .create(
+        <Button id="button" onClick={jest.fn()} variant="iconOnly">
+          <Icon name="arrow" />
+        </Button>
+      )
+      .toJSON();
     const noBrand = renderer
       .create(
         <Button id="button" onClick={jest.fn()} variant="noBrand">
@@ -191,6 +198,7 @@ describe("Button Snapshot", () => {
     expect(callout).toMatchSnapshot();
     expect(pill).toMatchSnapshot();
     expect(text).toMatchSnapshot();
+    expect(iconOnly).toMatchSnapshot();
     expect(noBrand).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();

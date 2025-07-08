@@ -84,20 +84,6 @@ describe("StyledList", () => {
     );
   });
 
-  it("consoles a warning when you pass children that aren't <li>s", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <StyledList>
-        <span>Mahi-mahi</span>
-        <span>Golden trout</span>
-        <span>Rainbowfish</span>
-      </StyledList>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir StyledList: Direct children of `StyledList` (ul) must be `<li>`s."
-    );
-  });
-
   it("Renders the UI snapshot correctly", () => {
     const unorderedChildren = renderer
       .create(

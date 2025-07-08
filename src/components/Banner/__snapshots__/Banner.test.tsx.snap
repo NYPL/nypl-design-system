@@ -227,7 +227,7 @@ exports[`Banner renders the UI snapshot correctly 8`] = `
   </div>
   <button
     aria-label="Close the banner"
-    className="chakra-button css-8bx9xp"
+    className="chakra-button css-1xdhyk6"
     data-testid="ds-button"
     id="bannerID7-dismissible-button"
     onClick={[Function]}

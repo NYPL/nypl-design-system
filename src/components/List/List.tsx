@@ -121,33 +121,8 @@ export const List: ChakraComponent<
       }
       return null;
     };
-    /**
-     * Checks for `dt` and `dd` elements and consoles a warning if the
-     * children are different HTML elements.
-     */
-    const checkDescriptionChildrenError = () => {
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement) => {
-          if (
-            child.type !== "dt" &&
-            child.type !== "dd" &&
-            child.type !== React.Fragment &&
-            child.props.mdxType !== "dt" &&
-            child.props.mdxType !== "dd" &&
-            child.props.mdxType !== React.Fragment
-          ) {
-            console.warn(
-              "NYPL Reservoir List: Direct children of `List` (description) must " +
-                "be `<dt>`s and `<dd>`s."
-            );
-          }
-        }
-      );
-    };
 
     if (variant === "ol" || variant === "ul") {
-      checkListChildrenError({ children, variant });
       listElement = (
         <Box
           as={variant as As}
@@ -161,7 +136,6 @@ export const List: ChakraComponent<
         </Box>
       );
     } else if (variant === "dl") {
-      checkDescriptionChildrenError();
       listElement = (
         <Box
           as="section"
@@ -180,27 +154,5 @@ export const List: ChakraComponent<
     return listElement;
   })
 );
-
-/**
- * Checks for `li` elements and consoles a warning if the
- * children are different HTML elements.
- */
-export const checkListChildrenError = ({
-  children,
-  variant = "ul",
-  componentName = "List",
-}: {
-  children: React.ReactNode;
-  variant?: ListVariants;
-  componentName?: string;
-}) => {
-  React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
-    if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
-      console.warn(
-        `NYPL Reservoir ${componentName}: Direct children of \`${componentName}\` (${variant}) must be \`<li>\`s.`
-      );
-    }
-  });
-};
 
 export default List;

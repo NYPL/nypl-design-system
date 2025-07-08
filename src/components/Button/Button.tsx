@@ -10,8 +10,8 @@ import {
 import { sizesArray } from "../../theme/sharedTypes";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 
-import Icon from "../Icons/Icon";
 import { useSafeId } from "../../hooks/useSafeId";
+import { useButtonGroup } from "../ButtonGroup/ButtonGroupContext";
 
 export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
 export const buttonSizesArray = ["small", "medium", "large"] as const;
@@ -21,6 +21,7 @@ export const buttonVariantsArray = [
   "text",
   "callout",
   "pill",
+  "iconOnly",
   "noBrand",
 ] as const;
 
@@ -59,7 +60,6 @@ export const Button: ChakraComponent<
       const {
         variant = "primary",
         children,
-        className = "",
         id,
         isDisabled = false,
         mouseDown = false,
@@ -70,40 +70,22 @@ export const Button: ChakraComponent<
         ...rest
       } = props;
       const mainId = useSafeId(id);
+      const isButtonGroupDisabled = useButtonGroup();
       const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
-      let childCount = 0;
-      let hasIcon = false;
-      let finalVariant: string | ButtonVariants = variant;
       let styles: any = {};
 
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement) => {
-          childCount++;
-          if (child !== undefined && child !== null) {
-            if (child.type === Icon || child?.props?.mdxType === "Icon") {
-              hasIcon = true;
-            }
-          }
-        }
-      );
-
-      if (childCount === 1 && hasIcon) {
-        finalVariant = "iconOnly";
-      }
-
       styles = useMultiStyleConfig("ReservoirButton", {
-        variant: finalVariant,
+        variant,
         buttonSize: size,
       });
 
       return (
         <ChakraButton
-          className={className}
           data-testid="ds-button"
-          gap={hasIcon ? "xxs" : null}
           id={mainId}
-          isDisabled={isDisabled}
+          // ButtonGroup's `isDisabled` state takes precendence
+          // over the individual button
+          isDisabled={isButtonGroupDisabled || isDisabled}
           ref={ref}
           type={type}
           {...btnCallback}

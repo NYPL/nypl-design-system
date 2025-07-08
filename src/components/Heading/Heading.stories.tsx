@@ -65,7 +65,7 @@ export const WithControls: Story = {
       <Heading
         {...args}
         bgColor="brand.primary"
-        color="ui.typography.inverse.heading"
+        color="ui.white"
         px="s"
         py="xs"
       />

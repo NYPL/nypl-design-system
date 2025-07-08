@@ -6,7 +6,7 @@ import {
   Stack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useMemo } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
 import HelperErrorText, {
@@ -15,6 +15,7 @@ import HelperErrorText, {
 import { LayoutTypes } from "../../helpers/types";
 import { spacing } from "../../theme/foundations/spacing";
 import { useSafeId } from "../../hooks/useSafeId";
+import { CheckboxGroupContext } from "./CheckboxGroupContext";
 
 export interface CheckboxGroupProps extends Omit<BoxProps, "onChange"> {
   /** Populates the initial value of the input */
@@ -90,7 +91,6 @@ export const CheckboxGroup: ChakraComponent<
       } = props;
       const mainId = useSafeId(id);
       const footnote = isInvalid ? invalidText : helperText;
-      const newChildren: JSX.Element[] = [];
       const spacingProp =
         layout === "column"
           ? spacing.input.group.default.vstack
@@ -107,22 +107,14 @@ export const CheckboxGroup: ChakraComponent<
         checkboxProps["value"] = value;
       }
 
-      // Go through the Checkbox children and update them as needed.
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement, i) => {
-          if (child !== undefined && child !== null) {
-            const newProps = {
-              key: i,
-              id: `${mainId}-${i}`,
-              name,
-              isDisabled,
-              isInvalid,
-              isRequired,
-            };
-            newChildren.push(React.cloneElement(child, newProps));
-          }
-        }
+      const checkboxGroupContextValue = useMemo(
+        () => ({
+          isDisabled,
+          isInvalid,
+          isRequired,
+          name,
+        }),
+        [isDisabled, isInvalid, isRequired, name]
       );
 
       // Get the Chakra-based styles for the custom elements in this component.
@@ -147,7 +139,9 @@ export const CheckboxGroup: ChakraComponent<
               spacing={spacingProp}
               ref={ref}
             >
-              {newChildren}
+              <CheckboxGroupContext.Provider value={checkboxGroupContextValue}>
+                {children}
+              </CheckboxGroupContext.Provider>
             </Stack>
           </ChakraCheckboxGroup>
           <HelperErrorText

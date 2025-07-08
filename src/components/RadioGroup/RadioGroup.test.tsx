@@ -309,19 +309,6 @@ describe("RadioGroup", () => {
     expect(screen.queryByText("There is an error :(")).not.toBeInTheDocument();
   });
 
-  it("should throw warning when a non-Radio component is used as a child", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <RadioGroup labelText="wrong child!" name="wrong" id="wrong-child">
-        <p>This is wrong!</p>
-      </RadioGroup>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir RadioGroup: Only `Radio` components are allowed inside " +
-        "the `RadioGroup` component."
-    );
-  });
-
   it("passes a ref to the input element", () => {
     const ref = React.createRef<HTMLDivElement>();
     render(

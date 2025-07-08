@@ -7,14 +7,14 @@ import {
   Stack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useMemo } from "react";
 
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import { spacing } from "../../theme/foundations/spacing";
-import Radio from "../Radio/Radio";
 import { LayoutTypes } from "../../helpers/types";
+import { RadioGroupContext } from "./RadioGroupContext";
 
 export interface RadioGroupProps extends Omit<BoxProps, "onChange"> {
   /** Populates the initial value of the input */
@@ -50,8 +50,6 @@ export interface RadioGroupProps extends Omit<BoxProps, "onChange"> {
    * True by default. */
   showRequiredLabel?: boolean;
 }
-
-const noop = () => {};
 
 /**
  * `RadioGroup` is a wrapper for DS `Radio` components that render together
@@ -93,7 +91,6 @@ export const RadioGroup: ChakraComponent<
         ? invalidText
         : helperText;
       const spacingProp = layout === "column" ? spacing.s : spacing.l;
-      const newChildren: JSX.Element[] = [];
       // Get the Chakra-based styles for the custom elements in this component.
       const styles = useMultiStyleConfig("RadioGroup", {
         isFullWidth,
@@ -111,32 +108,14 @@ export const RadioGroup: ChakraComponent<
         value,
       };
 
-      // Go through the Radio children and update them as needed.
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement, key) => {
-          if (child?.type !== Radio) {
-            // Special case for Storybook MDX documentation.
-            if (child.props?.mdxType && child.props?.mdxType === "Radio") {
-              noop();
-            } else {
-              console.warn(
-                "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
-                  "inside the `RadioGroup` component."
-              );
-            }
-          }
-
-          if (child !== undefined && child !== null) {
-            const newProps = {
-              key,
-              isDisabled,
-              isInvalid,
-              isRequired,
-            };
-            newChildren.push(React.cloneElement(child, newProps));
-          }
-        }
+      const radioGroupContextValue = useMemo(
+        () => ({
+          isDisabled,
+          isInvalid,
+          isRequired,
+          name,
+        }),
+        [isDisabled, isInvalid, isRequired, name]
       );
 
       return (
@@ -157,7 +136,9 @@ export const RadioGroup: ChakraComponent<
               direction={[layout]}
               spacing={spacingProp}
             >
-              {newChildren}
+              <RadioGroupContext.Provider value={radioGroupContextValue}>
+                {children}
+              </RadioGroupContext.Provider>
             </Stack>
           </ChakraRadioGroup>
           <HelperErrorText

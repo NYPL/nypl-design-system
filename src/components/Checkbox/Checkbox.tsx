@@ -13,6 +13,7 @@ import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
 import { getAriaAttrs } from "../../utils/utils";
 import { useSafeId } from "../../hooks/useSafeId";
+import { useCheckboxGroup } from "../CheckboxGroup/CheckboxGroupContext";
 
 interface CheckboxIconProps {
   /** When using the Checkbox as a "controlled" form element, you can specify
@@ -82,7 +83,7 @@ export const Checkbox: ChakraComponent<
       isInvalid = false,
       isRequired = false,
       labelText,
-      name,
+      name = "default",
       onChange,
       showHelperInvalidText = true,
       showLabel = true,
@@ -91,6 +92,7 @@ export const Checkbox: ChakraComponent<
     } = props;
     const mainId = useSafeId(id);
     const styles = useMultiStyleConfig("Checkbox", {});
+    const groupProps = useCheckboxGroup();
     const footnote = isInvalid ? invalidText : helperText;
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
@@ -117,11 +119,11 @@ export const Checkbox: ChakraComponent<
           className={className}
           icon={icon}
           id={mainId}
-          isDisabled={isDisabled}
+          isDisabled={groupProps?.isDisabled || isDisabled}
           isIndeterminate={isIndeterminate}
-          isInvalid={isInvalid}
-          isRequired={isRequired}
-          name={name || "default"}
+          isInvalid={groupProps?.isInvalid || isInvalid}
+          isRequired={groupProps?.isRequired || isRequired}
+          name={groupProps?.name || name}
           ref={ref}
           value={value}
           {...(isChecked !== undefined

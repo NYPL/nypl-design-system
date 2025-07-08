@@ -123,6 +123,7 @@
     "react-dom": "18.2.0",
     "react-test-renderer": "18.2.0",
     "remark-gfm": "4.0.0",
+    "rollup": "3.29.5",
     "sass": "1.60.0",
     "storybook": "8.6.12",
     "ts-jest": "29.1.5",
