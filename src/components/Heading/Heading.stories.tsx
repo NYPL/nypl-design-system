@@ -70,11 +70,6 @@ export const WithControls: Story = {
         color="ui.white"
         px="s"
         py="xs"
-        __css={{
-          h2: {
-            color: "ui.white",
-          },
-        }}
       />
     </VStack>
   ),
