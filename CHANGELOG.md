@@ -16,6 +16,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds fallback warning messages to the `AudioPlayer` and `VideoPlayer` components on browsers with JavaScript disabled.
 
+### Updates
+
+- Updates Storybook to `v9.0.16`.
+
 ## 3.6.3 (June 9, 2025)
 
 ### Adds
