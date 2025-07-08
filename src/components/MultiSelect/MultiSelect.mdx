@@ -746,8 +746,8 @@ The `useMultiSelect` hook also provides an `onClearAll` function that can be
 used to clear all the selected checkboxes across all `MultiSelect` components.
 The `MultiSelect` component does _NOT_ have an `onClearAll` prop. Instead, the
 `onClearAll` function should be invoked in a separate button or action.
-Alternatively, use the `MultiSelectGroup` or `FilterBar` (name TBD) components
-in future releases.
+Alternatively, use the `MultiSelectGroup`, `FilterBarInline`, or
+`FilterBarPopup` components.
 
 <Banner
   content={
@@ -828,8 +828,8 @@ Below is an exaple of the expected state shape of `selectedItems`:
 ## MultiSelect NextJS routing implementation
 
 This is helpful for when several `MultiSelect` components are rendered inside a
-`FilterBar` component. The `MultiSelect` component's `id` can be used to get
-items for a specific slice of the state.
+`FilterBarInline` or `FilterBarPopup` component. The `MultiSelect` component's
+`id` can be used to get items for a specific slice of the state.
 
 <Source
   code={`
