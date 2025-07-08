@@ -142,10 +142,11 @@ const reservoirSpacingTokens = {
     xxl: reservoirSpacingValues["xxl"],
   },
   label: {
-    default: reservoirSpacingValues["xxs"],
+    default: reservoirSpacingValues["xxxs"],
   },
   legend: {
     default: reservoirSpacingValues["xs"],
+    asLabel: reservoirSpacingValues["xxxs"],
   },
   page: {
     hstack: reservoirSpacingValues["l"],

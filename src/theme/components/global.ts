@@ -124,14 +124,6 @@ const labelLegendText = {
     color: "dark.ui.typography.heading",
   },
 };
-// Used in form inputs that require nuanced spacing.
-const labelLegendTextDefaultSpacing = {
-  marginBottom: "xs",
-};
-// Used in form inputs that require nuanced spacing.
-const labelLegendTextSpecialSpacing = {
-  marginBottom: "xxxs",
-};
 
 // Used for the disabled state of Select and TextInput
 const selectTextInputDisabledStyles = {
@@ -170,8 +162,6 @@ export {
   customFocusColor,
   defaultElementSizes,
   labelLegendText,
-  labelLegendTextDefaultSpacing,
-  labelLegendTextSpecialSpacing,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
   textMargin,

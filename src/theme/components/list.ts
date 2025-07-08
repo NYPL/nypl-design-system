@@ -109,11 +109,11 @@ const List = defineMultiStyleConfig({
     base: baseListStyles({ inline, noStyling }),
     heading: baseHeadingStyles(),
   })),
+  /** NOTE: Only the `ul` and `dl` variants require additional styles. */
   variants: {
     ul: definePartsStyle((props) => ({
       base: unorderedStyles(props),
     })),
-    ol: definePartsStyle({}),
     dl: ({ showRowDividers }) =>
       definePartsStyle({
         base: descriptionStyles(showRowDividers),
