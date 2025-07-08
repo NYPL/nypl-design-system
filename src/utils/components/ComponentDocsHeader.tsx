@@ -8,7 +8,7 @@ export interface ComponentDocsHeaderProps {
   /** The name of the component */
   componentName: string;
   /** A brief summary of the component */
-  summary: string;
+  summary?: string;
   /** The DS version when the component was added */
   versionAdded?: string;
   /** The DS version with the most recent version of the component */
@@ -29,7 +29,7 @@ export const ComponentDocsHeader = ({
           level="h1"
           overline={category}
           size="display1"
-          subtitle={summary}
+          subtitle={summary ? summary : ""}
         >
           {componentName}
         </Heading>
