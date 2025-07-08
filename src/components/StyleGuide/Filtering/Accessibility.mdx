@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/blocks";
-
 import { Box } from "@chakra-ui/react";
+
+import ComponentDocsHeader from "../../../utils/components/ComponentDocsHeader";
 import Image from "../../Image/Image";
 import Link from "../../Link/Link";
 
@@ -13,22 +14,32 @@ import { exampleWrapperStyles } from "../../../utils/utils.ts";
 
 <Meta title="Style Guide/Filtering/Accessibility" />
 
-# Filtering accessibility
-
-The following accessibility recommendations are applicable for real-time UI
-updates resulting from user actions. If UI updates will be applied after a full
-page refresh, then no additional accommodations need to be applied.
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Filtering accessibility"
+  summary="Recommendations for implementing accessibility in filtering applications"
+  versionAdded=""
+  versionLatest=""
+/>
 
 ## Table of contents
 
+- {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#aria-live" target="_self">Using aria-live</Link>}
 - {<Link href="#focus-management" target="_self">Focus management</Link>}
+
   - {<Link href="#applying-search-terms" target="_self">Applying search terms</Link>}
   - {<Link href="#applying-filters" target="_self">Applying filters</Link>}
   - {<Link href="#clearing-filters" target="_self">Clearing filters</Link>}
   - {<Link href="#pagination" target="_self">Pagination</Link>}
   - {<Link href="#sorting" target="_self">Sorting</Link>}
   - {<Link href="#modal-overlay" target="_self">Modal overlay</Link>}
+
+## Overview
+
+The following accessibility recommendations are applicable for real-time UI
+updates resulting from user actions. If UI updates will be applied after a full
+page refresh, then no additional accommodations need to be applied.
 
 ## Using aria-live
 
