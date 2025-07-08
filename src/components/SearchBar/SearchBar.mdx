@@ -25,7 +25,6 @@ import { changelogData } from "./searchBarChangelogData";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#with-custom-heading" target="_self">With Custom Heading</Link>}
 - {<Link href="#form-components" target="_self">Form Components</Link>}
-- {<Link href="#search-autocomplete" target="_self">Search Autocomplete</Link>}
 - {<Link href="#form-states" target="_self">Form States</Link>}
 - {<Link href="#heading-and-description-text" target="_self">Heading and Description Text</Link>}
 - {<Link href="#textinput-and-onsubmit-values" target="_self">TextInput and onSubmit Values</Link>}
@@ -225,8 +224,7 @@ section.
 ### Custom Input Component
 
 To render a custom input component, pass the component to the `textInputElement`
-prop. This will render your custom input component such as an `Autocomplete`
-component. Check the "Search Autocomplete" example for more details.
+prop.
 
 <Source
   code={`
@@ -273,20 +271,6 @@ const helperText = "";
 />
 
 <Canvas of={SearchBarStories.HelperErrorTextComponentExample} />
-
-## Search Autocomplete
-
-While the Design System does not implement an `Autosuggest` or `Autocomplete`
-component, it does show a pattern for using the `react-autosuggest` package.
-In this example, we're using the `react-autosuggest` example found in the
-Basic Autosuggest story as the main component inside the `SearchBar` component.
-
-In order to render this custom input element in the `SearchBar` component, pass
-it in the `textInputElement` prop. Do not pass an object to the `textInputProps`
-prop since the custom input component passed in `textInputElement` will take
-precedence.
-
-<Canvas of={SearchBarStories.SearchAutocomplete} />
 
 ## Form States
 
