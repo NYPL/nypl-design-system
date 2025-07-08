@@ -1,6 +1,8 @@
 import { Box, VStack } from "@chakra-ui/react";
 import { Meta, Source } from "@storybook/blocks";
 
+import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
@@ -10,7 +12,11 @@ import Text from "../Text/Text";
 
 <Meta title="Style Guide/Typography" />
 
-# Typography
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Typography"
+  summary="Recommendations for using NYPL typography styles"
+/>
 
 ## Table of Contents
 
@@ -784,11 +790,19 @@ The following `font-family` design tokens are available through the DS.
 | **Heading** | `heading` | `var(--nypl-fonts-heading)` | `system-ui, sans-serif` |
 | **Body**    | `body`    | `var(--nypl-fonts-body)`    | `system-ui, sans-serif` |
 
-> **RECOMMENDATIONS**  
-> When making font selections for project based components outside the DS,
-> sans serif fonts display better on computers and mobile devices. Avoid
-> decorative or overly stylized fonts, as they are often difficult to read even
-> for users without visual impairments or reading Standard Text Default
+<Banner
+  content={
+    <>
+      <strong>RECOMMENDATION:</strong> When making font selections for project
+      based components outside the DS, sans serif fonts display better on
+      computers and mobile devices. Avoid decorative or overly stylized fonts,
+      as they are often difficult to read even for users without visual
+      impairments or reading Standard Text Default
+    </>
+  }
+  mb="s"
+  variant="recommendation"
+/>
 
 {
 
