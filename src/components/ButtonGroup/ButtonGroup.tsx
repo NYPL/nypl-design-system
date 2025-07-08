@@ -7,8 +7,8 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-import Button from "../Button/Button";
 import { LayoutTypes } from "../../helpers/types";
+import { ButtonGroupContext } from "./ButtonGroupContext";
 
 export const buttonGroupWidthsArray = ["default", "full"] as const;
 export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
@@ -23,8 +23,6 @@ export interface ButtonGroupProps extends BoxProps {
   /** Renders the layout of `Button` components in a row or column. */
   layout?: LayoutTypes;
 }
-
-const noop = () => {};
 
 /**
  * A simple wrapper to group `Button` components together. The layout can be set
@@ -49,34 +47,9 @@ export const ButtonGroup: ChakraComponent<
         layout = "row",
         ...rest
       } = props;
-      const newChildren: JSX.Element[] = [];
       const styles = useStyleConfig("ButtonGroup", {
         buttonWidth: buttonWidth,
       });
-
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement, key: number) => {
-          if (React.isValidElement(child)) {
-            if (child.type !== Button) {
-              // Special case for Storybook MDX documentation.
-              // @ts-ignore
-              if (child.props.mdxType && child.props.mdxType === "Button") {
-                noop();
-              } else {
-                console.warn(
-                  "NYPL Reservoir ButtonGroup: Only Button components can be children of ButtonGroup."
-                );
-                return;
-              }
-            }
-            const disabledProps = isDisabled ? { isDisabled } : {};
-            newChildren.push(
-              React.cloneElement(child, { key, ...disabledProps })
-            );
-          }
-        }
-      );
 
       return (
         <Stack
@@ -89,7 +62,9 @@ export const ButtonGroup: ChakraComponent<
           sx={styles}
           {...rest}
         >
-          {newChildren}
+          <ButtonGroupContext.Provider value={isDisabled}>
+            {children}
+          </ButtonGroupContext.Provider>
         </Stack>
       );
     }

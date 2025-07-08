@@ -282,19 +282,6 @@ describe("Radio Button", () => {
     expect(screen.queryByText("There is an error :(")).not.toBeInTheDocument();
   });
 
-  it("should throw warning when a non-Radio component is used as a child", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <RadioGroup labelText="wrong child!" name="wrong" id="wrong-child">
-        <p>This is wrong!</p>
-      </RadioGroup>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir RadioGroup: Only `Radio` components are allowed inside " +
-        "the `RadioGroup` component."
-    );
-  });
-
   it("logs a warning when there is no `id` passed", () => {
     const warn = jest.spyOn(console, "warn");
     render(

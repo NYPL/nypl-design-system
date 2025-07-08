@@ -237,6 +237,7 @@ export const Card: ChakraComponent<
       const customColors: CustomColorProps = {};
       const cardContents: JSX.Element[] = [];
       const cardRightContents: JSX.Element[] = [];
+      const childrenArray = React.Children.toArray(children) as JSX.Element[];
       let cardHeadingCount = 0;
 
       if (imageProps.component && imageProps.aspectRatio) {
@@ -261,56 +262,52 @@ export const Card: ChakraComponent<
         imageSize: imageProps.size,
       });
 
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement, key) => {
-          const isCardActions =
-            child.type === CardActions || child.props.mdxType === "CardActions";
-          if (
-            child.type === CardHeading ||
-            child.props.mdxType === "CardHeading"
-          ) {
-            // If the child is a `CardHeading` component, then we add the
-            // `CardLinkOverlay` inside of the `Heading` component and wrap its text.
-            // This allows other links in the `CardActions` to be clickable. This is
-            // only done for the first `CardHeading` component but does not affect
-            // the full-click feature.
-            const newChildren =
-              cardHeadingCount === 0 ? (
-                <CardLinkOverlay mainActionLink={mainActionLink}>
-                  {child.props.children}
-                </CardLinkOverlay>
-              ) : (
-                child.props.children
-              );
-            const elem = React.cloneElement(child, {
-              key,
-              // Override the child text with the potential `CardLinkOverlay`.
-              children: newChildren,
-              layout,
-              __css: styles.heading,
-            });
-            cardContents.push(elem);
-            cardHeadingCount++;
-          } else if (
-            child.type === CardContent ||
-            child.props.mdxType === "CardContent"
-          ) {
-            const elem = React.cloneElement(child, { key });
-            cardContents.push(elem);
-          } else if (isCardActions) {
-            const elem = React.cloneElement(child, { key, isCentered, layout });
+      childrenArray.forEach((child, key) => {
+        const isCardActions =
+          child.type === CardActions || child.props.mdxType === "CardActions";
+        const isCardContent =
+          child.type === CardContent || child.props.mdxType === "CardContent";
+        const isCardHeading =
+          child.type === CardHeading || child.props.mdxType === "CardHeading";
 
-            // Only allow `CardActions` to align to the right of the main
-            // `CardContent` component when in the row layout.
-            if (isAlignedRightActions && layout === "row") {
-              cardRightContents.push(elem);
-            } else {
-              cardContents.push(elem);
-            }
+        if (isCardHeading) {
+          // If the child is a `CardHeading` component, then we add the
+          // `CardLinkOverlay` inside of the `Heading` component and wrap its text.
+          // This allows other links in the `CardActions` to be clickable. This is
+          // only done for the first `CardHeading` component but does not affect
+          // the full-click feature.
+          const newChildren =
+            cardHeadingCount === 0 ? (
+              <CardLinkOverlay mainActionLink={mainActionLink}>
+                {child.props.children}
+              </CardLinkOverlay>
+            ) : (
+              child.props.children
+            );
+          const elem = React.cloneElement(child, {
+            key,
+            // Override the child text with the potential `CardLinkOverlay`.
+            children: newChildren,
+            layout,
+            __css: styles.heading,
+          });
+          cardContents.push(elem);
+          cardHeadingCount++;
+        } else if (isCardContent) {
+          const elem = React.cloneElement(child, { key });
+          cardContents.push(elem);
+        } else if (isCardActions) {
+          const elem = React.cloneElement(child, { key, isCentered, layout });
+
+          // Only allow `CardActions` to align to the right of the main
+          // `CardContent` component when in the row layout.
+          if (isAlignedRightActions && layout === "row") {
+            cardRightContents.push(elem);
+          } else {
+            cardContents.push(elem);
           }
         }
-      );
+      });
 
       return (
         <Box __css={styles.base} ref={ref}>

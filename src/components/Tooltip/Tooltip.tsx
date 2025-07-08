@@ -6,8 +6,6 @@ import {
   useStyleConfig,
   ChakraComponent,
 } from "@chakra-ui/react";
-import Icon from "../Icons/Icon";
-import Image from "../Image/Image";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
 export interface TooltipProps extends Omit<BoxProps, "content"> {
@@ -43,19 +41,6 @@ export const Tooltip: ChakraComponent<
         shouldWrapChildren,
         ...rest
       } = props;
-
-      if (typeof content !== "string" && typeof content !== "number") {
-        React.Children.map(
-          content as React.ReactNode,
-          (contentChild: React.ReactElement) => {
-            if (contentChild.type !== Icon || contentChild.type !== Image) {
-              console.warn(
-                "NYPL Reservoir Tooltip: Pass in a string, number, DS Icon, or DS Image into the 'content' prop."
-              );
-            }
-          }
-        );
-      }
 
       const newChildren = shouldWrapChildren ? (
         <ComponentWrapper width="fit-content">{children}</ComponentWrapper>

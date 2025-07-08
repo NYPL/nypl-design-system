@@ -13,12 +13,13 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Documentation", "Functionality"],
     notes: [
       "Removes deprecated `button` value in `linkTypesArray`.",
       "Replaces positional function arguments with object for `checkListChildrenError.`",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Renames `type` to `variant`.",
+      "Removes `Children.map` logic as warning is no longer going to be used.",
     ],
   },
   {

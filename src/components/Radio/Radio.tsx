@@ -13,6 +13,7 @@ import React, { forwardRef, InputHTMLAttributes } from "react";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
+import { useRadioGroup } from "../RadioGroup/RadioGroupContext";
 
 export interface RadioProps
   extends Pick<BoxProps, keyof ChakraProps>,
@@ -75,6 +76,7 @@ export const Radio: ChakraComponent<
       ...rest
     } = props;
     const styles = useMultiStyleConfig("Radio", { showLabel });
+    const groupProps = useRadioGroup();
     const wrapperStyles = useStyleConfig("RadioWrapper");
     const footnote = isInvalid ? invalidText : helperText;
     const ariaAttributes = getAriaAttrs({
@@ -109,10 +111,10 @@ export const Radio: ChakraComponent<
           className={className}
           id={id}
           isChecked={isChecked}
-          isDisabled={isDisabled}
-          isInvalid={isInvalid}
-          isRequired={isRequired}
-          name={name}
+          isDisabled={groupProps?.isDisabled || isDisabled}
+          isInvalid={groupProps?.isInvalid || isInvalid}
+          isRequired={groupProps?.isRequired || isRequired}
+          name={groupProps?.name || name}
           onChange={onChange}
           ref={ref}
           value={value}

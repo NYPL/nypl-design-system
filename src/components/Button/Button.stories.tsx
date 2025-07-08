@@ -143,13 +143,13 @@ export const TextWithIcon: Story = {
 export const IconOnly: Story = {
   render: () => (
     <ButtonGroup>
-      <Button aria-label="Previous" variant="secondary" id="prev-btn">
+      <Button aria-label="Previous" variant="iconOnly" id="prev-btn">
         <Icon name="arrow" iconRotation="rotate90" size="small" />
       </Button>
-      <Button aria-label="Next" variant="secondary" id="next-btn">
+      <Button aria-label="Next" variant="iconOnly" id="next-btn">
         <Icon name="arrow" iconRotation="rotate270" size="small" />
       </Button>
-      <Button aria-label="Close" variant="secondary" id="close-btn">
+      <Button aria-label="Close" variant="iconOnly" id="close-btn">
         <Icon name="close" size="small" />
       </Button>
     </ButtonGroup>
@@ -186,6 +186,9 @@ export const ButtonVariants: Story = {
       </Button>
       <Button variant="callout" id="callout-btn">
         Callout
+      </Button>
+      <Button variant="iconOnly" id="nobrand-btn">
+        <Icon name="close" size="small" />
       </Button>
       <Button variant="noBrand" id="nobrand-btn">
         No Brand
@@ -257,6 +260,18 @@ const buttonData = [
     </Button>,
     <Button variant="callout" id="c-large" key="c-large" size="large">
       Callout
+    </Button>,
+  ],
+  [
+    "iconOnly",
+    <Button variant="iconOnly" id="io-small" key="io-small" size="small">
+      <Icon name="close" size="small" />
+    </Button>,
+    <Button variant="iconOnly" id="io-medium" key="io-medium" size="medium">
+      <Icon name="close" size="small" />
+    </Button>,
+    <Button variant="iconOnly" id="io-large" key="io-large" size="large">
+      <Icon name="close" size="small" />
     </Button>,
   ],
   [

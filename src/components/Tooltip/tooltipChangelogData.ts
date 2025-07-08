@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes explicit `children` prop as its not required when React.PropsWithChildren is used.",
+      "Removes `Children.map` logic as warning is no longer going to be used.",
     ],
   },
   {

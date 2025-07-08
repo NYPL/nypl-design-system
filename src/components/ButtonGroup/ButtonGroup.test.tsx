@@ -62,22 +62,6 @@ describe("ButtonGroup", () => {
     expect(screen.getAllByRole("button")[1]).toBeDisabled();
   });
 
-  it("logs a warning when any element that is not a Button is passed ", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <ButtonGroup>
-        <Button variant="secondary" id="btn-1">
-          Button
-        </Button>
-        <Button id="btn-2">Submit</Button>
-        <p data-test="paragraph">This is not a button</p>
-      </ButtonGroup>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir ButtonGroup: Only Button components can be children of ButtonGroup."
-    );
-  });
-
   it("passes a ref to the div wrapper element", () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(
