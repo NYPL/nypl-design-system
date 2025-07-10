@@ -207,6 +207,11 @@ We updated the `tableTextSize` prop in `Table` to `fontSize` to align more close
 
 These updates enhance flexibility, stability, and developer experience without requiring breaking changes to your existing code.
 
+#### A `useResponsiveSpacing` hook was introduced.
+
+[`useResponsiveSpacing`](../?path=/docs/hooks-useresponsivespacing--docs) exports spacing values to generate consistent layouts.
+We recommend its usage for custom layout and components.
+
 #### The `id` prop is now optional for all components.
 
 For components that require `id`s to meet accessibility requirements, one will automatically be generated using React's `useId`
@@ -232,6 +237,15 @@ values.
 
 Components that expect specific child types (e.g., `RadioGroup` expecting `Radio` children) will no longer log warnings reducing
 console noise during development.
+
+#### Removed unused code.
+
+The `Header` component was needed for a specific problem that no longer exists and has been removed in v4.
+
+`FilterBar` was deprecated in favor of `FilterBarInline` and `FilterBarPopup`.
+
+The `Autosuggest` documentation was originally included as a guideline for using `react-autosuggest`, but is no longer recommended
+due to technical complexity and UX consistency concerns and has been removed in v4.
 
 #### Other optimizations
 
