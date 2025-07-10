@@ -1,12 +1,12 @@
 import { VStack } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { createRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
 import Select, { labelPositionsArray, selectVariantsArray } from "./Select";
 import { argsBooleanType } from "../../helpers/storybookUtils";
-import { expect, userEvent, within } from "@storybook/test";
+import { expect, userEvent, within } from "storybook/test";
 
 const meta: Meta<typeof Select> = {
   title: "Components/Form Elements/Select",

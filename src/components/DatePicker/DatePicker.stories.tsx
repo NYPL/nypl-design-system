@@ -1,6 +1,6 @@
 import { VStack } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, within, expect } from "@storybook/test";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { userEvent, within, expect } from "storybook/test";
 
 import DatePicker, { datePickerTypesArray } from "./DatePicker";
 import Heading from "../Heading/Heading";

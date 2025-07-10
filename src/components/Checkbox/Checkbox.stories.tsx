@@ -1,6 +1,6 @@
 import { Box, HStack, VStack } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Checkbox from "./Checkbox";
 import { argsBooleanType } from "../../helpers/storybookUtils";

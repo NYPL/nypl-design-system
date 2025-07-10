@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Tabs, { TabList, Tab, TabPanels, TabPanel } from "./Tabs";
 import { argsBooleanType } from "../../helpers/storybookUtils";

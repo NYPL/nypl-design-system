@@ -1,5 +1,6 @@
 import { Box, VStack } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+
 import Breadcrumbs, { breadcrumbVariantsArray } from "./Breadcrumbs";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
