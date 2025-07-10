@@ -5,6 +5,7 @@ import Link from "../Link/Link";
 import Notification, { notificationVariantsArray } from "./Notification";
 import Text from "../Text/Text";
 import Heading from "../Heading/Heading";
+import { VStack } from "@chakra-ui/react";
 
 const meta: Meta<typeof Notification> = {
   title: "Components/Feedback/Notification",
@@ -73,7 +74,7 @@ export const WithControls: Story = {
 // The following are additional Notification example Stories.
 export const NotificationHeading: Story = {
   render: () => (
-    <>
+    <VStack spacing="s">
       <Notification
         notificationHeading="Standard Notification"
         notificationContent={
@@ -153,13 +154,13 @@ export const NotificationHeading: Story = {
           </>
         }
       />
-    </>
+    </VStack>
   ),
 };
 
 export const CustomNotificationHeading: Story = {
   render: () => (
-    <>
+    <VStack spacing="s">
       <Notification
         notificationHeading={<Heading level="h3">Custom H3 Heading</Heading>}
         notificationContent={
@@ -186,13 +187,13 @@ export const CustomNotificationHeading: Story = {
           </>
         }
       />
-    </>
+    </VStack>
   ),
 };
 
 export const NotificationIcon: Story = {
   render: () => (
-    <>
+    <VStack spacing="s">
       <Notification
         notificationHeading="Notification with Icon"
         notificationContent={
@@ -237,7 +238,7 @@ export const NotificationIcon: Story = {
         }
         showIcon={false}
       />
-    </>
+    </VStack>
   ),
 };
 export const CustomIcon: Story = {
@@ -262,11 +263,11 @@ export const HTMLContent: Story = {
       notificationHeading="Standard Notification with HTML content"
       notificationContent={
         <>
-          <Text>
+          <Text mb="s">
             Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
             mollis interdum.
           </Text>
-          <Text noSpace>
+          <Text>
             Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
             <b>
               Cum sociis natoque penatibus et magnis dis parturient montes,

@@ -114,12 +114,15 @@ export const StructuredContent: ChakraComponent<
           <Box className="structuredcontent-body">{bodyContent}</Box>
         );
       const finalTitle = useDSHeading({
-        title: headingText,
+        additionalStyles: {
+          mb: "heading.default",
+        },
         id,
+        title: headingText,
       });
       const calloutTextUpdate = calloutText ? (
         typeof calloutText === "string" ? (
-          <Heading id={`${id}-callout`} level="h3" size="heading5">
+          <Heading id={`${id}-callout`} mb="s" level="h3" size="heading5">
             {calloutText}
           </Heading>
         ) : (

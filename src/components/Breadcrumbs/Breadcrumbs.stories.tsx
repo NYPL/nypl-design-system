@@ -85,7 +85,7 @@ export const ColorVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Blogs
         </Heading>
         <Breadcrumbs
@@ -95,19 +95,19 @@ export const ColorVariations: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Books and More
         </Heading>
         <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="booksAndMore" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Connect
         </Heading>
         <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="connect" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Digital Collections
         </Heading>
         <Breadcrumbs
@@ -116,25 +116,25 @@ export const ColorVariations: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Education
         </Heading>
         <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="education" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Locations
         </Heading>
         <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="locations" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Research
         </Heading>
         <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="research" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           What's On
         </Heading>
         <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="whatsOn" />

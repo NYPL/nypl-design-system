@@ -325,11 +325,11 @@ export const HTMLContent: Story = {
         heading="Standard Banner with HTML content"
         content={
           <>
-            <Text>
+            <Text mb="s">
               Cras mattis consectetur purus sit amet fermentum. Maecenas
               faucibus mollis interdum.
             </Text>
-            <Text noSpace>
+            <Text>
               Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
               <b>
                 Cum sociis natoque penatibus et magnis dis parturient montes,
@@ -344,7 +344,7 @@ export const HTMLContent: Story = {
         heading="Standard Banner with Buttons"
         content={
           <>
-            <Text>
+            <Text mb="s">
               Cras mattis consectetur purus sit amet fermentum. Maecenas
               faucibus mollis interdum.
             </Text>
@@ -396,7 +396,7 @@ export const StringContentWithHTML: Story = {
   render: () => (
     <Banner
       content={
-        "<p>Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</p><p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. <b>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</b>. <a href='#'>This is a link</a>.</p>"
+        "<p style='margin-bottom: 1rem'>Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</p><p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. <b>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</b>. <a href='#'>This is a link</a>.</p>"
       }
       heading="String content with HTML"
       variant="neutral"

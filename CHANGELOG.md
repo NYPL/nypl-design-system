@@ -54,6 +54,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `Children.map` logic from `Button`, `ButtonGroup`, `Card`, `CheckboxGroup`, `List`, `RadioGroup`, and `Tooltip` to reduce complexity and improve performance.
 - Removes warnings validating presence or type of children from `SubNav`, `ComponentWrapper`, `Form`, `Heading`, `Icon`, `Logo`, and `Text`.
 - Removes the `FilterBar` component and `useFilterBar` hook.
+- Removes `noSpace` prop from Heading component.
+- Removes `noSpace` prop from Text component.
+- Removes default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
 
 ## Prerelease
 

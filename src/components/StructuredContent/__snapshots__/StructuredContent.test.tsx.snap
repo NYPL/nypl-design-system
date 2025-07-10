@@ -6,13 +6,13 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
   id="withHTMLStringContent"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
     id="withHTMLStringContent-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
     id="withHTMLStringContent-callout"
   >
     This is the callout text
@@ -34,7 +34,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
       >
         <div
           aria-atomic={false}
-          className="css-1xdhyk6"
+          className="css-xy0wy2"
           data-isinvalid={false}
         >
           <div
@@ -48,7 +48,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
         </div>
         <div
           aria-atomic={false}
-          className="css-1xdhyk6"
+          className="css-xy0wy2"
           data-isinvalid={false}
         >
           <div
@@ -80,13 +80,13 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
   id="withHTMLDOMContent"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
     id="withHTMLDOMContent-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
     id="withHTMLDOMContent-callout"
   >
     This is the callout text
@@ -108,7 +108,7 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
       >
         <div
           aria-atomic={false}
-          className="css-1xdhyk6"
+          className="css-xy0wy2"
           data-isinvalid={false}
         >
           <div
@@ -122,7 +122,7 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
         </div>
         <div
           aria-atomic={false}
-          className="css-1xdhyk6"
+          className="css-xy0wy2"
           data-isinvalid={false}
         >
           <div
@@ -188,13 +188,13 @@ exports[`StructuredContent renders the UI snapshot 3`] = `
   id="withoutAnImage"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
     id="withoutAnImage-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
     id="withoutAnImage-callout"
   >
     This is the callout text
@@ -216,13 +216,13 @@ exports[`StructuredContent renders the UI snapshot 4`] = `
   id="withImageWithoutCaptionOrCredit"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
     id="withImageWithoutCaptionOrCredit-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
     id="withImageWithoutCaptionOrCredit-callout"
   >
     This is the callout text
@@ -254,7 +254,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
   id="withoutHeading"
 >
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
     id="withoutHeading-callout"
   >
     This is the callout text
@@ -276,7 +276,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
       >
         <div
           aria-atomic={false}
-          className="css-1xdhyk6"
+          className="css-xy0wy2"
           data-isinvalid={false}
         >
           <div
@@ -290,7 +290,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
         </div>
         <div
           aria-atomic={false}
-          className="css-1xdhyk6"
+          className="css-xy0wy2"
           data-isinvalid={false}
         >
           <div
@@ -322,7 +322,7 @@ exports[`StructuredContent renders the UI snapshot 6`] = `
   id="withoutCalloutText"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
     id="withoutCalloutText-heading"
   >
     Heading text
@@ -344,13 +344,13 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
   id="withChakraProps"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
     id="withChakraProps-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
     id="withChakraProps-callout"
   >
     This is the callout text
@@ -372,7 +372,7 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
       >
         <div
           aria-atomic={false}
-          className="css-1xdhyk6"
+          className="css-xy0wy2"
           data-isinvalid={false}
         >
           <div
@@ -386,7 +386,7 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
         </div>
         <div
           aria-atomic={false}
-          className="css-1xdhyk6"
+          className="css-xy0wy2"
           data-isinvalid={false}
         >
           <div
@@ -419,13 +419,13 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
   id="withOtherProps"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
     id="withOtherProps-heading"
   >
     Heading text
   </h2>
   <h3
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1ays41z"
     id="withOtherProps-callout"
   >
     This is the callout text
@@ -447,7 +447,7 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
       >
         <div
           aria-atomic={false}
-          className="css-1xdhyk6"
+          className="css-xy0wy2"
           data-isinvalid={false}
         >
           <div
@@ -461,7 +461,7 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
         </div>
         <div
           aria-atomic={false}
-          className="css-1xdhyk6"
+          className="css-xy0wy2"
           data-isinvalid={false}
         >
           <div

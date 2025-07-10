@@ -116,7 +116,6 @@ const labelLegendText = {
   display: "inline-block",
   fontSize: "desktop.label.label1",
   fontWeight: "label.default",
-  marginBottom: "xs",
   width: "100%",
   span: {
     fontWeight: "regular",
@@ -124,10 +123,6 @@ const labelLegendText = {
   _dark: {
     color: "dark.ui.typography.heading",
   },
-};
-// Used in form inputs that require nuanced spacing.
-const labelLegendTextSpecialSpacing = {
-  marginBottom: "xxxs",
 };
 
 // Used for the disabled state of Select and TextInput
@@ -167,7 +162,6 @@ export {
   customFocusColor,
   defaultElementSizes,
   labelLegendText,
-  labelLegendTextSpecialSpacing,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
   textMargin,

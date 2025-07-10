@@ -573,7 +573,6 @@ export const ComplexExample = () => {
                 level="h2"
                 maxWidth="800px"
                 mx="xl"
-                noSpace
                 p="2rem"
                 size="display1"
                 text="Overlay heading"
@@ -635,7 +634,6 @@ export const ComplexExample = () => {
                 id="image-overlay"
                 left="0"
                 level="h2"
-                noSpace
                 p="s"
                 position="absolute"
                 right="0"
