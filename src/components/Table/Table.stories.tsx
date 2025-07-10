@@ -13,7 +13,6 @@ const meta: Meta<typeof Table> = {
     columnHeaders: { control: { disable: true } },
     columnHeadersBackgroundColor: { control: { type: "color" } },
     columnHeadersTextColor: { control: { type: "color" } },
-    id: { control: false },
     isScrollable: { ...argsBooleanType(), defaultValue: { summary: "false" } },
     showRowDividers: {
       ...argsBooleanType(),

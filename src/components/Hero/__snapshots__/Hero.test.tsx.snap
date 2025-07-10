@@ -4,7 +4,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
   className="css-1wmtxb5"
   data-responsive-background-image={true}
-  data-testid="hero"
+  data-testid="ds-hero"
 >
   <div
     className="css-24mlj5"
@@ -17,6 +17,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
   >
     <h1
       className="chakra-heading css-1xdhyk6"
+      data-testid="ds-heading"
       id="primary-hero"
     >
       Hero Primary
@@ -34,7 +35,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
 <div
   className="css-14tngpx"
   data-responsive-background-image={true}
-  data-testid="hero"
+  data-testid="ds-hero"
 >
   <div
     className="css-14tngpx"
@@ -47,6 +48,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
   >
     <h1
       className="chakra-heading css-1xdhyk6"
+      data-testid="ds-heading"
       id="tertiary-hero"
     >
       Hero Tertiary
@@ -62,7 +64,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
 <div
   className="css-x5wp36"
   data-responsive-background-image={true}
-  data-testid="hero"
+  data-testid="ds-hero"
 >
   <div
     className="css-24mlj5"
@@ -83,6 +85,8 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
     >
       <div
         className="css-0"
+        data-testid="ds-image"
+        id="image-example"
       >
         <img
           alt="Image example"
@@ -97,6 +101,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
     >
       <h1
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="campaign-hero"
       >
         Hero Campaign
@@ -111,7 +116,7 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
 <div
   className="css-1wmtxb5"
   data-responsive-background-image={true}
-  data-testid="hero"
+  data-testid="ds-hero"
 >
   <div
     className="css-24mlj5"
@@ -124,6 +129,7 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
   >
     <h1
       className="chakra-heading css-1xdhyk6"
+      data-testid="ds-heading"
       id="chakra"
     >
       Hero Primary
@@ -141,7 +147,7 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
 <div
   className="css-1wmtxb5"
   data-responsive-background-image={true}
-  data-testid="hero"
+  data-testid="ds-hero"
 >
   <div
     className="css-24mlj5"
@@ -154,6 +160,7 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
   >
     <h1
       className="chakra-heading css-1xdhyk6"
+      data-testid="ds-heading"
       id="props"
     >
       Hero Primary

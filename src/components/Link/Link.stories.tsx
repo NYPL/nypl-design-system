@@ -11,7 +11,6 @@ const meta: Meta<typeof Link> = {
   argTypes: {
     hasVisitedState: argsBooleanType("true"),
     href: { control: { type: "text" } },
-    id: { control: false },
     isUnderlined: argsBooleanType("true"),
     onClick: { control: false },
     ref: { table: { disable: true } },
@@ -37,7 +36,6 @@ export const WithControls: Story = {
   args: {
     hasVisitedState: true,
     href: "https://nypl.org",
-    id: "nypl-link",
     isUnderlined: true,
     onClick: undefined,
     rel: undefined,

@@ -16,8 +16,6 @@ export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
 export interface ButtonGroupProps extends BoxProps {
   /** Sets the width to "default" (for "fit-content") or "full". */
   buttonWidth?: ButtonGroupWidths;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Set's the disabled state to all the internal `Button` components. */
   isDisabled?: boolean;
   /** Renders the layout of `Button` components in a row or column. */
@@ -54,6 +52,7 @@ export const ButtonGroup: ChakraComponent<
       return (
         <Stack
           className={className}
+          data-testid="ds-buttonGroup"
           direction={{ base: "column", md: layout }}
           id={id}
           ref={ref}

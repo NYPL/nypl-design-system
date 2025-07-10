@@ -33,7 +33,6 @@ const meta: Meta<typeof Icon> = {
       options: iconRotationsArray,
       table: { defaultValue: { summary: "rotate0" } },
     },
-    id: { control: false },
     name: {
       control: { type: "select" },
       options: iconNamesArray,
@@ -68,7 +67,6 @@ export const WithControls: Story = {
     color: "ui.black",
     decorative: true,
     iconRotation: "rotate0",
-    id: "icon-id",
     name: "check",
     size: "xxlarge",
     title: undefined,

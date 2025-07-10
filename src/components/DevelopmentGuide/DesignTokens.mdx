@@ -1,16 +1,22 @@
 import { Meta, Source } from "@storybook/blocks";
 
+import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 
 <Meta title="Development Guide/Design Tokens" />
 
-# Design Tokens
+<ComponentDocsHeader
+  category="Development Guide"
+  componentName="Design Tokens"
+  summary="Recommendations for using Reservoir design tokens in JavaScript and CSS"
+/>
 
 ## Table of Contents
 
 - {<Link href="#what-are-design-tokens" target="_self">What are Design Tokens?</Link>}
 - {<Link href="#how-to-use-the-reservoir-design-tokens" target="_self">How to Use the Reservoir Design Tokens</Link>}
-- {<Link href="#using-reservoir-design-tokens-in-javascript" target="_self">Using Reservoir Design Tokens in Javascript</Link>}
+- {<Link href="#using-reservoir-design-tokens-in-javascript" target="_self">Using Reservoir Design Tokens in JavaScript</Link>}
 - {<Link href="#using-reservoir-design-tokens-in-css" target="_self">Using Reservoir Design Tokens in CSS</Link>}
 - {<Link href="#reservoir-design-token-categories" target="_self">Reservoir Design Token Categories</Link>}
 
@@ -30,17 +36,17 @@ quickly and easily build various applications with the same look and feel.
 ## How to Use the Reservoir Design Tokens
 
 The NYPL design tokens are built into the Reservoir Design System (DS) and are
-offered in two formats for consumption: Javascript theme objects (recommended)
+offered in two formats for consumption: JavaScript theme objects (recommended)
 and CSS variables. To access either of these formats, the DS `v0.25.9` or higher
 needs to be properly installed in a consuming React application.
 
-## Using Reservoir Design Tokens in Javascript
+## Using Reservoir Design Tokens in JavaScript
 
-It is recommended that consuming apps use Javascript (rather than CSS) to apply
+It is recommended that consuming apps use JavaScript (rather than CSS) to apply
 styles to UI elements whenever possible.
 
 To use the DS <Link href="#reservoir-design-token-categories"
-target="_self">Javascript design tokens</Link>, the `DSProvider` wrapper
+target="_self">JavaScript design tokens</Link>, the `DSProvider` wrapper
 component must first be imported and implemented properly in a consuming app.
 Please refer to the `DSProvider` section of the [DS Chakra
 UI](../?path=/docs/chakra-ui--docs#dsprovider) page for instructions on how to
@@ -48,15 +54,23 @@ do this.
 
 #### Design Tokens for DS and Chakra Components
 
-**IMPORTANT:** The general rule of thumb is that the styles and functionality of
-the DS components should not be altered. The components should be used with the
-styles and variants as they are depicted in Storybook. There may be times,
-however, when a component does require a modification. If a DS component does
-need a style change in a consuming app, designers/developers should first
-contact the Reservoir team about the change before it is implemented.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The general rule of thumb is that the styles
+      and functionality of the DS components should not be altered. The
+      components should be used with the styles and variants as they are
+      depicted in Storybook. There may be times, however, when a component does
+      require a modification. If a DS component does need a style change in a
+      consuming app, designers/developers should first contact the Reservoir
+      team about the change before it is implemented.
+    </>
+  }
+  variant="warning"
+/>
 
-The Javascript design tokens can be used to populate the values for style props
-added directly to the components. The shorthard nature of the Javascript tokens
+The JavaScript design tokens can be used to populate the values for style props
+added directly to the components. The shorthard nature of the JavaScript tokens
 make it easy to quickly and logically add styles to a DS component.
 
 For example, if a `Heading` component needs to sit within a wrapper element and
@@ -81,12 +95,20 @@ font weight, the following can be done:
 
 #### Design Tokens for Custom Components and Native HTML Elements
 
-**IMPORTANT:** Javascript design tokens **cannot be used** with custom
-components and native HTML elements as they are not compatible with the way
-styles are passed into these elements. Instead, CSS design tokens must be used.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> JavaScript design tokens{" "}
+      <strong>cannot be used</strong> with custom components and native HTML
+      elements as they are not compatible with the way styles are passed into
+      these elements. Instead, CSS design tokens must be used.
+    </>
+  }
+  variant="warning"
+/>
 
 To pass style attributes to custom components and native HTML elements, the
-React `style` prop must be used rather than the individual Javascript style
+React `style` prop must be used rather than the individual JavaScript style
 props. The `style` prop can be populated in a number of ways.
 
 <Source

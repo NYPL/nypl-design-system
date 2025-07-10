@@ -23,7 +23,6 @@ const meta: Meta<typeof VideoPlayer> = {
     embedCode: { control: false },
     headingText: { control: "text" },
     helperText: { control: "text" },
-    id: { control: false },
     iframeTitle: { control: "text" },
     showHelperInvalidText: argsBooleanType("true"),
     videoId: { control: "text" },
@@ -50,7 +49,6 @@ export const WithControls: Story = {
     headingText: "NYPL Video",
     helperText:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
-    id: "videoPlayer-id",
     iframeTitle: undefined,
     showHelperInvalidText: true,
     videoId: undefined,

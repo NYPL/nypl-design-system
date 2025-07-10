@@ -20,6 +20,7 @@ export const changelogData: ChangelogData[] = [
       "Removes explicit `children` prop as its not required when React.PropsWithChildren is used.",
       "Removes `checkListChildrenError` function because this warning will no longer be used.",
       "Removes default external spacing.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },
   {

@@ -14,6 +14,7 @@ import Checkbox from "./../Checkbox/Checkbox";
 import CheckboxGroup from "./../CheckboxGroup/CheckboxGroup";
 import MultiSelectItemsCountButton from "./MultiSelectItemsCountButton";
 import TextInput from "../TextInput/TextInput";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export interface MultiSelectItem {
   id: string;
@@ -46,8 +47,6 @@ export interface MultiSelectProps extends BoxProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The action to perform for a mixed state checkbox (parent checkbox). */
   onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** An ID string that other components can cross reference for accessibility purposes. */
-  id: string;
   /** Boolean value used to control how the MultiSelect component will render
    * within the page and interact with other DOM elements. The default value is false. */
   isBlockElement?: boolean;
@@ -99,7 +98,7 @@ export const MultiSelect: ChakraComponent<
         width = "full",
         ...rest
       } = props;
-
+      const mainId = useSafeId(id);
       const [userClickedOutside, setUserClickedOutside] =
         useState<boolean>(false);
 
@@ -170,7 +169,8 @@ export const MultiSelect: ChakraComponent<
       const [itemsList, setItemsList] = useState(defaultItemsList);
       const [isExpandable, setIsExpandable] = useState(true);
 
-      const selectedItemsCount: number = selectedItems[id]?.items.length || 0;
+      const selectedItemsCount: number =
+        selectedItems[mainId]?.items.length || 0;
 
       const selectedItemsString = `item${selectedItemsCount === 1 ? "" : "s"}`;
       const ariaLabelValue = `${buttonText}, ${selectedItemsCount} ${selectedItemsString} currently selected`;
@@ -296,7 +296,7 @@ export const MultiSelect: ChakraComponent<
           <Button
             variant="text"
             fontSize="desktop.button.default"
-            id={`view-all-text-btn-${id}`}
+            id={`${mainId}-view-all-text-btn`}
             ref={expandToggleButtonRef}
             onClick={toggleItemsList}
             __css={styles.viewAllButton}
@@ -332,13 +332,13 @@ export const MultiSelect: ChakraComponent<
               name={item.name}
               {...(onMixedStateChange !== undefined
                 ? {
-                    isChecked: isAllChecked(id, item),
-                    isIndeterminate: isIndeterminate(id, item),
+                    isChecked: isAllChecked(mainId, item),
+                    isIndeterminate: isIndeterminate(mainId, item),
                     onChange: onMixedStateChange,
                     isDisabled: isAllDisabled(item),
                   }
                 : {
-                    isChecked: isChecked(id, item.id),
+                    isChecked: isChecked(mainId, item.id),
                     isDisabled: isAllDisabled(item),
                     onChange: onChange,
                   })}
@@ -352,7 +352,7 @@ export const MultiSelect: ChakraComponent<
                   labelText={getItemLabelText(childItem)}
                   name={childItem.name}
                   isDisabled={childItem.isDisabled}
-                  isChecked={isChecked(id, childItem.id)}
+                  isChecked={isChecked(mainId, childItem.id)}
                   onChange={onChange}
                   __css={styles.menuChildren}
                 />
@@ -366,7 +366,7 @@ export const MultiSelect: ChakraComponent<
               labelText={getItemLabelText(item)}
               name={item.name}
               isDisabled={item.isDisabled}
-              isChecked={isChecked(id, item.id)}
+              isChecked={isChecked(mainId, item.id)}
               onChange={onChange}
               key={item.id}
             />,
@@ -387,7 +387,7 @@ export const MultiSelect: ChakraComponent<
 
       const searchInput = (
         <TextInput
-          id={`multi-select-text-input-${id}`}
+          id={`${mainId}-textInput`}
           labelText={`Search ${buttonText}`}
           isClearable
           isClearableCallback={clearSearchKeyword}
@@ -423,7 +423,7 @@ export const MultiSelect: ChakraComponent<
             ) : (
               <>
                 <CheckboxGroup
-                  id={`multi-select-checkbox-group-${id}`}
+                  id={`${mainId}-checkboxGroup`}
                   layout="column"
                   isFullWidth
                   isRequired={false}
@@ -446,11 +446,12 @@ export const MultiSelect: ChakraComponent<
 
       return (
         <Box
-          id={id}
-          __css={styles.base}
-          {...rest}
+          data-testid="ds-multiSelect"
+          id={mainId}
           ref={containerRef}
           onClick={() => setUserClickedOutside(false)}
+          __css={styles.base}
+          {...rest}
         >
           <Accordion
             accordionData={[
@@ -463,7 +464,7 @@ export const MultiSelect: ChakraComponent<
               },
             ]}
             aria-label={ariaLabelValue}
-            id={`multi-select-accordion-${id}`}
+            id={`${mainId}-accordion`}
             isDefaultOpen={isDefaultOpen}
             isAlwaysRendered
             userClickedOutside={userClickedOutside}
@@ -474,8 +475,7 @@ export const MultiSelect: ChakraComponent<
           />
           {selectedItemsCount > 0 && (
             <MultiSelectItemsCountButton
-              id={`ms-${id}-menu-button`}
-              multiSelectId={id}
+              id={mainId}
               multiSelectLabelText={buttonText}
               isOpen={isDefaultOpen}
               selectedItemsString={selectedItemsString}

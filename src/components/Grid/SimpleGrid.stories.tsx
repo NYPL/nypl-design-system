@@ -19,7 +19,6 @@ const meta: Meta<typeof SimpleGrid> = {
       table: { defaultValue: { summary: "grid.l" } },
       options: gridGapsArray,
     },
-    id: { control: false },
   },
 };
 
@@ -34,7 +33,6 @@ export const WithControls: Story = {
   args: {
     columns: undefined,
     gap: "grid.l",
-    id: "simpleGrid-id",
   },
   parameters: {
     design: {

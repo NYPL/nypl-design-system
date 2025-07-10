@@ -1,9 +1,10 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/blocks";
 
+import * as AccordionStories from "./Accordion.stories";
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
-import * as AccordionStories from "./Accordion.stories";
 import { changelogData } from "./accordionChangelogData";
 
 <Meta of={AccordionStories} />
@@ -112,6 +113,19 @@ You may pass any Chakra `Box` props, as well as the props below.
 <ArgTypes of={AccordionStories.WithControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an `id` value for
+      accessibility requirements. If no `id` is passed, a random `id` will be
+      generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  type="recommendation"
+/>
 
 - Follows [U.S. Web Design System (USWDS)](https://designsystem.digital.gov/components/accordion/)
   guidelines:

@@ -7,7 +7,6 @@ const meta: Meta<typeof SkipNavigation> = {
   title: "Components/Navigation/SkipNavigation",
   component: SkipNavigation,
   argTypes: {
-    id: { control: false },
     target: { control: false },
   },
 };
@@ -21,7 +20,6 @@ type Story = StoryObj<typeof SkipNavigation>;
  */
 export const WithControls: Story = {
   args: {
-    id: "skip-nav",
     target: "#mainContent",
   },
   render: (args) => (

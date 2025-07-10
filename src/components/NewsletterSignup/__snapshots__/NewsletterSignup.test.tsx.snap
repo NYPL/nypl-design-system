@@ -3,12 +3,15 @@
 exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 1`] = `
 <div
   className="chakra-stack css-1b9dj1z"
+  data-testid="ds-newsletterSignup"
+  id="test-id"
 >
   <div
     className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -41,25 +44,29 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
     <form
       className="css-1xdhyk6"
       data-testid="ds-form"
-      id="newsletter-form"
+      id="test-id-form"
       onSubmit={[MockFunction]}
     >
       <div
         className="css-fadkce"
-        id="newsletter-form-parent"
+        data-testid="ds-simpleGrid"
+        id="test-id-form-parent"
       >
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child0"
+          data-testid="ds-simpleGrid"
+          id="test-id-form-child0"
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="ds-textInput"
+            id="test-id-textInput-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
-              htmlFor="email-input"
-              id="email-input-label"
+              data-testid="ds-label"
+              htmlFor="test-id-textInput"
+              id="test-id-textInput-label"
             >
               Email Address
               <span>
@@ -70,13 +77,13 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
               className="css-79elbk"
             >
               <input
-                aria-describedby="email-input-helperText"
+                aria-describedby="test-id-textInput-helperText"
                 aria-invalid={true}
                 aria-required={true}
                 autoComplete="email"
                 className="chakra-input css-1xdhyk6"
                 disabled={false}
-                id="email-input"
+                id="test-id-textInput"
                 name="email"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -93,7 +100,8 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={true}
-              id="email-input-helperText"
+              data-testid="ds-helperErrorText"
+              id="test-id-textInput-helperErrorText"
             >
               <div
                 className="css-0"
@@ -108,11 +116,13 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
         </div>
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child1"
+          data-testid="ds-simpleGrid"
+          id="test-id-form-child1"
         >
           <button
             className="chakra-button css-1xdhyk6"
-            id="submit"
+            data-testid="ds-button"
+            id="test-id-submit"
             type="submit"
           >
             Submit
@@ -127,12 +137,15 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
 exports[`NewsletterSignup Snapshots Renders the custom error state snapshot correctly 1`] = `
 <div
   className="chakra-stack css-1b9dj1z"
+  data-testid="ds-newsletterSignup"
+  id="test-id"
 >
   <div
     className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -179,6 +192,7 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
         />
         <p
           className="chakra-text css-ia9jis"
+          data-testid="ds-text"
         >
           Oops! Something went wrong.
         </p>
@@ -199,12 +213,15 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
 exports[`NewsletterSignup Snapshots Renders the default confirmation state snapshot correctly 1`] = `
 <div
   className="chakra-stack css-1b9dj1z"
+  data-testid="ds-newsletterSignup"
+  id="test-id"
 >
   <div
     className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -251,12 +268,14 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
         />
         <p
           className="chakra-text css-1e5ycxp"
+          data-testid="ds-text"
         >
           Thank you for signing up!
         </p>
       </div>
       <p
         className="chakra-text css-1xdhyk6"
+        data-testid="ds-text"
       >
         You can update your email subscription preferences at any time using the links at the bottom of the email.
       </p>
@@ -268,12 +287,15 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
 exports[`NewsletterSignup Snapshots Renders the default error state snapshot correctly 1`] = `
 <div
   className="chakra-stack css-1b9dj1z"
+  data-testid="ds-newsletterSignup"
+  id="test-id"
 >
   <div
     className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -320,6 +342,7 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
         />
         <p
           className="chakra-text css-ia9jis"
+          data-testid="ds-text"
         >
           Oops! Something went wrong.
         </p>
@@ -332,12 +355,15 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
 exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correctly 1`] = `
 <div
   className="chakra-stack css-1b9dj1z"
+  data-testid="ds-newsletterSignup"
+  id="test-id"
 >
   <div
     className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -370,25 +396,29 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
     <form
       className="css-1xdhyk6"
       data-testid="ds-form"
-      id="newsletter-form"
+      id="test-id-form"
       onSubmit={[MockFunction]}
     >
       <div
         className="css-fadkce"
-        id="newsletter-form-parent"
+        data-testid="ds-simpleGrid"
+        id="test-id-form-parent"
       >
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child0"
+          data-testid="ds-simpleGrid"
+          id="test-id-form-child0"
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="ds-textInput"
+            id="test-id-textInput-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
-              htmlFor="email-input"
-              id="email-input-label"
+              data-testid="ds-label"
+              htmlFor="test-id-textInput"
+              id="test-id-textInput-label"
             >
               Email Address
               <span>
@@ -399,12 +429,12 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               className="css-79elbk"
             >
               <input
-                aria-describedby="email-input-helperText"
+                aria-describedby="test-id-textInput-helperText"
                 aria-required={true}
                 autoComplete="email"
                 className="chakra-input css-1xdhyk6"
                 disabled={false}
-                id="email-input"
+                id="test-id-textInput"
                 name="email"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -421,7 +451,8 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              id="email-input-helperText"
+              data-testid="ds-helperErrorText"
+              id="test-id-textInput-helperErrorText"
             >
               <div
                 className="css-0"
@@ -435,11 +466,13 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
         </div>
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child1"
+          data-testid="ds-simpleGrid"
+          id="test-id-form-child1"
         >
           <button
             className="chakra-button css-1xdhyk6"
-            id="submit"
+            data-testid="ds-button"
+            id="test-id-submit"
             type="submit"
           >
             Submit
@@ -454,17 +487,21 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
 exports[`NewsletterSignup Snapshots Renders the form UI with description snapshot correctly 1`] = `
 <div
   className="chakra-stack css-1b9dj1z"
+  data-testid="ds-newsletterSignup"
+  id="test-id"
 >
   <div
     className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
     <p
       className="chakra-text css-1xdhyk6"
+      data-testid="ds-text"
     >
       Why not?
     </p>
@@ -497,25 +534,29 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
     <form
       className="css-1xdhyk6"
       data-testid="ds-form"
-      id="newsletter-form"
+      id="test-id-form"
       onSubmit={[MockFunction]}
     >
       <div
         className="css-fadkce"
-        id="newsletter-form-parent"
+        data-testid="ds-simpleGrid"
+        id="test-id-form-parent"
       >
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child0"
+          data-testid="ds-simpleGrid"
+          id="test-id-form-child0"
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="ds-textInput"
+            id="test-id-textInput-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
-              htmlFor="email-input"
-              id="email-input-label"
+              data-testid="ds-label"
+              htmlFor="test-id-textInput"
+              id="test-id-textInput-label"
             >
               Email Address
               <span>
@@ -526,12 +567,12 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               className="css-79elbk"
             >
               <input
-                aria-describedby="email-input-helperText"
+                aria-describedby="test-id-textInput-helperText"
                 aria-required={true}
                 autoComplete="email"
                 className="chakra-input css-1xdhyk6"
                 disabled={false}
-                id="email-input"
+                id="test-id-textInput"
                 name="email"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -548,7 +589,8 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              id="email-input-helperText"
+              data-testid="ds-helperErrorText"
+              id="test-id-textInput-helperErrorText"
             >
               <div
                 className="css-0"
@@ -562,11 +604,13 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
         </div>
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child1"
+          data-testid="ds-simpleGrid"
+          id="test-id-form-child1"
         >
           <button
             className="chakra-button css-1xdhyk6"
-            id="submit"
+            data-testid="ds-button"
+            id="test-id-submit"
             type="submit"
           >
             Submit
@@ -581,12 +625,15 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
 exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snapshot correctly 1`] = `
 <div
   className="chakra-stack css-1b9dj1z"
+  data-testid="ds-newsletterSignup"
+  id="test-id"
 >
   <div
     className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -619,25 +666,29 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
     <form
       className="css-1xdhyk6"
       data-testid="ds-form"
-      id="newsletter-form"
+      id="test-id-form"
       onSubmit={[MockFunction]}
     >
       <div
         className="css-fadkce"
-        id="newsletter-form-parent"
+        data-testid="ds-simpleGrid"
+        id="test-id-form-parent"
       >
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child0"
+          data-testid="ds-simpleGrid"
+          id="test-id-form-child0"
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="ds-textInput"
+            id="test-id-textInput-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
-              htmlFor="email-input"
-              id="email-input-label"
+              data-testid="ds-label"
+              htmlFor="test-id-textInput"
+              id="test-id-textInput-label"
             >
               Email Address
               <span>
@@ -648,12 +699,12 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               className="css-79elbk"
             >
               <input
-                aria-describedby="email-input-helperText"
+                aria-describedby="test-id-textInput-helperText"
                 aria-required={true}
                 autoComplete="email"
                 className="chakra-input css-1xdhyk6"
                 disabled={false}
-                id="email-input"
+                id="test-id-textInput"
                 name="email"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -670,7 +721,8 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              id="email-input-helperText"
+              data-testid="ds-helperErrorText"
+              id="test-id-textInput-helperErrorText"
             >
               <div
                 className="css-0"
@@ -685,11 +737,13 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
         </div>
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child1"
+          data-testid="ds-simpleGrid"
+          id="test-id-form-child1"
         >
           <button
             className="chakra-button css-1xdhyk6"
-            id="submit"
+            data-testid="ds-button"
+            id="test-id-submit"
             type="submit"
           >
             Submit
@@ -704,12 +758,15 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
 exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correctly 1`] = `
 <div
   className="chakra-stack css-1b9dj1z"
+  data-testid="ds-newsletterSignup"
+  id="test-id"
 >
   <div
     className="chakra-stack newsletter-signup-appeal css-1ey9w6j"
   >
     <h2
       className="chakra-heading css-sktjnm"
+      data-testid="ds-heading"
     >
       Sign Up for Our Newsletter
     </h2>
@@ -742,25 +799,29 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
     <form
       className="css-1xdhyk6"
       data-testid="ds-form"
-      id="newsletter-form"
+      id="test-id-form"
       onSubmit={[MockFunction]}
     >
       <div
         className="css-fadkce"
-        id="newsletter-form-parent"
+        data-testid="ds-simpleGrid"
+        id="test-id-form-parent"
       >
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child0"
+          data-testid="ds-simpleGrid"
+          id="test-id-form-child0"
         >
           <div
             className="css-1u8qly9"
-            id="email-input-wrapper"
+            data-testid="ds-textInput"
+            id="test-id-textInput-componentWrapper"
           >
             <label
               className="css-1xdhyk6"
-              htmlFor="email-input"
-              id="email-input-label"
+              data-testid="ds-label"
+              htmlFor="test-id-textInput"
+              id="test-id-textInput-label"
             >
               Email Address
               <span>
@@ -771,12 +832,12 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               className="css-79elbk"
             >
               <input
-                aria-describedby="email-input-helperText"
+                aria-describedby="test-id-textInput-helperText"
                 aria-required={true}
                 autoComplete="email"
                 className="chakra-input css-1xdhyk6"
                 disabled={true}
-                id="email-input"
+                id="test-id-textInput"
                 name="email"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -793,7 +854,8 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
-              id="email-input-helperText"
+              data-testid="ds-helperErrorText"
+              id="test-id-textInput-helperErrorText"
             >
               <div
                 className="css-0"
@@ -807,12 +869,14 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
         </div>
         <div
           className="css-l5w1vc"
-          id="newsletter-form-child1"
+          data-testid="ds-simpleGrid"
+          id="test-id-form-child1"
         >
           <button
             className="chakra-button css-1xdhyk6"
+            data-testid="ds-button"
             disabled={true}
-            id="submit"
+            id="test-id-submit"
             type="submit"
           >
             Submit

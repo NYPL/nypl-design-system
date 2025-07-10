@@ -11,8 +11,6 @@ import React, { forwardRef, LabelHTMLAttributes } from "react";
 export interface LabelProps
   extends Pick<BoxProps, keyof ChakraProps>,
     Omit<LabelHTMLAttributes<HTMLLabelElement>, "color"> {
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Controls whether the label should be inline with the input it goes with.
    * This prop should only be used internally. */
   isInlined?: boolean;
@@ -49,15 +47,10 @@ export const Label: ChakraComponent<
     } = props;
     const styles = useStyleConfig("Label", { isInlined });
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Label: This component's required `id` prop was not passed."
-      );
-    }
-
     return (
       <Box
         as="label"
+        data-testid="ds-label"
         id={id}
         htmlFor={htmlFor}
         ref={ref}

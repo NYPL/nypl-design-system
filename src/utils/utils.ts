@@ -160,6 +160,11 @@ export const sanitizeStringForAttribute = (str: string) => {
   return sanitizedStr;
 };
 
+/** Sanitize any string */
+export const sanitizeString = (str: string) => {
+  return str.replace(/[^a-zA-Z0-9_-]/g, "-").toLowerCase();
+};
+
 /** Provides a random image to use as a placeholder. */
 // @TODO: once a valid larger image source is identified, add a "larger" option
 export type GetPlaceholderImageProps = "smaller" | "default";

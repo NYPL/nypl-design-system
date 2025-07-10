@@ -15,7 +15,6 @@ const meta: Meta<typeof AudioPlayer> = {
     embedCode: { control: false },
     headingText: { control: "text" },
     helperText: { control: "text" },
-    id: { control: false },
     iframeTitle: { control: "text" },
   },
 };
@@ -38,7 +37,6 @@ export const WithControls: Story = {
     embedCode: libsynPlayerEmbedCode,
     headingText: "Audio Title",
     helperText: "Audio helper text lorem ipsum dolor simet.",
-    id: "audioplayer-id",
     iframeTitle: "Libsyn Audio",
   },
   parameters: {

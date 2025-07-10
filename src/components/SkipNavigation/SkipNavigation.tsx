@@ -11,8 +11,6 @@ import Link from "../Link/Link";
 import List from "../List/List";
 
 export interface SkipNavigationProps extends BoxProps {
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** The anchor target for the main skip link. The default is "#mainContent". */
   target?: string;
 }
@@ -39,6 +37,7 @@ export const SkipNavigation: ChakraComponent<
         <Box
           as="nav"
           aria-label="Skip Navigation"
+          data-testid="ds-skipNavigation"
           id={id}
           ref={ref}
           __css={styles}

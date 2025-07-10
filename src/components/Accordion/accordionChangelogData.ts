@@ -20,6 +20,7 @@ export const changelogData: ChangelogData[] = [
       "Replaces positional function arguments with objects for `getIcon` and `getElementsFromData`.",
       "Extends prop definition to include Chakra's `BoxProps`",
       "Renames `accordionType` to `variant`.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },
   {

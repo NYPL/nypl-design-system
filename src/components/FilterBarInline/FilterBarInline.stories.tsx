@@ -69,7 +69,6 @@ const meta: Meta<typeof FilterBarInline> = {
   title: "Components/Form Elements/FilterBarInline",
   component: FilterBarInline,
   argTypes: {
-    id: { control: false },
     heading: { control: false },
     layout: {
       control: { type: "radio" },
@@ -97,7 +96,6 @@ type Story = StoryObj<typeof FilterBarInline>;
  */
 export const WithControls: Story = {
   args: {
-    id: "filterBarInline-id",
     heading: "FilterBarInline",
     layout: "row",
   },

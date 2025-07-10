@@ -19,8 +19,6 @@ export interface DescriptionProps {
 }
 
 export interface ListProps extends Omit<BoxProps, "title"> {
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Display the list in a row. */
   inline?: boolean;
   /** Data to render if children are not passed. For `listTypes` ordered `"ol"`
@@ -126,13 +124,27 @@ export const List: ChakraComponent<
 
     if (variant === "ol" || variant === "ul") {
       listElement = (
-        <Box as={variant as As} id={id} ref={ref} __css={styles.base} {...rest}>
+        <Box
+          as={variant as As}
+          data-testid="ds-list"
+          id={id}
+          ref={ref}
+          __css={styles.base}
+          {...rest}
+        >
           {listChildrenElms(variant)}
         </Box>
       );
     } else if (variant === "dl") {
       listElement = (
-        <Box as="section" id={id} ref={ref} __css={styles.base} {...rest}>
+        <Box
+          as="section"
+          data-testid="ds-list"
+          id={id}
+          ref={ref}
+          __css={styles.base}
+          {...rest}
+        >
           {finalTitle}
           <dl>{listChildrenElms(variant)}</dl>
         </Box>

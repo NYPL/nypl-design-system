@@ -67,7 +67,6 @@ const meta: Meta<typeof FilterBarPopup> = {
   component: FilterBarPopup,
   argTypes: {
     heading: { control: false },
-    id: { control: false },
     isOpen: { table: { disable: true } },
     onClear: {
       description:
@@ -93,7 +92,6 @@ type Story = StoryObj<typeof FilterBarPopup>;
  */
 export const WithControls: Story = {
   args: {
-    id: "filterBarPopup-id",
     heading: "FilterBarPopup",
   },
   render: (args) => <FilterBarPopupStory {...args} />,
