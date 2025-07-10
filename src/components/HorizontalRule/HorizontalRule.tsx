@@ -1,4 +1,3 @@
-// HorizontalRule
 import {
   Box,
   BoxProps,

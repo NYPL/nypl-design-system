@@ -161,21 +161,6 @@ describe("Form", () => {
       container.querySelector("#formId-child1-grandchild1")
     ).toBeInTheDocument();
   });
-
-  it("logs a warning if a child of `FormRow` is not a `FormField`", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <Form id="form">
-        <FormRow>
-          <div>Not a FormField</div>
-        </FormRow>
-      </Form>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir FormRow: Children must be `FormField` components."
-    );
-  });
-
   it("calls the onSubmit function", () => {
     const onSubmit = jest.fn();
     render(

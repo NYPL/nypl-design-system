@@ -385,7 +385,7 @@ const FilterBarTotalResultsStory = () => {
   return (
     <>
       <FilterBarPopup
-        id="filterbar-with-tagset"
+        id="filterBarPopup-with-tagset"
         onClear={clearFilters}
         selectedItems={selectedFilterItems}
         renderChildren={renderFilterComponents}

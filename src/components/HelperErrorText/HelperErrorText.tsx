@@ -64,12 +64,9 @@ export const HelperErrorText: ChakraComponent<
         <Box {...props}>
           {isRenderedText ? (
             typeof text === "string" ? (
-              <Box
-                dangerouslySetInnerHTML={{ __html: text }}
-                __css={styles.innerChild}
-              />
+              <Box dangerouslySetInnerHTML={{ __html: text }} />
             ) : (
-              <Box __css={styles.innerChild}>{text}</Box>
+              <Box>{text}</Box>
             )
           ) : null}
         </Box>

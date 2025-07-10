@@ -78,7 +78,7 @@ export const AdditionalStates: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Focused
         </Heading>
         <Checkbox
@@ -87,7 +87,7 @@ export const AdditionalStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Errored
         </Heading>
         <HStack spacing="l">
@@ -101,7 +101,7 @@ export const AdditionalStates: Story = {
         </HStack>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Disabled
         </Heading>
         <HStack spacing="l">
@@ -115,7 +115,7 @@ export const AdditionalStates: Story = {
         </HStack>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           With Helper Text
         </Heading>
         <Checkbox
@@ -126,7 +126,7 @@ export const AdditionalStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           With Errored Text
         </Heading>
         <Checkbox

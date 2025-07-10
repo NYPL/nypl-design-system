@@ -209,7 +209,7 @@ counting the items to display.
       <code>listOverflow="expand"</code>.
     </>
   }
-  type="informative"
+  variant="informative"
 />
 
 <Canvas of={MultiSelectStories.visibleListItems} />
@@ -439,7 +439,7 @@ the component to allow users to search the available checkbox items.
       greater, enable the search functionality and use scroll for the overflow.
     </>
   }
-  type="recommendation"
+  variant="recommendation"
 />
 
 <Canvas of={MultiSelectStories.searchInputField} />
@@ -495,7 +495,7 @@ by passing the `itemCount` data property to the `items` prop.
       used to disable the option.
     </>
   }
-  type="recommendation"
+  variant="recommendation"
 />
 
 <Canvas of={MultiSelectStories.itemCountListItems} />
@@ -625,7 +625,7 @@ elements will always be identical.
       always render with <code>width</code> set to <code>full</code>.
     </>
   }
-  type="informative"
+  variant="informative"
 />
 
 <Canvas of={MultiSelectStories.width} />
@@ -759,8 +759,8 @@ The `useMultiSelect` hook also provides an `onClearAll` function that can be
 used to clear all the selected checkboxes across all `MultiSelect` components.
 The `MultiSelect` component does _NOT_ have an `onClearAll` prop. Instead, the
 `onClearAll` function should be invoked in a separate button or action.
-Alternatively, use the `MultiSelectGroup` or `FilterBar` (name TBD) components
-in future releases.
+Alternatively, use the `MultiSelectGroup`, `FilterBarInline`, or
+`FilterBarPopup` components.
 
 <Banner
   content={
@@ -769,7 +769,7 @@ in future releases.
       <code>MultiSelect</code> component a unique <code>id</code>.
     </>
   }
-  type="informative"
+  variant="informative"
 />
 
 <Canvas of={MultiSelectStories.InAGroup} />
@@ -841,8 +841,8 @@ Below is an exaple of the expected state shape of `selectedItems`:
 ## MultiSelect NextJS routing implementation
 
 This is helpful for when several `MultiSelect` components are rendered inside a
-`FilterBar` component. The `MultiSelect` component's `id` can be used to get
-items for a specific slice of the state.
+`FilterBarInline` or `FilterBarPopup` component. The `MultiSelect` component's
+`id` can be used to get items for a specific slice of the state.
 
 <Source
   code={`

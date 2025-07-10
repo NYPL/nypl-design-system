@@ -100,21 +100,11 @@ export const Logo: ChakraComponent<
 
     // If no `name` prop was passed, we expect a child SVG element to be passed.
     // Apply logo props to the SVG child.
-    if (
-      (children as JSX.Element).type === "svg" ||
-      (children as JSX.Element).props?.type === "svg" ||
-      (children as JSX.Element).props?.mdxType === "svg"
-    ) {
-      childSVG = React.cloneElement(children as JSX.Element, {
-        ...logoProps,
-        ref,
-      });
-    } else {
-      console.warn(
-        "NYPL Reservoir Logo: An `svg` element must be passed to the `Logo` " +
-          "component as its child."
-      );
-    }
+
+    childSVG = React.cloneElement(children as JSX.Element, {
+      ...logoProps,
+      ref,
+    });
 
     return (
       <Box data-testid="ds-logo" ref={ref} __css={styles}>

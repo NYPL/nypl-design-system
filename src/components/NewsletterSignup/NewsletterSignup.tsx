@@ -148,9 +148,7 @@ export const NewsletterSignup: ChakraComponent<
             {finalTitle}
             {descriptionText ? (
               typeof descriptionText === "string" ? (
-                <Text noSpace size="body2">
-                  {descriptionText}
-                </Text>
+                <Text size="body2">{descriptionText}</Text>
               ) : (
                 descriptionText
               )

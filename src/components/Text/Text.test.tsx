@@ -26,15 +26,6 @@ describe("Text", () => {
     ).toBeInTheDocument();
   });
 
-  it("throws a warning when no children are passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(<Text></Text>);
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Text: No children were passed and the `Text` component " +
-        "will not render correctly."
-    );
-  });
-
   it("throws a warning when isBold is used with size caption", () => {
     const warn = jest.spyOn(console, "warn");
     render(

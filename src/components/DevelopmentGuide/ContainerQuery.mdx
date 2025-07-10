@@ -1,11 +1,16 @@
 import { Meta, Source } from "@storybook/blocks";
 
 import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 
 <Meta title="Development Guide/Container Query Guide" />
 
-# Container Query Guide
+<ComponentDocsHeader
+  category="Development Guide"
+  componentName="Container Query Guide"
+  summary="Guidelines for implementing container queries in Reservoir components"
+/>
 
 ## Table of Contents
 
@@ -55,7 +60,7 @@ sx={{ containerType: "inline-size" }}
       with a <code>Box</code> to define the container.
     </>
   }
-  type="warning"
+  variant="warning"
 />
 
 ### Defining child elements

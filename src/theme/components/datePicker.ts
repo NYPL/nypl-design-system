@@ -1,5 +1,4 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
-import { labelLegendTextSpecialSpacing } from "./global";
 
 /**
  * Note: these styles are only used when the
@@ -12,7 +11,11 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const DatePicker = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
     fieldset: {
-      legend: labelLegendTextSpecialSpacing,
+      /**
+       * In this instance, the legend element is mimicking a label element, so
+       * the label spacing is being used.
+       */
+      legend: { marginBottom: "label.default" },
     },
     subLabels: {
       label: {

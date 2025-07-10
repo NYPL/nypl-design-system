@@ -37,8 +37,6 @@ export interface HeadingProps extends BoxProps {
   /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
    * `Heading` will default to `<h2>` */
   level?: HeadingLevels;
-  /** Optional prop used to remove default spacing */
-  noSpace?: boolean;
   /** String to populate the overline element */
   overline?: string;
   /** Optional size used to override the default styles of the native HTML `<h>`
@@ -90,7 +88,6 @@ export const Heading: ChakraComponent<
         isUppercase,
         isLowercase,
         level = "h2",
-        noSpace,
         overline,
         size,
         subtitle,
@@ -106,7 +103,6 @@ export const Heading: ChakraComponent<
         isCapitalized,
         isUppercase,
         isLowercase,
-        noSpace,
         url,
       });
 
@@ -117,13 +113,6 @@ export const Heading: ChakraComponent<
       if (!props.children && !text) {
         console.warn(
           "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
-        );
-      }
-
-      if (React.Children.count(props.children) > 1) {
-        // Catching the error because React's error isn't as helpful.
-        console.warn(
-          "NYPL Reservoir Heading: Only pass one child into Heading."
         );
       }
 
@@ -225,7 +214,6 @@ export const Heading: ChakraComponent<
             <Text
               aria-roledescription="Subtitle"
               mt="xs"
-              noSpace
               role="paragraph"
               size={subtitleSize}
             >

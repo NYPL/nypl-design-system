@@ -48,15 +48,13 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
       const hasChildren = !!children;
       const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
       const footnote = isInvalid ? invalidText : helperText;
-      const finalHeadingText = useDSHeading({ id, title: headingText });
-
-      // Note: Typescript warns when there are no children passed and
-      // doesn't compile. This is meant to log in non-Typescript apps.
-      if (!hasChildren) {
-        console.warn(
-          "NYPL Reservoir ComponentWrapper: No children were passed."
-        );
-      }
+      const finalHeadingText = useDSHeading({
+        id,
+        title: headingText,
+        additionalStyles: {
+          mb: "heading.default",
+        },
+      });
 
       return (
         <Box
@@ -67,7 +65,9 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
           {...rest}
         >
           {finalHeadingText}
-          {descriptionText && <Text>{descriptionText}</Text>}
+          {descriptionText && (
+            <Text mb="paragraph.default">{descriptionText}</Text>
+          )}
           {children}
           {footnote && (
             <HelperErrorText

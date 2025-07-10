@@ -77,6 +77,7 @@ export const HTMLChildren: Story = {
   render: () => (
     <>
       <HelperErrorText
+        mb="xs"
         text={
           <>
             This first example uses an HTML anchor element for{" "}

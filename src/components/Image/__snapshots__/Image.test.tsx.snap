@@ -31,7 +31,7 @@ exports[`Image Renders the UI snapshot correctly 2`] = `
     >
       <div
         aria-atomic={false}
-        className="css-1xdhyk6"
+        className="css-xy0wy2"
         data-isinvalid={false}
         data-testid="ds-helperErrorText"
       >
@@ -67,7 +67,7 @@ exports[`Image Renders the UI snapshot correctly 3`] = `
     >
       <div
         aria-atomic={false}
-        className="css-1xdhyk6"
+        className="css-xy0wy2"
         data-isinvalid={false}
         data-testid="ds-helperErrorText"
       >
@@ -103,7 +103,7 @@ exports[`Image Renders the UI snapshot correctly 4`] = `
     >
       <div
         aria-atomic={false}
-        className="css-1xdhyk6"
+        className="css-xy0wy2"
         data-isinvalid={false}
         data-testid="ds-helperErrorText"
       >
@@ -118,7 +118,7 @@ exports[`Image Renders the UI snapshot correctly 4`] = `
       </div>
       <div
         aria-atomic={false}
-        className="css-1xdhyk6"
+        className="css-xy0wy2"
         data-isinvalid={false}
         data-testid="ds-helperErrorText"
       >

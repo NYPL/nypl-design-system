@@ -150,26 +150,6 @@ export const SubNav: ChakraComponent<
         );
       }
 
-      const validateActions = (actions: React.ReactNode, propName: string) => {
-        if (React.isValidElement(actions)) {
-          React.Children.forEach(
-            actions.props.children,
-            (child: React.ReactElement) => {
-              if (child.type !== SubNavButton && child.type !== SubNavLink) {
-                console.warn(
-                  `NYPL Reservoir SubNav: An element that is not a SubNavButton or SubNavLink component has been passed in the \`${propName}\` prop. That element may not work properly.`
-                );
-                return null;
-              }
-            }
-          );
-        }
-      };
-
-      // Validate primaryActions and secondaryActions
-      validateActions(primaryActions, "primaryActions");
-      validateActions(secondaryActions, "secondaryActions");
-
       const backgroundColor =
         highlightColor !== undefined ? actionBackgroundColor : undefined;
 

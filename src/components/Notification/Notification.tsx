@@ -82,7 +82,6 @@ export const NotificationHeading: ChakraComponent<
       <Heading
         id={`${id}-heading`}
         level="h4"
-        noSpace
         size="heading6"
         __css={styles.heading}
       >
@@ -91,7 +90,6 @@ export const NotificationHeading: ChakraComponent<
     ) : (
       React.cloneElement(children as any, {
         __css: styles.heading,
-        noSpace: true,
         size: "heading6",
       })
     )

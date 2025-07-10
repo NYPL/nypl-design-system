@@ -226,6 +226,7 @@ export const LayoutVariations: Story = {
         <Heading
           id="heading-row-layout"
           level="h4"
+          mb="s"
           size="heading6"
           text="Row (Default)"
         />
@@ -235,6 +236,7 @@ export const LayoutVariations: Story = {
         <Heading
           id="heading-column-layout"
           level="h4"
+          mb="s"
           size="heading6"
           text="Column"
         />
@@ -251,6 +253,7 @@ export const SizeVariations: Story = {
         <Heading
           id="heading-small-size"
           level="h4"
+          mb="s"
           size="heading6"
           text="Small (Default)"
         />
@@ -260,6 +263,7 @@ export const SizeVariations: Story = {
         <Heading
           id="heading-medium-size"
           level="h4"
+          mb="s"
           size="heading6"
           text="Medium"
         />
@@ -269,6 +273,7 @@ export const SizeVariations: Story = {
         <Heading
           id="heading-large-size"
           level="h4"
+          mb="s"
           size="heading6"
           text="Large"
         />
@@ -285,6 +290,7 @@ export const ColorVariations: Story = {
         <Heading
           id="heading-textdefault-color"
           level="h4"
+          mb="s"
           size="heading6"
           text="Site Default"
         />
@@ -294,6 +300,7 @@ export const ColorVariations: Story = {
         <Heading
           id="heading-links-color"
           level="h4"
+          mb="s"
           size="heading6"
           text="Link"
         />
@@ -303,6 +310,7 @@ export const ColorVariations: Story = {
         <Heading
           id="heading-textinverse-color"
           level="h4"
+          mb="s"
           size="heading6"
           text="textInverse"
         />
@@ -328,6 +336,7 @@ export const BorderVariations: Story = {
         <Heading
           id="heading-border-none"
           level="h4"
+          mb="s"
           size="heading6"
           text="None (Default)"
         />
@@ -337,6 +346,7 @@ export const BorderVariations: Story = {
         <Heading
           id="heading-border-straight"
           level="h4"
+          mb="s"
           size="heading6"
           text="Straight"
         />
@@ -346,6 +356,7 @@ export const BorderVariations: Story = {
         <Heading
           id="heading-border-circular"
           level="h4"
+          mb="s"
           size="heading6"
           text="Circular"
         />
@@ -365,13 +376,20 @@ export const LabelVariations: Story = {
         <Heading
           id="heading-nolabels"
           level="h4"
+          mb="s"
           size="heading6"
           text="False (Default)"
         />
         <SocialMediaLinks showLabels={false} linksData={exampleTwoLinkData} />
       </Box>
       <Box>
-        <Heading id="heading-labels" level="h4" size="heading6" text="True" />
+        <Heading
+          id="heading-labels"
+          level="h4"
+          mb="s"
+          size="heading6"
+          text="True"
+        />
         <SocialMediaLinks showLabels={true} linksData={exampleTwoLinkData} />
       </Box>
     </VStack>

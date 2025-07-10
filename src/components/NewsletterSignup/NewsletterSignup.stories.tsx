@@ -188,7 +188,7 @@ export const DescriptionUsingJSXElements: Story = {
       onChange={() => {}}
       onSubmit={() => {}}
       descriptionText={
-        <Text noSpace size="body2">
+        <Text size="body2">
           If the description text needs to have <i>special</i> styling or needs
           to have a <Link href="https://corgiorgy.com/">nested link</Link>
         </Text>
@@ -229,7 +229,7 @@ export const ComponentStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Form View (default)
         </Heading>
         <NewsletterSignup
@@ -244,7 +244,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Form View with Invalid Email
         </Heading>
         <NewsletterSignup
@@ -260,7 +260,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Submitting View (disabled inputs)
         </Heading>
         <NewsletterSignup
@@ -275,7 +275,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Confirmation View
         </Heading>
         <NewsletterSignup
@@ -291,7 +291,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Confirmation View with Custom Element Confirmation Message
         </Heading>
         <NewsletterSignup
@@ -301,7 +301,7 @@ export const ComponentStates: Story = {
           onSubmit={() => {}}
           confirmationHeading={confirmationHeading}
           confirmationText={
-            <Text noSpace size="body2">
+            <Text size="body2">
               You are now receiving our Newsletter. Find out more about
               <Link href="https://www.nypl.org/spotlight/live">
                 upcoming Live from NYPL events
@@ -315,7 +315,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Error View
         </Heading>
         <NewsletterSignup
@@ -331,7 +331,7 @@ export const ComponentStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Error View with Custom Element Error Message
         </Heading>
         <NewsletterSignup
@@ -344,7 +344,7 @@ export const ComponentStates: Story = {
           title={title}
           errorHeading="An error has occurred."
           errorText={
-            <Text noSpace size="body2">
+            <Text size="body2">
               Please refresh this page and try again. If this error persists,{" "}
               <Link href="mailto:enews@nypl.org?subject=Please re-activate my e-mail address">
                 contact our e-mail team

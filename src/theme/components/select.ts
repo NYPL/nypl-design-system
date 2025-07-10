@@ -3,7 +3,6 @@ import { StyleFunctionProps } from "@chakra-ui/system";
 
 import {
   defaultElementSizes,
-  labelLegendTextSpecialSpacing,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
 } from "./global";
@@ -72,7 +71,7 @@ const Select = defineMultiStyleConfig({
         gap: { md: "xs" },
         alignItems: { md: "center" },
       },
-      label: labelLegendTextSpecialSpacing,
+      label: { marginBottom: "label.default" },
       select: select(labelPosition),
     };
   }),

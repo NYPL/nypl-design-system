@@ -697,7 +697,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
     id="alphabet-filter-componentWrapper"
   >
     <h2
-      className="chakra-heading css-1xdhyk6"
+      className="chakra-heading css-1uhtpq1"
       data-testid="ds-heading"
       id="alphabet-filter-heading"
     >
@@ -1032,7 +1032,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
     id="alphabet-filter-componentWrapper"
   >
     <p
-      className="chakra-text css-1xdhyk6"
+      className="chakra-text css-ap6r8h"
       data-testid="ds-text"
     >
       This is description text.
