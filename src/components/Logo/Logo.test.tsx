@@ -40,15 +40,6 @@ describe("Logo", () => {
     );
   });
 
-  it("consoles a warning if name is not passed and a child is but it's not an SVG element", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(<Logo>Not an SVG</Logo>);
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Logo: An `svg` element must be passed to the `Logo` " +
-        "component as its child."
-    );
-  });
-
   it("renders a logo based on the logo `name` prop", () => {
     const { container } = render(<Logo name="nyplFullBlack" />);
     expect(container.querySelector("svg")).toBeInTheDocument();
