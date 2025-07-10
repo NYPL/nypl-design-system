@@ -97,7 +97,7 @@ type Story = StoryObj<typeof FilterBarInline>;
  */
 export const WithControls: Story = {
   args: {
-    id: "filterbar-inline-id",
+    id: "filterBarInline-id",
     heading: "FilterBarInline",
     layout: "row",
   },
@@ -976,7 +976,7 @@ const FilterBarTagSetStory = () => {
   return (
     <>
       <FilterBarInline
-        id="filterbar-with-tagset"
+        id="filterBarInline-with-tagset"
         selectedItems={selectedFilterItems}
         renderChildren={renderFilterComponents}
       />

@@ -67,13 +67,6 @@ export const Text: ChakraComponent<
         isLowercase,
       });
 
-      if (!children) {
-        console.warn(
-          "NYPL Reservoir Text: No children were passed and the `Text` component " +
-            "will not render correctly."
-        );
-      }
-
       // Warnings about the `isBold` prop
       if (isBold && size === "caption") {
         console.warn(

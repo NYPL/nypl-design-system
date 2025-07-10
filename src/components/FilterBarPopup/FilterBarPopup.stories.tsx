@@ -93,7 +93,7 @@ type Story = StoryObj<typeof FilterBarPopup>;
  */
 export const WithControls: Story = {
   args: {
-    id: "filterbar-popup-id",
+    id: "filterBarPopup-id",
     heading: "FilterBarPopup",
   },
   render: (args) => <FilterBarPopupStory {...args} />,
@@ -387,7 +387,7 @@ const FilterBarTotalResultsStory = () => {
   return (
     <>
       <FilterBarPopup
-        id="filterbar-with-tagset"
+        id="filterBarPopup-with-tagset"
         onClear={clearFilters}
         selectedItems={selectedFilterItems}
         renderChildren={renderFilterComponents}

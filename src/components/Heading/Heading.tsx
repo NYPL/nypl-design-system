@@ -119,13 +119,6 @@ export const Heading: ChakraComponent<
         );
       }
 
-      if (React.Children.count(props.children) > 1) {
-        // Catching the error because React's error isn't as helpful.
-        console.warn(
-          "NYPL Reservoir Heading: Only pass one child into Heading."
-        );
-      }
-
       let textCase = 0;
       if (isCapitalized) {
         textCase++;
