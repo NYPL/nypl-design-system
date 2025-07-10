@@ -58,6 +58,8 @@ use the new composable Template components.
 **Rename “type” props to “variant”**\
 We changed prop names from “type” to “variant” to more accurately describe what they do.
 
+If you're using these components, update the following prop names.
+
 | Component        | Old prop         | New prop         |
 | ---------------- | :--------------- | :--------------- |
 | **Accordion**    | accordionType    | variant          |
@@ -77,24 +79,25 @@ We changed prop names from “type” to “variant” to more accurately descri
 
 **Change spacing as needed**\
 We removed default spacing from several components and the `noSpace` prop in
-`Heading` and `Text`. If you’re using the `noSpace` prop, you'll need to
-remove it. If you were relying on default spacing from Reservoir, you'll need
-to add it back in manually.
+`Heading` and `Text`.
 
-| Component           | Spacing removed |
-| ------------------- | :-------------- |
-| **DatePicker**      | accordionType   |
-| **Heading**         | `mb='s'`        |
-| **HelperErrorText** | accordionType   |
-| **HorizontalRule**  | accordionType   |
-| **Label**           | accordionType   |
-| **List**            | accordionType   |
-| **StyledList**      | accordionType   |
-| **Text**            | accordionType   |
+- If you’re using the `noSpace` prop, you'll need to remove it.
+- If you were relying on default spacing from Reservoir, you may need to add it back
+  manually.
+
+| Component                | Spacing removed |
+| ------------------------ | :-------------- |
+| **Heading**              | `mb='s'`        |
+| **HelperErrorText**      | `mt='xxs'`      |
+| **HorizontalRule**       | `my='s'`        |
+| **Label**                | `mb='xs'`       |
+| **List (`ol` and `ul`)** | `mb='s'`        |
+| **StyledList**           | `mb='s'`        |
+| **Text**                 | `mb='s'`        |
 
 ### These are some other updates you may need to make.
 
-Remove deprecated props and values
+**Remove deprecated props and values**\
 We removed deprecated props and variants, so if you're still using them, you'll need to update your code. Here’s a list of what's been removed:
 
 Heading
