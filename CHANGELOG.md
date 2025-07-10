@@ -53,6 +53,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes the `tableTextSize` prop from the `Table` component in favor of using the native `fontSize` CSS prop.
 - Removes `Children.map` logic from `Button`, `ButtonGroup`, `Card`, `CheckboxGroup`, `List`, `RadioGroup`, and `Tooltip` to reduce complexity and improve performance.
 - Removes warnings validating presence or type of children from `SubNav`, `ComponentWrapper`, `Form`, `Heading`, `Icon`, `Logo`, and `Text`.
+- Removes the `FilterBar` component and `useFilterBar` hook.
 
 ## Prerelease
 
