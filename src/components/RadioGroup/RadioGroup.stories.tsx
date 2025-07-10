@@ -1,6 +1,6 @@
 import { Box, Flex, Spacer, VStack } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, userEvent, within } from "storybook/test";
 import { createRef } from "react";
 
 import Button from "../Button/Button";

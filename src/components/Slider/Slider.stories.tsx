@@ -1,6 +1,6 @@
 import { Box, VStack } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, userEvent, within } from "storybook/test";
 import { useState } from "react";
 
 import Heading from "../Heading/Heading";

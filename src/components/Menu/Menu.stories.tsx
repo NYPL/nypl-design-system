@@ -1,5 +1,5 @@
 import { HStack } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Menu, { ListItemsData } from "./Menu";
 import { sectionTypeArray } from "../../helpers/types";
