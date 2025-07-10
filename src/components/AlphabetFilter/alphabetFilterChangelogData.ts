@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Removed explicit `classname` prop."],
+    notes: [
+      "Removed explicit `classname` prop.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+    ],
   },
   {
     date: "2025-02-13",

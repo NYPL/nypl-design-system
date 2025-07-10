@@ -28,9 +28,6 @@ export type HeadingSizes = typeof headingSizesArray[number];
 export type HeadingLevels = typeof headingLevelsArray[number];
 
 export interface HeadingProps extends BoxProps {
-  /** Optional ID that other components can cross reference for accessibility
-   * purposes */
-  id?: string;
   /** Optional prop used to show capitalized text */
   isCapitalized?: boolean;
   /** Optional prop used to show upper case text */
@@ -139,7 +136,7 @@ export const Heading: ChakraComponent<
 
       const contentToRender = props.children ? props.children : text;
       const content = url ? (
-        <Link className={urlClass} href={url} id={`${id}-link`}>
+        <Link className={urlClass} href={url}>
           {contentToRender}
         </Link>
       ) : (
@@ -203,6 +200,7 @@ export const Heading: ChakraComponent<
           )}
           <ChakraHeading
             as={asHeading}
+            data-testid="ds-heading"
             id={id}
             ref={ref}
             sx={{
@@ -231,8 +229,9 @@ export const Heading: ChakraComponent<
       return overline || subtitle ? (
         <Box
           as="hgroup"
-          role="group"
           aria-roledescription="Heading group"
+          data-testid="ds-heading-group"
+          role="group"
           sx={{ ...wrapperStyles }}
           {...rest}
         >

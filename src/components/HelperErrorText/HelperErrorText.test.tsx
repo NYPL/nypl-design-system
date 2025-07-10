@@ -20,6 +20,10 @@ describe("HelperErrorText Accessibility", () => {
 });
 
 describe("HelperErrorText", () => {
+  it("should not render an id if none is passed", () => {
+    render(<HelperErrorText text="Text" />);
+    expect(screen.getByTestId("ds-helperErrorText")).not.toHaveAttribute("id");
+  });
   it("renders the text passed", () => {
     const { container } = render(<HelperErrorText text="Text" />);
     expect(container.querySelector("div")).toBeInTheDocument();

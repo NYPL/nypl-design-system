@@ -21,6 +21,7 @@ import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Label from "../Label/Label";
 import TextInput, { TextInputTypes } from "../TextInput/TextInput";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export interface SliderProps
   extends Pick<BoxProps, keyof ChakraProps>,
@@ -33,8 +34,6 @@ export interface SliderProps
   defaultValue?: number | number[];
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -123,18 +122,13 @@ export const Slider: ChakraComponent<
         : defaultValue,
       ...rest
     } = props;
-
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Slider: This component's required `id` prop was not passed."
-      );
-    }
     if (onChange && onChangeEnd) {
       console.warn(
         "NYPL Reservoir Slider: Both `onChange` and `onChangeEnd` props were passed."
       );
     }
 
+    const mainId = useSafeId(id);
     const [currentValue, setCurrentValue] = useStateWithDependencies(value);
 
     let finalIsInvalid = isInvalid;
@@ -163,7 +157,7 @@ export const Slider: ChakraComponent<
     const sliderSharedProps = {
       // Don't focus on the thumbs for every small change.
       focusThumbOnChange: false,
-      id,
+      id: mainId,
       isDisabled,
       max,
       min,
@@ -262,7 +256,7 @@ export const Slider: ChakraComponent<
         : `${labelText} - ${type} value`;
       return (
         <TextInput
-          id={`${id}-textInput-${type}`}
+          id={`${mainId}-textInput-${type}`}
           labelText={updatedLabel}
           __css={{
             ...styles.textInput,
@@ -325,8 +319,9 @@ export const Slider: ChakraComponent<
 
     return (
       <ComponentWrapper
+        data-testid="ds-slider"
         helperText={helperText}
-        id={id}
+        id={mainId}
         invalidText={invalidText}
         isInvalid={finalIsInvalid}
         ref={ref}
@@ -336,14 +331,14 @@ export const Slider: ChakraComponent<
       >
         {showLabel && (
           <Label
-            id={`${id}-label`}
+            id={`${mainId}-label`}
             // We can't target the slider thumbs since those are divs and we
             // should link the label somewhere. So either target the first
             // input box in a `RangeSlider` or the only input box in a `Slider`.
             // When the input fields are not visible, remove this attribute.
             htmlFor={
               showBoxes
-                ? `${id}-textInput-${isRangeSlider ? "start" : "end"}`
+                ? `${mainId}-textInput-${isRangeSlider ? "start" : "end"}`
                 : ""
             }
             isRequired={showRequiredLabel && isRequired}

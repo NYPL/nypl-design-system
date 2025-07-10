@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Replaces `Children.map` logic with `ButtonGroupContext`.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
     ],
   },
   {

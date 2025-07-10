@@ -36,8 +36,6 @@ export interface VideoPlayerProps extends BoxProps {
   headingText?: string | JSX.Element;
   /** Optional string to set the text for a `HelperErrorText` component */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Optional title to be added to the `<iframe>` element for improved
    * accessibility; this title should describe in a few words the content of
    * the video; if omitted, a generic title will be added; if a `title`
@@ -177,7 +175,7 @@ export const VideoPlayer: ChakraComponent<
 
       return (
         <Box
-          data-testid="video-player-component"
+          data-testid="ds-videoPlayer"
           id={id}
           ref={ref}
           __css={styles.base}
@@ -187,12 +185,12 @@ export const VideoPlayer: ChakraComponent<
             <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
           ) : (
             <ComponentWrapper
-              headingText={headingText ? headingText : undefined}
               descriptionText={descriptionText ? descriptionText : undefined}
+              headingText={headingText ? headingText : undefined}
               helperText={
                 helperText && showHelperInvalidText ? helperText : undefined
               }
-              id={`${id}-componentWrapper`}
+              id={id}
             >
               <Box __css={styles.inside}>{embedElement}</Box>
             </ComponentWrapper>

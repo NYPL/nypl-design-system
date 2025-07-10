@@ -3,13 +3,15 @@
 exports[`Banner renders the UI snapshot correctly 1`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-banner"
   data-variant="informative"
+  id="test-id"
 >
   <svg
     aria-hidden={true}
     className="chakra-icon banner-icon css-1976tye"
     data-file-name="SvgErrorOutline"
-    data-testid="undefined-banner-icon"
+    data-testid="test-id-banner-icon"
     focusable={false}
     role="img"
     title="Banner informative icon"
@@ -19,6 +21,7 @@ exports[`Banner renders the UI snapshot correctly 1`] = `
   >
     <h2
       className="chakra-heading css-u0977i"
+      data-testid="ds-heading"
     >
       Banner Heading
     </h2>
@@ -30,6 +33,7 @@ exports[`Banner renders the UI snapshot correctly 1`] = `
 exports[`Banner renders the UI snapshot correctly 2`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-banner"
   data-variant="negative"
   id="bannerID3"
 >
@@ -47,6 +51,7 @@ exports[`Banner renders the UI snapshot correctly 2`] = `
   >
     <h2
       className="chakra-heading css-15kduf4"
+      data-testid="ds-heading"
     >
       Banner Heading
     </h2>
@@ -58,6 +63,7 @@ exports[`Banner renders the UI snapshot correctly 2`] = `
 exports[`Banner renders the UI snapshot correctly 3`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-banner"
   data-variant="neutral"
   id="bannerID3"
 >
@@ -75,6 +81,7 @@ exports[`Banner renders the UI snapshot correctly 3`] = `
   >
     <h2
       className="chakra-heading css-u0977i"
+      data-testid="ds-heading"
     >
       Banner Heading
     </h2>
@@ -86,6 +93,7 @@ exports[`Banner renders the UI snapshot correctly 3`] = `
 exports[`Banner renders the UI snapshot correctly 4`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-banner"
   data-variant="positive"
   id="bannerID3"
 >
@@ -103,6 +111,7 @@ exports[`Banner renders the UI snapshot correctly 4`] = `
   >
     <h2
       className="chakra-heading css-u0977i"
+      data-testid="ds-heading"
     >
       Banner Heading
     </h2>
@@ -114,6 +123,7 @@ exports[`Banner renders the UI snapshot correctly 4`] = `
 exports[`Banner renders the UI snapshot correctly 5`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-banner"
   data-variant="recommendation"
   id="bannerID3"
 >
@@ -131,6 +141,7 @@ exports[`Banner renders the UI snapshot correctly 5`] = `
   >
     <h2
       className="chakra-heading css-u0977i"
+      data-testid="ds-heading"
     >
       Banner Heading
     </h2>
@@ -142,6 +153,7 @@ exports[`Banner renders the UI snapshot correctly 5`] = `
 exports[`Banner renders the UI snapshot correctly 6`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-banner"
   data-variant="warning"
   id="bannerID3"
 >
@@ -159,6 +171,7 @@ exports[`Banner renders the UI snapshot correctly 6`] = `
   >
     <h2
       className="chakra-heading css-u0977i"
+      data-testid="ds-heading"
     >
       Banner Heading
     </h2>
@@ -170,6 +183,7 @@ exports[`Banner renders the UI snapshot correctly 6`] = `
 exports[`Banner renders the UI snapshot correctly 7`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-banner"
   data-variant="neutral"
   id="bannerID4"
 >
@@ -193,6 +207,7 @@ exports[`Banner renders the UI snapshot correctly 7`] = `
 exports[`Banner renders the UI snapshot correctly 8`] = `
 <aside
   className="css-1xdhyk6"
+  data-testid="ds-banner"
   data-variant="neutral"
   id="bannerID7"
 >
@@ -213,6 +228,7 @@ exports[`Banner renders the UI snapshot correctly 8`] = `
   <button
     aria-label="Close the banner"
     className="chakra-button css-1xdhyk6"
+    data-testid="ds-button"
     id="bannerID7-dismissible-button"
     onClick={[Function]}
     type="button"
@@ -233,6 +249,7 @@ exports[`Banner renders the UI snapshot correctly 8`] = `
 exports[`Banner renders the UI snapshot correctly 9`] = `
 <aside
   className="css-16h1ce8"
+  data-testid="ds-banner"
   data-variant="neutral"
   id="chakra"
 >
@@ -250,6 +267,7 @@ exports[`Banner renders the UI snapshot correctly 9`] = `
   >
     <h2
       className="chakra-heading css-u0977i"
+      data-testid="ds-heading"
     >
       Banner Heading
     </h2>
@@ -279,6 +297,7 @@ exports[`Banner renders the UI snapshot correctly 10`] = `
   >
     <h2
       className="chakra-heading css-u0977i"
+      data-testid="ds-heading"
     >
       Banner Heading
     </h2>

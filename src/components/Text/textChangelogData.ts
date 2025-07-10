@@ -19,6 +19,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `role` prop (as Chakra equivalent may be used) and updates docs.",
       "Remove children validation warning.",
       'Removes the `noSpace` prop and sets all margins to "0" by default.',
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },
   {

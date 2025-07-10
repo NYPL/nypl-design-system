@@ -15,6 +15,7 @@ import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
 import Label from "../Label/Label";
 import { getAriaAttrs } from "../../utils/utils";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export const selectVariantsArray = ["default", "searchbar"] as const;
 export const labelPositionsArray = ["default", "inline"] as const;
@@ -28,8 +29,6 @@ export interface SelectProps
   defaultValue?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -100,6 +99,7 @@ export const Select: ChakraComponent<
         value = "",
         ...rest
       } = props;
+      const mainId = useSafeId(id);
       const [labelWidth, setLabelWidth] = useState<number>(0);
       const labelRef = useRef<HTMLDivElement>(null);
       const styles = useMultiStyleConfig("ReservoirSelect", {
@@ -112,7 +112,7 @@ export const Select: ChakraComponent<
       const footnote = isInvalid ? finalInvalidText : helperText;
       const ariaAttributes = getAriaAttrs({
         footnote,
-        id,
+        id: mainId,
         labelText,
         name: "Select",
         showLabel,
@@ -141,12 +141,6 @@ export const Select: ChakraComponent<
         );
       }
 
-      if (!id) {
-        console.warn(
-          "NYPL Reservoir Select: This component's required `id` prop was not passed."
-        );
-      }
-
       useEffect(() => {
         if (labelPosition === "inline") {
           if (labelRef.current) {
@@ -160,11 +154,12 @@ export const Select: ChakraComponent<
 
       return (
         <ComponentWrapper
+          data-testid="ds-select"
           helperText={helperText}
           helperTextStyles={{
             marginStart: { sm: "auto", md: `${labelWidth}px` },
           }}
-          id={id}
+          id={mainId}
           invalidText={finalInvalidText}
           isInvalid={isInvalid}
           showHelperInvalidText={showHelperInvalidText}
@@ -175,8 +170,8 @@ export const Select: ChakraComponent<
             {showLabel && (
               <Box ref={labelRef}>
                 <Label
-                  htmlFor={id}
-                  id={`${id}-label`}
+                  htmlFor={mainId}
+                  id={`${mainId}-label`}
                   isInlined
                   isRequired={showRequiredLabel && isRequired}
                   requiredLabelText={requiredLabelText}
@@ -187,7 +182,7 @@ export const Select: ChakraComponent<
             )}
             <ChakraSelect
               autoComplete={autoComplete}
-              id={id}
+              id={mainId}
               isRequired={isRequired}
               isDisabled={isDisabled}
               isInvalid={isInvalid}
@@ -198,7 +193,7 @@ export const Select: ChakraComponent<
               icon={
                 <Icon
                   color={arrowColor}
-                  id={`${id}-icon`}
+                  id={`${mainId}-select-icon`}
                   name="arrow"
                   size="medium"
                 />

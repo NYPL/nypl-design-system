@@ -33,7 +33,6 @@ const meta: Meta<typeof Button> = {
       options: iconNamesArray,
       description: "**Only used for Storybook – ** Select an icon. ",
     },
-    id: { control: false },
     isDisabled: { table: { defaultValue: { summary: "false" } } },
     mouseDown: { table: { defaultValue: { summary: "false" } } },
     onClick: { control: false },
@@ -64,7 +63,6 @@ export const WithControls: Story = {
     displayIcon: false,
     displayIconLeft: true,
     iconType: "search",
-    id: "button-id",
     isDisabled: false,
     mouseDown: undefined,
     onClick: undefined,
@@ -202,12 +200,8 @@ export const ButtonVariants: Story = {
 export const DisabledButtons: Story = {
   render: () => (
     <ButtonGroup>
-      <Button id="enabled-btn" isDisabled={false}>
-        Enabled
-      </Button>
-      <Button id="disabled-btn" isDisabled>
-        isDisabled
-      </Button>
+      <Button isDisabled={false}>Enabled</Button>
+      <Button isDisabled>isDisabled</Button>
     </ButtonGroup>
   ),
 };
@@ -216,13 +210,13 @@ const sizeHeaders = ["--", "small", "medium (default)", "large"];
 const buttonData = [
   [
     "primary",
-    <Button id="p-small" key="p-small" size="small">
+    <Button key="p-small" size="small">
       Primary
     </Button>,
-    <Button id="p-medium" key="p-medium" size="medium">
+    <Button key="p-medium" size="medium">
       Primary
     </Button>,
-    <Button id="p-large" key="p-large" size="large">
+    <Button key="p-large" size="large">
       Primary
     </Button>,
   ],

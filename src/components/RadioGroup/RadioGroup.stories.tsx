@@ -16,7 +16,6 @@ const meta: Meta<typeof RadioGroup> = {
   title: "Components/Form Elements/RadioGroup",
   component: RadioGroup,
   argTypes: {
-    id: { control: false },
     isDisabled: argsBooleanType(),
     isFullWidth: argsBooleanType(),
     isInvalid: argsBooleanType(),
@@ -44,7 +43,6 @@ export const Controls: Story = {
   args: {
     defaultValue: "4",
     helperText: "This is the helper text for the full group.",
-    id: "radioGroup-id",
     invalidText: "An error occurred :(",
     isDisabled: false,
     isFullWidth: false,

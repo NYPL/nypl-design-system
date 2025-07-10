@@ -14,7 +14,6 @@ const meta: Meta<typeof Menu> = {
       options: sectionTypeArray,
       defaultValue: { summary: "blogs" },
     },
-    id: { control: false },
     labelText: { description: "Set menu button text." },
     listAlignment: {
       options: ["left", "right"],
@@ -376,7 +375,6 @@ const wideListItems: ListItemsData[] = [
 export const WithControls: Story = {
   args: {
     highlightColor: "blogs",
-    id: "Menu-id",
     labelText: "I'm the menu",
     listAlignment: "left",
     listItemsData: undefined,

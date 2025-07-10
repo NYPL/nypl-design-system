@@ -29,7 +29,6 @@ const meta: Meta<typeof Banner> = {
       options: highlightColorsArray,
     },
     icon: { control: false },
-    id: { control: false },
     isDismissible: { control: { type: "boolean" } },
     variant: {
       control: { type: "select" },
@@ -57,7 +56,6 @@ export const WithControls: Story = {
     heading: "Heading text",
     highlightColor: undefined,
     icon: undefined,
-    id: undefined,
     isDismissible: false,
     type: "neutral",
   },

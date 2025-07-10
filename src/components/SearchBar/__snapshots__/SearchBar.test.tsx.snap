@@ -3,12 +3,13 @@
 exports[`SearchBar renders the UI snapshot correctly 1`] = `
 <div
   className="css-v54qrt"
-  id="basic-wrapper"
+  data-testid="ds-searchBar"
+  id="basic-componentWrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
     className="css-1xdhyk6"
-    id="searchbar-form-basic"
+    id="basic-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -16,7 +17,8 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-basic-wrapper"
+        data-testid="ds-textInput"
+        id="basic-textInput-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -27,7 +29,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
             autoComplete={null}
             className="chakra-input textInput css-1xdhyk6"
             disabled={false}
-            id="searchbar-textinput-basic"
+            id="basic-textInput"
             name="textInputName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -42,7 +44,8 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
-        id="searchbar-button-basic"
+        data-testid="ds-button"
+        id="basic-submit-button"
         type="submit"
       >
         <svg
@@ -50,7 +53,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-basic"
+          id="basic-submit-icon"
           role="img"
           title="search icon"
         />
@@ -65,7 +68,8 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="basic-helperText"
+    data-testid="ds-helperErrorText"
+    id="basic-helperErrorText"
   >
     <div
       className="css-0"
@@ -82,18 +86,20 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
 exports[`SearchBar renders the UI snapshot correctly 2`] = `
 <div
   className="css-v54qrt"
-  id="withSelect-wrapper"
+  data-testid="ds-searchBar"
+  id="withSelect-componentWrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
     className="css-1xdhyk6"
-    id="searchbar-form-withSelect"
+    id="withSelect-form"
     onSubmit={[MockFunction]}
   >
     <div
       className="css-1u8qly9"
       data-select={true}
-      id="searchbar-select-withSelect-wrapper"
+      data-testid="ds-select"
+      id="withSelect-select-componentWrapper"
     >
       <div
         className="css-0"
@@ -105,7 +111,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
             aria-label="Select a category"
             className="chakra-select css-1ik61og"
             disabled={false}
-            id="searchbar-select-withSelect"
+            id="withSelect-select"
             name="selectName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -172,7 +178,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
               className="chakra-icon chakra-select__icon css-1nreziu"
               data-file-name="SvgArrow"
               focusable={false}
-              id="searchbar-select-withSelect-icon"
+              id="withSelect-select-select-icon"
               role="presentation"
               style={
                 {
@@ -192,7 +198,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-withSelect-wrapper"
+        data-testid="ds-textInput"
+        id="withSelect-textInput-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -203,7 +210,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
             autoComplete={null}
             className="chakra-input textInput css-1xdhyk6"
             disabled={false}
-            id="searchbar-textinput-withSelect"
+            id="withSelect-textInput"
             name="textInputName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -218,7 +225,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
-        id="searchbar-button-withSelect"
+        data-testid="ds-button"
+        id="withSelect-submit-button"
         type="submit"
       >
         <svg
@@ -226,7 +234,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-withSelect"
+          id="withSelect-submit-icon"
           role="img"
           title="search icon"
         />
@@ -241,7 +249,8 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="withSelect-helperText"
+    data-testid="ds-helperErrorText"
+    id="withSelect-helperErrorText"
   >
     <div
       className="css-0"
@@ -258,12 +267,13 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
 exports[`SearchBar renders the UI snapshot correctly 3`] = `
 <div
   className="css-v54qrt"
-  id="withoutHelperText-wrapper"
+  data-testid="ds-searchBar"
+  id="withoutHelperText-componentWrapper"
 >
   <form
     aria-label="SearchBar label"
     className="css-1xdhyk6"
-    id="searchbar-form-withoutHelperText"
+    id="withoutHelperText-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -271,7 +281,8 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-withoutHelperText-wrapper"
+        data-testid="ds-textInput"
+        id="withoutHelperText-textInput-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -281,7 +292,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
             autoComplete={null}
             className="chakra-input textInput css-1xdhyk6"
             disabled={false}
-            id="searchbar-textinput-withoutHelperText"
+            id="withoutHelperText-textInput"
             name="textInputName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -296,7 +307,8 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
-        id="searchbar-button-withoutHelperText"
+        data-testid="ds-button"
+        id="withoutHelperText-submit-button"
         type="submit"
       >
         <svg
@@ -304,7 +316,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-withoutHelperText"
+          id="withoutHelperText-submit-icon"
           role="img"
           title="search icon"
         />
@@ -320,12 +332,13 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
 exports[`SearchBar renders the UI snapshot correctly 4`] = `
 <div
   className="css-v54qrt"
-  id="withClearButton-wrapper"
+  data-testid="ds-searchBar"
+  id="withClearButton-componentWrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
     className="css-1xdhyk6"
-    id="searchbar-form-withClearButton"
+    id="withClearButton-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -333,7 +346,8 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-withClearButton-wrapper"
+        data-testid="ds-textInput"
+        id="withClearButton-textInput-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -344,7 +358,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
             autoComplete={null}
             className="chakra-input textInput css-1xdhyk6"
             disabled={false}
-            id="searchbar-textinput-withClearButton"
+            id="withClearButton-textInput"
             name="textInputName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -359,7 +373,8 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
-        id="searchbar-button-withClearButton"
+        data-testid="ds-button"
+        id="withClearButton-submit-button"
         type="submit"
       >
         <svg
@@ -367,7 +382,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-withClearButton"
+          id="withClearButton-submit-icon"
           role="img"
           title="search icon"
         />
@@ -382,7 +397,8 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="withClearButton-helperText"
+    data-testid="ds-helperErrorText"
+    id="withClearButton-helperErrorText"
   >
     <div
       className="css-0"
@@ -399,12 +415,13 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
 exports[`SearchBar renders the UI snapshot correctly 5`] = `
 <div
   className="css-v54qrt"
-  id="invalidState-wrapper"
+  data-testid="ds-searchBar"
+  id="invalidState-componentWrapper"
 >
   <form
     aria-label="SearchBar label"
     className="css-1xdhyk6"
-    id="searchbar-form-invalidState"
+    id="invalidState-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -412,19 +429,20 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-invalidState-wrapper"
+        data-testid="ds-textInput"
+        id="invalidState-textInput-componentWrapper"
       >
         <div
           className="css-79elbk"
         >
           <input
-            aria-describedby="searchbar-textinput-invalidState-helperText"
+            aria-describedby="invalidState-textInput-helperText"
             aria-invalid={true}
             aria-label="Item Search"
             autoComplete={null}
             className="chakra-input textInput css-1xdhyk6"
             disabled={false}
-            id="searchbar-textinput-invalidState"
+            id="invalidState-textInput"
             name="textInputName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -440,13 +458,15 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
           aria-live="polite"
           className="css-1xdhyk6"
           data-isinvalid={true}
-          id="searchbar-textinput-invalidState-helperText"
+          data-testid="ds-helperErrorText"
+          id="invalidState-textInput-helperErrorText"
         />
       </div>
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
-        id="searchbar-button-invalidState"
+        data-testid="ds-button"
+        id="invalidState-submit-button"
         type="submit"
       >
         <svg
@@ -454,7 +474,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-invalidState"
+          id="invalidState-submit-icon"
           role="img"
           title="search icon"
         />
@@ -470,12 +490,13 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
 exports[`SearchBar renders the UI snapshot correctly 6`] = `
 <div
   className="css-v54qrt"
-  id="disabledState-wrapper"
+  data-testid="ds-searchBar"
+  id="disabledState-componentWrapper"
 >
   <form
     aria-label="SearchBar label"
     className="css-1xdhyk6"
-    id="searchbar-form-disabledState"
+    id="disabledState-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -483,7 +504,8 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-disabledState-wrapper"
+        data-testid="ds-textInput"
+        id="disabledState-textInput-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -493,7 +515,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
             autoComplete={null}
             className="chakra-input textInput css-1xdhyk6"
             disabled={true}
-            id="searchbar-textinput-disabledState"
+            id="disabledState-textInput"
             name="textInputName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -508,8 +530,9 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
+        data-testid="ds-button"
         disabled={true}
-        id="searchbar-button-disabledState"
+        id="disabledState-submit-button"
         type="submit"
       >
         <svg
@@ -517,7 +540,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-disabledState"
+          id="disabledState-submit-icon"
           role="img"
           title="search icon"
         />
@@ -533,12 +556,13 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
 exports[`SearchBar renders the UI snapshot correctly 7`] = `
 <div
   className="css-v54qrt"
-  id="requiredState-wrapper"
+  data-testid="ds-searchBar"
+  id="requiredState-componentWrapper"
 >
   <form
     aria-label="SearchBar label"
     className="css-1xdhyk6"
-    id="searchbar-form-requiredState"
+    id="requiredState-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -546,7 +570,8 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-requiredState-wrapper"
+        data-testid="ds-textInput"
+        id="requiredState-textInput-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -557,7 +582,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
             autoComplete={null}
             className="chakra-input textInput css-1xdhyk6"
             disabled={true}
-            id="searchbar-textinput-requiredState"
+            id="requiredState-textInput"
             name="textInputName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -572,8 +597,9 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
+        data-testid="ds-button"
         disabled={true}
-        id="searchbar-button-requiredState"
+        id="requiredState-submit-button"
         type="submit"
       >
         <svg
@@ -581,7 +607,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-requiredState"
+          id="requiredState-submit-icon"
           role="img"
           title="search icon"
         />
@@ -597,12 +623,13 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
 exports[`SearchBar renders the UI snapshot correctly 8`] = `
 <div
   className="css-v54qrt"
-  id="noBrandButtonType-wrapper"
+  data-testid="ds-searchBar"
+  id="noBrandButtonType-componentWrapper"
 >
   <form
     aria-label="SearchBar label"
     className="css-1xdhyk6"
-    id="searchbar-form-noBrandButtonType"
+    id="noBrandButtonType-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -610,7 +637,8 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-noBrandButtonType-wrapper"
+        data-testid="ds-textInput"
+        id="noBrandButtonType-textInput-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -621,7 +649,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
             autoComplete={null}
             className="chakra-input textInput css-1xdhyk6"
             disabled={true}
-            id="searchbar-textinput-noBrandButtonType"
+            id="noBrandButtonType-textInput"
             name="textInputName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -636,8 +664,9 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
+        data-testid="ds-button"
         disabled={true}
-        id="searchbar-button-noBrandButtonType"
+        id="noBrandButtonType-submit-button"
         type="submit"
       >
         <svg
@@ -645,7 +674,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-noBrandButtonType"
+          id="noBrandButtonType-submit-icon"
           role="img"
           title="search icon"
         />
@@ -661,10 +690,12 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
 exports[`SearchBar renders the UI snapshot correctly 9`] = `
 <div
   className="css-v54qrt"
-  id="withHeading-wrapper"
+  data-testid="ds-searchBar"
+  id="withHeading-componentWrapper"
 >
   <h2
     className="chakra-heading css-1uhtpq1"
+    data-testid="ds-heading"
     id="withHeading-heading"
   >
     A Heading
@@ -672,7 +703,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
   <form
     aria-label="SearchBar label"
     className="css-1xdhyk6"
-    id="searchbar-form-withHeading"
+    id="withHeading-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -681,7 +712,8 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
-        id="searchbar-button-withHeading"
+        data-testid="ds-button"
+        id="withHeading-submit-button"
         type="submit"
       >
         <svg
@@ -689,7 +721,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-withHeading"
+          id="withHeading-submit-icon"
           role="img"
           title="search icon"
         />
@@ -705,17 +737,19 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
 exports[`SearchBar renders the UI snapshot correctly 10`] = `
 <div
   className="css-v54qrt"
-  id="withDescription-wrapper"
+  data-testid="ds-searchBar"
+  id="withDescription-componentWrapper"
 >
   <p
     className="chakra-text css-ap6r8h"
+    data-testid="ds-text"
   >
     A description
   </p>
   <form
     aria-label="SearchBar label"
     className="css-1xdhyk6"
-    id="searchbar-form-withDescription"
+    id="withDescription-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -724,7 +758,8 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
-        id="searchbar-button-withDescription"
+        data-testid="ds-button"
+        id="withDescription-submit-button"
         type="submit"
       >
         <svg
@@ -732,7 +767,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-withDescription"
+          id="withDescription-submit-icon"
           role="img"
           title="search icon"
         />
@@ -748,23 +783,26 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
 exports[`SearchBar renders the UI snapshot correctly 11`] = `
 <div
   className="css-v54qrt"
-  id="withHeadingAndDescription-wrapper"
+  data-testid="ds-searchBar"
+  id="withHeadingAndDescription-componentWrapper"
 >
   <h2
     className="chakra-heading css-1uhtpq1"
+    data-testid="ds-heading"
     id="withHeadingAndDescription-heading"
   >
     A Heading
   </h2>
   <p
     className="chakra-text css-ap6r8h"
+    data-testid="ds-text"
   >
     A description
   </p>
   <form
     aria-label="SearchBar label"
     className="css-1xdhyk6"
-    id="searchbar-form-withHeadingAndDescription"
+    id="withHeadingAndDescription-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -773,7 +811,8 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
-        id="searchbar-button-withHeadingAndDescription"
+        data-testid="ds-button"
+        id="withHeadingAndDescription-submit-button"
         type="submit"
       >
         <svg
@@ -781,7 +820,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-withHeadingAndDescription"
+          id="withHeadingAndDescription-submit-icon"
           role="img"
           title="search icon"
         />
@@ -797,12 +836,13 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
 exports[`SearchBar renders the UI snapshot correctly 12`] = `
 <div
   className="css-v54qrt"
-  id="chakra-wrapper"
+  data-testid="ds-searchBar"
+  id="chakra-componentWrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
     className="css-kle7zy"
-    id="searchbar-form-chakra"
+    id="chakra-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -810,7 +850,8 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-chakra-wrapper"
+        data-testid="ds-textInput"
+        id="chakra-textInput-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -821,7 +862,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
             autoComplete={null}
             className="chakra-input textInput css-1xdhyk6"
             disabled={false}
-            id="searchbar-textinput-chakra"
+            id="chakra-textInput"
             name="textInputName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -836,7 +877,8 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
-        id="searchbar-button-chakra"
+        data-testid="ds-button"
+        id="chakra-submit-button"
         type="submit"
       >
         <svg
@@ -844,7 +886,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-chakra"
+          id="chakra-submit-icon"
           role="img"
           title="search icon"
         />
@@ -859,7 +901,8 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="chakra-helperText"
+    data-testid="ds-helperErrorText"
+    id="chakra-helperErrorText"
   >
     <div
       className="css-0"
@@ -877,12 +920,12 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
 <div
   className="css-v54qrt"
   data-testid="props"
-  id="props-wrapper"
+  id="props-componentWrapper"
 >
   <form
     aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
     className="css-1xdhyk6"
-    id="searchbar-form-props"
+    id="props-form"
     onSubmit={[MockFunction]}
   >
     <div
@@ -890,7 +933,8 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
     >
       <div
         className="textInput css-1u8qly9"
-        id="searchbar-textinput-props-wrapper"
+        data-testid="ds-textInput"
+        id="props-textInput-componentWrapper"
       >
         <div
           className="css-79elbk"
@@ -901,7 +945,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
             autoComplete={null}
             className="chakra-input textInput css-1xdhyk6"
             disabled={false}
-            id="searchbar-textinput-props"
+            id="props-textInput"
             name="textInputName"
             onBlur={[Function]}
             onChange={[Function]}
@@ -916,7 +960,8 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
       <button
         className="chakra-button searchButton css-1xdhyk6"
         data-button={true}
-        id="searchbar-button-props"
+        data-testid="ds-button"
+        id="props-submit-button"
         type="submit"
       >
         <svg
@@ -924,7 +969,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
           className="chakra-icon css-1vgifmd"
           data-file-name="SvgSearch"
           focusable={false}
-          id="searchbar-icon-props"
+          id="props-submit-icon"
           role="img"
           title="search icon"
         />
@@ -939,7 +984,8 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="props-helperText"
+    data-testid="ds-helperErrorText"
+    id="props-helperErrorText"
   >
     <div
       className="css-0"

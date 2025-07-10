@@ -10,8 +10,6 @@ import { forwardRef } from "react";
 export type HelperErrorTextType = string | JSX.Element;
 
 export interface HelperErrorTextProps extends BoxProps {
-  /** Unique ID for accessibility purposes. */
-  id?: string;
   /** Toggles between helper and invalid styling. */
   isInvalid?: boolean;
   /** Offers the ability to render or not render the content passed in
@@ -54,6 +52,7 @@ export const HelperErrorText: ChakraComponent<
         "aria-live": ariaLive === "off" ? undefined : ariaLive,
         className,
         "data-isinvalid": isInvalid,
+        "data-testid": "ds-helperErrorText",
         id,
         ref,
         __css: styles,

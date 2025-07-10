@@ -5,14 +5,15 @@ import renderer from "react-test-renderer";
 
 import ProgressIndicator from "./ProgressIndicator";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("ProgressIndicator Accessibility", () => {
   it("passes axe accessibility for linear and circular types", async () => {
     const linearUtils = render(
-      <ProgressIndicator
-        id="progressIndicatorLinear"
-        labelText="Linear"
-        value={50}
-      />
+      <ProgressIndicator labelText="Linear" value={50} />
     );
     const circularUtils = render(
       <ProgressIndicator
@@ -72,6 +73,13 @@ describe("ProgressIndicator Accessibility", () => {
 });
 
 describe("ProgressIndicator", () => {
+  it("should add an id to the component even if none is passed", () => {
+    render(<ProgressIndicator labelText="Linear" value={50} />);
+    expect(screen.getByTestId("ds-progressIndicator")).toHaveAttribute(
+      "id",
+      "test-id"
+    );
+  });
   it("renders a label and a progressbar for the linear type", () => {
     render(
       <ProgressIndicator id="progressIndicator" labelText="Linear" value={50} />

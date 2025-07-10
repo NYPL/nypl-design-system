@@ -22,6 +22,7 @@ export const changelogData: ChangelogData[] = [
       "Renames `buttonType` to `variant`.",
       "Replaces `buttonSizesArray` with shared sizes array.",
       "Removes `Children.map` logic; consuming apps must now use the `iconOnly` variant for icon-only buttons.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
     ],
   },
   {

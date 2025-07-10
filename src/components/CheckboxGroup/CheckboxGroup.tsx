@@ -14,6 +14,7 @@ import HelperErrorText, {
 } from "../HelperErrorText/HelperErrorText";
 import { LayoutTypes } from "../../helpers/types";
 import { spacing } from "../../theme/foundations/spacing";
+import { useSafeId } from "../../hooks/useSafeId";
 import { CheckboxGroupContext } from "./CheckboxGroupContext";
 
 export interface CheckboxGroupProps extends Omit<BoxProps, "onChange"> {
@@ -21,8 +22,6 @@ export interface CheckboxGroupProps extends Omit<BoxProps, "onChange"> {
   defaultValue?: string[];
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the HelperErrorText for error state */
   invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
@@ -90,6 +89,7 @@ export const CheckboxGroup: ChakraComponent<
         value,
         ...rest
       } = props;
+      const mainId = useSafeId(id);
       const footnote = isInvalid ? invalidText : helperText;
       const spacingProp =
         layout === "column"
@@ -107,12 +107,6 @@ export const CheckboxGroup: ChakraComponent<
         checkboxProps["value"] = value;
       }
 
-      if (!id) {
-        console.warn(
-          "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
-        );
-      }
-
       const checkboxGroupContextValue = useMemo(
         () => ({
           isDisabled,
@@ -128,7 +122,8 @@ export const CheckboxGroup: ChakraComponent<
 
       return (
         <Fieldset
-          id={`${id}-checkbox-group`}
+          data-testid="ds-checkboxGroup"
+          id={mainId}
           isLegendHidden={!showLabel}
           isRequired={isRequired}
           legendText={labelText}
@@ -138,7 +133,7 @@ export const CheckboxGroup: ChakraComponent<
         >
           <ChakraCheckboxGroup {...checkboxProps}>
             <Stack
-              id={id}
+              id={`${mainId}-stack`}
               data-testid="checkbox-group"
               direction={[layout]}
               spacing={spacingProp}
@@ -150,7 +145,7 @@ export const CheckboxGroup: ChakraComponent<
             </Stack>
           </ChakraCheckboxGroup>
           <HelperErrorText
-            id={`${id}-helperErrorText`}
+            id={`${mainId}-helperErrorText`}
             isInvalid={isInvalid}
             isRenderedText={showHelperInvalidText}
             text={footnote}

@@ -12,8 +12,6 @@ export interface HorizontalRuleProps extends BoxProps {
    * other when the width is less than 100%. If omitted, the horizontal rule
    * will have a default center alignment. */
   align?: "left" | "right";
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
 }
 
 export const HorizontalRule: ChakraComponent<
@@ -34,7 +32,16 @@ export const HorizontalRule: ChakraComponent<
         width: "100%",
       };
 
-      return <Box as="hr" id={id} ref={ref} __css={finalStyles} {...rest} />;
+      return (
+        <Box
+          as="hr"
+          data-testid="ds-horizontalRule"
+          id={id}
+          ref={ref}
+          __css={finalStyles}
+          {...rest}
+        />
+      );
     }
   )
 );

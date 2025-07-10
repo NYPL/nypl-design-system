@@ -13,6 +13,11 @@ describe("Logo Accessibility", () => {
 });
 
 describe("Logo", () => {
+  it("should not render an id if none is passed", () => {
+    const { container } = render(<Logo name="nyplFullBlack" />);
+    expect(container.querySelector("svg")).not.toHaveAttribute("id");
+  });
+
   it("consoles a warning if both name and children are passed to Logo", () => {
     const warn = jest.spyOn(console, "warn");
     render(

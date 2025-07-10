@@ -48,8 +48,6 @@ export interface SocialMediaLinkDataProps {
 interface BaseSocialMediaLinksProps extends BoxProps {
   /** Any of three optional values that will change the color of the svg and label text (if any). */
   color?: ColorType;
-  /** ID that other components can cross-reference for accessibility purposes. */
-  id?: string;
   /** Optional desktop layout. Smaller viewports are always in a column if there are labels and
    * in a row if there are no labels. */
   layout?: LayoutTypes;
@@ -134,13 +132,14 @@ export const SocialMediaLinks: ChakraComponent<
 
     return (
       <List
-        variant="ul"
-        listItems={LinksDataComponents}
-        inline={layout === "row"}
-        noStyling
+        data-testid="ds-socialMediaLinks"
         id={id}
-        __css={styles}
+        inline={layout === "row"}
+        listItems={LinksDataComponents}
+        noStyling
         ref={ref}
+        variant="ul"
+        __css={styles}
         {...rest}
       />
     );

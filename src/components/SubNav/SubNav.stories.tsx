@@ -22,7 +22,6 @@ const meta: Meta<typeof SubNav> = {
       options: highlightColorsArray,
       defaultValue: { summary: "blogs" },
     },
-    id: { control: false },
     secondaryActions: {},
     primaryActions: {},
   },
@@ -36,7 +35,6 @@ export const WithControls: Story = {
   args: {
     actionBackgroundColor: undefined,
     highlightColor: undefined,
-    id: "subnav-with-controls",
   },
 
   render: (args: any) => (

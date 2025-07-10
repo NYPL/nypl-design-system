@@ -19,6 +19,7 @@ export const changelogData: ChangelogData[] = [
       "Removes use of `useNYPLBreakpoints` and replaces `aria-label` with screenreader only styles.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes `action`, `method`, and `onSubmit` props (as HTML equivalents may be used) and updates docs.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
     ],
   },
   {

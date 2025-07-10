@@ -9,7 +9,6 @@ const meta: Meta<typeof Heading> = {
   title: "Components/Typography & Styles/Heading",
   component: Heading,
   argTypes: {
-    id: { control: false },
     isCapitalized: argsBooleanType(),
     isUppercase: argsBooleanType(),
     isLowercase: argsBooleanType(),
@@ -39,7 +38,6 @@ type Story = StoryObj<typeof Heading>;
  */
 export const WithControls: Story = {
   args: {
-    id: "heading-id",
     isCapitalized: false,
     isUppercase: false,
     isLowercase: false,

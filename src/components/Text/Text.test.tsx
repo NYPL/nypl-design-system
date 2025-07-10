@@ -13,6 +13,12 @@ describe("Text Accessibility", () => {
 });
 
 describe("Text", () => {
+  it("should not render an id if none is passed", () => {
+    render(<Text>Animal Crossing is all that!</Text>);
+    const text = screen.getByTestId("ds-text");
+    expect(text).not.toHaveAttribute("id");
+  });
+
   it("renders a <p> tag and text", () => {
     render(<Text>Animal Crossing is all that!</Text>);
     expect(

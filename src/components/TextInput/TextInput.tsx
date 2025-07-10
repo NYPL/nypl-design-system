@@ -19,6 +19,7 @@ import { getAriaAttrs, getTextFromElement } from "../../utils/utils";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import type { AutoCompleteValues } from "../../utils/constantValues";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export const textInputTypesArray = [
   "email",
@@ -76,8 +77,6 @@ export interface InputProps extends TextInputPropsWithHTML {
   autoComplete?: AutoCompleteValues;
   /** Populates the HelperErrorText for the standard state */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Populates the HelperErrorText for the error state */
   invalidText?: HelperErrorTextType;
   /** Adds a button to clear existing text in the input field. */
@@ -162,6 +161,7 @@ export const TextInput: ChakraComponent<
         ...rest
       } = props;
       const [finalValue, setFinalValue] = useStateWithDependencies(value);
+      const mainId = useSafeId(id);
       const closedRef = useRef<HTMLInputElement>();
       const mergedRefs = useMergeRefs(closedRef, ref);
       // If a ref is not passed, then merging refs won't work.
@@ -201,7 +201,7 @@ export const TextInput: ChakraComponent<
           additionalAriaLabel,
           additionalHelperTextIds,
           footnote,
-          id,
+          id: mainId,
           labelText: getTextFromElement(labelText), // Make sure this is plain text
           name: "TextInput",
           showLabel,
@@ -222,12 +222,6 @@ export const TextInput: ChakraComponent<
       let clearButtonOutput;
       let options;
 
-      if (!id) {
-        console.warn(
-          "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
-        );
-      }
-
       if (type === "number" && max && min && min > max) {
         finalIsInvalid = true;
         console.warn(
@@ -238,7 +232,7 @@ export const TextInput: ChakraComponent<
       options = isHidden
         ? {
             defaultValue,
-            id,
+            id: mainId,
             "aria-hidden": isHidden,
             name,
             onChange: internalOnChange,
@@ -257,7 +251,7 @@ export const TextInput: ChakraComponent<
                 : type
               : null,
             defaultValue,
-            id,
+            id: mainId,
             isDisabled,
             isRequired,
             isInvalid: finalIsInvalid,
@@ -284,9 +278,9 @@ export const TextInput: ChakraComponent<
         if (isClearable && !isDisabled && !isHidden) {
           clearButtonOutput = (
             <Button
-              variant="text"
-              id={`${id}-clear-btn`}
+              id={`${mainId}-clear-btn`}
               onClick={onClearClick}
+              variant="text"
               sx={styles.clearButton}
             >
               <Icon color="ui.black" name="close" size="medium" />
@@ -309,8 +303,9 @@ export const TextInput: ChakraComponent<
 
       return (
         <ComponentWrapper
+          data-testid="ds-textInput"
           helperText={!finalIsInvalid ? footnote : helperText}
-          id={id}
+          id={mainId}
           invalidText={finalInvalidText}
           isInvalid={finalIsInvalid}
           showHelperInvalidText={showHelperInvalidText && !isHidden}
@@ -319,8 +314,8 @@ export const TextInput: ChakraComponent<
         >
           {labelText && showLabel && !isHidden && (
             <Label
-              htmlFor={id}
-              id={`${id}-label`}
+              htmlFor={mainId}
+              id={`${mainId}-label`}
               isRequired={showRequiredLabel && isRequired}
               requiredLabelText={requiredLabelText}
             >

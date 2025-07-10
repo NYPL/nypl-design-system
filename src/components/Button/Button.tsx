@@ -10,6 +10,7 @@ import {
 import { sizesArray } from "../../theme/sharedTypes";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 
+import { useSafeId } from "../../hooks/useSafeId";
 import { useButtonGroup } from "../ButtonGroup/ButtonGroupContext";
 
 export const buttonElementTypeArray = ["submit", "button", "reset"] as const;
@@ -31,10 +32,6 @@ export type ButtonSizes = typeof sizesArray[number];
 export interface ButtonProps
   extends Pick<BoxProps, keyof ChakraProps>,
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {
-  /** The button variation to render based on the `ButtonVariants` type. */
-  variant?: ButtonVariants;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id: string;
   /** Adds 'disabled' property to the button. */
   isDisabled?: boolean;
   /** Trigger the Button's action through the `mouseDown` event handler instead
@@ -44,6 +41,8 @@ export interface ButtonProps
   screenreaderOnlyText?: string;
   /** The size of the `Button`. */
   size?: ButtonSizes;
+  /** The button variation to render based on the `ButtonVariants` type. */
+  variant?: ButtonVariants;
 }
 
 /**
@@ -70,15 +69,10 @@ export const Button: ChakraComponent<
         type = "button",
         ...rest
       } = props;
+      const mainId = useSafeId(id);
       const isButtonGroupDisabled = useButtonGroup();
       const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
       let styles: any = {};
-
-      if (!id) {
-        console.warn(
-          "NYPL Reservoir Button: This component's required `id` prop was not passed."
-        );
-      }
 
       styles = useMultiStyleConfig("ReservoirButton", {
         variant,
@@ -87,7 +81,8 @@ export const Button: ChakraComponent<
 
       return (
         <ChakraButton
-          id={id}
+          data-testid="ds-button"
+          id={mainId}
           // ButtonGroup's `isDisabled` state takes precendence
           // over the individual button
           isDisabled={isButtonGroupDisabled || isDisabled}
