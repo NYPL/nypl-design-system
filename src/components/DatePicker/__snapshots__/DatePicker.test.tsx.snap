@@ -2,7 +2,7 @@
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="basic-form-field"
 >
   <fieldset
@@ -128,7 +128,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
       id="basic-helper-text"
     >
@@ -142,7 +142,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="no-label-form-field"
 >
   <fieldset
@@ -268,7 +268,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
       id="no-label-helper-text"
     >
@@ -282,7 +282,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="custom-format-form-field"
 >
   <fieldset
@@ -408,7 +408,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
       id="custom-format-helper-text"
     >
@@ -422,7 +422,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="invalid-form-field"
 >
   <fieldset
@@ -584,7 +584,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
       id="invalid-helper-text"
     >
@@ -603,7 +603,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="disabled-form-field"
 >
   <fieldset
@@ -729,7 +729,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
       id="disabled-helper-text"
     >
@@ -748,7 +748,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="basic-form-field"
 >
   <div
@@ -808,7 +808,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="basic-helper-text"
   />
@@ -817,7 +817,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="no-label-form-field"
 >
   <div
@@ -870,7 +870,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="no-label-helper-text"
   />
@@ -879,7 +879,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="custom-format-form-field"
 >
   <div
@@ -939,7 +939,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="custom-format-helper-text"
   />
@@ -948,7 +948,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="invalid-form-field"
 >
   <div
@@ -1026,7 +1026,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="invalid-helper-text"
   />
@@ -1035,7 +1035,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   id="disabled-form-field"
 >
   <div
@@ -1112,7 +1112,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="disabled-helper-text"
   />
@@ -1121,7 +1121,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
 <div
-  className="css-1h2oq49"
+  className="css-1oqgnrx"
   id="chakra-form-field"
 >
   <div
@@ -1198,7 +1198,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="chakra-helper-text"
   />
@@ -1207,7 +1207,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   data-testid="datepicker"
   id="props-form-field"
 >
@@ -1285,7 +1285,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
     id="props-helper-text"
   />

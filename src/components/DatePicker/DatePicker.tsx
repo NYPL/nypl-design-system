@@ -219,7 +219,7 @@ const DatePickerWrapper: React.FC<
   }) => {
     const styles = useMultiStyleConfig("DatePicker", {});
     return (
-      <FormField id={`${id}-form-field`} {...rest}>
+      <FormField id={`${id}-form-field`} gap="0" {...rest}>
         {isDateRange ? (
           <Fieldset
             className={className}
@@ -508,6 +508,7 @@ export const DatePicker: ChakraComponent<
           id={`${id}-helper-text`}
           isInvalid={false}
           isRenderedText={isDateRange && showHelperInvalidText}
+          mt="helper.default"
           text={helperText}
         />
       </DatePickerWrapper>

@@ -7,6 +7,7 @@ import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
+import Text from "../Text/Text";
 import { BaseModalProps, ModalTrigger, useModal } from "./Modal";
 
 const meta: Meta<typeof ModalTrigger> = {
@@ -79,7 +80,7 @@ const ModalStory = () => {
         <Button id="custom-close" onClick={onClose}>
           Go back
         </Button>
-        <p>This is the body content.</p>
+        <Text mb="s">This is the body content.</Text>
         <Button id="custom-close2" onClick={onClose}>
           This is a custom close button.
         </Button>
@@ -116,7 +117,7 @@ const ConfirmationModalStory = () => {
   const { onClose, onOpen, Modal } = useModal();
   const confirmationModalProps = {
     variant: "confirmation",
-    bodyContent: <p>This is the body content.</p>,
+    bodyContent: <Text>This is the body content.</Text>,
     closeButtonLabel: "Cancel Button",
     confirmButtonLabel: "Confirm Button",
     headingText: "useModal with Confirmation Variant",
@@ -204,28 +205,28 @@ const scrollModalProps: BaseModalProps = {
   variant: "default",
   bodyContent: (
     <>
-      <Heading text="Content Title" />
-      <p>
+      <Heading mb="s" text="Content Title" />
+      <Text mb="s">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa
-        placerat duis ultricies lacus sed turpis tincidunt.
+        placerat duis ultricies lacus sed turpis tincidunt.{" "}
         <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non arcu
         risus quis varius. Faucibus in ornare quam viverra orci sagittis.
-      </p>
-      <p>
+      </Text>
+      <Text mb="s">
         Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis enim
         lobortis scelerisque fermentum. Diam maecenas sed enim ut sem viverra.
         Diam quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.
-      </p>
-      <p>
+      </Text>
+      <Text mb="s">
         Ornare lectus sit amet est placerat in. Quis blandit turpis cursus in.
         Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Pellentesque
         eu tincidunt tortor aliquam nulla facilisi cras fermentum. Porttitor leo
         a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl pretium fusce
         id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl
         nunc.
-      </p>
-      <p>
+      </Text>
+      <Text mb="s">
         Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
         gravida quis blandit turpis cursus in hac. Morbi tempus iaculis urna id
         volutpat. Lectus nulla at volutpat diam ut venenatis. Donec ac odio
@@ -237,29 +238,29 @@ const scrollModalProps: BaseModalProps = {
         est sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at
         risus 'viverra adipiscing at. Eu augue ut lectus arcu bibendum at varius
         vel' pharetra.
-      </p>
-      <Heading text="Another Title" />
-      <p>
+      </Text>
+      <Heading mb="s" text="Another Title" />
+      <Text mb="s">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa
-        placerat duis ultricies lacus sed turpis tincidunt.
+        placerat duis ultricies lacus sed turpis tincidunt.{" "}
         <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non arcu
         risus quis varius. Faucibus in ornare quam viverra orci sagittis.
-      </p>
-      <p>
+      </Text>
+      <Text mb="s">
         Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis enim
         lobortis scelerisque fermentum. Diam maecenas sed enim ut sem viverra.
         Diam quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.
-      </p>
-      <p>
+      </Text>
+      <Text mb="s">
         Ornare lectus sit amet est placerat in. Quis blandit turpis cursus in.
         Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Pellentesque
         eu tincidunt tortor aliquam nulla facilisi cras fermentum. Porttitor leo
         a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl pretium fusce
         id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl
         nunc.
-      </p>
-      <p>
+      </Text>
+      <Text>
         Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
         gravida quis blandit turpis cursus in hac. Morbi tempus iaculis urna id
         volutpat. Lectus nulla at volutpat diam ut venenatis. Donec ac odio
@@ -271,7 +272,7 @@ const scrollModalProps: BaseModalProps = {
         est sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at
         risus 'viverra adipiscing at. Eu augue ut lectus arcu bibendum at varius
         vel' pharetra.
-      </p>
+      </Text>
     </>
   ),
   closeButtonLabel: "Close Button",
@@ -281,10 +282,10 @@ const scrollModalProps: BaseModalProps = {
 const defaultHeadingModalProps: BaseModalProps = {
   variant: "default",
   bodyContent: (
-    <p>
+    <Text>
       The heading of this modal is level "h2" and size "heading4", since no
       custom heading element has been passed in.
-    </p>
+    </Text>
   ),
   closeButtonLabel: "Close Button",
   headingText: "Default Heading",
@@ -292,7 +293,7 @@ const defaultHeadingModalProps: BaseModalProps = {
 
 const confirmationProps: BaseModalProps = {
   variant: "confirmation",
-  bodyContent: <p>The action is happening</p>,
+  bodyContent: <Text>The action is happening</Text>,
   closeButtonLabel: "Cancel action",
   confirmButtonLabel: "Confirm action",
   onCancel: () => {

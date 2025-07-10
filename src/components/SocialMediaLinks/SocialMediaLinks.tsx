@@ -137,7 +137,7 @@ export const SocialMediaLinks: ChakraComponent<
         variant="ul"
         listItems={LinksDataComponents}
         inline={layout === "row"}
-        noStyling={true}
+        noStyling
         id={id}
         __css={styles}
         ref={ref}

@@ -97,7 +97,7 @@ type Story = StoryObj<typeof FilterBarInline>;
  */
 export const WithControls: Story = {
   args: {
-    id: "filterbar-inline-id",
+    id: "filterBarInline-id",
     heading: "FilterBarInline",
     layout: "row",
   },
@@ -240,7 +240,7 @@ const FilterBarInlineHeadingStory = () => {
   };
 
   return (
-    <VStack align="left">
+    <VStack align="left" spacing="l">
       <FilterBarInline
         heading={<Heading level="h3">Custom H3 Heading</Heading>}
         renderChildren={renderFilterComponents}
@@ -976,7 +976,7 @@ const FilterBarTagSetStory = () => {
   return (
     <>
       <FilterBarInline
-        id="filterbar-with-tagset"
+        id="filterBarInline-with-tagset"
         selectedItems={selectedFilterItems}
         renderChildren={renderFilterComponents}
       />

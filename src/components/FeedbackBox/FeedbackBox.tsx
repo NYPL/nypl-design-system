@@ -199,7 +199,7 @@ export const FeedbackBox: ChakraComponent<
       );
       const descriptionElement =
         isFormView && descriptionText ? (
-          <Text color={descriptionColor} fontWeight="medium" noSpace>
+          <Text color={descriptionColor} fontWeight="medium">
             {descriptionText}
           </Text>
         ) : undefined;
@@ -454,14 +454,14 @@ export const FeedbackBox: ChakraComponent<
                           Thank you for submitting your feedback.
                         </Text>
                         {showEmailField && (
-                          <Text>
+                          <Text mt="s">
                             If you provided an email address and require a
                             response, our service staff will reach out to you
                             via email.
                           </Text>
                         )}
                         {confirmationText ? (
-                          <Text>{confirmationText}</Text>
+                          <Text mt="s">{confirmationText}</Text>
                         ) : undefined}
                       </Box>
                       {privacyPolicyField}
