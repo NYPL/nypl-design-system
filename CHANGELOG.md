@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates Storybook to `v9.0.16`.
+- Updates Node to `v20`.
 
 ## 3.6.3 (June 9, 2025)
 
