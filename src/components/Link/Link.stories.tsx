@@ -1,5 +1,5 @@
 import { VStack } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Link, { linkVariantsArray } from "./Link";
 import Icon from "../Icons/Icon";

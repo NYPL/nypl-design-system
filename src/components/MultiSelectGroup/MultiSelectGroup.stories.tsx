@@ -1,6 +1,6 @@
 import { VStack } from "@chakra-ui/react";
-import { action } from "@storybook/addon-actions";
-import type { Meta, StoryObj } from "@storybook/react";
+import { action } from "storybook/actions";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useEffect, useState } from "react";
 
 import MultiSelect, {

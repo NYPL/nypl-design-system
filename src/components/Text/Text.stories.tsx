@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Text, { textSizesArray } from "./Text";
 import { VStack } from "@chakra-ui/react";
 import { argsBooleanType } from "../../helpers/storybookUtils";

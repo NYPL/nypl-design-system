@@ -3,8 +3,8 @@ import "../src/styles.scss";
 
 import { MDXProvider } from "@mdx-js/react";
 import { withTests } from "@storybook/addon-jest";
-import { DocsContainer } from "@storybook/blocks";
-import type { Preview } from "@storybook/react";
+import { DocsContainer } from "@storybook/addon-docs/blocks";
+import type { Preview } from "@storybook/react-vite";
 import React, { useEffect } from "react";
 
 import { DSProvider, List, Text, useColorMode } from "../src/index";
