@@ -1,8 +1,8 @@
 import { Meta, Source } from "@storybook/blocks";
-
-import Button from "../Button/Button";
+import { Box, Flex } from "@chakra-ui/react";
+import Banner from "../Banner/Banner";
+import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
-import Text from "../Text/Text";
 
 <Meta title="Development Guide/v4 Migration Guide" />
 
@@ -10,18 +10,17 @@ import Text from "../Text/Text";
 
 ## Table of Contents
 
-- {<Link href="#general-updates-requirements">General Updates & Requirements</Link>}
-- {<Link href="#upgrade-path">Upgrade Path</Link>}
+- {<Link href="#getting-started">Getting Started</Link>}
 - {<Link href="#breaking-changes">Breaking Changes</Link>}
-- {<Link href="#additional-testing-needs">Additional Testing Needs</Link>}
+- {<Link href="#non-breaking-changes">Non-Breaking Changes</Link>}
+- {<Link href="#v3-support">V3 Support</Link>}
 
 ## Back to Foundations
 
 Reservoir v4 includes everything from simple style updates to breaking changes.
 It represents a return to the fundamentals, specifically focusing on the foundational
 layers of HTML, CSS, and JavaScript to make our components more accessible, intuitive,
-and maintainable. This move will strengthen our understanding and application of
-fundamental web technologies.
+and maintainable.
 
 By aligning with web standards, we aim to:
 
@@ -41,7 +40,19 @@ By aligning with web standards, we aim to:
 ### Step 2
 
 Run `npx tsc --noEmit` or `npm run lint` to output a list of Typescript errors.
-This represents the majority of breaking changes you'll need to address.
+This list represents the majority of breaking changes you'll need to address.
+
+<Banner
+  content={
+    <>
+      Don't be afraid if the list is long! We promise most of the changes will
+      be quick and easy.
+    </>
+  }
+  mt="s"
+  mb="s"
+  type="recommendation"
+/>
 
 ### Step 3
 
@@ -49,222 +60,186 @@ Start updating your code!
 
 ## Breaking Changes
 
-### We anticipate these to be the most common breaking changes.
+### We anticipate the following to be the most common breaking changes.
 
-**Upgrade your Template**\
+#### 1. Upgrade your `Template`
+
 If your application uses the Reservoir `Template`, you’ll need to refactor your code to
-use the new composable Template components.
+use the new composable [Template components](../?path=/docs/components-page-layout-template--docs#overview).
 
-**Rename “type” props to “variant”**\
-We changed prop names from “type” to “variant” to more accurately describe what they do.
+<Banner
+  content={
+    <>
+      The new Template features more sophisticated responsiveness so we
+      recommend checking for visual breaking changes after updating.
+    </>
+  }
+  mt="s"
+  mb="s"
+  type="recommendation"
+/>
 
-If you're using these components, update the following prop names.
+#### 2. Rename “type” props to “variant”
 
-| Component        | Old prop         | New prop         |
-| ---------------- | :--------------- | :--------------- |
-| **Accordion**    | accordionType    | variant          |
-| **Banner**       | type             | variant          |
-| **Breadcrumbs**  | breadcrumbsType  | variant          |
-| **Button**       | buttonType       | variant          |
-| **Hero**         | heroType         | variant          |
-| **Icon**         | iconType         | variant          |
-| **Link**         | type             | variant          |
-| **List**         | type             | variant          |
-| **Modal**        | type             | variant          |
-| **Notification** | notificationType | variant          |
-| **Select**       | selectType       | variant          |
-| **StatusBadge**  | type             | variant          |
-| **TagSet**       | type             | variant          |
-| **TextInput**    | textInputType    | textInputVariant |
+We changed the following prop names to more accurately describe what they do.
 
-**Change spacing as needed**\
-We removed default spacing from several components and the `noSpace` prop in
-`Heading` and `Text`.
+<Box my="l" width="100%"
+  sx={{
+  '& table': {
+      margin: 'auto', 
+      width: '75%'
+  }
+}}>
+  {/* prettier-ignore */}
+| Component        | Old prop         | Updated to       |
+| :---------------- | :--------------- | :--------------- |
+| Accordion    | accordionType    | variant          |
+| Banner       | type             | variant          |
+| Breadcrumbs  | breadcrumbsType  | variant          |
+| Button       | buttonType       | variant          |
+| Hero         | heroType         | variant          |
+| Icon         | iconType         | variant          |
+| Link         | type             | variant          |
+| List         | type             | variant          |
+| Modal        | type             | variant          |
+| Notification | notificationType | variant          |
+| Select       | selectType       | variant          |
+| StatusBadge  | type             | variant          |
+| TagSet       | type             | variant          |
+| TextInput    | textInputType    | textInputVariant |
+
+</Box>
+
+#### 3. Add spacing where defaults have been removed
+
+We removed a lot of default spacing, as well as the `noSpace` prop in `Heading` and `Text`.
 
 - If you’re using the `noSpace` prop, you'll need to remove it.
 - If you were relying on default spacing from Reservoir, you may need to add it back
   manually.
 
-| Component                | Spacing removed |
-| ------------------------ | :-------------- |
-| **Heading**              | `mb='s'`        |
-| **HelperErrorText**      | `mt='xxs'`      |
-| **HorizontalRule**       | `my='s'`        |
-| **Label**                | `mb='xs'`       |
-| **List (`ol` and `ul`)** | `mb='s'`        |
-| **StyledList**           | `mb='s'`        |
-| **Text**                 | `mb='s'`        |
+<Box my="l" width="100%"
+  sx={{
+  '& table': {
+      margin: 'auto', 
+      width: '75%'
+  }
+}}>
+  {/* prettier-ignore */}
+  | Component | Spacing removed |
+  | :------------------------| :-------------- |
+  | Heading | `mb='s'` |
+  | HelperErrorText | `mt='xxs'` |
+  | HorizontalRule | `my='s'` |
+  | Label | `mb='xs'` |
+  | List (`ol` and `ul`) | `mb='s'` |
+  | StyledList | `mb='s'` |
+  | Text | `mb='s'` |
+
+</Box>
 
 ### These are some other updates you may need to make.
 
-**Remove deprecated props and values**\
-We removed deprecated props and variants, so if you're still using them, you'll need to update your code. Here’s a list of what's been removed:
+#### Remove deprecated props and values
 
-Heading
-size: “primary”, “secondary”, …
-level: “one”, “two”, …
-Hero
-“secondary” and “fiftyFifty” types
-Button
-“link” variant (formerly buttonType)
-Link
-“button” type
-Notification
-noMargin prop (remove the prop, but make the noMargin styles the default styling)
-ProgressIndicator
-darkMode prop
-StatusBadge
-level prop
-StyledList
-“tag” and “mini” textSize
-Text
-“mini” and “tag” size
-Font Weight Semantic Tokens
-“heading.primary”
-“heading.secondary”
-“heading.tertiary”
-“heading.callout”
+We removed deprecated props and variants, so if you're still using them, you'll need
+to update your code. You can see a list of what's been removed in [this PR](https://github.com/NYPL/nypl-design-system/pull/1783).
 
-Adjust aria props to HTML equivalents
-Native HTML attributes have replaced explicit aria props.
+#### Adjust aria props to HTML equivalents
 
-Accordion: ariaLabel --> aria-label
-Banner: ariaLabel --> aria-label
-HelperErrorText: : ariaAtomic --> aria-atomic, ariaLive --> aria-live
-Notification: ariaLabel --> aria-label
+Native HTML attributes have replaced explicit aria props. For example, `Accordion`'s
+`ariaLabel` has been replaced with `aria-label`. You can see a list of aria props that
+have been removed in [this PR](https://github.com/NYPL/nypl-design-system/pull/1797).
 
-Update id references
-We’ve adjusted ids within our components for clarity and consistency, so if you are using Reservoir component ids in tests, styles, or elsewhere in your code, you may need to update them.
+#### Update id references as needed
 
-Check responsive designs are compatible with new breakpoints
-Our breakpoints have changed. We don’t expect this to be a big change, but it’s possible a page may not look as expected on smaller screen sizes and will need to be adjusted.
+We’ve adjusted `id`s within our components for clarity and consistency, so if you're
+using Reservoir component `id`s in tests, styles, or elsewhere, you may need to update them.
 
-Rename tableTextSize prop in Table to fontSize
+#### Ensure responsive designs are compatible with the new breakpoints
 
-## Non-Breaking Changes
+Our [breakpoints](../?path=/docs/style-guide-breakpoints--docs) have changed! We don’t
+expect this to be too disruptive, but it’s possible a page will not look as expected on
+smaller screen sizes and will need to be adjusted.
 
-## v3 Support
+<Flex
+  direction={{ base: 'column', md: 'row' }} 
+  gap="m"
+  margin="0 auto"
+  width="75%" 
+  sx={{
+    '& table': {
+        margin: 'auto', 
+        width: '100%'
+    }
+  }}
+>
+  <Box width="100%">
+    <Heading level="h5" mb={4} size="heading6" textAlign="center">Old Breakpoints</Heading>
+    {/* prettier-ignore */}
+    | Name | Value |
+    | :--- | :---- |
+    | Base | 0 |
+    | Mobile | 320px |
+    | Tablet portrait | 600px |
+    | Tablet landscape | 960px |
+    | Desktop | 1280px |
+  </Box>
+
+ <Box width="100%">
+    <Heading level="h5" mb={4} size="heading6" textAlign="center">New Breakpoints</Heading>
+    {/* prettier-ignore */}
+    | Name | Value |
+    | :--- | :---- |
+    | Small mobile (base) | 0 |
+    | Large mobile | 480px |
+    | Small tablet | 768px |
+    | Large tablet | 1024px |
+    | Desktop | 1280px |
+  </Box>
+</Flex>
+
+#### Rename `tableTextSize` to `fontSize`
+
+We updated the `tableTextSize` prop in `Table` to `fontSize` to align more closely with the CSS property.
+
+## Design System V4: Non-Breaking Changes
+
+These updates enhance flexibility, stability, and developer experience without requiring breaking changes to your existing code.
+
+#### The `id` prop is now optional for all components.
+
+For components that require `id`s to meet accessibility requirements, one will automatically be generated using React's `useId`
+hook if none is passed.
+
+#### All components now include a default `data-testid` attribute on their top-level element.
+
+The `data-testid` value follows the pattern `ds-[componentName]` (e.g., `ds-accordion`, `ds-button`).
+
+#### Component prop interfaces have been significantly expanded to accept a wider range of values.
+
+This includes standard native HTML attributes (e.g., `aria-label`, `type` for inputs, `tabIndex`) and all Chakra UI style props
+(e.g., `p`, `m`, `bg`, `color`, `sx`).
+
+Refer to the dedicated note above each component's props table for details on how its types were extended.
+
+#### No thrown errors.
+
+Components like `Breadcrumbs`, `Heading`, and `Image` no longer throw errors (crashing your application) when missing required prop
+values.
+
+#### No warnings for invalid children.
+
+Components that expect specific child types (e.g., `RadioGroup` expecting `Radio` children) will no longer log warnings reducing
+console noise during development.
+
+#### Other optimizations
+
+- We've updated our Storybook version, and given the doc headers a new look and feel.
+- We've reduced `React.Children.map` usage in hopes of a performance gain in the components that were using it.
+- We've updated some of our internal naming for improved consistency.
+- We're utilizing object destructuring for arguments, enhancing readability and maintainability.
+
+## V3 Support
 
 The Reservoir team will support v3 until the end of Q2 FY26.
-
-### Main Additions and Upgrades
-
-- The `Menu` (new) and `MultiSelect` (v2) components are included in this release.
-- Chakra 1.8 does not support React 18, so Chakra has been updated to version
-  2.8. **IMPORTANT: If you manually and separately install Chakra in your app,
-  make sure to also upgrade it in the `package.json` file.**
-
-General updates can be found in the [Changelog](https://github.com/NYPL/nypl-design-system/blob/development/CHANGELOG.md),
-but the main points to note are:
-
-- `StatusBadge` has a new `type` prop.
-- There are better responsive styles for the `Heading` and `Text` components.
-- The following Chakra 2.8 helpers are now exported through the DS:
-  `cookieStorageManagerSSR`, `FocusLock`, `useStyleConfig`, and `useMultiStyleConfig`.
-
-### Major Visual Changes
-
-- `StatusBadge` has updated UI variants.
-- `Tabs` adds horizontal scrolling for desktop viewports and improves
-  horizontal scrolling for mobile viewports.
-
-## Breaking Changes
-
-### Design System
-
-- The `NewsletterSignup` and `SocialMediaLinks` components have been removed.
-  They will be added back in a later version.
-- `SimpleGrid` gap values have been updated to include `"grid"` in the prop
-  value name. For example, `gap=”grid.xs”`.
-- The `Link` component now supports app framework's routing link components. For
-  example, `Link` component from Next.js can be used through the `as` prop. The
-  previous pattern where the framework's `Link` component was used as a parent
-  component is no longer supported.
-
-<Source
-  code={`
-// Assuming that Next.js 13+ is being used
-
-// Do This
-import Link as NextLink from "next/link";
-import { Link } from "@nypl/design-system-react-components";
-
-<Link href="/about" as={NextLink}>
-  About
-</Link>
-
-// Don't Do This
-import Link from "next/link";
-import { Link as DSLink } from "@nypl/design-system-react-components";
-
-<Link href="/about" passHref>
-  <DSLink>About</DSLink>
-</Link>
-`} language="jsx" />
-
-- The `TagSet` `"filter"` variant has been updated to improve filtering logic in
-  consuming apps.
-  - Only for the `"filter"` variant, the `tagSetData` prop now
-    expects an array of objects with the following required properties:
-    `{ label: string, id: string }`. Any additional property can now also be
-    added to the object.
-  - The `onClick` function now returns the entire data object of the clicked
-    tag instead of the tag's "label".
-
-### Chakra UI
-
-- It is recommended to use `cookieStorageManagerSSR` instead of
-  `cookieStorageManager` for color mode server-side rendering (SSR). The returned
-  value should still used in the `DSProvider`'s `colorModeManager` prop.
-- The `FocusLock` component was previously imported from the separate Chakra
-  `@chakra-ui/focus-lock` package. In Chakra v2+, `FocusLock` can now be
-  imported from the main npm Chakra package. This is now included as an export
-  from the DS.
-
-<Source
-  code={`
-    import { FocusLock } from "@nypl/design-system-react-components";
-  `}
-  language="jsx"
-/>
-
-## Additional Testing Needs
-
-- Due to some JS features and how we test, consuming apps need to add the
-  following to their Jest setup file (typically `jest.config.js`). They are
-  needed for the following components and hooks: `Tabs`, `Slider`, and
-  `useNYPLBreakpoints`. _We are actively working on updates so that consuming
-  apps do not have to include these test helpers in future releases._
-
-<Source
-  code={`
-// Related to the useNYPLBreakpoints hook which is used in: ButtonGroup,
-// FeedbackBox, Modal, MultiSelectGroup, and NewsletterSignup.
-import { MatchMedia } from "@nypl/design-system-react-components";
-
-new MatchMedia();
-`}
-language="jsx"
-/>
-
-<Source
-  code={`
-// The scrollIntoView function is necessary for the Tabs component.
-window.HTMLElement.prototype.scrollIntoView = jest.fn()
-`}
-  language="jsx"
-/>
-
-<Source
-  code={`
-// Related to the Slider component
-class ResizeObserver {
-  observe() {}
-  unobserve() {}
-  disconnect() {
-}
-
-window.ResizeObserver = ResizeObserver;
-`}
-language="jsx"
-/>
