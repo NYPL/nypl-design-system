@@ -22,7 +22,6 @@ const meta: Meta<typeof SubNav> = {
       options: highlightColorsArray,
       defaultValue: { summary: "blogs" },
     },
-    id: { control: false },
     secondaryActions: {},
     primaryActions: {},
   },
@@ -36,7 +35,6 @@ export const WithControls: Story = {
   args: {
     actionBackgroundColor: undefined,
     highlightColor: undefined,
-    id: "subnav-with-controls",
   },
 
   render: (args: any) => (
@@ -520,7 +518,6 @@ export const Placement: Story = {
       <VStack align="left" mx="auto" my="l" px="s" gap="s" maxWidth="1280px">
         <Heading
           id="placement-page-heading"
-          noSpace
           size="heading3"
           subtitle="Vestibulum id ligula porta felis euismod semper praesent vel scelerisque nisl consectetur et commodo"
           text="Search the catalog"

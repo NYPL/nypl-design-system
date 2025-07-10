@@ -13,10 +13,13 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Functionality", "Styles"],
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes `role` prop (as Chakra equivalent may be used) and updates docs.",
+      "Remove children validation warning.",
+      'Removes the `noSpace` prop and sets all margins to "0" by default.',
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
     ],
   },
   {

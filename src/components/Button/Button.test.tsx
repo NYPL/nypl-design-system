@@ -12,7 +12,18 @@ import renderer from "react-test-renderer";
 import Button from "./Button";
 import Icon from "../Icons/Icon";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Button Accessibility", () => {
+  it("passes axe accessibility test with no id", async () => {
+    const onClick = jest.fn();
+    const { container } = render(<Button onClick={onClick}>Submit</Button>);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test", async () => {
     const onClick = jest.fn();
     const { container } = render(
@@ -45,6 +56,12 @@ describe("Button", () => {
         Submit
       </Button>
     );
+  });
+
+  it("should add an id to the component even if none is passed", () => {
+    utils.rerender(<Button onClick={onClick}>Submit</Button>);
+
+    expect(screen.getByTestId("ds-button")).toHaveAttribute("id", "test-id");
   });
 
   it("calls the onClick", () => {
@@ -89,16 +106,6 @@ describe("Button", () => {
       </Button>
     );
     expect(container.querySelector("button svg")).toBeInTheDocument();
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    // @ts-ignore: Typescript complains when a required prop is not passed, but
-    // here we don't want to pass the required prop to make sure the warning appears.
-    render(<Button>Submit</Button>);
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Button: This component's required `id` prop was not passed."
-    );
   });
 
   it("passes a ref to the button element", () => {

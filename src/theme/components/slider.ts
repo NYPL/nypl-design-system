@@ -1,8 +1,6 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 
-import { labelLegendTextSpecialSpacing } from "./global";
-
 // This function creates a set of function that helps us
 // create multipart component styles.
 const { defineMultiStyleConfig, definePartsStyle } =
@@ -61,7 +59,7 @@ const CustomSlider = defineMultiStyleConfig({
           display: "flex",
           alignItems: "center",
         },
-        label: labelLegendTextSpecialSpacing,
+        label: { marginBottom: "label.default" },
         track: {
           bgColor: "ui.bg.hover",
           _disabled: {

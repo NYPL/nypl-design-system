@@ -22,24 +22,16 @@ export interface AudioPlayerProps extends BoxProps {
   audioType: AudioType;
   /** Optional string to set the text for the audio player description. */
   descriptionText?: string;
-  /** Optional string to set a code snippet provided by Libsyn, SoundCloud or Spotify; the
-   * `AudioPlayer` component will accept the `embedCode` prop or the `filePath` prop.
+  /** Optional string to set a code snippet provided by Libsyn, SoundCloud or
+   * Spotify; the `AudioPlayer` component will accept the `embedCode` prop.
    */
   embedCode?: string;
-  /** Optional string to set the audio file, the path can be relative or absolute
-   * referring to a locally hosted file, or a fully qualified URL pointing to a locally hosted file
-   * or to another domain altogether.
-   * TODO: This prop won't be used until a future version.
-   */
-  /*  filePath?: string; */
   /** Optional string value used to set the text for a `Heading` component, or
    * a DS Heading component that can be passed in.
    */
   headingText?: string | JSX.Element;
   /** Optional string to set the text for a `HelperErrorText` component. */
   helperText?: string;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional title to added to the `<iframe>` element for improved accessibility. If omitted, a
    * generic title will be added.
    */
@@ -137,11 +129,11 @@ export const AudioPlayer: ChakraComponent<
       return (
         <ComponentWrapper
           className={`audioplayer ${className}`}
-          headingText={headingText}
+          data-testid="ds-audioPlayer"
           descriptionText={descriptionText}
+          headingText={headingText}
           helperText={helperText}
-          id={`${id}-componentWrapper`}
-          data-testid="audio-player-component"
+          id={id}
           ref={ref}
           __css={styles.base}
           {...rest}

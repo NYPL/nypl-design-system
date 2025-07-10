@@ -14,7 +14,6 @@ const meta: Meta<typeof ButtonGroup> = {
       options: buttonGroupWidthsArray,
       table: { defaultValue: { summary: "default" } },
     },
-    id: { control: false },
     isDisabled: { table: { defaultValue: { summary: "false" } } },
     layout: {
       control: { type: "radio" },
@@ -34,7 +33,6 @@ type Story = StoryObj<typeof ButtonGroup>;
 export const WithControls: Story = {
   args: {
     buttonWidth: "default",
-    id: "button-id",
     isDisabled: false,
     layout: "row",
   },
@@ -56,7 +54,7 @@ export const Width: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           default fit-content
         </Heading>
         <ButtonGroup>
@@ -67,7 +65,7 @@ export const Width: Story = {
         </ButtonGroup>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           full width
         </Heading>
         <ButtonGroup buttonWidth="full">
@@ -85,7 +83,7 @@ export const Layout: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           default row
         </Heading>
         <ButtonGroup>
@@ -96,7 +94,7 @@ export const Layout: Story = {
         </ButtonGroup>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           column
         </Heading>
         <ButtonGroup layout="column">
@@ -107,7 +105,7 @@ export const Layout: Story = {
         </ButtonGroup>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           column layout with full-width
         </Heading>
         <ButtonGroup buttonWidth="full" layout="column">
@@ -125,7 +123,7 @@ export const Disabled: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           ButtonGroup isDisabled
         </Heading>
         <ButtonGroup isDisabled>
@@ -138,7 +136,7 @@ export const Disabled: Story = {
         </ButtonGroup>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Individual Button isDisabled
         </Heading>
         <ButtonGroup>

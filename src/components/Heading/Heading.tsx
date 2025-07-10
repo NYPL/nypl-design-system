@@ -28,9 +28,6 @@ export type HeadingSizes = typeof headingSizesArray[number];
 export type HeadingLevels = typeof headingLevelsArray[number];
 
 export interface HeadingProps extends BoxProps {
-  /** Optional ID that other components can cross reference for accessibility
-   * purposes */
-  id?: string;
   /** Optional prop used to show capitalized text */
   isCapitalized?: boolean;
   /** Optional prop used to show upper case text */
@@ -40,8 +37,6 @@ export interface HeadingProps extends BoxProps {
   /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
    * `Heading` will default to `<h2>` */
   level?: HeadingLevels;
-  /** Optional prop used to remove default spacing */
-  noSpace?: boolean;
   /** String to populate the overline element */
   overline?: string;
   /** Optional size used to override the default styles of the native HTML `<h>`
@@ -93,7 +88,6 @@ export const Heading: ChakraComponent<
         isUppercase,
         isLowercase,
         level = "h2",
-        noSpace,
         overline,
         size,
         subtitle,
@@ -109,7 +103,6 @@ export const Heading: ChakraComponent<
         isCapitalized,
         isUppercase,
         isLowercase,
-        noSpace,
         url,
       });
 
@@ -120,13 +113,6 @@ export const Heading: ChakraComponent<
       if (!props.children && !text) {
         console.warn(
           "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
-        );
-      }
-
-      if (React.Children.count(props.children) > 1) {
-        // Catching the error because React's error isn't as helpful.
-        console.warn(
-          "NYPL Reservoir Heading: Only pass one child into Heading."
         );
       }
 
@@ -150,7 +136,7 @@ export const Heading: ChakraComponent<
 
       const contentToRender = props.children ? props.children : text;
       const content = url ? (
-        <Link className={urlClass} href={url} id={`${id}-link`}>
+        <Link className={urlClass} href={url}>
           {contentToRender}
         </Link>
       ) : (
@@ -214,6 +200,7 @@ export const Heading: ChakraComponent<
           )}
           <ChakraHeading
             as={asHeading}
+            data-testid="ds-heading"
             id={id}
             ref={ref}
             sx={{
@@ -227,7 +214,6 @@ export const Heading: ChakraComponent<
             <Text
               aria-roledescription="Subtitle"
               mt="xs"
-              noSpace
               role="paragraph"
               size={subtitleSize}
             >
@@ -243,8 +229,9 @@ export const Heading: ChakraComponent<
       return overline || subtitle ? (
         <Box
           as="hgroup"
-          role="group"
           aria-roledescription="Heading group"
+          data-testid="ds-heading-group"
+          role="group"
           sx={{ ...wrapperStyles }}
           {...rest}
         >

@@ -3,18 +3,19 @@
 exports[`Accordion Renders the UI snapshot correctly 1`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
-  id="accordian"
+  data-testid="ds-accordion"
+  id="test-id"
   onKeyDown={[Function]}
 >
   <div
     className="chakra-accordion__item css-1fsnuue"
   >
     <button
-      aria-controls="accordion-panel-accordian-item-0"
+      aria-controls="accordion-panel-test-id-item-0"
       aria-expanded={false}
       className="chakra-accordion__button css-1rvudez"
       disabled={false}
-      id="accordion-button-accordian-item-0"
+      id="accordion-button-test-id-item-0"
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -32,7 +33,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="test-id-icon-0"
         role="img"
         title="plus icon"
       />
@@ -44,6 +45,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
 exports[`Accordion Renders the UI snapshot correctly 2`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
+  data-testid="ds-accordion"
   id="accordian"
   onKeyDown={[Function]}
 >
@@ -73,7 +75,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -85,6 +87,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
 exports[`Accordion Renders the UI snapshot correctly 3`] = `
 <div
   className="chakra-accordion css-1t0bvx9"
+  data-testid="ds-accordion"
   id="accordian"
   onKeyDown={[Function]}
 >
@@ -114,7 +117,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -156,7 +159,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -168,6 +171,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
 exports[`Accordion Renders the UI snapshot correctly 5`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
+  data-testid="ds-accordion"
   id="accordian"
   onKeyDown={[Function]}
 >
@@ -197,7 +201,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -209,6 +213,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
 exports[`Accordion Renders the UI snapshot correctly 6`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
+  data-testid="ds-accordion"
   id="accordian"
   onKeyDown={[Function]}
 >
@@ -238,7 +243,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />
@@ -250,6 +255,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
 exports[`Accordion Renders the UI snapshot correctly 7`] = `
 <div
   className="chakra-accordion css-1xdhyk6"
+  data-testid="ds-accordion"
   id="accordian"
   onKeyDown={[Function]}
 >
@@ -279,7 +285,7 @@ exports[`Accordion Renders the UI snapshot correctly 7`] = `
         className="chakra-icon accordion-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
-        id="accordion-accordian-icon-0"
+        id="accordian-icon-0"
         role="img"
         title="plus icon"
       />

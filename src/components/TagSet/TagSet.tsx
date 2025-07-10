@@ -16,10 +16,7 @@ import TagSetFilter, {
   TagSetFilterProps,
 } from "./TagSetFilter";
 
-export interface BaseTagSetProps extends BoxProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
-}
+export interface BaseTagSetProps extends BoxProps {}
 
 // We want either the "explore" or "filter" type props.
 export type TagSetTypeProps = TagSetFilterProps | TagSetExploreProps;
@@ -76,7 +73,7 @@ export const TagSet: ChakraComponent<
     }
 
     return (
-      <Flex id={id} ref={ref} __css={styles} {...rest}>
+      <Flex data-testid="ds-tagSet" id={id} ref={ref} __css={styles} {...rest}>
         {!isFilterVariant(variant) && (
           <TagSetExplore
             tagSetData={tagSetData as TagSetExploreDataProps[]}
@@ -85,7 +82,6 @@ export const TagSet: ChakraComponent<
         )}
         {isFilterVariant(variant) && (
           <TagSetFilter
-            id={id}
             isDismissible={isDismissible}
             onClick={onClick}
             tagSetData={tagSetData as TagSetFilterDataProps[]}

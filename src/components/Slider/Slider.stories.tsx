@@ -19,7 +19,6 @@ const meta: Meta<typeof Slider> = {
       table: { defaultValue: { summary: "0" } },
     },
     helperText: { control: "text" },
-    id: { control: false },
     invalidText: { control: "text" },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),
@@ -52,7 +51,6 @@ export const WithControls: Story = {
   args: {
     defaultValue: 50,
     helperText: "Pass in a value from the min 0 to the max 100 values.",
-    id: "slider-id",
     invalidText: "Oh no this is an error :(",
     isDisabled: false,
     isInvalid: false,
@@ -113,7 +111,6 @@ export const RangeSliderWithControls: Story = {
   args: {
     defaultValue: [25, 75],
     helperText: "Pass in a value from the min 0 to the max 100 values.",
-    id: "slider-range-id",
     invalidText: "Oh no this is an error :(",
     isDisabled: false,
     isInvalid: false,
@@ -198,6 +195,7 @@ export const SingleSliderStates: Story = {
         <Heading
           id="heading-single-default"
           level="h4"
+          mb="s"
           size="heading5"
           text="Default State"
         />
@@ -213,6 +211,7 @@ export const SingleSliderStates: Story = {
         <Heading
           id="heading-single-errored"
           level="h4"
+          mb="s"
           size="heading5"
           text="Errored State"
         />
@@ -242,6 +241,7 @@ export const SingleSliderStates: Story = {
         <Heading
           id="heading-single-required"
           level="h4"
+          mb="s"
           size="heading5"
           text="Required State"
         />
@@ -258,6 +258,7 @@ export const SingleSliderStates: Story = {
         <Heading
           id="heading-single-disabled"
           level="h4"
+          mb="s"
           size="heading5"
           text="Disabled State"
         />
@@ -281,6 +282,7 @@ export const RangeSliderStates: Story = {
         <Heading
           id="heading-range-default"
           level="h4"
+          mb="s"
           size="heading5"
           text="Default State"
         />
@@ -297,6 +299,7 @@ export const RangeSliderStates: Story = {
         <Heading
           id="heading-range-errored"
           level="h4"
+          mb="s"
           size="heading5"
           text="Errored State"
         />
@@ -334,6 +337,7 @@ export const RangeSliderStates: Story = {
         <Heading
           id="heading-range-required"
           level="h4"
+          mb="s"
           size="heading5"
           text="Required State"
         />
@@ -351,6 +355,7 @@ export const RangeSliderStates: Story = {
         <Heading
           id="heading-range-disabled"
           level="h4"
+          mb="s"
           size="heading5"
           text="Disabled State"
         />
@@ -374,6 +379,7 @@ export const SingleSliderVariants: Story = {
       <Heading
         id="heading-single-labels"
         level="h4"
+        mb="s"
         size="heading5"
         text="With and Without Component Labels"
       />
@@ -432,6 +438,7 @@ export const SingleSliderVariantsHiddenLabels: Story = {
       <Heading
         id="heading-single-labels-inputs"
         level="h4"
+        mb="s"
         size="heading5"
         text="With and Without Internal Inputs and Labels"
       />

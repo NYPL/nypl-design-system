@@ -17,6 +17,7 @@ import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import useDSHeading from "../../hooks/useDSHeading";
 import { highlightColorsArray } from "../../theme/sharedTypes";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export interface NewsletterSignupProps extends Omit<BoxProps, "title"> {
   /** Text displayed next to the confirmation icon after a successful email submission */
@@ -32,8 +33,6 @@ export interface NewsletterSignupProps extends Omit<BoxProps, "title"> {
   /** Appears below the input field's example text to provide any additional instructions. Accepts a string or
    *  an element. */
   formHelperText?: string | JSX.Element;
-  /** ID that other components can cross-reference for accessibility purposes */
-  id?: string;
   /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
   /** Value to determine the section color highlight. */
@@ -105,6 +104,7 @@ export const NewsletterSignup: ChakraComponent<
       },
       ref?
     ) => {
+      const mainId = useSafeId(id);
       const styles = useMultiStyleConfig("NewsletterSignup", {
         highlightColor,
       });
@@ -132,23 +132,23 @@ export const NewsletterSignup: ChakraComponent<
 
       return (
         <Stack
+          data-testid="ds-newsletterSignup"
           direction={{ base: "column", md: "row" }}
+          id={mainId}
+          gap="0"
           ref={ref}
           __css={styles}
           {...rest}
-          gap="0"
         >
           <VStack
-            __css={styles.pitch}
-            className="newsletter-signup-appeal"
             alignItems="flex-start"
+            className="newsletter-signup-appeal"
+            __css={styles.pitch}
           >
             {finalTitle}
             {descriptionText ? (
               typeof descriptionText === "string" ? (
-                <Text noSpace size="body2">
-                  {descriptionText}
-                </Text>
+                <Text size="body2">{descriptionText}</Text>
               ) : (
                 descriptionText
               )
@@ -166,10 +166,10 @@ export const NewsletterSignup: ChakraComponent<
           </VStack>
           <VStack __css={styles.action} className="newsletter-signup-form">
             {isFormView && (
-              <Form id="newsletter-form" onSubmit={onSubmit}>
+              <Form id={`${mainId}-form`} onSubmit={onSubmit}>
                 <FormField key="formfield-input">
                   <TextInput
-                    id="email-input"
+                    id={`${mainId}-textInput`}
                     isDisabled={view === "submitting"}
                     isRequired
                     invalidText="There was a problem. Please enter a valid email address."
@@ -185,7 +185,7 @@ export const NewsletterSignup: ChakraComponent<
                 </FormField>
                 <FormField key="formfield-button">
                   <Button
-                    id="submit"
+                    id={`${mainId}-submit`}
                     isDisabled={view === "submitting"}
                     type="submit"
                   >

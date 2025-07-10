@@ -13,7 +13,6 @@ const meta: Meta<typeof Table> = {
     columnHeaders: { control: { disable: true } },
     columnHeadersBackgroundColor: { control: { type: "color" } },
     columnHeadersTextColor: { control: { type: "color" } },
-    id: { control: false },
     isScrollable: { ...argsBooleanType(), defaultValue: { summary: "false" } },
     showRowDividers: {
       ...argsBooleanType(),
@@ -207,7 +206,7 @@ export const FontSize: Story = {
     <>
       <Stack direction="column" gap="l">
         <div>
-          <Heading level="h4" size="heading6">
+          <Heading level="h4" mb="s" size="heading6">
             desktop.body.body1
           </Heading>
           <Table
@@ -219,7 +218,7 @@ export const FontSize: Story = {
           />
         </div>
         <div>
-          <Heading level="h4" size="heading6">
+          <Heading level="h4" mb="s" size="heading6">
             desktop.body.body2
           </Heading>
           <Table
@@ -231,7 +230,7 @@ export const FontSize: Story = {
           />
         </div>
         <div>
-          <Heading level="h4" size="heading6">
+          <Heading level="h4" mb="s" size="heading6">
             desktop.caption
           </Heading>
           <Table
@@ -304,7 +303,7 @@ export const CustomColumnStyles: Story = {
   render: () => (
     <Stack spacing="xl">
       <div>
-        <Heading level="h4" size="heading6">
+        <Heading level="h4" mb="s" size="heading6">
           Without Row Headers
         </Heading>
         <Table
@@ -317,7 +316,7 @@ export const CustomColumnStyles: Story = {
         />
       </div>
       <div>
-        <Heading level="h4" size="heading6">
+        <Heading level="h4" mb="s" size="heading6">
           With Row Headers
         </Heading>
         <Table
@@ -331,7 +330,7 @@ export const CustomColumnStyles: Story = {
         />
       </div>
       <div>
-        <Heading level="h4" size="heading6">
+        <Heading level="h4" mb="s" size="heading6">
           With Empty Style Object
         </Heading>
         <Table
@@ -351,7 +350,7 @@ export const HorizontalScrolling: Story = {
   render: () => (
     <Stack spacing="xl">
       <div>
-        <Heading level="h4" size="heading5">
+        <Heading level="h4" mb="s" size="heading6">
           Without Row Headers
         </Heading>
         <Table
@@ -366,7 +365,7 @@ export const HorizontalScrolling: Story = {
         />
       </div>
       <div>
-        <Heading level="h4" size="heading5">
+        <Heading level="h4" mb="s" size="heading6">
           With Row Headers
         </Heading>
         <Table

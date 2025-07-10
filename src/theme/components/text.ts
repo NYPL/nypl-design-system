@@ -7,7 +7,6 @@ interface TextBaseStyle extends Partial<StyleFunctionProps> {
   isCapitalized?: boolean;
   isUppercase?: boolean;
   isLowercase?: boolean;
-  noSpace?: boolean;
   variant?: string;
 }
 
@@ -18,7 +17,6 @@ const baseStyle = defineStyle(
     isCapitalized,
     isUppercase,
     isLowercase,
-    noSpace,
     variant,
   }: TextBaseStyle) => {
     const fontWeight = isBold
@@ -39,7 +37,6 @@ const baseStyle = defineStyle(
       fontStyle: fontStyle,
       fontWeight: fontWeight,
       textTransform: textTransform,
-      marginBottom: noSpace ? "0 !important" : null,
     };
   }
 );

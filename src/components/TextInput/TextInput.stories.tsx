@@ -21,7 +21,6 @@ const meta: Meta<typeof TextInput> = {
     },
     defaultValue: { control: false },
     helperText: { control: "text" },
-    id: { control: false },
     invalidText: { control: "text" },
     isClearable: argsBooleanType(),
     isClearableCallback: { control: false },
@@ -70,7 +69,6 @@ export const WithControls: Story = {
     autoComplete: undefined,
     defaultValue: undefined,
     helperText: "Choose wisely.",
-    id: "textInput-id",
     isClearable: true,
     isClearableCallback: undefined,
     isDisabled: false,
@@ -170,7 +168,7 @@ export const BrowserStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Invalid
         </Heading>
         <TextInput
@@ -183,7 +181,7 @@ export const BrowserStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Disabled
         </Heading>
         <TextInput
@@ -348,7 +346,6 @@ export const Textarea: Story = {
     additionalHelperTextIds: undefined,
     defaultValue: undefined,
     helperText: "Let it all out.",
-    id: "textarea",
     invalidText: "This is error text :(",
     isClearable: false,
     isClearableCallback: undefined,

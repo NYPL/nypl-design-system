@@ -131,18 +131,17 @@ offered:
     <>
       <strong>IMPORTANT:</strong> The DOM order of the child components should
       match the structure of the rendered page in the browser.
-      <br />
-      <br />
-      If the sidebar is to be rendered on the left side of the page, <code>
-        TemplateSidebar
-      </code> should come before <code>TemplateContent</code> in the DOM. If the
-      sidebar is to be rendered on the right side of the page, <code>
-        TemplateSidebar
-      </code> should come after <code>TemplateContent</code> in the DOM.
+      <Text>
+        If the sidebar is to be rendered on the left side of the page,{" "}
+        <code>TemplateSidebar</code> should come before{" "}
+        <code>TemplateMain</code> in the DOM. If the sidebar is to be rendered
+        on the right side of the page, <code>TemplateSidebar</code> should come
+        after <code>TemplateMain</code> in the DOM.
+      </Text>
     </>
   }
-  mb="s"
-  type="recommendation"
+  my="s"
+  variant="recommendation"
 />
 
 ### Structural (regions)
@@ -632,7 +631,7 @@ Use the `variant` prop to set the template layout
     </>
   }
   mb="s"
-  type="recommendation"
+  variant="recommendation"
 />
 }
 

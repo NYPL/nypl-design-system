@@ -28,6 +28,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Replaces positional function args with object references in utility functions/components when there are 3 or more arguments.
 - Updates `Table`'s `tableTextSize` prop to accept `caption`.
 - Renames `Accordion`, `Banner`, `Breadcrumbs`, `Button`, `Hero`, `Icon`, `Link`, `List`, `Modal`, `Notification`, `Select`, `StatusBadge`, `TagSet`, and `TextInput` props using "type" to use "variant".
+- Updates the `id` prop for all components to reduce `undefined` and makes previously required `id`s optional in the following components: `Accordion`, `Button`, `ButtonGroup`, `Checkbox`, `CheckboxGroup`, `DatePicker`, `Fieldset`, `Form`, `MultiSelect`, `MultiSelectGroup`, `ProgressIndicator`, `Radio`, `RadioGroup`, `SearchBar`, `Slider`, `TextInput`, `Toggle`
 
 ### Removals
 
@@ -52,7 +53,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes the use of the `window`'s `scrollIntoView` dependency in the `Tabs` component.
 - Removes the `tableTextSize` prop from the `Table` component in favor of using the native `fontSize` CSS prop.
 - Removes `Children.map` logic from `Button`, `ButtonGroup`, `Card`, `CheckboxGroup`, `List`, `RadioGroup`, and `Tooltip` to reduce complexity and improve performance.
+- Removes warnings validating presence or type of children from `SubNav`, `ComponentWrapper`, `Form`, `Heading`, `Icon`, `Logo`, and `Text`.
 - Removes the `FilterBar` component and `useFilterBar` hook.
+- Removes `noSpace` prop from Heading component.
+- Removes `noSpace` prop from Text component.
+- Removes default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
 - Removes all files related to the `Autosuggest` component guidelines.
 
 ## Prerelease

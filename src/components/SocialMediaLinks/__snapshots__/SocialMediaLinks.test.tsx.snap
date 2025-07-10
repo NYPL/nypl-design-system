@@ -3,6 +3,7 @@
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 1`] = `
 <ul
   className="css-1u8qly9"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -63,6 +64,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 2`] = `
 <ul
   className="css-1hc2wnn"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -123,6 +125,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 3`] = `
 <ul
   className="css-1hc2wnn"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -179,6 +182,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 4`] = `
 <ul
   className="css-1hc2wnn"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -239,6 +243,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 5`] = `
 <ul
   className="css-1hc2wnn"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -299,6 +304,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 6`] = `
 <ul
   className="css-1hc2wnn"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -355,6 +361,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 7`] = `
 <ul
   className="css-fg54o4"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -415,6 +422,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 8`] = `
 <ul
   className="css-fg54o4"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -471,6 +479,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 9`] = `
 <ul
   className="css-fg54o4"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -531,6 +540,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 10`] = `
 <ul
   className="css-fg54o4"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -591,6 +601,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 11`] = `
 <ul
   className="css-fg54o4"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -647,6 +658,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 12`] = `
 <ul
   className="css-1u8qly9"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -703,6 +715,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 13`] = `
 <ul
   className="css-1u8qly9"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -763,6 +776,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 14`] = `
 <ul
   className="css-1u8qly9"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>
@@ -819,6 +833,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
 exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the layout is in a row. 15`] = `
 <ul
   className="css-1u8qly9"
+  data-testid="ds-socialMediaLinks"
   id="socialmedialinks-test"
 >
   <li>

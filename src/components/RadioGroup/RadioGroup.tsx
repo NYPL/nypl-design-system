@@ -21,8 +21,6 @@ export interface RadioGroupProps extends Omit<BoxProps, "onChange"> {
   defaultValue?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the HelperErrorText for error state */
   invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
@@ -100,7 +98,7 @@ export const RadioGroup: ChakraComponent<
       });
       // Props for the `ChakraRadioGroup` component.
       const radioGroupProps = {
-        ["aria-labelledby"]: `rg-span-title-${id}`,
+        ["aria-labelledby"]: `${id}-span-title`,
         name,
         onChange: (selected: string) => {
           setValue(selected);
@@ -109,12 +107,6 @@ export const RadioGroup: ChakraComponent<
         ref,
         value,
       };
-
-      if (!id) {
-        console.warn(
-          "NYPL Reservoir RadioGroup: This component's required `id` prop was not passed."
-        );
-      }
 
       const radioGroupContextValue = useMemo(
         () => ({
@@ -129,11 +121,12 @@ export const RadioGroup: ChakraComponent<
       return (
         <Box
           className={className}
-          id={`radio-group-${id}`}
+          data-testid="ds-radioGroup"
+          id={id}
           {...rest}
           __css={styles}
         >
-          <Box as="span" id={`rg-span-title-${id}`} __css={styles.spanLegend}>
+          <Box as="span" id={`${id}-span-title`} __css={styles.spanLegend}>
             {labelText}
             {showRequiredLabel && isRequired && <span> (required)</span>}
           </Box>

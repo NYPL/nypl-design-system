@@ -13,6 +13,7 @@ import React, { forwardRef, InputHTMLAttributes } from "react";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
+import { useSafeId } from "../../hooks/useSafeId";
 import { useRadioGroup } from "../RadioGroup/RadioGroupContext";
 
 export interface RadioProps
@@ -20,11 +21,8 @@ export interface RadioProps
     Omit<InputHTMLAttributes<HTMLInputElement>, "color" | "height" | "width"> {
   /** Optional string to populate the HelperErrorText for the standard state. */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the HelperErrorText for the error state
-   * when `isInvalid` is true.
-   */
+   * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
   /** When using the Radio as a "controlled" form element, you can specify the
    * `Radio`'s checked state using this prop. You must also pass an onChange prop.
@@ -75,13 +73,14 @@ export const Radio: ChakraComponent<
       value,
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const styles = useMultiStyleConfig("Radio", { showLabel });
     const groupProps = useRadioGroup();
     const wrapperStyles = useStyleConfig("RadioWrapper");
     const footnote = isInvalid ? invalidText : helperText;
     const ariaAttributes = getAriaAttrs({
       footnote,
-      id,
+      id: mainId,
       labelText,
       name: "Radio",
       showLabel,
@@ -90,17 +89,12 @@ export const Radio: ChakraComponent<
     // Radio component. Instead, we'll visually hide the label.
     delete ariaAttributes["aria-label"];
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Radio: This component's required `id` prop was not passed."
-      );
-    }
-
     return (
       <ComponentWrapper
+        data-testid="ds-radio"
         helperText={helperText}
         helperTextStyles={styles.helperErrorText}
-        id={id}
+        id={mainId}
         invalidText={invalidText}
         isInvalid={isInvalid}
         showHelperInvalidText={showHelperInvalidText}
@@ -109,7 +103,7 @@ export const Radio: ChakraComponent<
       >
         <ChakraRadio
           className={className}
-          id={id}
+          id={mainId}
           isChecked={isChecked}
           isDisabled={groupProps?.isDisabled || isDisabled}
           isInvalid={groupProps?.isInvalid || isInvalid}

@@ -20,7 +20,6 @@ const meta: Meta<typeof Form> = {
   component: Form,
   argTypes: {
     action: { control: false },
-    id: { control: false },
     method: {
       control: { type: "radio" },
       options: ["get", "post"],
@@ -43,7 +42,6 @@ type Story = StoryObj<typeof Form>;
 export const WithControls: Story = {
   args: {
     action: "/end/point",
-    id: "form-id",
     method: "get",
     gap: "grid.l",
   },

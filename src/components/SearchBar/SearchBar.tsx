@@ -16,6 +16,7 @@ import Select, { SelectProps as InitialSelectProps } from "../Select/Select";
 import TextInput, {
   InputProps as InitialInputProps,
 } from "../TextInput/TextInput";
+import { useSafeId } from "../../hooks/useSafeId";
 
 interface SelectOptionsProps {
   text: string;
@@ -65,8 +66,6 @@ export interface SearchBarProps
   headingText?: string | JSX.Element;
   /** The text to display below the form in a `HelperErrorText` component. */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -121,6 +120,7 @@ export const SearchBar: ChakraComponent<
       textInputProps,
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const hasSelectElem = !!selectProps;
     const styles = useMultiStyleConfig("SearchBar", { hasSelectElem });
     const stateProps = {
@@ -139,15 +139,10 @@ export const SearchBar: ChakraComponent<
     }`;
     const buttonType = noBrandButtonType ? "noBrand" : "primary";
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
-      );
-    }
     // Render the `Select` component.
     const selectElem = selectProps && (
       <Select
-        id={selectProps?.id || `searchbar-select-${id}`}
+        id={`${selectProps?.id || mainId}-select`}
         labelText={selectProps?.labelText}
         name={selectProps?.name}
         onChange={selectProps?.onChange}
@@ -167,10 +162,10 @@ export const SearchBar: ChakraComponent<
     // Render the `TextInput` component.
     const textInputNative = textInputProps && (
       <TextInput
-        aria-describedby={footnote ? `${id}-helperText` : undefined}
+        aria-describedby={footnote ? `${mainId}-helperText` : undefined}
         className="textInput"
         defaultValue={textInputProps?.defaultValue}
-        id={textInputProps?.id || `searchbar-textinput-${id}`}
+        id={`${textInputProps?.id || mainId}-textInput`}
         isClearable={textInputProps?.isClearable}
         isClearableCallback={textInputProps?.isClearableCallback}
         labelText={textInputProps?.labelText}
@@ -191,15 +186,15 @@ export const SearchBar: ChakraComponent<
     const buttonElem = (
       <Button
         className="searchButton"
-        variant={buttonType}
-        id={`searchbar-button-${id}`}
+        data-button
+        id={`${mainId}-submit-button`}
         isDisabled={isDisabled}
         onClick={buttonOnClick}
         type="submit"
+        variant={buttonType}
         sx={styles.button}
-        data-button
       >
-        <Icon align="left" id={`searchbar-icon-${id}`} name="search" />
+        <Icon align="left" id={`${mainId}-submit-icon`} name="search" />
         <span>Search</span>
       </Button>
     );
@@ -209,10 +204,11 @@ export const SearchBar: ChakraComponent<
 
     return (
       <ComponentWrapper
+        data-testid="ds-searchBar"
         descriptionText={descriptionText}
         headingText={headingText}
         helperText={helperText}
-        id={id}
+        id={mainId}
         invalidText={
           invalidText ? `There was a problem. ${invalidText}` : undefined
         }
@@ -223,7 +219,7 @@ export const SearchBar: ChakraComponent<
       >
         <Box
           as="form"
-          id={`searchbar-form-${id}`}
+          id={`${mainId}-form`}
           className={className}
           aria-label={finalAriaLabel}
           onSubmit={onSubmit}

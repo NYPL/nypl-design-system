@@ -16,7 +16,6 @@ const meta: Meta<typeof RadioGroup> = {
   title: "Components/Form Elements/RadioGroup",
   component: RadioGroup,
   argTypes: {
-    id: { control: false },
     isDisabled: argsBooleanType(),
     isFullWidth: argsBooleanType(),
     isInvalid: argsBooleanType(),
@@ -44,7 +43,6 @@ export const Controls: Story = {
   args: {
     defaultValue: "4",
     helperText: "This is the helper text for the full group.",
-    id: "radioGroup-id",
     invalidText: "An error occurred :(",
     isDisabled: false,
     isFullWidth: false,
@@ -130,7 +128,7 @@ export const BrowserStates: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Errored
         </Heading>
         <RadioGroup
@@ -148,7 +146,7 @@ export const BrowserStates: Story = {
         </RadioGroup>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Required
         </Heading>
         <RadioGroup
@@ -165,7 +163,7 @@ export const BrowserStates: Story = {
         </RadioGroup>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Disabled
         </Heading>
         <RadioGroup

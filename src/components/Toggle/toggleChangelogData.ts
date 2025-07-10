@@ -16,6 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality"],
     notes: [
       "Removes `name` and `onChange` props (as HTML equivalents may be used) and updates docs.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
     ],
   },
   {

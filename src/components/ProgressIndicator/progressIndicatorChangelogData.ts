@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes deprecated `darkMode` prop.",
       "Extends prop interface to include Chakra props or HTML attributes.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
     ],
   },
   {

@@ -27,6 +27,7 @@ import Text from "../Text/Text";
 import TextInput, { TextInputRefType } from "../TextInput/TextInput";
 import useStateWithDependencies from "../../hooks/useStateWithDependencies";
 import useFeedbackBoxReducer from "./useFeedbackBoxReducer";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export const feedbackBoxViewTypeArray = [
   "form",
@@ -45,8 +46,6 @@ export interface FeedbackBoxProps extends Omit<BoxProps, "onSubmit"> {
   /** A data object containing key/value pairs that will be added to the form
    * field submitted data. */
   hiddenFields?: any;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Toggles the invalid state for the comment field. */
   isInvalidComment?: boolean;
   /** Toggles the invalid state for the email field. */
@@ -98,7 +97,7 @@ export const FeedbackBox: ChakraComponent<
         confirmationText,
         descriptionText,
         hiddenFields,
-        id = "feedbackbox",
+        id,
         isInvalidComment = false,
         isInvalidEmail = false,
         notificationText,
@@ -114,6 +113,7 @@ export const FeedbackBox: ChakraComponent<
       },
       ref?
     ) => {
+      const mainId = useSafeId(id);
       // We want to keep internal state for the view but also
       // update if the consuming app updates it, based on API
       // success and failure responses.
@@ -199,7 +199,7 @@ export const FeedbackBox: ChakraComponent<
       );
       const descriptionElement =
         isFormView && descriptionText ? (
-          <Text color={descriptionColor} fontWeight="medium" noSpace>
+          <Text color={descriptionColor} fontWeight="medium">
             {descriptionText}
           </Text>
         ) : undefined;
@@ -282,9 +282,15 @@ export const FeedbackBox: ChakraComponent<
       let finalDrawerMinHeight = drawerMinHeight + "px";
 
       return (
-        <Box id={id} ref={ref} sx={styles} {...rest}>
+        <Box
+          id={mainId}
+          data-testid="ds-feedbackBox"
+          ref={ref}
+          sx={styles}
+          {...rest}
+        >
           <Button
-            id="open"
+            id={`${mainId}-feedback-open`}
             onClick={finalOnOpen}
             sx={styles.openButton}
             ref={openButtonRef}
@@ -303,10 +309,10 @@ export const FeedbackBox: ChakraComponent<
 
             <DrawerContent sx={styles.drawerContent}>
               <Button
-                variant="text"
-                id="close-btn"
+                id={`${mainId}-feedback-close`}
                 onClick={closeAndResetForm}
                 sx={styles.closeButton}
+                variant="text"
               >
                 <Icon color="ui.black" name="minus" size="medium" />
                 <span>Close {title}</span>
@@ -318,7 +324,7 @@ export const FeedbackBox: ChakraComponent<
               <DrawerBody sx={styles.drawerBody}>
                 <Form
                   gap="grid.s"
-                  id="feedback-form"
+                  id={`${mainId}-feedback-form`}
                   onSubmit={internalOnSubmit}
                   sx={{
                     ".feedback-body": {
@@ -348,24 +354,28 @@ export const FeedbackBox: ChakraComponent<
                           <FormField>
                             <RadioGroup
                               defaultValue={state.category}
-                              id={`${id}-category`}
+                              id={`${mainId}-category`}
                               isDisabled={isSubmitted}
                               labelText="What is your feedback about?"
-                              name={`${id}-category`}
+                              name={`${mainId}-category`}
                               onChange={(selected) => setCategory(selected)}
                               sx={styles.radioGroup}
                             >
                               <Radio
-                                id="comment"
+                                id={`${mainId}-category-comment`}
                                 labelText="Comment"
                                 value="comment"
                               />
                               <Radio
-                                id="correction"
+                                id={`${mainId}-category-correction`}
                                 labelText="Correction"
                                 value="correction"
                               />
-                              <Radio id="bug" labelText="Bug" value="bug" />
+                              <Radio
+                                id={`${mainId}-category-bug`}
+                                labelText="Bug"
+                                value="bug"
+                              />
                             </RadioGroup>
                           </FormField>
                         )}
@@ -375,7 +385,7 @@ export const FeedbackBox: ChakraComponent<
                             helperText={`${
                               maxCommentCharacters - state.comment.length
                             } characters remaining`}
-                            id={`${id}-comment`}
+                            id={`${mainId}-comment`}
                             invalidText="There was a problem. Please fill out this field."
                             isDisabled={isSubmitted}
                             isInvalid={finalIsInvalidComment}
@@ -385,7 +395,7 @@ export const FeedbackBox: ChakraComponent<
                               </>
                             }
                             maxLength={maxCommentCharacters}
-                            name={`${id}-comment`}
+                            name={`${mainId}-comment`}
                             onChange={(e) => setComment(e.target.value)}
                             placeholder="Enter your question or feedback here"
                             ref={commentInputRef}
@@ -395,12 +405,12 @@ export const FeedbackBox: ChakraComponent<
                         {showEmailField && (
                           <FormField width="100%">
                             <TextInput
-                              id={`${id}-email`}
+                              id={`${mainId}-email`}
                               invalidText="There was a problem. Please enter a valid email address."
                               isDisabled={isSubmitted}
                               isInvalid={isInvalidEmail}
                               labelText="Email"
-                              name={`${id}-email`}
+                              name={`${mainId}-email`}
                               onChange={(e) => setEmail(e.target.value)}
                               placeholder="Enter your email address here"
                               type="email"
@@ -411,18 +421,21 @@ export const FeedbackBox: ChakraComponent<
                       </VStack>
                       {privacyPolicyField}
                       <FormField>
-                        <ButtonGroup buttonWidth="full" id="submit-cancel">
+                        <ButtonGroup
+                          buttonWidth="full"
+                          id={`${mainId}-submit-cancel`}
+                        >
                           <Button
-                            variant="secondary"
-                            id="cancel"
+                            id={`${mainId}-cancel`}
                             isDisabled={isSubmitted}
                             key="cancel"
                             onClick={closeAndResetForm}
+                            variant="secondary"
                           >
                             Cancel
                           </Button>
                           <Button
-                            id="submit"
+                            id={`${mainId}-submit`}
                             isDisabled={isSubmitted}
                             key="submit"
                             type="submit"
@@ -454,14 +467,14 @@ export const FeedbackBox: ChakraComponent<
                           Thank you for submitting your feedback.
                         </Text>
                         {showEmailField && (
-                          <Text>
+                          <Text mt="s">
                             If you provided an email address and require a
                             response, our service staff will reach out to you
                             via email.
                           </Text>
                         )}
                         {confirmationText ? (
-                          <Text>{confirmationText}</Text>
+                          <Text mt="s">{confirmationText}</Text>
                         ) : undefined}
                       </Box>
                       {privacyPolicyField}
@@ -503,18 +516,21 @@ export const FeedbackBox: ChakraComponent<
                       </Box>
                       {privacyPolicyField}
                       <FormField>
-                        <ButtonGroup buttonWidth="full" id="submit-cancel">
+                        <ButtonGroup
+                          buttonWidth="full"
+                          id={`${mainId}-submit-cancel`}
+                        >
                           <Button
-                            id="return-browsing2"
-                            key="return-browsing2"
-                            variant="secondary"
+                            id={`${mainId}-return-browsing2`}
+                            key={`${mainId}-return-browsing2`}
                             onClick={closeAndResetForm}
+                            variant="secondary"
                           >
                             Return to Browsing
                           </Button>
                           <Button
-                            id="try-again"
-                            key="try-again"
+                            id={`${mainId}-try-again`}
+                            key={`${mainId}-try-again`}
                             onClick={() => setViewType("form")}
                           >
                             Try Again
