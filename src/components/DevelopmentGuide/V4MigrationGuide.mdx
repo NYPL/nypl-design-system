@@ -62,7 +62,7 @@ Start updating your code!
 
 ### We anticipate the following to be the most common breaking changes.
 
-#### 1. Upgrade your `Template`
+#### 1. Upgrade your `Template`.
 
 If your application uses the Reservoir `Template`, you’ll need to refactor your code to
 use the new composable [Template components](../?path=/docs/components-page-layout-template--docs#overview).
@@ -79,7 +79,7 @@ use the new composable [Template components](../?path=/docs/components-page-layo
   type="recommendation"
 />
 
-#### 2. Rename “type” props to “variant”
+#### 2. Rename “type” props to “variant”.
 
 We changed the following prop names to more accurately describe what they do.
 
@@ -110,7 +110,7 @@ We changed the following prop names to more accurately describe what they do.
 
 </Box>
 
-#### 3. Add spacing where defaults have been removed
+#### 3. Add spacing where defaults have been removed.
 
 We removed a lot of default spacing, as well as the `noSpace` prop in `Heading` and `Text`.
 
@@ -140,23 +140,23 @@ We removed a lot of default spacing, as well as the `noSpace` prop in `Heading` 
 
 ### These are some other updates you may need to make.
 
-#### Remove deprecated props and values
+#### Remove deprecated props and values.
 
 We removed deprecated props and variants, so if you're still using them, you'll need
 to update your code. You can see a list of what's been removed in [this PR](https://github.com/NYPL/nypl-design-system/pull/1783).
 
-#### Adjust aria props to HTML equivalents
+#### Adjust aria props to HTML equivalents.
 
 Native HTML attributes have replaced explicit aria props. For example, `Accordion`'s
 `ariaLabel` has been replaced with `aria-label`. You can see a list of aria props that
 have been removed in [this PR](https://github.com/NYPL/nypl-design-system/pull/1797).
 
-#### Update id references as needed
+#### Update id references as needed.
 
 We’ve adjusted `id`s within our components for clarity and consistency, so if you're
 using Reservoir component `id`s in tests, styles, or elsewhere, you may need to update them.
 
-#### Ensure responsive designs are compatible with the new breakpoints
+#### Ensure responsive designs are compatible with the new breakpoints.
 
 Our [breakpoints](../?path=/docs/style-guide-breakpoints--docs) have changed! We don’t
 expect this to be too disruptive, but it’s possible a page will not look as expected on
@@ -199,7 +199,7 @@ smaller screen sizes and will need to be adjusted.
   </Box>
 </Flex>
 
-#### Rename `tableTextSize` to `fontSize`
+#### Rename `tableTextSize` to `fontSize`.
 
 We updated the `tableTextSize` prop in `Table` to `fontSize` to align more closely with the CSS property.
 
