@@ -1,11 +1,19 @@
 import { Meta, Source } from "@storybook/blocks";
 
+import Banner from "../Banner/Banner";
 import Button from "../Button/Button";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
 
 <Meta title="Development Guide/v3 Migration Guide" />
+
+<Banner
+  content={<>The Reservoir team will support v3 until the end of Q2 FY26.</>}
+  mt="s"
+  mb="s"
+  variant="warning"
+/>
 
 <ComponentDocsHeader
   category="Development Guide"
