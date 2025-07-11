@@ -237,7 +237,13 @@ export const Link: ChakraComponent<
     ) : null;
 
     return (
-      <ChakraLink as={as} {...linkProps} sx={styles.base} {...rest}>
+      <ChakraLink
+        as={as}
+        data-testid="ds-link"
+        {...linkProps}
+        sx={styles.base}
+        {...rest}
+      >
         {newChildren}
         {screenReaderOnlyElement}
       </ChakraLink>

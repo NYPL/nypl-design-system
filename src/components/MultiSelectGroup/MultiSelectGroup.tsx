@@ -52,7 +52,7 @@ export const MultiSelectGroup: ChakraComponent<
 
     return (
       <Fieldset
-        data-testid={`ds-multiSelectGroup`}
+        data-testid="ds-multiSelectGroup"
         id={`${mainId}-fieldset`}
         legendText={labelText}
         isLegendHidden={!showLabel}

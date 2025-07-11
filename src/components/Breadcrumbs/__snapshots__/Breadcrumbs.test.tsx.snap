@@ -18,7 +18,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -48,7 +48,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
           title="arrow icon"
         />
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -69,7 +69,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -97,7 +97,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -127,7 +127,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
           title="arrow icon"
         />
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -148,7 +148,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -176,7 +176,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -206,7 +206,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
           title="arrow icon"
         />
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -227,7 +227,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -255,7 +255,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -285,7 +285,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
           title="arrow icon"
         />
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -306,7 +306,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -334,7 +334,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -364,7 +364,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
           title="arrow icon"
         />
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -385,7 +385,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -413,7 +413,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 6`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -443,7 +443,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 6`] = `
           title="arrow icon"
         />
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -464,7 +464,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 6`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -492,7 +492,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -522,7 +522,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
           title="arrow icon"
         />
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -543,7 +543,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-link-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>

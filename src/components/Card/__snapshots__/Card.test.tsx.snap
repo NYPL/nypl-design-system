@@ -127,6 +127,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
       >
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="online"
           id="link-online"
           rel={null}
@@ -136,6 +137,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         </a>
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="#url"
           id="link-icon"
           rel={null}
@@ -259,6 +261,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       >
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="#edition-link"
           rel={null}
           target={null}
@@ -272,6 +275,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       >
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="online"
           id="link-online"
           rel={null}
@@ -281,6 +285,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         </a>
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="#url"
           id="link-icon"
           rel={null}
@@ -326,6 +331,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       >
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="#edition-link"
           rel={null}
           target={null}
@@ -345,6 +351,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       >
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="online"
           id="link-online"
           rel={null}
@@ -354,6 +361,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
         </a>
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="#url"
           id="link-icon"
           rel={null}
