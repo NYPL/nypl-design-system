@@ -16,7 +16,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -24,7 +24,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-4odavm"
+        className="chakra-stack css-5sy232"
         data-testid="MultiSelectGroup-multiselectGroup-stack"
         id="MultiSelectGroup"
       >
@@ -69,7 +69,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="colors-accordion-icon-0"
@@ -114,12 +114,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           id="colors-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="red-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -168,12 +168,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="blue-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -222,12 +222,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="yellow-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -337,7 +337,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="pets-accordion-icon-0"
@@ -382,12 +382,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           id="pets-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="cat-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -436,12 +436,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="dog-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -490,12 +490,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="corgy-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -544,12 +544,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="german-sheperd-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -598,12 +598,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="afghan-hound-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -652,12 +652,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="rat-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -767,7 +767,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="tools-accordion-icon-0"
@@ -812,12 +812,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                           id="tools-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="hammer-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -866,12 +866,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="skrewdriver-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -920,12 +920,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="slottet-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -974,12 +974,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="phillips-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1028,12 +1028,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="allen-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1082,12 +1082,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="whisk-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1178,7 +1178,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -1186,7 +1186,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-4odavm"
+        className="chakra-stack css-5sy232"
         data-testid="MultiSelectGroup-multiselectGroup-stack"
         id="MultiSelectGroup"
       >
@@ -1231,7 +1231,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="colors-accordion-icon-0"
@@ -1276,12 +1276,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           id="colors-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="red-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1330,12 +1330,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="blue-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1384,12 +1384,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="yellow-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1499,7 +1499,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="pets-accordion-icon-0"
@@ -1544,12 +1544,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           id="pets-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="cat-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1598,12 +1598,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="dog-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1652,12 +1652,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="corgy-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1706,12 +1706,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="german-sheperd-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1760,12 +1760,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="afghan-hound-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1814,12 +1814,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="rat-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -1929,7 +1929,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="tools-accordion-icon-0"
@@ -1974,12 +1974,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                           id="tools-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="hammer-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2028,12 +2028,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="skrewdriver-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2082,12 +2082,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="slottet-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2136,12 +2136,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="phillips-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2190,12 +2190,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="allen-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2244,12 +2244,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="whisk-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2354,7 +2354,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -2362,7 +2362,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-4odavm"
+        className="chakra-stack css-5sy232"
         data-testid="MultiSelectGroup-multiselectGroup-stack"
         id="MultiSelectGroup"
       >
@@ -2407,7 +2407,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="colors-accordion-icon-0"
@@ -2452,12 +2452,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           id="colors-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="red-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2506,12 +2506,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="blue-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2560,12 +2560,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="yellow-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2675,7 +2675,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="pets-accordion-icon-0"
@@ -2720,12 +2720,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           id="pets-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="cat-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2774,12 +2774,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="dog-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2828,12 +2828,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="corgy-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2882,12 +2882,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="german-sheperd-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2936,12 +2936,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="afghan-hound-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -2990,12 +2990,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="rat-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3105,7 +3105,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="tools-accordion-icon-0"
@@ -3150,12 +3150,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                           id="tools-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="hammer-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3204,12 +3204,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="skrewdriver-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3258,12 +3258,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="slottet-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3312,12 +3312,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="phillips-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3366,12 +3366,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="allen-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3420,12 +3420,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="whisk-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3530,7 +3530,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-1xdhyk6"
+      className="css-1u8qly9"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -3538,7 +3538,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-4odavm"
+        className="chakra-stack css-5sy232"
         data-testid="MultiSelectGroup-multiselectGroup-stack"
         id="MultiSelectGroup"
       >
@@ -3583,7 +3583,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="colors-accordion-icon-0"
@@ -3628,12 +3628,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           id="colors-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="red-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3682,12 +3682,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="blue-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3736,12 +3736,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="yellow-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3851,7 +3851,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="pets-accordion-icon-0"
@@ -3896,12 +3896,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           id="pets-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="cat-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -3950,12 +3950,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="dog-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -4004,12 +4004,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="corgy-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -4058,12 +4058,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="german-sheperd-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -4112,12 +4112,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="afghan-hound-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -4166,12 +4166,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="rat-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -4281,7 +4281,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon accordion-icon css-1b9sovw"
+                  className="chakra-icon css-1b9sovw"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="tools-accordion-icon-0"
@@ -4326,12 +4326,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                           id="tools-checkboxGroup-stack"
                         >
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="hammer-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -4380,12 +4380,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="skrewdriver-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -4434,12 +4434,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="slottet-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -4488,12 +4488,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="phillips-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -4542,12 +4542,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-ybiit3"
                             data-testid="ds-checkbox"
                             id="allen-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-vbxw2k"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input
@@ -4596,12 +4596,12 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                             </label>
                           </div>
                           <div
-                            className="css-1xdhyk6"
+                            className="css-1u8qly9"
                             data-testid="ds-checkbox"
                             id="whisk-componentWrapper"
                           >
                             <label
-                              className="chakra-checkbox css-1xdhyk6"
+                              className="chakra-checkbox css-0"
                               onClick={[Function]}
                             >
                               <input

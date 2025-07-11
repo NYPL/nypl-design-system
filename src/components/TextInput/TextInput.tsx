@@ -310,7 +310,6 @@ export const TextInput: ChakraComponent<
           isInvalid={finalIsInvalid}
           showHelperInvalidText={showHelperInvalidText && !isHidden}
           __css={styles}
-          {...rest}
         >
           {labelText && showLabel && !isHidden && (
             <Label

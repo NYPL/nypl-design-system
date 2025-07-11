@@ -40,7 +40,6 @@ export const MultiSelectGroup: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, MultiSelectGroupProps>((props, ref?) => {
     const {
-      className = "",
       id,
       labelText,
       layout = "row",
@@ -60,7 +59,6 @@ export const MultiSelectGroup: ChakraComponent<
         {...rest}
       >
         <Stack
-          className={className}
           columnGap="xs"
           data-testid={`${mainId}-multiselectGroup-stack`}
           direction={{ base: "column", md: layout }}

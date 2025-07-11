@@ -82,7 +82,6 @@ export const Menu: ChakraComponent<
   forwardRef<HTMLDivElement, MenuProps>(
     (
       {
-        className,
         id,
         labelText,
         listAlignment = "left",
@@ -294,8 +293,8 @@ export const Menu: ChakraComponent<
 
       const initialRef = useRef();
       return (
-        <Box data-testid="ds-menu" id={id} ref={ref}>
-          <ChakraMenu initialFocusRef={selected ? initialRef : null} {...rest}>
+        <Box data-testid="ds-menu" id={id} ref={ref} {...rest}>
+          <ChakraMenu initialFocusRef={selected ? initialRef : null}>
             {({ isOpen }) => (
               <Flex
                 flexDirection={

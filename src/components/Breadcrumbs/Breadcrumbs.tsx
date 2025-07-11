@@ -75,15 +75,15 @@ const tooltipWrapperOrText = ({
     >
       {renderIcon && (
         <Icon
-          name="arrow"
-          size="small"
+          data-testid="breadcrumbs-backarrow"
           iconRotation="rotate90"
           id={id ? `${id}-breadcrumbs-backarrow` : undefined}
-          className="breadcrumbs-icon"
+          name="arrow"
+          size="small"
           variant="breadcrumbs"
         />
       )}
-      <span className="breadcrumb-label">{updatedText}</span>
+      <span className="breadcrumb-link-label">{updatedText}</span>
     </BreadcrumbLink>
   );
   // If the text is more than 40 characters in length, we need a ToolTip

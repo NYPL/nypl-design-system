@@ -14,7 +14,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -40,7 +40,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -75,7 +75,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -101,7 +101,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -136,7 +136,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -160,7 +160,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -193,7 +193,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -219,7 +219,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -254,7 +254,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -280,7 +280,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -315,7 +315,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -339,7 +339,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -372,7 +372,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -398,7 +398,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -433,7 +433,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -457,7 +457,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -490,7 +490,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -516,7 +516,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -551,7 +551,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -577,7 +577,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -612,7 +612,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -636,7 +636,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -669,7 +669,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -693,7 +693,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -726,7 +726,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -752,7 +752,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -787,7 +787,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -811,7 +811,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -844,7 +844,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -870,7 +870,7 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}

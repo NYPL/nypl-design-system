@@ -46,7 +46,6 @@ export const Text: ChakraComponent<
     (props, ref?) => {
       const {
         children,
-        className = "",
         id,
         isBold,
         isItalic,
@@ -113,7 +112,6 @@ export const Text: ChakraComponent<
 
       return (
         <ChakraText
-          className={className}
           data-testid="ds-text"
           id={id}
           ref={ref}

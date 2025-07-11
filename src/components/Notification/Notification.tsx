@@ -158,7 +158,6 @@ export const Notification: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, NotificationProps>((props, ref?) => {
     const {
-      className,
       dismissible = false,
       icon,
       id,
@@ -223,7 +222,6 @@ export const Notification: ChakraComponent<
       };
       return (
         <Icon
-          className="notification-icon"
           id={`${mainId}-notification-icon`}
           {...iconProps[variant]}
           {...baseIconProps}
@@ -285,7 +283,6 @@ export const Notification: ChakraComponent<
     return (
       <Box
         as="aside"
-        className={className}
         data-testid="ds-notification"
         data-type={variant}
         id={mainId}
