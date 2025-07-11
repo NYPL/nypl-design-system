@@ -83,7 +83,7 @@ const tooltipWrapperOrText = ({
           variant="breadcrumbs"
         />
       )}
-      <span className="breadcrumb-link-label">{updatedText}</span>
+      <span className="ds-breadcrumbs-link-label">{updatedText}</span>
     </BreadcrumbLink>
   );
   // If the text is more than 40 characters in length, we need a ToolTip

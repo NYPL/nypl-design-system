@@ -18,6 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes default spacing below the component.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Removes the explicit `classname` prop in favor of `rest`.",
     ],
   },
   {

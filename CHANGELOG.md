@@ -29,6 +29,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Table`'s `tableTextSize` prop to accept `caption`.
 - Renames `Accordion`, `Banner`, `Breadcrumbs`, `Button`, `Hero`, `Icon`, `Link`, `List`, `Modal`, `Notification`, `Select`, `StatusBadge`, `TagSet`, and `TextInput` props using "type" to use "variant".
 - Updates the `id` prop for all components to reduce `undefined` and makes previously required `id`s optional in the following components: `Accordion`, `Button`, `ButtonGroup`, `Checkbox`, `CheckboxGroup`, `DatePicker`, `Fieldset`, `Form`, `MultiSelect`, `MultiSelectGroup`, `ProgressIndicator`, `Radio`, `RadioGroup`, `SearchBar`, `Slider`, `TextInput`, `Toggle`
+- Updates how the `classname` prop is used in components. They are no longer explicit internal props but can be passed as other props through the `rest` prop.
+- Updates internal `classname` values to use the `ds-[componentName]` naming convention.
 
 ### Removals
 

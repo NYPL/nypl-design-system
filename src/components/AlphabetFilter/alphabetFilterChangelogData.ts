@@ -15,8 +15,9 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Functionality"],
     notes: [
-      "Removed explicit `classname` prop.",
-      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Removes explicit `classname` prop.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Moves the `rest` prop to the parent Box component.",
     ],
   },
   {

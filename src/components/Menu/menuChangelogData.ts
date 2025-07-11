@@ -16,7 +16,9 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality"],
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
-      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Removes the explicit `classname` prop in favor of `rest`.",
+      "Moves the `rest` prop to the parent Box component.",
     ],
   },
   {
