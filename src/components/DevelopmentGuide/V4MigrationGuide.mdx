@@ -24,12 +24,11 @@ and maintainable.
 
 By aligning with web standards, we aim to:
 
-- Simplify the mental model for developers: fewer abstractions, predictable naming
-  conventions and behaviors.
-- Continue promoting and supporting accessibility by default: follow semantic HTML
-  standards.
-- Reduce tech debt and over-engineering: use and allow standard HTML and CSS
-  principles and remove tight coupling with JavaScript logic.
+- Simplify the developer's mental model, leading to fewer abstractions and more predictable
+  naming conventions and behaviors.
+- Support accessibility by default through strict adherence to semantic HTML standards.
+- Minimize technical debt and over-engineering by embracing standard HTML and CSS principles
+  and reducing tight coupling with JavaScript logic.
 
 ## Getting Started
 
@@ -49,14 +48,13 @@ This list represents the majority of breaking changes you'll need to address.
       be quick and easy.
     </>
   }
-  mt="s"
-  mb="s"
+  my="s"
   variant="informative"
 />
 
 ### Step 3
 
-Start updating your code!
+Update your code!
 
 ## Breaking Changes
 
@@ -65,7 +63,7 @@ Start updating your code!
 #### 1. Upgrade your `Template`.
 
 If your application uses the Reservoir `Template`, you’ll need to refactor your code to
-use the new composable [Template components](../?path=/docs/components-page-layout-template--docs#overview).
+use our new composable [Template components](../?path=/docs/components-page-layout-template--docs#overview).
 
 <Banner
   content={
@@ -74,8 +72,7 @@ use the new composable [Template components](../?path=/docs/components-page-layo
       recommend checking for visual breaking changes after updating.
     </>
   }
-  mt="s"
-  mb="s"
+  my="s"
   variant="recommendation"
 />
 
@@ -205,7 +202,7 @@ We updated the `tableTextSize` prop in `Table` to `fontSize` to align more close
 
 ## Non-Breaking Changes
 
-These updates enhance flexibility, stability, and developer experience without requiring breaking changes to your existing code.
+These updates enhance flexibility, stability, and developer experience without requiring changes to your existing code.
 
 #### A `useResponsiveSpacing` hook was introduced.
 
