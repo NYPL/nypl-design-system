@@ -1,5 +1,5 @@
 import { VStack } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Button, { buttonElementTypeArray, buttonVariantsArray } from "./Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
