@@ -20,35 +20,18 @@ import Text from "../components/Text/Text";
 
 ## Why Chakra UI
 
-The Reservoir Design System (DS) project was influenced by other design systems but
-ultimately we decided to initially build DS components from scratch rather than
-use another design system as its foundation. To better help all the projects at
-NYPL and to better scale with all the components we have built and still need to
-build, we decided to integrate Chakra UI into the DS.
+To better scale and support the various projects at NYPL, we used Chakra UI as Reservoir's foundation.
 
-Chakra UI is an open source component library that is opinionated and uses design
-and development patterns that various projects at NYPL use. Since the DS
-will be the foundation for all NYPL projects moving forward, using Chakra will
-help us align all projects so similar patterns are used throughout various teams
-and projects.
+Chakra UI is an opinionated open source component library that helps us align design and development
+patterns throughout NYPL products. It also follows WAI-ARIA and WCAG 2.1 standards and guidelines.
 
-Chakra follows WAI-ARIA and WCAG 2.1 standards and guidelines which aligns with
-the standards that NYPL follows for its own components and applications.
-
-With design and development consistency, the ability to customize components
-_if necessary_, and accessibility standards in place, developers at NYPL using
-the Design System will be able to build out applications faster.
-
-We recommend to read Chakra's own [documentation](https://chakra-ui.com/docs/getting-started)
-to get up to speed on it. This file will provide information on how it is used
-in the DS but we rely on Chakra's documentation.
-
-If you need help updating to a newer version of the DS, check out
-our [Chakra Migration Guide](https://github.com/NYPL/nypl-design-system/blob/development/CHAKRA_MIGRATION_GUIDE.md).
+We recommend to read Chakra's own [documentation](https://v2.chakra-ui.com/getting-started)
+to get up to speed on it. This file will provide information on how it is used in Reservoir,
+but we also rely on Chakra's documentation.
 
 ## DSProvider
 
-In order to use DS components in a consuming application, there is a necessary
+In order to use Reservoir components in a consuming application, there is a necessary
 step that must be done for component styles to properly render. Consuming
 applications need to wrap all the DS components with a simple provider
 component. Fortunately, this only needs to be done once at the top level of the
@@ -83,23 +66,13 @@ const Application = (props) => {
 
 ## Components
 
-Although Chakra is integrated into the DS repo, we are still working to compose
-DS components with Chakra components or patterns. For example, both the DS and
-Chakra have a `Button` component so we will use Chakra's `Button` component to
-compose the DS `Button` component. However, the DS has a `Hero` component that
-is not already built by Chakra. In this case, the DS `Hero` component will
-internally use `Chakra` components such as `Box`.
-
 ### Components Composed with Chakra
 
-While we can directly use Chakra components that align with DS components, we
-want to compose DS components using the Chakra component as a base instead. This
-pattern allows the Design System to have control over props and standard styles.
-
-These components composed from Chakra, therefore, do not have all styled props
-available. For example, whereas `m` (`margin`), `me` (`marginEnd`), and similar
-props can be used in Chakra components, those props are not available for DS
-components that internally are composed with Chakra components.
+Our Reservoir components generally use Chakra components as their base. This pattern allows
+the Design System to have control over props and standard styles. This means some props you
+see in the Chakra docs may not be available in the equivalent Reservoir component. However,
+Reservoir v4 significantly expanded prop interfaces and now components accept all Chakra UI
+style props (e.g., p, m, bg, color, sx).
 
 Components built from Chakra rename the component with the `Chakra` name prefix.
 
@@ -131,23 +104,11 @@ function Tabs(props) {
   language="tsx"
 />
 
-#### Patterns
-
-We are writing CSS style object rules into Javascript objects that work with
-Chakra's theme. Instead of creating a variant for a component with a class name,
-now different props or internal logic are used to get the appropriate variant.
-Internally, the right variant will be mapped to a Chakra theme variant that will
-provide all the necessary styles.
-
-For the `Button` component, for example, we would convert a SCSS class rule such
-as `.button-outline` to a Javascript object (more on this in the <Link href="#anatomy-of-a-component-styling-object" target="_self">Anatomy of a
-Component Styling Object</Link> section).
-
 ### Components re-exported from Chakra
 
-Some components are directly exported from Chakra. These components can be found
-in the `/src/index.ts` file. Note that not _all_ Chakra components are re-exported
-because we want to limit what developers should use in consuming applications.
+Some components _are_ directly exported from Chakra. These components can be found
+in the `/src/index.ts` file.
+
 They include:
 
 `Box`, `Center`, `Circle`, `Grid`, `GridItem`, `HStack`, `Square`, `Stack`, `VStack`
@@ -162,15 +123,14 @@ to test them ourselves.
 
 ## Styling
 
-The NYPL DS' theme file can be found at `src/theme/index.ts`. This creates a new
-theme that extends Chakra's theme and is set in the `DSProvider` component. Note
-that the example below is the general structure of the `theme` object but the DS
-`theme` object has values already set so it may look different. You would generally
-only work and add new object values in the `components` obejct key for new
-components and their theme or variants.
+The Reservoir theme file can be found at `src/theme/index.ts`. This creates a new
+theme that extends Chakra's theme and is set in the `DSProvider` component.
 
 _Note_: There are some SCSS files used to style third party plugins and to
 generate SCSS mixins.
+
+To style individual components, see the <Link href="#anatomy-of-a-component-styling-object" target="_self">Anatomy of a
+Component Styling Object</Link> section below.
 
 <Source
   code={`
@@ -266,28 +226,20 @@ Now this variant can be rendered:
 
 ### Breakpoints
 
-There are currently five (5) breakpoint values used in the DS:
+There are currently five (5) [breakpoint values](?path=/docs/style-guide-breakpoints--docs) used in the DS:
 
-| Key Name | EM/PX value |
-| -------- | ----------- |
-| sm       | 20em/320px  |
-| md       | 38em/600px  |
-| lg       | 60em/960px  |
-| xl       | 80em/1280px |
-| 2xl      | 96em/1536px |
+- <strong>Small mobile:</strong> less than 480px
+- <strong>Large mobile:</strong> less than 768px
+- <strong>Small tablet:</strong> less than 1024px
+- <strong>Large tablet:</strong> less than 1280px
+- <strong>Desktop:</strong> greater than or equal to 1280px
 
 There are two ways to set breakpoint values for a style rule: the array method
-and the object method. We prefer the object method and recommend to use the
-object method since it is easier to read and readily know what values take
-effect at defined breakpoint values. Note that the Chakra `"base"` key value is
-the same as `"sm"`.
+and the object method. Note that the Chakra `"base"` key value is the same as `"sm"`.
 
 #### Object Method
 
-We recommend and follow this pattern in the DS. As an example, let's say we want
-to increase the width of the `Button` component as the device width increases.
-We start at value "100px" and increase by "50px" at every breakpoint. In the
-`button.ts` style file, we can define it as in the example below:
+We recommend and follow this pattern in the DS. Here is an example of what it looks like:
 
 <Source
   code={`
@@ -378,7 +330,7 @@ const colors: Colors = {
   language="js"
 />
 
-In the shorten object example above, the following will be generated by Chakra:
+In the example above, the following will be generated by Chakra:
 
 | Theme object value                     | CSS variable                               |
 | -------------------------------------- | ------------------------------------------ |
@@ -394,11 +346,12 @@ DS' Figma documentation, we recommend NOT to use them.
 
 ### Spacing
 
-All the spacing values can be found in the `src/theme/foundations/spacing.ts`
-file. While Chakra provides many values, only use the eight DS defined values.
+We have nine Reservoir-defined [spacing values](/?path=/docs/style-guide-spacing--docs).
+All values can be found in the `src/theme/foundations/spacing.ts` file.
 
 | NYPL name Value | Chakra Value | DS Variable       |
 | --------------- | ------------ | ----------------- |
+| xxxs            | 0.5          | --nypl-space-xxxs |
 | xxs             | 1            | --nypl-space-xxs  |
 | xs              | 2            | --nypl-space-xs   |
 | s               | 4            | --nypl-space-s    |
@@ -408,7 +361,7 @@ file. While Chakra provides many values, only use the eight DS defined values.
 | xxl             | 16           | --nypl-space-xxl  |
 | xxxl            | 24           | --nypl-space-xxxl |
 
-For example, to make all `button`s have a `padding: 8px 16px` value:
+As an example, to make all `button`s have a `padding: 8px 16px` value:
 
 <Source
   code={`
@@ -429,28 +382,17 @@ const Button = {
 
 ### Typography
 
-All typography values can be found in the `src/theme/foundations/typography.ts`
-file. These values declare the font family, font sizes, and font weights to use
-for all text.
+All [typography values](../?path=/docs/style-guide-typography--docs) can be found
+in the `src/theme/foundations/typography.ts` file. These values declare the font family,
+font sizes, and font weights to use for all text.
 
 ## Style Props
 
-NYPL Reservoir components are built around the Chakra UI library. While Reservoir
-components may use the corresponding Chakra UI component, that is not always the
-case. Every Reservoir component, however, does make use of the Chakra UI
-"style props" pattern. This means that it is possible to pass in CSS rules to a
-component, including the shorthand versions. These style props will target the
-wrapper element of the component; this means if you want to target a specific
-element or component in a Reservoir component, you won't be able to with style
-props.
-
-{
-
-<Text isBold>
-  While this is available to use, it is not recommended. If you see a need to
-  override styles, please reach out to the NYPL Reservoir team for assistance.
-</Text>
-}
+Every Reservoir component makes use of the Chakra UI "style props" pattern.
+This means that it is possible to pass in CSS rules to a component, including the
+shorthand versions. These style props will target the wrapper element of the component;
+this means if you want to target a specific element or component in a Reservoir component,
+you won't be able to with style props.
 
 In the following example, the `Button` component has been passed `p` and `maxW`
 props which are shorthand for "padding" and "max-width", respectively.
@@ -523,63 +465,6 @@ components through CSS-in-JS.
 }
 `}
   language="js"
-/>
-
-#### Usage
-
-_Note: more patterns will be added._
-
-1. NYPL DS Components
-
-All DS components _should_ be used with their current styles. If a DS component
-needs an updated style, first contact the Design System and UX teams about this
-update. If you really _need_ to update a style and there is no available
-variant, then you can add styles directly as style prop.
-
-For example, if the `Heading` component should render the text in NYPL's green
-color used for "success primary" and add a bold font weight, then you can do
-the following:
-
-<Source
-  code={`
-const theme = useNYPLTheme();
-// ...
-return (
-  <div>
-    <Heading
-      level={2}
-      color={theme.colors.ui.success.primary}
-      fontWeight={theme.fontWeights.bold}
-    >
-      Get a Digital Library Card Today in a Few Easy Steps
-    </Heading>
-
-    {/* Other components */}
-
-  </div>
-);
-`}
-  language="jsx"
-/>
-
-Of course, you can destructure the `theme` object to only get the object keys
-you need for your component (this is a general example). Log the object to the
-console to see all the available styles.
-
-2. HTML Components
-
-Use the `style` attribute in HTML components to add inline styles.
-
-<Source
-  code={`
-<p style={{ color: theme.colors.ui.success.primary }}>
-  If you are 13 or older and live, work, attend school, or pay property taxes in
-  New York State, you can get a free digital library card right now using this
-  online form. Visitors to New York State can also use this form to apply for a
-  temporary card.
-</p>
-`}
-  language="jsx"
 />
 
 ## Testing
