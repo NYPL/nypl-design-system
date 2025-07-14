@@ -237,6 +237,7 @@ export const TextInput: ChakraComponent<
             name,
             onChange: internalOnChange,
             ref: finalRef,
+            ...rest,
           }
         : {
             "aria-required": isRequired,
