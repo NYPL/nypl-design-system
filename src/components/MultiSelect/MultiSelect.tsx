@@ -491,6 +491,4 @@ export const MultiSelect: ChakraComponent<
   { shouldForwardProp: () => true }
 );
 
-MultiSelect.displayName = "MultiSelect";
-
 export default MultiSelect;

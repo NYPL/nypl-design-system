@@ -23,11 +23,6 @@ const config: StorybookConfig = {
     "@storybook/addon-jest",
   ],
 
-  // This gets added automatically through react-vite,
-  // but leaving it here just to point it out.
-  // core: {
-  //   builder: "storybook-builder-vite",
-  // },
   framework: {
     name: "@storybook/react-vite",
     options: {},
@@ -49,7 +44,6 @@ const config: StorybookConfig = {
     // Type-check stories during Storybook build.
     check: true,
     // Display the compiled value options.
-    reactDocgen: "react-docgen-typescript",
     reactDocgenTypescriptOptions: {
       // Do we want to display Chakra props in Storybook? Nope.
       // They are useful but it clutters the Storybook file and the Chakra

@@ -199,6 +199,4 @@ export function useFilterBarPopup(): any {
   return { isOpen, onClose, onOpen, FilterBarPopup: InternalFilterBarPopup };
 }
 
-FilterBarPopup.displayName = "FilterBarPopup";
-
 export default FilterBarPopup;

@@ -130,6 +130,7 @@ const parameters = {
   },
   docs: {
     container: MyDocsContainer,
+    codePanel: true,
   },
 };
 

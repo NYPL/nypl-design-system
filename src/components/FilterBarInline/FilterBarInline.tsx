@@ -149,6 +149,4 @@ export const FilterBarInline: ChakraComponent<
   )
 );
 
-FilterBarInline.displayName = "FilterBarInline";
-
 export default FilterBarInline;

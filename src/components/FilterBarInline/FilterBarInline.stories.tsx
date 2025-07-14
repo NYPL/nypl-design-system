@@ -193,6 +193,7 @@ const FilterBarStory = (args) => {
     />
   );
 };
+FilterBarStory.displayName = "FilterBarStory";
 
 const FilterBarInlineHeadingStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear } =
@@ -254,6 +255,7 @@ const FilterBarInlineHeadingStory = () => {
     </VStack>
   );
 };
+FilterBarInlineHeadingStory.displayName = "FilterBarInlineHeadingStory";
 
 const FilterBarLayoutStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -570,6 +572,7 @@ const FilterBarLayoutStory = () => {
     </VStack>
   );
 };
+FilterBarLayoutStory.displayName = "FilterBarLayoutStory";
 
 const FilterBarRowContainerStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -700,6 +703,7 @@ const FilterBarRowContainerStory = () => {
     </VStack>
   );
 };
+FilterBarRowContainerStory.displayName = "FilterBarRowContainerStory";
 
 const FilterBarColumnContainerStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -797,6 +801,7 @@ const FilterBarColumnContainerStory = () => {
     </VStack>
   );
 };
+FilterBarColumnContainerStory.displayName = "FilterBarColumnContainerStory";
 
 const FilterBarChildrenStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -897,6 +902,7 @@ const FilterBarChildrenStory = (args) => {
     />
   );
 };
+FilterBarChildrenStory.displayName = "FilterBarChildrenStory";
 
 const FilterBarTagSetStory = () => {
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
@@ -991,3 +997,4 @@ const FilterBarTagSetStory = () => {
     </>
   );
 };
+FilterBarTagSetStory.displayName = "FilterBarTagSetStory";
