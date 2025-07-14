@@ -552,4 +552,6 @@ export function useFeedbackBox(): any {
   return { isOpen, onClose, onOpen, FeedbackBox: InternalFeedbackBox };
 }
 
+FeedbackBox.displayName = "FeedbackBox";
+
 export default FeedbackBox;
