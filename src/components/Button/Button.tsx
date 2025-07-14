@@ -46,7 +46,7 @@ export interface ButtonProps
 }
 
 /**
- * Renders a simple `button` element with custom variant styles.
+ * Renders a simple `button` element with custom `variant` styles.
  */
 export const Button: ChakraComponent<
   React.ForwardRefExoticComponent<
