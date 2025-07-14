@@ -59,6 +59,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `noSpace` prop from Heading component.
 - Removes `noSpace` prop from Text component.
 - Removes default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
+- Removes all files related to the `Autosuggest` component guidelines.
 
 ## Prerelease
 
@@ -69,6 +70,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds fallback warning messages to the `AudioPlayer` and `VideoPlayer` components on browsers with JavaScript disabled.
+
+### Updates
+
+- Updates Storybook to `v9.0.16`.
 
 ## 3.6.3 (June 9, 2025)
 

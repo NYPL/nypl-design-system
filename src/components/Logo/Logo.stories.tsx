@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import { Box } from "@chakra-ui/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Logo from "./Logo";
 import Heading from "../Heading/Heading";
