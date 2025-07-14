@@ -84,6 +84,7 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       // Customize the Vite config here:
       assetsInclude: ["/sb-preview/runtime.js"],
+      sourceMap: true,
       resolve: {
         alias: {
           // This is to get @storybook/addon-jest working:
