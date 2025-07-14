@@ -31,6 +31,7 @@ export default defineConfig({
       formats: ["es", "cjs"],
       name: "design-system-react-components",
     },
+    sourcemap: true,
     rollupOptions: {
       external: [
         "react",
