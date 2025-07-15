@@ -272,6 +272,10 @@ export type {
 export {
   Template,
   TemplateBreakout,
+  TemplateContent,
+  TemplateFooter,
+  TemplateFull,
+  TemplateHeader,
   TemplateMain,
   TemplateSidebar,
 } from "./components/Template/Template";
