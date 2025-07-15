@@ -1,4 +1,5 @@
 import { Meta, Source } from "@storybook/addon-docs/blocks";
+import { Box } from "@chakra-ui/react";
 
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Image from "../Image/Image";
@@ -12,22 +13,21 @@ import Link from "../Link/Link";
   summary="Recommendations for using the Next.js Image in place of the Reservoir Image"
 />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#objectives-and-golas" target="_self">Objectives and goals</Link>}
-- {<Link href="#recommendations" target="_self">Recommendations</Link>}
-  - {<Link href="#aspect-ratio" target="_self">Aspect ratio</Link>}
-  - {<Link href="#cropping" target="_self">Cropping</Link>}
-  - {<Link href="#custom-width" target="_self">Custom width</Link>}
-- {<Link href="#examples" target="_self">Examples</Link>}
-  - {<Link href="#dynamic" target="_self">Dynamic example</Link>}
-  - {<Link href="#component" target="_self">Component example</Link>}
-  - {<Link href="#poc" target="_self">POC</Link>}
-- {<Link href="#additional-recommendations" target="_self">Additional recommendations</Link>}
-  - {<Link href="#onerror" target="_self">onError</Link>}
-  - {<Link href="#placeholder" target="_self">onError</Link>}
-  - {<Link href="#quality" target="_self">Quality</Link>}
-  - {<Link href="#sizes" target="_self">Sizes</Link>}
+- [Objectives and goals](#objectives-and-goals)
+- [Recommendations](#recommendations)
+  - [Aspect ratio](#aspect-ratio)
+  - [Cropping](#cropping)
+  - [Custom width](#custom-width)
+- [Examples](#examples)
+  - [Dynamic example](#dynamic)
+  - [Component example](#component)
+  - [Proof of concept](#proof-of-concept)
+- [Other useful props](#other-useful-props)
+  - [onError](#onerror)
+  - [placeholder](#placeholder)
+  - [sizes](#sizes)
 
 ## Objectives and goals
 
@@ -57,6 +57,10 @@ Engineering recommends utilizing the Next.js `Image` component over the
 Reservoir `Image` component.** This document will offer recommendations for
 configuring the Next.js `Image` component to implement the features available in
 the Reservoir `Image` component.
+
+**Resources**
+
+- [Next.js Image documentation](https://nextjs.org/docs/pages/api-reference/components/image)
 
 ## Recommendations
 
@@ -98,9 +102,9 @@ attain a four-by-three aspect ratio, the `bottomPadding` value should be set to
 />
 
 <Image
-  src="/useNextjsImage/aspectRatio.png"
   alt="Next.js Image - aspect ratio"
   mb="s"
+  src="/useNextjsImage/aspectRatio.png"
 />
 
 ### Cropping
@@ -124,9 +128,9 @@ the `objectFit` CSS attribute to `"cover"`. In the previous examples, the
     }}
   >
     <Image
-      src="/images/bigben.jpg"
       alt="Big Ben and Parliament"
       fill={true}
+      src="/images/bigben.jpg"
       style={{
         objectFit: "cover",
       }}
@@ -139,17 +143,17 @@ the `objectFit` CSS attribute to `"cover"`. In the previous examples, the
 #### Cropped examples
 
 <Image
-  src="/useNextjsImage/croppedImageExamples.png"
   alt="Next.js Image - cropped image"
   mb="s"
+  src="/useNextjsImage/croppedImageExamples.png"
 />
 
 #### Contained examples
 
 <Image
-  src="/useNextjsImage/containedImageExamples.png"
   alt="Next.js Image - contained image"
   mb="s"
+  src="/useNextjsImage/containedImageExamples.png"
 />
 
 ### Cropping with focal point
@@ -169,9 +173,9 @@ with the `objectFit` attribute.
     }}
   >
     <Image
-      src="/images/bigben.jpg"
       alt="Big Ben and Parliament"
       fill={true}
+      src="/images/bigben.jpg"
       style={{
         objectFit: "cover",
         objectPosition: "top",
@@ -183,14 +187,14 @@ with the `objectFit` attribute.
 />
 
 <Image
-  src="/useNextjsImage/focalPointExamples01.png"
   alt="Next.js Image - cropped with focal point, example 1"
   mb="s"
+  src="/useNextjsImage/focalPointExamples01.png"
 />
 <Image
-  src="/useNextjsImage/focalPointExamples02.png"
   alt="Next.js Image - cropped with focal point, example 2"
   mb="s"
+  src="/useNextjsImage/focalPointExamples02.png"
 />
 
 ### Custom width
@@ -215,9 +219,9 @@ applied.
       }}
     >
       <Image
-        src="/images/bigben.jpg"
         alt="Big Ben and Parliament"
         fill={true}
+        src="/images/bigben.jpg"
         style={{
           objectFit: "cover",
         }}
@@ -229,9 +233,9 @@ applied.
 />
 
 <Image
-  src="/useNextjsImage/customWidth.png"
   alt="Next.js Image - custom width"
   mb="s"
+  src="/useNextjsImage/customWidth.png"
 />
 
 ## Examples
@@ -281,9 +285,9 @@ const focalPointValues = [
       }}
     >
       <Image
-        src="/images/bigben.jpg"
         alt="Big Ben and Parliament"
         fill={true}
+        src="/images/bigben.jpg"
         style={{
           objectFit: "cover",
           objectPosition: focalPointValues[focalPointIndex],
@@ -365,9 +369,9 @@ const CustomImage = (props: CustomImageProps) => {
           }}
         >
           <Image
-            src={src}
             alt={alt}
             fill={true}
+            src={src}
             style={{
               objectFit: isCropped ? "cover" : "contain",
               objectPosition: isCropped ? cropFocalPoint : undefined,
@@ -383,45 +387,84 @@ export default CustomImage;
   language="jsx"
 />
 
-### POC
+### Proof of concept
 
 The `Component example` above has been utilized in <Link href="https://code-playground-mu.vercel.app/next-image/props" target="_blank">this POC</Link>.
 
-## Additional Recommendations
+## Other useful props
 
 For improved function and optimization, the NYPL Digital front-end development
 team recommends utilizing the following props on the Next.js `Image` component.
 
+- onError documentation
+- onError documentation
+- 
+
 ### onError
 
-- If the source image fails to load (e.g., a 404), this fallback logic triggers.
-- Can set `imageSrc` to a default image and log the error.
-- Does cause a re-render with the fallback image.
+- Use the `onError` prop to trigger a callback if the source image fails to
+  load.
+- The callback should set `imageSrc` to a default fallback image and log the
+  error.
+- The `onError` fallback image should not be the same as the `placeholder`
+  image.
+- The recommended fallback images are displayed below.
+- For more detailed information, see the [Next.js Image docs](https://nextjs.org/docs/pages/api-reference/components/image#onerror).
+
+<Box display="grid" gap="s" gridTemplateColumns={{ base: "1fr", sm: "1fr 1fr" }} mt="s">
+  <Box>
+    #### Light mode
+
+    <Image
+      alt="Recommended fallback image for light mode"
+      fill={true}
+      my="s"
+      src="/useNextjsImage/fallbackImageLight.png"
+    />
+
+  </Box>
+  <Box>
+    #### Dark mode
+
+    <Image
+      alt="Recommended fallback image for dark mode"
+      fill={true}
+      my="s"
+      src="/useNextjsImage/fallbackImageDark.png"
+    />
+
+  </Box>
+</Box>
 
 ### placeholder
 
-- Instead of a `SkeletonLoader`, the `placeholder` prop can be set to render a
-  low-resolution placeholder (either a blurred version of the intended image or
-  a custom image) as the image loads.
-- Helpful to differentiate between the loading state of the image and the error
-  state (so the `onError` fallback should not be the same as the `placeholder`
-  prop).
+- Use the `placeholder` prop to specify a custom image to be shown as the
+  source image loads.
+- It is recommended that the default placeholder image be flat gray.
+  - Light mode: #F5F5F5 (ui.bg.default)
+  - Dark mode: #252525 (dark.ui.bg.default)
+- The `placeholder` image should not be the same as the `onError` fallback
+  image.
+- For more detailed information, see the [Next.js Image docs](https://nextjs.org/docs/pages/api-reference/components/image#placeholder).
 
-### quality
-
-- The quality of the optimized image, an integer 1-100.
-- The quality defaults to 75.
+<Source
+  code={`
+placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8WQ8AAlcBas53/MIAAAAASUVORK5CYII="
+`}
+  language="jsx"
+/>
 
 ### sizes
 
-- Next's version of an internal media query to check the width of the viewport
-  and pick size of the image accordingly.
+- Use the `sizes` prop to implement a media query method that sets the physical
+  size of an image that is loaded for specified viewports.
 - Can be used in combination with an outer styling `div` or setting `style` on the
   image.
-- Optimizes loading time for responsively styled images since you're telling the
-  browser which size to pick.
-- If you don't specify a `sizes` value in an image with the `fill` property, a
-  default value of `"100vw"` (full screen width) is used.
+- It is recommended to use this prop to optimize the loading time for
+  responsively styled images.
+- Consuming apps should generate the sizes that will work best for the app, but
+  the example below is recommended as a starting point.
+- For more detailed information, see the [Next.js Image docs](https://nextjs.org/docs/pages/api-reference/components/image#sizes).
 
 <Source
   code={`
