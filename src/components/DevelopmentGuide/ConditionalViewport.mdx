@@ -13,15 +13,15 @@ import Link from "../Link/Link";
 
 ## Table of Contents
 
-- {<Link href="#background-on-the-viewport-and-input-auto-zoom-issue" target="_self">Background on the viewport and input auto-zoom issue</Link>}
-- {<Link href="#how-to-resolve" target="_self">How to resolve</Link>}
-- {<Link href="#approach-for-nextjs-app-router-apps" target="_self">Approach for Next.js App Router apps</Link>}
-- {<Link href="#approach-for-nextjs-pages-router-apps" target="_self">Approach for Next.js Pages Router apps</Link>}
+- [Background on the viewport and input auto-zoom issue](#background-on-the-viewport-and-input-auto-zoom-issue)
+- [How to resolve](#how-to-resolve)
+- [Approach for Next.js App Router apps](#approach-for-nextjs-app-router-apps)
+- [Approach for Next.js Pages Router apps](#approach-for-nextjs-pages-router-apps)
 
 ## Background on the viewport and input auto-zoom issue
 
 The viewport is the visible area of a web page, which varies from device to
-device. The user interacts with the viewport by scrolling or zooming in and out.
+device, and the user interacts with it by scrolling or zooming in and out.
 The viewport's dimensions and scale can be set from the `<meta>` tag.
 
 On iOS devices, non-native websites will automatically zoom in when a user
@@ -31,7 +31,7 @@ generally forces users to zoom back out to continue viewing the page.
 
 This auto-zoom does not occur on Android mobile devices, so NYPL recommends
 preventing the auto-zoom on iOS to create a consistent experience across all
-devices. Since design system components should be able to render regardless of
+devices. Since Reservoir components should be able to render regardless of
 browser/device context, **this requires a device-specific solution to be
 implemented by the consuming app**.
 

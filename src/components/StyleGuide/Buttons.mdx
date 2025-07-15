@@ -17,14 +17,14 @@ import Link from "../Link/Link";
 
 ## Table of Contents
 
-- {<Link href="#general-information" target="_self">General Information</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#guidelines" target="_self">Guidelines</Link>}
-- {<Link href="#button-groups" target="_self">Button Groups</Link>}
-- {<Link href="#button-types" target="_self">Button Types</Link>}
-- {<Link href="#button-sizes" target="_self">Button Sizes</Link>}
-- {<Link href="#patterns" target="_self">Patterns</Link>}
-- {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
+- [General Information](#general-information)
+- [Accessibility](#accessibility)
+- [Guidelines](#guidelines)
+- [Button Groups](#button-groups)
+- [Button Types](#button-types)
+- [Button Sizes](#button-sizes)
+- [Patterns](#patterns)
+- [Figma Reference](#figma-reference)
 
 ## General Information
 
@@ -41,11 +41,9 @@ import { Button } from "@nypl/design-system-react-components";
 
 ## Accessibility
 
-Buttons should not be made to look like links. From a visual standpoint, an
-underlined link has the expected functionality of navigating to a new page
-within the current site. If we are true to semantic coding, buttons will not be
-used for this same type of navigational functionality and styling a button to
-mimic the look of a standard link could cause unnecessary confusion.
+Buttons should not be made to look like links. An underlined link has the expected
+functionality of navigating to a new page within the current site rather than to perform
+an operation within the current page or context as a button is meant to do.
 
 ## Guidelines
 
@@ -53,8 +51,8 @@ mimic the look of a standard link could cause unnecessary confusion.
 - Button text should be title case.
 - Button icon is optional.
 - Buttons may have an icon on either the left or the right.
-- Buttons by default are blue. However, Donation callout buttons are red.
-- Buttons used for Back to Top actions have a Secondary button style with an
+- Buttons by default are blue. However, "Donation" callout buttons are red.
+- Buttons used for "Back to Top" actions have a `Secondary` button style with an
   arrow icon pointing up.
 - When buttons are used in a group, they should be wrapped in a `ButtonGroup`.
 - When buttons are used in a group where the user can move forward or backward,
@@ -182,7 +180,7 @@ The `size` prop should be used to render various sizes of the button component:
 - This size can be used when space is limited or when the action is of lesser
   significance.
 - **IMPORTANT:** Even though the `"small"` size is available, it is recommended
-  to use the `"medium"` or `"large"` sizes.
+  to use the `"medium"` size for most situations.
 
 {
 
@@ -298,7 +296,7 @@ The `size` prop should be used to render various sizes of the button component:
 ## Patterns
 
 - Buttons are blue by default.
-- Buttons that are intended as a call out (i.e. Donation buttons) should be set
+- Buttons that are intended as a call out (i.e. "Donation" buttons) should be set
   as `"callout"`.
 - The "Back to Top" button must be set as `"secondary"` and must include an up
   arrow icon.
