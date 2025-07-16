@@ -19,25 +19,21 @@ import Table from "../Table/Table";
 
 ## Table of Contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#terminology" target="_self">Terminology</Link>}
-  - {<Link href="#breakpoints--breakpoint-ranges" target="_self">Breakpoints & breakpoint ranges</Link>}
-  - {<Link href="#grid-anatomy" target="_self">Grid anatomy</Link>}
-  - {<Link href="#perceived-columns" target="_self">Perceived columns</Link>}
-- {<Link href="#breakpoint-range-details" target="_self">Breakpoint range details</Link>}
-- {<Link href="#best-practices-and-recommendations" target="_self">Best practices and recommendations</Link>}
-- {<Link href="#breakpoint-range-visual-reference" target="_self">Breakpoint range visual reference</Link>}
-- {<Link href="#figma-reference" target="_self">Figma reference</Link>}
+- [Overview](#overview)
+- [Terminology](#terminology)
+  - [Breakpoints & breakpoint ranges](#breakpoints--breakpoint-ranges)
+  - [Grid anatomy](#grid-anatomy)
+  - [Perceived columns](#perceived-columns)
+- [Breakpoint range details](#breakpoint-range-details)
+- [Best practices and recommendations](#best-practices-and-recommendations)
+- [Breakpoint range visual reference](#breakpoint-range-visual-reference)
+- [Figma reference](#figma-reference)
 
 ## Overview
 
-Pages should be designed and built using a responsive grid system that
-dynamically adjusts based on the screen size. Using a responsive grid system
-helps to ensure consistent layouts across NYPL website.
-
-The structure of the responsive grid will scale in a fluid system as the
-viewport width increases from small to large. The defined NYPL breakpoints will
-determine when default adjustments are applied to the grid.
+Pages should be designed and built using a responsive grid system that dynamically
+adjusts based on screen size. Using the defined NYPL breakpoints helps to ensure
+consistent layouts across applications.
 
 ## Terminology
 
@@ -47,10 +43,9 @@ understand what they mean.
 ### Breakpoints & breakpoint ranges
 
 A breakpoint defines a specific pixel value within the viewport width spectrum,
-but when we talk about a breakpoint, we often think about it in terms of the
-width range that is covered by the breakpoint (i.e. breakpoint range). With
-that in mind, the NYPL Reservoir Design System will designate four actual
-breakpoints and from that we will define five breakpoint ranges:
+but when we talk about a breakpoint, we often do so in terms of the range that is
+covered by the breakpoint. The NYPL Reservoir Design System will designate four
+actual breakpoints and five breakpoint ranges:
 
 #### Breakpoints
 
@@ -69,8 +64,8 @@ breakpoints and from that we will define five breakpoint ranges:
 
 ### Grid anatomy
 
-The anatomy of a responsive grid is made up of elements that scale in a fluid
-system as the device and viewport increases from small to large.
+The anatomy of a responsive grid is the collection of elements that scale in a fluid system
+as the viewport increases.
 
 <SimpleGrid>
   <div>
@@ -104,9 +99,8 @@ system as the device and viewport increases from small to large.
 
 ### Perceived columns
 
-- The 12-columns that are the foundation of a responsive grid system are often
-  grouped to create "perceived columns."
-- Perceived columns define the basic structure of a page or page section.
+The 12-columns are often grouped to create "perceived columns" that define the basic
+structure of a page or page section.
 
 <SimpleGrid columns={4} mb="l">
   <div>

@@ -20,17 +20,16 @@ import Text from "../Text/Text";
 
 ## Table of Contents
 
-- {<Link href="#general-information" target="_self">General Information</Link>}
-- {<Link href="#heading-component" target="_self">Heading Component</Link>}
-- {<Link href="#text-component" target="_self">Text Component</Link>}
-- {<Link href="#font-family" target="_self">Font Family</Link>}
-- {<Link href="#font-color-and-accessibility" target="_self">Font Color and Accessibility</Link>}
-- {<Link href="#font-weight-and-style" target="_self">Font Weight and Style</Link>}
-- {<Link href="#text-case" target="_self">Text Case</Link>}
-- {<Link href="#line-length-and-line-height" target="_self">Line Length and Line Height</Link>}
-- {<Link href="#character-count" target="_self">Character Count</Link>}
-- {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
-- {<Link href="#format-of-text-links-disclaimer" target="_self">Format of Text Links Disclaimer</Link>}
+- [General Information](#general-information)
+- [Text Component](#text-component)
+- [Font Family](#font-family)
+- [Font Color and Accessibility](#font-color-and-accessibility)
+- [Font Weight and Style](#font-weight-and-style)
+- [Text Case](#text-case)
+- [Line Length and Line Height](#line-length-and-line-height)
+- [Character Count](#character-count)
+- [Figma Reference](#figma-reference)
+- [Format of Text Links Disclaimer](#format-of-text-links-disclaimer)
 
 ## General Information
 
@@ -95,8 +94,9 @@ Based on the June 2023 updates, the following values should be used for the
 #### Migrating from v3 to v4
 
 When adopting the new `level` values, there is a direct relationship between the
-deprecated values and the new values. For example, from a DOM persepctive, `two`
-should be replaced with `h2`, as they will both render the `<h2>` element.
+deprecated values and the new values. For example, `two` should be replaced with `h2`,
+as they will both render the `<h2>` element.
+
 Please note that migrating to the new `level` values will change the styles for
 the headings. Make sure to use the `size` prop to make adjustments as needed.
 
@@ -1431,8 +1431,8 @@ people to focus, while short lines of text force the eye to travel back too
 often, breaking a reader's rhythm.
 
 For body text in desktop and tablet viewports, the recommended line length is
-between 60 and 75 characters. In a mobile viewport, the recommendation line
-length is between 30 to 40 characters.
+between 60 and 75 characters. In a mobile viewport, the recommendation is between
+30 to 40 characters.
 
 The testing to determine the ideal line length is generally performed using
 character count as the metric, but this is not the best approach when we are

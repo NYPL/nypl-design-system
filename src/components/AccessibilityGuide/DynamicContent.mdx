@@ -13,12 +13,12 @@ import Link from "../Link/Link";
 
 ## Table of Contents
 
-- {<Link href="#general-information" target="_self">General Information</Link>}
-- {<Link href="#aria-live-regions" target="_self">ARIA Live Regions</Link>}
-- {<Link href="#managing-focus" target="_self">Managing Focus</Link>}
-- {<Link href="#anti-patterns" target="_self">Anti-Patterns</Link>}
-- {<Link href="#nypl-patterns" target="_self">NYPL Patterns</Link>}
-- {<Link href="#resources" target="_self">Resources</Link>}
+- [General Information](#general-information)
+- [ARIA Live Regions](#aria-live-regions)
+- [Managing Focus](#managing-focus)
+- [Anti-Patterns](#anti-patterns)
+- [NYPL Patterns](#nypl-patterns)
+- [Resources](#resources)
 
 ## General Information
 
@@ -53,12 +53,12 @@ _For dynamic content, always include the `aria-live` attribute in the initial
 DOM render to allow assistive technology to track the updates for the specified
 element._
 
-- `aria-live="off"` - the default value which is the same as not having the
+- `aria-live="off"`: the default value which is the same as not having the
   attribute at all.
-- `aria-live="polite"` - the screen reader will wait until the user is done
+- `aria-live="polite"`: the screen reader will wait until the user is done
   interacting with the page before announcing the change. This is usually the
   best option for dynamic content.
-- `aria-live="assertive"` - the screen reader will announce the change
+- `aria-live="assertive"`: the screen reader will announce the change
   immediately, even if the user is in the middle of interacting with the page.
   This should be used sparingly when the update is time-sensitive or critical
   because it can be disruptive to the user.
