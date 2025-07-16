@@ -31,12 +31,8 @@ import Link from "../Link/Link";
 
 ## Objectives and goals
 
-Based on [Image performance: DC Phase
-2](https://docs.google.com/document/d/1hZsnSOmKFQFtAaNAWjZ9pd44m6wYygn_bUaeDNyrPr0/edit?tab=t.0#heading=h.9wuc905l6iod)
-in the DAM team, there is no perceivable or metric-based reason to use the
-Reservoir `Image` component over the Next.js `Image` component. Conversely,
-using the Next.js `Image` component provides advantages including, but not
-limited to:
+The Next.js `Image` component provides certain advantages over the Reservoir
+`Image` component including, but not limited to:
 
 - The Next.js `Image` component is meant to optimize image performance within
   the Next.js framework.
@@ -46,11 +42,11 @@ limited to:
 - Using the Next.js `Image` component brings NYPL apps deeper into the Next.js
   ecosystem, which could allow framework-specific optimizations in the future.
 
-While the Next.js `Image` component offers optimization and some enhanced
-styling features, the Reservoir `Image` component has functionality that is not
-included in the Next.js `Image` component. Specifically, the Reservoir `Image`
-component offers functionality to set the image aspect ratio in conjunction with
-cropping and custom sizing.
+However, while the Next.js `Image` component does offer optimization and some
+enhanced styling features, the Reservoir `Image` component has functionality
+that is not included in the Next.js `Image` component. Specifically, the
+Reservoir `Image` component offers functionality to set the image aspect ratio
+in conjunction with cropping and custom sizing.
 
 **Based on the benefits and advantages of the Next.js `Image` component, NYPL
 Engineering recommends utilizing the Next.js `Image` component over the
@@ -60,7 +56,7 @@ the Reservoir `Image` component.
 
 **Resources**
 
-- [Next.js Image documentation](https://nextjs.org/docs/pages/api-reference/components/image)
+- [Next.js Image component documentation](https://nextjs.org/docs/pages/api-reference/components/image)
 
 ## Recommendations
 
@@ -241,7 +237,7 @@ applied.
 ## Examples
 
 Below are some examples using the recommendations in context, but the extent to
-which the recommendation are used and in what capicity is up to the structure
+which the recommendations are used and in what capacity is up to the structure
 and patterns of consuming apps.
 
 ### Dynamic
@@ -395,10 +391,6 @@ The `Component example` above has been utilized in <Link href="https://code-play
 
 For improved function and optimization, the NYPL Digital front-end development
 team recommends utilizing the following props on the Next.js `Image` component.
-
-- onError documentation
-- onError documentation
-- 
 
 ### onError
 
