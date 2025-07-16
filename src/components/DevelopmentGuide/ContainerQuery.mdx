@@ -151,10 +151,10 @@ theme file to apply the appropriate container query styles.
 
 <Source
   code={`
-setContainerStyles(props: {
-  breakpoint: "base" | keyof typeof breakpoints;
-  styles: { [selector: string]: { [property: string]: string | number | null } };
-}): { [key: string]: { [selector: string]: { [property: string]: string | number | null } } }
+  setContainerStyles(props: {
+    breakpoint: "base" | keyof typeof breakpoints;
+    styles: { [selector: string]: { [property: string]: string | number | null } };
+  }): { [key: string]: { [selector: string]: { [property: string]: string | number | null } } }
 `}
 />
 

@@ -93,22 +93,22 @@ docs](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your
 
 <Source
   code={`
-import {
-  ColorModeScript,
-  DSProvider
-} from "@nypl/design-system-react-components";
-import * as ReactDOM from "react-dom/client";
-import App from "./App";
-// ...
-const rootElement = document.getElementById("root");
-ReactDOM.createRoot(rootElement).render(
-  <>
-    <ColorModeScript initialColorMode={"light" | "dark" | "system"} />
-    <DSProvider>
-      <App />
-    <DSProvider>
-  </>,
-);
+  import {
+    ColorModeScript,
+    DSProvider
+  } from "@nypl/design-system-react-components";
+  import * as ReactDOM from "react-dom/client";
+  import App from "./App";
+  // ...
+  const rootElement = document.getElementById("root");
+  ReactDOM.createRoot(rootElement).render(
+    <>
+      <ColorModeScript initialColorMode={"light" | "dark" | "system"} />
+      <DSProvider>
+        <App />
+      <DSProvider>
+    </>,
+  );
 `}
   language="tsx"
 />
@@ -133,40 +133,40 @@ the cookie is never undefined.
 
 <Source
   code={`
-// pages/_app.tsx
-import {
-  cookieStorageManager,
-  DSProvider,
-  localStorageManager,
-  useColorModeValue,
-} from "@nypl/design-system-react-components";
-import type { AppProps } from "next/app";
-function MyApp({ Component, pageProps }: AppProps) {
-  // Decides where the chakra-ui-color-mode value should be stored in the browser.
-  const colorModeManager =
-  typeof pageProps.cookies === "string"
-  ? cookieStorageManager(pageProps.cookies)
-  : localStorageManager;
+  // pages/_app.tsx
+  import {
+    cookieStorageManager,
+    DSProvider,
+    localStorageManager,
+    useColorModeValue,
+  } from "@nypl/design-system-react-components";
+  import type { AppProps } from "next/app";
+  function MyApp({ Component, pageProps }: AppProps) {
+    // Decides where the chakra-ui-color-mode value should be stored in the browser.
+    const colorModeManager =
+    typeof pageProps.cookies === "string"
+    ? cookieStorageManager(pageProps.cookies)
+    : localStorageManager;
+    // ...
+    return (
+      <>
+        <ColorModeScript initialColorMode="system" />
+        <DSProvider colorModeManager={colorModeManager}>
+          <Component {...pageProps} />
+        </DSProvider>
+      </>
+    );
+  }
   // ...
-  return (
-    <>
-      <ColorModeScript initialColorMode="system" />
-      <DSProvider colorModeManager={colorModeManager}>
-        <Component {...pageProps} />
-      </DSProvider>
-    </>
-  );
-}
-// ...
-export function getServerSideProps({ req }: any) {
-  return {
-    props: {
-      // First time users will not have any cookies and you may not return
-      // undefined here, hence \`??\` is necessary.
-      cookies: req.headers.cookie ?? "",
-    },
-  };
-}
+  export function getServerSideProps({ req }: any) {
+    return {
+      props: {
+        // First time users will not have any cookies and you may not return
+        // undefined here, hence \`??\` is necessary.
+        cookies: req.headers.cookie ?? "",
+      },
+    };
+  }
 `}
   language="tsx"
 />
@@ -209,33 +209,33 @@ dark mode.
 
 <Source
   code={`
-import {
-  Box,
-  Button,
-  useColorMode,
-  useColorModeValue,
-} from "@nypl/design-system-react-components";
-// ...
-function StyleColorMode() {
-  const { toggleColorMode } = useColorMode();
-  // if color mode is light, \`bg\` is set to "ui.bg.default"
-  // if color mode is dark, \`bg\` is set to "dark.ui.bg.default"
-  const bg = useColorModeValue("ui.bg.default", "dark.ui.bg.default");
-  // if color mode is light, \`color\` is set to "ui.typography.heading"
-  // if color mode is dark, \`color\` is set to "dark.ui.typography.heading"
-  const color = useColorModeValue(
-    "ui.typography.heading",
-    "dark.ui.typography.heading"
-  );
-  return (
-    <>
-      <Box mb="s" bg={bg} color={color}>
-        This box's style will change based on the color mode.
-      </Box>
-      <Button onClick={toggleColorMode}>Toggle Color Mode</Button>
-    </>
-  );
-}
+  import {
+    Box,
+    Button,
+    useColorMode,
+    useColorModeValue,
+  } from "@nypl/design-system-react-components";
+  // ...
+  function StyleColorMode() {
+    const { toggleColorMode } = useColorMode();
+    // if color mode is light, \`bg\` is set to "ui.bg.default"
+    // if color mode is dark, \`bg\` is set to "dark.ui.bg.default"
+    const bg = useColorModeValue("ui.bg.default", "dark.ui.bg.default");
+    // if color mode is light, \`color\` is set to "ui.typography.heading"
+    // if color mode is dark, \`color\` is set to "dark.ui.typography.heading"
+    const color = useColorModeValue(
+      "ui.typography.heading",
+      "dark.ui.typography.heading"
+    );
+    return (
+      <>
+        <Box mb="s" bg={bg} color={color}>
+          This box's style will change based on the color mode.
+        </Box>
+        <Button onClick={toggleColorMode}>Toggle Color Mode</Button>
+      </>
+    );
+  }
 `}
   language="tsx"
 />
@@ -272,24 +272,24 @@ selector to add the styles that should be used when dark mode is active.
 
 <Source
   code={`
-const customStyles = {
-  bg: "ui.bg.default",
-  color: "ui.typography.heading",
-  fontWeight: "medium",
-  p: "inset.default",
-  _hover: {
-    bg: "ui.bg.hover",
-  },
-  _dark: {
-    bg: "dark.ui.bg.default",
-    color: "dark.ui.typography.heading",
+  const customStyles = {
+    bg: "ui.bg.default",
+    color: "ui.typography.heading",
+    fontWeight: "medium",
+    p: "inset.default",
     _hover: {
-      bg: "dark.ui.bg.hover",
+      bg: "ui.bg.hover",
     },
-  },
-};
-// ...
-<Box sx={customStyles}>Click Me</Button>
+    _dark: {
+      bg: "dark.ui.bg.default",
+      color: "dark.ui.typography.heading",
+      _hover: {
+        bg: "dark.ui.bg.hover",
+      },
+    },
+  };
+  // ...
+  <Box sx={customStyles}>Click Me</Button>
 `}
   language="tsx"
 />
@@ -306,41 +306,41 @@ with the React style prop, so CSS design tokens or native CSS attribute values m
 
 <Source
   code={`
-import { useColorModeValue } from "@nypl/design-system-react-components";
-// Style values assigned to variables using CSS design tokens
-const bg = useColorModeValue(
-  "var(--nypl-colors-ui-bg-default)",
-  "var(--nypl-colors-dark-ui-bg-default)"
-);
-const color = useColorModeValue(
-  "var(--nypl-colors-ui-typography-heading)",
-  "var(--nypl-colors-dark-ui-typography-heading)"
-);
-const fontWeight = "var(--nypl-fontWeights-medium)";
-const padding = "var(--nypl-space-inset-default)";
-const stylesUsingVariables = {
-  backgroundColor: bg,
-  color: color,
-  fontWeight: fontWeight,
-  padding: padding,
-};
-// ...
-<div style={stylesUsingVariables} />;
+  import { useColorModeValue } from "@nypl/design-system-react-components";
+  // Style values assigned to variables using CSS design tokens
+  const bg = useColorModeValue(
+    "var(--nypl-colors-ui-bg-default)",
+    "var(--nypl-colors-dark-ui-bg-default)"
+  );
+  const color = useColorModeValue(
+    "var(--nypl-colors-ui-typography-heading)",
+    "var(--nypl-colors-dark-ui-typography-heading)"
+  );
+  const fontWeight = "var(--nypl-fontWeights-medium)";
+  const padding = "var(--nypl-space-inset-default)";
+  const stylesUsingVariables = {
+    backgroundColor: bg,
+    color: color,
+    fontWeight: fontWeight,
+    padding: padding,
+  };
+  // ...
+  <div style={stylesUsingVariables} />;
 `}
   language="tsx"
 />
 
 <Source
   code={`
-// Style values assigned directly using native CSS attribute values
-const stylesDirectlyAssigned = {
-  backgroundColor: useColorModeValue("#5F5F5F", "#252525"),
-  color: useColorModeValue("#000000", "#E9E9E9"),
-  fontWeight: 500,
-  padding: "1rem",
-};
-// ...
-<div style={stylesDirectlyAssigned} />;
+  // Style values assigned directly using native CSS attribute values
+  const stylesDirectlyAssigned = {
+    backgroundColor: useColorModeValue("#5F5F5F", "#252525"),
+    color: useColorModeValue("#000000", "#E9E9E9"),
+    fontWeight: 500,
+    padding: "1rem",
+  };
+  // ...
+  <div style={stylesDirectlyAssigned} />;
 `}
   language="tsx"
 />
@@ -351,15 +351,15 @@ components.
 
 <Source
   code={`
-// Styles for a custom component
-const stylesForCustomComponent = {
-  backgroundColor: useColorModeValue("#F5F5F5", "#252525"),
-  color: useColorModeValue("#000000", "#BDBDBD"),
-  fontWeight: 500,
-  padding: "1rem",
-};
-// ...
-<CustomComponent style={stylesForCustomComponent} />;
+  // Styles for a custom component
+  const stylesForCustomComponent = {
+    backgroundColor: useColorModeValue("#F5F5F5", "#252525"),
+    color: useColorModeValue("#000000", "#BDBDBD"),
+    fontWeight: 500,
+    padding: "1rem",
+  };
+  // ...
+  <CustomComponent style={stylesForCustomComponent} />;
 `}
   language="tsx"
 />
@@ -380,21 +380,21 @@ default styles should be written first and the dark mode style in the
 
 <Source
   code={`
-// styles.scss
-// DEFAULT STYLES (the shared and light mode color styles)
-.container {
-  background: var(--nypl-colors-ui-bg-default);
-  border: 1px solid var(--nypl-colors-ui-border-default);
-  color: var(--nypl-colors-ui-typography-body);
-  padding: 1rem;
-}
-// DARK MODE STYLES (to override the light mode color styles)
-@media (prefers-color-scheme: dark) {
+  // styles.scss
+  // DEFAULT STYLES (the shared and light mode color styles)
   .container {
-    background: var(--nypl-colors-dark-ui-bg-default);
-    color: var(--nypl-colors-dark-ui-typography-body);
+    background: var(--nypl-colors-ui-bg-default);
+    border: 1px solid var(--nypl-colors-ui-border-default);
+    color: var(--nypl-colors-ui-typography-body);
+    padding: 1rem;
   }
-}
+  // DARK MODE STYLES (to override the light mode color styles)
+  @media (prefers-color-scheme: dark) {
+    .container {
+      background: var(--nypl-colors-dark-ui-bg-default);
+      color: var(--nypl-colors-dark-ui-typography-body);
+    }
+  }
 `}
   language="scss"
 />
@@ -414,18 +414,18 @@ const { colorMode } = useColorMode(); // returns "light" or "dark"
 
 <Source
   code={`
-// styles.scss
-.container {
-  // shared styles
-}
-.dark.container {
-  background: var(--nypl-colors-dark-ui-bg-default);
-  color: var(--nypl-colors-dark-ui-typography-body);
-}
-.light.container {
-  background: var(--nypl-colors-ui-bg-default);
-  color: var(--nypl-colors-ui-typography-body);
-}
+  // styles.scss
+  .container {
+    // shared styles
+  }
+  .dark.container {
+    background: var(--nypl-colors-dark-ui-bg-default);
+    color: var(--nypl-colors-dark-ui-typography-body);
+  }
+  .light.container {
+    background: var(--nypl-colors-ui-bg-default);
+    color: var(--nypl-colors-ui-typography-body);
+  }
 `}
   language="css"
 />

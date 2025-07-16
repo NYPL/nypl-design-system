@@ -35,22 +35,22 @@ theme as input. This sets up the style context to propogate through all the chil
 
 <Source
   code={`
-// Your main application file
-import { DSProvider } from "@nypl/design-system-react-components";
-// ...
-const Application = (props) => {
+  // Your main application file
+  import { DSProvider } from "@nypl/design-system-react-components";
   // ...
-  return (
-    <header>...</header>
-    <DSProvider>
-      <div className="my-app">
-        // ...
-        {children}
-      </div>
-    </DSProvider>
-    <footer>...</footer>
-  );
-};
+  const Application = (props) => {
+    // ...
+    return (
+      <header>...</header>
+      <DSProvider>
+        <div className="my-app">
+          // ...
+          {children}
+        </div>
+      </DSProvider>
+      <footer>...</footer>
+    );
+  };
 `}
   language="tsx"
 />
@@ -79,18 +79,18 @@ functionality, styles, and other requirements.
 
 <Source
   code={`
-function Tabs(props) {
-  // ...
-  const styles = useStyleConfig("Tabs", { variant: props.tabsType });
-  return (
-    <ChakraTabs
-      id={id}
-      __css={styles}
-      // ... other props
-    >
-      {children}
-    </ChakraTabs>
-}
+  function Tabs(props) {
+    // ...
+    const styles = useStyleConfig("Tabs", { variant: props.tabsType });
+    return (
+      <ChakraTabs
+        id={id}
+        __css={styles}
+        // ... other props
+      >
+        {children}
+      </ChakraTabs>
+  }
 `}
   language="tsx"
 />

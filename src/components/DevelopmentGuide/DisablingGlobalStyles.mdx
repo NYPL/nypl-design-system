@@ -26,11 +26,11 @@ These rules help help normalize the appearance of elements across browsers and a
 
 <Source
   code={`
-<DSProvider>
-  <div className="my-app">
-    {children}
-  </div>
-</DSProvider>
+  <DSProvider>
+    <div className="my-app">
+      {children}
+    </div>
+  </DSProvider>
 `}
   language="tsx"
 />
@@ -52,11 +52,11 @@ order to disable the global styles, set the `disableGlobalStyles` prop to `true`
 
 <Source
   code={`
-<DSProvider resetCSS={false} disableGlobalStyle>
-  <div className="my-app">
-    {children}
-  </div>
-</DSProvider>
+  <DSProvider resetCSS={false} disableGlobalStyle>
+    <div className="my-app">
+      {children}
+    </div>
+  </DSProvider>
 `}
   language="tsx"
 />
