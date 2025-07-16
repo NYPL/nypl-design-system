@@ -63,13 +63,12 @@ first be implemented properly in a consuming app.
 Design tokens can be used with style props and added directly to components.
 
 <Source
-  code={`
-<Box
-  backgroundColor="ui.bg.default"
-  border="1px solid"
-  borderColor="ui.border.default"
-  padding="inset.default"
->
+  code={`<Box
+    backgroundColor="ui.bg.default"
+    border="1px solid"
+    borderColor="ui.border.default"
+    padding="inset.default"
+  >
   <Heading color="brand.primary" fontWeight="medium">
     Get a Digital Library Card Today in a Few Easy Steps
   </Heading>
@@ -119,16 +118,14 @@ The CSS custom properties are defined on the :root pseudo-class and should be
 implemented using standard CSS custom properties conventions.
 
 <Source
-  code={`
-/* Property Declaration in the DS */
-:root {
-  --nypl-colors-brand-primary: #c60917;
-}
-/* Property Usage in Your Application */
-.custom-button {
-  background: var(--nypl-colors-brand-primary);
-}
-`}
+  code={`/* Property Declaration in the DS */
+    :root {
+       --nypl-colors-brand-primary: #c60917;
+    }
+    /* Property Usage in Your Application */
+    .custom-button {
+      background: var(--nypl-colors-brand-primary);
+    }`}
   language="css"
 />
 
@@ -139,50 +136,48 @@ React `style` prop must be used.
 
 <Source
   code={`
-// Style values assigned to variables
-const bg = "var(--nypl-colors-ui-bg-default)";
-const color = "var(--nypl-colors-ui-typography-heading)";
-const fontWeight = "var(--nypl-fontWeights-medium)";
-const padding = "var(--nypl-space-inset-default)";
-// ...
-<div
-  style={{
-    backgroundColor: bg,
-    color: color,
-    fontWeight: fontWeight,
-    padding: padding,
-  }}
-/>
+  // Style values assigned to variables
+  const bg = "var(--nypl-colors-ui-bg-default)";
+  const color = "var(--nypl-colors-ui-typography-heading)";
+  const fontWeight = "var(--nypl-fontWeights-medium)";
+  const padding = "var(--nypl-space-inset-default)";
+  // ...
+  <div
+    style={{
+      backgroundColor: bg,
+      color: color,
+    }}
+  />
 `}
   language="jsx"
 />
 
 <Source
   code={`
-// Style values assigned to a data object
-const stylesDirectlyAssigned = {
-  backgroundColor: "var(--nypl-colors-ui-bg-default)",
-  color: "var(--nypl-colors-ui-typography-heading)",
-  fontWeight: "var(--nypl-fontWeights-medium)",
-  padding: "var(--nypl-space-inset-default)",
-};
-// ...
-<div style={stylesDirectlyAssigned} />
-`}
-  language="jsx"
-/>
-
-<Source
-  code={`
-// Style values assigned directly
-<div
-  style={{
+  // Style values assigned to a data object
+  const stylesDirectlyAssigned = {
     backgroundColor: "var(--nypl-colors-ui-bg-default)",
     color: "var(--nypl-colors-ui-typography-heading)",
     fontWeight: "var(--nypl-fontWeights-medium)",
     padding: "var(--nypl-space-inset-default)",
-  }}
+  };
+  // ...
+  <div style={stylesDirectlyAssigned} />
+`}
+  language="jsx"
 />
+
+<Source
+  code={`
+  // Style values assigned directly
+  <div
+    style={{
+      backgroundColor: "var(--nypl-colors-ui-bg-default)",
+      color: "var(--nypl-colors-ui-typography-heading)",
+      fontWeight: "var(--nypl-fontWeights-medium)",
+      padding: "var(--nypl-space-inset-default)",
+    }}
+  />
 `}
   language="jsx"
 />
@@ -193,15 +188,15 @@ components.
 
 <Source
   code={`
-// Styles for a custom component
-const stylesForCustomComponent = {
-  backgroundColor: "var(--nypl-colors-ui-bg-default)",
-  color: "var(--nypl-colors-ui-typography-heading)",
-  fontWeight: "var(--nypl-fontWeights-medium)",
-  padding: "var(--nypl-space-inset-default)",
-};
-// ...
-<CustomComponent style={stylesForCustomComponent} />
+  // Styles for a custom component
+  const stylesForCustomComponent = {
+    backgroundColor: "var(--nypl-colors-ui-bg-default)",
+    color: "var(--nypl-colors-ui-typography-heading)",
+    fontWeight: "var(--nypl-fontWeights-medium)",
+    padding: "var(--nypl-space-inset-default)",
+  };
+  // ...
+  <CustomComponent style={stylesForCustomComponent} />
 `}
   language="jsx"
 />
@@ -630,3 +625,7 @@ The following tokens can be used with the `fontWeight` (js) and `font-weight`
 |                 | body.body1            | --nypl-fontWeights-body-body1            | regular  |
 |                 | body.body2            | --nypl-fontWeights-body-body2            | regular  |
 |                 | caption               | --nypl-fontWeights-caption               | regular  |
+
+```
+
+```

@@ -81,17 +81,14 @@ object.
 
 <Source
   code={`
-
-// layout.tsx or page.tsx
-
-export async function generateViewport() {
-  const userAgent = headers().get("user-agent");
-  const isiPhone = /iphone/i.test(userAgent ?? "");
-  return isiPhone ? 
-  { width: "device-width", initialScale: 1, maximumScale: 1, userScalable: false }
-    : {};
-}
-    
+  // layout.tsx or page.tsx
+  export async function generateViewport() {
+    const userAgent = headers().get("user-agent");
+    const isiPhone = /iphone/i.test(userAgent ?? "");
+    return isiPhone ? 
+    { width: "device-width", initialScale: 1, maximumScale: 1, userScalable: false }
+      : {};
+  } 
 `}
 language="js"
 />
@@ -107,27 +104,27 @@ to do this (and many packages), but here's an option:
 
 <Source
   code={`
-import { Helmet } from "react-helmet";
+  import { Helmet } from "react-helmet";
 
-const [isIOS, setIsIOS] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
 
-useEffect(() => {
-  const userAgent = typeof window !== "undefined" && navigator.userAgent;
-  if (userAgent && /iPad|iPhone|iPod/.test(userAgent)) {
-    setIsIOS(true);
-  }
-}, []);
+  useEffect(() => {
+    const userAgent = typeof window !== "undefined" && navigator.userAgent;
+    if (userAgent && /iPad|iPhone|iPod/.test(userAgent)) {
+      setIsIOS(true);
+    }
+  }, []);
 
-const viewport = isIOS ?
-(<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>)
-: (<meta name="viewport" content="width=device-width" />);
+  const viewport = isIOS ?
+  (<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>)
+  : (<meta name="viewport" content="width=device-width" />);
 
-return(
-<>
-  <Helmet>{viewport}</Helmet>
-  ...
-</>
-) 
+  return(
+  <>
+    <Helmet>{viewport}</Helmet>
+    ...
+  </>
+  ) 
 `} language="js" />
 
 [`Helmet`](https://www.npmjs.com/package/react-helmet) is a React package that
