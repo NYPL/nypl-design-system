@@ -5,7 +5,22 @@ exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
   id="undefined-componentWrapper-wrapper"
-/>
+>
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The audio player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
+</div>
 `;
 
 exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
@@ -25,6 +40,20 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
   >
     Audio Player description text.
   </p>
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The audio player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
   <div
     aria-atomic={true}
     aria-live="polite"
@@ -58,6 +87,20 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
       }
     }
   />
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The audio player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
 </div>
 `;
 
@@ -66,7 +109,22 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
   className="audioplayer css-1u8qly9"
   data-testid="audio-player-component"
   id="undefined-componentWrapper-wrapper"
-/>
+>
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The audio player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
+</div>
 `;
 
 exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
@@ -83,5 +141,19 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
       }
     }
   />
+  <noscript>
+    <div
+      style={
+        {
+          "backgroundColor": "var(--nypl-colors-ui-bg-default)",
+          "border": "1px solid var(--nypl-colors-ui-border-default)",
+          "margin": "1rem 0",
+          "padding": "var(--nypl-space-s)",
+        }
+      }
+    >
+      The audio player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
+    </div>
+  </noscript>
 </div>
 `;

@@ -1,5 +1,5 @@
 import { Box, HStack, VStack } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Heading from "../Heading/Heading";
 import Radio from "./Radio";

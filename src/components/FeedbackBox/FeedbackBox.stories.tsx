@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
-import { userEvent, expect, screen } from "@storybook/test";
+import { userEvent, expect, screen } from "storybook/test";
 
 import FeedbackBox, { feedbackBoxViewTypeArray } from "./FeedbackBox";
 import Heading from "../Heading/Heading";

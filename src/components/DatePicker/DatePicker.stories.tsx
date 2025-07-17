@@ -1,6 +1,6 @@
 import { VStack } from "@chakra-ui/react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, within, expect } from "@storybook/test";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { userEvent, within, expect } from "storybook/test";
 
 import DatePicker, { datePickerTypesArray } from "./DatePicker";
 import Heading from "../Heading/Heading";
@@ -98,7 +98,7 @@ export const WithControls: Story = {
   play: async ({ canvasElement }) => {
     const textInput = within(canvasElement).getByRole("textbox");
 
-    expect(textInput).toHaveValue("2024-01-01");
+    expect(textInput).toHaveValue("2025-01-01");
 
     await userEvent.clear(textInput);
     await userEvent.type(textInput, "2024-05-20");
