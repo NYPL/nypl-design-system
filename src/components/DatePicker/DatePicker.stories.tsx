@@ -85,6 +85,9 @@ export const WithControls: Story = {
     minDate: "1/1/2022",
     nameFrom: "visit-dates-from",
     nameTo: "visit-dates-to",
+    onChange: undefined,
+    placeholder: undefined,
+    placeholderTo: undefined,
     refTo: undefined,
     showHelperInvalidText: true,
     showLabel: true,
@@ -169,8 +172,8 @@ export const DateRange: Story = {
       id="date-range"
       dateFormat="yyyy-MM-dd"
       dateType="full"
-      minDate="9/1/2022"
-      maxDate="12/31/2023"
+      minDate="1/1/2025"
+      maxDate="12/31/2025"
       labelText="Select the date range you want to visit NYPL"
       nameFrom="visit-dates-from"
       nameTo="visit-dates-to"
@@ -336,8 +339,8 @@ export const MaxMinDateValues: Story = {
       dateFormat="MM-dd-yyyy"
       dateType="full"
       labelText="Select the date you want to visit NYPL"
-      minDate="1/1/2022"
-      maxDate="3/1/2022"
+      minDate="1/1/2025"
+      maxDate="12/31/2025"
       isDateRange
     />
   ),
