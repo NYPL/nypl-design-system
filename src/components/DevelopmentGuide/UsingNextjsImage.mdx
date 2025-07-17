@@ -23,7 +23,7 @@ import Link from "../Link/Link";
 - [Examples](#examples)
   - [Dynamic example](#dynamic)
   - [Component example](#component)
-  - [Proof of concept](#proof-of-concept)
+  - [Turbine implementation](#turbine-implementation)
 - [Other useful props](#other-useful-props)
   - [onError](#onerror)
   - [placeholder](#placeholder)
@@ -77,12 +77,10 @@ attain a four-by-three aspect ratio, the `bottomPadding` value should be set to
 
 <Source
   code={`
-<div
-    style={{
-      background: "ui.black",
-      position: "relative",
-      paddingBottom: "75%",
-    }}
+<Box
+    background="ui.black"
+    position="relative"
+    paddingBottom="75%"
   >
     <Image
       alt="Big Ben and Parliament"
@@ -92,7 +90,7 @@ attain a four-by-three aspect ratio, the `bottomPadding` value should be set to
         objectFit: "contain",
       }}
     />
-</div>
+</Box>
 `}
   language="jsx"
 />
@@ -116,12 +114,10 @@ the `objectFit` CSS attribute to `"cover"`. In the previous examples, the
 
 <Source
   code={`
-<div
-    style={{
-      background: "ui.black",
-      position: "relative",
-      paddingBottom: "100%",
-    }}
+<Box
+    background="ui.black"
+    position="relative"
+    paddingBottom="100%"
   >
     <Image
       alt="Big Ben and Parliament"
@@ -131,7 +127,7 @@ the `objectFit` CSS attribute to `"cover"`. In the previous examples, the
         objectFit: "cover",
       }}
     />
-</div>
+</Box>
 `}
   language="jsx"
 />
@@ -161,12 +157,10 @@ with the `objectFit` attribute.
 
 <Source
   code={`
-<div
-    style={{
-      background: "ui.black",
-      position: "relative",
-      paddingBottom: "100%",
-    }}
+<Box
+    background="ui.black"
+    position="relative"
+    paddingBottom="100%"
   >
     <Image
       alt="Big Ben and Parliament"
@@ -177,7 +171,7 @@ with the `objectFit` attribute.
         objectPosition: "top",
       }}
     />
-</div>
+</Box>
 `}
   language="jsx"
 />
@@ -202,17 +196,13 @@ applied.
 
 <Source
   code={`
-<div
-    style={{
-      width: "256px",
-    }}
+<Box
+    width="256px"
   >
-    <div
-      style={{
-        background: "ui.black",
-        position: "relative",
-        paddingBottom: "100%",
-      }}
+    <Box
+      background="ui.black"
+      position="relative"
+      paddingBottom="100%"
     >
       <Image
         alt="Big Ben and Parliament"
@@ -222,8 +212,8 @@ applied.
           objectFit: "cover",
         }}
       />
-    </div>
-</div>
+    </Box>
+</Box>
 `}
   language="jsx"
 />
@@ -268,17 +258,16 @@ const focalPointValues = [
     "top",
     "bottom",
 ];
-<div
-    style={{
-      width: customWidthValues[customWidthKey],
-    }}
->
-    <div
-      style={{
-        background: "ui.black",
-        position: "relative",
-        paddingBottom: aspectRatioValues[aspectRatioKey],
-      }}
+const customWidthKey = // assign a value dynamically
+const aspectRatioKey = // assign a value dynamically
+// ...
+<Box
+    width={customWidthValues[customWidthKey]}
+  >
+    <Box
+      background="ui.black"
+      position="relative"
+      paddingBottom={aspectRatioValues[aspectRatioKey]}
     >
       <Image
         alt="Big Ben and Parliament"
@@ -289,8 +278,8 @@ const focalPointValues = [
           objectPosition: focalPointValues[focalPointIndex],
         }}
       />
-    </div>
-</div>
+    </Box>
+</Box>
 `}
   language="jsx"
 />
@@ -355,14 +344,12 @@ const CustomImage = (props: CustomImageProps) => {
       ...rest
     } = props;
     return (
-      <div style={{ width: widthValues[customWidth] }}>
-        <div
-          style={{
-            background: backgroundColor,
-            border: border,
-            position: "relative",
-            paddingBottom: aspectRatioValues[aspectRatio],
-          }}
+      <Box width={widthValues[customWidth]}>
+        <Box
+          background={backgroundColor}
+          border={border}
+          position="relative"
+          paddingBottom={aspectRatioValues[aspectRatio]}
         >
           <Image
             alt={alt}
@@ -374,8 +361,8 @@ const CustomImage = (props: CustomImageProps) => {
             }}
             {...rest}
           />
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
 };
 export default CustomImage;
@@ -383,11 +370,11 @@ export default CustomImage;
   language="jsx"
 />
 
-### Proof of concept
+### Turbine implementation
 
-The `Component example` above has been utilized in <Link href="https://code-playground-mu.vercel.app/next-image/props" target="_blank">this POC</Link>.
+The `Component example` above has been <Link href="https://nypl-ds-test-app-git-dsd-2116-nextjs-custom-image-nypl.vercel.app/fullPages/nextjs-custom-image-component#above-header-notification" variant="external">implemented in Turbine</Link>.
 
-## Other useful props
+## Other useful propsone
 
 For improved function and optimization, the NYPL Digital front-end development
 team recommends utilizing the following props on the Next.js `Image` component.
@@ -396,12 +383,28 @@ team recommends utilizing the following props on the Next.js `Image` component.
 
 - Use the `onError` prop to trigger a callback if the source image fails to
   load.
-- The callback should set `imageSrc` to a default fallback image and log the
-  error.
+- The callback should update the image's `src` prop to a default fallback image
+  and it should log the error.
 - The `onError` fallback image should not be the same as the `placeholder`
   image.
 - The recommended fallback images are displayed below.
 - For more detailed information, see the [Next.js Image docs](https://nextjs.org/docs/pages/api-reference/components/image#onerror).
+
+<Source
+  code={`
+const fallbackImage = "/defaultFallbackImage.png";
+const onErrorHandler = (e) => {
+    e.target.src = fallbackImage;
+}
+// ...
+<Image
+    alt="An image that would not load"
+    src="/images/imageThatWouldNotLoad.jpg"
+    onError={(e) => onErrorHandler}
+/>
+`}
+  language="jsx"
+/>
 
 <Box display="grid" gap="s" gridTemplateColumns={{ base: "1fr", sm: "1fr 1fr" }} mt="s">
   <Box>
