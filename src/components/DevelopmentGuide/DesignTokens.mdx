@@ -14,11 +14,11 @@ import Link from "../Link/Link";
 
 ## Table of Contents
 
-- {<Link href="#what-are-design-tokens" target="_self">What are Design Tokens?</Link>}
-- {<Link href="#how-to-use-the-reservoir-design-tokens" target="_self">How to Use the Reservoir Design Tokens</Link>}
-- {<Link href="#using-reservoir-design-tokens-in-javascript" target="_self">Using Reservoir Design Tokens in JavaScript</Link>}
-- {<Link href="#using-reservoir-design-tokens-in-css" target="_self">Using Reservoir Design Tokens in CSS</Link>}
-- {<Link href="#reservoir-design-token-categories" target="_self">Reservoir Design Token Categories</Link>}
+- [What are Design Tokens?](#what-are-design-tokens)
+- [How to Use the Reservoir Design Tokens](#how-to-use-the-reservoir-design-tokens)
+- [Using Reservoir Design Tokens in JavaScript](#using-reservoir-design-tokens-in-javascript)
+- [Using Reservoir Design Tokens in CSS](#using-reservoir-design-tokens-in-css)
+- [Reservoir Design Token Categories](#reservoir-design-token-categories)
 
 ## What are Design Tokens?
 
@@ -29,30 +29,8 @@ the Salesforce Design System
 
 Design tokens are a collection of style values &ndash; spacing, colors,
 typography, breakpoints, and more &ndash; used throughout a design system. They
-are a single source of truth for design styles, bringing consistency and
-cohesion to components within a design system, and they allow teams to more
-quickly and easily build various applications with the same look and feel.
-
-## How to Use the Reservoir Design Tokens
-
-The NYPL design tokens are built into the Reservoir Design System (DS) and are
-offered in two formats for consumption: JavaScript theme objects (recommended)
-and CSS variables. To access either of these formats, the DS `v0.25.9` or higher
-needs to be properly installed in a consuming React application.
-
-## Using Reservoir Design Tokens in JavaScript
-
-It is recommended that consuming apps use JavaScript (rather than CSS) to apply
-styles to UI elements whenever possible.
-
-To use the DS <Link href="#reservoir-design-token-categories"
-target="_self">JavaScript design tokens</Link>, the `DSProvider` wrapper
-component must first be imported and implemented properly in a consuming app.
-Please refer to the `DSProvider` section of the [DS Chakra
-UI](../?path=/docs/chakra-ui--docs#dsprovider) page for instructions on how to
-do this.
-
-#### Design Tokens for DS and Chakra Components
+bring consistency and cohesion to components and allow teams to more quickly and
+easily build various applications with the same look and feel.
 
 <Banner
   content={
@@ -69,31 +47,36 @@ do this.
   variant="warning"
 />
 
-The JavaScript design tokens can be used to populate the values for style props
-added directly to the components. The shorthard nature of the JavaScript tokens
-make it easy to quickly and logically add styles to a DS component.
+## How to Use the Reservoir Design Tokens
 
-For example, if a `Heading` component needs to sit within a wrapper element and
-render its text using Reservoir's `brand primary` color and use a `medium`
-font weight, the following can be done:
+The NYPL design tokens are built into the Reservoir Design System (DS) and can be
+consumed as JavaScript theme objects (recommended) or CSS variables.
+
+## Using Reservoir Design Tokens in JavaScript
+
+To use the DS <Link href="#reservoir-design-token-categories" target="_self">JavaScript
+design tokens</Link>, the [`DSProvider`](../?path=/docs/chakra-ui--docs#dsprovider) must
+first be implemented properly in a consuming app.
+
+#### Design Tokens for DS and Chakra Components
+
+Design tokens can be used with style props and added directly to components.
 
 <Source
   code={`
-<Box
-  backgroundColor="ui.bg.default"
-  border="1px solid"
-  borderColor="ui.border.default"
-  padding="inset.default"
->
-  <Heading color="brand.primary" fontWeight="medium">
+  <Box
+    backgroundColor="ui.bg.default"
+    border="1px solid"
+    borderColor="ui.border.default"
+    padding="inset.default"
+  >
+    <Heading color="brand.primary" fontWeight="medium">
     Get a Digital Library Card Today in a Few Easy Steps
-  </Heading>
-</Box>
+    </Heading>
+  </Box>
 `}
   language="jsx"
 />
-
-#### Design Tokens for Custom Components and Native HTML Elements
 
 <Banner
   content={
@@ -101,94 +84,19 @@ font weight, the following can be done:
       <strong>IMPORTANT:</strong> JavaScript design tokens{" "}
       <strong>cannot be used</strong> with custom components and native HTML
       elements as they are not compatible with the way styles are passed into
-      these elements. Instead, CSS design tokens must be used.
+      these elements. Instead, CSS design tokens must be used (see below).
     </>
   }
   variant="warning"
 />
 
-To pass style attributes to custom components and native HTML elements, the
-React `style` prop must be used rather than the individual JavaScript style
-props. The `style` prop can be populated in a number of ways.
-
-<Source
-  code={`
-// Style values assigned to variables
-const bg = "var(--nypl-colors-ui-bg-default)";
-const color = "var(--nypl-colors-ui-typography-heading)";
-const fontWeight = "var(--nypl-fontWeights-medium)";
-const padding = "var(--nypl-space-inset-default)";
-// ...
-<div
-  style={{
-    backgroundColor: bg,
-    color: color,
-    fontWeight: fontWeight,
-    padding: padding,
-  }}
-/>
-`}
-  language="jsx"
-/>
-
-<Source
-  code={`
-// Style values assigned to a data object
-const stylesDirectlyAssigned = {
-  backgroundColor: "var(--nypl-colors-ui-bg-default)",
-  color: "var(--nypl-colors-ui-typography-heading)",
-  fontWeight: "var(--nypl-fontWeights-medium)",
-  padding: "var(--nypl-space-inset-default)",
-};
-// ...
-<div style={stylesDirectlyAssigned} />
-`}
-  language="jsx"
-/>
-
-<Source
-  code={`
-// Style values assigned directly
-<div
-  style={{
-    backgroundColor: "var(--nypl-colors-ui-bg-default)",
-    color: "var(--nypl-colors-ui-typography-heading)",
-    fontWeight: "var(--nypl-fontWeights-medium)",
-    padding: "var(--nypl-space-inset-default)",
-  }}
-/>
-`}
-  language="jsx"
-/>
-
-Below is an example using a custom component. Please note that consuming apps
-are responsible for handling how styles are propagated and applied within custom
-components.
-
-<Source
-  code={`
-// Styles for a custom component
-const stylesForCustomComponent = {
-  backgroundColor: "var(--nypl-colors-ui-bg-default)",
-  color: "var(--nypl-colors-ui-typography-heading)",
-  fontWeight: "var(--nypl-fontWeights-medium)",
-  padding: "var(--nypl-space-inset-default)",
-};
-// ...
-<CustomComponent style={stylesForCustomComponent} />
-`}
-  language="jsx"
-/>
-
 ## Using Reservoir Design Tokens in CSS
 
-If your app uses CSS or SCSS to handle styles, the DS creates standard CSS
-custom properties (e.g. variables) for consumption in your stylesheets. If the
-DS is properly installed, the CSS custom properties will be available for you to
-use. Nothing more needs to be done to your app.
+If your app uses CSS or SCSS to handle styles, the DS creates standard CSS custom properties
+(e.g. variables). If the DS is properly installed, the CSS custom properties will be available
+for you to use.
 
-To assist with CSS scope isolation, all of the CSS custom properties created by
-the DS are prefixed with "nypl." Please see the examples below.
+All of the CSS custom properties created by the DS are prefixed with "nypl."
 
 <Source
   code={`
@@ -211,29 +119,99 @@ The CSS custom properties are defined on the :root pseudo-class and should be
 implemented using standard CSS custom properties conventions.
 
 <Source
-  code={`
-/* Property Declaration in the DS */
-:root {
-  --nypl-colors-brand-primary: #c60917;
-}
-/* Property Usage in Your Application */
-.custom-button {
-  background: var(--nypl-colors-brand-primary);
-}
-`}
+  code={`/* Property Declaration in the DS */
+    :root {
+       --nypl-colors-brand-primary: #c60917;
+    }
+    /* Property Usage in Your Application */
+    .custom-button {
+      background: var(--nypl-colors-brand-primary);
+    }`}
   language="css"
+/>
+
+#### Design Tokens for Custom Components and Native HTML Elements
+
+To pass style attributes to custom components and native HTML elements, the
+React `style` prop must be used.
+
+<Source
+  code={`
+  // Style values assigned to variables
+  const bg = "var(--nypl-colors-ui-bg-default)";
+  const color = "var(--nypl-colors-ui-typography-heading)";
+  const fontWeight = "var(--nypl-fontWeights-medium)";
+  const padding = "var(--nypl-space-inset-default)";
+  // ...
+  <div
+    style={{
+      backgroundColor: bg,
+      color: color,
+    }}
+  />
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
+  // Style values assigned to a data object
+  const stylesDirectlyAssigned = {
+    backgroundColor: "var(--nypl-colors-ui-bg-default)",
+    color: "var(--nypl-colors-ui-typography-heading)",
+    fontWeight: "var(--nypl-fontWeights-medium)",
+    padding: "var(--nypl-space-inset-default)",
+  };
+  // ...
+  <div style={stylesDirectlyAssigned} />
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
+  // Style values assigned directly
+  <div
+    style={{
+      backgroundColor: "var(--nypl-colors-ui-bg-default)",
+      color: "var(--nypl-colors-ui-typography-heading)",
+      fontWeight: "var(--nypl-fontWeights-medium)",
+      padding: "var(--nypl-space-inset-default)",
+    }}
+  />
+`}
+  language="jsx"
+/>
+
+Below is an example using a custom component. Please note that consuming apps
+are responsible for handling how styles are propagated and applied within custom
+components.
+
+<Source
+  code={`
+  // Styles for a custom component
+  const stylesForCustomComponent = {
+    backgroundColor: "var(--nypl-colors-ui-bg-default)",
+    color: "var(--nypl-colors-ui-typography-heading)",
+    fontWeight: "var(--nypl-fontWeights-medium)",
+    padding: "var(--nypl-space-inset-default)",
+  };
+  // ...
+  <CustomComponent style={stylesForCustomComponent} />
+`}
+  language="jsx"
 />
 
 ## Reservoir Design Token Categories
 
 The DS design tokens are broken into the following categories:
 
-- {<Link href="#breakpoints" target="_self">Breakpoints</Link>}
-- {<Link href="#color" target="_self">Color</Link>}
-- {<Link href="#radii" target="_self">Radii</Link>}
-- {<Link href="#sizes" target="_self">Sizes</Link>}
-- {<Link href="#space" target="_self">Space</Link>}
-- {<Link href="#typography" target="_self">Typography</Link>}
+- [Breakpoints](#breakpoints)
+- [Color](#color)
+- [Radii](#radii)
+- [Sizes](#sizes)
+- [Space](#space)
+- [Typography](#typography)
 
 When using the DS design tokens, semantic tokens should be used ahead of the
 base tokens.
@@ -648,3 +626,7 @@ The following tokens can be used with the `fontWeight` (js) and `font-weight`
 |                 | body.body1            | --nypl-fontWeights-body-body1            | regular  |
 |                 | body.body2            | --nypl-fontWeights-body-body2            | regular  |
 |                 | caption               | --nypl-fontWeights-caption               | regular  |
+
+```
+
+```
