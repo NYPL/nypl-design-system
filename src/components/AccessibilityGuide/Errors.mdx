@@ -20,12 +20,12 @@ import Link from "../Link/Link";
 
 ## General Information
 
-Accessible error handling ensures errors are easily perceived, understood, and corrected
-by those using assistive technology and those who are not. Some core features of accessible
+Accessible error handling ensures errors are easily perceived, understood, and corrected by
+everyone, whether they are using assistive technology or not. Some core features of accessible
 errors include:
 
 - Explicit statements of error and instructions for correction
-- Avoiding reliance on color alone to indicate the error state
+- Avoiding reliance on color to indicate the error state
 - Using a programmatic indicator of error
 - Associating inline error messages programmatically with their respective fields
 - Shifting focus to either the error summary (if provided) or the first field in error
@@ -33,12 +33,12 @@ errors include:
 
 ## Making Errors Explicit and Providing Instructions
 
-Avoid merely reiterating the requirement as the error, for example “First Name
-is required”. Instead, include either the word error (or another clear word or
+Avoid merely reiterating the requirement as the error, for example “First name
+is required”. Instead, include either the word "error" (or another clear word or
 phrase indicating an error state) or an error icon that has a text equivalent
 (such as `alt=”error”` or off-screen text, etc.)
 
-Example: “Error: First Name is required”
+Example: “Error: First name is required”
 
 Whenever possible, provide as much instruction for resolving the error as
 feasible. For example, if the user enters a password that does not meet the
@@ -50,8 +50,8 @@ provided on the page so users can avoid making errors in the first place.)
 
 Ensure errors are not solely indicated through color, such as outlining a text
 field in red. This does not mean that color cannot be used, but that there must
-also be a secondary visual indication, such as an icon or the word “error” such
-as described in the previous section.
+also be a secondary visual indication, such as an icon or the word “error” (as
+described in the previous section).
 
 ## Programmatic Indicator of Error
 

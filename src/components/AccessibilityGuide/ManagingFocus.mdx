@@ -13,40 +13,47 @@ import Link from "../Link/Link";
 
 ## Table of Contents
 
-- {<Link href="#general-information" target="_self">General Information</Link>}
-- {<Link href="#forcing-focus-during-content-updates" target="_self">Forcing Focus During Content Updates</Link>}
-- {<Link href="#how-to-manage-focus" target="_self">How To Manage Focus</Link>}
-- {<Link href="#resources" target="_self">Resources</Link>}
+- [General Information](#general-information)
+- [Forcing Focus During Content Updates](#forcing-focus-during-content-updates)
+- [How To Manage Focus](#how-to-manage-focus)
+- [Resources](#resources)
 
 ## General Information
 
 Focusable elements are UI elements that a keyboard user can navigate to. By default, this
-includes interactive elements like links, checkboxes, and text inputs, etc. It's
-possible to make any element focusable; more on this later.
+includes interactive elements like links, checkboxes, and text inputs though it's possible
+to make any element focusable (more on this later).
 
-Focus order should be logical, and should generally follow the visual order of the page.
-For most languages, the focus order starts at the top of the page and ends at the bottom,
-traveling from left to right. However, some languages are read right to left, so the
-primary language of the page may warrant a different focus order.
+Focus order should be logical, and generally follow the visual order of the page. For most
+languages, the it starts at the top of the page and ends at the bottom, traveling from left
+to right. However, some languages are read right to left and may warrant a different focus
+order.
 
 ## Forcing Focus During Content Updates
 
 There are times when a forced shift of focus is necessary to alert the user to changes and
-make it possible for them to read and interact with the changed content. Examples include:
+make it possible for them to interact with the changed content. Examples include:
 
 - When a dialog opens
 - When a dialog closes
 - When a form is submitted with errors
 - When a process completes and new content is loaded
+  <p>&nbsp;</p>
 
-Dialogs should always forcefully manage focus. Focus should land within the dialog when
-it is triggered and return to the triggering control (or the most logical place) when
-the dialog is closed. Focus should be trapped within the dialog until it is dismissed.
+### Dialogs
+
+Focus should land within the dialog when it is triggered and return to the triggering control
+(or the most logical place) when the dialog is closed. Focus should be trapped within the dialog
+until it is dismissed.
+
+### Forms
 
 When a form is submitted and errors are added, focus should move either to the list
 of errors (if provided) or to the first field in error if using in-line validation.
 If you submit a form, and a status message is added in its place, then focus should be
 placed on the status message.
+
+### Content updates
 
 If there is the ability to “load more” results, focus should move to the top of the
 newly added content.
@@ -80,20 +87,20 @@ called on the ref's current property.
 
 <Source
   code={`
-const closeDialogRef = useRef(null)
-
-useEffect(() => {
-if (isOpen) {
-closeDialogRef.current.focus()
-}
-}, [isOpen])
-
-<Dialog isOpen={isOpen}>
-  <button onClick={() => setIsOpen(false)} ref={closeDialogRef}>
-    Close Dialog
-  </button>
-</Dialog>
-`} language="jsx" />
+  const closeDialogRef = useRef(null)
+  useEffect(() => {
+    if (isOpen) {
+      closeDialogRef.current.focus()
+    }
+  }, [isOpen])
+  <Dialog isOpen={isOpen}>
+    <button onClick={() => setIsOpen(false)} ref={closeDialogRef}>
+      Close Dialog
+    </button>
+  </Dialog>
+`}
+  language="jsx"
+/>
 
 **Note**: When focus is being moved to an element that is not natively focusable, the target
 element will need to have tabindex=”-1”. This allows it to receive programmatic

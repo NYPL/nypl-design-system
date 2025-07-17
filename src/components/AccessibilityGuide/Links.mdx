@@ -13,19 +13,19 @@ import Link from "../Link/Link";
 
 ## Table of Contents
 
-- {<Link href="#general-information" target="_self">General Information</Link>}
-- {<Link href="#nypl-patterns" target="_self">NYPL Patterns</Link>}
-- {<Link href="#resources" target="_self">Resources</Link>}
+- [General Information](#general-information)
+- [NYPL Patterns](#nypl-patterns)
+- [Resources](#resources)
 
 ## General Information
 
-There is no explicit rule in the accessibility space that dictates using
-underlines to indicate a link. However, because the underline is long-standing
-default treatment of links by browsers, along with a change in color, it is
-arguably the most recognizable indicator of a link's presence on a page. In
-cases where it is not visually desirable to use an underline, such as when a
-large number of links within body text may negatively impact readability or
-scanability, then other design choices can be used.
+There's no explicit accessibility rule that dictates using an underline to
+indicate a link. However, because it is a long-standing default treatment by
+browsers, along with a change in color, it's arguably the most recognizable
+indicator of a link's presence. In cases where it's not visually desirable
+to use an underline, such as when a large number of links within body text
+may negatively impact readability or scanability, then other design choices
+can be used.
 
 From an accessibility standpoint, the most important thing is the ability to
 identify links and distinguish them from non-interactive content. This can be
@@ -40,7 +40,7 @@ distinguishing a visual element." (Level A)
 As an example, if you have a link within a block of non-linked text, then you
 could rely on contrast between the color of the link text and the color of the
 non-linked text (this should be 3:1 - use the Contrast Triangle tool to check
-your combinations), and add additional cues such as bolding, increasing the font
+your combinations), _and_ add additional cues such as bolding, increasing the font
 size, using a different font, etc. This can also be combined with additional
 indicators that appear when tabbing or hovering over a link. However, note that
 on touch-screen devices there is no such equivalent mechanism to trigger that
@@ -67,34 +67,45 @@ be less overwhelming and cluttered.
 
 ### Headings
 
-When a link is applied to a full heading, the link text SHOULD be rendered using
-the `link primary` color and the default state of the link text SHOULD NOT be
-underlined. The link text hover state SHOULD be rendered using the `link secondary` color and MUST be underlined. Applying a link to a full heading is
-the recommended pattern.
+Applying a link to a full heading is the recommended pattern. When a link is applied to
+a full heading:
 
-When a link is applied to a subset of words within a heading, the link text MUST
-be rendered using the `link primary` color and the default state of the link
-text MUST be underlined. The link text hover state SHOULD be rendered using the
-`link secondary` color and MUST be underlined. **While this is acceptable,
-applying a link to a portion of a heading is not the recommended pattern.**
+- the link text SHOULD be rendered using the `link primary` color
+- the default state of the link text SHOULD NOT be underlined
+- the link text hover state SHOULD be rendered using the `link secondary`
+  color and MUST be underlined
+
+When a link is applied to a subset of words within a heading:
+
+- the link text MUST be rendered using the `link primary` color
+- the default state of the link text MUST be underlined
+- the link text hover state SHOULD be rendered using the `link secondary` color
+  and MUST be underlined
+
+**While acceptable, applying a link to a portion of a heading is not the recommended
+pattern.**
 
 ### Mixed Text
 
-When a body text link sits within a block of plain (unlinked) text &mdash; a
-paragraph, a single sentence, or even just a few words &mdash; the link text
-SHOULD be rendered using the `link primary` color and the default state of the
-link text MUST be underlined. The link text hover state SHOULD be rendered using
-the `link secondary` color and MUST be underlined.
+When a body text link sits within a block of plain (unlinked) text like a
+paragraph, a single sentence, or even just a few words:
+
+- the link text SHOULD be rendered using the `link primary` color
+- the default state of the link text MUST be underlined
+- the link text hover state SHOULD be rendered using the `link secondary` color
+  and MUST be underlined
 
 ### Standalone Links
 
-When a body text link sits by itself within the page content area &mdash; a Read
-More link at the end of a short description, a View In Catalog link on a book
-detail page &mdash; the link text SHOULD be rendered using the `link primary`
-color, the default state of the link text SHOULD NOT be underlined, and the link
-text SHOULD be displayed with a "forward" directional arrow rendered using the
-`link primary` color. The link text hover state SHOULD be rendered using
-the `link secondary` color and MUST be underlined.
+When a body text link sits by itself within the page content area like a "Read
+More" link at the end of a short description or a "View In Catalog" link on a book
+detail page:
+
+- the link text SHOULD be rendered using the `link primary` color
+- the default state of the link text SHOULD NOT be underlined
+- the link text SHOULD be displayed with a "forward" directional arrow rendered using the
+  `link primary` color
+- the link text hover state SHOULD be rendered using the `link secondary` color and MUST be underlined
 
 ### Tips for Writing Standalone Link Text
 
@@ -104,7 +115,7 @@ difficulty for both humans and screen readers.
 Keep link text as short as possible. Instead of "you can contact us," use
 "contact us."
 
-Link should have at least one full word (two is better). Avoid using a single
+Links should have at least one full word (two is better). Avoid using a single
 letter or a symbol for a link as it lacks context and is difficult to click on.
 
 ### Acceptable Style Deviations

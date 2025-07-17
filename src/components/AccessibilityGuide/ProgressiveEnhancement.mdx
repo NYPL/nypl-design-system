@@ -17,27 +17,26 @@ import { exampleWrapperStyles } from "../../utils/utils.ts";
 
 ## Table of Contents
 
-- {<Link href="#general-information" target="_self">General Information</Link>}
-- {<Link href="#nypl-and-ds-problem" target="_self">NYPL and DS Problem</Link>}
-- {<Link href="#html-button-issue" target="_self">HTML Button Issue</Link>}
-- {<Link href="#component-audit" target="_self">Component Audit</Link>}
-- {<Link href="#general-recommendations" target="_self">General Recommendations</Link>}
-- {<Link href="#resources" target="_self">Resources</Link>}
+- [General Information](#general-information)
+- [NYPL and DS Problem](#nypl-and-ds-problem)
+- [HTML Button Issue](#html-button-issue)
+- [Component Audit](#component-audit)
+- [General Recommendations](#general-recommendations)
+- [Resources](#resources)
 
 ## General Information
 
 Progressive enhancement is a frontend development strategy and mindset that
 emphasizes building a "basic", functional version of a website or component first,
-and then adding more advanced features and enhancements. This approach ensures
-that the core functionality is accessible to all users, regardless of their
-device, browser capabilities, or connection quality, rather than focusing on the
-few who intentionally disable JavaScript.
+then adding more advanced features and enhancements after. This approach ensures
+that the core functionality is accessible to all users, regardless of their device,
+browser capabilities, or connection quality (not just the few who intentionally
+disable JavaScript).
 
 A key benefit of progressive enhancement is that it prioritizes a fast and
 reliable first render of the page. By ensuring the base HTML delivers meaningful
 content and functionality upfront, we can improve usability and equity for users
-in bandwidth-constrained environments. Once the foundation is in place, we can
-then provide additional enhancements for users with modern browsers and devices.
+in bandwidth-constrained environments.
 
 On the development side, this inclusive design philosophy focuses on knowing and
 implementing web fundamentals, such as HTML and CSS, before heavily relying on
@@ -54,15 +53,11 @@ to DS components.
 
 ## HTML Button Issue
 
-HTML `<button>`s can only work without JavaScript in the following contexts.
-
-- When used inside a `<form>` element, if it has an attribute of type="submit",
-  the button will be clickable.
-- When used inside a `<form>` element, if it has an attribute of type="reset",
-  the button will be clickable and clear out input elements.
+HTML `<button>`s can only work without JavaScript in the context of a form with
+an attribute of `type="submit"` or `type="reset"` (which clears input elements).
 
 However, there are several DS components that use the `Button` component (and
-therefore the `<button>` HTML element) outside of a form to open, close, or
+therefore the `<button>` HTML element) outside of a form, to open, close, or
 perform other user actions. These components cannot fully function without
 JavaScript.
 
@@ -99,7 +94,7 @@ The following (25) components are fully functional without JavaScript:
 - `Template`
 - `Text`
 
-The following (16) use the HTML `<button>` element and are not fully functional
+The following (16) use the HTML `<button>` element and so can't be fully functional
 without JavaScript:
 
 - `Accordion`
@@ -119,7 +114,7 @@ without JavaScript:
 - `Tabs`
 - `TagSet`
 
-The following (15) components need a pattern update to work without JavaScript:
+The following (15) components could work without JavaScript if updated:
 
 - `Checkbox`
 - `CheckboxGroup`
@@ -142,22 +137,20 @@ The following (2) can't be fixed due to browser limitations:
 - `AudioPlayer`
 - `VideoPlayer`
 
-The following (1) depend on external libraries:
+The following (1) can't be fixed because it depends on an external library:
 
 - `DatePicker`
 
 ## General Recommendations
 
 Based on the [Engineering General JavaScript standard](https://github.com/NYPL/engineering-general/blob/main/standards/javscript.md),
-a no-JavaScript fallback is preferable but not required. Our recommendation is
-to fix what we can. This audit gives us a better understanding of what components
-currently do not work without JavasSript, and which ones we have the opportunity
-to change (with time and resources).
+having no-JavaScript fallbacks is preferable, but not required. Our recommendation is
+to update what we can (depending on time and resources).
 
-Various new pages and features being built for NYPL have JavaScript-heavy
-requirements. We recommend and encourage teams to add a noscript fallback
-message. This would be an HTML/CSS snippet (not React) that instructs patrons
-to enable Javascript to use the site.
+We acknowledge that various new pages and features being built for NYPL have
+JavaScript-heavy requirements. We recommend and encourage teams to add a noscript
+fallback message. This would be an HTML/CSS snippet (not React) that instructs patrons
+to enable JavaScript to use the site.
 
 ## noscript Fallback Example
 
@@ -167,21 +160,21 @@ We recommend placing the following `noscript` snippet at the top of the
 <Source
   language="html"
   code={`
-<noscript>
-  <aside className="noscript-banner">
-    <h2>JavaScript is disabled.</h2>
-    <div>Some features may not work as expected.</div>
-  </aside>
-  <style>
-    .noscript-banner {
-      background: #f9e08e;
-      color: #2e2e2e;
-      padding: 16px;
-      text-align: center;
-      font-size: 16px;
-    }
-  </style>
-</noscript>
+  <noscript>
+    <aside className="noscript-banner">
+      <h2>JavaScript is disabled.</h2>
+      <div>Some features may not work as expected.</div>
+    </aside>
+    <style>
+      .noscript-banner {
+        background: #f9e08e;
+        color: #2e2e2e;
+        padding: 16px;
+        text-align: center;
+        font-size: 16px;
+      }
+    </style>
+  </noscript>
 `}
 />
 
@@ -220,11 +213,11 @@ both the Pages and App Router.
 <Source
   language="html"
   code={`
-<style>
-  {
-    ".noscript-banner {background: #f9e08e;color: #2e2e2e;padding: 16px;text-align: center;font-size: 16px;}"
-  }
-</style>
+  <style>
+    {
+      ".noscript-banner {background: #f9e08e;color: #2e2e2e;padding: 16px;text-align: center;font-size: 16px;}"
+    }
+  </style>
 `}
 />
 
