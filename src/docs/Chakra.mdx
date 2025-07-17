@@ -121,19 +121,19 @@ We recommend and follow this pattern in the DS. Here is an example of what it lo
 
 <Source
   code={`
-// button.ts
-const Button = {
-  baseStyle: {
-    width: {
-      base: "100px",
-      md: "150px",
-      lg: "200px",
-      xl: "250px",
-      "2xl": "300px",
+  // button.ts
+  const Button = {
+    baseStyle: {
+      width: {
+        base: "100px",
+        md: "150px",
+        lg: "200px",
+        xl: "250px",
+        "2xl": "300px",
+      },
     },
-  },
-  // ...
-};
+    // ...
+  };
 `}
   language="js"
 />
@@ -143,16 +143,16 @@ it can be defined as:
 
 <Source
   code={`
-// button.ts
-const Button = {
-  baseStyle: {
-    width: {
-      base: "100px",
-      lg: "200px",
+  // button.ts
+  const Button = {
+    baseStyle: {
+      width: {
+        base: "100px",
+        lg: "200px",
+      },
     },
-  },
-  // ...
-};
+    // ...
+  };
 `}
   language="js"
 />
@@ -163,13 +163,13 @@ We find this method harder to read because breakpoint values are implicit.
 
 <Source
   code={`
-// button.ts
-const Button = {
-  baseStyle: {
-    width: ["100px", "150px", "200px", "250px", "300px"],
-  },
-  // ...
-};
+  // button.ts
+  const Button = {
+    baseStyle: {
+      width: ["100px", "150px", "200px", "250px", "300px"],
+    },
+    // ...
+  };
 `}
   language="js"
 />
@@ -187,9 +187,9 @@ props which are shorthand for "padding" and "max-width", respectively.
 
 <Source
   code={`
-<Button id="styled-button" p="s" maxH="none" maxW="200px">
-  Button
-</Button>
+  <Button id="styled-button" p="s" maxH="none" maxW="200px">
+    Button
+  </Button>
 `}
   language="jsx"
 />
