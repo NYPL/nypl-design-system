@@ -69,6 +69,33 @@ Update your code!
 If your application uses the Reservoir `Template` components (or the `TemplateAppContainer` component), you’ll need
 to refactor your code to use our new composable [Template components](../?path=/docs/components-page-layout-template--docs#overview).
 
+<Source
+  code={`
+  <Template variant="sidebarLeft">
+    <TemplateHeader>
+      <TemplateBreakout>
+        //...
+      </TemplateBreakout>
+    </TemplateHeader>
+    <TemplateMain>
+        <TemplateFull>
+        //...
+        </TemplateFull>
+        <TemplateSidebar>
+        //...
+        </TemplateSidebar>
+        <TemplateContent>
+        //...
+        </TemplateContent>
+        <TemplateFull>
+        //...
+        </TemplateFull>
+    </TemplateMain>
+  </Template>
+`}
+  language="jsx"
+/>
+
 <Banner
   content={
     <>
