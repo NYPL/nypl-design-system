@@ -8,6 +8,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 3.6.4 (July 17, 2025)
+
+### Adds
+
+- Adds fallback warning messages to the `AudioPlayer` and `VideoPlayer` components on browsers with JavaScript disabled.
+
+### Updates
+
+- Updates Storybook to `v9.0.16`.
+- Updates Node to `v20`.
+
+### Fixes
+
+- Fixes the keyless fragments for `Checkbox` items in the `MultiSelect` component.
+
 ## 3.6.3 (June 9, 2025)
 
 ### Adds

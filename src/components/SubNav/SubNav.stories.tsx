@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { VStack } from "@chakra-ui/react";
 import Heading from "../Heading/Heading";
 import Hero from "../Hero/Hero";

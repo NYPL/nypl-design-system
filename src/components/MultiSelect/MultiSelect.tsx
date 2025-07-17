@@ -431,7 +431,9 @@ export const MultiSelect: ChakraComponent<
                   name="multi-select-checkbox-group"
                 >
                   {itemsList.map((item: MultiSelectItem) => (
-                    <>{getMultiSelectCheckboxItem(item)}</>
+                    <React.Fragment key={item.id}>
+                      {getMultiSelectCheckboxItem(item)}
+                    </React.Fragment>
                   ))}
                 </CheckboxGroup>
                 {isOverflowExpand && <ExpandToggleButton />}
