@@ -374,7 +374,7 @@ export default CustomImage;
 
 The `Component example` above has been <Link href="https://nypl-ds-test-app-git-dsd-2116-nextjs-custom-image-nypl.vercel.app/fullPages/nextjs-custom-image-component#above-header-notification" variant="external">implemented in Turbine</Link>.
 
-## Other useful propsone
+## Other useful props
 
 For improved function and optimization, the NYPL Digital front-end development
 team recommends utilizing the following props on the Next.js `Image` component.
@@ -392,15 +392,19 @@ team recommends utilizing the following props on the Next.js `Image` component.
 
 <Source
   code={`
-const fallbackImage = "/defaultFallbackImage.png";
-const onErrorHandler = (e) => {
-    e.target.src = fallbackImage;
+const [imageSrc, setImageSrc] = useState("/images/imageThatWouldNotLoad.jpg");
+const fallbackImage = "/images/defaultFallbackImage.png";
+const onErrorHandler = () => {
+    console.warn(
+      \`CardImage: The card image failed to load, so a fallback image was loaded instead. Original image: \${imageSrc}\`
+    );
+    setImageSrc(fallbackImage);
 }
 // ...
 <Image
     alt="An image that would not load"
-    src="/images/imageThatWouldNotLoad.jpg"
-    onError={(e) => onErrorHandler}
+    src={imageSrc}
+    onError={onErrorHandler}
 />
 `}
   language="jsx"
