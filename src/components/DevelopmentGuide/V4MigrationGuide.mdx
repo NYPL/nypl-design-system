@@ -232,11 +232,11 @@ but it’s possible a page will not look as expected on smaller screen sizes and
 
 We updated the `tableTextSize` prop in `Table` to `fontSize` to align more closely with the CSS property.
 
-#### If using the `onMixedStateChange` function, turn the arguments into an object.
+#### If using the `onMixedStateChange` function, adjust the argument you're passing.
 
 We moved to object destructuring for functions with 3+ arguments. This is mostly an internal, non-breaking
 change, but if you're using the `onMixedStateChange` function from the `useMultiSelect` hook, you'll need
-to put the arguments you're passing into an object.
+to move the arguments you're passing inside an object.
 
 <Source
   code={`
