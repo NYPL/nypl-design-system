@@ -232,21 +232,20 @@ but it’s possible a page will not look as expected on smaller screen sizes and
 
 We updated the `tableTextSize` prop in `Table` to `fontSize` to align more closely with the CSS property.
 
-#### If using the `onMixedStateChange` function, adjust the argument you're passing.
+#### If using the `onMixedStateChange` function, update the argument to use object destructuring.
 
 We moved to object destructuring for functions with 3+ arguments. This is mostly an internal, non-breaking
 change, but if you're using the `onMixedStateChange` function from the `useMultiSelect` hook, you'll need
-to move the arguments you're passing inside an object.
+to move the arguments you're passing inside an object with key-value pairs.
 
 <Source
   code={`
-// This no longer works.
-onMixedStateChange(e.target.id, multiSelect.id, multiSelect.items);
-
-// Args must be inside an object.
-onMixedStateChange({e.target.id, multiSelect.id, multiSelect.items});
+  // This no longer works.
+  onMixedStateChange(e.target.id, multiSelect.id, multiSelect.items);
+  // Args must be inside an object with key-value pairs.
+  onMixedStateChange({ parentId: e.target.id, multiSelectId: multiSelect.id, items: multiSelect.items })
 `}
-language="jsx"
+  language="jsx"
 />
 
 ## Non-Breaking Changes
