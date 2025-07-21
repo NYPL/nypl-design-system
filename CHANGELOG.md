@@ -64,9 +64,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### Fixes
-
-- Fixes the keyless fragments for `Checkbox` items in the `Multiselect` component.
+## 3.6.4 (July 17, 2025)
 
 ### Adds
 
@@ -75,6 +73,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates Storybook to `v9.0.16`.
+- Updates Node to `v20`.
+
+### Fixes
+
+- Fixes the keyless fragments for `Checkbox` items in the `MultiSelect` component.
 
 ## 3.6.3 (June 9, 2025)
 
