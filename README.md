@@ -251,9 +251,9 @@ Follow the [contribution document](/.github/CONTRIBUTING.md) to follow git branc
 
 ### Node Version
 
-The DS uses Node version 18.x and we do not support any Node versions below 18.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 18.x.
+The DS uses Node version 20.x and we do not support any Node versions below 20.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 20.x.
 
-If you are using `nvm`, the local `.nvmrc` file (using `18.x`) can be use to set your local Node version with the `nvm use` command. Make sure your machine has Node version 18.x installed through `nvm` already.
+If you are using `nvm`, the local `.nvmrc` file (using `20.x`) can be used to set your local Node version with the `nvm use` command. Make sure your machine has Node version 20.x installed through `nvm` already.
 
 ### Git Branch Workflow
 
