@@ -77,21 +77,6 @@ The width of the MultiSelect components can be passed through the
 On screen width under 600px width the `layout` is automatically set to "column"
 and the `multiSelectWidth` to "full".
 
-<Banner
-  content={
-    <>
-      <strong>IMPORTANT:</strong> It is recommended to not set{" "}
-      <code>multiSelectWidth</code> to <code>"full"</code> and{" "}
-      <code>layout</code> to <code>"row"</code> at the same time. When the{" "}
-      <code>MultiSelect</code> components are opened, the overlap will cause
-      z-index issues with the selected count button.
-    </>
-  }
-  mt="s"
-  mb="s"
-  variant="recommendation"
-/>
-
 <Canvas of={MultiSelectGroupStories.LayoutPatterns} />
 
 ## Passing MultiSelect Children

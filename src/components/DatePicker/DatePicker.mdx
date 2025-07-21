@@ -183,30 +183,30 @@ data is an object with `startDate` and `endDate` keys and `Date` object values.
 
 <Source
   code={`
-const onChange = (data) => {
-  // This will return an object such as:
-  // {
-  //   startDate: dateValue,
-  //   endDate: dateValue
-  // }
-  // Note that dateValue is a Date object so you need to get the date value
-  // yourself. The endDate attribute will only appear if the DS DatePicker
-  // component is a date range.
-  console.log(data);
-};
-// ...
-
-// Example of the DS DatePicker instance with the function above:
-
-<DatePicker
-  id="date-range"
-  dateType="full"
-  labelText="Select the date range you want to visit NYPL"
-  invalidText="Please select a valid date range."
-  onChange={onChange}
-  isDateRange
+  const onChange = (data) => {
+    // This will return an object such as:
+    // {
+    //   startDate: dateValue,
+    //   endDate: dateValue
+    // }
+    // Note that dateValue is a Date object so you need to get the date value
+    // yourself. The endDate attribute will only appear if the DS DatePicker
+    // component is a date range.
+    console.log(data);
+  };
+  // ...
+  // Example of the DS DatePicker instance with the function above:
+  <DatePicker
+    id="date-range"
+    dateType="full"
+    labelText="Select the date range you want to visit NYPL"
+    invalidText="Please select a valid date range."
+    onChange={onChange}
+    isDateRange
+  />
+`}
+  language="jsx"
 />
-`} language="jsx" />
 
 ### Uncontrolled Component Using refs
 
@@ -222,27 +222,51 @@ The following example is using the `register` React `ref` from the
 
 <Source
   code={`
-import { useFormContext } from "react-hook-form";
-// ...
-const { register, handleSubmit } = useFormContext();
-// ...
-const submitForm = (formData) => {
-  // This will return an object with all the DOM element values that were
-  // registered with a name attribute.
-  // Note that the returned values are strings and NOT Date objects.
-  // {
-  //   visitDateFrom: "2020-01-01"
-  //   visitDateTo: "2021-01-01"
-  // }
-  console.log(formData);
+  import { useFormContext } from "react-hook-form";
   // ...
-};
+  const { register, handleSubmit } = useFormContext();
+  // ...
+  const submitForm = (formData) => {
+    // This will return an object with all the DOM element values that were
+    // registered with a name attribute.
+    // Note that the returned values are strings and NOT Date objects.
+    // {
+    //   visitDateFrom: "2020-01-01"
+    //   visitDateTo: "2021-01-01"
+    // }
+    console.log(formData);
+    // ...
+  };
+  // ...
+  <form
+    onSubmit={handleSubmit(submitForm)}
+    method="post"
+    action="/some/api/endpoint"
+  >
+    <DatePicker
+      id="date-range"
+      dateType="full"
+      labelText="Select the date range you want to visit NYPL"
+      nameFrom="visitDateFrom"
+      nameTo="visitDateTo"
+      invalidText="Please select a valid date range."
+      ref={register()}
+      refTo={register()}
+      isDateRange
+    />
+  </form>
+`}
+  language="jsx"
+/>
 
-<form
-  onSubmit={handleSubmit(submitForm)}
-  method="post"
-  action="/some/api/endpoint"
->
+The above is specific to `react-hook-form` but a similar pattern can be used
+with normal React `ref` values.
+
+<Source
+  code={`
+  const refStart = React.createRef<TextInputRefType>();
+  const refEnd = React.createRef<TextInputRefType>();
+  // ...
   <DatePicker
     id="date-range"
     dateType="full"
@@ -250,39 +274,17 @@ const submitForm = (formData) => {
     nameFrom="visitDateFrom"
     nameTo="visitDateTo"
     invalidText="Please select a valid date range."
-    ref={register()}
-    refTo={register()}
+    ref={refStart}
+    refTo={refEnd}
     isDateRange
   />
-</form>
-`} language="jsx" />
-
-The above is specific to `react-hook-form` but a similar pattern can be used
-with normal React `ref` values.
-
-<Source
-  code={`
-const refStart = React.createRef<TextInputRefType>();
-const refEnd = React.createRef<TextInputRefType>();
-// ...
-<DatePicker
-  id="date-range"
-  dateType="full"
-  labelText="Select the date range you want to visit NYPL"
-  nameFrom="visitDateFrom"
-  nameTo="visitDateTo"
-  invalidText="Please select a valid date range."
-  ref={refStart}
-  refTo={refEnd}
-  isDateRange
-/>
-// ...
-// Get the value through:
-const onSubmit = () => {
   // ...
-  const startDate = refStart.current.value;
-  const endDate = refEnd.current.value;
-};
+  // Get the value through:
+  const onSubmit = () => {
+    // ...
+    const startDate = refStart.current.value;
+    const endDate = refEnd.current.value;
+  };
 `}
   language="jsx"
 />
