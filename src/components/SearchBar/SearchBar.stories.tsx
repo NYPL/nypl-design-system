@@ -3,7 +3,6 @@ import { userEvent, within, expect } from "storybook/test";
 import { useState } from "react";
 
 import SearchBar from "./SearchBar";
-import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
 import Heading from "../Heading/Heading";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 import { Box, Button, Flex, TextInput } from "../..";
@@ -189,24 +188,6 @@ export const HelperErrorTextComponentExample: Story = {
     </>
   ),
   name: "HelperErrorText Component",
-};
-
-export const SearchAutocomplete: Story = {
-  args: {
-    isDisabled: false,
-    isInvalid: false,
-    isRequired: false,
-  },
-  render: (args) => (
-    <div style={{ minHeight: "150px" }}>
-      <SearchBar
-        onSubmit={() => {}}
-        textInputElement={autoSuggestStories.SearchBarExample()}
-        helperText="Select your home library. Start by typing the name of the library. Try 'ba'."
-        {...args}
-      />
-    </div>
-  ),
 };
 
 export const ErrorState: Story = {

@@ -13,6 +13,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `useResponsiveSpacing` hook.
 - Adds docs for `Responsive Grid` Style Guide.
 - Consolidates message variants, sizes, highlight colors, and background colors arrays into shared constants
+- Adds v4 Migration Guide to Storybook.
 
 ### Updates
 
@@ -60,6 +61,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `noSpace` prop from Heading component.
 - Removes `noSpace` prop from Text component.
 - Removes default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
+- Removes all files related to the `Autosuggest` component guidelines.
 
 ## Prerelease
 
