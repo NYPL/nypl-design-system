@@ -130,7 +130,12 @@ const parameters = {
   },
   docs: {
     container: MyDocsContainer,
-    codePanel: true,
+    source: {
+      sourceState: "none",
+    },
+    canvas: {
+      sourceState: "none",
+    },
   },
 };
 
