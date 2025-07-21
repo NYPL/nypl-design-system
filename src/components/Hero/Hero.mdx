@@ -7,19 +7,23 @@ import {
   Story,
 } from "@storybook/addon-docs/blocks";
 
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as HeroStories from "./Hero.stories";
-import { changelogData } from "./heroChangelogData";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import { changelogData } from "./heroChangelogData";
 
 <Meta of={HeroStories} />
 
-# Hero
+<ComponentDocsHeader
+  category="Basic Elements"
+  componentName="Hero"
+  summary="A full-width banner at the top of a page"
+  versionAdded="0.2.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.2.0`    |
-| Latest            | `3.4.1`    |
+<Canvas of={HeroStories.WithControls} />
 
 ## Table of Contents
 
@@ -30,27 +34,16 @@ import Link from "../Link/Link";
 - {<Link href="#text-colors" target="_self">Text Colors</Link>}
 - {<Link href="#custom-image-component" target="_self">Custom Image Component</Link>}
 - {<Link href="#fallback-campaign-image" target="_self">Fallback Campaign Image</Link>}
-- {<Link href="#deprecated-variants" target="_self">Deprecated Variants</Link>}
 - {<Link href="#color-variations-for-secondary-hero" target="_self">Color Variations for Secondary Hero</Link>}
 - {<Link href="#changelog" target="_self">Changelog</Link>}
 
 ## Overview
 
-<Description of={HeroStories} />
-
-The `Hero` component is used to display a full width banner at the top of a page.
 The `Hero` will contain a required `h1` page title and may also include optional
 descriptive text and images.
 
-There are currently three main hero types: `"primary"`, `"tertiary"`, and
+There are currently three main hero variants: `"primary"`, `"tertiary"`, and
 `"campaign"`.
-
-Two hero types have been deprecated: `"secondary"` and `"fiftyFifty"`. The
-deprecated variants will be removed from the DS in a future release.
-
-Under the `"secondary"` hero type, there are four additional subtypes:
-`"secondaryBooksAndMore"`, `"secondaryLocations"`, `"secondaryResearch"`, and
-`"secondaryWhatsOn"`.
 
 For the variations that use image `alt`, `fallbackSrc`, `onError`, and `src`
 properties, the `imageProps` prop should be used:
@@ -59,7 +52,7 @@ properties, the `imageProps` prop should be used:
   code={`
 <Hero
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_243025&t=w"
-  heroType="campaign"
+  variant="campaign"
   heading={<Heading level="h1" id="campaign-hero" text="Hero Campaign" />}
   imageProps={{
     alt: "Image example",
@@ -80,7 +73,8 @@ section.
 
 ## Component Props
 
-<Canvas of={HeroStories.WithControls} />
+`Hero` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={HeroStories.WithControls} />
 
@@ -93,13 +87,13 @@ through `Heading`'s `level="h1"`.
 
 ## Active Variants
 
-Each `Hero` variation can be rendered through the `heroType` prop.
+Each `Hero` variation can be rendered through the `variant` prop.
 
 ### Primary
 
-The `"primary"` hero type can be used with the `backgroundColor`, `backgroundImageSrc`,
-`foregroundColor`, `heading`, `locationDetails`, and `subHeaderText` props. The
-minimum props that should be used are `backgroundImageSrc` and `heading`.
+The `"primary"` hero variant can be used with the `backgroundColor`, `backgroundImageSrc`,
+`foregroundColor`, ` heading`, and `subHeaderText` props. The minimum props
+that should be used are `backgroundImageSrc`and`heading`.
 
 <Story of={HeroStories.Primary} />
 
@@ -111,13 +105,12 @@ minimum props that should be used are `backgroundImageSrc` and `heading`.
     <Heading
       id="primary-hero"
       level="h1"
-      noSpace
       overline="Hero Example"
       subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
       text="Hero Primary"
     />
   }
-  heroType="primary"
+  variant="primary"
 />
 `}
   language="jsx"
@@ -125,7 +118,7 @@ minimum props that should be used are `backgroundImageSrc` and `heading`.
 
 ### Tertiary
 
-The `"tertiary"` hero type can be used with the `backgroundColor`, `foregroundColor`,
+The `"tertiary"` hero variant can be used with the `backgroundColor`, `foregroundColor`,
 `heading`, and `subHeaderText` props. The minimum prop to use is the `heading`
 prop.
 
@@ -143,7 +136,7 @@ prop.
       text="Hero Tertiary with Subtitle & Sub-Heading"
     />
   }
-  heroType="tertiary"
+  variant="tertiary"
   subHeaderText={
     <>
       With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
@@ -168,7 +161,7 @@ prop.
       text="Hero Tertiary with Sub-Heading"
     />
   }
-  heroType="tertiary"
+  variant="tertiary"
   subHeaderText={
     <>
       With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
@@ -193,7 +186,7 @@ prop.
       text="Hero Tertiary without Additional Elements"
     />
   }
-  heroType="tertiary"
+  variant="tertiary"
 />
 `}
   language="jsx"
@@ -201,7 +194,7 @@ prop.
 
 ### Campaign
 
-The `"campaign"` hero type can be used with the `backdropBackgroundColor`,
+The `"campaign"` hero variant can be used with the `backdropBackgroundColor`,
 `backgroundColor`, `backgroundImageSrc`, `foregroundColor`, `heading`,
 `imageProps`, and `subHeaderText` props. The minimum props to use are
 `backgroundImageSrc`, `heading`, and `imageProps`.
@@ -220,7 +213,7 @@ props should be used.
   code={`
 <Hero
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -249,7 +242,7 @@ props should be used.
   code={`
 <Hero
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -270,7 +263,7 @@ props should be used.
       >
         Subheading
       </Heading>
-      <Heading level="h3" noSpace size="heading6">
+      <Heading level="h3" size="heading6">
         Subheading
       </Heading>
       <Text>
@@ -290,7 +283,7 @@ props should be used.
       </Text>
       <ButtonGroup>
         <Button id="other-button-example-1">Button</Button>
-        <Button id="other-button-example-2" buttonType="secondary">
+        <Button id="other-button-example-2" variant="secondary">
           Button
         </Button>
       </ButtonGroup>
@@ -312,7 +305,7 @@ be converted to black & white and darkened to 60% black.
   code={`
 <Hero
   backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -351,7 +344,7 @@ the `backgroundImageSrc` will take precedence.
   code={`
 <Hero
   backdropBackgroundColor="section.research.primary"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -383,7 +376,7 @@ the `backgroundImageSrc` will take precedence.
   backdropBackgroundColor="section.education.primary"
   backgroundColor="ui.warning.primary"
   foregroundColor="ui.typography.heading"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -427,7 +420,7 @@ should not be used at the same time.
   code={`
 <Hero
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -448,7 +441,7 @@ should not be used at the same time.
   backgroundColor="ui.status.primary"
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
   foregroundColor="ui.error.secondary"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -468,7 +461,7 @@ should not be used at the same time.
 <Hero
   backgroundColor="ui.status.primary"
   backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-  heroType="campaign"
+  variant="campaign"
   heading={
     <Heading
       level="h1"
@@ -508,7 +501,7 @@ const CampaignFallBackExample = () => {
   return (
     <Hero
       backgroundImageSrc={imageSrc}
-      heroType="campaign"
+      variant="campaign"
       heading={
         <Heading
           level="h1"
@@ -533,162 +526,6 @@ const CampaignFallBackExample = () => {
 />
 
 <Canvas of={HeroStories.CampaignFallbackImage} />
-
-## Deprecated Variants
-
-### Secondary
-
-This `"secondary"` variant of the `Hero` component has been deprecated. This
-variant will be removed from the DS in a future release.
-
-The `"secondary"` hero type can be used with the `heading`, `imageProps`, and
-`subHeaderText` props.
-
-<Story of={HeroStories.Secondary} />
-
-<Source
-  code={`
-<Hero
-  heading={
-    <Heading
-      level="h1"
-      id="secondary-hero"
-      size="heading2"
-      text="Hero Secondary (deprecated)"
-    />
-  }
-  heroType="secondary"
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  isDarkBackgroundImage
-  subHeaderText={
-    <>
-      Explore our <Link href="#">collection</Link> of hundreds of online resources
-      and databases. Use our free online content to help with your research,
-      whether it's finding a single article, tracing a family tree, learning a new
-      language, or anything in between.
-      <Text mt="s" noSpace>
-        This variant has been deprecated.
-      </Text>
-    </>
-  }
-/>
-`}
-  language="jsx"
-/>
-
-### FiftyFifty
-
-This `"fiftyFifty"` variant of the `Hero` component has been deprecated. This
-variant will be removed from the DS in a future release.
-
-The `"fiftyFifty"` hero type can be used with the `backgroundColor`,
-`foregroundColor`, `heading`, `imageProps`, and `subHeaderText` props. The
-minimum props to use are `imageProps` and `subHeaderText`.
-
-**NOTE:** The layout offered in the `fiftyFifty` variant has been replaced by
-the [FeaturedContent](../?path=/docs/components-basic-elements-featuredcontent--docs) component.
-
-<Story of={HeroStories.FiftyFifty} />
-
-<Source
-  code={`
-<Hero
-  heroType="fiftyFifty"
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  isDarkBackgroundImage
-  subHeaderText={
-    <>
-      Explore our <Link href="#">collection</Link> of hundreds of online resources
-      and databases. Use our free online content to help with your research,
-      whether it's finding a single article, tracing a family tree, learning a new
-      language, or anything in between.
-      <Text mt="s" noSpace>
-        This variant has been deprecated.
-      </Text>
-    </>
-  }
-/>
-`}
-  language="jsx"
-/>
-<Source
-  code={`
-<Hero
-  heroType="fiftyFifty"
-  imageProps={
-    alt: "Image example",
-    src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
-  }
-  isDarkBackgroundImage
-  subHeaderText={
-    <>
-      <Heading
-        level="h2"
-        size="heading3"
-        subtitle="Lorem Parturient Bibendum Aenean Cras"
-      >
-        Subheading
-      </Heading>
-      <Heading level="h3" noSpace size="heading6">
-        Subheading
-      </Heading>
-      <Text>
-        Donec ullamcorper nulla non metus auctor fringilla. Cras mattis elit{" "}
-        <Link href="https://www.nypl.org/locations/snfl/childrens">
-          The New York Public Library
-        </Link>{" "}
-        consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra
-        augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-        Aenean lacinia{" "}
-        <Link href="https://google.com" type="external">
-          Google
-        </Link>{" "}
-        bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod
-        semper. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel
-        eu leo.
-      </Text>
-      <ButtonGroup>
-        <Button id="other-button-example-1">Button</Button>
-        <Button id="other-button-example-2" buttonType="secondary">
-          Button
-        </Button>
-      </ButtonGroup>
-      <Text mt="s" noSpace>
-        This variant has been deprecated.
-      </Text>
-    </>
-  }
-/>
-`}
-  language="jsx"
-/>
-
-## Color Variations for Secondary Hero
-
-This `"secondary"` variant of the `Hero` component has been deprecated. This
-variant and the associated color variations will be removed from the DS in a
-future release.
-
-The background color for the title bar in the `"secondary"` `Hero` changes based
-on the `heroType` variants for the `"secondary"` main variant. There are four
-subtypes: `"secondaryBooksAndMore"`, `"secondaryLocations"`, `"secondaryResearch"`,
-and `"secondaryWhatsOn"`.
-
-<Source
-  code={`
-// Example \`heroType\` "secondary" variant.
-<Hero heroType="secondaryBooksAndMore" {...props} />
-`}
-  language="jsx"
-/>
-
-<Story of={HeroStories.ColorVariations} />
 
 ## Changelog
 

@@ -6,6 +6,61 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## 4.0.0 (TBD)
+
+### Adds
+
+- Adds the `useResponsiveSpacing` hook.
+- Adds docs for `Responsive Grid` Style Guide.
+- Consolidates message variants, sizes, highlight colors, and background colors arrays into shared constants
+- Adds v4 Migration Guide to Storybook.
+
+### Updates
+
+- [Updates `Template` component(s)](https://newyorkpubliclibrary.atlassian.net/browse/DSD-1884) and styles per TAD.
+- Updates the values for the breakpoints and the associated docs.
+- Updates the `viewport` preview options in Storybook to align with the Reservoir breakpoints.
+- Updates the Storybook font styles.
+- Updates the docs for the `Template` component.
+- Replaces the error thrown with a console.warn for the `Breadcrumbs`, `Heading`, and `Image` components.
+- Removes props with HTML equivalents and instructs devs to use the native attributes
+- Updates the grid layout of the content for the `Hero` `"primary"` variant.
+- Changes the names of theme objects that conflict with Chakra's base names from `Custom` to `Reservoir` for consistency. This impacts theme objects for `Breadcrumbs`, `Button`, `Select`, `Slider`, and `Table`.
+- Replaces positional function args with object references in utility functions/components when there are 3 or more arguments.
+- Updates `Table`'s `tableTextSize` prop to accept `caption`.
+- Renames `Accordion`, `Banner`, `Breadcrumbs`, `Button`, `Hero`, `Icon`, `Link`, `List`, `Modal`, `Notification`, `Select`, `StatusBadge`, `TagSet`, and `TextInput` props using "type" to use "variant".
+- Updates the `id` prop for all components to reduce `undefined` and makes previously required `id`s optional in the following components: `Accordion`, `Button`, `ButtonGroup`, `Checkbox`, `CheckboxGroup`, `DatePicker`, `Fieldset`, `Form`, `MultiSelect`, `MultiSelectGroup`, `ProgressIndicator`, `Radio`, `RadioGroup`, `SearchBar`, `Slider`, `TextInput`, `Toggle`
+
+### Removals
+
+- Removes the NYPL Header component.
+- Removes the following deprecated props and typed and style values:
+  - `Button`'s `link` value in `buttonTypesArray`
+  - `Heading`'s "primary", "secondary", "tertiary", "callout" sizes
+  - `Heading`'s "one", "two", "three", "four", "five", "six" levels
+  - `Hero`'s "secondary", "secondaryBooksAndMore", "secondaryLocations", "secondaryResearch", "secondaryWhatsOn", "fiftyFifty" types
+  - `Icon`'s `IconRotationTypes` type
+  - `Link`'s `button` value in `linkTypesArray`
+  - `Notifications`' `noMargin` prop; this is now the default style
+  - `ProgressIndicator`'s `darkMode` prop
+  - `StatusBadge`'s "low", "medium", "high" values from `statusBadgeTypeArray`
+  - `StatusBadge`'s `level` prop
+  - `StyledList`'s "tag", "mini" values in `textSizesArray`
+- Removes `role="search"` from `Searchbar` wrapper.
+- Removes use of `useNYPLBreakpoints` hook in `FilterBarInline` and `MultiSelectGroup`.
+- Removes `isDarkMode` function from `Slider` and `Accordion`.
+- Removes `useNYPLBreakpoints` from final component, `SearchBar`, and removes `mediaMatchMock` from test setup since it is no longer necessary.
+- Removes explicit `className` and `children` props in favor of expanded prop type definitions in all components.
+- Removes the use of the `window`'s `scrollIntoView` dependency in the `Tabs` component.
+- Removes the `tableTextSize` prop from the `Table` component in favor of using the native `fontSize` CSS prop.
+- Removes `Children.map` logic from `Button`, `ButtonGroup`, `Card`, `CheckboxGroup`, `List`, `RadioGroup`, and `Tooltip` to reduce complexity and improve performance.
+- Removes warnings validating presence or type of children from `SubNav`, `ComponentWrapper`, `Form`, `Heading`, `Icon`, `Logo`, and `Text`.
+- Removes the `FilterBar` component and `useFilterBar` hook.
+- Removes `noSpace` prop from Heading component.
+- Removes `noSpace` prop from Text component.
+- Removes default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
+- Removes all files related to the `Autosuggest` component guidelines.
+
 ## Prerelease
 
 ### Adds

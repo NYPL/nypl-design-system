@@ -1,50 +1,56 @@
+import { Box } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Accordion, { AccordionDataProps } from "../Accordion/Accordion";
 import Banner from "../Banner/Banner";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import Button from "../Button/Button";
-import Card, { CardHeading, CardContent, CardActions } from "../Card/Card";
+import Card, { CardHeading, CardContent } from "../Card/Card";
 import FeaturedContent from "../FeaturedContent/FeaturedContent";
-import Form, { FormRow, FormField } from "../Form/Form";
+import Form, { FormField, FormRow } from "../Form/Form";
 import Heading from "../Heading/Heading";
 import Hero from "../Hero/Hero";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
+import Image from "../Image/Image";
 import Link from "../Link/Link";
-import Notification from "../Notification/Notification";
 import Placeholder from "../Placeholder/Placeholder";
 import SkipNavigation from "../SkipNavigation/SkipNavigation";
+import SubNav, { SubNavButton, SubNavLink } from "../SubNav/SubNav";
 import Table from "../Table/Table";
+import Text from "../Text/Text";
+import TextInput from "../TextInput/TextInput";
 import {
   Template,
-  TemplateAboveHeader,
-  TemplateAppContainer,
   TemplateBreakout,
   TemplateContent,
-  TemplateContentBottom,
-  TemplateContentPrimary,
-  TemplateContentSidebar,
-  TemplateContentTop,
   TemplateFooter,
+  TemplateFull,
   TemplateHeader,
+  TemplateMain,
+  TemplateSidebar,
+  templateVariantArray,
 } from "./Template";
-import TextInput from "../TextInput/TextInput";
-import { argsBooleanType } from "../../helpers/storybookUtils";
-import { getPlaceholderImage } from "../../utils/utils";
+import { getPlaceholderImage, sidebarLabel } from "../../utils/utils";
+import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
 
-const meta: Meta<typeof TemplateAppContainer> = {
+const meta: Meta<typeof Template> = {
   title: "Components/Page Layout/Template",
-  component: TemplateAppContainer,
+  component: Template,
+  argTypes: {
+    variant: {
+      control: { type: "select" },
+      options: templateVariantArray,
+      table: { defaultValue: { summary: "full" } },
+    },
+  },
 };
 
 export default meta;
-type Story = StoryObj<typeof TemplateAppContainer>;
+type Story = StoryObj<typeof Template>;
 
-const otherSubHeaderText =
-  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
 const accordionData: AccordionDataProps[] = [
   {
-    accordionType: "default",
+    variant: "default",
     label: "Tom Nook",
     panel: (
       <Card
@@ -70,7 +76,7 @@ const accordionData: AccordionDataProps[] = [
 const faqContentData: AccordionDataProps[] = [
   ...accordionData,
   {
-    accordionType: "warning",
+    variant: "warning",
     label: "Isabelle",
     panel: (
       <Card
@@ -95,7 +101,7 @@ const faqContentData: AccordionDataProps[] = [
     ),
   },
   {
-    accordionType: "error",
+    variant: "error",
     label: "K.K. Slider",
     panel: (
       <Card
@@ -174,55 +180,50 @@ const columnStylesComplex = [
   { minWidth: "160px", width: "15%", textAlign: "right" },
 ];
 
+const otherSubHeaderText =
+  "With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.";
+
 /**
  * Main Story for the Template component. This must contains the `args`
  * and `parameters` properties in this object.
  */
 export const WithControls: Story = {
   args: {
-    aboveHeader: <Placeholder variant="short">Above Header</Placeholder>,
-    breakout: (
-      <>
-        <Placeholder variant="short">Breadcrumbs</Placeholder>
-        <Placeholder>Hero</Placeholder>
-      </>
-    ),
-    contentBottom: <Placeholder variant="short">Content Bottom</Placeholder>,
-    contentId: "mainContent",
-    contentPrimary: (
-      <>
-        <Placeholder>Main Content</Placeholder>
-        <Placeholder variant="short">More Content</Placeholder>
-      </>
-    ),
-    contentTop: <Placeholder variant="short">Content Top</Placeholder>,
-    footer: <Placeholder>Footer</Placeholder>,
-    header: <Placeholder variant="short">Header</Placeholder>,
-    renderFooterElement: true,
-    renderHeaderElement: true,
-    renderSkipNavigation: false,
-    sidebar: "left",
+    variant: "sidebarLeft",
   },
-  argTypes: {
-    aboveHeader: { control: false },
-    breakout: { control: false },
-    contentBottom: { control: false },
-    contentPrimary: { control: false },
-    contentSidebar: { control: false },
-    contentTop: { control: false },
-    footer: { control: false },
-    header: { control: false },
-    renderSkipNavigation: argsBooleanType("true"),
-    sidebar: {
-      table: { defaultValue: { summary: "none" } },
-    },
+  render: (args) => {
+    const { variant } = args;
+    return (
+      <Template id="template-with-controls" {...args}>
+        <TemplateHeader>
+          <TemplateBreakout>
+            <Placeholder variant="short">Breakout</Placeholder>
+          </TemplateBreakout>
+        </TemplateHeader>
+        <TemplateMain border="4px dashed" borderColor="ui.border.hover" p="s">
+          <TemplateFull>
+            <Placeholder variant="short">Full (top)</Placeholder>
+          </TemplateFull>
+          {variant === "sidebarLeft" && (
+            <TemplateSidebar>
+              <Placeholder>{sidebarLabel(variant)}</Placeholder>
+            </TemplateSidebar>
+          )}
+          <TemplateContent>
+            <Placeholder>Content</Placeholder>
+          </TemplateContent>
+          {variant === "sidebarRight" && (
+            <TemplateSidebar>
+              <Placeholder>{sidebarLabel(variant)}</Placeholder>
+            </TemplateSidebar>
+          )}
+          <TemplateFull>
+            <Placeholder variant="short">Full (bottom)</Placeholder>
+          </TemplateFull>
+        </TemplateMain>
+      </Template>
+    );
   },
-  render: (args) => (
-    <TemplateAppContainer
-      {...args}
-      contentSidebar={<Placeholder>Sidebar ({args.sidebar})</Placeholder>}
-    />
-  ),
   parameters: {
     design: {
       type: "figma",
@@ -230,124 +231,74 @@ export const WithControls: Story = {
     },
   },
 };
-// The following are additional Template example Stories.
-export const ChildrenComponentProps: Story = {
+
+export const FullExample: Story = {
   args: {
     sidebar: "left",
   },
-  argTypes: {
-    aboveHeader: { table: { disable: true } },
-    breakout: { table: { disable: true } },
-    contentBottom: { table: { disable: true } },
-    contentId: { table: { disable: true } },
-    contentPrimary: { table: { disable: true } },
-    contentSidebar: { table: { disable: true } },
-    contentTop: { table: { disable: true } },
-    footer: { table: { disable: true } },
-    header: { table: { disable: true } },
-    sidebar: { description: "Only used in Storybook." },
-  },
-  render: (args) => (
-    <>
-      <SkipNavigation />
-      <Template>
+  render: (args) => {
+    const { variant } = args;
+    return (
+      <Template variant={variant}>
         <TemplateBreakout>
-          <TemplateAboveHeader>
-            <Placeholder variant="short">Above Header</Placeholder>
-          </TemplateAboveHeader>
-          <TemplateHeader>
-            <Placeholder variant="short">Header</Placeholder>
-            <Placeholder variant="short">Breadcrumbs</Placeholder>
-            <Placeholder>Hero</Placeholder>
-          </TemplateHeader>
+          <Breadcrumbs
+            breadcrumbsData={[
+              { url: "#", text: "Home" },
+              { url: "#", text: "Research" },
+              {
+                url: "#",
+                text: "Catalog",
+              },
+            ]}
+          />
+          <Hero
+            backgroundImageSrc={getPlaceholderImage()}
+            variant="primary"
+            heading={<Heading level="h1" id="1" text="Hero Primary" />}
+            imageProps={{
+              alt: "Image example",
+              src: getPlaceholderImage(),
+            }}
+            isDarkBackgroundImage
+            subHeaderText={otherSubHeaderText}
+          />
         </TemplateBreakout>
-        <TemplateContent sidebar={args.sidebar}>
-          <TemplateContentTop>
-            <Placeholder variant="short">Content Top</Placeholder>
-          </TemplateContentTop>
-          {args.sidebar === "left" && (
-            <TemplateContentSidebar>
-              <Placeholder>Left Sidebar</Placeholder>
-            </TemplateContentSidebar>
-          )}
-          <TemplateContentPrimary>
-            <Placeholder>Main Content</Placeholder>
-            <Placeholder variant="short">More Content</Placeholder>
-          </TemplateContentPrimary>
-          {args.sidebar === "right" && (
-            <TemplateContentSidebar>
-              <Placeholder>Right Sidebar</Placeholder>
-            </TemplateContentSidebar>
-          )}
-          <TemplateContentBottom>
-            <Placeholder variant="short">Content Bottom</Placeholder>
-          </TemplateContentBottom>
-        </TemplateContent>
-        <TemplateFooter>
-          <Placeholder>Footer</Placeholder>
-        </TemplateFooter>
-      </Template>
-    </>
-  ),
-};
-
-export const FullExampleWithTemplateChildrenComponents: Story = {
-  render: () => (
-    <>
-      <SkipNavigation />
-      <Template>
-        <TemplateBreakout>
-          <TemplateAboveHeader>
-            <Notification
-              noMargin
-              notificationHeading="Standard Notification"
-              notificationContent={
-                <>
-                  This is an "announcement" Notification with a heading. Cras
-                  mattis consectetur purus sit amet fermentum. Maecenas faucibus
-                  mollis interdum. Morbi leo risus, porta ac consectetur ac,
-                  vestibulum at eros. Cum sociis natoque penatibus et magnis dis
-                  parturient montes, nascetur ridiculus mus. Vivamus sagittis
-                  lacus vel augue laoreet rutrum faucibus dolor auctor.
-                </>
-              }
-              showIcon={false}
-            />
-          </TemplateAboveHeader>
-          <TemplateHeader>
-            <Breadcrumbs
-              breadcrumbsData={[
-                { url: "#", text: "Home" },
-                { url: "#", text: "Research" },
-                {
-                  url: "#",
-                  text: "Catalog",
-                },
-              ]}
-            />
-            <Hero
-              backgroundImageSrc={getPlaceholderImage()}
-              heroType="campaign"
-              heading={<Heading level="h1" id="1" text="Hero Campaign" />}
-              imageProps={{
-                alt: "Image example",
-                src: getPlaceholderImage("smaller"),
-              }}
-              isDarkBackgroundImage
-              subHeaderText={otherSubHeaderText}
-            />
-          </TemplateHeader>
-        </TemplateBreakout>
-        <TemplateContent sidebar="right">
-          <TemplateContentTop>
+        <TemplateMain>
+          <TemplateFull>
             <Banner
-              content="This is an the top content area!"
-              heading="Content Top"
-              type="informative"
+              content="This is a full area!"
+              heading="Full"
+              variant="informative"
             />
-          </TemplateContentTop>
-          <TemplateContentPrimary>
-            <p>This is the main content!</p>
+          </TemplateFull>
+          {variant === "sidebarLeft" && (
+            <TemplateSidebar>
+              <p>Sidebar information in a `Card` component.</p>
+              <Card
+                imageProps={{
+                  alt: "Alt text",
+                  aspectRatio: "square",
+                  size: "default",
+                  src: getPlaceholderImage("smaller"),
+                }}
+                isCentered
+              >
+                <CardHeading
+                  size="heading4"
+                  subtitle="Animal info"
+                  id="heading1"
+                >
+                  Library Image
+                </CardHeading>
+                <CardContent>
+                  Vestibulum id ligula porta felis euismod semper. Nulla vitae
+                  elit libero, a pharetra augue.
+                </CardContent>
+              </Card>
+            </TemplateSidebar>
+          )}
+          <TemplateContent>
+            <p>This is the content area!</p>
             <Accordion accordionData={faqContentData} />
             <HorizontalRule />
             <p>Fill out the form!</p>
@@ -387,6 +338,164 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
                 <Button id="submit">Submit</Button>
               </FormField>
             </Form>
+            <Table
+              columnHeaders={columnHeadersAlt}
+              columnStyles={columnStylesComplex}
+              id="table-horizontal-scrolling-wo-row-headers"
+              isScrollable
+              showRowDividers
+              showTitleText={false}
+              tableData={tableDataAlt}
+              titleText="Table with horizontal scrolling and no row headers"
+              useRowHeaders
+            />
+          </TemplateContent>
+          {variant === "sidebarRight" && (
+            <TemplateSidebar>
+              <p>Sidebar information in a `Card` component.</p>
+              <Card
+                imageProps={{
+                  alt: "Alt text",
+                  aspectRatio: "square",
+                  size: "default",
+                  src: getPlaceholderImage("smaller"),
+                }}
+                isCentered
+              >
+                <CardHeading
+                  size="heading4"
+                  subtitle="Animal info"
+                  id="heading1"
+                >
+                  Library Image
+                </CardHeading>
+                <CardContent>
+                  Vestibulum id ligula porta felis euismod semper. Nulla vitae
+                  elit libero, a pharetra augue.
+                </CardContent>
+              </Card>
+            </TemplateSidebar>
+          )}
+          <TemplateFull>
+            <Banner
+              content="This is a full area!"
+              heading="Full"
+              variant="informative"
+            />
+          </TemplateFull>
+        </TemplateMain>
+      </Template>
+    );
+  },
+};
+
+export const NarrowExample = {
+  render: () => (
+    <>
+      <Template variant="narrow">
+        <TemplateBreakout>
+          <Breadcrumbs
+            breadcrumbsData={[
+              { url: "#", text: "Home" },
+              { url: "#", text: "Research" },
+              {
+                url: "#",
+                text: "Catalog",
+              },
+            ]}
+            variant="research"
+          />
+          <Hero
+            backgroundColor="section.research.primary"
+            foregroundColor="ui.white"
+            variant="tertiary"
+            heading={<Heading level="h1" id="1" text="Narrow content" />}
+          />
+        </TemplateBreakout>
+        <TemplateMain>
+          <TemplateFull>
+            <Banner
+              content="This is a full area!"
+              heading="Full"
+              variant="informative"
+            />
+          </TemplateFull>
+          <TemplateContent>
+            <Heading
+              level="h2"
+              size="heading3"
+              id="main-heading"
+              text="Content narrow"
+            />
+            <p>
+              Discover millions of items from The New York Public Library's
+              Stephen A. Schwarzman Building, Schomburg Center for Research in
+              Black Culture, and The New York Public Library for the Performing
+              Arts. Plus, access materials from library collections at Columbia
+              University, Harvard University, and Princeton University. Learn
+              more. Please note that the Research Catalog does not include
+              circulating materials. For books and more that you can check out
+              to take home please visit our circulating branch catalog. The
+              legacy research catalog is still available, but does not include
+              all of our Scan & Deliver options or the Columbia University,
+              Harvard University, and Princeton University material from the
+              Shared Collection.
+            </p>
+            <Accordion accordionData={faqContentData} />
+          </TemplateContent>
+          <TemplateFull>
+            <Banner
+              content="This is a full area!"
+              heading="Full"
+              variant="informative"
+            />
+          </TemplateFull>
+        </TemplateMain>
+      </Template>
+    </>
+  ),
+};
+
+export const FeaturedContentExample = {
+  name: "FeaturedContent Example",
+  render: () => (
+    <>
+      <Template>
+        <TemplateBreakout>
+          <Breadcrumbs
+            breadcrumbsData={[
+              { url: "#", text: "Home" },
+              { url: "#", text: "Research" },
+              {
+                url: "#",
+                text: "Catalog",
+              },
+            ]}
+          />
+          <Hero
+            backgroundImageSrc={getPlaceholderImage()}
+            variant="campaign"
+            heading={<Heading level="h1" id="1" text="Hero Campaign" />}
+            imageProps={{
+              alt: "Image example",
+              src: getPlaceholderImage("smaller"),
+            }}
+            isDarkBackgroundImage
+            subHeaderText={otherSubHeaderText}
+          />
+        </TemplateBreakout>
+        <TemplateMain>
+          <TemplateFull>
+            <Banner
+              content="This is a full area!"
+              heading="Full"
+              variant="informative"
+            />
+          </TemplateFull>
+          <TemplateContent>
+            <p>This is the content area!</p>
+            <Accordion accordionData={faqContentData} />
+            <HorizontalRule />
             <FeaturedContent
               imageProps={{
                 alt: "",
@@ -406,82 +515,347 @@ export const FullExampleWithTemplateChildrenComponents: Story = {
                 </>
               }
             />
-            <Table
-              columnHeaders={columnHeadersAlt}
-              columnStyles={columnStylesComplex}
-              id="table-horizontal-scrolling-wo-row-headers"
-              isScrollable
-              showRowDividers
-              showTitleText={false}
-              tableData={tableDataAlt}
-              titleText="Table with horizontal scrolling and no row headers"
-              useRowHeaders
-            />
-          </TemplateContentPrimary>
-          <TemplateContentSidebar>
-            <p>Sidebar information in a `Card` component.</p>
-            <Card
-              imageProps={{
-                alt: "Alt text",
-                aspectRatio: "square",
-                size: "default",
-                src: getPlaceholderImage("smaller"),
-              }}
-              isCentered
-            >
-              <CardHeading size="heading4" subtitle="Animal info" id="heading1">
-                Library Image
-              </CardHeading>
-              <CardContent>
-                Vestibulum id ligula porta felis euismod semper. Nulla vitae
-                elit libero, a pharetra augue.
-              </CardContent>
-            </Card>
-          </TemplateContentSidebar>
-          <TemplateContentBottom>
+          </TemplateContent>
+          <TemplateFull>
             <Banner
-              content="This is an the bottom content area!"
-              heading="Content Bottom"
-              type="informative"
+              content="This is a full area!"
+              heading="Full"
+              variant="informative"
             />
-          </TemplateContentBottom>
-        </TemplateContent>
-        <TemplateFooter>
-          <Card
-            id="custom-card"
-            imageProps={{
-              alt: "Alt text",
-              aspectRatio: "sixteenByNine",
-              src: "https://cdn-d8.nypl.org/s3fs-public/2020-05/NYPL_MainFacadeRev2Cam2.png",
-            }}
-            layout="row"
-            backgroundColor="#616161"
-            foregroundColor="#FFF"
-          >
-            <CardHeading id="heading1-footer">Footer</CardHeading>
-            <CardContent>
-              <p>This is an example footer using the `Card` component.</p>
-              <p>
-                © The New York Public Library, 2021 The New York Public Library
-                is a 501(c)(3) | EIN 13-1887440
-              </p>
-            </CardContent>
-            <CardActions>
-              <Link color="#FFF" href="#" textDecoration="underline">
-                Facebook
-              </Link>
-              ,
-              <Link color="#FFF" href="#" textDecoration="underline">
-                Instagram
-              </Link>
-              ,
-              <Link color="#FFF" href="#" textDecoration="underline">
-                Twitter
-              </Link>
-            </CardActions>
-          </Card>
-        </TemplateFooter>
+          </TemplateFull>
+        </TemplateMain>
       </Template>
     </>
   ),
+};
+
+export const ComplexExample = () => {
+  const { responsiveGap } = useResponsiveSpacing();
+  return (
+    <>
+      <SkipNavigation target="#skip-to" />
+      <Template variant="sidebarRight">
+        <TemplateHeader>
+          <TemplateBreakout>
+            <Breadcrumbs
+              breadcrumbsData={[
+                { url: "#", text: "Home" },
+                { url: "#", text: "Research" },
+                {
+                  url: "#",
+                  text: "Catalog",
+                },
+              ]}
+            />
+            <Hero
+              backgroundImageSrc={getPlaceholderImage()}
+              heading={
+                <Heading level="h1" id="1" text="Complex template example" />
+              }
+              variant="tertiary"
+            />
+          </TemplateBreakout>
+          <TemplateBreakout>
+            <Box
+              display="flex"
+              height="180px"
+              overflow="hidden"
+              position="relative"
+              width="100%"
+              background={`url(${getPlaceholderImage()})`}
+              backgroundSize="cover"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Heading
+                bgColor="rgba(255, 255, 255, 0.1)"
+                color="ui.white"
+                id="hero-overlay"
+                level="h2"
+                maxWidth="800px"
+                mx="xl"
+                p="2rem"
+                size="display1"
+                text="Overlay heading"
+                textAlign="center"
+                textShadow="0px 0px 8px #000"
+                width="100%"
+              />
+            </Box>
+            <SubNav
+              id="complex-example-subnav"
+              primaryActions={
+                <>
+                  <SubNavLink href="#" id="link-1">
+                    One
+                  </SubNavLink>
+                  <SubNavLink href="#" id="link-2">
+                    Two
+                  </SubNavLink>
+                  <SubNavLink href="#" id="link-3">
+                    Three
+                  </SubNavLink>
+                </>
+              }
+              secondaryActions={
+                <>
+                  <SubNavButton id="subnav-button-1" onClick={() => {}}>
+                    Four
+                  </SubNavButton>
+                  <SubNavButton
+                    id="subnav-button-2"
+                    onClick={() => {}}
+                    isOutlined
+                  >
+                    Five
+                  </SubNavButton>
+                </>
+              }
+            />
+          </TemplateBreakout>
+        </TemplateHeader>
+        <TemplateMain>
+          <TemplateFull>
+            <Box
+              height="360px"
+              overflow="hidden"
+              position="relative"
+              width="100%"
+            >
+              <Image
+                alt="Alt text"
+                aspectRatio="twoByOne"
+                src={getPlaceholderImage()}
+                position="absolute"
+              />
+              <Heading
+                bgColor="rgba(255, 255, 255, 0.1)"
+                bottom="0"
+                color="ui.white"
+                id="image-overlay"
+                left="0"
+                level="h2"
+                p="s"
+                position="absolute"
+                right="0"
+                size="heading6"
+                text="Overlay heading"
+                textAlign="right"
+              />
+            </Box>
+          </TemplateFull>
+          <TemplateFull>
+            <Banner
+              content="This is a full area!"
+              heading="Full"
+              variant="informative"
+            />
+          </TemplateFull>
+          <TemplateContent id="skip-to">
+            <Heading
+              overline="Example"
+              subtitle="Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
+              text="Content with sidebar"
+            />
+            <Text>
+              Maecenas faucibus mollis interdum. Integer posuere erat a ante
+              venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh
+              ultricies vehicula ut id elit. Cras mattis consectetur purus sit
+              amet fermentum.
+            </Text>
+            <Link href="https://nypl.org" mb="s" type="standalone">
+              Link to show focus
+            </Link>
+            <Heading level="h3" size="heading4" text="Subsection" />
+            <Text>
+              Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non
+              metus auctor fringilla. Praesent commodo cursus magna, vel
+              scelerisque nisl consectetur et. Maecenas faucibus mollis
+              interdum.
+            </Text>
+            <Text>
+              Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
+              tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+              fermentum massa justo sit amet risus. Praesent commodo cursus
+              magna, vel scelerisque nisl consectetur et. Integer posuere erat a
+              ante venenatis dapibus posuere velit aliquet. Maecenas faucibus
+              mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum
+              faucibus dolor auctor.
+            </Text>
+            <Link href="https://nypl.org" mb="s" type="standalone">
+              Link to show focus
+            </Link>
+          </TemplateContent>
+          <TemplateSidebar>
+            <Box display="grid" gap="s">
+              <Image
+                alt="Alt text"
+                aspectRatio="oneByTwo"
+                src={getPlaceholderImage()}
+              />
+            </Box>
+          </TemplateSidebar>
+
+          <TemplateBreakout>
+            <Box bgColor="ui.bg.default" py={{ base: "s", md: "m", xl: "l" }}>
+              <Box margin="auto" maxWidth="1280px" px="s">
+                <Heading
+                  size="heading6"
+                  subtitle="Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
+                  text="Example photos"
+                />
+                <Box
+                  display="grid"
+                  gap={responsiveGap}
+                  gridTemplateColumns="repeat(2, 1fr)"
+                  mb={{ base: "s", md: "m", xl: "l" }}
+                >
+                  <Image
+                    alt="Alt text"
+                    aspectRatio="twoByOne"
+                    src={getPlaceholderImage()}
+                  />
+                  <Image
+                    alt="Alt text"
+                    aspectRatio="twoByOne"
+                    src={getPlaceholderImage()}
+                  />
+                </Box>
+                <Box
+                  display="grid"
+                  gap={responsiveGap}
+                  gridTemplateColumns="repeat(4, 1fr)"
+                >
+                  <Image
+                    alt="Alt text"
+                    aspectRatio="square"
+                    src={getPlaceholderImage()}
+                  />
+                  <Image
+                    alt="Alt text"
+                    aspectRatio="square"
+                    src={getPlaceholderImage()}
+                  />
+                  <Image
+                    alt="Alt text"
+                    aspectRatio="square"
+                    src={getPlaceholderImage()}
+                  />
+                  <Image
+                    alt="Alt text"
+                    aspectRatio="square"
+                    src={getPlaceholderImage()}
+                  />
+                </Box>
+              </Box>
+            </Box>
+          </TemplateBreakout>
+          <TemplateFull>
+            <Banner
+              content="This is a full area!"
+              heading="Full"
+              variant="informative"
+            />
+          </TemplateFull>
+          <TemplateContent id="mainContentTwo">
+            <Heading
+              level="h3"
+              size="heading4"
+              text="Heading after a breakout"
+            />
+            <Text>
+              Maecenas faucibus mollis interdum. Integer posuere erat a ante
+              venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh
+              ultricies vehicula ut id elit. Cras mattis consectetur purus sit
+              amet fermentum.
+            </Text>
+            <Heading level="h4" size="heading6" text="Subsection" />
+            <Text>
+              Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non
+              metus auctor fringilla. Praesent commodo cursus magna, vel
+              scelerisque nisl consectetur et. Maecenas faucibus mollis
+              interdum.
+            </Text>
+            <Text>
+              Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
+              tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+              fermentum massa justo sit amet risus. Praesent commodo cursus
+              magna, vel scelerisque nisl consectetur et. Integer posuere erat a
+              ante venenatis dapibus posuere velit aliquet. Maecenas faucibus
+              mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum
+              faucibus dolor auctor.
+            </Text>
+          </TemplateContent>
+          <TemplateSidebar>
+            <Box display="grid" gap="s">
+              <Image
+                alt="Alt text"
+                aspectRatio="twoByOne"
+                src={getPlaceholderImage()}
+              />
+              <Image
+                alt="Alt text"
+                aspectRatio="twoByOne"
+                src={getPlaceholderImage()}
+              />
+              <Image
+                alt="Alt text"
+                aspectRatio="twoByOne"
+                src={getPlaceholderImage()}
+              />
+              <Image
+                alt="Alt text"
+                aspectRatio="twoByOne"
+                src={getPlaceholderImage()}
+              />
+            </Box>
+          </TemplateSidebar>
+          <TemplateBreakout>
+            <FeaturedContent
+              imageProps={{
+                alt: "",
+                src: getPlaceholderImage("smaller"),
+                position: "end",
+                width: "",
+              }}
+              isFullWidth
+              my="l"
+              textContent={
+                <>
+                  <Heading size="heading5">Sit Dapibus Elit</Heading>
+                  Donec id elit non mi porta gravida at eget metus. Nulla vitae
+                  elit libero, a pharetra augue. Cum sociis natoque penatibus et
+                  magnis dis parturient montes, nascetur ridiculus mus. Cras
+                  mattis consectetur purus sit amet fermentum.
+                </>
+              }
+            />
+          </TemplateBreakout>
+          <TemplateFull>
+            <Banner
+              content="This is a full area!"
+              heading="Full"
+              variant="informative"
+            />
+          </TemplateFull>
+          <TemplateFull>
+            <Banner
+              content="This is a full area!"
+              heading="Full"
+              variant="informative"
+            />
+          </TemplateFull>
+        </TemplateMain>
+        <TemplateFooter>
+          <Banner
+            content="This is a footer area!"
+            heading="Footer region"
+            variant="warning"
+          />
+        </TemplateFooter>
+      </Template>
+    </>
+  );
 };

@@ -12,7 +12,18 @@ import renderer from "react-test-renderer";
 import Button from "./Button";
 import Icon from "../Icons/Icon";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Button Accessibility", () => {
+  it("passes axe accessibility test with no id", async () => {
+    const onClick = jest.fn();
+    const { container } = render(<Button onClick={onClick}>Submit</Button>);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test", async () => {
     const onClick = jest.fn();
     const { container } = render(
@@ -45,6 +56,12 @@ describe("Button", () => {
         Submit
       </Button>
     );
+  });
+
+  it("should add an id to the component even if none is passed", () => {
+    utils.rerender(<Button onClick={onClick}>Submit</Button>);
+
+    expect(screen.getByTestId("ds-button")).toHaveAttribute("id", "test-id");
   });
 
   it("calls the onClick", () => {
@@ -91,16 +108,6 @@ describe("Button", () => {
     expect(container.querySelector("button svg")).toBeInTheDocument();
   });
 
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    // @ts-ignore: Typescript complains when a required prop is not passed, but
-    // here we don't want to pass the required prop to make sure the warning appears.
-    render(<Button>Submit</Button>);
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Button: This component's required `id` prop was not passed."
-    );
-  });
-
   it("passes a ref to the button element", () => {
     const ref = React.createRef<HTMLButtonElement>();
     const { container } = render(
@@ -131,35 +138,42 @@ describe("Button Snapshot", () => {
       .toJSON();
     const secondary = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType="secondary">
+        <Button id="button" onClick={jest.fn()} variant="secondary">
           Seconday
         </Button>
       )
       .toJSON();
     const callout = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType="callout">
+        <Button id="button" onClick={jest.fn()} variant="callout">
           Callout
         </Button>
       )
       .toJSON();
     const pill = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType="pill">
+        <Button id="button" onClick={jest.fn()} variant="pill">
           Pill
         </Button>
       )
       .toJSON();
     const text = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType="text">
+        <Button id="button" onClick={jest.fn()} variant="text">
           Text
+        </Button>
+      )
+      .toJSON();
+    const iconOnly = renderer
+      .create(
+        <Button id="button" onClick={jest.fn()} variant="iconOnly">
+          <Icon name="arrow" />
         </Button>
       )
       .toJSON();
     const noBrand = renderer
       .create(
-        <Button id="button" onClick={jest.fn()} buttonType="noBrand">
+        <Button id="button" onClick={jest.fn()} variant="noBrand">
           NoBrand
         </Button>
       )
@@ -184,6 +198,7 @@ describe("Button Snapshot", () => {
     expect(callout).toMatchSnapshot();
     expect(pill).toMatchSnapshot();
     expect(text).toMatchSnapshot();
+    expect(iconOnly).toMatchSnapshot();
     expect(noBrand).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();

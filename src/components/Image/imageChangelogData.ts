@@ -10,11 +10,26 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Replaces the error thrown with a console.warn.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes `alt` and `src` props (as HTML equivalents may be used) and updates docs.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+    ],
+  },
+  {
     date: "2025-03-20",
     version: "3.5.5",
     type: "Update",
     affects: ["Styles", "Functionality"],
-    notes: ["Adds 'fourByOne' and 'twoByThree' aspect ratios."],
+    notes: [
+      "Adds 'fourByOne' and 'twoByThree' aspect ratios.",
+      "Replaces the error thrown with a console.warn.",
+    ],
   },
   {
     date: "2025-01-16",

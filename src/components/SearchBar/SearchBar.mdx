@@ -1,18 +1,29 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./searchBarChangelogData";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
-import * as SearchBarStories from "./SearchBar.stories";
+import Banner from "../Banner/Banner";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as SearchBarStories from "./SearchBar.stories";
+import { changelogData } from "./searchBarChangelogData";
 
 <Meta of={SearchBarStories} />
 
-# SearchBar
+<ComponentDocsHeader
+  category="Form element"
+  componentName="SearchBar"
+  summary="Form container with text input and button that submits a search query"
+  versionAdded="0.0.4"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.4`    |
-| Latest            | `3.6.2`    |
+<Canvas of={SearchBarStories.WithControls} />
 
 ## Table of Contents
 
@@ -21,7 +32,6 @@ import Link from "../Link/Link";
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#with-custom-heading" target="_self">With Custom Heading</Link>}
 - {<Link href="#form-components" target="_self">Form Components</Link>}
-- {<Link href="#search-autocomplete" target="_self">Search Autocomplete</Link>}
 - {<Link href="#form-states" target="_self">Form States</Link>}
 - {<Link href="#heading-and-description-text" target="_self">Heading and Description Text</Link>}
 - {<Link href="#textinput-and-onsubmit-values" target="_self">TextInput and onSubmit Values</Link>}
@@ -31,11 +41,11 @@ import Link from "../Link/Link";
 
 <Description of={SearchBarStories} />
 
-The main wrapper element that is rendered is a `<form>` DOM element. All the
-props passed to `SearchBar` will apply to the `<form>` element and its children.
-The `SearchBar` component will render a `Select` component (optional),
-`TextInput` component, `Button` component, and `HelperErrorText` component
-based on the required props.
+The main wrapper element that is rendered is a `<form>` DOM element.
+
+Based on the props passed, the `SearchBar` component will render a `Select`
+component (optional),`TextInput` component, `Button` component, and
+`HelperErrorText` component.
 
 The `Select` dropdown narrows the search within a specific category, typically
 title or author. Toggle the `Select` through the Controls.
@@ -45,17 +55,32 @@ aria-labels are used to make these children components accessible.
 
 ## Component Props
 
-<Canvas of={SearchBarStories.WithControls} />
+The `SearchBar` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={SearchBarStories.WithControls} />
 
 ## Accessibility
 
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an `id` value for
+      accessibility requirements. If no `id` is passed, a random `id` will be
+      generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  type="recommendation"
+/>
+
 The `SearchBar` component is implemented with Reservoir `Select`, `TextInput`,
 and `Button` accessible components. This a "complete" component that renders an
 HTML `<form>` element that is submitted with a `<button>` element of `type="submit"`.
-The `<form>` element also has a `role="search"` attribute that allows
-screenreaders to pick up this entire search form.
+
+The `Searchbar`, along with any other search/filter functionality, must be wrapped in a container with role="search", for a screenreader to recognize it correctly.
+See [search in "ARIA Landmarks"](../?path=/docs/accessibility-guide-aria-landmarks--docs#search).
 
 Resources:
 
@@ -219,8 +244,7 @@ section.
 ### Custom Input Component
 
 To render a custom input component, pass the component to the `textInputElement`
-prop. This will render your custom input component such as an `Autocomplete`
-component. Check the "Search Autocomplete" example for more details.
+prop.
 
 <Source
   code={`
@@ -267,20 +291,6 @@ const helperText = "";
 />
 
 <Canvas of={SearchBarStories.HelperErrorTextComponentExample} />
-
-## Search Autocomplete
-
-While the Design System does not implement an `Autosuggest` or `Autocomplete`
-component, it does show a pattern for using the `react-autosuggest` package.
-In this example, we're using the `react-autosuggest` example found in the
-Basic Autosuggest story as the main component inside the `SearchBar` component.
-
-In order to render this custom input element in the `SearchBar` component, pass
-it in the `textInputElement` prop. Do not pass an object to the `textInputProps`
-prop since the custom input component passed in `textInputElement` will take
-precedence.
-
-<Canvas of={SearchBarStories.SearchAutocomplete} />
 
 ## Form States
 

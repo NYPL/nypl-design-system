@@ -7,6 +7,11 @@ import renderer from "react-test-renderer";
 import Heading from "../Heading/Heading";
 import SearchBar, { SelectProps, TextInputProps } from "./SearchBar";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 const optionsGroup = [
   { text: "Art", value: "art" },
   { text: "Bushes", value: "bushes" },
@@ -40,6 +45,19 @@ describe("SearchBar Accessibility", () => {
       <SearchBar
         helperText={helperText}
         id="id"
+        invalidText={invalidText}
+        labelText={labelText}
+        onSubmit={jest.fn()}
+        textInputProps={textInputProps}
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <SearchBar
+        helperText={helperText}
         invalidText={invalidText}
         labelText={labelText}
         onSubmit={jest.fn()}
@@ -91,6 +109,22 @@ describe("SearchBar", () => {
     jest.clearAllMocks();
   });
 
+  it("should add an id to the component even if none is passed", () => {
+    render(
+      <SearchBar
+        helperText={helperText}
+        labelText={labelText}
+        onSubmit={searchBarSubmit}
+        textInputProps={textInputProps}
+      />
+    );
+
+    expect(screen.getByTestId("ds-searchBar")).toHaveAttribute(
+      "id",
+      "test-id-componentWrapper"
+    );
+  });
+
   it("renders the basic form", () => {
     render(
       <SearchBar
@@ -101,8 +135,8 @@ describe("SearchBar", () => {
         textInputProps={textInputProps}
       />
     );
-    expect(screen.getByRole("search")).toBeInTheDocument();
-    expect(screen.getByRole("search")).toHaveAttribute(
+    expect(screen.getByRole("form")).toBeInTheDocument();
+    expect(screen.getByRole("form")).toHaveAttribute(
       "aria-label",
       `${labelText} - ${helperText}`
     );
@@ -399,18 +433,6 @@ describe("SearchBar", () => {
     expect(
       screen.getByPlaceholderText("Item Search (required)")
     ).toBeInTheDocument();
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <SearchBar labelText={labelText} onSubmit={jest.fn()} />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir SearchBar: This component's required `id` prop was not passed."
-    );
   });
 
   it("renders the UI snapshot correctly", () => {

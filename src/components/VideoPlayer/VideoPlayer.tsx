@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
@@ -14,16 +15,15 @@ export const VideoPlayerAspectRatiosArray = [
   "sixteenByNine",
   "square",
 ] as const;
+
 export const VideoPlayerTypesArray = ["vimeo", "youtube"] as const;
 export type VideoPlayerAspectRatios =
   typeof VideoPlayerAspectRatiosArray[number];
 export type VideoPlayerTypes = typeof VideoPlayerTypesArray[number];
-export interface VideoPlayerProps {
+export interface VideoPlayerProps extends BoxProps {
   /** Optional aspect ratio prop to control the sizing of the video player; if
    * omitted, the video player defaults to `sixteen-by-nine` */
   aspectRatio?: VideoPlayerAspectRatios;
-  /** Optional className you can add in addition to `video-player` */
-  className?: string;
   /** Optional string to set the text for a video description */
   descriptionText?: string;
   /** Optional string to set a code snippet provided by YouTube or Vimeo; the
@@ -36,8 +36,6 @@ export interface VideoPlayerProps {
   headingText?: string | JSX.Element;
   /** Optional string to set the text for a `HelperErrorText` component */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Optional title to be added to the `<iframe>` element for improved
    * accessibility; this title should describe in a few words the content of
    * the video; if omitted, a generic title will be added; if a `title`
@@ -64,7 +62,6 @@ export const VideoPlayer: ChakraComponent<
     (props, ref?) => {
       const {
         aspectRatio,
-        className,
         descriptionText,
         embedCode,
         headingText,
@@ -178,8 +175,7 @@ export const VideoPlayer: ChakraComponent<
 
       return (
         <Box
-          className={className}
-          data-testid="video-player-component"
+          data-testid="ds-videoPlayer"
           id={id}
           ref={ref}
           __css={styles.base}
@@ -189,12 +185,12 @@ export const VideoPlayer: ChakraComponent<
             <span dangerouslySetInnerHTML={{ __html: errorMessage }} />
           ) : (
             <ComponentWrapper
-              headingText={headingText ? headingText : undefined}
               descriptionText={descriptionText ? descriptionText : undefined}
+              headingText={headingText ? headingText : undefined}
               helperText={
                 helperText && showHelperInvalidText ? helperText : undefined
               }
-              id={`${id}-componentWrapper`}
+              id={id}
             >
               <Box __css={styles.inside}>{embedElement}</Box>
             </ComponentWrapper>

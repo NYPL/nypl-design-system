@@ -10,6 +10,17 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes deprecated `darkMode` prop.",
+      "Extends prop interface to include Chakra props or HTML attributes.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
+    ],
+  },
+  {
     date: "2025-04-10",
     version: "3.6.0",
     type: "Update",

@@ -13,10 +13,6 @@ const meta: Meta<typeof ProgressIndicator> = {
   title: "Components/Feedback/ProgressIndicator",
   component: ProgressIndicator,
   argTypes: {
-    darkMode: {
-      control: false,
-    },
-    id: { control: false },
     indicatorType: {
       controls: { type: "select" },
       options: progressIndicatorTypesArray,
@@ -53,7 +49,6 @@ type Story = StoryObj<typeof ProgressIndicator>;
  */
 export const WithControls: Story = {
   args: {
-    id: "progressIndicator-id",
     indicatorType: "linear",
     isIndeterminate: false,
     labelText: "Progress",

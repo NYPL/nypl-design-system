@@ -27,7 +27,7 @@ const activeFocus = (darkMode = false) => ({
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
   userSelect: "none",
-  fontWeight: "text.default",
+  fontWeight: "body.default",
   marginBottom: "0",
   marginStart: "xs",
   width: "100%",
@@ -116,7 +116,6 @@ const labelLegendText = {
   display: "inline-block",
   fontSize: "desktop.label.label1",
   fontWeight: "label.default",
-  marginBottom: "xs",
   width: "100%",
   span: {
     fontWeight: "regular",
@@ -125,10 +124,7 @@ const labelLegendText = {
     color: "dark.ui.typography.heading",
   },
 };
-// Used in form inputs that require nuanced spacing.
-const labelLegendTextSpecialSpacing = {
-  marginBottom: "xxxs",
-};
+
 // Used for the disabled state of Select and TextInput
 const selectTextInputDisabledStyles = {
   bg: "ui.disabled.secondary",
@@ -166,7 +162,6 @@ export {
   customFocusColor,
   defaultElementSizes,
   labelLegendText,
-  labelLegendTextSpecialSpacing,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
   textMargin,

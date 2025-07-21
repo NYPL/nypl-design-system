@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
 
-import * as StructuredContentStories from "./StructuredContent.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as StructuredContentStories from "./StructuredContent.stories";
 import { changelogData } from "./structuredContentChangelogData";
 
 <Meta of={StructuredContentStories} />
 
-# StructuredContent
+<ComponentDocsHeader
+  category="Page layout component"
+  componentName="StructuredContent"
+  summary="Container that provides a standardized layout for generic page content"
+  versionAdded="0.25.9"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.9`   |
-| Latest            | `3.0.0`    |
+<Canvas of={StructuredContentStories.Controls} />
 
 ## Table of Contents
 
@@ -31,7 +35,8 @@ import { changelogData } from "./structuredContentChangelogData";
 
 ## Component Props
 
-<Canvas of={StructuredContentStories.Controls} />
+`StructuredContent` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={StructuredContentStories.Controls} />
 

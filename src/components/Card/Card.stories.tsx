@@ -20,9 +20,7 @@ const meta: Meta<typeof Card> = {
   component: Card,
   argTypes: {
     backgroundColor: { control: { type: "color" } },
-    className: { control: false },
     foregroundColor: { control: { type: "color" } },
-    id: { control: false },
     imageProps: { disable: true },
     "imageProps.alt": {
       control: { type: "text" },
@@ -75,9 +73,7 @@ type Story = StoryObj<typeof Card>;
 export const WithControls: Story = {
   args: {
     backgroundColor: undefined,
-    className: undefined,
     foregroundColor: undefined,
-    id: "card-id",
     imageProps: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.aspectRatio": "square",
@@ -98,14 +94,11 @@ export const WithControls: Story = {
   render: (args) => (
     <Card
       backgroundColor={args.backgroundColor}
-      className={args.className}
       foregroundColor={args.foregroundColor}
-      id={args.id}
       imageProps={{
         alt: args["imageProps.alt"],
         aspectRatio: args["imageProps.aspectRatio"],
         component: args["imageProps.component"],
-        id: "card-image-id",
         isAtEnd: args["imageProps.isAtEnd"],
         isLazy: args["imageProps.isLazy"],
         size: args["imageProps.size"],
@@ -134,7 +127,7 @@ export const WithControls: Story = {
           Primary
         </Button>
         <Button
-          buttonType="secondary"
+          variant="secondary"
           id="main-button2"
           onClick={action("clicked")}
           type="submit"
@@ -593,7 +586,7 @@ export const FallbackImage: Story = {
         consectetur est at lobortis.
       </CardContent>
       <CardActions>
-        <Link type="button" href="#">
+        <Link type="buttonPrimary" href="#">
           Reserve
         </Link>
         <Link href="#url" type="forwards">
@@ -632,7 +625,7 @@ export const HeadingAsLink: Story = {
         clicking with a mouse.
       </CardContent>
       <CardActions>
-        <Link href="#" type="button">
+        <Link href="#" type="buttonPrimary">
           Button
         </Link>
         <Link href="#" type="forwards">
@@ -862,7 +855,7 @@ export const CardWithRightSideCardActions: Story = {
         <Button
           onClick={action("clicked")}
           id="main-button2"
-          buttonType="secondary"
+          variant="secondary"
           type="submit"
         >
           Secondary
@@ -890,7 +883,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid1-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -912,7 +904,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid2-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -934,7 +925,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid3-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -956,7 +946,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid4-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -978,7 +967,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid5-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -1000,7 +988,6 @@ export const GridExample: Story = {
         <CardHeading
           level="h3"
           id="grid6-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -1031,7 +1018,6 @@ export const StackExample: Story = {
         <CardHeading
           level="h3"
           id="stack1-heading1"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -1056,7 +1042,6 @@ export const StackExample: Story = {
         <CardHeading
           level="h3"
           id="stack2-heading2"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >
@@ -1081,7 +1066,6 @@ export const StackExample: Story = {
         <CardHeading
           level="h3"
           id="stack3-heading3"
-          noSpace
           overline="New York Public Library"
           size="heading5"
         >

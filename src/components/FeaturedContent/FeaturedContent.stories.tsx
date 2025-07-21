@@ -14,8 +14,6 @@ const meta: Meta<typeof FeaturedContent> = {
   title: "Components/Basic Elements/FeaturedContent",
   component: FeaturedContent,
   argTypes: {
-    className: { control: false },
-    id: { control: false },
     isFullWidth: {
       table: { defaultValue: { summary: "false" } },
     },
@@ -50,8 +48,6 @@ type Story = StoryObj<typeof FeaturedContent>;
 
 export const WithControls: Story = {
   args: {
-    className: undefined,
-    id: "FeaturedContent-id",
     imageProps: undefined,
     "imageProps.alt": "Alt text",
     "imageProps.position": "end",
@@ -73,14 +69,14 @@ export const WithControls: Story = {
       isFullWidth={args["isFullWidth"]}
       textContent={
         <div>
-          <Heading level="h2" overline="Featured">
+          <Heading level="h2" mb="s" overline="Featured">
             Spotlight on the Public Domain
           </Heading>
-          <p>
+          <Text mb="s">
             The New York Public Library recently enhanced access to all public
             domain items in Digital Collections so that everyone has the freedom
             to enjoy and reuse these materials in almost limitless ways.
-          </p>
+          </Text>
           <Button id="test"> Discover more </Button>
         </div>
       }
@@ -100,7 +96,7 @@ export const WithControls: Story = {
 export const LayoutVariations: Story = {
   render: () => (
     <SimpleGrid columns={1} maxWidth="1280px" margin="auto">
-      <Text noSpace>
+      <Text>
         The examples below are within a container with the max-width set to
         1280px.
       </Text>
@@ -108,15 +104,15 @@ export const LayoutVariations: Story = {
         isFullWidth={true}
         textContent={
           <div>
-            <Heading level="h2" overline="Featured">
+            <Heading level="h2" mb="s" overline="Featured">
               Full Width
             </Heading>
-            <p>
+            <Text mb="s">
               The New York Public Library recently enhanced access to all public
               domain items in Digital Collections so that everyone has the
               freedom to enjoy and reuse these materials in almost limitless
               ways.
-            </p>
+            </Text>
             <Button id="test"> Discover more </Button>
           </div>
         }
@@ -131,15 +127,15 @@ export const LayoutVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Heading level="h2" overline="Featured">
+            <Heading level="h2" mb="s" overline="Featured">
               Default Width
             </Heading>
-            <p>
+            <Text mb="s">
               The New York Public Library recently enhanced access to all public
               domain items in Digital Collections so that everyone has the
               freedom to enjoy and reuse these materials in almost limitless
               ways.
-            </p>
+            </Text>
             <Button id="test"> Discover more </Button>
           </div>
         }
@@ -161,13 +157,13 @@ export const ImagePositionVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Heading level="h2" overline="Featured">
+            <Heading level="h2" mb="s" overline="Featured">
               Image Start Position
             </Heading>
-            <p>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
               libero, a pharetra augue.
-            </p>
+            </Text>
             <Button id="test"> Discover more </Button>
           </div>
         }
@@ -182,13 +178,13 @@ export const ImagePositionVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Heading level="h2" overline="Featured">
+            <Heading level="h2" mb="s" overline="Featured">
               Image End Position
             </Heading>
-            <p>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
               libero, a pharetra augue.
-            </p>
+            </Text>
             <Button id="test"> Discover more </Button>
           </div>
         }
@@ -210,13 +206,13 @@ export const imageWidthVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Heading level="h2" overline="Featured">
+            <Heading level="h2" mb="s" overline="Featured">
               oneQuarter Image Width
             </Heading>
-            <p>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
               libero, a pharetra augue.
-            </p>
+            </Text>
             <Button id="test"> Discover more </Button>
           </div>
         }
@@ -231,13 +227,13 @@ export const imageWidthVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Heading level="h2" overline="Featured">
+            <Heading level="h2" mb="s" overline="Featured">
               oneThird Image Width
             </Heading>
-            <p>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
               libero, a pharetra augue.
-            </p>
+            </Text>
             <Button id="test"> Discover more </Button>
           </div>
         }
@@ -252,13 +248,13 @@ export const imageWidthVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Heading level="h2" overline="Featured">
+            <Heading level="h2" mb="s" overline="Featured">
               oneHalf Image Width (Default)
             </Heading>
-            <p>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
               libero, a pharetra augue.
-            </p>
+            </Text>
             <Button id="test"> Discover more </Button>
           </div>
         }
@@ -273,13 +269,13 @@ export const imageWidthVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Heading level="h2" overline="Featured">
+            <Heading level="h2" mb="s" overline="Featured">
               twoThirds Image Width
             </Heading>
-            <p>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
               libero, a pharetra augue.
-            </p>
+            </Text>
             <Button id="test"> Discover more </Button>
           </div>
         }
@@ -294,13 +290,13 @@ export const imageWidthVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Heading level="h2" overline="Featured">
+            <Heading level="h2" mb="s" overline="Featured">
               three Quarters Image Width
             </Heading>
-            <p>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Nulla vitae elit
               libero, a pharetra augue.
-            </p>
+            </Text>
             <Button id="test"> Discover more </Button>
           </div>
         }
@@ -321,15 +317,13 @@ export const textContentVariations: Story = {
       <FeaturedContent
         isFullWidth={false}
         textContent={
-          <div>
-            <Text noSpace>
-              This text should have a header. This text should have a header.
-              This text should have a header. This text should have a header.
-              This text should have a header. This text should have a header.
-              This text should have a header. This text should have a header.
-              This text should have a header.
-            </Text>
-          </div>
+          <Text>
+            This text should have a header. This text should have a header. This
+            text should have a header. This text should have a header. This text
+            should have a header. This text should have a header. This text
+            should have a header. This text should have a header. This text
+            should have a header.
+          </Text>
         }
         imageProps={{
           alt: "Alt text",
@@ -342,12 +336,10 @@ export const textContentVariations: Story = {
         isFullWidth={false}
         textContent={
           <div>
-            <Heading level="h2" size="heading5">
+            <Heading level="h2" mb="s" size="heading5">
               Not recommended
             </Heading>
-            <Text noSpace>
-              This does not fill the space and could use more.
-            </Text>
+            <Text>This does not fill the space and could use more.</Text>
           </div>
         }
         imageProps={{

@@ -3,24 +3,21 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
-import List, { listTypesArray } from "./List";
+import List, { listVariantsArray } from "./List";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
 const meta: Meta<typeof List> = {
   title: "Components/Typography & Styles/List",
   component: List,
   argTypes: {
-    children: { table: { disable: true } },
-    className: { control: false },
-    id: { control: false },
     inline: argsBooleanType(),
     listItems: { control: false },
     noStyling: argsBooleanType(),
     showRowDividers: argsBooleanType("true"),
     title: { control: { type: "text" } },
-    type: {
+    variant: {
       control: { type: "radio" },
-      options: listTypesArray,
+      options: listVariantsArray,
       table: { defaultValue: { summary: "ul" } },
     },
   },
@@ -119,18 +116,16 @@ const descriptions = [
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
-    id: "nypl-list",
     inline: false,
     listItems: undefined,
     noStyling: false,
     showRowDividers: true,
     title: "Middle-Earth Peoples",
-    type: "ul",
+    variant: "ul",
   },
   render: (args) => (
     <List {...args}>
-      {args.type !== "dl"
+      {args.variant !== "dl"
         ? itemGroups.map((item, i) => <li key={i}>{item}</li>)
         : descriptions.map((item, i) => [
             <dt key={`dt_${i}`}>{item.term}</dt>,
@@ -150,7 +145,6 @@ export const WithControls: Story = {
 // The following are additional List example Stories.
 export const DescriptionList: Story = {
   args: {
-    id: "nypl-list2",
     noStyling: false,
     showRowDividers: true,
     title: "Middle-Earth Peoples",
@@ -159,10 +153,10 @@ export const DescriptionList: Story = {
     inline: { control: false },
     showRowDividers: { control: { type: "boolean" } },
     noStyling: { control: false },
-    type: { control: false },
+    variant: { control: false },
   },
   render: (args) => (
-    <List {...args} type="dl">
+    <List {...args} variant="dl">
       {descriptions.map((item, i) => [
         <dt key={`dt_${i}`}>{item.term}</dt>,
         <dd key={`dd_${i}`}>{item.description}</dd>,
@@ -178,17 +172,16 @@ export const DescriptionList: Story = {
 };
 export const DescriptionListWithCustomHeading: Story = {
   args: {
-    id: "nypl-list3",
     noStyling: false,
     title: <Heading level="h4">Middle-Earth Peoples</Heading>,
   },
   argTypes: {
     inline: { control: false },
     noStyling: { control: false },
-    type: { control: false },
+    variant: { control: false },
   },
   render: (args) => (
-    <List {...args} type="dl">
+    <List {...args} variant="dl">
       {descriptions
         // just for a shorter example
         .slice(0, 2)
@@ -208,10 +201,10 @@ export const DescriptionListWithLinks: Story = {
   argTypes: {
     inline: { control: false },
     noStyling: { control: false },
-    type: { table: { disable: true } },
+    variant: { table: { disable: true } },
   },
   render: (args) => (
-    <List {...args} type="dl">
+    <List {...args} variant="dl">
       <dt>Authors</dt>
       <dd>
         <a href="#">Chirwa, Ephraim Wadonda, author</a>
@@ -266,7 +259,7 @@ export const ListWithDataProps: Story = {
   argTypes: {
     inline: { control: false },
     noStyling: { control: false },
-    type: { control: false },
+    variant: { control: false },
   },
-  render: (args) => <List {...args} type="dl" />,
+  render: (args) => <List {...args} variant="dl" />,
 };

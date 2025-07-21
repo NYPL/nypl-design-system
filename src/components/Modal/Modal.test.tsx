@@ -13,9 +13,8 @@ describe("Modal Accessibility", () => {
     const { container } = render(
       <ModalTrigger
         buttonText="Button Text"
-        id="modal-trigger"
         modalProps={{
-          type: "default",
+          variant: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: "Modal Heading Text",
@@ -39,7 +38,7 @@ describe("Modal Accessibility", () => {
             Go back
           </Button>
           <p>This is the body content.</p>
-          <Button buttonType="noBrand" id="custom-close2" onClick={onClose}>
+          <Button variant="noBrand" id="custom-close2" onClick={onClose}>
             This is a custom close button.
           </Button>
         </>
@@ -53,7 +52,7 @@ describe("Modal Accessibility", () => {
     };
     const { container } = render(
       <>
-        <Button id="1" onClick={onOpen} buttonType="noBrand">
+        <Button id="1" onClick={onOpen} variant="noBrand">
           Open Modal
         </Button>
         <Modal {...modalProps} />
@@ -67,9 +66,8 @@ describe("ModalTrigger", () => {
   const modalTrigger = (ref?: React.RefObject<HTMLButtonElement>) => (
     <ModalTrigger
       buttonText="Button Text"
-      id="modal-trigger"
       modalProps={{
-        type: "default",
+        variant: "default",
         bodyContent: "body text",
         closeButtonLabel: "Close Button",
         headingText: "Modal Heading Text",
@@ -80,6 +78,15 @@ describe("ModalTrigger", () => {
       ref={ref}
     />
   );
+
+  // @TODO: Chakra doesn't seem to propagate the data-testid
+  // for their Modal component.
+  // it("should not render an id if none is passed", () => {
+  //   render(modalTrigger());
+  //   screen.getByText("Button Text").click();
+
+  //   expect(screen.getByTestId("ds-modal")).not.toHaveAttribute("id");
+  // });
 
   it("renders content when it is opened", () => {
     render(modalTrigger());
@@ -104,7 +111,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "default",
+          variant: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: <Heading level="h3">Modal Heading Text</Heading>,
@@ -129,7 +136,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "confirmation",
+          variant: "confirmation",
           bodyContent: "body text",
           closeButtonLabel: "Cancel Button",
           confirmButtonLabel: "Confirm Button",
@@ -168,7 +175,7 @@ describe("ModalTrigger", () => {
         buttonText="Button Text"
         id="modal-trigger"
         modalProps={{
-          type: "default",
+          variant: "default",
           bodyContent: "body text",
           closeButtonLabel: "Close Button",
           headingText: "Modal Heading Text",
@@ -227,12 +234,21 @@ describe("useModal", () => {
   };
   const useModalComponent = (
     <>
-      <Button id="1" onClick={onOpen} buttonType="noBrand">
+      <Button id="1" onClick={onOpen} variant="noBrand">
         Open Modal
       </Button>
       <Modal {...modalProps} />
     </>
   );
+
+  // @TODO: Chakra doesn't seem to propagate the data-testid
+  // for their Modal component.
+  // it("should not render an id if none is passed", () => {
+  //   render(useModalComponent);
+  //   screen.getByText("Open Modal").click();
+
+  //   expect(screen.getByTestId("ds-modal")).not.toHaveAttribute("id");
+  // });
 
   it("renders content when it is opened", () => {
     render(useModalComponent);

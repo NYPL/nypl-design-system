@@ -10,6 +10,17 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Replaces `highlightColorTypesArray` with shared highlight colors array plus default gray, now `newsletterHighlightColorsArray`. ",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+    ],
+  },
+  {
     date: "2025-05-22",
     version: "3.6.2",
     type: "Update",

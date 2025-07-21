@@ -7,8 +7,6 @@ const meta: Meta<typeof Label> = {
   title: "Components/Form Elements/Label",
   component: Label,
   argTypes: {
-    className: { control: false },
-    id: { control: false },
     isInlined: { table: { disable: true } },
     text: {
       description: "Only used for Storybook",
@@ -25,9 +23,7 @@ type Story = StoryObj<typeof Label>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     htmlFor: "id-of-input-element",
-    id: "label-id",
     isRequired: false,
     text: "A label for a villager.",
   },

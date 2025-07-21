@@ -1,4 +1,4 @@
-import { Box, chakra, useStyleConfig } from "@chakra-ui/react";
+import { Box, BoxProps, chakra, useStyleConfig } from "@chakra-ui/react";
 import React from "react";
 
 import Icon from "../Icons/Icon";
@@ -13,7 +13,7 @@ export interface TagSetExploreDataProps {
   /** The content to display; should be a link-type component. */
   label: JSX.Element;
 }
-export interface TagSetExploreProps {
+export interface TagSetExploreProps extends BoxProps {
   /** Whether the tags should be removable. This prop is not used in the
    * "explore" variant. */
   isDismissible?: never;
@@ -26,7 +26,7 @@ export interface TagSetExploreProps {
   /** The array of data to display as tags. */
   tagSetData: TagSetExploreDataProps[];
   /** The `TagSet` variant to render; "filter" by default. */
-  type: "explore";
+  variant?: "explore";
 }
 
 /**
@@ -51,14 +51,14 @@ export const TagSetExplore: React.FC<TagSetExploreProps> = chakra(
           return (
             <TooltipWrapper key={key} label={tagSet.label}>
               <Box
-                data-testid="explore-tags"
-                id={`ts-explore-${tagSet.id}-${key}`}
+                data-testid="ds-tagSetExplore"
+                id={`${tagSet.id ? `${tagSet.id}-` : ""}tagSetExplore-${key}`}
                 __css={styles}
               >
                 {tagSet.iconName ? (
                   <Icon
                     align="left"
-                    data-testid="ts-icon"
+                    data-testid="ds-tagSetExplore-icon"
                     name={tagSet.iconName}
                     size="small"
                   />

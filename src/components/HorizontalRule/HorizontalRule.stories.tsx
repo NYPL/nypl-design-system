@@ -5,9 +5,6 @@ import HorizontalRule from "./HorizontalRule";
 const meta: Meta<typeof HorizontalRule> = {
   title: "Components/Page Layout/HorizontalRule",
   component: HorizontalRule,
-  argTypes: {
-    className: { control: false },
-  },
 };
 
 export default meta;
@@ -18,7 +15,7 @@ type Story = StoryObj<typeof HorizontalRule>;
  *  and `parameters` properties in this object.
  */
 export const WithControls: Story = {
-  args: { align: undefined, className: undefined },
+  args: { align: undefined },
   parameters: {
     design: {
       type: "figma",

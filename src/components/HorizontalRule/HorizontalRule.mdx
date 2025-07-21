@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
 
-import * as HorizontalRuleStories from "./HorizontalRule.stories";
-import Link from "../Link/Link";
-import { changelogData } from "./horizontalRuleChangelogData";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as HorizontalRuleStories from "./HorizontalRule.stories";
+import { changelogData } from "./horizontalRuleChangelogData";
 
 <Meta of={HorizontalRuleStories} />
 
-# HorizontalRule
+<ComponentDocsHeader
+  category="Page layout component"
+  componentName="HorizontalRule"
+  summary="Used to visually separate content for clarity"
+  versionAdded="0.23.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.23.0`   |
-| Latest            | `3.1.2`    |
+<Canvas of={HorizontalRuleStories.WithControls} />
 
 ## Table of Contents
 
@@ -32,7 +36,8 @@ value of "2px" will be used.
 
 ## Component Props
 
-<Canvas of={HorizontalRuleStories.WithControls} />
+`HorizontalRule` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={HorizontalRuleStories.WithControls} />
 

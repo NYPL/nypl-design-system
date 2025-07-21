@@ -3,7 +3,6 @@ import { userEvent, within, expect } from "storybook/test";
 import { useState } from "react";
 
 import SearchBar from "./SearchBar";
-import * as autoSuggestStories from "../Autosuggest/Autosuggest.stories-unresolved";
 import Heading from "../Heading/Heading";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 import { Box, Button, Flex, TextInput } from "../..";
@@ -19,8 +18,6 @@ const meta: Meta<typeof SearchBar> = {
       control: false,
       table: { defaultValue: { summary: "null" } },
     },
-    className: { control: false },
-    id: { control: false },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),
     isRequired: argsBooleanType(),
@@ -62,9 +59,7 @@ export const WithControls: Story = {
   args: {
     action: undefined,
     buttonOnClick: undefined,
-    className: undefined,
     helperText: "Search for items in Animal Crossing New Horizons",
-    id: "searchBar-id",
     invalidText: "Could not find the item :(",
     isDisabled: false,
     isInvalid: false,
@@ -193,25 +188,6 @@ export const HelperErrorTextComponentExample: Story = {
     </>
   ),
   name: "HelperErrorText Component",
-};
-
-export const SearchAutocomplete: Story = {
-  args: {
-    id: "autocomplete",
-    isDisabled: false,
-    isInvalid: false,
-    isRequired: false,
-  },
-  render: (args) => (
-    <div style={{ minHeight: "150px" }}>
-      <SearchBar
-        onSubmit={() => {}}
-        textInputElement={autoSuggestStories.SearchBarExample()}
-        helperText="Select your home library. Start by typing the name of the library. Try 'ba'."
-        {...args}
-      />
-    </div>
-  ),
 };
 
 export const ErrorState: Story = {

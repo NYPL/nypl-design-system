@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   Text as ChakraText,
   chakra,
   useStyleConfig,
@@ -20,11 +21,7 @@ export const textSizesArray = [
 ] as const;
 export type TextSizes = typeof textSizesArray[number];
 
-export interface TextProps {
-  /** Additional class name to render in the `Text` component. */
-  className?: string;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+export interface TextProps extends BoxProps {
   /** Optional prop used to show bolded text */
   isBold?: boolean;
   /** Optional prop used to show itlicized text */
@@ -35,10 +32,6 @@ export interface TextProps {
   isUppercase?: boolean;
   /** Optional prop used to show lower case text */
   isLowercase?: boolean;
-  /** Optional prop used to remove default spacing */
-  noSpace?: boolean;
-  /** Optional prop used to explicitly set the ARIA role */
-  role?: string;
   /** Optional prop to control the text styling */
   size?: TextSizes;
 }
@@ -60,8 +53,6 @@ export const Text: ChakraComponent<
         isCapitalized,
         isUppercase,
         isLowercase,
-        noSpace,
-        role,
         size = "default",
         ...rest
       } = props;
@@ -72,15 +63,7 @@ export const Text: ChakraComponent<
         isCapitalized,
         isUppercase,
         isLowercase,
-        noSpace,
       });
-
-      if (!children) {
-        console.warn(
-          "NYPL Reservoir Text: No children were passed and the `Text` component " +
-            "will not render correctly."
-        );
-      }
 
       // Warnings about the `isBold` prop
       if (isBold && size === "caption") {
@@ -131,9 +114,9 @@ export const Text: ChakraComponent<
       return (
         <ChakraText
           className={className}
+          data-testid="ds-text"
           id={id}
           ref={ref}
-          role={role}
           sx={styles}
           {...rest}
         >

@@ -12,6 +12,16 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Extends prop definition to include Chakra's `BoxProps`",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
+    ],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
     type: "Bug Fix",
     affects: ["Functionality"],
     notes: ["Fixes the array of checkbox items to return with unique keys."],

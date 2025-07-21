@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Major update to component and styles based on the Template TAD. Updates include simplified code and exported components, responsive sidebar and spacing, and accomodations for content needing a narrower container.",
+      "Extends prop interface to include Chakra props or HTML attributes.",
+    ],
+  },
+  {
     date: "2024-12-05",
     version: "3.5.0",
     type: "Bug Fix",

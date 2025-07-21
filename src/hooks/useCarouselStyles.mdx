@@ -1,13 +1,25 @@
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 
+import ComponentDocsHeader from "../utils/components/ComponentDocsHeader";
+
 <Meta title="Hooks/useCarouselStyles" />
 
-# useCarouselStyles
+<ComponentDocsHeader
+  category="Reservoir Custom Hook"
+  componentName="useCarouselStyles"
+  summary="Provides functions used for carousel-like components"
+  versionAdded="0.25.2"
+  versionLatest="3.0.0"
+/>
 
-| Hook Version | DS Version |
-| ------------ | ---------- |
-| Added        | `0.25.2`   |
-| Latest       | `3.0.0`    |
+<Source
+  code={`
+import {
+  useCarouselStyles
+} from "@nypl/design-system-react-components";
+`}
+  language="jsx"
+/>
 
 This custom hook, inspired by this [codesandbox example](https://codesandbox.io/s/fxjeo),
 exposes functions used for carousel-like components that have sliding features.

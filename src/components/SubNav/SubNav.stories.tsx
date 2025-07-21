@@ -5,21 +5,16 @@ import Hero from "../Hero/Hero";
 import Icon from "../Icons/Icon";
 import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
 
-import SubNav, {
-  SubNavButton,
-  SubNavLink,
-  actionBackgroundColorsArray,
-  highlightColorsArray,
-} from "./SubNav";
+import SubNav, { SubNavButton, SubNavLink } from "./SubNav";
+import { bgColorsArray, highlightColorsArray } from "../../theme/sharedTypes";
 
 const meta: Meta<typeof SubNav> = {
   title: "Components/Navigation/SubNav",
   component: SubNav,
   argTypes: {
-    className: { control: false },
     actionBackgroundColor: {
       control: "select",
-      options: actionBackgroundColorsArray,
+      options: bgColorsArray,
       defaultValue: { summary: "blogs" },
     },
     highlightColor: {
@@ -27,7 +22,6 @@ const meta: Meta<typeof SubNav> = {
       options: highlightColorsArray,
       defaultValue: { summary: "blogs" },
     },
-    id: { control: false },
     secondaryActions: {},
     primaryActions: {},
   },
@@ -39,10 +33,8 @@ const subNavButtonOnClick = (msg: string = "the button was clicked") => {
 
 export const WithControls: Story = {
   args: {
-    className: undefined,
     actionBackgroundColor: undefined,
     highlightColor: undefined,
-    id: "subnav-with-controls",
   },
 
   render: (args: any) => (
@@ -480,7 +472,7 @@ export const Placement: Story = {
             text="Research Catalog"
           />
         }
-        heroType="tertiary"
+        variant="tertiary"
       />
       <SubNav
         actionBackgroundColor="section.research.primary-05"
@@ -526,7 +518,6 @@ export const Placement: Story = {
       <VStack align="left" mx="auto" my="l" px="s" gap="s" maxWidth="1280px">
         <Heading
           id="placement-page-heading"
-          noSpace
           size="heading3"
           subtitle="Vestibulum id ligula porta felis euismod semper praesent vel scelerisque nisl consectetur et commodo"
           text="Search the catalog"

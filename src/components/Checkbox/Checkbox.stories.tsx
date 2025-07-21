@@ -9,9 +9,7 @@ const meta: Meta<typeof Checkbox> = {
   title: "Components/Form Elements/Checkbox",
   component: Checkbox,
   argTypes: {
-    className: { control: false },
     helperText: { control: { type: "text" } },
-    id: { control: false },
     invalidText: { control: { type: "text" } },
     isChecked: argsBooleanType(),
     isDisabled: argsBooleanType(),
@@ -36,9 +34,7 @@ type Story = StoryObj<typeof Checkbox>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     helperText: "This is the helper text!",
-    id: "checkbox_id",
     invalidText: "This is the error text :(",
     isChecked: undefined,
     isDisabled: false,
@@ -82,7 +78,7 @@ export const AdditionalStates: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Focused
         </Heading>
         <Checkbox
@@ -91,7 +87,7 @@ export const AdditionalStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Errored
         </Heading>
         <HStack spacing="l">
@@ -105,7 +101,7 @@ export const AdditionalStates: Story = {
         </HStack>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Disabled
         </Heading>
         <HStack spacing="l">
@@ -119,7 +115,7 @@ export const AdditionalStates: Story = {
         </HStack>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           With Helper Text
         </Heading>
         <Checkbox
@@ -130,7 +126,7 @@ export const AdditionalStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           With Errored Text
         </Heading>
         <Checkbox

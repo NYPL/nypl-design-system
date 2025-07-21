@@ -18,7 +18,6 @@ const meta: Meta<typeof DatePicker> = {
     jest: ["DatePicker.test.tsx"],
   },
   argTypes: {
-    className: { control: false },
     dateFormat: {
       table: { defaultValue: { summary: "yyyy-MM-dd" } },
     },
@@ -27,7 +26,6 @@ const meta: Meta<typeof DatePicker> = {
       options: datePickerTypesArray,
       table: { defaultValue: { summary: "full" } },
     },
-    id: { control: false },
     isDateRange: {
       table: { defaultValue: { summary: "false" } },
     },
@@ -70,13 +68,11 @@ type Story = StoryObj<typeof DatePicker>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     dateFormat: "yyyy-MM-dd",
     dateType: "full",
     helperText: "Note that the Library may be closed on Sundays.",
     helperTextFrom: "Select start date.",
     helperTextTo: "Select end date.",
-    id: "datePicker-id",
     initialDate: `1/1/${currentYear}`,
     initialDateTo: `12/31/${currentYear}`,
     invalidText: "Please select a valid date.",

@@ -3,11 +3,13 @@
 exports[`FilterBarPopup renders the UI snapshots correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-defaultFilterBarNoButtons"
+  data-testid="ds-filterBarPopup"
+  id="defaultFilterBarNoButtons"
 >
   <button
     className="chakra-button css-1llumfr"
-    id="filter-bar-defaultFilterBarNoButtons-show-filters"
+    data-testid="ds-button"
+    id="defaultFilterBarNoButtons-show-filters"
     onClick={[Function]}
     type="button"
   >
@@ -19,11 +21,13 @@ exports[`FilterBarPopup renders the UI snapshots correctly 1`] = `
 exports[`FilterBarPopup renders the UI snapshots correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-filterBarWithClearAllButton"
+  data-testid="ds-filterBarPopup"
+  id="filterBarWithClearAllButton"
 >
   <button
     className="chakra-button css-1llumfr"
-    id="filter-bar-filterBarWithClearAllButton-show-filters"
+    data-testid="ds-button"
+    id="filterBarWithClearAllButton-show-filters"
     onClick={[Function]}
     type="button"
   >
@@ -35,11 +39,13 @@ exports[`FilterBarPopup renders the UI snapshots correctly 2`] = `
 exports[`FilterBarPopup renders the UI snapshots correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-filterBarWithSubmitAllButton"
+  data-testid="ds-filterBarPopup"
+  id="filterBarWithSubmitAllButton"
 >
   <button
     className="chakra-button css-1llumfr"
-    id="filter-bar-filterBarWithSubmitAllButton-show-filters"
+    data-testid="ds-button"
+    id="filterBarWithSubmitAllButton-show-filters"
     onClick={[Function]}
     type="button"
   >
@@ -51,11 +57,13 @@ exports[`FilterBarPopup renders the UI snapshots correctly 3`] = `
 exports[`FilterBarPopup renders the UI snapshots correctly 4`] = `
 <div
   className="css-1xdhyk6"
-  id="filter-bar-filterBarWithButtons"
+  data-testid="ds-filterBarPopup"
+  id="filterBarWithButtons"
 >
   <button
     className="chakra-button css-1llumfr"
-    id="filter-bar-filterBarWithButtons-show-filters"
+    data-testid="ds-button"
+    id="filterBarWithButtons-show-filters"
     onClick={[Function]}
     type="button"
   >

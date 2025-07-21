@@ -277,9 +277,6 @@ const meta: Meta<typeof MultiSelect> = {
     defaultItemsVisible: {
       table: { defaultValue: { summary: "5" } },
     },
-    id: {
-      control: false,
-    },
     closeOnBlur: {
       table: { defaultValue: { summary: "false" } },
     },
@@ -320,7 +317,6 @@ type Story = StoryObj<typeof MultiSelect>;
 export const withControls: Story = {
   args: {
     buttonText: "MultiSelect",
-    id: "multi-select-id",
     closeOnBlur: true,
     isBlockElement: true,
     isDefaultOpen: false,
@@ -380,7 +376,7 @@ export const visibleListItems: Story = {
     <>
       <Stack align="left" spacing="l">
         <div>
-          <Heading level="h3" size="heading6" text="Default" />
+          <Heading level="h3" mb="s" size="heading6" text="Default" />
           <MultiSelectStory
             id="multi-select-id-1"
             isBlockElement
@@ -389,7 +385,7 @@ export const visibleListItems: Story = {
           />
         </div>
         <div>
-          <Heading level="h3" size="heading6" text="Custom" />
+          <Heading level="h3" mb="s" size="heading6" text="Custom" />
           <MultiSelectStory
             defaultItemsVisible={8}
             id="multi-select-id-2"
@@ -401,6 +397,7 @@ export const visibleListItems: Story = {
         <div>
           <Heading
             level="h3"
+            mb="s"
             size="heading6"
             text="Default with Nested Items"
           />
@@ -456,7 +453,7 @@ export const searchInputField: Story = {
   render: () => (
     <Stack direction="row" align="left" spacing="xl">
       <div>
-        <Heading level="h3" size="heading6" text="Search (scrollable)" />
+        <Heading level="h3" mb="s" size="heading6" text="Search (scrollable)" />
         <MultiSelectStory
           id="multi-select-id-7"
           isBlockElement
@@ -470,7 +467,7 @@ export const searchInputField: Story = {
         />
       </div>
       <div>
-        <Heading level="h3" size="heading6" text="Search (expands)" />
+        <Heading level="h3" mb="s" size="heading6" text="Search (expands)" />
         <MultiSelectStory
           id="multi-select-id-8"
           isBlockElement
@@ -502,7 +499,7 @@ export const isBlockElement: Story = {
     <>
       <Stack align="left" spacing="l">
         <div>
-          <Heading level="h3" size="heading6" text="true" />
+          <Heading level="h3" mb="s" size="heading6" text="true" />
           <Stack align="left" spacing="s">
             <Stack align="left">
               <MultiSelectStory
@@ -529,6 +526,7 @@ export const isBlockElement: Story = {
         <div>
           <Heading
             level="h3"
+            mb="s"
             size="heading6"
             text="false (default configuration)"
           />
@@ -570,6 +568,7 @@ export const width: Story = {
         <div>
           <Heading
             level="h3"
+            mb="s"
             size="heading6"
             text="full (default configuration)"
           />
@@ -580,7 +579,7 @@ export const width: Story = {
           />
         </div>
         <div>
-          <Heading level="h3" size="heading6" text="fitContent" />
+          <Heading level="h3" mb="s" size="heading6" text="fitContent" />
           <MultiSelectStory
             id="multi-select-id-15"
             isBlockElement
@@ -646,7 +645,11 @@ const MultiSelectWithControlsStory = (args) => {
         setActionName("onChange");
       }}
       onMixedStateChange={(e) => {
-        onMixedStateChange(e.target.id, multiSelectId, args.items);
+        onMixedStateChange({
+          parentId: e.target.id,
+          multiSelectId: multiSelectId,
+          items: args.items,
+        });
         setActionName("onMixedStateChange");
       }}
       onClear={() => {
@@ -703,7 +706,11 @@ const MultiSelectStory = ({
         setActionName("onChange");
       }}
       onMixedStateChange={(e) => {
-        onMixedStateChange(e.target.id, id, items);
+        onMixedStateChange({
+          parentId: e.target.id,
+          multiSelectId: id,
+          items,
+        });
         setActionName("onMixedStateChange");
       }}
       onClear={() => {
@@ -747,7 +754,11 @@ const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
           setActionName("onChange");
         }}
         onMixedStateChange={(e) => {
-          onMixedStateChange(e.target.id, "ms-group-1", items);
+          onMixedStateChange({
+            parentId: e.target.id,
+            multiSelectId: "ms-group-1",
+            items,
+          });
           setActionName("onMixedStateChange");
         }}
         onClear={() => {
@@ -766,7 +777,11 @@ const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
           setActionName("onChange");
         }}
         onMixedStateChange={(e) => {
-          onMixedStateChange(e.target.id, "ms-group-2", items);
+          onMixedStateChange({
+            parentId: e.target.id,
+            multiSelectId: "ms-group-2",
+            items,
+          });
           setActionName("onMixedStateChange");
         }}
         onClear={() => {
@@ -785,7 +800,11 @@ const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
           setActionName("onChange");
         }}
         onMixedStateChange={(e) => {
-          onMixedStateChange(e.target.id, "ms-group-3", items);
+          onMixedStateChange({
+            parentId: e.target.id,
+            multiSelectId: "ms-group-3",
+            items,
+          });
           setActionName("onMixedStateChange");
         }}
         onClear={() => {

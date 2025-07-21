@@ -1,19 +1,29 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./modalChangelogData";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
-import * as ModalStories from "./Modal.stories";
-import { ModalTrigger, useModal } from "./Modal";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as ModalStories from "./Modal.stories";
+import { changelogData } from "./modalChangelogData";
+import { ModalTrigger, useModal } from "./Modal";
 
 <Meta of={ModalStories} />
 
-# Modal
+<ComponentDocsHeader
+  category="Overlays & Switchers component"
+  componentName="Modal"
+  summary="Overlay used to display important information that requires user interaction"
+  versionAdded="0.1.0"
+  versionLatest="3.6.2"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.1.0`    |
-| Latest            | `3.6.2`    |
+<Canvas of={ModalStories.WithControls} />
 
 ## Table of Contents
 
@@ -134,7 +144,7 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
   buttonText="Button Text"
   id="modal-trigger"
   modalProps={{
-    type: "default",
+    variant: "default",
     bodyContent: "body text",
     closeButtonLabel: "Close Button",
     headingText: (
@@ -164,8 +174,6 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
 
 ## ModalTrigger Component Props
 
-<Canvas of={ModalStories.WithControls} />
-
 <ArgTypes of={ModalStories.WithControls} />
 
 ## useModal
@@ -188,7 +196,7 @@ import { useModal } from "@nypl/design-system-react-components";
 export const ModalStory = (args) => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
-    type: "default",
+    variant: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>
@@ -213,7 +221,7 @@ export const ModalStory = (args) => {
         <Button id="1" onClick={onOpen}>
           Open Modal
         </Button>
-        <Button buttonType="secondary" id="2" onClick={onOpen}>
+        <Button variant="secondary" id="2" onClick={onOpen}>
           I can open the modal, too
         </Button>
       </ButtonGroup>
@@ -261,7 +269,7 @@ Notes:
     buttonText="Confirm"
     id="modal-confirmation"
     modalProps={{
-      type: "confirmation",
+      variant: "confirmation",
       bodyContent: "The action is happening",
       closeButtonLabel: "Cancel action",
       confirmButtonLabel: "Confirm action",
@@ -323,7 +331,7 @@ additional icon.
   code={`
 // Example for the ModalTrigger component.
 modalProps={{
-  type: "default",
+  variant: "default",
   bodyContent: "body text",
   closeButtonLabel: "Close Button",
   headingText: (

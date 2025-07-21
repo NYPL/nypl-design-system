@@ -3,16 +3,20 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-do
 import * as NotificationStories from "./Notification.stories";
 import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import { changelogData } from "./notificationChangelogData";
 
 <Meta of={NotificationStories} />
 
-# Notification
+<ComponentDocsHeader
+  category="Feedback component"
+  componentName="Notification"
+  summary="Callout that displays important messages"
+  versionAdded="0.23.2"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.23.2`   |
-| Latest            | `3.6.1`    |
+<Canvas of={NotificationStories.WithControls} />
 
 ## Table of Contents
 
@@ -37,7 +41,8 @@ within a parent element.
 
 ## Component Props
 
-<Canvas of={NotificationStories.WithControls} />
+`Notification` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={NotificationStories.WithControls} />
 
@@ -52,10 +57,9 @@ landmark element is acceptable.
 
 ### ARIA Label
 
-Every `Notification` component must have a unique `aria-label` attribute. This
-is set through the `ariaLabel` prop. A unique `aria-label` value, along with the
-`aside` HTML landmark element, helps screen readers better navigate a page with
-multiple `Notification`s.
+Every `Notification` component must be passed a unique `aria-label` attribute.
+This value, along with the `aside` HTML landmark element, helps screen readers
+better navigate a page with multiple `Notification`s.
 
 ### Icons
 
@@ -67,7 +71,7 @@ inside the button, an `aria-label` attribute is added to the button.
 ### Language Patterns
 
 When the `Notification` component is rendered, the text within the component
-should always include wording that aligns with the type of notitication that is
+should always include wording that aligns with the variant of notitication that is
 being delivered. For example, if the notification is a warning or error, the
 heading or body copy within the notification should use the words `"warning"` or
 `"error"` and provide a clear description of the existing or potential isssue.

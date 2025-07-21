@@ -2,18 +2,22 @@ import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-do
 
 import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as MultiSelectStories from "./MultiSelect.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as MultiSelectStories from "./MultiSelect.stories";
 import { changelogData } from "./multiSelectChangelogData";
 
 <Meta of={MultiSelectStories} />
 
-# MultiSelect
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="MultiSelect"
+  summary="Grouping of related checkboxes rendered in a menu format that allows a user to select one or more options"
+  versionAdded="1.4.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.4.0`    |
-| Latest            | `3.6.1`    |
+<Canvas of={MultiSelectStories.withControls} />
 
 ## Table of Contents
 
@@ -43,8 +47,6 @@ import { changelogData } from "./multiSelectChangelogData";
 ## Component Props
 
 The `MultiSelect` renders a non-hierarchical list of items to select from.
-
-<Canvas of={MultiSelectStories.withControls} />
 
 <Source
   code={`
@@ -80,9 +82,25 @@ The `MultiSelect` renders a non-hierarchical list of items to select from.
   language="jsx"
 />
 
+`MultiSelect` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
+
 <ArgTypes of={MultiSelectStories.withControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an `id` value for
+      accessibility requirements. If no `id` is passed, a random `id` will be
+      generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  type="recommendation"
+/>
 
 The `MultiSelect` component is composed using the DS `Accordion` and `Checkbox`
 components and its accessibility compliance is derived from what is already
@@ -191,7 +209,7 @@ counting the items to display.
       <code>listOverflow="expand"</code>.
     </>
   }
-  type="informative"
+  variant="informative"
 />
 
 <Canvas of={MultiSelectStories.visibleListItems} />
@@ -421,7 +439,7 @@ the component to allow users to search the available checkbox items.
       greater, enable the search functionality and use scroll for the overflow.
     </>
   }
-  type="recommendation"
+  variant="recommendation"
 />
 
 <Canvas of={MultiSelectStories.searchInputField} />
@@ -477,7 +495,7 @@ by passing the `itemCount` data property to the `items` prop.
       used to disable the option.
     </>
   }
-  type="recommendation"
+  variant="recommendation"
 />
 
 <Canvas of={MultiSelectStories.itemCountListItems} />
@@ -607,7 +625,7 @@ elements will always be identical.
       always render with <code>width</code> set to <code>full</code>.
     </>
   }
-  type="informative"
+  variant="informative"
 />
 
 <Canvas of={MultiSelectStories.width} />
@@ -741,8 +759,8 @@ The `useMultiSelect` hook also provides an `onClearAll` function that can be
 used to clear all the selected checkboxes across all `MultiSelect` components.
 The `MultiSelect` component does _NOT_ have an `onClearAll` prop. Instead, the
 `onClearAll` function should be invoked in a separate button or action.
-Alternatively, use the `MultiSelectGroup` or `FilterBar` (name TBD) components
-in future releases.
+Alternatively, use the `MultiSelectGroup`, `FilterBarInline`, or
+`FilterBarPopup` components.
 
 <Banner
   content={
@@ -751,7 +769,7 @@ in future releases.
       <code>MultiSelect</code> component a unique <code>id</code>.
     </>
   }
-  type="informative"
+  variant="informative"
 />
 
 <Canvas of={MultiSelectStories.InAGroup} />
@@ -777,7 +795,11 @@ function MultiSelectGroupExample() {
           setActionName("onChange");
         }}
         onMixedStateChange={(e) => {
-          onMixedStateChange(e.target.id, "ms-group-1", items);
+          onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: "ms-group-1",
+              items: items,
+            });
           setActionName("onMixedStateChange");
         }}
         onClear={() => {
@@ -819,8 +841,8 @@ Below is an exaple of the expected state shape of `selectedItems`:
 ## MultiSelect NextJS routing implementation
 
 This is helpful for when several `MultiSelect` components are rendered inside a
-`FilterBar` component. The `MultiSelect` component's `id` can be used to get
-items for a specific slice of the state.
+`FilterBarInline` or `FilterBarPopup` component. The `MultiSelect` component's
+`id` can be used to get items for a specific slice of the state.
 
 <Source
   code={`

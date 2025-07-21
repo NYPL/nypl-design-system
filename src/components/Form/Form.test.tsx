@@ -6,9 +6,19 @@ import renderer from "react-test-renderer";
 import Form, { FormRow, FormField } from "./Form";
 import TextInput from "../TextInput/TextInput";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Form Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(<Form id="form" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(<Form />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
@@ -27,6 +37,12 @@ describe("Form Accessibility", () => {
 });
 
 describe("Form", () => {
+  it("should add an id to the component even if none is passed", () => {
+    render(<Form />);
+    const form = screen.getByTestId("ds-form");
+    expect(form).toHaveAttribute("id", "test-id");
+  });
+
   it("renders a <form> element", () => {
     render(<Form id="form" />);
     expect(screen.getByTestId("ds-form")).toBeInTheDocument();
@@ -145,21 +161,6 @@ describe("Form", () => {
       container.querySelector("#formId-child1-grandchild1")
     ).toBeInTheDocument();
   });
-
-  it("logs a warning if a child of `FormRow` is not a `FormField`", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <Form id="form">
-        <FormRow>
-          <div>Not a FormField</div>
-        </FormRow>
-      </Form>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir FormRow: Children must be `FormField` components."
-    );
-  });
-
   it("calls the onSubmit function", () => {
     const onSubmit = jest.fn();
     render(
@@ -175,24 +176,6 @@ describe("Form", () => {
     expect(onSubmit).toHaveBeenCalledTimes(0);
     fireEvent.submit(form);
     expect(onSubmit).toHaveBeenCalledTimes(1);
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <Form>
-        <FormRow>
-          <FormField>
-            <TextInput id="textInput" labelText="Input Field" />
-          </FormField>
-        </FormRow>
-      </Form>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Form: This component's required `id` prop was not passed."
-    );
   });
 
   it("passes a ref to the form element", () => {

@@ -11,7 +11,6 @@ const meta: Meta<typeof SimpleGrid> = {
   title: "Components/Page Layout/SimpleGrid",
   component: SimpleGrid,
   argTypes: {
-    className: { control: false },
     columns: {
       control: { min: 2, type: "number" },
     },
@@ -20,7 +19,6 @@ const meta: Meta<typeof SimpleGrid> = {
       table: { defaultValue: { summary: "grid.l" } },
       options: gridGapsArray,
     },
-    id: { control: false },
   },
 };
 
@@ -33,10 +31,8 @@ type Story = StoryObj<typeof SimpleGrid>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     columns: undefined,
     gap: "grid.l",
-    id: "simpleGrid-id",
   },
   parameters: {
     design: {

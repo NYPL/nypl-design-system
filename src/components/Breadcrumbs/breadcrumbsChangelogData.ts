@@ -10,6 +10,20 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Replaces the error thrown with a console.warn.",
+      "Changes theme name from `CustomBreadcrumbs` to `ReservoirBreadcrumbs` for consistency.",
+      "Replaces positional function arguments with objects for `tooltipWrapperOrText` and `getElementsFromData`.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Renames `breadcrumbsType` to `variant`.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+    ],
+  },
+  {
     date: "2025-01-30",
     version: "3.5.3",
     type: "Update",

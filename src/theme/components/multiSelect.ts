@@ -125,7 +125,7 @@ const MultiSelect = defineMultiStyleConfig({
         overflow: "unset !important",
         borderTopWidth: "1px",
         marginTop: "-1px",
-        position: isBlockElement ? null : "absolute",
+        position: { base: null, md: isBlockElement ? null : "absolute" },
         zIndex: 10001,
         ...multiSelectWidths[width],
       },

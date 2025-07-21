@@ -1,21 +1,25 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
 
 import Banner from "../Banner/Banner";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import List from "../List/List";
 import * as SubNavStories from "./SubNav.stories";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./subNavChangelogData";
 
 <Meta of={SubNavStories} />
 
-# SubNav
+<ComponentDocsHeader
+  category="Navigation component"
+  componentName="SubNav"
+  summary="Renders a group of secondary navigation and action items"
+  versionAdded="3.5.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `3.5.0`    |
-| Latest            | `3.6.1`    |
+<Canvas of={SubNavStories.WithControls} />
 
 ## Table of Contents
 
@@ -37,7 +41,8 @@ import { changelogData } from "./subNavChangelogData";
 
 ## Component Props
 
-<Canvas of={SubNavStories.WithControls} />
+`SubNav` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={SubNavStories.WithControls} />
 
@@ -67,7 +72,7 @@ the DS `Button` and `Link` components, respectively, with the addition of the
 <Source
   code={`
 <SubNavButton
-  buttonType="text"
+  variant="text"
   id="subnav-button"
   onClick={onClickHandler}
   screenreaderOnlyText="for NYPL.org"
@@ -107,7 +112,7 @@ import {
   primaryActions={
     <>
       <SubNavButton
-        buttonType="text"
+        variant="text"
         id="subnav-button"
         onClick={onClickHandler}
         screenreaderOnlyText="for NYPL.org"
@@ -142,7 +147,7 @@ current state of the page or the current page.
       "selected" will cause accessibility problems.
     </>
   }
-  type="warning"
+  variant="warning"
 />
 
 <Source
@@ -194,7 +199,7 @@ button label or link text.
       when they have a strong association with the label.
     </>
   }
-  type="recommendation"
+  variant="recommendation"
 />
 
 ### SubNavButton
@@ -202,7 +207,7 @@ button label or link text.
 <Source
   code={`
 <SubNavButton
-  buttonType="text"
+  variant="text"
   id="subnav-button-account"
   onClick={onClickHandler}
   screenreaderOnlyText="for NYPL.org"
@@ -288,7 +293,7 @@ highlight color and `section.education.primary-05` for the background color.
       default colors.
     </>
   }
-  type="warning"
+  variant="warning"
 />
 
 <Canvas of={SubNavStories.CustomColors} />
@@ -309,7 +314,7 @@ than the space available. The secondary actions will never scroll.
       </List>
     </>
   }
-  type="recommendation"
+  variant="recommendation"
 />
 
 <Canvas of={SubNavStories.HorizontalScrolling} />

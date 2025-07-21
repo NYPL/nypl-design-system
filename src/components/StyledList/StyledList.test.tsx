@@ -34,6 +34,17 @@ describe("StyledList Accessibility", () => {
 });
 
 describe("StyledList", () => {
+  it("should not render an id if none is passed", () => {
+    render(
+      <StyledList>
+        <li>Mahi-mahi</li>
+        <li>Golden trout</li>
+      </StyledList>
+    );
+    const styledList = screen.getByTestId("ds-styledList");
+    expect(styledList).not.toHaveAttribute("id");
+  });
+
   it("renders unordered list", () => {
     render(
       <StyledList>
@@ -73,20 +84,6 @@ describe("StyledList", () => {
     );
   });
 
-  it("consoles a warning when you pass children that aren't <li>s", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <StyledList>
-        <span>Mahi-mahi</span>
-        <span>Golden trout</span>
-        <span>Rainbowfish</span>
-      </StyledList>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir StyledList: Direct children of `StyledList` (ul) must be `<li>`s."
-    );
-  });
-
   it("Renders the UI snapshot correctly", () => {
     const unorderedChildren = renderer
       .create(
@@ -110,12 +107,6 @@ describe("StyledList", () => {
     const defaultTextSize = renderer
       .create(<StyledList listItems={fishArray} textSize="caption" />)
       .toJSON();
-    const miniTextSize = renderer
-      .create(<StyledList listItems={fishArray} textSize="mini" />)
-      .toJSON();
-    const tagTextSize = renderer
-      .create(<StyledList listItems={fishArray} textSize="tag" />)
-      .toJSON();
     const withChakraProps = renderer
       .create(
         <StyledList
@@ -137,8 +128,6 @@ describe("StyledList", () => {
     expect(unorderedJSXArray).toMatchSnapshot();
     expect(captionTextSize).toMatchSnapshot();
     expect(defaultTextSize).toMatchSnapshot();
-    expect(miniTextSize).toMatchSnapshot();
-    expect(tagTextSize).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });

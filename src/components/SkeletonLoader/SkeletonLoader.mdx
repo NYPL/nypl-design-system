@@ -3,16 +3,20 @@ import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/block
 import * as SkeletonLoaderStories from "./SkeletonLoader.stories";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./skeletonLoaderChangelogData";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 
 <Meta of={SkeletonLoaderStories} />
 
-# SkeletonLoader
+<ComponentDocsHeader
+  category="Feedback component"
+  componentName="SkeletonLoader"
+  summary="Placeholder to indicate loading state"
+  versionAdded="0.17.3"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.17.3`   |
-| Latest            | `3.6.1`    |
+<Canvas of={SkeletonLoaderStories.WithControls} />
 
 ## Table of Contents
 
@@ -36,7 +40,8 @@ to better view the example. The default value is `100%`.
 
 ## Component Props
 
-<Canvas of={SkeletonLoaderStories.WithControls} />
+The `SkeletonLoader` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={SkeletonLoaderStories.WithControls} />
 

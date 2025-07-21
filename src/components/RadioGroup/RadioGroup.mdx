@@ -1,18 +1,23 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
 
-import * as RadioGroupStories from "./RadioGroup.stories";
-import Link from "../Link/Link";
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as RadioGroupStories from "./RadioGroup.stories";
 import { changelogData } from "./radioGroupChangelogData";
 
 <Meta of={RadioGroupStories} />
 
-# RadioGroup
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="RadioGroup"
+  summary="Grouping of related Radio components"
+  versionAdded="0.25.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.0`   |
-| Latest            | `3.5.2`    |
+<Canvas of={RadioGroupStories.Controls} />
 
 ## Table of Contents
 
@@ -31,11 +36,25 @@ import { changelogData } from "./radioGroupChangelogData";
 
 ## Component Props
 
-<Canvas of={RadioGroupStories.Controls} />
+The `RadioGroup` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={RadioGroupStories.Controls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an `id` value for
+      accessibility requirements. If no `id` is passed, a random `id` will be
+      generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  type="recommendation"
+/>
 
 The `RadioGroup` renders a group of `Radio` components along with a title that
 can be visually hidden through the `showLabel` prop.

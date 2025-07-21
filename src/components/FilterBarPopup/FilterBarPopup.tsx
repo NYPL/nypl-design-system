@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Modal,
@@ -14,22 +15,20 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, useRef } from "react";
+
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 import { LayoutTypes } from "../../helpers/types";
 import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
 import { FilterBarItemsType } from "../FilterBarInline/FilterBarInline";
+import { useSafeId } from "../../hooks/useSafeId";
 
-export interface FilterBarPopupProps {
-  /** The className of the FilterBarInline. */
-  className?: string;
+export interface FilterBarPopupProps extends BoxProps {
   /** Optional string value used to set the text for a `Heading` component, or
    * a DS Heading component that can be passed in.
    */
   heading?: string | JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Only used for internal purposes. */
   isOpen?: boolean;
   /** Function for the global `Clear Filters` button. If passed the `Clear Filters` button will render. */
@@ -79,14 +78,13 @@ export const FilterBarPopup: ChakraComponent<
         totalResults,
         ...rest
       } = props;
-
+      const mainId = useSafeId(id);
       const styles = useMultiStyleConfig("FilterBarPopup", {
         width: "full",
       });
 
       const generalHeadingProps = {
         size: "heading5" as HeadingSizes,
-        noSpace: true,
       };
       // If `heading is a string, then we want the default heading,
       // otherwise, use whatever the user passed in.
@@ -121,11 +119,11 @@ export const FilterBarPopup: ChakraComponent<
       };
 
       return (
-        <Box id={`filter-bar-${id}`} ref={ref} {...rest}>
+        <Box id={mainId} data-testid="ds-filterBarPopup" ref={ref} {...rest}>
           <Button
-            id={`filter-bar-${id}-show-filters`}
-            buttonType="secondary"
+            id={`${mainId}-show-filters`}
             onClick={finalOnOpen}
+            variant="secondary"
             width={{ base: "100%", md: "fit-content" }}
           >
             {`Show filters`}
@@ -154,21 +152,21 @@ export const FilterBarPopup: ChakraComponent<
               <ModalFooter sx={styles.modalFooter}>
                 <ButtonGroup layout="column" buttonWidth="full">
                   <Button
-                    id={`filter-bar-${id}-see-results`}
-                    buttonType="primary"
+                    id={`${mainId}-see-results`}
                     type="submit"
                     onClick={onSubmit ? onSubmitAndClose : finalOnClose}
                     ref={showResultsButtonRef}
+                    variant="primary"
                   >
                     {`Show ${totalResults ?? ""} results`}
                   </Button>
                   {onClear && (
                     <Button
-                      id={`filter-bar-${id}-clear`}
-                      buttonType="text"
+                      id={`${mainId}-clear`}
                       type="reset"
                       onClick={onClearAndFocus}
                       textAlign="center"
+                      variant="text"
                     >
                       Clear all filters
                     </Button>

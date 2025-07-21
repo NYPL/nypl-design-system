@@ -42,7 +42,7 @@ export const ComponentChangelogTable = (
           });
     const affectsFormatted = affects.sort().join(", ");
     const notesItems = notes.map((item, i) => <li key={i}>{item}</li>);
-    const notesList = <List type="ul">{notesItems}</List>;
+    const notesList = <List variant="ul">{notesItems}</List>;
     const rowData = [dateFormatted, version, type, affectsFormatted, notesList];
     return rowData;
   });

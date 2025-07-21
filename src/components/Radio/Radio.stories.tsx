@@ -9,8 +9,6 @@ const meta: Meta<typeof Radio> = {
   title: "Components/Form Elements/Radio",
   component: Radio,
   argTypes: {
-    className: { control: false },
-    id: { control: false },
     isChecked: { control: false },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),
@@ -32,9 +30,7 @@ type Story = StoryObj<typeof Radio>;
  */
 export const Controls: Story = {
   args: {
-    className: undefined,
     helperText: "This is the helper text!",
-    id: "radio-id",
     invalidText: "This is the error text :(",
     isChecked: undefined,
     isDisabled: false,
@@ -62,13 +58,13 @@ export const BrowserStates: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Checked
         </Heading>
         <Radio labelText="I am checked" id="checked" isChecked value="1" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Focused
         </Heading>
         <Radio
@@ -77,7 +73,7 @@ export const BrowserStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Errored
         </Heading>
         <HStack>
@@ -91,7 +87,7 @@ export const BrowserStates: Story = {
         </HStack>
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Disabled
         </Heading>
         <HStack>
@@ -112,7 +108,7 @@ export const HelperAndErrorText: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Helper Text
         </Heading>
         <Radio
@@ -123,7 +119,7 @@ export const HelperAndErrorText: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Error Text
         </Heading>
         <Radio

@@ -1,18 +1,23 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as MultiSelectGroupStories from "./MultiSelectGroup.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as MultiSelectGroupStories from "./MultiSelectGroup.stories";
 import { changelogData } from "./multiSelectGroupChangelogData";
 
 <Meta of={MultiSelectGroupStories} />
 
-# MultiSelectGroup
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="MultiSelectGroup"
+  summary="Grouping of related MultiSelect components"
+  versionAdded="1.4.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.4.0`    |
-| Latest            | `3.6.2`    |
+<Canvas of={MultiSelectGroupStories.WithControls} />
 
 ## Table of Contents
 
@@ -30,11 +35,25 @@ import { changelogData } from "./multiSelectGroupChangelogData";
 
 ## Component Props
 
-<Canvas of={MultiSelectGroupStories.WithControls} />
+`MultiSelectGroup` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={MultiSelectGroupStories.WithControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an `id` value for
+      accessibility requirements. If no `id` is passed, a random `id` will be
+      generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  type="recommendation"
+/>
 
 The `MultiSelectGroup` renders a group of `MultiSelect` components that are
 wrapped in a `<fieldset>` element. The `<fieldset>` element renders a `<legend>`
@@ -86,11 +105,11 @@ argument value should be passed to the `width` prop of the `MultiSelect`.
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onClear={() => onClear(multiSelect.id)}
           onMixedStateChange={(e) =>
-            onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            )
+            onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }
           selectedItems={selectedItems}
           width={multiSelectWidth}

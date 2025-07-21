@@ -50,6 +50,11 @@ describe("Image", () => {
     "QpLjFbruJsPcGSCp6ET6DCrNQeWFsRVaM2Co99ewZjLuY42kdpBEXjcw9HPcTjKKZw141sK" +
     "BNOoFfNMueYaHtNjNI";
 
+  it("should not render an id if none is passed", () => {
+    render(<Image alt="" src="test.png" />);
+    expect(screen.getByRole("img")).not.toHaveAttribute("id");
+  });
+
   // @TODO - test when it does come into view.
   it("does not render an image src when `isLazy` is true until it is 'inView'", () => {
     const src = getPlaceholderImage("smaller", 0);
@@ -93,10 +98,10 @@ describe("Image", () => {
     expect(screen.getByText("credit")).toBeInTheDocument();
   });
 
-  it("throws error when alt text is too long", () => {
-    expect(() =>
-      render(<Image src="test.png" alt={tooManyChars} />)
-    ).toThrowError(
+  it("logs an error when alt text is too long", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Image src="test.png" alt={tooManyChars} />);
+    expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Image: Alt text must be less than 300 characters."
     );
   });

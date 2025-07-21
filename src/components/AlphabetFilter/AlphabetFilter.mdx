@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
 
-import * as AlphabetFilterStories from "./AlphabetFilter.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as AlphabetFilterStories from "./AlphabetFilter.stories";
 import { changelogData } from "./alphabetFilterChangelogData";
 
 <Meta of={AlphabetFilterStories} />
 
-# AlphabetFilter
+<ComponentDocsHeader
+  category="Navigation component"
+  componentName="AlphabetFilter"
+  summary="Navigation element used to apply an alphabetic filter to a list of items"
+  versionAdded="1.2.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.2.0`    |
-| Latest            | `3.5.4`    |
+<Canvas of={AlphabetFilterStories.WithControls} />
 
 ## Table of Contents
 
@@ -44,7 +48,8 @@ component is addressing and the full list of items should be displayed.
 
 ## Component Props
 
-<Canvas of={AlphabetFilterStories.WithControls} />
+The `AlphabetFilter` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={AlphabetFilterStories.WithControls} />
 

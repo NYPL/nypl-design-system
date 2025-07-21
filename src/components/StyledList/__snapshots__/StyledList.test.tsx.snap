@@ -3,6 +3,7 @@
 exports[`StyledList Renders the UI snapshot correctly 1`] = `
 <ul
   className="css-1xdhyk6"
+  data-testid="ds-styledList"
 >
   <li>
     Mahi-mahi
@@ -22,6 +23,7 @@ exports[`StyledList Renders the UI snapshot correctly 1`] = `
 exports[`StyledList Renders the UI snapshot correctly 2`] = `
 <ul
   className="css-1xdhyk6"
+  data-testid="ds-styledList"
 >
   <li>
     Mahi-mahi
@@ -41,6 +43,7 @@ exports[`StyledList Renders the UI snapshot correctly 2`] = `
 exports[`StyledList Renders the UI snapshot correctly 3`] = `
 <ul
   className="css-1xdhyk6"
+  data-testid="ds-styledList"
 >
   <li>
     <b>
@@ -68,6 +71,7 @@ exports[`StyledList Renders the UI snapshot correctly 3`] = `
 exports[`StyledList Renders the UI snapshot correctly 4`] = `
 <ul
   className="css-1xdhyk6"
+  data-testid="ds-styledList"
 >
   <li>
     Mahi-mahi
@@ -87,6 +91,7 @@ exports[`StyledList Renders the UI snapshot correctly 4`] = `
 exports[`StyledList Renders the UI snapshot correctly 5`] = `
 <ul
   className="css-1xdhyk6"
+  data-testid="ds-styledList"
 >
   <li>
     Mahi-mahi
@@ -105,7 +110,9 @@ exports[`StyledList Renders the UI snapshot correctly 5`] = `
 
 exports[`StyledList Renders the UI snapshot correctly 6`] = `
 <ul
-  className="css-1xdhyk6"
+  className="css-kle7zy"
+  data-testid="ds-styledList"
+  id="chakra"
 >
   <li>
     Mahi-mahi
@@ -125,45 +132,7 @@ exports[`StyledList Renders the UI snapshot correctly 6`] = `
 exports[`StyledList Renders the UI snapshot correctly 7`] = `
 <ul
   className="css-1xdhyk6"
->
-  <li>
-    Mahi-mahi
-  </li>
-  <li>
-    Golden trout
-  </li>
-  <li>
-    Rainbowfish
-  </li>
-  <li>
-    Suckerfish
-  </li>
-</ul>
-`;
-
-exports[`StyledList Renders the UI snapshot correctly 8`] = `
-<ul
-  className="css-kle7zy"
-  id="chakra"
->
-  <li>
-    Mahi-mahi
-  </li>
-  <li>
-    Golden trout
-  </li>
-  <li>
-    Rainbowfish
-  </li>
-  <li>
-    Suckerfish
-  </li>
-</ul>
-`;
-
-exports[`StyledList Renders the UI snapshot correctly 9`] = `
-<ul
-  className="css-1xdhyk6"
+  data-testid="other"
   id="other"
 >
   <li>

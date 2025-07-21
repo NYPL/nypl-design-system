@@ -1,9 +1,14 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
 import MultiSelectGroup from "./MultiSelectGroup";
 import MultiSelect from "../MultiSelect/MultiSelect";
+
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
 
 const multiSelectItems = [
   {
@@ -58,7 +63,6 @@ describe("MulitSelectGroup Accessibility", () => {
     const handleChangeMock = jest.fn();
     const { container } = render(
       <MultiSelectGroup
-        id="MultiSelectGroup"
         labelText="MultiSelectGroup example"
         showLabel={true}
         multiSelectWidth="full"
@@ -112,6 +116,39 @@ describe("MulitSelectGroup Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+
+  it("should add an id to the component even if none is passed", () => {
+    const handleChangeMock = jest.fn();
+    render(
+      <MultiSelectGroup
+        labelText="MultiSelectGroup example"
+        showLabel={true}
+        multiSelectWidth="full"
+        renderMultiSelect={() => {
+          return multiSelectItems.map((multiSelectItem) => (
+            <MultiSelect
+              key={multiSelectItem.id}
+              id={multiSelectItem.id}
+              items={multiSelectItem.items}
+              selectedItems={{}}
+              isDefaultOpen={false}
+              isSearchable={false}
+              isBlockElement={false}
+              buttonText="MultiSelect"
+              defaultItemsVisible={defaultItemsVisible}
+              onChange={handleChangeMock}
+              onClear={() => "onClear"}
+            />
+          ));
+        }}
+      />
+    );
+    expect(screen.getByTestId("ds-multiSelectGroup")).toHaveAttribute(
+      "id",
+      "test-id-fieldset"
+    );
+  });
+
   it("<legend> element is available in the DOM when 'showLabel' prop is set to true or false", () => {
     const handleChangeMock = jest.fn();
     const { container, rerender } = render(

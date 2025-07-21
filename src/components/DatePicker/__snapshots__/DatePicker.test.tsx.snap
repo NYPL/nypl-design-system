@@ -2,23 +2,27 @@
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 <div
-  className="css-7ajbp2"
-  id="basic-form-field"
+  className="css-7xozux"
+  data-testid="ds-datePicker"
+  id="basic"
 >
   <fieldset
     className="css-13wylk3"
-    id="basic"
+    data-testid="ds-fieldset"
+    id="basic-fieldset"
   >
     <legend>
       Select the full date you want to visit NYPL
     </legend>
     <div
       className="css-1vpopwd"
-      id="basic-form-row"
+      data-testid="ds-simpleGrid"
+      id="basic-formRow"
     >
       <div
         className="css-7ajbp2"
-        id="basic-form-row-grandchild0"
+        data-testid="ds-simpleGrid"
+        id="basic-formRow-grandchild0"
       >
         <div
           className="react-datepicker-wrapper"
@@ -33,15 +37,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             />
             <div
               className="css-1u8qly9"
-              id="basic-start-wrapper"
+              data-testid="ds-textInput"
+              id="basic-datePicker-start-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
               readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
-                htmlFor="basic-start"
-                id="basic-start-label"
+                data-testid="ds-label"
+                htmlFor="basic-datePicker-start-textInput"
+                id="basic-datePicker-start-textInput-label"
               >
                 From
               </label>
@@ -51,9 +57,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 <input
                   aria-label="From, Press tab to access the calendar."
                   autoComplete={null}
-                  className="chakra-input css-0"
+                  className="chakra-input css-1xdhyk6"
                   disabled={false}
-                  id="basic-start"
+                  id="basic-datePicker-start-textInput"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -72,7 +78,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
       </div>
       <div
         className="css-7ajbp2"
-        id="basic-form-row-grandchild1"
+        data-testid="ds-simpleGrid"
+        id="basic-formRow-grandchild1"
       >
         <div
           className="react-datepicker-wrapper"
@@ -87,15 +94,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
             />
             <div
               className="css-1u8qly9"
-              id="basic-end-wrapper"
+              data-testid="ds-textInput"
+              id="basic-datePicker-end-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
               readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
-                htmlFor="basic-end"
-                id="basic-end-label"
+                data-testid="ds-label"
+                htmlFor="basic-datePicker-end-textInput"
+                id="basic-datePicker-end-textInput-label"
               >
                 To
               </label>
@@ -105,9 +114,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
                 <input
                   aria-label="To, Press tab to access the calendar."
                   autoComplete={null}
-                  className="chakra-input css-0"
+                  className="chakra-input css-1xdhyk6"
                   disabled={false}
-                  id="basic-end"
+                  id="basic-datePicker-end-textInput"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -128,9 +137,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
-      id="basic-helper-text"
+      data-testid="ds-helperErrorText"
+      id="basic-helperText"
     >
       <div
         className="css-0"
@@ -142,23 +152,27 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 <div
-  className="css-7ajbp2"
-  id="no-label-form-field"
+  className="css-7xozux"
+  data-testid="ds-datePicker"
+  id="no-label"
 >
   <fieldset
     className="css-13wylk3"
-    id="no-label"
+    data-testid="ds-fieldset"
+    id="no-label-fieldset"
   >
     <legend>
       Select the date you want to visit NYPL
     </legend>
     <div
       className="css-1vpopwd"
-      id="no-label-form-row"
+      data-testid="ds-simpleGrid"
+      id="no-label-formRow"
     >
       <div
         className="css-7ajbp2"
-        id="no-label-form-row-grandchild0"
+        data-testid="ds-simpleGrid"
+        id="no-label-formRow-grandchild0"
       >
         <div
           className="react-datepicker-wrapper"
@@ -173,15 +187,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             />
             <div
               className="css-1u8qly9"
-              id="no-label-start-wrapper"
+              data-testid="ds-textInput"
+              id="no-label-datePicker-start-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
               readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
-                htmlFor="no-label-start"
-                id="no-label-start-label"
+                data-testid="ds-label"
+                htmlFor="no-label-datePicker-start-textInput"
+                id="no-label-datePicker-start-textInput-label"
               >
                 From
               </label>
@@ -191,9 +207,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 <input
                   aria-label="From, Press tab to access the calendar."
                   autoComplete={null}
-                  className="chakra-input css-0"
+                  className="chakra-input css-1xdhyk6"
                   disabled={false}
-                  id="no-label-start"
+                  id="no-label-datePicker-start-textInput"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -212,7 +228,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
       </div>
       <div
         className="css-7ajbp2"
-        id="no-label-form-row-grandchild1"
+        data-testid="ds-simpleGrid"
+        id="no-label-formRow-grandchild1"
       >
         <div
           className="react-datepicker-wrapper"
@@ -227,15 +244,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
             />
             <div
               className="css-1u8qly9"
-              id="no-label-end-wrapper"
+              data-testid="ds-textInput"
+              id="no-label-datePicker-end-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
               readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
-                htmlFor="no-label-end"
-                id="no-label-end-label"
+                data-testid="ds-label"
+                htmlFor="no-label-datePicker-end-textInput"
+                id="no-label-datePicker-end-textInput-label"
               >
                 To
               </label>
@@ -245,9 +264,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
                 <input
                   aria-label="To, Press tab to access the calendar."
                   autoComplete={null}
-                  className="chakra-input css-0"
+                  className="chakra-input css-1xdhyk6"
                   disabled={false}
-                  id="no-label-end"
+                  id="no-label-datePicker-end-textInput"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -268,9 +287,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
-      id="no-label-helper-text"
+      data-testid="ds-helperErrorText"
+      id="no-label-helperText"
     >
       <div
         className="css-0"
@@ -282,23 +302,27 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 <div
-  className="css-7ajbp2"
-  id="custom-format-form-field"
+  className="css-7xozux"
+  data-testid="ds-datePicker"
+  id="custom-format"
 >
   <fieldset
     className="css-13wylk3"
-    id="custom-format"
+    data-testid="ds-fieldset"
+    id="custom-format-fieldset"
   >
     <legend>
       Select the date you want to visit NYPL
     </legend>
     <div
       className="css-1vpopwd"
-      id="custom-format-form-row"
+      data-testid="ds-simpleGrid"
+      id="custom-format-formRow"
     >
       <div
         className="css-7ajbp2"
-        id="custom-format-form-row-grandchild0"
+        data-testid="ds-simpleGrid"
+        id="custom-format-formRow-grandchild0"
       >
         <div
           className="react-datepicker-wrapper"
@@ -313,15 +337,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             />
             <div
               className="css-1u8qly9"
-              id="custom-format-start-wrapper"
+              data-testid="ds-textInput"
+              id="custom-format-datePicker-start-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
               readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
-                htmlFor="custom-format-start"
-                id="custom-format-start-label"
+                data-testid="ds-label"
+                htmlFor="custom-format-datePicker-start-textInput"
+                id="custom-format-datePicker-start-textInput-label"
               >
                 From
               </label>
@@ -331,9 +357,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                 <input
                   aria-label="From, Press tab to access the calendar."
                   autoComplete={null}
-                  className="chakra-input css-0"
+                  className="chakra-input css-1xdhyk6"
                   disabled={false}
-                  id="custom-format-start"
+                  id="custom-format-datePicker-start-textInput"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -352,7 +378,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
       </div>
       <div
         className="css-7ajbp2"
-        id="custom-format-form-row-grandchild1"
+        data-testid="ds-simpleGrid"
+        id="custom-format-formRow-grandchild1"
       >
         <div
           className="react-datepicker-wrapper"
@@ -367,15 +394,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
             />
             <div
               className="css-1u8qly9"
-              id="custom-format-end-wrapper"
+              data-testid="ds-textInput"
+              id="custom-format-datePicker-end-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
               readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
-                htmlFor="custom-format-end"
-                id="custom-format-end-label"
+                data-testid="ds-label"
+                htmlFor="custom-format-datePicker-end-textInput"
+                id="custom-format-datePicker-end-textInput-label"
               >
                 To
               </label>
@@ -385,9 +414,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
                 <input
                   aria-label="To, Press tab to access the calendar."
                   autoComplete={null}
-                  className="chakra-input css-0"
+                  className="chakra-input css-1xdhyk6"
                   disabled={false}
-                  id="custom-format-end"
+                  id="custom-format-datePicker-end-textInput"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -408,9 +437,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
-      id="custom-format-helper-text"
+      data-testid="ds-helperErrorText"
+      id="custom-format-helperText"
     >
       <div
         className="css-0"
@@ -422,23 +452,27 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 <div
-  className="css-7ajbp2"
-  id="invalid-form-field"
+  className="css-7xozux"
+  data-testid="ds-datePicker"
+  id="invalid"
 >
   <fieldset
     className="css-13wylk3"
-    id="invalid"
+    data-testid="ds-fieldset"
+    id="invalid-fieldset"
   >
     <legend>
       Select the date you want to visit NYPL
     </legend>
     <div
       className="css-1vpopwd"
-      id="invalid-form-row"
+      data-testid="ds-simpleGrid"
+      id="invalid-formRow"
     >
       <div
         className="css-7ajbp2"
-        id="invalid-form-row-grandchild0"
+        data-testid="ds-simpleGrid"
+        id="invalid-formRow-grandchild0"
       >
         <div
           className="react-datepicker-wrapper"
@@ -453,15 +487,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             />
             <div
               className="css-1u8qly9"
-              id="invalid-start-wrapper"
+              data-testid="ds-textInput"
+              id="invalid-datePicker-start-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
               readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
-                htmlFor="invalid-start"
-                id="invalid-start-label"
+                data-testid="ds-label"
+                htmlFor="invalid-datePicker-start-textInput"
+                id="invalid-datePicker-start-textInput-label"
               >
                 From
               </label>
@@ -469,13 +505,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 className="css-79elbk"
               >
                 <input
-                  aria-describedby="invalid-start-helperText"
+                  aria-describedby="invalid-datePicker-start-textInput-helperText"
                   aria-invalid={true}
                   aria-label="From, Press tab to access the calendar."
                   autoComplete={null}
-                  className="chakra-input css-0"
+                  className="chakra-input css-1xdhyk6"
                   disabled={false}
-                  id="invalid-start"
+                  id="invalid-datePicker-start-textInput"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -493,7 +529,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 aria-live="polite"
                 className="css-1xdhyk6"
                 data-isinvalid={true}
-                id="invalid-start-helperText"
+                data-testid="ds-helperErrorText"
+                id="invalid-datePicker-start-textInput-helperErrorText"
               >
                 <div
                   className="css-0"
@@ -510,7 +547,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
       </div>
       <div
         className="css-7ajbp2"
-        id="invalid-form-row-grandchild1"
+        data-testid="ds-simpleGrid"
+        id="invalid-formRow-grandchild1"
       >
         <div
           className="react-datepicker-wrapper"
@@ -525,15 +563,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
             />
             <div
               className="css-1u8qly9"
-              id="invalid-end-wrapper"
+              data-testid="ds-textInput"
+              id="invalid-datePicker-end-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
               readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
-                htmlFor="invalid-end"
-                id="invalid-end-label"
+                data-testid="ds-label"
+                htmlFor="invalid-datePicker-end-textInput"
+                id="invalid-datePicker-end-textInput-label"
               >
                 To
               </label>
@@ -541,13 +581,13 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 className="css-79elbk"
               >
                 <input
-                  aria-describedby="invalid-end-helperText"
+                  aria-describedby="invalid-datePicker-end-textInput-helperText"
                   aria-invalid={true}
                   aria-label="To, Press tab to access the calendar."
                   autoComplete={null}
-                  className="chakra-input css-0"
+                  className="chakra-input css-1xdhyk6"
                   disabled={false}
-                  id="invalid-end"
+                  id="invalid-datePicker-end-textInput"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -565,7 +605,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 aria-live="polite"
                 className="css-1xdhyk6"
                 data-isinvalid={true}
-                id="invalid-end-helperText"
+                data-testid="ds-helperErrorText"
+                id="invalid-datePicker-end-textInput-helperErrorText"
               >
                 <div
                   className="css-0"
@@ -584,9 +625,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
-      id="invalid-helper-text"
+      data-testid="ds-helperErrorText"
+      id="invalid-helperText"
     >
       <div
         className="css-0"
@@ -603,23 +645,27 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 <div
-  className="css-7ajbp2"
-  id="disabled-form-field"
+  className="css-7xozux"
+  data-testid="ds-datePicker"
+  id="disabled"
 >
   <fieldset
     className="css-13wylk3"
-    id="disabled"
+    data-testid="ds-fieldset"
+    id="disabled-fieldset"
   >
     <legend>
       Select the date you want to visit NYPL
     </legend>
     <div
       className="css-1vpopwd"
-      id="disabled-form-row"
+      data-testid="ds-simpleGrid"
+      id="disabled-formRow"
     >
       <div
         className="css-7ajbp2"
-        id="disabled-form-row-grandchild0"
+        data-testid="ds-simpleGrid"
+        id="disabled-formRow-grandchild0"
       >
         <div
           className="react-datepicker-wrapper"
@@ -634,15 +680,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             />
             <div
               className="css-1u8qly9"
-              id="disabled-start-wrapper"
+              data-testid="ds-textInput"
+              id="disabled-datePicker-start-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
               readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
-                htmlFor="disabled-start"
-                id="disabled-start-label"
+                data-testid="ds-label"
+                htmlFor="disabled-datePicker-start-textInput"
+                id="disabled-datePicker-start-textInput-label"
               >
                 From
               </label>
@@ -652,9 +700,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 <input
                   aria-label="From, Press tab to access the calendar."
                   autoComplete={null}
-                  className="chakra-input css-0"
+                  className="chakra-input css-1xdhyk6"
                   disabled={true}
-                  id="disabled-start"
+                  id="disabled-datePicker-start-textInput"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -673,7 +721,8 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
       </div>
       <div
         className="css-7ajbp2"
-        id="disabled-form-row-grandchild1"
+        data-testid="ds-simpleGrid"
+        id="disabled-formRow-grandchild1"
       >
         <div
           className="react-datepicker-wrapper"
@@ -688,15 +737,17 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
             />
             <div
               className="css-1u8qly9"
-              id="disabled-end-wrapper"
+              data-testid="ds-textInput"
+              id="disabled-datePicker-end-textInput-componentWrapper"
               onBlur={[Function]}
               onKeyDown={[Function]}
               readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
-                htmlFor="disabled-end"
-                id="disabled-end-label"
+                data-testid="ds-label"
+                htmlFor="disabled-datePicker-end-textInput"
+                id="disabled-datePicker-end-textInput-label"
               >
                 To
               </label>
@@ -706,9 +757,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
                 <input
                   aria-label="To, Press tab to access the calendar."
                   autoComplete={null}
-                  className="chakra-input css-0"
+                  className="chakra-input css-1xdhyk6"
                   disabled={true}
-                  id="disabled-end"
+                  id="disabled-datePicker-end-textInput"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onClick={[Function]}
@@ -729,9 +780,10 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
     <div
       aria-atomic={true}
       aria-live="polite"
-      className="css-1xdhyk6"
+      className="css-xy0wy2"
       data-isinvalid={false}
-      id="disabled-helper-text"
+      data-testid="ds-helperErrorText"
+      id="disabled-helperText"
     >
       <div
         className="css-0"
@@ -748,12 +800,14 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 <div
-  className="css-7ajbp2"
-  id="basic-form-field"
+  className="css-7xozux"
+  data-testid="ds-datePicker"
+  id="basic"
 >
   <div
     className="css-7ajbp2"
-    id="basic-start-form"
+    data-testid="ds-simpleGrid"
+    id="basic-startForm"
   >
     <div
       className="react-datepicker-wrapper"
@@ -768,15 +822,17 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
         />
         <div
           className="css-1u8qly9"
-          id="basic-start-wrapper"
+          data-testid="ds-textInput"
+          id="basic-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
           readOnly={false}
         >
           <label
             className="css-1xdhyk6"
-            htmlFor="basic-start"
-            id="basic-start-label"
+            data-testid="ds-label"
+            htmlFor="basic-datePicker-start-textInput"
+            id="basic-datePicker-start-textInput-label"
           >
             Select the full date you want to visit NYPL
           </label>
@@ -786,9 +842,9 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
             <input
               aria-label="Select the full date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
-              className="chakra-input css-0"
+              className="chakra-input css-1xdhyk6"
               disabled={false}
-              id="basic-start"
+              id="basic-datePicker-start-textInput"
               onBlur={[Function]}
               onChange={[Function]}
               onClick={[Function]}
@@ -808,21 +864,24 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
-    id="basic-helper-text"
+    data-testid="ds-helperErrorText"
+    id="basic-helperText"
   />
 </div>
 `;
 
 exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 <div
-  className="css-7ajbp2"
-  id="no-label-form-field"
+  className="css-7xozux"
+  data-testid="ds-datePicker"
+  id="no-label"
 >
   <div
     className="css-7ajbp2"
-    id="no-label-start-form"
+    data-testid="ds-simpleGrid"
+    id="no-label-startForm"
   >
     <div
       className="react-datepicker-wrapper"
@@ -837,7 +896,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
         />
         <div
           className="css-1u8qly9"
-          id="no-label-start-wrapper"
+          data-testid="ds-textInput"
+          id="no-label-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
           readOnly={false}
@@ -848,9 +908,9 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
             <input
               aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
-              className="chakra-input css-0"
+              className="chakra-input css-1xdhyk6"
               disabled={false}
-              id="no-label-start"
+              id="no-label-datePicker-start-textInput"
               onBlur={[Function]}
               onChange={[Function]}
               onClick={[Function]}
@@ -870,21 +930,24 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
-    id="no-label-helper-text"
+    data-testid="ds-helperErrorText"
+    id="no-label-helperText"
   />
 </div>
 `;
 
 exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 <div
-  className="css-7ajbp2"
-  id="custom-format-form-field"
+  className="css-7xozux"
+  data-testid="ds-datePicker"
+  id="custom-format"
 >
   <div
     className="css-7ajbp2"
-    id="custom-format-start-form"
+    data-testid="ds-simpleGrid"
+    id="custom-format-startForm"
   >
     <div
       className="react-datepicker-wrapper"
@@ -899,15 +962,17 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
         />
         <div
           className="css-1u8qly9"
-          id="custom-format-start-wrapper"
+          data-testid="ds-textInput"
+          id="custom-format-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
           readOnly={false}
         >
           <label
             className="css-1xdhyk6"
-            htmlFor="custom-format-start"
-            id="custom-format-start-label"
+            data-testid="ds-label"
+            htmlFor="custom-format-datePicker-start-textInput"
+            id="custom-format-datePicker-start-textInput-label"
           >
             Select the date you want to visit NYPL
           </label>
@@ -917,9 +982,9 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
             <input
               aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
-              className="chakra-input css-0"
+              className="chakra-input css-1xdhyk6"
               disabled={false}
-              id="custom-format-start"
+              id="custom-format-datePicker-start-textInput"
               onBlur={[Function]}
               onChange={[Function]}
               onClick={[Function]}
@@ -939,21 +1004,24 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
-    id="custom-format-helper-text"
+    data-testid="ds-helperErrorText"
+    id="custom-format-helperText"
   />
 </div>
 `;
 
 exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 <div
-  className="css-7ajbp2"
-  id="invalid-form-field"
+  className="css-7xozux"
+  data-testid="ds-datePicker"
+  id="invalid"
 >
   <div
     className="css-7ajbp2"
-    id="invalid-start-form"
+    data-testid="ds-simpleGrid"
+    id="invalid-startForm"
   >
     <div
       className="react-datepicker-wrapper"
@@ -968,15 +1036,17 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
         />
         <div
           className="css-1u8qly9"
-          id="invalid-start-wrapper"
+          data-testid="ds-textInput"
+          id="invalid-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
           readOnly={false}
         >
           <label
             className="css-1xdhyk6"
-            htmlFor="invalid-start"
-            id="invalid-start-label"
+            data-testid="ds-label"
+            htmlFor="invalid-datePicker-start-textInput"
+            id="invalid-datePicker-start-textInput-label"
           >
             Select the date you want to visit NYPL
           </label>
@@ -984,13 +1054,13 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             className="css-79elbk"
           >
             <input
-              aria-describedby="invalid-start-helperText"
+              aria-describedby="invalid-datePicker-start-textInput-helperText"
               aria-invalid={true}
               aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
-              className="chakra-input css-0"
+              className="chakra-input css-1xdhyk6"
               disabled={false}
-              id="invalid-start"
+              id="invalid-datePicker-start-textInput"
               onBlur={[Function]}
               onChange={[Function]}
               onClick={[Function]}
@@ -1008,7 +1078,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={true}
-            id="invalid-start-helperText"
+            data-testid="ds-helperErrorText"
+            id="invalid-datePicker-start-textInput-helperErrorText"
           >
             <div
               className="css-0"
@@ -1026,21 +1097,24 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
-    id="invalid-helper-text"
+    data-testid="ds-helperErrorText"
+    id="invalid-helperText"
   />
 </div>
 `;
 
 exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 <div
-  className="css-7ajbp2"
-  id="disabled-form-field"
+  className="css-7xozux"
+  data-testid="ds-datePicker"
+  id="disabled"
 >
   <div
     className="css-7ajbp2"
-    id="disabled-start-form"
+    data-testid="ds-simpleGrid"
+    id="disabled-startForm"
   >
     <div
       className="react-datepicker-wrapper"
@@ -1055,15 +1129,17 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
         />
         <div
           className="css-1u8qly9"
-          id="disabled-start-wrapper"
+          data-testid="ds-textInput"
+          id="disabled-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
           readOnly={false}
         >
           <label
             className="css-1xdhyk6"
-            htmlFor="disabled-start"
-            id="disabled-start-label"
+            data-testid="ds-label"
+            htmlFor="disabled-datePicker-start-textInput"
+            id="disabled-datePicker-start-textInput-label"
           >
             Select the date you want to visit NYPL
           </label>
@@ -1071,12 +1147,12 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             className="css-79elbk"
           >
             <input
-              aria-describedby="disabled-start-helperText"
+              aria-describedby="disabled-datePicker-start-textInput-helperText"
               aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
-              className="chakra-input css-0"
+              className="chakra-input css-1xdhyk6"
               disabled={true}
-              id="disabled-start"
+              id="disabled-datePicker-start-textInput"
               onBlur={[Function]}
               onChange={[Function]}
               onClick={[Function]}
@@ -1094,7 +1170,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            id="disabled-start-helperText"
+            data-testid="ds-helperErrorText"
+            id="disabled-datePicker-start-textInput-helperErrorText"
           >
             <div
               className="css-0"
@@ -1112,21 +1189,24 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
-    id="disabled-helper-text"
+    data-testid="ds-helperErrorText"
+    id="disabled-helperText"
   />
 </div>
 `;
 
 exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
 <div
-  className="css-1h2oq49"
-  id="chakra-form-field"
+  className="css-1oqgnrx"
+  data-testid="ds-datePicker"
+  id="chakra"
 >
   <div
     className="css-7ajbp2"
-    id="chakra-start-form"
+    data-testid="ds-simpleGrid"
+    id="chakra-startForm"
   >
     <div
       className="react-datepicker-wrapper"
@@ -1141,15 +1221,17 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
         />
         <div
           className="css-1u8qly9"
-          id="chakra-start-wrapper"
+          data-testid="ds-textInput"
+          id="chakra-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
           readOnly={false}
         >
           <label
             className="css-1xdhyk6"
-            htmlFor="chakra-start"
-            id="chakra-start-label"
+            data-testid="ds-label"
+            htmlFor="chakra-datePicker-start-textInput"
+            id="chakra-datePicker-start-textInput-label"
           >
             Select the date you want to visit NYPL
           </label>
@@ -1157,12 +1239,12 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             className="css-79elbk"
           >
             <input
-              aria-describedby="chakra-start-helperText"
+              aria-describedby="chakra-datePicker-start-textInput-helperText"
               aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
-              className="chakra-input css-0"
+              className="chakra-input css-1xdhyk6"
               disabled={false}
-              id="chakra-start"
+              id="chakra-datePicker-start-textInput"
               onBlur={[Function]}
               onChange={[Function]}
               onClick={[Function]}
@@ -1180,7 +1262,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            id="chakra-start-helperText"
+            data-testid="ds-helperErrorText"
+            id="chakra-datePicker-start-textInput-helperErrorText"
           >
             <div
               className="css-0"
@@ -1198,22 +1281,24 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
-    id="chakra-helper-text"
+    data-testid="ds-helperErrorText"
+    id="chakra-helperText"
   />
 </div>
 `;
 
 exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
 <div
-  className="css-7ajbp2"
+  className="css-7xozux"
   data-testid="datepicker"
-  id="props-form-field"
+  id="props"
 >
   <div
     className="css-7ajbp2"
-    id="props-start-form"
+    data-testid="ds-simpleGrid"
+    id="props-startForm"
   >
     <div
       className="react-datepicker-wrapper"
@@ -1228,15 +1313,17 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
         />
         <div
           className="css-1u8qly9"
-          id="props-start-wrapper"
+          data-testid="ds-textInput"
+          id="props-datePicker-start-textInput-componentWrapper"
           onBlur={[Function]}
           onKeyDown={[Function]}
           readOnly={false}
         >
           <label
             className="css-1xdhyk6"
-            htmlFor="props-start"
-            id="props-start-label"
+            data-testid="ds-label"
+            htmlFor="props-datePicker-start-textInput"
+            id="props-datePicker-start-textInput-label"
           >
             Select the date you want to visit NYPL
           </label>
@@ -1244,12 +1331,12 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
             className="css-79elbk"
           >
             <input
-              aria-describedby="props-start-helperText"
+              aria-describedby="props-datePicker-start-textInput-helperText"
               aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
-              className="chakra-input css-0"
+              className="chakra-input css-1xdhyk6"
               disabled={false}
-              id="props-start"
+              id="props-datePicker-start-textInput"
               onBlur={[Function]}
               onChange={[Function]}
               onClick={[Function]}
@@ -1267,7 +1354,8 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
             aria-live="polite"
             className="css-1xdhyk6"
             data-isinvalid={false}
-            id="props-start-helperText"
+            data-testid="ds-helperErrorText"
+            id="props-datePicker-start-textInput-helperErrorText"
           >
             <div
               className="css-0"
@@ -1285,9 +1373,10 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
   <div
     aria-atomic={true}
     aria-live="polite"
-    className="css-1xdhyk6"
+    className="css-xy0wy2"
     data-isinvalid={false}
-    id="props-helper-text"
+    data-testid="ds-helperErrorText"
+    id="props-helperText"
   />
 </div>
 `;

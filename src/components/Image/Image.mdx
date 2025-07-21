@@ -1,19 +1,23 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
 
 import Banner from "../Banner/Banner";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as ImageStories from "./Image.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./imageChangelogData";
 
 <Meta of={ImageStories} />
 
-# Image
+<ComponentDocsHeader
+  category="Media & icon component"
+  componentName="Image"
+  summary="Renders a formatted image"
+  versionAdded="0.0.6"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.6`    |
-| Latest            | `3.5.5`    |
+<Canvas of={ImageStories.WithControls} />
 
 ## Table of Contents
 
@@ -38,16 +42,17 @@ If you want a simple HTML `img` element then don't pass in values for the
 
 ## Component Props
 
-<Canvas of={ImageStories.WithControls} />
+`Image` composes an HTML `img` element, so you may pass any HTML `img` attributes, as well
+any Chakra style props and the props below.
 
 <ArgTypes of={ImageStories.WithControls} />
 
 ## Accessibility
 
-The `alt` prop should be used to concisely describe the image. If the image is purely decorative,
-the `alt` attribute should still be present, but can be set to an empty string. In this scenario,
-an `alt` prop does not need to be passed. The component will set the attribute to an empty string
-`""` by default.
+The `alt` attribute should be used to concisely describe the image. If the image is purely
+decorative, the `alt` attribute can be set to an empty string. In this scenario, an `alt`
+prop does not need to be explicitly passed because the component will set the attribute to
+an empty string `""` by default.
 
 Resources:
 
@@ -102,8 +107,17 @@ in an element with a fixed width value.
 
 ## HTML Attributes
 
-The `Image` component accepts HTML image attributes. If needed, you can pass
-functions such as `onLoad` and `onError` or attributes such as `srcset`.
+The `Image` component accepts HTML image attributes, and in fact, if you are
+using the internal DS image (not passing a custom image component),
+you must pass an HTML `src` attribute.
+
+Additionally, unless the image is purely decorative, the `alt` attribute is
+also required to ensure the image is accessible. If the image is purely
+decorative, you may skip passing an `alt` attribute explictly as `alt=""`
+will automatically be applied.
+
+If needed, you can pass functions such as `onLoad` and `onError` or attributes
+such as `srcset`.
 
 For both examples below, open the browser's console to see the log messages. In
 the first example below, when the image is finished loading, the `onLoad`
@@ -131,7 +145,7 @@ loaded, pass a callback function to the `onError` prop.
       `Image` component will not call the `onerror` image attribute.
     </>
   }
-  type="warning"
+  variant="warning"
 />
 
 <Source
@@ -156,7 +170,7 @@ loaded, pass a callback function to the `onError` prop.
       attribute.
     </>
   }
-  type="warning"
+  variant="warning"
 />
 
 <Source

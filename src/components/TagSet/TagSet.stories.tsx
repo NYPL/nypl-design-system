@@ -12,12 +12,10 @@ const meta: Meta<typeof TagSet> = {
   title: "Components/Content Display/TagSet",
   component: TagSet,
   argTypes: {
-    className: { control: false },
-    id: { control: false },
     isDismissible: argsBooleanType(),
     onClick: { control: false },
     tagSetData: { control: false },
-    type: {
+    variant: {
       control: false,
       table: { defaultValue: { summary: "filter" } },
     },
@@ -33,8 +31,6 @@ type Story = StoryObj<typeof TagSet>;
  */
 export const ExploreVariant: Story = {
   args: {
-    className: undefined,
-    id: "tagSet-id-explore",
     tagSetData: [
       {
         label: (
@@ -68,7 +64,7 @@ export const ExploreVariant: Story = {
         ),
       },
     ],
-    type: "explore",
+    variant: "explore",
   } as TagSetExploreProps,
   argTypes: {
     isDismissible: { table: { disable: true } },
@@ -128,7 +124,7 @@ const FilterVariantStory = () => {
       isDismissible
       onClick={handleOnClick}
       tagSetData={tagSetData}
-      type="filter"
+      variant="filter"
     />
   );
 };
@@ -141,7 +137,7 @@ export const FilterVariant: Story = {
     <TagSet
       id="tagSet-id-filter"
       tagSetData={defaultTagSetData}
-      type="filter"
+      variant="filter"
     />
   ),
 };
@@ -149,12 +145,11 @@ export const FilterVariant: Story = {
 // The following are additional TagSet example Stories.
 export const FormattingExamples: Story = {
   args: {
-    className: undefined,
     id: undefined,
     isDismissible: undefined,
     onClick: undefined,
     tagSetData: undefined,
-    type: undefined,
+    variant: undefined,
   },
   render: () => (
     <VStack align="stretch" gap="l">
@@ -189,7 +184,7 @@ export const FormattingExamples: Story = {
             ),
           },
         ]}
-        type="explore"
+        variant="explore"
       />
       <TagSet
         tagSetData={[
@@ -225,7 +220,7 @@ export const FormattingExamples: Story = {
             ),
           },
         ]}
-        type="explore"
+        variant="explore"
       />
       <TagSet
         tagSetData={[
@@ -237,7 +232,7 @@ export const FormattingExamples: Story = {
           { id: "indigo", label: "Indigo" },
           { id: "violet", label: "Violet" },
         ]}
-        type="filter"
+        variant="filter"
       />
       <TagSet
         isDismissible
@@ -253,7 +248,7 @@ export const FormattingExamples: Story = {
           { id: "indigo", label: "Indigo" },
           { id: "violet", label: "Violet" },
         ]}
-        type="filter"
+        variant="filter"
       />
       <TagSet
         onClick={(tagLabel) =>
@@ -268,7 +263,7 @@ export const FormattingExamples: Story = {
           { iconName: "check", id: "indigo", label: "Indigo" },
           { iconName: "check", id: "violet", label: "Violet" },
         ]}
-        type="filter"
+        variant="filter"
       />
     </VStack>
   ),

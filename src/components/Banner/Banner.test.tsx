@@ -7,7 +7,18 @@ import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import Banner from "./Banner";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Banner Accessibility", () => {
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <Banner content={<>Banner content.</>} heading="Banner Heading" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
   it("passes axe accessibility test with heading", async () => {
     const { container } = render(
       <Banner
@@ -44,12 +55,23 @@ describe("Banner", () => {
   beforeEach(() => {
     utils = render(
       <Banner
-        ariaLabel="Banner label"
+        aria-label="Banner label"
         content={<>Banner content.</>}
         heading="Banner Heading"
         id="bannerID"
       />
     );
+  });
+
+  it("should add an id to the component even if none is passed", () => {
+    utils.rerender(
+      <Banner
+        aria-label="Banner label"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+      />
+    );
+    expect(screen.getByTestId("ds-banner")).toHaveAttribute("id", "test-id");
   });
 
   it("renders Banner heading child component", () => {
@@ -59,7 +81,7 @@ describe("Banner", () => {
   it("renders a custom heading level", () => {
     utils.rerender(
       <Banner
-        ariaLabel="Banner label"
+        aria-label="Banner label"
         id="bannerID"
         content={<>Banner content.</>}
         heading={<Heading level="h4">Custom H4 Heading</Heading>}
@@ -73,6 +95,14 @@ describe("Banner", () => {
   });
 
   it("renders with an Icon", () => {
+    utils.rerender(
+      <Banner
+        aria-label="Banner label"
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        id="bannerID"
+      />
+    );
     // Since the icon has aria-hidden set to true, we can't get it
     // by its "img" role.
     const icon = screen.getByTestId("bannerID-banner-icon");
@@ -142,12 +172,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="informative"
+        variant="informative"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "informative"
     );
   });
@@ -156,12 +186,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="negative"
+        variant="negative"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "negative"
     );
   });
@@ -170,12 +200,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="neutral"
+        variant="neutral"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "neutral"
     );
   });
@@ -184,12 +214,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="positive"
+        variant="positive"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "positive"
     );
   });
@@ -198,12 +228,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="recommendation"
+        variant="recommendation"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "recommendation"
     );
   });
@@ -212,12 +242,12 @@ describe("Banner", () => {
       <Banner
         content={<>Banner content.</>}
         heading="Banner Heading"
-        type="warning"
+        variant="warning"
       />
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "warning"
     );
   });
@@ -258,7 +288,7 @@ describe("Banner", () => {
         <Banner
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="informative"
+          variant="informative"
         />
       )
       .toJSON();
@@ -268,7 +298,7 @@ describe("Banner", () => {
           id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="negative"
+          variant="negative"
         />
       )
       .toJSON();
@@ -278,7 +308,7 @@ describe("Banner", () => {
           id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="neutral"
+          variant="neutral"
         />
       )
       .toJSON();
@@ -288,7 +318,7 @@ describe("Banner", () => {
           id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="positive"
+          variant="positive"
         />
       )
       .toJSON();
@@ -298,7 +328,7 @@ describe("Banner", () => {
           id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="recommendation"
+          variant="recommendation"
         />
       )
       .toJSON();
@@ -308,7 +338,7 @@ describe("Banner", () => {
           id="bannerID3"
           content={<>Banner content.</>}
           heading="Banner Heading"
-          type="warning"
+          variant="warning"
         />
       )
       .toJSON();

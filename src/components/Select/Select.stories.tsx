@@ -4,7 +4,7 @@ import { createRef, useState } from "react";
 
 import Button from "../Button/Button";
 import Form, { FormField } from "../Form/Form";
-import Select, { labelPositionsArray, selectTypesArray } from "./Select";
+import Select, { labelPositionsArray, selectVariantsArray } from "./Select";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 import { expect, userEvent, within } from "storybook/test";
 
@@ -12,11 +12,8 @@ const meta: Meta<typeof Select> = {
   title: "Components/Form Elements/Select",
   component: Select,
   argTypes: {
-    children: { table: { disable: true } },
-    className: { control: false },
     defaultValue: { control: false },
     helperText: { control: "text" },
-    id: { control: false },
     invalidText: { control: "text" },
     isDisabled: argsBooleanType(),
     isInvalid: argsBooleanType(),
@@ -31,9 +28,9 @@ const meta: Meta<typeof Select> = {
     onChange: { control: false },
     placeholder: { control: "text" },
     ref: { table: { disable: true } },
-    selectType: {
+    variant: {
       control: false,
-      options: selectTypesArray,
+      options: selectVariantsArray,
       table: { defaultValue: { summary: "default" } },
     },
     showHelperInvalidText: argsBooleanType("true"),
@@ -52,10 +49,8 @@ type Story = StoryObj<typeof Select>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     defaultValue: undefined,
     helperText: "This is the helper text.",
-    id: "select-id",
     invalidText: "This is the error text :(",
     isDisabled: false,
     isInvalid: false,
@@ -68,7 +63,7 @@ export const WithControls: Story = {
     showHelperInvalidText: undefined,
     showLabel: true,
     showRequiredLabel: true,
-    selectType: "default",
+    variant: "default",
     value: undefined,
   },
   render: (args) => (

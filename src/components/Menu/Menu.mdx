@@ -1,18 +1,28 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
-import Link from "../Link/Link";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
 import * as MenuStories from "./Menu.stories";
 import { changelogData } from "./menuChangelogData";
 
 <Meta of={MenuStories} />
 
-# Menu
+<ComponentDocsHeader
+  category="Navigation component"
+  componentName="Menu"
+  summary="List of interactive elements rendered in a dropdown format and used for executing actions or navigating"
+  versionAdded="3.0.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `3.0.0`    |
-| Latest            | `3.6.0`    |
+<Canvas of={MenuStories.WithControls} />
 
 ## Table of Contents
 
@@ -34,7 +44,7 @@ The component allows users to perform multiple actions from an element with a sm
 
 ## Component Props
 
-<Canvas of={MenuStories.WithControls} />
+The `Menu` composes a Chakra `Box` component, so you may pass any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={MenuStories.WithControls} />
 

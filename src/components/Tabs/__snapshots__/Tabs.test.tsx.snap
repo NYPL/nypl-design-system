@@ -3,6 +3,7 @@
 exports[`Tabs renders the UI snapshot correctly 1`] = `
 <div
   className="chakra-tabs css-19sk4h4"
+  data-testid="ds-tabs"
   id="basic"
 >
   <div
@@ -10,8 +11,9 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
   >
     <button
       aria-label="Scroll tabs left"
-      className="chakra-button css-18qhlcl"
-      id="tabs-previous-basic"
+      className="chakra-button css-1c0zt5w"
+      data-testid="ds-button"
+      id="basic-tabs-previous"
       onClick={[Function]}
       type="button"
     >
@@ -20,7 +22,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-previous-icon-basic"
+        id="basic-tabs-previous-icon"
         role="img"
         title="previous arrow"
       />
@@ -83,8 +85,9 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
     </div>
     <button
       aria-label="Scroll tabs right"
-      className="chakra-button css-1djleqc"
-      id="tabs-next-basic"
+      className="chakra-button css-rvrlhv"
+      data-testid="ds-button"
+      id="basic-tabs-next"
       onClick={[Function]}
       type="button"
     >
@@ -93,7 +96,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-next-icon-basic"
+        id="basic-tabs-next-icon"
         role="img"
         title="next arrow"
       />
@@ -151,6 +154,7 @@ exports[`Tabs renders the UI snapshot correctly 1`] = `
 exports[`Tabs renders the UI snapshot correctly 2`] = `
 <div
   className="chakra-tabs css-mz7vzl"
+  data-testid="ds-tabs"
   id="chakra"
 >
   <div
@@ -158,8 +162,9 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
   >
     <button
       aria-label="Scroll tabs left"
-      className="chakra-button css-18qhlcl"
-      id="tabs-previous-chakra"
+      className="chakra-button css-1c0zt5w"
+      data-testid="ds-button"
+      id="chakra-tabs-previous"
       onClick={[Function]}
       type="button"
     >
@@ -168,7 +173,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-previous-icon-chakra"
+        id="chakra-tabs-previous-icon"
         role="img"
         title="previous arrow"
       />
@@ -231,8 +236,9 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
     </div>
     <button
       aria-label="Scroll tabs right"
-      className="chakra-button css-1djleqc"
-      id="tabs-next-chakra"
+      className="chakra-button css-rvrlhv"
+      data-testid="ds-button"
+      id="chakra-tabs-next"
       onClick={[Function]}
       type="button"
     >
@@ -241,7 +247,7 @@ exports[`Tabs renders the UI snapshot correctly 2`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-next-icon-chakra"
+        id="chakra-tabs-next-icon"
         role="img"
         title="next arrow"
       />
@@ -307,8 +313,9 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
   >
     <button
       aria-label="Scroll tabs left"
-      className="chakra-button css-18qhlcl"
-      id="tabs-previous-props"
+      className="chakra-button css-1c0zt5w"
+      data-testid="ds-button"
+      id="props-tabs-previous"
       onClick={[Function]}
       type="button"
     >
@@ -317,7 +324,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-previous-icon-props"
+        id="props-tabs-previous-icon"
         role="img"
         title="previous arrow"
       />
@@ -380,8 +387,9 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
     </div>
     <button
       aria-label="Scroll tabs right"
-      className="chakra-button css-1djleqc"
-      id="tabs-next-props"
+      className="chakra-button css-rvrlhv"
+      data-testid="ds-button"
+      id="props-tabs-next"
       onClick={[Function]}
       type="button"
     >
@@ -390,7 +398,7 @@ exports[`Tabs renders the UI snapshot correctly 3`] = `
         className="chakra-icon css-1vgifmd"
         data-file-name="SvgArrow"
         focusable={false}
-        id="tabs-next-icon-props"
+        id="props-tabs-next-icon"
         role="img"
         title="next arrow"
       />

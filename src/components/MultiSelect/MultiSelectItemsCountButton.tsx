@@ -1,14 +1,10 @@
-import { useStyleConfig } from "@chakra-ui/react";
+import { BoxProps, useStyleConfig } from "@chakra-ui/react";
 import { forwardRef } from "react";
 
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 
-export interface MultiSelectItemsCountButtonProps {
-  /** An ID string that other components can cross reference for accessibility purposes. */
-  id: string;
-  /** The id of the MultiSelect using this button. */
-  multiSelectId: string;
+export interface MultiSelectItemsCountButtonProps extends BoxProps {
   /** The label text rendered within the MultiSelect using this button. */
   multiSelectLabelText: string;
   /** The open status of the MultiSelect menu. */
@@ -39,8 +35,8 @@ const MultiSelectItemsCountButton = forwardRef<
   MultiSelectItemsCountButtonProps
 >((props, _ref) => {
   const {
+    id,
     isOpen,
-    multiSelectId,
     multiSelectLabelText,
     accordionButtonRef,
     onClear,
@@ -57,23 +53,23 @@ const MultiSelectItemsCountButton = forwardRef<
 
   return (
     <Button
-      id={`ms-count-button-${multiSelectId}`}
-      buttonType="pill"
-      size="small"
       aria-label={selectedItemsAriaLabel}
-      data-testid="multi-select-close-button-testid"
+      data-testid="ds-multiSelectItemsCountButton"
+      id={`${id}-count-button`}
       onClick={() => {
         onClear && onClear();
         // Set focus on the Accordion Button when close the
         // selected items count button.
         accordionButtonRef.current?.focus();
       }}
+      size="small"
+      variant="pill"
       __css={styles}
     >
       {selectedItemsCount}
       <Icon
         align="right"
-        id={`ms-count-icon-${multiSelectId}`}
+        id={`${id}-count-icon`}
         marginLeft="xs"
         name="close"
         size="xsmall"

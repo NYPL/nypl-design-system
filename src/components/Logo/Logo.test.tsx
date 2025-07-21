@@ -13,6 +13,11 @@ describe("Logo Accessibility", () => {
 });
 
 describe("Logo", () => {
+  it("should not render an id if none is passed", () => {
+    const { container } = render(<Logo name="nyplFullBlack" />);
+    expect(container.querySelector("svg")).not.toHaveAttribute("id");
+  });
+
   it("consoles a warning if both name and children are passed to Logo", () => {
     const warn = jest.spyOn(console, "warn");
     render(
@@ -37,15 +42,6 @@ describe("Logo", () => {
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Logo: Pass a logo `name` prop or an SVG child to " +
         "`Logo` to ensure a logo appears."
-    );
-  });
-
-  it("consoles a warning if name is not passed and a child is but it's not an SVG element", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(<Logo>Not an SVG</Logo>);
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Logo: An `svg` element must be passed to the `Logo` " +
-        "component as its child."
     );
   });
 

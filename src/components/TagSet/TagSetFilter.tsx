@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   useColorModeValue,
   useMultiStyleConfig,
@@ -20,9 +21,7 @@ export interface TagSetFilterDataProps {
   [key: string]: string;
 }
 
-export interface TagSetFilterProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+export interface TagSetFilterProps extends Omit<BoxProps, "onClick"> {
   /** Whether the tags should be removable. */
   isDismissible?: boolean;
   /** The function to perform when a tag is clicked when `isDismissible` is true. */
@@ -30,7 +29,7 @@ export interface TagSetFilterProps {
   /** The array of data to display as tags. */
   tagSetData: TagSetFilterDataProps[];
   /** The `TagSet` variant to render; "filter" by default. */
-  type: "filter";
+  variant?: "filter";
 }
 
 /**
@@ -76,8 +75,8 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
               {isDismissible || onClick ? (
                 <Button
                   aria-label={`${tagSet.label}, click to remove filter`}
-                  data-testid="filter-tags"
-                  id={`ts-filter-${tagSet.id}-${key}`}
+                  data-testid="ds-tagSetFilter-tags"
+                  id={`${tagSet.id}-tagSetFilter-${key}`}
                   onClick={() => finalOnClick(tagSet)}
                   sx={styles.base}
                 >
@@ -85,14 +84,14 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                     <Icon
                       align="left"
                       color={iconColor}
-                      data-testid="ts-icon"
+                      data-testid="ds-tagSetFilter-icon"
                       name={tagSet.iconName}
                       size="small"
                     />
                   ) : null}
                   <span>{tagSet.label}</span>
                   <Icon
-                    data-testid="filter-close-icon"
+                    data-testid="ds-tagSetFilter-close-icon"
                     align="right"
                     name="close"
                     size="small"
@@ -102,8 +101,8 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                 </Button>
               ) : (
                 <Box
-                  data-testid="filter-tags"
-                  id={`ts-filter-${tagSet.id}-${key}`}
+                  data-testid="ds-tagSetFilter-tags"
+                  id={`${tagSet.id}-tagSetFilter-${key}`}
                   sx={{
                     ...styles.base,
                     fontWeight: "regular",
@@ -113,7 +112,7 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
                     <Icon
                       align="left"
                       color={iconColor}
-                      data-testid="ts-icon"
+                      data-testid="ds-tagSetFilter-icon"
                       name={tagSet.iconName}
                       size="small"
                     />
@@ -128,13 +127,13 @@ export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
 
         {tagSetData.length > 1 && isDismissible ? (
           <Button
-            buttonType="text"
-            data-testid="filter-clear-all"
-            id={`ts-filter-clear-all-${id}`}
+            data-testid="ds-tagSetFilter-clear-all"
+            id={`${id ? `${id}-` : ""}tagSetFilter-clear-all`}
             onClick={() =>
               finalOnClick({ id: "clear-filters", label: "Clear filters" })
             }
             size="small"
+            variant="text"
           >
             Clear filters
           </Button>

@@ -1,6 +1,7 @@
 import {
   As,
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
@@ -9,19 +10,15 @@ import React, { forwardRef } from "react";
 
 import useDSHeading from "../../hooks/useDSHeading";
 
-export const listTypesArray = ["ol", "ul", "dl"] as const;
-export type ListTypes = typeof listTypesArray[number];
+export const listVariantsArray = ["ol", "ul", "dl"] as const;
+export type ListVariants = typeof listVariantsArray[number];
 
 export interface DescriptionProps {
   term: string;
   description: string | JSX.Element;
 }
 
-export interface ListProps {
-  /** ClassName you can add in addition to 'list' */
-  className?: string;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
+export interface ListProps extends Omit<BoxProps, "title"> {
   /** Display the list in a row. */
   inline?: boolean;
   /** Data to render if children are not passed. For `listTypes` ordered `"ol"`
@@ -40,7 +37,7 @@ export interface ListProps {
    * to Description Lists and will render above the list. */
   title?: string | JSX.Element;
   /** The type of list: "ol", "ul", or "dl". "ul" by default. */
-  type: ListTypes;
+  variant: ListVariants;
 }
 
 /**
@@ -61,21 +58,20 @@ export const List: ChakraComponent<
   >((props, ref?) => {
     const {
       children,
-      className,
       id,
       inline = false,
       listItems,
       noStyling = false,
       showRowDividers = true,
       title,
-      type = "ul",
+      variant = "ul",
       ...rest
     } = props;
     const styles = useMultiStyleConfig("ReservoirList", {
       inline,
       noStyling,
       showRowDividers,
-      variant: type,
+      variant,
     });
     const finalTitle = useDSHeading({
       title,
@@ -108,16 +104,16 @@ export const List: ChakraComponent<
      * or ordered, it will return `li` elements. Otherwise, it will return a
      * combination of `dt` and `dd` elements for the description type.
      */
-    const listChildrenElms = (listType: ListTypes) => {
+    const listChildrenElms = (variant: ListVariants) => {
       if (children) {
         return children;
       }
       if (!listItems) {
         return null;
       }
-      if (listType === "ol" || listType === "ul") {
+      if (variant === "ol" || variant === "ul") {
         return listItems.map((item: any, i) => <li key={i}>{item}</li>);
-      } else if (listType === "dl") {
+      } else if (variant === "dl") {
         return (listItems as DescriptionProps[]).map((item, i) => [
           <dt key={`${i}-term`}>{item.term}</dt>,
           <dd key={`${i}-des`}>{item.description}</dd>,
@@ -125,58 +121,32 @@ export const List: ChakraComponent<
       }
       return null;
     };
-    /**
-     * Checks for `dt` and `dd` elements and consoles a warning if the
-     * children are different HTML elements.
-     */
-    const checkDescriptionChildrenError = () => {
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement) => {
-          if (
-            child.type !== "dt" &&
-            child.type !== "dd" &&
-            child.type !== React.Fragment &&
-            child.props.mdxType !== "dt" &&
-            child.props.mdxType !== "dd" &&
-            child.props.mdxType !== React.Fragment
-          ) {
-            console.warn(
-              "NYPL Reservoir List: Direct children of `List` (description) must " +
-                "be `<dt>`s and `<dd>`s."
-            );
-          }
-        }
-      );
-    };
 
-    if (type === "ol" || type === "ul") {
-      checkListChildrenError(children, type);
+    if (variant === "ol" || variant === "ul") {
       listElement = (
         <Box
-          as={type as As}
+          as={variant as As}
+          data-testid="ds-list"
           id={id}
-          className={className}
           ref={ref}
           __css={styles.base}
           {...rest}
         >
-          {listChildrenElms(type)}
+          {listChildrenElms(variant)}
         </Box>
       );
-    } else if (type === "dl") {
-      checkDescriptionChildrenError();
+    } else if (variant === "dl") {
       listElement = (
         <Box
           as="section"
+          data-testid="ds-list"
           id={id}
-          className={className}
           ref={ref}
           __css={styles.base}
           {...rest}
         >
           {finalTitle}
-          <dl>{listChildrenElms(type)}</dl>
+          <dl>{listChildrenElms(variant)}</dl>
         </Box>
       );
     }
@@ -184,23 +154,5 @@ export const List: ChakraComponent<
     return listElement;
   })
 );
-
-/**
- * Checks for `li` elements and consoles a warning if the
- * children are different HTML elements.
- */
-export const checkListChildrenError = (
-  children: React.ReactNode,
-  listType = "ul",
-  componentName = "List"
-) => {
-  React.Children.map(children as JSX.Element, (child: React.ReactElement) => {
-    if (child && child?.type !== "li" && child?.props?.mdxType !== "li") {
-      console.warn(
-        `NYPL Reservoir ${componentName}: Direct children of \`${componentName}\` (${listType}) must be \`<li>\`s.`
-      );
-    }
-  });
-};
 
 export default List;

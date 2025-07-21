@@ -7,6 +7,11 @@ import renderer from "react-test-renderer";
 import Accordion from "./Accordion";
 import Card, { CardContent, CardHeading } from "../Card/Card";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Accordion Accessibility", () => {
   it("passes axe accessibility test for one item", async () => {
     const { container } = render(
@@ -125,6 +130,12 @@ export const accordionDataWithAriaLabel = [
 ];
 
 describe("Accordion", () => {
+  it("should add an id to the component even if none is passed", () => {
+    render(<Accordion accordionData={[accordionData[0]]} />);
+
+    expect(screen.getByTestId("ds-accordion")).toHaveAttribute("id", "test-id");
+  });
+
   it("renders a visible button with a label to click on", () => {
     render(<Accordion accordionData={[accordionData[0]]} />);
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
@@ -283,7 +294,7 @@ describe("Accordion", () => {
       render(
         <Accordion
           accordionData={[accordionData[0]]}
-          ariaLabel="Tom Nook, an Animal Crossing character"
+          aria-label="Tom Nook, an Animal Crossing character"
         />
       );
       const accordionPropLabel = screen.getByRole("button", {
@@ -312,7 +323,7 @@ describe("Accordion", () => {
       render(
         <Accordion
           accordionData={[accordionDataWithAriaLabel[0]]}
-          ariaLabel="Tom Nook, an Animal Crossing character"
+          aria-label="Tom Nook, an Animal Crossing character"
         />
       );
 
@@ -333,18 +344,18 @@ describe("Accordion", () => {
       expect(accordionPropLabel).not.toBeInTheDocument();
     });
 
-    it("generates warning when ariaLabel is set twice", () => {
+    it("generates warning when aria-label is set twice", () => {
       render(
         <Accordion
           accordionData={[accordionDataWithAriaLabel[0]]}
-          ariaLabel="Tom Nook, an Animal Crossing character"
+          aria-label="Tom Nook, an Animal Crossing character"
         />
       );
       const warn = jest.spyOn(console, "warn");
       expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Accordion: An ariaLabel value has been passed for the " +
+        "NYPL Reservoir Accordion: An aria-label value has been passed for the " +
           "overall component and as part of the accordionData prop. Both can not " +
-          "be used, so the value in the accordionData prop will be used."
+          "be used, so the value in the accordionData prop will take precedence."
       );
     });
   });
@@ -378,7 +389,7 @@ describe("Accordion", () => {
     ];
 
     const primary = renderer
-      .create(<Accordion accordionData={accordionData} id="accordian" />)
+      .create(<Accordion accordionData={accordionData} />)
       .toJSON();
     const defaultOpen = renderer
       .create(
@@ -388,7 +399,7 @@ describe("Accordion", () => {
     const withError = renderer
       .create(
         <Accordion
-          accordionData={[{ ...accordionData[0], accordionType: "error" }]}
+          accordionData={[{ ...accordionData[0], variant: "error" }]}
           id="accordian"
           isDefaultOpen
         />
@@ -397,7 +408,7 @@ describe("Accordion", () => {
     const withWarning = renderer
       .create(
         <Accordion
-          accordionData={[{ ...accordionData[0], accordionType: "warning" }]}
+          accordionData={[{ ...accordionData[0], variant: "warning" }]}
           id="accordian"
           isDefaultOpen
         />

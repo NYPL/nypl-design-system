@@ -1,22 +1,28 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
 
 import * as BannerStories from "./Banner.stories";
+import Banner from "../Banner/Banner";
+import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import { changelogData } from "./bannerChangelogData";
 
 <Meta of={BannerStories} />
 
-# Banner
+<ComponentDocsHeader
+  category="Feedback component"
+  componentName="Banner"
+  summary="Provides contextual messages about page content and user actions"
+  versionAdded="3.1.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `3.1.0`    |
-| Latest            | `3.5.5`    |
+<Canvas of={BannerStories.WithControls} />
 
 ## Table of Contents
 
-- {<Link href="#overiew" target="_self">Overview</Link>}
+- {<Link href="#overview" target="_self">Overview</Link>}
 - {<Link href="#component-props" target="_self">Component Props</Link>}
 - {<Link href="#accessibility" target="_self">Accessibility</Link>}
 - {<Link href="#variants" target="_self">Variants</Link>}
@@ -40,11 +46,25 @@ the flow of the page.
 
 ## Component Props
 
-<Canvas of={BannerStories.WithControls} />
+The `Banner` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={BannerStories.WithControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an `id` value for
+      accessibility requirements. If no `id` is passed, a random `id` will be
+      generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="recommendation"
+/>
 
 The `Banner` component renders with an HTML `aside` element as its
 wrapper. This is an HTML landmark element that is similar to adding an attribute
@@ -55,7 +75,7 @@ landmark element is acceptable.
 
 ### ARIA Label
 
-If an `aria-label` is needed, it can be set through the `ariaLabel` prop. If
+If an `aria-label` is needed, one may be passed to the `Banner` component. If
 there are multiple `Banner` components on a page, they must each have unique
 `aria-label` attributes. A unique `aria-label` value, along with the
 `<aside>` HTML landmark element, helps screen readers better navigate a page
@@ -103,7 +123,7 @@ recognized and announced by assistive technology.
 
 ## Variants
 
-The `type` prop can be used to render different variants of `Banner`. Each
+The `variant` prop can be used to render different variants of `Banner`. Each
 variant has a different color and iconography.
 
 It is recommended to align the usage of the Banner component to the semantic
@@ -173,7 +193,7 @@ as props to match desired styling.
       marginTop="xxxs"
     />
   }
-  type="informative"
+  variant="informative"
 />
 `}
   language="tsx"
@@ -195,7 +215,7 @@ The `content` prop can accept HTML.
         Cras mattis consectetur purus sit amet fermentum. Maecenas
         faucibus mollis interdum.
       </Text>
-      <Text noSpace>
+      <Text>
         Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
         <b>
           Cum sociis natoque penatibus et magnis dis parturient montes,
@@ -214,10 +234,10 @@ The `content` prop can accept HTML.
 
 ## Custom Color
 
-It is recommended to rely on the color styles set with the `type` prop.
+It is recommended to rely on the color styles set with the `variant` prop.
 However, in cases where a different color is necessary, a value from a defined
 set of colors can be used. Both `backgroundColor` and `highlightColor` must be
-set in order to override the predefined variant types.
+set in order to override the predefined variants.
 
 - The `backgroundColor` prop can be used to set the color of the entire
   background.

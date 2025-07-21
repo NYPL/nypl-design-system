@@ -1,4 +1,4 @@
-import { Box, chakra, useMultiStyleConfig } from "@chakra-ui/react";
+import { Box, BoxProps, chakra, useMultiStyleConfig } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 import useDSHeading from "../../hooks/useDSHeading";
 
@@ -6,11 +6,7 @@ import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import Text from "../Text/Text";
-export interface ComponentWrapperProps {
-  /** The UI elements that will be wrapped by this component */
-  children: React.ReactNode;
-  /** A class name for the `div` parent element. */
-  className?: string;
+export interface ComponentWrapperProps extends BoxProps {
   /** Optional string to set the text for the component's description */
   descriptionText?: string | JSX.Element;
   /** Optional string value used to set the text for a `Heading` component, or
@@ -21,8 +17,6 @@ export interface ComponentWrapperProps {
   helperText?: HelperErrorTextType;
   /** Styles that target the helper text. */
   helperTextStyles?: { [key: string]: any };
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -37,7 +31,6 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
     (props, ref?) => {
       const {
         children,
-        className,
         descriptionText,
         headingText,
         helperText,
@@ -48,33 +41,37 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
         showHelperInvalidText = true,
         ...rest
       } = props;
+      // ComponentWrapper does not use the `useSafeId` hook since
+      // it is used as a wrapper component.
+      const mainId = id ? `${id}-componentWrapper` : undefined;
+      const helperErrorTextId = id ? `${id}-helperErrorText` : undefined;
       const hasChildren = !!children;
       const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
       const footnote = isInvalid ? invalidText : helperText;
-      const finalHeadingText = useDSHeading({ id, title: headingText });
-
-      // Note: Typescript warns when there are no children passed and
-      // doesn't compile. This is meant to log in non-Typescript apps.
-      if (!hasChildren) {
-        console.warn(
-          "NYPL Reservoir ComponentWrapper: No children were passed."
-        );
-      }
+      const finalHeadingText = useDSHeading({
+        id,
+        title: headingText,
+        additionalStyles: {
+          mb: "heading.default",
+        },
+      });
 
       return (
         <Box
-          className={className}
-          id={`${id}-wrapper`}
+          data-testid="ds-componentWrapper"
+          id={mainId}
           ref={ref}
           __css={styles}
           {...rest}
         >
           {finalHeadingText}
-          {descriptionText && <Text>{descriptionText}</Text>}
+          {descriptionText && (
+            <Text mb="paragraph.default">{descriptionText}</Text>
+          )}
           {children}
           {footnote && (
             <HelperErrorText
-              id={`${id}-helperText`}
+              id={helperErrorTextId}
               isInvalid={isInvalid}
               isRenderedText={showHelperInvalidText}
               text={footnote}

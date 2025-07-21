@@ -3,6 +3,7 @@
 exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,
@@ -82,6 +83,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 1`] = `
 exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,
@@ -161,6 +163,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 2`] = `
 exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,
@@ -240,6 +243,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 3`] = `
 exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,
@@ -312,6 +316,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 4`] = `
 exports[`SkeletonLoader renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,
@@ -375,6 +380,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 5`] = `
 exports[`SkeletonLoader renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,
@@ -414,6 +420,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 6`] = `
 exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,
@@ -504,6 +511,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 7`] = `
 exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,
@@ -583,6 +591,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 8`] = `
 exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,
@@ -662,6 +671,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 9`] = `
 exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,
@@ -741,6 +751,7 @@ exports[`SkeletonLoader renders the UI snapshot correctly 10`] = `
 exports[`SkeletonLoader renders the UI snapshot correctly 11`] = `
 <div
   className="css-kle7zy"
+  data-testid="ds-skeletonLoader"
   style={
     {
       "width": undefined,

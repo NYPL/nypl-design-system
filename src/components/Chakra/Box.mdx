@@ -2,14 +2,19 @@ import { Box } from "@chakra-ui/react";
 import { Meta } from "@storybook/addon-docs/blocks";
 
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Meta title="Components/Chakra Exports/Layout/Box" />
 
-# Box
+<ComponentDocsHeader
+  category="Chakra exports"
+  componentName="Box"
+  summary="An abstracted styling component that provides an easy way to apply styles"
+  versionAdded="0.24.0"
+  versionLatest="0.24.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.24.0`   |
+## Overview
 
 Note: This needs the use of the `DSProvider` component. See the
 [Chakra UI docs](../?path=/docs/chakra-ui--docs#dsprovider) for more information.
@@ -21,15 +26,17 @@ a `div` but can render another element using the `as` prop.
 All available props can be found on the [Style Props](https://chakra-ui.com/docs/features/style-props)
 guide on the Chakra UI site.
 
-In the following example, the padding, background color, and text color are
-updated with the `p`, `bg`, and `color` props respectively.
-
 {
 
-<Box p="s" mb="s" bg="brand.primary" color="ui.white">
-  This text is inside a `Box` component.
+<Box borderWidth="2px" padding="s" borderRadius="lg" overflow="hidden">
+  <Box p="s" bg="brand.primary" color="ui.white">
+    This text is inside a `Box` component.
+  </Box>
 </Box>
 }
+
+In the example above, the padding, background color, and text color are
+updated with the `p`, `bg`, and `color` props respectively.
 
 ## With VideoPlayer Component Example
 
@@ -39,7 +46,7 @@ In this example, the props added to the `Box` component are `borderWidth`,
 
 {
 
-<Box borderWidth="3px" padding="s" borderRadius="lg" overflow="hidden">
+<Box borderWidth="2px" padding="s" borderRadius="lg" overflow="hidden">
   <VideoPlayer
     videoId="nm-dD2tx6bk"
     videoType="youtube"

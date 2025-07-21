@@ -1,17 +1,28 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
-import { changelogData } from "./logoChangelogData";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
+
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import * as LogoStories from "./Logo.stories";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
+import * as LogoStories from "./Logo.stories";
+import { changelogData } from "./logoChangelogData";
 
 <Meta of={LogoStories} />
 
-# Logo
+<ComponentDocsHeader
+  category="Media & icon component"
+  componentName="Logo"
+  summary="Renders commonly used logos in SVG format"
+  versionAdded="0.25.9"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.9`   |
-| Latest            | `3.0.0`    |
+<Canvas of={LogoStories.WithControls} />
 
 ## Table of Contents
 
@@ -29,7 +40,7 @@ import Link from "../Link/Link";
 
 ## Component Props
 
-<Canvas of={LogoStories.WithControls} />
+You may pass any Chakra style props, as well as the props below.
 
 <ArgTypes of={LogoStories.WithControls} />
 

@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
 
-import * as VideoPlayerStories from "./VideoPlayer.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as VideoPlayerStories from "./VideoPlayer.stories";
 import { changelogData } from "./videoPlayerChangelogData";
 
 <Meta of={VideoPlayerStories} />
 
-# Video Player
+<ComponentDocsHeader
+  category="Media & icon component"
+  componentName="VideoPlayer"
+  summary="Used to embed a video from a 3rd party provider"
+  versionAdded="0.23.2"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version   |
-| ----------------- | ------------ |
-| Added             | `0.23.2`     |
-| Latest            | `Prerelease` |
+<Canvas of={VideoPlayerStories.WithControls} />
 
 ## Table of Contents
 
@@ -45,7 +49,8 @@ is `16:9`.
 
 ## Component Props
 
-<Canvas of={VideoPlayerStories.WithControls} />
+The `VideoPlayer` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={VideoPlayerStories.WithControls} />
 

@@ -1,18 +1,22 @@
 import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
 import * as BreadcrumbsStories from "./Breadcrumbs.stories";
 import { changelogData } from "./breadcrumbsChangelogData";
-import Link from "../Link/Link";
 
 <Meta of={BreadcrumbsStories} />
 
-# Breadcrumbs
+<ComponentDocsHeader
+  category="Navigation component"
+  componentName="Breadcrumbs"
+  summary="Navigational component that displays the current page's location within a hierarchy of pages."
+  versionAdded="0.0.3"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.3`    |
-| Latest            | `3.5.3`    |
+<Canvas of={BreadcrumbsStories.WithControls} />
 
 ## Table of Contents
 
@@ -43,7 +47,7 @@ const breadcrumbsData = [
 
 ## Component Props
 
-<Canvas of={BreadcrumbsStories.WithControls} />
+You may pass any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={BreadcrumbsStories.WithControls} />
 
@@ -103,7 +107,7 @@ Below story uses the DS `Link` component.
 ## Color Variations
 
 The `Breadcrumbs` component background color can be set to a value of the
-`breadcrumbsType` type. If the `breadcrumbsType` prop is omitted, the default
+`variant` type. If the `variant` prop is omitted, the default
 background color is `"whatsOn"` (`ui.black`).
 
 <Canvas of={BreadcrumbsStories.ColorVariations} />

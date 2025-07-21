@@ -9,8 +9,6 @@ const meta: Meta<typeof Heading> = {
   title: "Components/Typography & Styles/Heading",
   component: Heading,
   argTypes: {
-    className: { control: false },
-    id: { control: false },
     isCapitalized: argsBooleanType(),
     isUppercase: argsBooleanType(),
     isLowercase: argsBooleanType(),
@@ -19,7 +17,6 @@ const meta: Meta<typeof Heading> = {
       options: headingLevelsArray,
       table: { defaultValue: { summary: "h2" } },
     },
-    noSpace: { table: { defaultValue: { summary: "false" } } },
     overline: { control: { type: "text" } },
     size: {
       control: { type: "select" },
@@ -41,13 +38,10 @@ type Story = StoryObj<typeof Heading>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
-    id: "heading-id",
     isCapitalized: false,
     isUppercase: false,
     isLowercase: false,
     level: "h2",
-    noSpace: true,
     overline: undefined,
     size: undefined,
     subtitle: undefined,
@@ -69,7 +63,7 @@ export const WithControls: Story = {
       <Heading
         {...args}
         bgColor="brand.primary"
-        color="ui.typography.inverse.heading"
+        color="ui.white"
         px="s"
         py="xs"
       />
@@ -81,12 +75,7 @@ export const WithControls: Story = {
 export const DefaultStyles: Story = {
   render: () => (
     <VStack align="left" spacing="l">
-      <Heading
-        id="heading-h1"
-        level="h1"
-        noSpace
-        text="(h1) Lorem ipsum dolor"
-      />
+      <Heading id="heading-h1" level="h1" text="(h1) Lorem ipsum dolor" />
       <Heading id="heading-h2" level="h2" text="(h2) Lorem ipsum dolor" />
       <Heading id="heading-h3" level="h3" text="(h3) Lorem ipsum dolor" />
       <Heading id="heading-h4" level="h4" text="(h4) Lorem ipsum dolor" />
@@ -103,7 +92,6 @@ export const SizeStyles: Story = {
       <Heading
         id="heading-display1"
         level="h1"
-        noSpace
         size="display1"
         text="(display1) Lorem ipsum dolor"
       />
@@ -159,74 +147,12 @@ export const SizeStyles: Story = {
   ),
 };
 
-export const DefaultStylesDeprecated: Story = {
-  name: "Deprecated Styles",
-  render: () => (
-    <VStack align="left" spacing="l">
-      <Heading
-        id="heading-one"
-        level="one"
-        noSpace
-        text="(one) Lorem ipsum dolor"
-      />
-      <Heading id="heading-two" level="two" text="(two) Lorem ipsum dolor" />
-      <Heading
-        id="heading-three"
-        level="three"
-        text="(three) Lorem ipsum dolor"
-      />
-      <Heading id="heading-four" level="four" text="(four) Lorem ipsum dolor" />
-      <Heading id="heading-five" level="five" text="(five) Lorem ipsum dolor" />
-      <Heading
-        id="heading-six"
-        color="inheret"
-        level="six"
-        text="(six) Lorem ipsum dolor"
-      />
-    </VStack>
-  ),
-};
-
-export const SizeStylesDeprecated: Story = {
-  name: "Deprecated Sizes",
-  render: () => (
-    <VStack align="left" spacing="l">
-      <Heading
-        id="heading-primary"
-        level="one"
-        noSpace
-        size="primary"
-        text="(primary) Lorem ipsum dolor"
-      />
-      <Heading
-        id="heading-secondary"
-        level="one"
-        size="secondary"
-        text="(secondary) Lorem ipsum dolor"
-      />
-      <Heading
-        id="heading-tertiary"
-        level="one"
-        size="tertiary"
-        text="(tertiary) Lorem ipsum dolor"
-      />
-      <Heading
-        id="heading-callout"
-        level="one"
-        size="callout"
-        text="(callout) Lorem ipsum dolor"
-      />
-    </VStack>
-  ),
-};
-
 export const Overline: Story = {
   render: () => (
     <VStack align="left" spacing="l">
       <Heading
         id="heading-display1"
         level="h1"
-        noSpace
         overline="Overline"
         size="display1"
         text="Lorem ipsum dolor"
@@ -234,7 +160,6 @@ export const Overline: Story = {
       <Heading
         id="heading-heading1"
         level="h1"
-        noSpace
         overline="Overline"
         size="heading1"
         text="Lorem ipsum dolor"
@@ -242,7 +167,6 @@ export const Overline: Story = {
       <Heading
         id="heading-heading2"
         level="h1"
-        noSpace
         overline="Overline"
         size="heading2"
         text="Lorem ipsum dolor"
@@ -250,7 +174,6 @@ export const Overline: Story = {
       <Heading
         id="heading-heading3"
         level="h1"
-        noSpace
         overline="Overline"
         size="heading3"
         text="Lorem ipsum dolor"
@@ -258,7 +181,6 @@ export const Overline: Story = {
       <Heading
         id="heading-heading4"
         level="h1"
-        noSpace
         overline="Overline"
         size="heading4"
         text="Lorem ipsum dolor"
@@ -266,7 +188,6 @@ export const Overline: Story = {
       <Heading
         id="heading-heading5"
         level="h1"
-        noSpace
         overline="Overline"
         size="heading5"
         text="Lorem ipsum dolor"
@@ -274,7 +195,6 @@ export const Overline: Story = {
       <Heading
         id="heading-heading6"
         level="h1"
-        noSpace
         overline="Overline"
         size="heading6"
         text="Lorem ipsum dolor"
@@ -282,7 +202,6 @@ export const Overline: Story = {
       <Heading
         id="heading-heading7"
         level="h1"
-        noSpace
         overline="Overline"
         size="heading7"
         text="Lorem ipsum dolor"
@@ -290,7 +209,6 @@ export const Overline: Story = {
       <Heading
         id="heading-heading8"
         level="h1"
-        noSpace
         overline="Overline"
         size="heading8"
         text="Lorem ipsum dolor"
@@ -305,7 +223,6 @@ export const Subtitle: Story = {
       <Heading
         id="heading-display1"
         level="h1"
-        noSpace
         size="display1"
         subtitle="The subtitle text sits below the main heading text."
         text="Lorem ipsum dolor"
@@ -313,7 +230,6 @@ export const Subtitle: Story = {
       <Heading
         id="heading-heading1"
         level="h1"
-        noSpace
         size="heading1"
         subtitle="The subtitle text sits below the main heading text."
         text="Lorem ipsum dolor"
@@ -321,7 +237,6 @@ export const Subtitle: Story = {
       <Heading
         id="heading-heading2"
         level="h1"
-        noSpace
         size="heading2"
         subtitle="The subtitle text sits below the main heading text."
         text="Lorem ipsum dolor"
@@ -329,7 +244,6 @@ export const Subtitle: Story = {
       <Heading
         id="heading-heading3"
         level="h1"
-        noSpace
         size="heading3"
         subtitle="The subtitle text sits below the main heading text."
         text="Lorem ipsum dolor"
@@ -337,7 +251,6 @@ export const Subtitle: Story = {
       <Heading
         id="heading-heading4"
         level="h1"
-        noSpace
         size="heading4"
         subtitle="The subtitle text sits below the main heading text."
         text="Lorem ipsum dolor"
@@ -345,7 +258,6 @@ export const Subtitle: Story = {
       <Heading
         id="heading-heading5"
         level="h1"
-        noSpace
         size="heading5"
         subtitle="The subtitle text sits below the main heading text."
         text="Lorem ipsum dolor"
@@ -353,7 +265,6 @@ export const Subtitle: Story = {
       <Heading
         id="heading-heading6"
         level="h1"
-        noSpace
         size="heading6"
         subtitle="The subtitle text sits below the main heading text."
         text="Lorem ipsum dolor"
@@ -361,7 +272,6 @@ export const Subtitle: Story = {
       <Heading
         id="heading-heading7"
         level="h1"
-        noSpace
         size="heading7"
         subtitle="The subtitle text sits below the main heading text."
         text="Lorem ipsum dolor"
@@ -369,7 +279,6 @@ export const Subtitle: Story = {
       <Heading
         id="heading-heading8"
         level="h1"
-        noSpace
         size="heading8"
         subtitle="The subtitle text sits below the main heading text."
         text="Lorem ipsum dolor"
@@ -460,7 +369,7 @@ export const OverlineAndSubtitle: Story = {
 
 export const BoldText: Story = {
   render: () => (
-    <Heading id="headingWithBold" level="h2" noSpace>
+    <Heading id="headingWithBold" level="h2">
       <>
         Heading with a <b>Bold</b> Word
       </>
@@ -475,7 +384,6 @@ export const Links: Story = {
       <Heading
         id="heading-with-text-url-values"
         level="h3"
-        noSpace
         text="Heading with `url` and `text` props"
         url="http://apple.com"
         urlClass="special-link"
@@ -483,24 +391,23 @@ export const Links: Story = {
       <Heading
         id="heading-with-link-url"
         level="h3"
-        noSpace
         url="http://apple.com"
         urlClass="special-link"
       >
         Heading with `url` prop value
       </Heading>
-      <Heading id="heading-with-anchor" level="h3" noSpace>
+      <Heading id="heading-with-anchor" level="h3">
         <a href="#hello">Link from HTML anchor element</a>
       </Heading>
-      <Heading id="heading-with-DS-link" level="h3" noSpace>
+      <Heading id="heading-with-DS-link" level="h3">
         <Link href="#hello">Link using DS `Link` component</Link>
       </Heading>
-      <Heading id="heading-with-link-child" level="h3" noSpace>
+      <Heading id="heading-with-link-child" level="h3">
         <>
           Not acceptable. Do not use. <a href="#hello">Link</a>
         </>
       </Heading>
-      <Heading id="heading-with-DS-link-child" level="h3" noSpace>
+      <Heading id="heading-with-DS-link-child" level="h3">
         <>
           <span>Text wrapped in a span </span>
           <Link href="#hello">Link</Link>
