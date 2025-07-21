@@ -17,7 +17,7 @@ Storybook documentation:
 | 1.                | [Get started using the Reservoir Design System](#get-started-using-the-reservoir-design-system) |
 | 2.                | [Using Chakra UI components](#using-chakra-ui-components)                                       |
 | 3.                | [Accessibility](#accessibility)                                                                 |
-| 4.                | [Contributing quickstart](#contributing-quickstart)                                             |
+| 4.                | [Contributing](#contributing)                                                                   |
 | 5.                | [Git workflow and releases](#git-workflow-and-releases)                                         |
 | 6.                | [CDN](#cdn)                                                                                     |
 
@@ -92,7 +92,7 @@ Consult [Storybook](https://nypl.github.io/nypl-design-system/reservoir/v4/?path
 
 ## Using Chakra UI components
 
-The Reservoir Design System is built on top of [Chakra v2](https://v2.chakra-ui.com/) and the following Chakra components are exported directly for your use: `Box`, `Center`, `Circle`, `Grid`, `GridItem`, `HStack`, `Square`, `Stack`, `VStack`.
+The Reservoir Design System is generally built _on top of_ [Chakra v2](https://v2.chakra-ui.com/), but the following Chakra components are exported _directly_ for your use: `Box`, `Center`, `Circle`, `Grid`, `GridItem`, `HStack`, `Square`, `Stack`, `VStack`.
 
 ## Accessibility
 
@@ -108,7 +108,7 @@ We make use of:
 
 Additionally, DS components have accessibility information in their Storybook documentation.
 
-## Contributing quickstart
+## Contributing
 
 Follow these steps to setup a local installation of the project:
 
@@ -132,7 +132,7 @@ $ npm run storybook
 
 Information about active maintainers, how we run reviews, and more can be found in our wiki page for [Contributing to the Design System](https://github.com/NYPL/nypl-design-system/wiki/Contributing-to-the-React-Library).
 
-Follow the [contribution document](/.github/CONTRIBUTING.md) to follow git branching conventions, component creation and update guidelines, testing methodoly, and documentation guidelines.
+Follow the [contribution document](/.github/CONTRIBUTING.md) to follow git branching conventions, component creation and update guidelines, testing methodology, and documentation guidelines.
 
 ### Typescript usage
 
@@ -146,12 +146,12 @@ If you are using `nvm`, the local `.nvmrc` file (using `20.x`) can be use to set
 
 ### Component documentation
 
-When developing components or fixing bugs, make sure to update or create the related Storybook doc.
+When developing components or fixing bugs, make sure to update or create the related Storybook doc(s).
 
 To create a story:
 
-1. add a `[component-name].mdx` file in `src/docs/`
-2. make sure the file is referenced in the `stories` array of `.storybook/main.ts`
+1. Add a `[component-name].mdx` file in `src/docs/`
+2. Make sure the file is referenced in the `stories` array of `.storybook/main.ts`
 
 For information on how to write stories, check out the [Anatomy of a Story](https://github.com/NYPL/nypl-design-system/wiki/Anatomy-of-a-Story) wiki page.
 
