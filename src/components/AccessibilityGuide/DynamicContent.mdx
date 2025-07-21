@@ -137,7 +137,7 @@ container.focus();
   // Once the content is updated, move focus to the container.
   // Pseudocode example - the actual conditional logic will vary.
   useEffect(() => {
-  // When content is updated, move focus to the container.
+    // When content is updated, move focus to the container.
     containerRef.current.focus();
   }, [text])
   // ...
@@ -289,14 +289,14 @@ not enter a 5-digit value, the error text "Error: The zip code needs to be
   // Very naive example.
   const [inputValue, setInputValue] = useState();
   return (
-  <TextInput
-    labelText="Zip code example"
-    isInvalid={inputValue.length !== 5}
-    onChange={(e) => setInputValue(e.target.value)}
-    helperText="Please enter a 5-digit value."
-    invalidText="Error: The zip code needs to be 5-digits."
-    value={inputValue}
-/>
+    <TextInput
+      labelText="Zip code example"
+      isInvalid={inputValue.length !== 5}
+      onChange={(e) => setInputValue(e.target.value)}
+      helperText="Please enter a 5-digit value."
+      invalidText="Error: The zip code needs to be 5-digits."
+      value={inputValue}
+    />
 ); `}
   language="jsx"
 />
