@@ -75,9 +75,9 @@ const tooltipWrapperOrText = ({
     >
       {renderIcon && (
         <Icon
-          data-testid="breadcrumbs-backarrow"
+          data-testid="ds-breadcrumbs-backarrow"
           iconRotation="rotate90"
-          id={id ? `${id}-breadcrumbs-backarrow` : undefined}
+          id={id ? `${id}-ds-breadcrumbs-backarrow` : undefined}
           name="arrow"
           size="small"
           variant="breadcrumbs"
@@ -92,7 +92,7 @@ const tooltipWrapperOrText = ({
   const breadcrumbLink = renderTooltip ? (
     <Tooltip
       content={breadcrumbsData.text}
-      id={id ? `${id}-breadcrumb-tooltip` : undefined}
+      id={id ? `${id}-breadcrumbs-tooltip` : undefined}
     >
       {linkWrapper}
     </Tooltip>

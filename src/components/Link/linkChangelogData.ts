@@ -21,6 +21,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `href`, `rel`, `onClick`, `target` props (as HTML equivalents may be used) and updates docs.",
       "Renames `type` to `variant`.",
       "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-link` to the parent element.",
     ],
   },
   {

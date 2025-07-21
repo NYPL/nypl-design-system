@@ -20,6 +20,7 @@ export const changelogData: ChangelogData[] = [
       "Replaces `bannerTypesArray`, `bannerBgColorsArray`, and `bannerHighlightColorsArray` with shared message variants and background/highlight colors arrays.",
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
       "Removes the internal `banner-icon` class.",
+      "Adds `data-testid` value of `ds-banner` to the parent element.",
     ],
   },
   {

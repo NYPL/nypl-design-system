@@ -21,6 +21,7 @@ export const changelogData: ChangelogData[] = [
       "Renames `heroType` to `variant`.",
       "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
       "Adds `rest` prop to allow passing additional props to the parent component.",
+      "Adds `data-testid` value of `ds-hero` to the parent element.",
     ],
   },
   {

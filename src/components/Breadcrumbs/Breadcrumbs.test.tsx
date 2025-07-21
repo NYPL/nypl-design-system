@@ -78,7 +78,7 @@ describe("Breadcrumbs", () => {
 
   it("Renders icon on mobile", () => {
     render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
-    expect(screen.getByTestId("breadcrumbs-backarrow")).toBeInTheDocument();
+    expect(screen.getByTestId("ds-breadcrumbs-backarrow")).toBeInTheDocument();
   });
 
   it("logs a warning when nothing is passed into Breadcrumb", () => {

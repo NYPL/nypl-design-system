@@ -19,6 +19,7 @@ export const changelogData: ChangelogData[] = [
       "Replaces `highlightColorTypesArray` with shared highlight colors array plus default gray, now `newsletterHighlightColorsArray`. ",
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
       "Removes the internal `newsletter-signup` classes and replaces them with data-testids.",
+      "Adds `data-testid` value of `ds-newsletterSignup` to the parent element.",
     ],
   },
   {

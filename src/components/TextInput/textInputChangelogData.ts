@@ -20,6 +20,7 @@ export const changelogData: ChangelogData[] = [
       "Renames `textInputType` to `textInputVariant`.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
       "Removes the parent `rest` prop since it's used for the internal Chakra `Input` component.",
+      "Adds `data-testid` value of `ds-textInput` to the parent element.",
     ],
   },
   {

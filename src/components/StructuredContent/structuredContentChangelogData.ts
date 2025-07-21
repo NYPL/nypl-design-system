@@ -17,7 +17,8 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
-      "Updates classname `structuredcontent-body` to `ds-structuredContent-body` to align with the new naming convention.",
+      "Updates className `structuredcontent-body` to `ds-structuredContent-body` to align with the new naming convention.",
+      "Adds `data-testid` value of `ds-structuredContent` to the parent element.",
     ],
   },
   {

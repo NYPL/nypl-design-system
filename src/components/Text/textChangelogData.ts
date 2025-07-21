@@ -20,7 +20,8 @@ export const changelogData: ChangelogData[] = [
       "Remove children validation warning.",
       'Removes the `noSpace` prop and sets all margins to "0" by default.',
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
-      "Removes the explicit `classname` prop in favor of `rest`.",
+      "Removes the explicit `className` prop in favor of `rest`.",
+      "Adds `data-testid` value of `ds-text` to the parent element.",
     ],
   },
   {

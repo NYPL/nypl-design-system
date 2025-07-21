@@ -19,6 +19,7 @@ export const changelogData: ChangelogData[] = [
       "Replaces `Children.map` logic with a `forEach` loop because the resulting array wasn't being used.",
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
       "Moves the `rest` prop to the parent Box component.",
+      "Adds `data-testid` value of `ds-card` to the parent element.",
     ],
   },
   {

@@ -22,6 +22,7 @@ export const changelogData: ChangelogData[] = [
       "Renames `accordionType` to `variant`.",
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
       "Removes the internal `accordion-icon` class in the Icon component.",
+      "Adds `data-testid` value of `ds-accordion` to the parent element.",
     ],
   },
   {

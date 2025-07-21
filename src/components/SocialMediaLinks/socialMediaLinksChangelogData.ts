@@ -18,7 +18,8 @@ export const changelogData: ChangelogData[] = [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Replaces `sizeTypeArray` with shared sizes array.",
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
-      "Renames the classname `platLink` to `ds-socialMediaLinks-icon` to align with the new naming convention.",
+      "Renames the className `platLink` to `ds-socialMediaLinks-icon` to align with the new naming convention.",
+      "Adds `data-testid` value of `ds-socialMediaLinks` to the parent element.",
     ],
   },
   {

@@ -23,6 +23,7 @@ export const changelogData: ChangelogData[] = [
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
       "Updates the internal `breadcrumb-label` class to `ds-breadcrumbs-link-label`.",
       "Removes the internal `breadcrumbs-icon` class in the Icon component.",
+      "Adds `data-testid` value of `ds-breadcrumbs` to the parent element.",
     ],
   },
   {
