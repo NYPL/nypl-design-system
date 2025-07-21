@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds docs for `Responsive Grid` Style Guide.
 - Consolidates message variants, sizes, highlight colors, and background colors arrays into shared constants
 - Adds v4 Migration Guide to Storybook.
+- Adds docs for `Using Next.js Image component` Development Guide.
 
 ### Updates
 
