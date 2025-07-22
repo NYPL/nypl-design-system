@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## Prerelease
+
 ## 4.0.0 (TBD)
 
 ### Adds
@@ -62,7 +64,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
 - Removes all files related to the `Autosuggest` component guidelines.
 
-## Prerelease
+### Fixes
+
+- Fixes missing names for some component story code blocks.
 
 ## 3.6.4 (July 17, 2025)
 
@@ -77,7 +81,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Fixes
 
-- Fixes the keyless fragments for `Checkbox` items in the `MultiSelect` component.
+- Fixes the keyless fragments for `Checkbox` items in the `Multiselect` component.
 
 ## 3.6.3 (June 9, 2025)
 

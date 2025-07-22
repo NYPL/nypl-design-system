@@ -113,6 +113,7 @@ const MultiSelectGroupStory = (args) => {
     />
   );
 };
+MultiSelectGroupStory.displayName = "MultiSelectGroupStory";
 
 const MultiSelectGroupWithCloseOnBlurStory = (args) => {
   const { onChange, onMixedStateChange, onClear, selectedItems } =
@@ -170,6 +171,8 @@ const MultiSelectGroupWithCloseOnBlurStory = (args) => {
     />
   );
 };
+MultiSelectGroupWithCloseOnBlurStory.displayName =
+  "MultiSelectGroupWithCloseOnBlurStory";
 
 const MultiSelectGroupLayoutStory = () => {
   const { onChange, onMixedStateChange, onClear, selectedItems } =
@@ -317,6 +320,7 @@ const MultiSelectGroupLayoutStory = () => {
     </VStack>
   );
 };
+MultiSelectGroupLayoutStory.displayName = "MultiSelectGroupLayoutStory";
 
 const meta: Meta<typeof MultiSelectGroup> = {
   title: "Components/Form Elements/MultiSelectGroup",
