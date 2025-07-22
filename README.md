@@ -4,7 +4,7 @@
 
 [![npm version](https://badge.fury.io/js/%40nypl%2Fdesign-system-react-components.svg)](https://badge.fury.io/js/%40nypl%2Fdesign-system-react-components)
 
-The Reservoir Design System (DS) is an open-source, extensible React library for NYPL products and experiences with accessibility at its core. It ships functional, stateless components with consistent NYPL styling.
+The Reservoir Design System (DS) is an open-source, extensible React library for NYPL products and experiences with accessibility at its core. It ships functional components with consistent NYPL styling.
 
 Storybook documentation:
 
@@ -40,14 +40,12 @@ import { DSProvider } from "@nypl/design-system-react-components";
 const ApplicationContainer = (props) => {
   // ...
   return (
-    <header>...</header>
     <DSProvider>
       <div className="my-app">
         // ...
         {children}
       </div>
     </DSProvider>
-    <footer>...</footer>
   );
 };
 ```
