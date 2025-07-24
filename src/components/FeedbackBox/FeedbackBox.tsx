@@ -207,9 +207,9 @@ export const FeedbackBox: ChakraComponent<
         <FormField>
           <Link
             href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-            type="external"
-            fontSize="text.tag"
+            fontSize="desktop.caption"
             isUnderlined={false}
+            variant="external"
             width="fit-content"
           >
             Privacy Policy
