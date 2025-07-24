@@ -40,12 +40,14 @@ import { DSProvider } from "@nypl/design-system-react-components";
 const ApplicationContainer = (props) => {
   // ...
   return (
+  <header>...</header>
     <DSProvider>
       <div className="my-app">
         // ...
         {children}
       </div>
     </DSProvider>
+  <footer>...</footer>
   );
 };
 ```
