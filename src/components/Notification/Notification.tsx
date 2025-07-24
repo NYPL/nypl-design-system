@@ -147,8 +147,8 @@ export const NotificationContent: ChakraComponent<
 });
 
 /**
- * Component used to present users with three different levels of notifications:
- * standard, announcement, and warning.
+ * `Notification` is a component used to present users with three different levels
+ * of notifications: standard, announcement, and warning.
  */
 export const Notification: ChakraComponent<
   React.ForwardRefExoticComponent<

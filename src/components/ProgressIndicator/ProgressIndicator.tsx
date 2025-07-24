@@ -60,7 +60,7 @@ export type ProgressIndicatorProps =
   | CircularProgressIndicatorProps;
 
 /**
- * A component that displays a progress status for any task that takes a long
+ * `ProgressIndicator` displays a progress status for any task that takes a long
  * time to complete or consists of multiple steps. Examples include downloading,
  * uploading, or processing.
  */

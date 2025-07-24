@@ -1,9 +1,9 @@
 import { Box, Flex, Spacer, VStack } from "@chakra-ui/react";
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 
-import Heading from "../Heading/Heading";
-import Link from "../Link/Link";
+import Button from "../Button/Button";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Logo from "../Logo/Logo";
 
 <Meta title="Components/Chakra Exports/Layout/Flex" />
 
@@ -17,16 +17,12 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 ## Overview
 
-Note: This needs the use of the `DSProvider` component. See the
-[Chakra UI docs](../?path=/docs/chakra-ui--docs#dsprovider) for more information.
+`Flex` is directly exported from Chakra UI. It's useful for simple layouts and
+can be used along with Chakra's `Spacer` component to create a container where
+the children span the entire width.
 
-This component is directly exported from Chakra UI. The `Flex` component is
-useful for simple layouts and can be used along with Chakra's `Spacer` component.
-The combination can be used to create a container where the children span the
-entire width of the container.
-
-Details about available props and related child components can be found on the
-[Flex component](https://chakra-ui.com/docs/layout/flex) page on the Chakra UI site.
+Details about available props and related child components can be found on Chakra's
+[Flex component](https://v2.chakra-ui.com/docs/components/flex/usage) page.
 
 {
 
@@ -47,7 +43,7 @@ Use the `justify` prop to move the children around.
 
 <VStack align="stretch">
   <div>
-    <p>`justify` set to "center"</p>
+    <p>justify="center"</p>
     <Flex alignItems="baseline" justify="center">
       <Box w="20" h="20" bg="brand.primary" />
       <Box w="20" h="20" bg="brand.secondary" />
@@ -57,7 +53,7 @@ Use the `justify` prop to move the children around.
     </Flex>
   </div>
   <div>
-    <p>`justify` set to "space-between"</p>
+    <p>justify="space-between"</p>
     <Flex alignItems="baseline" justify="space-between">
       <Box w="20" h="20" bg="brand.primary" />
       <Box w="20" h="20" bg="brand.secondary" />
@@ -69,37 +65,30 @@ Use the `justify` prop to move the children around.
 </VStack>
 }
 
-## With Spacer
+## With `Spacer`
 
-A common use-case is displaying a row with two children where the first aligns
-left and the second aligns right. Add the `Spacer` component between the children.
-This is similar to setting `justify="space-between"` on the `Flex` parent but
-the `Spacer` component is more flexible for most situations.
+`Spacer` helps to display a row with two children where the first aligns
+left and the second aligns right.
 
 {
 
 <Flex alignItems="baseline">
-  <Heading id="row-heading" level="h3">
-    Heading
-  </Heading>
+  <Logo name="nyplFullBlack" size="small" />
   <Spacer />
-  <Link href="#viewmore" type="forwards">
-    View more
-  </Link>
+  <Button variant="callout">Donate</Button>
 </Flex>
 }
 
+This is similar to setting `justify="space-between"` on the `Flex` parent, but
+`Spacer` is more flexible for most situations.
+
 <Source
   code={`
-<Flex alignItems="baseline">
-  <Heading id="row-heading" level="h3">
-    Heading
-  </Heading>
-  <Spacer />
-  <Link href="#viewmore" type="forwards">
-    View more
-  </Link>
-</Flex>
+  <Flex alignItems="baseline">
+    <Logo name="nyplFullBlack" size="small" />
+    <Spacer />
+    <Button variant="callout">Donate</Button>
+  </Flex>
 `}
   language="jsx"
 />

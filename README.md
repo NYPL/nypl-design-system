@@ -13,7 +13,7 @@ Storybook documentation
 - [V2 Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v2)
 - [V1 Production - deployed to Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v1)
 
-| Table of Contents |                                                                                     |
+| Table of contents |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
 | 1.                | [Using the Design System in Your Product](#using-the-design-system-in-your-product) |
 | 2.                | [Using Chakra UI Components](#using-chakra-ui-components)                           |

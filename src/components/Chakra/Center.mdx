@@ -1,9 +1,10 @@
 import { Box, Center, Circle, HStack, Square } from "@chakra-ui/react";
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import { getPlaceholderImage } from "../../utils/utils";
 import Icon from "../Icons/Icon";
 import Image from "../Image/Image";
-import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Meta title="Components/Chakra Exports/Layout/Center, Circle, Square" />
 
@@ -17,14 +18,11 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 ## Overview
 
-Note: This needs the use of the `DSProvider` component. See the
-[Chakra UI docs](../?path=/docs/chakra-ui--docs#dsprovider) for more information.
-
 These components are directly exported from Chakra UI. The `Center`, `Circle`,
 and `Square` are layout component that center their child.
 
-All available props can be found on the [Style Props](https://chakra-ui.com/docs/features/style-props)
-guide on the Chakra UI site.
+Available props can be found on Chakra's [Style Props](https://v2.chakra-ui.com/docs/styled-system/style-props)
+guide.
 
 ## Center
 
@@ -45,7 +43,7 @@ guide on the Chakra UI site.
   <Image
     alt="Centered Image"
     size="medium"
-    src="//loremflickr.com/300/400/new+york+public+library"
+    src={getPlaceholderImage("smaller")}
   />
 </Center>
 }

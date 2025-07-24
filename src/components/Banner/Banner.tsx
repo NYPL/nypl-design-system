@@ -73,10 +73,9 @@ const iconProps: Record<BannerVariants, IconProps> = {
 };
 
 /**
- * The `Banner` component is a non-modal semantic dialog used to communicate a
+ * The `Banner` component is a non-modal, semantic dialog used to communicate a
  * general status event or to promote a feature, providing contextual feedback
- * messages for typical user actions. They are displayed contextually within a
- * page flow and they will often prompt a user to take action.
+ * messages for typical user actions within a page flow.
  */
 export const Banner: ChakraComponent<
   React.ForwardRefExoticComponent<

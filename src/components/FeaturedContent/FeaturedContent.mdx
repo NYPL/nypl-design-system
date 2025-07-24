@@ -1,4 +1,10 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 import { changelogData } from "./featuredContentChangelogData";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as FeaturedContentStories from "./FeaturedContent.stories";
@@ -17,24 +23,27 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Canvas of={FeaturedContentStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#component-width-variations" target="_self">Component Width Variations</Link>}
-- {<Link href="#image-position-variations" target="_self">Image Position Variations</Link>}
-- {<Link href="#image-width-variations" target="_self">Image Width Variations</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Component width variations](#component-width-variations)
+- [Image position variations](#image-position-variations)
+- [Image width variations](#image-width-variations)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={FeaturedContentStories} />
 
-The `FeaturedContent` component provides a method to visually emphasize a text
-block with an image, within a full page layout.
+`FeaturedContent` is a full-width container that visually emphasizes an image and
+text block.
 
-## Component Props
+Its responsive styles are applied using [container queries](../?path=/docs/development-guide-container-query-guide--docs)
+rather than media queries.
+
+## Component props
 
 `FeaturedContent` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.
@@ -44,13 +53,12 @@ any Chakra `Box` props, as well as the props below.
 ## Accessibility
 
 The `FeaturedContent` component combines a text block and an image. The text
-block (`textContent`) can be any JSX element, so accessibility for child input
-elements should follow the accessibility requirements specified for each input
-component (for example,
-[Button](https://nypl.github.io/nypl-design-system/reservoir/v1/?path=/docs/components-form-elements-button--docs)).
-All images must have an `alt` attribute, even if it's empty. The `alt` prop
-should be used to concisely describe the image. If the image is decorative, then
-the `alt` prop should be an empty string `""`.
+block (`textContent`) can be any JSX element, so child elements should follow
+accessibility requirements.
+
+All images must have an `alt` attribute. The `alt` prop should be used to
+concisely describe the image. If the image is decorative, then the `alt` prop
+should be an empty string `""`.
 
 Resources for text accessibility:
 
@@ -62,44 +70,41 @@ Resources for image accessibility:
 - [WebAIM Accessible Images](https://webaim.org/techniques/images/)
 - [Yale Usability & Web Accessibility](https://usability.yale.edu/web-accessibility/articles/images)
 
-## Component Width Variations
+## Component width variations
 
-The width variations of the `FeaturedContent` component can be rendered through
-the `isFullWidth` prop. The default is `isFullWidth = false`, and the component
-will fill only its parent. If `isFullWidth = true`, component will fill the
-screen's width (max 1280px), breaking out of its parent container. This full
-layout is best viewed on a full screen, not as shown below.
+`FeaturedContent`'s width is controlled using the `isFullWidth` prop. The default
+is `false`, which causes the component to fill only its parent. If `isFullWidth = true`,
+the component will break out of its container and fill the screen's width
+(max 1280px). This full layout is best viewed on a full screen, not as shown below.
 
 <Canvas of={FeaturedContentStories.LayoutVariations} />
 
-## Image Position Variations
+## Image position variations
 
-The image position variations of the `FeaturedContent` component can be rendered
-through the `imageProps.position` prop. The default is `end`, and the image will
-appear after the text block in a row (on mobile, it will appear below). The
-other option is `start`, where the image will appear before the text block in
-the row on desktop (and above it on mobile).
+The image position can be rendered through the `imageProps.position` prop. The
+default is `end`, meaning the image will appear after the text block in a row
+and below in a column. The other option is `start`, where the image will appear
+before the text block in a row above it in a column.
 
 <Canvas of={FeaturedContentStories.ImagePositionVariations} />
 
-## Image Width Variations
+## Image width variations
 
-The image width variations of the `FeaturedContent` component can be rendered
-through the `imageProps.width` prop. The options for width are `oneQuarter`,
-`oneThird`, `oneHalf`, `twoThirds`, and `threeQuarters`. The default width is
-`oneHalf`.
+`FeaturedContent`'s image width can be changed using the `imageProps.width`
+prop. The options for width are `oneQuarter`, `oneThird`, `oneHalf`, `twoThirds`,
+and `threeQuarters`. The default width is `oneHalf`.
 
 <Canvas of={FeaturedContentStories.imageWidthVariations} />
 
-## Text Content
+## Text content
 
-`textContent` is a string or JSX element passed into `FeaturedContent`, so
-accessibility standards and spacing should be considered independently of the
+`textContent` is a string or JSX element passed into `FeaturedContent`.
+Accessibility standards and spacing should be considered independently of the
 `FeaturedContent` styling.
 
-The above example with an overline, a heading, a short paragraph of body text,
-and a CTA button is the recommended usage. While other configurations are
-possible, keep in mind that the minimum height of the component is 320px and it
+The above example, with an overline, a heading, a short paragraph of body text,
+and a CTA button, is the recommended usage. While other configurations are
+possible, keep in mind that the minimum height of the component is `320px` and it
 is best to avoid excessive white space.
 
 <Canvas of={FeaturedContentStories.textContentVariations} />
