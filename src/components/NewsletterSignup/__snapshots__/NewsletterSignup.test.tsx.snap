@@ -39,10 +39,10 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
     </a>
   </div>
   <div
-    className="chakra-stack newsletter-signup-form css-tl3ftk"
+    className="chakra-stack css-tl3ftk"
   >
     <form
-      className="css-1xdhyk6"
+      className="ds-newslettersignup-form css-1xdhyk6"
       data-testid="ds-form"
       id="test-id-form"
       onSubmit={[MockFunction]}
@@ -173,7 +173,7 @@ exports[`NewsletterSignup Snapshots Renders the custom error state snapshot corr
     </a>
   </div>
   <div
-    className="chakra-stack newsletter-signup-form css-tl3ftk"
+    className="chakra-stack css-tl3ftk"
   >
     <div
       className="feedback-body response css-6cjp67"
@@ -249,7 +249,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
     </a>
   </div>
   <div
-    className="chakra-stack newsletter-signup-form css-tl3ftk"
+    className="chakra-stack css-tl3ftk"
   >
     <div
       className="feedback-body response css-6cjp67"
@@ -323,7 +323,7 @@ exports[`NewsletterSignup Snapshots Renders the default error state snapshot cor
     </a>
   </div>
   <div
-    className="chakra-stack newsletter-signup-form css-tl3ftk"
+    className="chakra-stack css-tl3ftk"
   >
     <div
       className="feedback-body response css-6cjp67"
@@ -391,10 +391,10 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
     </a>
   </div>
   <div
-    className="chakra-stack newsletter-signup-form css-tl3ftk"
+    className="chakra-stack css-tl3ftk"
   >
     <form
-      className="css-1xdhyk6"
+      className="ds-newslettersignup-form css-1xdhyk6"
       data-testid="ds-form"
       id="test-id-form"
       onSubmit={[MockFunction]}
@@ -529,10 +529,10 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
     </a>
   </div>
   <div
-    className="chakra-stack newsletter-signup-form css-tl3ftk"
+    className="chakra-stack css-tl3ftk"
   >
     <form
-      className="css-1xdhyk6"
+      className="ds-newslettersignup-form css-1xdhyk6"
       data-testid="ds-form"
       id="test-id-form"
       onSubmit={[MockFunction]}
@@ -661,10 +661,10 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
     </a>
   </div>
   <div
-    className="chakra-stack newsletter-signup-form css-tl3ftk"
+    className="chakra-stack css-tl3ftk"
   >
     <form
-      className="css-1xdhyk6"
+      className="ds-newslettersignup-form css-1xdhyk6"
       data-testid="ds-form"
       id="test-id-form"
       onSubmit={[MockFunction]}
@@ -794,10 +794,10 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
     </a>
   </div>
   <div
-    className="chakra-stack newsletter-signup-form css-tl3ftk"
+    className="chakra-stack css-tl3ftk"
   >
     <form
-      className="css-1xdhyk6"
+      className="ds-newslettersignup-form css-1xdhyk6"
       data-testid="ds-form"
       id="test-id-form"
       onSubmit={[MockFunction]}
