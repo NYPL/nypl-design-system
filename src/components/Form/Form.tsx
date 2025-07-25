@@ -67,7 +67,12 @@ export const FormField: ChakraComponent<
   );
 });
 
-/** Main Form component */
+/**
+ * The `Form` component renders a standard `<form>` element and should be used
+ * to handle layout and spacing for child input fields. `FormRow` and `FormField`
+ * components should be used to build the `<form>` structure and to arrange input
+ * fields as needed.
+ */
 export const Form: ChakraComponent<
   React.ForwardRefExoticComponent<
     React.PropsWithChildren<FormProps> &

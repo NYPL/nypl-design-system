@@ -45,7 +45,7 @@ export const ButtonGroup: ChakraComponent<
         ...rest
       } = props;
       const styles = useStyleConfig("ButtonGroup", {
-        buttonWidth: buttonWidth,
+        buttonWidth,
       });
 
       return (

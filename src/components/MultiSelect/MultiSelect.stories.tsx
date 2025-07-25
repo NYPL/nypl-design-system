@@ -318,11 +318,13 @@ export const withControls: Story = {
   args: {
     buttonText: "MultiSelect",
     closeOnBlur: true,
+    defaultItemsVisible: undefined,
     isBlockElement: true,
     isDefaultOpen: false,
     isSearchable: true,
     items: withItems,
     listOverflow: "scroll",
+    onClear: undefined,
     onChange: undefined,
     onMixedStateChange: undefined,
     selectedItems: undefined,
