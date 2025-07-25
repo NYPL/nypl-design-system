@@ -2,12 +2,12 @@
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="ds-datePicker"
   id="basic"
 >
   <fieldset
-    className="css-13wylk3"
+    className="css-1xdhyk6"
     data-testid="ds-fieldset"
     id="basic-fieldset"
   >
@@ -36,12 +36,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
               role="alert"
             />
             <div
-              className="css-1u8qly9"
+              className="css-1xdhyk6"
               data-testid="ds-textInput"
               id="basic-datePicker-start-textInput-componentWrapper"
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -93,12 +90,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
               role="alert"
             />
             <div
-              className="css-1u8qly9"
+              className="css-1xdhyk6"
               data-testid="ds-textInput"
               id="basic-datePicker-end-textInput-componentWrapper"
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -152,12 +146,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="ds-datePicker"
   id="no-label"
 >
   <fieldset
-    className="css-13wylk3"
+    className="css-1xdhyk6"
     data-testid="ds-fieldset"
     id="no-label-fieldset"
   >
@@ -186,12 +180,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
               role="alert"
             />
             <div
-              className="css-1u8qly9"
+              className="css-1xdhyk6"
               data-testid="ds-textInput"
               id="no-label-datePicker-start-textInput-componentWrapper"
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -243,12 +234,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
               role="alert"
             />
             <div
-              className="css-1u8qly9"
+              className="css-1xdhyk6"
               data-testid="ds-textInput"
               id="no-label-datePicker-end-textInput-componentWrapper"
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -302,12 +290,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="ds-datePicker"
   id="custom-format"
 >
   <fieldset
-    className="css-13wylk3"
+    className="css-1xdhyk6"
     data-testid="ds-fieldset"
     id="custom-format-fieldset"
   >
@@ -336,12 +324,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
               role="alert"
             />
             <div
-              className="css-1u8qly9"
+              className="css-1xdhyk6"
               data-testid="ds-textInput"
               id="custom-format-datePicker-start-textInput-componentWrapper"
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -393,12 +378,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
               role="alert"
             />
             <div
-              className="css-1u8qly9"
+              className="css-1xdhyk6"
               data-testid="ds-textInput"
               id="custom-format-datePicker-end-textInput-componentWrapper"
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -452,12 +434,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="ds-datePicker"
   id="invalid"
 >
   <fieldset
-    className="css-13wylk3"
+    className="css-1xdhyk6"
     data-testid="ds-fieldset"
     id="invalid-fieldset"
   >
@@ -486,12 +468,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               role="alert"
             />
             <div
-              className="css-1u8qly9"
+              className="css-1xdhyk6"
               data-testid="ds-textInput"
               id="invalid-datePicker-start-textInput-componentWrapper"
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -562,12 +541,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
               role="alert"
             />
             <div
-              className="css-1u8qly9"
+              className="css-1xdhyk6"
               data-testid="ds-textInput"
               id="invalid-datePicker-end-textInput-componentWrapper"
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -645,12 +621,12 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="ds-datePicker"
   id="disabled"
 >
   <fieldset
-    className="css-13wylk3"
+    className="css-1xdhyk6"
     data-testid="ds-fieldset"
     id="disabled-fieldset"
   >
@@ -679,12 +655,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               role="alert"
             />
             <div
-              className="css-1u8qly9"
+              className="css-1xdhyk6"
               data-testid="ds-textInput"
               id="disabled-datePicker-start-textInput-componentWrapper"
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -736,12 +709,9 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               role="alert"
             />
             <div
-              className="css-1u8qly9"
+              className="css-1xdhyk6"
               data-testid="ds-textInput"
               id="disabled-datePicker-end-textInput-componentWrapper"
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              readOnly={false}
             >
               <label
                 className="css-1xdhyk6"
@@ -800,7 +770,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="ds-datePicker"
   id="basic"
 >
@@ -821,12 +791,9 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
           role="alert"
         />
         <div
-          className="css-1u8qly9"
+          className="css-1xdhyk6"
           data-testid="ds-textInput"
           id="basic-datePicker-start-textInput-componentWrapper"
-          onBlur={[Function]}
-          onKeyDown={[Function]}
-          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -874,7 +841,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="ds-datePicker"
   id="no-label"
 >
@@ -895,12 +862,9 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
           role="alert"
         />
         <div
-          className="css-1u8qly9"
+          className="css-1xdhyk6"
           data-testid="ds-textInput"
           id="no-label-datePicker-start-textInput-componentWrapper"
-          onBlur={[Function]}
-          onKeyDown={[Function]}
-          readOnly={false}
         >
           <div
             className="css-79elbk"
@@ -940,7 +904,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="ds-datePicker"
   id="custom-format"
 >
@@ -961,12 +925,9 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
           role="alert"
         />
         <div
-          className="css-1u8qly9"
+          className="css-1xdhyk6"
           data-testid="ds-textInput"
           id="custom-format-datePicker-start-textInput-componentWrapper"
-          onBlur={[Function]}
-          onKeyDown={[Function]}
-          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -1014,7 +975,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="ds-datePicker"
   id="invalid"
 >
@@ -1035,12 +996,9 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
           role="alert"
         />
         <div
-          className="css-1u8qly9"
+          className="css-1xdhyk6"
           data-testid="ds-textInput"
           id="invalid-datePicker-start-textInput-componentWrapper"
-          onBlur={[Function]}
-          onKeyDown={[Function]}
-          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -1107,7 +1065,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="ds-datePicker"
   id="disabled"
 >
@@ -1128,12 +1086,9 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
           role="alert"
         />
         <div
-          className="css-1u8qly9"
+          className="css-1xdhyk6"
           data-testid="ds-textInput"
           id="disabled-datePicker-start-textInput-componentWrapper"
-          onBlur={[Function]}
-          onKeyDown={[Function]}
-          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -1199,7 +1154,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
 <div
-  className="css-1oqgnrx"
+  className="css-16t57xt"
   data-testid="ds-datePicker"
   id="chakra"
 >
@@ -1220,12 +1175,9 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
           role="alert"
         />
         <div
-          className="css-1u8qly9"
+          className="css-1xdhyk6"
           data-testid="ds-textInput"
           id="chakra-datePicker-start-textInput-componentWrapper"
-          onBlur={[Function]}
-          onKeyDown={[Function]}
-          readOnly={false}
         >
           <label
             className="css-1xdhyk6"
@@ -1291,7 +1243,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
 
 exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
 <div
-  className="css-7xozux"
+  className="css-16jbaby"
   data-testid="datepicker"
   id="props"
 >
@@ -1312,12 +1264,9 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
           role="alert"
         />
         <div
-          className="css-1u8qly9"
+          className="css-1xdhyk6"
           data-testid="ds-textInput"
           id="props-datePicker-start-textInput-componentWrapper"
-          onBlur={[Function]}
-          onKeyDown={[Function]}
-          readOnly={false}
         >
           <label
             className="css-1xdhyk6"

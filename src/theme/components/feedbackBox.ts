@@ -81,7 +81,7 @@ const FeedbackBox = defineMultiStyleConfig({
       },
     },
     radioGroup: {
-      ".radioGroupStack": {
+      ".ds-radioGroup-stack": {
         flexDirection: { base: "column", md: "row" },
         gap: { base: "s", md: "l" },
       },

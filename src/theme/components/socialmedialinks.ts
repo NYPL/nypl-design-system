@@ -117,7 +117,7 @@ const SocialMediaLinks = defineStyleConfig({
         gap: "xs", // Borders require the gap to reduce from 1rem to .5rem / 8px.
         a: {
           color: theseColors.ltColor,
-          ".platLink": {
+          ".ds-socialMediaLinks-icon": {
             minHeight: {
               base: defaultElementSizes.mobileFieldHeight,
               md: "0",
@@ -171,7 +171,7 @@ const SocialMediaLinks = defineStyleConfig({
         gap: "xs",
         a: {
           color: theseColors.ltColor,
-          ".platLink": {
+          ".ds-socialMediaLinks-icon": {
             minHeight: {
               base: defaultElementSizes.mobileFieldHeight,
               md: "0",

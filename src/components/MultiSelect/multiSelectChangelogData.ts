@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Extends prop definition to include Chakra's `BoxProps`",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-multiSelect` to the parent element.",
     ],
   },
   {

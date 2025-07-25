@@ -68,7 +68,6 @@ export const RadioGroup: ChakraComponent<
     (props, ref?) => {
       const {
         children,
-        className = "",
         defaultValue,
         helperText,
         id,
@@ -119,20 +118,14 @@ export const RadioGroup: ChakraComponent<
       );
 
       return (
-        <Box
-          className={className}
-          data-testid="ds-radioGroup"
-          id={id}
-          {...rest}
-          __css={styles}
-        >
+        <Box data-testid="ds-radioGroup" id={id} __css={styles} {...rest}>
           <Box as="span" id={`${id}-span-title`} __css={styles.spanLegend}>
             {labelText}
             {showRequiredLabel && isRequired && <span> (required)</span>}
           </Box>
           <ChakraRadioGroup {...radioGroupProps}>
             <Stack
-              className="radioGroupStack"
+              className="ds-radioGroup-stack"
               direction={[layout]}
               spacing={spacingProp}
             >

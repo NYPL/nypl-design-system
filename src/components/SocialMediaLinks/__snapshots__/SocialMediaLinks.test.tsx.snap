@@ -9,12 +9,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -35,12 +36,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -70,12 +72,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -96,12 +99,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -131,12 +135,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -155,12 +160,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -188,12 +194,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -214,12 +221,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -249,12 +257,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -275,12 +284,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -310,12 +320,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -334,12 +345,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -367,12 +379,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -393,12 +406,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -428,12 +442,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -452,12 +467,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -485,12 +501,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -511,12 +528,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -546,12 +564,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -572,12 +591,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -607,12 +627,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -631,12 +652,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -664,12 +686,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -688,12 +711,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -721,12 +745,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -747,12 +772,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -782,12 +808,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -806,12 +833,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -839,12 +867,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.nypl.org/blog/all?channel=732"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
@@ -865,12 +894,13 @@ exports[`SocialMediaLinks Snapshot Renders the UI snapshot correctly when the la
   <li>
     <a
       className="chakra-link css-1xdhyk6"
+      data-testid="ds-link"
       href="https://www.instagram.com/nyplteens/?hl=en"
       rel="nofollow noopener noreferrer"
       target="_blank"
     >
       <div
-        className="platLink"
+        className="ds-socialMediaLinks-icon"
       >
         <svg
           aria-hidden={true}
