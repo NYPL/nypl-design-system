@@ -45,7 +45,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
     data-testid="ds-newsletterSignup-form"
   >
     <form
-      className="css-1xdhyk6"
+      className="ds-newslettersignup-form css-1xdhyk6"
       data-testid="ds-form"
       id="test-id-form"
       onSubmit={[MockFunction]}
@@ -409,7 +409,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
     data-testid="ds-newsletterSignup-form"
   >
     <form
-      className="css-1xdhyk6"
+      className="ds-newslettersignup-form css-1xdhyk6"
       data-testid="ds-form"
       id="test-id-form"
       onSubmit={[MockFunction]}
@@ -550,7 +550,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
     data-testid="ds-newsletterSignup-form"
   >
     <form
-      className="css-1xdhyk6"
+      className="ds-newslettersignup-form css-1xdhyk6"
       data-testid="ds-form"
       id="test-id-form"
       onSubmit={[MockFunction]}
@@ -685,7 +685,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
     data-testid="ds-newsletterSignup-form"
   >
     <form
-      className="css-1xdhyk6"
+      className="ds-newslettersignup-form css-1xdhyk6"
       data-testid="ds-form"
       id="test-id-form"
       onSubmit={[MockFunction]}
@@ -821,7 +821,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
     data-testid="ds-newsletterSignup-form"
   >
     <form
-      className="css-1xdhyk6"
+      className="ds-newslettersignup-form css-1xdhyk6"
       data-testid="ds-form"
       id="test-id-form"
       onSubmit={[MockFunction]}

@@ -170,6 +170,7 @@ const FilterBarPopupStory = (args) => {
     />
   );
 };
+FilterBarPopupStory.displayName = "FilterBarPopupStory";
 
 const FilterBarPopupHeadingStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear } =
@@ -230,6 +231,7 @@ const FilterBarPopupHeadingStory = () => {
     </VStack>
   );
 };
+FilterBarPopupHeadingStory.displayName = "FilterBarPopupHeadingStory";
 
 const FilterBarChildrenStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -325,6 +327,7 @@ const FilterBarChildrenStory = (args) => {
     />
   );
 };
+FilterBarChildrenStory.displayName = "FilterBarChildrenStory";
 
 const FilterBarTotalResultsStory = () => {
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
@@ -394,3 +397,4 @@ const FilterBarTotalResultsStory = () => {
     </>
   );
 };
+FilterBarTotalResultsStory.displayName = "FilterBarTotalResultsStory";

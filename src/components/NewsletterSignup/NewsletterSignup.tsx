@@ -166,7 +166,11 @@ export const NewsletterSignup: ChakraComponent<
           </VStack>
           <VStack __css={styles.action} data-testid="ds-newsletterSignup-form">
             {isFormView && (
-              <Form id={`${mainId}-form`} onSubmit={onSubmit}>
+              <Form
+                className="ds-newslettersignup-form"
+                id={`${mainId}-form`}
+                onSubmit={onSubmit}
+              >
                 <FormField key="formfield-input">
                   <TextInput
                     id={`${mainId}-textInput`}

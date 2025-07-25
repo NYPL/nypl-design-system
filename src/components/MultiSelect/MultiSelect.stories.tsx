@@ -659,6 +659,7 @@ const MultiSelectWithControlsStory = (args) => {
     />
   );
 };
+MultiSelectWithControlsStory.displayName = "MultiSelectWithControlsStory";
 
 const MultiSelectStory = ({
   id,
@@ -719,6 +720,7 @@ const MultiSelectStory = ({
     />
   );
 };
+MultiSelectStory.displayName = "MultiSelectStory";
 
 // TODO: Replace with MultiSelectGroup once that component is done.
 const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
@@ -816,3 +818,4 @@ const MultiSelectGroupStory = ({ items }: Partial<MultiSelectProps>) => {
     </HStack>
   );
 };
+MultiSelectGroupStory.displayName = "MultiSelectGroupStory";
