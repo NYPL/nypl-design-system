@@ -109,11 +109,9 @@ const TemplateMain = defineStyleConfig({
 
 const TemplateBreakout = defineStyleConfig({
   baseStyle: defineStyle(() => {
-    const { responsiveMargin } = useResponsiveSpacing();
     return {
       gridColumn: "1 / -1",
       ml: "calc(-50vw + 50%)",
-      px: responsiveMargin,
       width: "100vw",
     };
   }),
