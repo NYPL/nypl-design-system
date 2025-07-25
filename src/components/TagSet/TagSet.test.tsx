@@ -236,10 +236,16 @@ describe("TagSet Filter", () => {
 
   it("renders close icons when `isDismissible` is true", () => {
     onClick = jest.fn();
+    const onClickHandler = (tagSet: TagSetFilterDataProps) => {
+      if ((tagSet as TagSetFilterDataProps).id === "clear-filters") {
+        return;
+      }
+      console.log("test");
+    };
     render(
       <TagSet
         isDismissible
-        onClick={onClick}
+        onClick={onClickHandler}
         tagSetData={filterTagSetData.withIcon}
         variant="filter"
       />

@@ -16,7 +16,8 @@ import TagSetFilter, {
   TagSetFilterProps,
 } from "./TagSetFilter";
 
-export interface BaseTagSetProps extends BoxProps {}
+export interface BaseTagSetProps
+  extends Omit<BoxProps, "onClick" | "onChange"> {}
 
 // We want either the "explore" or "filter" type props.
 export type TagSetTypeProps = TagSetFilterProps | TagSetExploreProps;
