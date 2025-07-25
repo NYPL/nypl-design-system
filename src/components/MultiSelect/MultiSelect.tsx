@@ -57,7 +57,7 @@ export interface MultiSelectProps extends BoxProps {
   /** The action to perform for the clear/reset button of individual MultiSelects. */
   onClear?: () => void;
   /** The action to perform on the checkbox's onChange function. Note, if using
-   * this prop, it must be of the type listed. */
+   * this prop, it must be of the type listed below. */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The action to perform for a mixed state checkbox (parent checkbox). */
   onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
