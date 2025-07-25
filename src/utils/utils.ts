@@ -107,7 +107,7 @@ export const getAriaAttrs = ({
   if (footnote) {
     ariaAttributes["aria-describedby"] = `${
       additionalHelperTextIds ? additionalHelperTextIds + " " : ""
-    }${id}-helperText`;
+    }${id}-helperErrorText`;
   }
   return ariaAttributes;
 };

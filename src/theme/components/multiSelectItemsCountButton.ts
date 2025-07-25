@@ -13,7 +13,7 @@ const MultiSelectItemsCountButton = defineStyleConfig({
     fontSize: "desktop.caption",
     justifyContent: "flex-end",
     left: "15px",
-    marginRight: "xs",
+    marginRight: "m",
     position: "absolute",
     top: { base: "12px", md: "10px" },
     width: "46px",
@@ -28,7 +28,7 @@ const MultiSelectItemsCountButton = defineStyleConfig({
       borderColor: isOpen ? "ui.gray.xx-dark" : "ui.border.hover",
     },
     svg: {
-      marginLeft: "xxs",
+      marginLeft: "xs",
       marginRight: "6px",
       marginTop: "0",
     },

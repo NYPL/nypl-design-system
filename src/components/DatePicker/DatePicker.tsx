@@ -441,7 +441,7 @@ export const DatePicker: ChakraComponent<
               // and `helperText` are displayed. It tells `TextInput` to associate
               // with both helper texts using `aria-describedby`.
               {...(helperTextTo && helperText
-                ? { additionalHelperTextIds: `${mainId}-helperText` }
+                ? { additionalHelperTextIds: `${mainId}-helperErrorText` }
                 : {})}
               {...endCustomTextInputAttrs}
             />
@@ -466,7 +466,7 @@ export const DatePicker: ChakraComponent<
             // and `helperText` are displayed and tells `TextInput` to associate
             // with both helper texts using `aria-describedby`.
             {...(isDateRange && helperTextFrom && helperText
-              ? { additionalHelperTextIds: `${mainId}-helperText` }
+              ? { additionalHelperTextIds: `${mainId}-helperErrorText` }
               : {})}
             {...baseCustomTextInputAttrs}
           />
@@ -503,7 +503,7 @@ export const DatePicker: ChakraComponent<
           )}
         </DateRangeRow>
         <HelperErrorText
-          id={`${mainId}-helperText`}
+          id={`${mainId}-helperErrorText`}
           isInvalid={false}
           isRenderedText={isDateRange && showHelperInvalidText}
           mt="helper.default"

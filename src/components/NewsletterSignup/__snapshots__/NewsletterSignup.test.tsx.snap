@@ -77,7 +77,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
               className="css-79elbk"
             >
               <input
-                aria-describedby="test-id-textInput-helperText"
+                aria-describedby="test-id-textInput-helperErrorText"
                 aria-invalid={true}
                 aria-required={true}
                 autoComplete="email"
@@ -429,7 +429,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               className="css-79elbk"
             >
               <input
-                aria-describedby="test-id-textInput-helperText"
+                aria-describedby="test-id-textInput-helperErrorText"
                 aria-required={true}
                 autoComplete="email"
                 className="chakra-input css-1xdhyk6"
@@ -567,7 +567,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               className="css-79elbk"
             >
               <input
-                aria-describedby="test-id-textInput-helperText"
+                aria-describedby="test-id-textInput-helperErrorText"
                 aria-required={true}
                 autoComplete="email"
                 className="chakra-input css-1xdhyk6"
@@ -699,7 +699,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               className="css-79elbk"
             >
               <input
-                aria-describedby="test-id-textInput-helperText"
+                aria-describedby="test-id-textInput-helperErrorText"
                 aria-required={true}
                 autoComplete="email"
                 className="chakra-input css-1xdhyk6"
@@ -832,7 +832,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               className="css-79elbk"
             >
               <input
-                aria-describedby="test-id-textInput-helperText"
+                aria-describedby="test-id-textInput-helperErrorText"
                 aria-required={true}
                 autoComplete="email"
                 className="chakra-input css-1xdhyk6"

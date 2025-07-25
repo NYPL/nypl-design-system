@@ -111,7 +111,7 @@ describe("Select", () => {
 
     expect(
       screen.getByLabelText(/What is your favorite color/i)
-    ).toHaveAttribute("aria-describedby", `${id}-helperText`);
+    ).toHaveAttribute("aria-describedby", `${id}-helperErrorText`);
   });
 
   it("renders an autoComplete attribute", () => {
