@@ -168,6 +168,8 @@ export const Primary: Story = {
         />
       }
       variant="primary"
+      foregroundColor="#123456"
+      backgroundColor="#654321"
     />
   ),
 };
