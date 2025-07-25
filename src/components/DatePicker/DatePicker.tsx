@@ -208,7 +208,6 @@ const DatePickerWrapper: React.FC<
 > = chakra(
   ({
     children,
-    className,
     id,
     isDateRange,
     isRequired,
@@ -222,7 +221,6 @@ const DatePickerWrapper: React.FC<
       <FormField id={id} gap="0" {...rest}>
         {isDateRange ? (
           <Fieldset
-            className={className}
             id={`${id}-fieldset`}
             isLegendHidden={!showLabel}
             isRequired={isRequired}

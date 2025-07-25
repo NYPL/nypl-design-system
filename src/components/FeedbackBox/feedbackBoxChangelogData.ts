@@ -17,6 +17,7 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-feedbackBox` to the parent element.",
     ],
   },
   {

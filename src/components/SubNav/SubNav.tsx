@@ -75,7 +75,7 @@ export const SubNavButton: React.FC<
       <Button
         aria-current={isSelected ? "page" : null}
         variant="text"
-        className={isSelected ? "selectedItem" : ""}
+        className={isSelected ? "ds-subNav-selectedItem" : ""}
         id={id}
         onClick={onClick}
         screenreaderOnlyText={screenreaderOnlyText}
@@ -103,7 +103,7 @@ export const SubNavLink: React.FC<React.PropsWithChildren<SubNavLinkProps>> = ({
     <li>
       <Link
         aria-current={isSelected ? "page" : null}
-        className={isSelected ? "selectedItem" : ""}
+        className={isSelected ? "ds-subNav-selectedItem" : ""}
         href={href}
         id={id}
         isUnderlined={false}
@@ -134,11 +134,11 @@ export const SubNav: ChakraComponent<
     (
       {
         actionBackgroundColor,
-        className,
         id,
         highlightColor,
         primaryActions,
         secondaryActions,
+        ...rest
       },
       _ref?
     ) => {
@@ -162,10 +162,10 @@ export const SubNav: ChakraComponent<
         <Box
           as="nav"
           aria-label="Sub-navigation menu"
-          className={className}
           data-testid="ds-subNav"
           id={id}
           __css={styles.base}
+          {...rest}
         >
           <Box __css={styles.container}>
             <Flex alignItems="center" gap="s" justify="space-between">

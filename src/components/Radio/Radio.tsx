@@ -57,7 +57,6 @@ export const Radio: ChakraComponent<
 > = chakra(
   forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     const {
-      className,
       helperText,
       id,
       invalidText,
@@ -102,7 +101,6 @@ export const Radio: ChakraComponent<
         {...rest}
       >
         <ChakraRadio
-          className={className}
           id={mainId}
           isChecked={isChecked}
           isDisabled={groupProps?.isDisabled || isDisabled}

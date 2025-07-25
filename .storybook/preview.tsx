@@ -130,6 +130,12 @@ const parameters = {
   },
   docs: {
     container: MyDocsContainer,
+    source: {
+      sourceState: "none",
+    },
+    canvas: {
+      sourceState: "none",
+    },
   },
 };
 

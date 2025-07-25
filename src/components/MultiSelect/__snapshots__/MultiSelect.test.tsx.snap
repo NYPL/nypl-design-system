@@ -42,7 +42,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon accordion-icon css-1b9sovw"
+          className="chakra-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
           id="multiselect-test-id-accordion-icon-0"
@@ -87,12 +87,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   id="multiselect-test-id-checkboxGroup-stack"
                 >
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="dogs-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -141,12 +141,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="cats-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -195,12 +195,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="cars-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       data-disabled=""
                       onClick={[Function]}
                     >
@@ -252,12 +252,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="colors-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -306,12 +306,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-ybiit3"
                     data-testid="ds-checkbox"
                     id="red-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-vbxw2k"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -360,12 +360,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-ybiit3"
                     data-testid="ds-checkbox"
                     id="blue-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-vbxw2k"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -414,12 +414,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="plants-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -468,12 +468,12 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="furniture-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -586,7 +586,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon accordion-icon css-1b9sovw"
+          className="chakra-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
           id="multiselect-test-id-accordion-icon-0"
@@ -631,12 +631,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   id="multiselect-test-id-checkboxGroup-stack"
                 >
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="dogs-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -685,12 +685,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="cats-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -739,12 +739,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="cars-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       data-disabled=""
                       onClick={[Function]}
                     >
@@ -796,12 +796,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="colors-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -850,12 +850,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-ybiit3"
                     data-testid="ds-checkbox"
                     id="red-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-vbxw2k"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -904,12 +904,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-ybiit3"
                     data-testid="ds-checkbox"
                     id="blue-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-vbxw2k"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -958,12 +958,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="plants-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -1012,12 +1012,12 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="furniture-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -1130,7 +1130,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon accordion-icon css-1b9sovw"
+          className="chakra-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
           id="multiselect-test-id-accordion-icon-0"
@@ -1175,12 +1175,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   id="multiselect-test-id-checkboxGroup-stack"
                 >
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="dogs-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -1229,12 +1229,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="cats-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -1283,12 +1283,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="cars-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       data-disabled=""
                       onClick={[Function]}
                     >
@@ -1340,12 +1340,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="colors-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -1425,12 +1425,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-ybiit3"
                     data-testid="ds-checkbox"
                     id="red-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-vbxw2k"
+                      className="chakra-checkbox css-0"
                       data-checked=""
                       onClick={[Function]}
                     >
@@ -1491,12 +1491,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-ybiit3"
                     data-testid="ds-checkbox"
                     id="blue-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-vbxw2k"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -1545,12 +1545,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="plants-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -1599,12 +1599,12 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="furniture-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -1736,7 +1736,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon accordion-icon css-1b9sovw"
+          className="chakra-icon css-1b9sovw"
           data-file-name="SvgPlus"
           focusable={false}
           id="multiselect-test-id-accordion-icon-0"
@@ -1781,12 +1781,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   id="multiselect-test-id-checkboxGroup-stack"
                 >
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="dogs-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -1835,12 +1835,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="cats-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -1889,12 +1889,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="cars-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       data-disabled=""
                       onClick={[Function]}
                     >
@@ -1946,12 +1946,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="colors-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       data-checked=""
                       onClick={[Function]}
                     >
@@ -2012,12 +2012,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-ybiit3"
                     data-testid="ds-checkbox"
                     id="red-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-vbxw2k"
+                      className="chakra-checkbox css-0"
                       data-checked=""
                       onClick={[Function]}
                     >
@@ -2078,12 +2078,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-ybiit3"
                     data-testid="ds-checkbox"
                     id="blue-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-vbxw2k"
+                      className="chakra-checkbox css-0"
                       data-checked=""
                       onClick={[Function]}
                     >
@@ -2144,12 +2144,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="plants-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input
@@ -2198,12 +2198,12 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     </label>
                   </div>
                   <div
-                    className="css-1xdhyk6"
+                    className="css-1u8qly9"
                     data-testid="ds-checkbox"
                     id="furniture-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-1xdhyk6"
+                      className="chakra-checkbox css-0"
                       onClick={[Function]}
                     >
                       <input

@@ -118,7 +118,7 @@ export const SocialMediaLinks: ChakraComponent<
           rel="nofollow noopener noreferrer"
           target="_blank"
         >
-          <div className={"platLink"}>
+          <div className="ds-socialMediaLinks-icon">
             <Icon
               name={modifiedPlatform.icon}
               size={iconSize}

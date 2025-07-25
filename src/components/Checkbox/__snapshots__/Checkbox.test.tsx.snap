@@ -2,12 +2,12 @@
 
 exports[`Checkbox renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-checkbox"
   id="inputID-componentWrapper"
 >
   <label
-    className="chakra-checkbox css-1xdhyk6"
+    className="chakra-checkbox css-0"
     onClick={[Function]}
   >
     <input
@@ -59,12 +59,12 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 2`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-checkbox"
   id="checkbox-checked-componentWrapper"
 >
   <label
-    className="chakra-checkbox css-1xdhyk6"
+    className="chakra-checkbox css-0"
     data-checked=""
     onClick={[Function]}
   >
@@ -128,12 +128,12 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 3`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-checkbox"
   id="checkbox-checked-componentWrapper"
 >
   <label
-    className="chakra-checkbox css-1xdhyk6"
+    className="chakra-checkbox css-0"
     data-checked=""
     onClick={[Function]}
   >
@@ -219,12 +219,12 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 4`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-checkbox"
   id="checkbox-required-componentWrapper"
 >
   <label
-    className="chakra-checkbox css-1xdhyk6"
+    className="chakra-checkbox css-0"
     onClick={[Function]}
   >
     <input
@@ -276,12 +276,12 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 5`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-checkbox"
   id="checkbox-invalid-componentWrapper"
 >
   <label
-    className="chakra-checkbox css-1xdhyk6"
+    className="chakra-checkbox css-0"
     data-invalid=""
     onClick={[Function]}
   >
@@ -336,12 +336,12 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 6`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-checkbox"
   id="checkbox-disabled-componentWrapper"
 >
   <label
-    className="chakra-checkbox css-1xdhyk6"
+    className="chakra-checkbox css-0"
     data-disabled=""
     onClick={[Function]}
   >
@@ -396,12 +396,12 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 7`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-checkbox"
   id="jsxLabel-componentWrapper"
 >
   <label
-    className="chakra-checkbox css-1xdhyk6"
+    className="chakra-checkbox css-0"
     onClick={[Function]}
   >
     <input
@@ -466,12 +466,12 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 8`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-2bbtg1"
   data-testid="ds-checkbox"
   id="checkbox-chakra-componentWrapper"
 >
   <label
-    className="chakra-checkbox css-1t0bvx9"
+    className="chakra-checkbox css-0"
     onClick={[Function]}
   >
     <input
@@ -523,12 +523,12 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 9`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="testid"
   id="checkbox-props-componentWrapper"
 >
   <label
-    className="chakra-checkbox css-1xdhyk6"
+    className="chakra-checkbox css-0"
     onClick={[Function]}
   >
     <input

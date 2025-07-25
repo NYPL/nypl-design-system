@@ -148,7 +148,7 @@ const SubNav = subNavDefineMultiStyleConfig({
       };
       return {
         base: {
-          ".selectedItem": {
+          ".ds-subNav-selectedItem": {
             color: highlightOrLinkColor("light"),
             fontWeight: "bold",
             backgroundColor: finalBackgroundColor("light"),
