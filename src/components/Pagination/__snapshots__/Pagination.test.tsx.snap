@@ -17,6 +17,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         aria-disabled={true}
         aria-label="Previous page"
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="page=0"
         rel={null}
         target={null}
@@ -49,6 +50,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         aria-current="page"
         aria-label="Page 1"
         className="chakra-link css-1oyhq6a"
+        data-testid="ds-link"
         href="page=1"
         rel={null}
         target={null}
@@ -60,6 +62,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
       <a
         aria-label="Page 2"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=2"
         rel={null}
         target={null}
@@ -71,6 +74,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
       <a
         aria-label="Page 3"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=3"
         rel={null}
         target={null}
@@ -82,6 +86,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
       <a
         aria-label="Page 4"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=4"
         rel={null}
         target={null}
@@ -93,6 +98,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
       <a
         aria-label="Page 5"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=5"
         rel={null}
         target={null}
@@ -107,6 +113,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
       <a
         aria-label="Page 10"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=10"
         rel={null}
         target={null}
@@ -119,6 +126,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 1`] = `
         aria-disabled={false}
         aria-label="Next page"
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="page=2"
         rel={null}
         target={null}
@@ -167,6 +175,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         aria-disabled={false}
         aria-label="Previous page"
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="page=9"
         rel={null}
         target={null}
@@ -198,6 +207,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
       <a
         aria-label="Page 1"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=1"
         rel={null}
         target={null}
@@ -212,6 +222,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
       <a
         aria-label="Page 6"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=6"
         rel={null}
         target={null}
@@ -223,6 +234,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
       <a
         aria-label="Page 7"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=7"
         rel={null}
         target={null}
@@ -234,6 +246,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
       <a
         aria-label="Page 8"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=8"
         rel={null}
         target={null}
@@ -245,6 +258,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
       <a
         aria-label="Page 9"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=9"
         rel={null}
         target={null}
@@ -257,6 +271,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         aria-current="page"
         aria-label="Page 10"
         className="chakra-link css-1oyhq6a"
+        data-testid="ds-link"
         href="page=10"
         rel={null}
         target={null}
@@ -269,6 +284,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 2`] = `
         aria-disabled={true}
         aria-label="Next page"
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="page=11"
         rel={null}
         target={null}
@@ -317,6 +333,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         aria-disabled={false}
         aria-label="Previous page"
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="page=4"
         rel={null}
         target={null}
@@ -348,6 +365,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
       <a
         aria-label="Page 1"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=1"
         rel={null}
         target={null}
@@ -362,6 +380,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
       <a
         aria-label="Page 4"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=4"
         rel={null}
         target={null}
@@ -374,6 +393,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         aria-current="page"
         aria-label="Page 5"
         className="chakra-link css-1oyhq6a"
+        data-testid="ds-link"
         href="page=5"
         rel={null}
         target={null}
@@ -385,6 +405,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
       <a
         aria-label="Page 6"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=6"
         rel={null}
         target={null}
@@ -399,6 +420,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
       <a
         aria-label="Page 10"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=10"
         rel={null}
         target={null}
@@ -411,6 +433,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 3`] = `
         aria-disabled={false}
         aria-label="Next page"
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="page=6"
         rel={null}
         target={null}
@@ -459,6 +482,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         aria-disabled={true}
         aria-label="Previous page"
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="page=0"
         rel={null}
         target={null}
@@ -491,6 +515,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         aria-current="page"
         aria-label="Page 1"
         className="chakra-link css-1oyhq6a"
+        data-testid="ds-link"
         href="page=1"
         rel={null}
         target={null}
@@ -502,6 +527,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
       <a
         aria-label="Page 2"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=2"
         rel={null}
         target={null}
@@ -513,6 +539,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
       <a
         aria-label="Page 3"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=3"
         rel={null}
         target={null}
@@ -524,6 +551,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
       <a
         aria-label="Page 4"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=4"
         rel={null}
         target={null}
@@ -535,6 +563,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
       <a
         aria-label="Page 5"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=5"
         rel={null}
         target={null}
@@ -549,6 +578,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
       <a
         aria-label="Page 10"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=10"
         rel={null}
         target={null}
@@ -561,6 +591,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 4`] = `
         aria-disabled={false}
         aria-label="Next page"
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="page=2"
         rel={null}
         target={null}
@@ -609,6 +640,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         aria-disabled={true}
         aria-label="Previous page"
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="page=0"
         rel={null}
         target={null}
@@ -641,6 +673,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         aria-current="page"
         aria-label="Page 1"
         className="chakra-link css-1oyhq6a"
+        data-testid="ds-link"
         href="page=1"
         rel={null}
         target={null}
@@ -652,6 +685,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
       <a
         aria-label="Page 2"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=2"
         rel={null}
         target={null}
@@ -663,6 +697,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
       <a
         aria-label="Page 3"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=3"
         rel={null}
         target={null}
@@ -674,6 +709,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
       <a
         aria-label="Page 4"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=4"
         rel={null}
         target={null}
@@ -685,6 +721,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
       <a
         aria-label="Page 5"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=5"
         rel={null}
         target={null}
@@ -699,6 +736,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
       <a
         aria-label="Page 10"
         className="chakra-link css-10hitgp"
+        data-testid="ds-link"
         href="page=10"
         rel={null}
         target={null}
@@ -711,6 +749,7 @@ exports[`Pagination Rendering renders the UI snapshot correctly 5`] = `
         aria-disabled={false}
         aria-label="Next page"
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="page=2"
         rel={null}
         target={null}

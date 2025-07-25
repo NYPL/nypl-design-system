@@ -52,7 +52,6 @@ export const AudioPlayer: ChakraComponent<
     (props, ref?) => {
       const {
         audioType,
-        className,
         descriptionText,
         embedCode,
         headingText,
@@ -128,7 +127,6 @@ export const AudioPlayer: ChakraComponent<
 
       return (
         <ComponentWrapper
-          className={`audioplayer ${className}`}
           data-testid="ds-audioPlayer"
           descriptionText={descriptionText}
           headingText={headingText}

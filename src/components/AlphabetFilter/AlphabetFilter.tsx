@@ -164,13 +164,13 @@ export const AlphabetFilter: ChakraComponent<
         data-testid="ds-alphabetFilter"
         id={id}
         ref={ref}
+        {...rest}
       >
         <ComponentWrapper
+          descriptionText={descriptionText ? descriptionText : undefined}
+          headingText={headingText ? headingText : undefined}
           id={id}
           __css={styles}
-          {...rest}
-          headingText={headingText ? headingText : undefined}
-          descriptionText={descriptionText ? descriptionText : undefined}
         >
           <Flex wrap="wrap">{getFilterLetters()}</Flex>
         </ComponentWrapper>

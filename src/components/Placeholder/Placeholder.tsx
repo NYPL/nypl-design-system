@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export interface PlaceholderProps {
-  /** Modifier string for the classname. */
+  /** Modifier string for the className. */
   variant?: string;
 }
 

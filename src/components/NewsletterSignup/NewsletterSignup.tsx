@@ -142,7 +142,7 @@ export const NewsletterSignup: ChakraComponent<
         >
           <VStack
             alignItems="flex-start"
-            className="newsletter-signup-appeal"
+            data-testid="ds-newsletterSignup-appeal"
             __css={styles.pitch}
           >
             {finalTitle}
@@ -164,9 +164,13 @@ export const NewsletterSignup: ChakraComponent<
               </Link>
             )}
           </VStack>
-          <VStack __css={styles.action} className="newsletter-signup-form">
+          <VStack __css={styles.action} data-testid="ds-newsletterSignup-form">
             {isFormView && (
-              <Form id={`${mainId}-form`} onSubmit={onSubmit}>
+              <Form
+                className="ds-newslettersignup-form"
+                id={`${mainId}-form`}
+                onSubmit={onSubmit}
+              >
                 <FormField key="formfield-input">
                   <TextInput
                     id={`${mainId}-textInput`}

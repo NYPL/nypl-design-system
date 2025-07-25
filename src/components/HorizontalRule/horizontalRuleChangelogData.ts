@@ -18,6 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes default external spacing.",
       "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-horizontalRule` to the parent element.",
     ],
   },
   {

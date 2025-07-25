@@ -18,6 +18,8 @@ export const changelogData: ChangelogData[] = [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Replaces `Children.map` logic with `ButtonGroupContext`.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Removes the explicit `className` prop in favor of `rest`.",
+      "Adds `data-testid` value of `ds-buttonGroup` to the parent element.",
     ],
   },
   {

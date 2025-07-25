@@ -9,7 +9,7 @@ exports[`Banner renders the UI snapshot correctly 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1976tye"
+    className="chakra-icon css-1976tye"
     data-file-name="SvgErrorOutline"
     data-testid="test-id-banner-icon"
     focusable={false}
@@ -39,7 +39,7 @@ exports[`Banner renders the UI snapshot correctly 2`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1976tye"
+    className="chakra-icon css-1976tye"
     data-file-name="SvgErrorOutline"
     data-testid="bannerID3-banner-icon"
     focusable={false}
@@ -69,7 +69,7 @@ exports[`Banner renders the UI snapshot correctly 3`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1976tye"
+    className="chakra-icon css-1976tye"
     data-file-name="SvgErrorOutline"
     data-testid="bannerID3-banner-icon"
     focusable={false}
@@ -99,7 +99,7 @@ exports[`Banner renders the UI snapshot correctly 4`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1976tye"
+    className="chakra-icon css-1976tye"
     data-file-name="SvgActionCheckCircle"
     data-testid="bannerID3-banner-icon"
     focusable={false}
@@ -129,7 +129,7 @@ exports[`Banner renders the UI snapshot correctly 5`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1976tye"
+    className="chakra-icon css-1976tye"
     data-file-name="SvgActionLightbulb"
     data-testid="bannerID3-banner-icon"
     focusable={false}
@@ -159,7 +159,7 @@ exports[`Banner renders the UI snapshot correctly 6`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1976tye"
+    className="chakra-icon css-1976tye"
     data-file-name="SvgAlertNotificationImportant"
     data-testid="bannerID3-banner-icon"
     focusable={false}
@@ -189,7 +189,7 @@ exports[`Banner renders the UI snapshot correctly 7`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1vgifmd"
+    className="chakra-icon css-1vgifmd"
     data-file-name="SvgErrorOutline"
     data-testid="bannerID4-banner-icon"
     focusable={false}
@@ -213,7 +213,7 @@ exports[`Banner renders the UI snapshot correctly 8`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1vgifmd"
+    className="chakra-icon css-1vgifmd"
     data-file-name="SvgErrorOutline"
     data-testid="bannerID7-banner-icon"
     focusable={false}
@@ -255,7 +255,7 @@ exports[`Banner renders the UI snapshot correctly 9`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1976tye"
+    className="chakra-icon css-1976tye"
     data-file-name="SvgErrorOutline"
     data-testid="chakra-banner-icon"
     focusable={false}
@@ -285,7 +285,7 @@ exports[`Banner renders the UI snapshot correctly 10`] = `
 >
   <svg
     aria-hidden={true}
-    className="chakra-icon banner-icon css-1976tye"
+    className="chakra-icon css-1976tye"
     data-file-name="SvgErrorOutline"
     data-testid="props-banner-icon"
     focusable={false}

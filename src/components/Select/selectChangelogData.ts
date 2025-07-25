@@ -20,6 +20,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `name`, `onChange`, and `value` props (as HTML equivalents may be used) and updates docs.",
       "Rename `selectType` to `variant`.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-select` to the parent element.",
     ],
   },
   {

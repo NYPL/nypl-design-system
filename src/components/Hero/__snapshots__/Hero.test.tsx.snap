@@ -2,7 +2,7 @@
 
 exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1wmtxb5"
+  className="css-8x56sg"
   data-responsive-background-image={true}
   data-testid="ds-hero"
 >
@@ -33,7 +33,7 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
 
 exports[`Hero Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-14tngpx"
+  className="css-5oa3pe"
   data-responsive-background-image={true}
   data-testid="ds-hero"
 >
@@ -62,7 +62,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
 
 exports[`Hero Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-x5wp36"
+  className="css-16jme9j"
   data-responsive-background-image={true}
   data-testid="ds-hero"
 >
@@ -90,7 +90,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
       >
         <img
           alt="Image example"
-          className="css-0"
+          className="css-1xdhyk6"
           id="image-example"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
@@ -114,7 +114,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
 
 exports[`Hero Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-1wmtxb5"
+  className="css-uq9vkr"
   data-responsive-background-image={true}
   data-testid="ds-hero"
 >
@@ -145,9 +145,9 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
 
 exports[`Hero Renders the UI snapshot correctly 5`] = `
 <div
-  className="css-1wmtxb5"
+  className="css-8x56sg"
   data-responsive-background-image={true}
-  data-testid="ds-hero"
+  data-testid="props"
 >
   <div
     className="css-24mlj5"
