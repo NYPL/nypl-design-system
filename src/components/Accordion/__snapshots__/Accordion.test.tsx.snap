@@ -30,7 +30,7 @@ exports[`Accordion Renders the UI snapshot correctly 1`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon accordion-icon css-1b9sovw"
+        className="chakra-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
         id="test-id-icon-0"
@@ -72,7 +72,7 @@ exports[`Accordion Renders the UI snapshot correctly 2`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon accordion-icon css-1b9sovw"
+        className="chakra-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
         id="accordian-icon-0"
@@ -114,7 +114,7 @@ exports[`Accordion Renders the UI snapshot correctly 3`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon accordion-icon css-1b9sovw"
+        className="chakra-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
         id="accordian-icon-0"
@@ -156,7 +156,7 @@ exports[`Accordion Renders the UI snapshot correctly 4`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon accordion-icon css-1b9sovw"
+        className="chakra-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
         id="accordian-icon-0"
@@ -198,7 +198,7 @@ exports[`Accordion Renders the UI snapshot correctly 5`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon accordion-icon css-1b9sovw"
+        className="chakra-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
         id="accordian-icon-0"
@@ -240,7 +240,7 @@ exports[`Accordion Renders the UI snapshot correctly 6`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon accordion-icon css-1b9sovw"
+        className="chakra-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
         id="accordian-icon-0"
@@ -282,7 +282,7 @@ exports[`Accordion Renders the UI snapshot correctly 7`] = `
       </span>
       <svg
         aria-hidden={true}
-        className="chakra-icon accordion-icon css-1b9sovw"
+        className="chakra-icon css-1b9sovw"
         data-file-name="SvgPlus"
         focusable={false}
         id="accordian-icon-0"

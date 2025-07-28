@@ -88,6 +88,7 @@ const FeedbackBoxWithControls = (args) => {
     </Box>
   );
 };
+FeedbackBoxWithControls.displayName = "FeedbackBoxWithControls";
 
 /**
  * Main Story for the FeedbackBox component. This must contains the `args`

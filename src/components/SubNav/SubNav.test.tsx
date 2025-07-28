@@ -155,7 +155,8 @@ describe("SubNavButton", () => {
       </SubNavButton>
     );
     const button = screen.getByText("Selected Button");
-    expect(button).toHaveClass("selectedItem"); // Should have "selectedItem" class
+    // Should have "ds-subNav-selectedItem" class
+    expect(button).toHaveClass("ds-subNav-selectedItem");
   });
 });
 
@@ -178,7 +179,8 @@ describe("SubNavLink", () => {
       </SubNavLink>
     );
     const button = screen.getByText("Selected Link");
-    expect(button).toHaveClass("selectedItem"); // Should have "selectedItem" class
+    // Should have "ds-subNav-selectedItem" class
+    expect(button).toHaveClass("ds-subNav-selectedItem");
   });
 
   it("applies outlined styles when isOutlined is true", () => {

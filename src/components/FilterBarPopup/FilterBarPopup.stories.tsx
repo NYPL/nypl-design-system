@@ -67,13 +67,13 @@ const meta: Meta<typeof FilterBarPopup> = {
   component: FilterBarPopup,
   argTypes: {
     heading: { control: false },
-    isOpen: { table: { disable: true } },
+    isOpen: { control: false },
     onClear: {
       description:
         "Function to clear all selectedItems - needs to be provided by consuming app",
     },
-    onClose: { table: { disable: true } },
-    onOpen: { table: { disable: true } },
+    onClose: { control: false },
+    onOpen: { control: false },
     onSubmit: {
       description:
         "Function to handle submit of all selectedItems - needs to be provided by consuming app",
@@ -170,6 +170,7 @@ const FilterBarPopupStory = (args) => {
     />
   );
 };
+FilterBarPopupStory.displayName = "FilterBarPopupStory";
 
 const FilterBarPopupHeadingStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear } =
@@ -230,6 +231,7 @@ const FilterBarPopupHeadingStory = () => {
     </VStack>
   );
 };
+FilterBarPopupHeadingStory.displayName = "FilterBarPopupHeadingStory";
 
 const FilterBarChildrenStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -325,11 +327,12 @@ const FilterBarChildrenStory = (args) => {
     />
   );
 };
+FilterBarChildrenStory.displayName = "FilterBarChildrenStory";
 
 const FilterBarTotalResultsStory = () => {
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
   const [textValue, setTextValue] = useState("");
-  const [totalResults, setTotalResults] = useState(100);
+  const [totalResults, setTotalResults] = useState(72);
   const [selectedFilterItems, setSelectedFilterItems] = useState([
     selectedCheckbox,
     textValue,
@@ -344,7 +347,7 @@ const FilterBarTotalResultsStory = () => {
   };
 
   const clearFilters = () => {
-    setTotalResults(100);
+    setTotalResults(72);
     setTextValue("");
     setSelectedCheckbox([]);
   };
@@ -394,3 +397,4 @@ const FilterBarTotalResultsStory = () => {
     </>
   );
 };
+FilterBarTotalResultsStory.displayName = "FilterBarTotalResultsStory";

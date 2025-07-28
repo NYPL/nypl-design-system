@@ -17,11 +17,12 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Extends prop definition to include Chakra's `BoxProps`",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-multiSelect` to the parent element.",
     ],
   },
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2025-07-17",
+    version: "3.6.4",
     type: "Bug Fix",
     affects: ["Functionality"],
     notes: ["Fixes the array of checkbox items to return with unique keys."],

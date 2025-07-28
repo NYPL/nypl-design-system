@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+## Prerelease
+
 ## 4.0.0 (TBD)
 
 ### Adds
@@ -31,6 +33,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Table`'s `tableTextSize` prop to accept `caption`.
 - Renames `Accordion`, `Banner`, `Breadcrumbs`, `Button`, `Hero`, `Icon`, `Link`, `List`, `Modal`, `Notification`, `Select`, `StatusBadge`, `TagSet`, and `TextInput` props using "type" to use "variant".
 - Updates the `id` prop for all components to reduce `undefined` and makes previously required `id`s optional in the following components: `Accordion`, `Button`, `ButtonGroup`, `Checkbox`, `CheckboxGroup`, `DatePicker`, `Fieldset`, `Form`, `MultiSelect`, `MultiSelectGroup`, `ProgressIndicator`, `Radio`, `RadioGroup`, `SearchBar`, `Slider`, `TextInput`, `Toggle`
+- Moves up the `...rest` prop spread statement to the parent element in every component.
+- Updates how the `className` prop is used in components. They are no longer explicit internal props but can be passed as other props through the `rest` prop.
+- Updates internal `className` values to use the `ds-[componentName]` naming convention.
 
 ### Removals
 
@@ -62,11 +67,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
 - Removes all files related to the `Autosuggest` component guidelines.
 
-## Prerelease
-
 ### Fixes
 
-- Fixes the keyless fragments for `Checkbox` items in the `Multiselect` component.
+- Fixes missing names for some component story code blocks.
+
+## 3.6.4 (July 17, 2025)
 
 ### Adds
 
@@ -75,6 +80,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates Storybook to `v9.0.16`.
+- Updates Node to `v20`.
+
+### Fixes
+
+- Fixes the keyless fragments for `Checkbox` items in the `Multiselect` component.
 
 ## 3.6.3 (June 9, 2025)
 

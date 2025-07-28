@@ -84,6 +84,7 @@ export const Hero: ChakraComponent<
         isDarkText,
         isDarkBackgroundImage = false,
         subHeaderText,
+        ...rest
       } = props;
       const styles = useMultiStyleConfig("Hero", {
         foregroundColor,
@@ -305,6 +306,7 @@ export const Hero: ChakraComponent<
             ...styles.base,
             ...backgroundImageStyle,
           }}
+          {...rest}
         >
           <Box
             data-testid="hero-content"
