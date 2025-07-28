@@ -164,9 +164,11 @@ export const Heading: ChakraComponent<
         ? "subtitle1"
         : "subtitle2";
 
-      /** The styles that should be applied to the outer-most wrapper of the
-       * Heading component. */
-      const wrapperStyles = styles.headingWrapper;
+      /** To circumvent how Chakra controls style props, the text color value
+       * was moved into its own theme "part" and then applied to the UI
+       * appropriately. This method allows custom colors to override the default
+       * color value. */
+      const colorStyle = styles.colorStyle;
 
       /** The styles for the actual native heading element. If the native
        * element is going to sit by itself, without the overline or subtitle
@@ -179,7 +181,7 @@ export const Heading: ChakraComponent<
             }
           : {
               ...styles.base,
-              ...wrapperStyles,
+              ...colorStyle,
             };
       /** If there is an `overline` or a `subtitle`, `...rest` will be passed to
        * the `<hgroup>`, otherwise, it will be passed directly to the `<h>`. */
@@ -232,7 +234,7 @@ export const Heading: ChakraComponent<
           aria-roledescription="Heading group"
           data-testid="ds-heading-group"
           role="group"
-          sx={{ ...wrapperStyles }}
+          sx={{ ...colorStyle }}
           {...rest}
         >
           {finalContent}
