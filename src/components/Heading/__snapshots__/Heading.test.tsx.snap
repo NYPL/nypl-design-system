@@ -112,7 +112,7 @@ exports[`Heading renders the UI snapshot correctly 9`] = `
     Overline
   </p>
   <h1
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     data-testid="ds-heading"
     id="customDisplaySize"
   >
@@ -129,7 +129,7 @@ exports[`Heading renders the UI snapshot correctly 10`] = `
   role="group"
 >
   <h1
-    className="chakra-heading css-0"
+    className="chakra-heading css-1xdhyk6"
     data-testid="ds-heading"
     id="customDisplaySize"
   >

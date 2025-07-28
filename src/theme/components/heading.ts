@@ -5,7 +5,7 @@ import { baseLinkStyles } from "./link";
 // This function creates a set of function that helps us
 // create multipart component styles.
 const { defineMultiStyleConfig, definePartsStyle } =
-  createMultiStyleConfigHelpers(["base", "colorStyle"]);
+  createMultiStyleConfigHelpers(["base", "defaultColorStyle"]);
 
 // Heading Styles
 export const headings = {
@@ -162,7 +162,7 @@ const Heading = defineMultiStyleConfig({
           ? "lowercase"
           : null,
       },
-      colorStyle: {
+      defaultColorStyle: {
         color: "ui.typography.heading",
         _dark: {
           color: "dark.ui.typography.heading",
