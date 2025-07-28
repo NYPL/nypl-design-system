@@ -36,6 +36,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Moves up the `...rest` prop spread statement to the parent element in every component.
 - Updates how the `className` prop is used in components. They are no longer explicit internal props but can be passed as other props through the `rest` prop.
 - Updates internal `className` values to use the `ds-[componentName]` naming convention.
+- Updates `README.md` for v4
 
 ### Removals
 
