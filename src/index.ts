@@ -260,7 +260,7 @@ export {
 } from "./components/Tabs/Tabs";
 export type { TabsDataProps, TabsProps } from "./components/Tabs/Tabs";
 export { default as TagSet } from "./components/TagSet/TagSet";
-export type { TagSetProps, TagSetTypeProps } from "./components/TagSet/TagSet";
+export type { TagSetProps } from "./components/TagSet/TagSet";
 export type {
   TagSetExploreDataProps,
   TagSetExploreProps,
