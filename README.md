@@ -29,7 +29,7 @@ Storybook documentation:
 $ npm install @nypl/design-system-react-components
 ```
 
-2. Import the `DSProvider` component.
+2. Add the `DSProvider`.
 
 In order to properly render styles, you must wrap all Reservoir components with a `DSProvider` component.
 
@@ -40,14 +40,14 @@ import { DSProvider } from "@nypl/design-system-react-components";
 const ApplicationContainer = (props) => {
   // ...
   return (
-  <header>...</header>
-    <DSProvider>
-      <div className="my-app">
-        // ...
-        {children}
-      </div>
-    </DSProvider>
-  <footer>...</footer>
+    <header>...</header>
+      <DSProvider>
+        <div className="my-app">
+          // ...
+          {children}
+        </div>
+      </DSProvider>
+    <footer>...</footer>
   );
 };
 ```
@@ -100,13 +100,13 @@ Accessibility is a main priority of the Reservoir Design System.
 
 On top of built-in accessibility from Chakra, DS components link labels with input elements, add correct `aria-*` attributes, visually hide important text for screenreader users, and much more.
 
-We make use of:
+Reservoir makes use of:
 
 - `eslint-plugin-jsx-a11y` for finding accessibility errors through linting and through IDE environments.
 - `jest-axe` for running [`axe-core`](https://github.com/dequelabs/axe-core) on _every_ component's unit test file. This is part of the automated tests that run in Github Actions through the `npm test` command.
 - `@storybook/addon-a11y` for real-time accessibility testing in the browser through Storybook. _Every_ component has a tab that displays violations, passes, and incomplete checks performed by `axe-core`.
 
-Additionally, DS components have accessibility information in their Storybook documentation.
+Additionally, DS components include detailed accessibility information in their Storybook documentation.
 
 ## Contributing
 
@@ -142,7 +142,7 @@ The Reservoir Design System is built with Typescript. Check out the Design Syste
 
 The DS uses Node version 20.x and we do not support any Node versions below 20.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 20.x.
 
-If you are using `nvm`, the local `.nvmrc` file (using `20.x`) can be use to set your local Node version with the `nvm use` command. Make sure your machine has Node version 20.x installed through `nvm` already.
+If you are using `nvm`, the local `.nvmrc` file (using `20.x`) can be used to set your local Node version with the `nvm use` command. Make sure your machine has Node version 20.x installed through `nvm` already.
 
 ### Component documentation
 
@@ -150,23 +150,28 @@ When developing components or fixing bugs, make sure to update or create the rel
 
 To create a story:
 
-1. Add a `[component-name].mdx` file in `src/docs/`
+1. Add a `[component-name].mdx` file in the `src/components/[component-name]/` directory.
 2. Make sure the file is referenced in the `stories` array of `.storybook/main.ts`
 
 For information on how to write stories, check out the [Anatomy of a Story](https://github.com/NYPL/nypl-design-system/wiki/Anatomy-of-a-Story) wiki page.
 
-### Component versions
+### Component header
 
-To help consuming app developers know which version of the DS is required for a specific component, each component story page includes the following:
+Each story page starts with a component header. It includes the component category, name, summary, and versioning information.
 
-**Example Component Version Table**
+**Example component docs header**
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.20.1`   |
-| Latest            | `4.0.0`    |
+<ComponentDocsHeader
+  category="Basic Elements"
+  componentName="Hero"
+  summary="A full-width banner at the top of a page"
+  versionAdded="0.2.0"
+  versionLatest="Prerelease"
+/>
 
-### Unit Testing
+![Docs header](./public/readme/componentheader.png)
+
+### Unit testing
 
 The Reservoir Design System runs unit tests with Jest and React Testing Library.
 
@@ -194,7 +199,7 @@ For example, to test the `Link` component, run:
 $ npm test -- src/components/Link/Link.test.tsx
 ```
 
-### Snapshot Testing
+### Snapshot testing
 
 If a component's DOM or SCSS styling was unintentionally updated, we can catch those bugs through snapshot testing. The NYPL DS implements snapshot testing with `react-test-renderer` and `jest`.
 
@@ -242,13 +247,13 @@ $ npm test -- --updateSnapshot
 
 Each snapshot file also includes a link to its [Jest Snapshot documentation](https://jestjs.io/docs/snapshot-testing) which is recommended to read!
 
-### Storybook Test Addon
+### Storybook test addon
 
 Through the [`@storybook/test`](https://www.npmjs.com/package/@storybook/test) plugin, we can see a component's suite of unit tests right Storybook. In the "Addons" panel, a "Test" tab will display all the tests for the current component and whether they pass or fail.
 
 After writing new tests, run `npm run test:generate-output` to create a new JSON file that is used by Storybook. This JSON file contains all the test suites for all the components and Storybook picks this up and automatically combines a component with its relevant unit tests. Make sure to commit this file although new builds on Github Pages will recreate this file for the production Storybook instance.
 
-### Static Build
+### Static build
 
 _Make sure not to commit the directory created from the following process_.
 
@@ -276,7 +281,7 @@ When working on a new feature or a bug fix:
 2. Create a pull request that points to the `development` branch.
 3. If your pull request is approved and _should_ be merged, a maintainer will add the "Ship It" Github label and you may merge it. Sometimes, features must wait; the "DO NOT MERGE" label will be added to these pull requests.
 
-### Release Candidates
+### Release candidates
 
 For big feature updates, we'll often make a "release candidate" and test it in the [Turbine app](https://nypl-ds-test-app.vercel.app/) before the real release is made.
 
