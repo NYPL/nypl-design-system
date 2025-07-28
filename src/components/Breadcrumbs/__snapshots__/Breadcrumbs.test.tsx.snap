@@ -18,7 +18,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -39,15 +39,16 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon breadcrumbs-icon css-1vgifmd"
+          className="chakra-icon css-1vgifmd"
           data-file-name="SvgArrow"
+          data-testid="ds-breadcrumbs-backarrow"
           focusable={false}
-          id="breadcrumbs-test-1-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-ds-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -68,7 +69,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 1`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -96,7 +97,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -117,15 +118,16 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon breadcrumbs-icon css-1vgifmd"
+          className="chakra-icon css-1vgifmd"
           data-file-name="SvgArrow"
+          data-testid="ds-breadcrumbs-backarrow"
           focusable={false}
-          id="breadcrumbs-test-1-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-ds-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -146,7 +148,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 2`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -174,7 +176,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -195,15 +197,16 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon breadcrumbs-icon css-1vgifmd"
+          className="chakra-icon css-1vgifmd"
           data-file-name="SvgArrow"
+          data-testid="ds-breadcrumbs-backarrow"
           focusable={false}
-          id="breadcrumbs-test-1-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-ds-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -224,7 +227,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 3`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -252,7 +255,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -273,15 +276,16 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon breadcrumbs-icon css-1vgifmd"
+          className="chakra-icon css-1vgifmd"
           data-file-name="SvgArrow"
+          data-testid="ds-breadcrumbs-backarrow"
           focusable={false}
-          id="breadcrumbs-test-1-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-ds-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -302,7 +306,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 4`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -330,7 +334,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -351,15 +355,16 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon breadcrumbs-icon css-1vgifmd"
+          className="chakra-icon css-1vgifmd"
           data-file-name="SvgArrow"
+          data-testid="ds-breadcrumbs-backarrow"
           focusable={false}
-          id="breadcrumbs-test-1-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-ds-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -380,7 +385,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 5`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -408,7 +413,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 6`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -429,15 +434,16 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 6`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon breadcrumbs-icon css-1vgifmd"
+          className="chakra-icon css-1vgifmd"
           data-file-name="SvgArrow"
+          data-testid="ds-breadcrumbs-backarrow"
           focusable={false}
-          id="breadcrumbs-test-1-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-ds-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -458,7 +464,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 6`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>
@@ -486,7 +492,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
         href="#string1"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string1
         </span>
@@ -507,15 +513,16 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon breadcrumbs-icon css-1vgifmd"
+          className="chakra-icon css-1vgifmd"
           data-file-name="SvgArrow"
+          data-testid="ds-breadcrumbs-backarrow"
           focusable={false}
-          id="breadcrumbs-test-1-breadcrumbs-backarrow"
+          id="breadcrumbs-test-1-ds-breadcrumbs-backarrow"
           role="img"
           title="arrow icon"
         />
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string2
         </span>
@@ -536,7 +543,7 @@ exports[`Breadcrumbs Snapshot Renders the UI snapshot correctly 7`] = `
         href="#string3"
       >
         <span
-          className="breadcrumb-label"
+          className="ds-breadcrumbs-link-label"
         >
           string3
         </span>

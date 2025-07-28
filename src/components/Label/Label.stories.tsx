@@ -7,9 +7,17 @@ const meta: Meta<typeof Label> = {
   title: "Components/Form Elements/Label",
   component: Label,
   argTypes: {
-    isInlined: { table: { disable: true } },
+    isInlined: {
+      control: false,
+      table: { category: "DS internal only" },
+    },
+    isRequired: {
+      control: { type: "boolean" },
+      table: { defaultValue: { summary: "false" } },
+    },
     text: {
       description: "Only used for Storybook",
+      table: { category: "Storybook Only" },
     },
   },
 };
@@ -23,11 +31,14 @@ type Story = StoryObj<typeof Label>;
  */
 export const WithControls: Story = {
   args: {
-    htmlFor: "id-of-input-element",
     isRequired: false,
     text: "A label for a villager.",
   },
-  render: (args: any) => <Label {...args}>{args.text}</Label>,
+  render: (args: any) => (
+    <Label htmlFor="id-of-input-element" {...args}>
+      {args.text}
+    </Label>
+  ),
   parameters: {
     jest: "Label.test.tsx",
   },

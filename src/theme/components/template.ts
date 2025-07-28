@@ -25,7 +25,7 @@ const Template = defineStyleConfig({
        * for the "content" and "sidebar" ragions in order to simplify how
        * variants are handled.
        * */
-      "& .reservoir-template-content": {
+      "& .ds-template-content": {
         gridColumn: { base: "1 / -1" },
       },
     };
@@ -48,14 +48,14 @@ const Template = defineStyleConfig({
    * */
   variants: {
     sidebarLeft: {
-      "& .reservoir-template-content": {
+      "& .ds-template-content": {
         gridColumn: {
           sm: "7 / -1",
           md: "5 / -1",
           lg: "4 / -1",
         },
       },
-      "& .reservoir-template-sidebar": {
+      "& .ds-template-sidebar": {
         gridColumn: {
           base: "1 / -1",
           sm: "1 / 7",
@@ -65,14 +65,14 @@ const Template = defineStyleConfig({
       },
     },
     sidebarRight: {
-      "& .reservoir-template-content": {
+      "& .ds-template-content": {
         gridColumn: {
           sm: "1 / 7",
           md: "1 / 9",
           lg: "1 / 10",
         },
       },
-      "& .reservoir-template-sidebar": {
+      "& .ds-template-sidebar": {
         gridColumn: {
           base: "1 / -1",
           sm: "7 / -1",
@@ -82,7 +82,7 @@ const Template = defineStyleConfig({
       },
     },
     narrow: {
-      "& .reservoir-template-content": {
+      "& .ds-template-content": {
         gridColumn: {
           base: "1 / -1",
           md: "2 / 12",
@@ -109,11 +109,9 @@ const TemplateMain = defineStyleConfig({
 
 const TemplateBreakout = defineStyleConfig({
   baseStyle: defineStyle(() => {
-    const { responsiveMargin } = useResponsiveSpacing();
     return {
       gridColumn: "1 / -1",
       ml: "calc(-50vw + 50%)",
-      px: responsiveMargin,
       width: "100vw",
     };
   }),

@@ -318,7 +318,13 @@ export const Card: ChakraComponent<
       });
 
       return (
-        <Box data-testid="ds-card" id={mainId} ref={ref} __css={styles.base}>
+        <Box
+          data-testid="ds-card"
+          id={mainId}
+          ref={ref}
+          __css={styles.base}
+          {...rest}
+        >
           <CardWrapper
             mainActionLink={mainActionLink}
             styles={{
@@ -326,7 +332,6 @@ export const Card: ChakraComponent<
               ...customColors,
             }}
             data-cardwrapper
-            {...rest}
           >
             {hasImage && (
               <CardImage

@@ -19,6 +19,8 @@ export const changelogData: ChangelogData[] = [
       "Removes `action`, `method`, and `onSubmit` props (as HTML equivalents may be used) and updates docs.",
       "Removes children validation warning.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Removes the explicit `className` prop in favor of `rest`.",
+      "Adds `data-testid` value of `ds-form` to the parent element.",
     ],
   },
   {

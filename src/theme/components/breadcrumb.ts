@@ -167,7 +167,7 @@ const Breadcrumb = defineStyleConfig({
       ".icon": {
         display: { base: "inline", md: "none" },
       },
-      "span:not(.breadcrumb-label)": {
+      "span:not(.ds-breadcrumbs-link-label)": {
         marginInlineEnd: "xxs",
         marginInlineStart: "xxs",
         ...screenreaderOnly(true),

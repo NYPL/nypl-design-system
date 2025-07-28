@@ -237,6 +237,7 @@ export const TextInput: ChakraComponent<
             name,
             onChange: internalOnChange,
             ref: finalRef,
+            ...rest,
           }
         : {
             "aria-required": isRequired,
@@ -310,7 +311,6 @@ export const TextInput: ChakraComponent<
           isInvalid={finalIsInvalid}
           showHelperInvalidText={showHelperInvalidText && !isHidden}
           __css={styles}
-          {...rest}
         >
           {labelText && showLabel && !isHidden && (
             <Label
