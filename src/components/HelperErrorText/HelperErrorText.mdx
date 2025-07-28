@@ -81,6 +81,10 @@ The `"assertive"` value indicates that updates should be announced
 immediately. This is generally not recommended as it can interruptive
 to the user.
 
+In order to meet accessibility guidelines for dynamic content updates, this
+attribute is set in the wrapper `<div>` that is always rendered (regardless of
+whether the text is present).
+
 <Canvas of={HelperErrorTextStories.AriaControls} />
 
 ### ARIA atomic

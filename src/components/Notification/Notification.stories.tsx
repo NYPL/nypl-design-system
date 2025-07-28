@@ -52,8 +52,8 @@ export const WithControls: Story = {
         luctus, nisi erat porttitor ligula.
       </>
     ),
-    variant: "standard",
     showIcon: true,
+    variant: "standard",
   },
   parameters: {
     design: {

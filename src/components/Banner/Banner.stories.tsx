@@ -59,7 +59,7 @@ export const WithControls: Story = {
     highlightColor: undefined,
     icon: undefined,
     isDismissible: false,
-    type: "neutral",
+    variant: "neutral",
   },
   parameters: {
     design: {
