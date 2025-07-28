@@ -39,19 +39,17 @@ export const ButtonGroup: ChakraComponent<
       const {
         buttonWidth = "default",
         children,
-        className = "",
         id,
         isDisabled = false,
         layout = "row",
         ...rest
       } = props;
       const styles = useStyleConfig("ButtonGroup", {
-        buttonWidth: buttonWidth,
+        buttonWidth,
       });
 
       return (
         <Stack
-          className={className}
           data-testid="ds-buttonGroup"
           direction={{ base: "column", md: layout }}
           id={id}

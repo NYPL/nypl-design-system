@@ -20,7 +20,10 @@ export const changelogData: ChangelogData[] = [
       "Replaces positional function arguments with objects for `tooltipWrapperOrText` and `getElementsFromData`.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Renames `breadcrumbsType` to `variant`.",
-      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Updates the internal `breadcrumb-label` class to `ds-breadcrumbs-link-label`.",
+      "Removes the internal `breadcrumbs-icon` class in the Icon component.",
+      "Adds `data-testid` value of `ds-breadcrumbs` to the parent element.",
     ],
   },
   {

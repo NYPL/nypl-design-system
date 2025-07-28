@@ -48,6 +48,7 @@ exports[`Heading renders the UI snapshot correctly 5`] = `
 >
   <a
     className="chakra-link css-1xdhyk6"
+    data-testid="ds-link"
     href="fake-url"
     rel={null}
     target={null}

@@ -105,11 +105,11 @@ export const StructuredContent: ChakraComponent<
       const finalBodyContent =
         typeof bodyContent === "string" ? (
           <div
-            className="structuredcontent-body"
+            className="ds-structuredContent-body"
             dangerouslySetInnerHTML={{ __html: bodyContent }}
           />
         ) : (
-          <Box className="structuredcontent-body">{bodyContent}</Box>
+          <Box className="ds-structuredContent-body">{bodyContent}</Box>
         );
       const finalTitle = useDSHeading({
         additionalStyles: {

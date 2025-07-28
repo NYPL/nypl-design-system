@@ -17,11 +17,12 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-videoPlayer` to the parent element.",
     ],
   },
   {
-    date: "2025-06-12",
-    version: "Prerelease",
+    date: "2025-07-17",
+    version: "3.6.4",
     type: "Update",
     affects: ["Accessibility"],
     notes: [

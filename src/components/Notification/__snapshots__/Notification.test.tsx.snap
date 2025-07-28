@@ -16,7 +16,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-1nreziu"
+        className="chakra-icon css-1nreziu"
         data-file-name="SvgAlertNotificationImportant"
         focusable={false}
         id="notificationID1-notification-icon"
@@ -61,7 +61,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-f7lbg8"
+        className="chakra-icon css-f7lbg8"
         data-file-name="SvgSpeakerNotes"
         focusable={false}
         id="notificationID2-notification-icon"
@@ -106,7 +106,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-3u73el"
+        className="chakra-icon css-3u73el"
         data-file-name="SvgErrorFilled"
         focusable={false}
         id="notificationID3-notification-icon"
@@ -151,7 +151,7 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-1nreziu"
+        className="chakra-icon css-1nreziu"
         data-file-name="SvgAlertNotificationImportant"
         focusable={false}
         id="notificationID4-notification-icon"
@@ -249,7 +249,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-1nreziu"
+        className="chakra-icon css-1nreziu"
         data-file-name="SvgAlertNotificationImportant"
         focusable={false}
         id="notificationID7-notification-icon"
@@ -305,7 +305,7 @@ exports[`Notification renders the UI snapshot correctly 8`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-1nreziu"
+        className="chakra-icon css-1nreziu"
         data-file-name="SvgAlertNotificationImportant"
         focusable={false}
         id="chakra-notification-icon"
@@ -350,7 +350,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-1nreziu"
+        className="chakra-icon css-1nreziu"
         data-file-name="SvgAlertNotificationImportant"
         focusable={false}
         id="props-notification-icon"
