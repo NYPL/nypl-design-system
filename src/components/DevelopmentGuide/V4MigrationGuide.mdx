@@ -91,6 +91,9 @@ to refactor your code to use our new composable [Template components](../?path=/
         //...
         </TemplateFull>
     </TemplateMain>
+    <TemplateFooter>
+    //...
+    </TemplateFooter>
   </Template>
 `}
   language="jsx"
@@ -179,8 +182,8 @@ replaced with `aria-label`. You can see a list of aria props that have been remo
 
 #### Update `className` and `id` references as needed.
 
-`className`s passed by the consumer to `AlphabetFilter`, `Card`, `Menu`, and `MultiSelectGroup`, will now be
-passed down at the top-level within these components. We've also renamed some internal `className`s for
+`className`s passed by the consumer to `AlphabetFilter`, `Card`, `Menu`, and `MultiSelectGroup` will now be
+added to the top-level of these components. We've also renamed some internal `className`s for
 consistency. If you're relying on these `className`s for testing or styling, you'll need to adjust your code.
 
 We’ve adjusted `id`s within our components for clarity and consistency, so if you're using Reservoir component
@@ -228,9 +231,25 @@ but it’s possible a page will not look as expected on smaller screen sizes and
   </Box>
 </Flex>
 
-#### Rename `tableTextSize` to `fontSize`.
+#### If using `Table`, rename `tableTextSize` to `fontSize`.
 
 We updated the `tableTextSize` prop in `Table` to `fontSize` to align more closely with the CSS property.
+
+#### If using the `onMixedStateChange` function, update the argument to use object destructuring.
+
+We moved to object destructuring for functions with 3+ arguments. This is mostly an internal, non-breaking
+change, but if you're using the `onMixedStateChange` function from the `useMultiSelect` hook, you'll need
+to move the arguments you're passing inside an object with key-value pairs.
+
+<Source
+  code={`
+  // This no longer works.
+  onMixedStateChange(e.target.id, multiSelect.id, multiSelect.items);
+  // Args must be inside an object with key-value pairs.
+  onMixedStateChange({ parentId: e.target.id, multiSelectId: multiSelect.id, items: multiSelect.items })
+`}
+  language="jsx"
+/>
 
 ## Non-Breaking Changes
 
@@ -239,7 +258,7 @@ existing code.
 
 #### There's a new `useResponsiveSpacing` hook.
 
-[`useResponsiveSpacing`](../?path=/docs/hooks-useresponsivespacing--docs) exports spacing values to generate
+[The `useResponsiveSpacing` hook](../?path=/docs/hooks-useresponsivespacing--docs) exports spacing values to generate
 consistent layouts. We recommend its usage for custom layout and components.
 
 #### We made a guide for using the Next.js `Image` component.
@@ -290,7 +309,8 @@ longer recommended due to technical complexity and UX consistency concerns and h
 - We've updated our Storybook version, and given the doc headers a new look and feel.
 - We've reduced `React.Children.map` usage in hopes of a performance gain in the components that were using it.
 - We've updated some of our internal naming for improved consistency.
-- We're utilizing object destructuring for arguments, enhancing internal readability and maintainability.
+- We're utilizing object destructuring for functions with 3+ arguments, enhancing internal readability and
+  maintainability.
 
 ## v3 Support
 
