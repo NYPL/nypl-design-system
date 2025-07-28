@@ -91,6 +91,9 @@ to refactor your code to use our new composable [Template components](../?path=/
         //...
         </TemplateFull>
     </TemplateMain>
+    <TemplateFooter>
+    //...
+    </TemplateFooter>
   </Template>
 `}
   language="jsx"
@@ -179,8 +182,8 @@ replaced with `aria-label`. You can see a list of aria props that have been remo
 
 #### Update `className` and `id` references as needed.
 
-`className`s passed by the consumer to `AlphabetFilter`, `Card`, `Menu`, and `MultiSelectGroup`, will now be
-passed down at the top-level within these components. We've also renamed some internal `className`s for
+`className`s passed by the consumer to `AlphabetFilter`, `Card`, `Menu`, and `MultiSelectGroup` will now be
+added to the top-level of these components. We've also renamed some internal `className`s for
 consistency. If you're relying on these `className`s for testing or styling, you'll need to adjust your code.
 
 We’ve adjusted `id`s within our components for clarity and consistency, so if you're using Reservoir component
@@ -255,7 +258,7 @@ existing code.
 
 #### There's a new `useResponsiveSpacing` hook.
 
-[`useResponsiveSpacing`](../?path=/docs/hooks-useresponsivespacing--docs) exports spacing values to generate
+[The `useResponsiveSpacing` hook](../?path=/docs/hooks-useresponsivespacing--docs) exports spacing values to generate
 consistent layouts. We recommend its usage for custom layout and components.
 
 #### We made a guide for using the Next.js `Image` component.
