@@ -25,35 +25,28 @@ import { changelogData } from "./searchBarChangelogData";
 
 <Canvas of={SearchBarStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#with-custom-heading" target="_self">With Custom Heading</Link>}
-- {<Link href="#form-components" target="_self">Form Components</Link>}
-- {<Link href="#form-states" target="_self">Form States</Link>}
-- {<Link href="#heading-and-description-text" target="_self">Heading and Description Text</Link>}
-- {<Link href="#textinput-and-onsubmit-values" target="_self">TextInput and onSubmit Values</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [With custom heading](#with-custom-heading)
+- [Form components](#form-components)
+- [Form states](#form-states)
+- [Heading and description text](#heading-and-description-text)
+- [TextInput and onSubmit values](#textinput-and-onsubmit-values)
+- [Changelog](#changelog)
 
 ## Overview
 
-<Description of={SearchBarStories} />
-
-The main wrapper element that is rendered is a `<form>` DOM element.
-
-Based on the props passed, the `SearchBar` component will render a `Select`
-component (optional),`TextInput` component, `Button` component, and
+`SearchBar` renders a `<form>` DOM element and based on the props passed, a
+`Select` component (optional),`TextInput` component, `Button` component, and
 `HelperErrorText` component.
 
 The `Select` dropdown narrows the search within a specific category, typically
-title or author. Toggle the `Select` through the Controls.
+"title" or "author".
 
-Note: The labels for the `Select` and `TextInput` components are not visible but
-aria-labels are used to make these children components accessible.
-
-## Component Props
+## Component props
 
 The `SearchBar` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.
@@ -75,11 +68,15 @@ any Chakra `Box` props, as well as the props below.
   type="recommendation"
 />
 
-The `SearchBar` component is implemented with Reservoir `Select`, `TextInput`,
-and `Button` accessible components. This a "complete" component that renders an
-HTML `<form>` element that is submitted with a `<button>` element of `type="submit"`.
+The `SearchBar` component is implemented with accessible Reservoir `Select`,
+`TextInput`, and `Button` components. It renders an HTML `<form>` element that
+is submitted with a `<button>` element of `type="submit"`.
 
-The `Searchbar`, along with any other search/filter functionality, must be wrapped in a container with role="search", for a screenreader to recognize it correctly.
+The labels for the `Select` and `TextInput` components are not visible, but
+`aria-labels` are used to make these children components accessible.
+
+The `Searchbar`, along with any other search/filter functionality, must be wrapped
+in a container with role="search", for a screenreader to recognize it correctly.
 See [search in "ARIA Landmarks"](../?path=/docs/accessibility-guide-aria-landmarks--docs#search).
 
 Resources:
@@ -89,7 +86,7 @@ Resources:
 - [a11ymatters Accessible Search Form](https://www.a11ymatters.com/pattern/accessible-search/)
 - [MDN ARIA: search role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/search_role)
 
-## With Custom Heading
+## With custom heading
 
 By default, the `SearchBar` will render an `h2` element when a string is
 passed to the `headingText` component. If this is an accessibility issue, it's
@@ -107,9 +104,9 @@ const customH4 = <Heading level="h4">Custom H4 Heading</Heading>;
 
 <Canvas of={SearchBarStories.WithCustomHeading} />
 
-## Form Components
+## Form components
 
-### Select Component
+### Select component
 
 To render an optional `Select` component, an object must be passed to the
 `selectProps` prop. It _must_ include `name`, `labelText`, and `optionsData`
@@ -171,7 +168,7 @@ const selectProps = {
 />
 `} language="jsx" />
 
-### TextInput Component
+### TextInput component
 
 To render the `TextInput` component, an object must be passed to the
 `textInputProps` prop. It _must_ include `labelText` and `name` properties. The
@@ -241,7 +238,7 @@ section.
 
 <Canvas of={SearchBarStories.isClearableExample} />
 
-### Custom Input Component
+### Custom input component
 
 To render a custom input component, pass the component to the `textInputElement`
 prop.
@@ -260,7 +257,7 @@ const textInputElement = <CustomInput {...props} />;
   language="jsx"
 />
 
-### Button Component
+### Button component
 
 A `Button` component will automatically be rendered for the `SearchBar`
 component. If you want to pass a callback function to the `Button`, use the
@@ -270,7 +267,7 @@ It's also possible to render the `ButtonType.NoBrand` variant style when the
 `noBrandButtonType` prop is set to `true`. The `ButtonType.Primary` variant
 style is used by default.
 
-### HelperErrorText Component
+### HelperErrorText component
 
 To render the `HelperErrorText` component, pass a string or HTML to the
 `helperText` prop. For the invalid state when `isInvalid` is true, pass the
@@ -292,12 +289,12 @@ const helperText = "";
 
 <Canvas of={SearchBarStories.HelperErrorTextComponentExample} />
 
-## Form States
+## Form states
 
 Use the Controls in the `Basic` example to see different states in real time.
 Here are the same possible states of the `SearchBar` component in static examples.
 
-### Error State
+### Error state
 
 For the error state, set the `isInvalid` prop to `true`. This will update the
 state for all its children. If you passed a custom input element, you must
@@ -305,7 +302,7 @@ handle the error state yourself.
 
 <Canvas of={SearchBarStories.ErrorState} />
 
-### Disabled State
+### Disabled state
 
 For the disabled state, set the `isDisabled` prop to `true`. This will update
 the state for all its children. If you passed a custom input element, you must
@@ -313,14 +310,14 @@ handle the disabled state yourself.
 
 <Canvas of={SearchBarStories.DisabledState} />
 
-## Heading and Description Text
+## Heading and description text
 
 Use the `descriptionText` and `headingText` props to render a heading and
 description above the main `SearchBar` form component.
 
 <Canvas of={SearchBarStories.HeadingDescriptionExample} />
 
-## TextInput and onSubmit Values
+## TextInput and onSubmit values
 
 _NOTE: open the browser console to see the values logged in the example below._
 

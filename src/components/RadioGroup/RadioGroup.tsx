@@ -53,9 +53,10 @@ export interface RadioGroupProps extends Omit<BoxProps, "onChange"> {
 
 /**
  * `RadioGroup` is a wrapper for DS `Radio` components that render together
- * along with an optional helper text. The `name` prop is essential for this
- * form group element and is not needed for individual DS `Radio`
- * components when `RadioGroup` is used.
+ * along with an optional helper text.
+ *
+ * The `name` prop is essential for this form group element and is not needed
+ * for individual DS `Radio` components when `RadioGroup` is used.
  */
 export const RadioGroup: ChakraComponent<
   React.ForwardRefExoticComponent<
