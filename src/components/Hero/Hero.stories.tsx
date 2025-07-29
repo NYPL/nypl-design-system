@@ -68,11 +68,6 @@ const meta: Meta<typeof Hero> = {
     backgroundColor: { control: false },
     foregroundColor: { control: false },
     heading: { control: false },
-    variant: {
-      control: { type: "select" },
-      options: heroVariantsArray,
-      table: { defaultValue: { summary: "primary" } },
-    },
     imageProps: { control: false },
     isDarkBackgroundImage: {
       control: { type: "boolean" },
@@ -80,6 +75,11 @@ const meta: Meta<typeof Hero> = {
     },
     isDarkText: { control: false },
     subHeaderText: { control: false },
+    variant: {
+      control: { type: "select" },
+      options: heroVariantsArray,
+      table: { defaultValue: { summary: "primary" } },
+    },
   },
 };
 
@@ -97,13 +97,13 @@ export const WithControls: Story = {
     backgroundImageSrc: undefined,
     foregroundColor: undefined,
     heading: undefined,
-    variant: "primary",
     imageProps,
     "imageProps.alt": "",
     "imageProps.src": "",
     isDarkBackgroundImage: undefined,
     isDarkText: undefined,
     subHeaderText: undefined,
+    variant: "primary",
   },
   render: (args) =>
     (args.variant === "primary" && (
