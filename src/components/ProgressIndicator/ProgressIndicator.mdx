@@ -119,9 +119,18 @@ can be hidden through the `showLabel` prop.
 
 `showLabel={false}`
 
-Accessibility note: when `showLabel` is false, the `aria-label` prop is set in
-the progress element to provide a description of the progress for screen
-readers.
+<Banner
+  content={
+    <>
+      <strong>Note:</strong> When `showLabel` is false, the `aria-label` prop is
+      set in the progress element to provide a description of the progress for
+      screen readers.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Canvas of={ProgressIndicatorStories.Labels} />
 

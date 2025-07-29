@@ -17,8 +17,7 @@ import Link from "../Link/Link";
 <ComponentDocsHeader
   category="Basic Element"
   componentName="Card"
-  summary="A flexible container used to group single-subject content in a 
-  self-contained format"
+  summary="A flexible container used to group single-subject content in a self-contained format"
   versionAdded="0.24.0"
   versionLatest="Prerelease"
 />
@@ -57,7 +56,7 @@ the content area.
 layout. `Card`'s responsive styles are applied using [container queries](../?path=/docs/development-guide-container-query-guide--docs)
 rather than media queries.
 
-Note: all of the examples have images with the `isLazy` prop set to true.
+Note: all of the examples have images with `isLazy` set to true.
 
 ### CardHeading
 
@@ -80,8 +79,7 @@ The `CardContent` component should be used to display all other content.
 
 ### imageProps
 
-The `imageProps` prop is used to render the internal `CardImage`
-component.
+The `imageProps` prop is used to render the internal image element.
 
 <Source
   code={`
@@ -159,7 +157,17 @@ a column layout and on the left in a row layout). However, you can use the
 `imageProps.isAtEnd` boolean prop to override the default placement and move the
 image to the last element within a `Card`.
 
-Note: `Card` always displays as a column at smaller container widths.
+<Banner
+  content={
+    <>
+      <strong>Note:</strong> `Card` always displays as a column at smaller
+      container widths.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 ### Column cards
 
@@ -250,7 +258,7 @@ This example can be found in the [Turbine homepage](https://nypl-ds-test-app.ver
 ## Card with full-click functionality and tooltip
 
 When the `Card` is fully clickable, an internal component wraps everything in a
-link, which in turn overrides the pointer events that trigger a `Tooltip`.
+link, which in turn overrides the pointer events that trigger a tooltip.
 
 If you need a tooltip within a clickable `Card`, wrap the entire `Card`
 component inside the `Tooltip` and use the `Tooltip`'s `placement` and `offset`

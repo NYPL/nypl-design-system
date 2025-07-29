@@ -7,6 +7,7 @@ import {
   Story,
 } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
 import * as HeroStories from "./Hero.stories";
 import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
@@ -64,9 +65,18 @@ used:
   language="jsx"
 />
 
-Note: the `imageProps` image is not the same as the `backgroundImageSrc` image.
-For a full list of what props to use for each variant, check the
-[Active Variants](#active-variants) section.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The `imageProps` image is not the same as the
+      `backgroundImageSrc` image. For a full list of what props to use for each
+      variant, check the <a href="#active-variants">Active Variants</a> section.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="warning"
+/>
 
 ## Component Props
 
@@ -475,9 +485,18 @@ The `imageProps` prop can be used to set a fallback for the **main** image in
 the `"campaign"` variant. The internal `Image` component will use the `onerror`
 event to load the `fallbackSrc` image.
 
-However, the background image is rendered through the CSS `background-image`
-property. This means that more work is needed to set a fallback for the
-background image.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The background image is rendered through the
+      CSS `background-image` property. This means that more work is needed to
+      set a fallback for the background image. See example below.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="warning"
+/>
 
 The following example demonstrates how to set a fallback image for both the main
 image and the background image. Note: this example assumes that both the main

@@ -266,7 +266,7 @@ export const Icons: Story = {
     <VStack spacing="s" align="stretch">
       <StatusBadge variant="negative">
         <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
-        On-Site Access Only
+        On-site access only
       </StatusBadge>
       <StatusBadge fontSize="desktop.caption" variant="warning">
         <Icon
@@ -278,7 +278,7 @@ export const Icons: Story = {
         Mising information
       </StatusBadge>
       <StatusBadge variant="neutral">
-        Registration Required
+        Registration required
         <Icon
           color="ui.black"
           ml="xs"

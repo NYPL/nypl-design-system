@@ -44,11 +44,20 @@ import { changelogData } from "./bannerChangelogData";
 
 <Description of={BannerStories} />
 
-**IMPORTANT:** The `Banner` component is similar in form and function to the
-`Notification` component. However, the `Notification` component should be used
-for global messaging at the top of the site, above the NYPL header, while the
-`Banner` component should be used for all messaging that sits within the flow of
-the page.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The `Banner` component is similar in form and
+      function to the `Notification` component. However, the `Notification`
+      component should be used for global messaging at the top of the site,
+      above the NYPL header, while the `Banner` component should be used for all
+      messaging that sits within the flow of the page.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 ## Component props
 

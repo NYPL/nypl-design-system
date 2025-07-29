@@ -6,6 +6,7 @@ import {
   Source,
 } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
 import * as NotificationStories from "./Notification.stories";
 import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
@@ -39,9 +40,18 @@ import { changelogData } from "./notificationChangelogData";
 The `Notification` component is a configurable callout that should be used to
 display important messages.
 
-Note: the border you see around the `Notification` in these docs is not part of
-the component. It has been added to help illustrate how the `Notification` sits
-within a parent element.
+<Banner
+  content={
+    <>
+      <strong>Note:</strong> The border you see around the `Notification` in
+      these docs is not part of the component. It has been added to help
+      illustrate how the `Notification` sits within a parent element.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 ## Component props
 
@@ -134,8 +144,8 @@ always be set to `heading6`.
 
 ### Default icon
 
-The `Notification` icon can be displayed with or without an icon. The default icon
-can be hidden when the `showIcon` prop is set to `false`.
+The `Notification` icon can be displayed with or without an icon. The default
+icon can be hidden by setting the `showIcon` prop to `false`.
 
 <Canvas of={NotificationStories.NotificationIcon} />
 
