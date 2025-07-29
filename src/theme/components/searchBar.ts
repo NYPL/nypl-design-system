@@ -51,7 +51,6 @@ const SearchBar = defineMultiStyleConfig({
         },
         "[data-button]": {
           borderRightRadius: "sm",
-          maxWidth: "80px",
           paddingTop: "xs",
           paddingLeft: "s",
           paddingBottom: "xs",
