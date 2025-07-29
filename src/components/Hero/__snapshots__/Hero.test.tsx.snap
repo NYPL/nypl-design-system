@@ -7,25 +7,25 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
   data-testid="ds-hero"
 >
   <div
-    className="css-24mlj5"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.black",
-      }
-    }
+    className="css-0"
+    data-testid="ds-hero-grid"
   >
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      data-testid="ds-heading"
-      id="primary-hero"
-    >
-      Hero Primary
-    </h1>
     <div
-      className="css-0"
+      className="css-24mlj5"
+      data-testid="ds-hero-content"
     >
-      Example Subtitle
+      <h1
+        className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
+        id="primary-hero"
+      >
+        Hero Primary
+      </h1>
+      <div
+        className="css-0"
+      >
+        Example Subtitle
+      </div>
     </div>
   </div>
 </div>
@@ -39,12 +39,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
 >
   <div
     className="css-14tngpx"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.gray.x-dark",
-      }
-    }
+    data-testid="ds-hero-content"
   >
     <h1
       className="chakra-heading css-1xdhyk6"
@@ -68,12 +63,7 @@ exports[`Hero Renders the UI snapshot correctly 3`] = `
 >
   <div
     className="css-24mlj5"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.black",
-      }
-    }
+    data-testid="ds-hero-content"
   >
     <div
       className="css-0"
@@ -119,25 +109,25 @@ exports[`Hero Renders the UI snapshot correctly 4`] = `
   data-testid="ds-hero"
 >
   <div
-    className="css-24mlj5"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.black",
-      }
-    }
+    className="css-0"
+    data-testid="ds-hero-grid"
   >
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      data-testid="ds-heading"
-      id="chakra"
-    >
-      Hero Primary
-    </h1>
     <div
-      className="css-0"
+      className="css-24mlj5"
+      data-testid="ds-hero-content"
     >
-      Example Subtitle
+      <h1
+        className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
+        id="chakra"
+      >
+        Hero Primary
+      </h1>
+      <div
+        className="css-0"
+      >
+        Example Subtitle
+      </div>
     </div>
   </div>
 </div>
@@ -150,25 +140,25 @@ exports[`Hero Renders the UI snapshot correctly 5`] = `
   data-testid="props"
 >
   <div
-    className="css-24mlj5"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.black",
-      }
-    }
+    className="css-0"
+    data-testid="ds-hero-grid"
   >
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      data-testid="ds-heading"
-      id="props"
-    >
-      Hero Primary
-    </h1>
     <div
-      className="css-0"
+      className="css-24mlj5"
+      data-testid="ds-hero-content"
     >
-      Example Subtitle
+      <h1
+        className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
+        id="props"
+      >
+        Hero Primary
+      </h1>
+      <div
+        className="css-0"
+      >
+        Example Subtitle
+      </div>
     </div>
   </div>
 </div>
