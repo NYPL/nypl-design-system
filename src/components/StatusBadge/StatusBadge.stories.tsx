@@ -1,4 +1,4 @@
-import { Box, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Icon from "../Icons/Icon";
@@ -53,15 +53,12 @@ export const WithControls: Story = {
 export const Variants: Story = {
   render: () => (
     <Table
-      columnHeaders={["", "Variant", "Purpose", "Examples"]}
+      columnHeaders={["Variant", "Purpose", "Examples"]}
       fontSize="desktop.body.body2"
       tableData={[
         [
           <>
-            <StatusBadge variant="neutral">Neutral</StatusBadge>
-          </>,
-          <>
-            <Box whiteSpace="nowrap">Neutral (default)</Box>
+            <StatusBadge variant="neutral">Neutral (default)</StatusBadge>
           </>,
           "Indicates a general, non-critical status update.",
           "Unavailable, Draft, Not started",
@@ -70,7 +67,6 @@ export const Variants: Story = {
           <>
             <StatusBadge variant="informative">Informative</StatusBadge>
           </>,
-          "Informative",
           "Communicates helpful information or an important attribute.",
           "Available, New, Help, Active, In-use, Live",
         ],
@@ -78,7 +74,6 @@ export const Variants: Story = {
           <>
             <StatusBadge variant="positive">Positive</StatusBadge>
           </>,
-          "Positive",
           "Indicates a constructive or successful state.",
           "Completed, Approved, Success, Published",
         ],
@@ -86,7 +81,6 @@ export const Variants: Story = {
           <>
             <StatusBadge variant="negative">Negative</StatusBadge>
           </>,
-          "Negative",
           "Informs users of problems or errors that require potential action to correct.",
           "Error, Deleted, Failed",
         ],
@@ -94,7 +88,6 @@ export const Variants: Story = {
           <>
             <StatusBadge variant="warning">Warning</StatusBadge>
           </>,
-          "Warning",
           "Communicates cautionary or time-sensitive information.",
           "Missing, Warning, Cancelled, Busy",
         ],
@@ -102,7 +95,6 @@ export const Variants: Story = {
           <>
             <StatusBadge variant="recommendation">Recommendation</StatusBadge>
           </>,
-          "Recommendation",
           "Highlights a suggestion that will improve the experience and achieve better results.",
           "Recommended for you, Related",
         ],
@@ -274,7 +266,7 @@ export const Icons: Story = {
     <VStack spacing="s" align="stretch">
       <StatusBadge variant="negative">
         <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
-        On-Site Access Only
+        On-site access only
       </StatusBadge>
       <StatusBadge fontSize="desktop.caption" variant="warning">
         <Icon
@@ -286,7 +278,7 @@ export const Icons: Story = {
         Mising information
       </StatusBadge>
       <StatusBadge variant="neutral">
-        Registration Required
+        Registration required
         <Icon
           color="ui.black"
           ml="xs"

@@ -1,5 +1,4 @@
 import {
-  BoxProps,
   chakra,
   ChakraComponent,
   Flex,
@@ -16,12 +15,8 @@ import TagSetFilter, {
   TagSetFilterProps,
 } from "./TagSetFilter";
 
-export interface BaseTagSetProps extends BoxProps {}
-
 // We want either the "explore" or "filter" type props.
-export type TagSetTypeProps = TagSetFilterProps | TagSetExploreProps;
-// And here combine the special types with the base props.
-export type TagSetProps = BaseTagSetProps & TagSetTypeProps;
+export type TagSetProps = TagSetFilterProps | TagSetExploreProps;
 
 // Type guard so we can make sure we have a "filter" `TagSet` variant.
 export function isFilterVariant(

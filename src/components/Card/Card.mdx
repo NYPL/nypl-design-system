@@ -1,10 +1,16 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
-
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import Banner from "../Banner/Banner";
 import * as CardStories from "./Card.stories";
-import Link from "../Link/Link";
 import { changelogData } from "./cardChangelogData";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
 
 <Meta of={CardStories} />
 
@@ -18,42 +24,44 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Canvas of={CardStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#image-position" target="_self">Image Position</Link>}
-- {<Link href="#image-size" target="_self">Image Size</Link>}
-- {<Link href="#custom-image-component" target="_self">Custom Image Component</Link>}
-- {<Link href="#fallback-image" target="_self">Fallback Image</Link>}
-- {<Link href="#card-with-link-heading" target="_self">Card With Link Heading</Link>}
-- {<Link href="#card-with-full-click-functionality" target="_self">Card With Full-Click Functionality</Link>}
-- {<Link href="#card-with-full-click-functionality-and-tooltip" target="_self">Card With Full-Click Functionality and Tooltip</Link>}
-- {<Link href="#card-with-right-side-cardactions" target="_self">Card with Right Side CardActions</Link>}
-- {<Link href="#cards-in-a-grid" target="_self">Cards in a Grid</Link>}
-- {<Link href="#cards-in-a-stack" target="_self">Cards in a Stack</Link>}
-- {<Link href="#cards-without-images" target="_self">Cards Without Images</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Image position](#image-position)
+- [Image size](#image-size)
+- [Custom image component](#custom-image-component)
+- [Fallback image](#fallback-image)
+- [Card with link heading](#card-with-link-heading)
+- [Card with full-click functionality](#card-with-full-click-functionality)
+- [Card with full-click functionality and tooltip](#card-with-full-click-functionality-and-tooltip)
+- [Card with right side CardActions](#card-with-right-side-cardactions)
+- [Cards in a grid](#cards-in-a-grid)
+- [Cards in a stack](#cards-in-a-stack)
+- [Cards without images](#cards-without-images)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={CardStories} />
 
-The `Card` component is viewed as a contained, stand-alone element. It is highly
-configurable and composable. It can be shown with or without an image and the
-content area is composed using Card-specific child components: `CardHeading`,
-`CardActions` and `CardContent`. These child components can be arranged in any
-order and each child component may be used multiple times within the content
-area. Although a `Card` is a self-contained unit, `Card` components are often
-grouped together and displayed in some type of grid layout.
+`Card` is a highly configurable component. It can be shown with or without an
+image and the content area is composed using Card-specific child components:
+`CardHeading`, `CardActions` and `CardContent`. These child components can be
+arranged in any order and each child component may be used multiple times within
+the content area.
 
-Note: all of the examples have images with the `isLazy` set to true.
+`Card` components are often grouped together and displayed in some type of grid
+layout. `Card`'s responsive styles are applied using [container queries](../?path=/docs/development-guide-container-query-guide--docs)
+rather than media queries.
+
+Note: all of the examples have images with `isLazy` set to true.
 
 ### CardHeading
 
 The `CardHeading` component mirrors the standard Reservoir Design System (DS)
-`Heading` component and accepts the [same props](../?path=/story/components-typography-styles-heading--with-controls).
+`Heading` component and accepts the [same props](../?path=/docs/components-typography-styles-heading--docs#component-props).
 
 ### CardActions
 
@@ -61,57 +69,50 @@ The `CardActions` component is used to display "call to action" (CTA) buttons
 and links for the card. The DS `Button` and `Link` components should be passed
 as children into the `CardActions` component.
 
-Set the `isAlignedRightActions` prop to true in the `Card` component to align the
-`CardActions` to the right of the the main content area. This is only applicable
-in the row layout of the `Card` component.
+In a row layout, you may set the `isAlignedRightActions` prop to `true` in the
+`Card` component to align the `CardActions` to the right of the the main content
+area.
 
 ### CardContent
 
-The `CardContent` component should be used to display all content other than
-headings and CTAs.
+The `CardContent` component should be used to display all other content.
 
-### CardImage
+### imageProps
 
-The `CardImage` component is _not_ exported and is used internally only in the
-`Card` component. It is a convenience component that mirrors the standard DS
-`Image` component. This means that the `CardImage` component accepts the same
-props as the `Image` component, in addition to the `isAtEnd` prop.
-
-Developers do _not_ need to implement this component. Instead, it will be
-rendered in the `Card` component through its `imageProps` prop.
+The `imageProps` prop is used to render the internal image element.
 
 <Source
   code={`
-<Card
-  imageProps={{
-    alt: "Alt text",
-    aspectRatio: "twoByOne",
-    caption: "caption text",
-    credit: "credit text",
-    isAtEnd: true,
-    isLazy: true,
-    size: "medium",
-    src: "//loremflickr.com/400/200/new+york+public+library",
-  }}
-  {...otherCardProps}
->
-  <CardHeading level="h3" id="heading-id">
-    Heading Text
-  </CardHeading>
-  <CardContent>
-    Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-    Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
-    facilisis in, egestas eget quam.
-  </CardContent>
-</Card>
+  <Card
+    imageProps={{
+      alt: "Alt text",
+      aspectRatio: "twoByOne",
+      caption: "caption text",
+      credit: "credit text",
+      isAtEnd: true,
+      isLazy: true,
+      size: "medium",
+      src: "//loremflickr.com/400/200/new+york+public+library",
+    }}
+    {...otherCardProps}
+  >
+    <CardHeading level="h3" id="heading-id">
+      Heading Text
+    </CardHeading>
+    <CardContent>
+      Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+      Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac
+      facilisis in, egestas eget quam.
+    </CardContent>
+  </Card>
 `}
   language="jsx"
 />
 
-## Component Props
+## Component props
 
-The `Card` composes a Chakra `Box` component, so you may pass
-any Chakra `Box` props, as well as the props below.
+The `Card` composes a Chakra `Box` component, so you may pass any Chakra `Box`
+props, as well as the props below.
 
 <ArgTypes of={CardStories.WithControls} />
 
@@ -121,75 +122,83 @@ any Chakra `Box` props, as well as the props below.
 
 In general, headings from `h1` through `h6` must be in sequential order in the
 DOM tree. Rendering an `h4` following an `h2` will throw an accessibility error.
-Therefore, when adding `CardHeading` components, make sure to add them in
-sequential order with the proper `level` prop.
+When adding `CardHeading` components, make sure to do the same.
 
 <Source
   code={`
-// Correct
+  // Correct
+  <CardHeading level="h3" id="headingthree">
+    Heading level three
+  </CardHeading>
+  <CardHeading level="h4" id="headingfour">
+    Heading level four
+  </CardHeading>
+  // Incorrect
+  <CardHeading level="h2" id="headingtwo">
+    Heading level Two
+  </CardHeading>
+  <CardHeading level="h4" id="headingfour">
+    Heading level four
+  </CardHeading>
+`}
+  language="jsx"
+/>
 
-<CardHeading level="h3" id="headingthree">
-  Heading level three
-</CardHeading>
-<CardHeading level="h4" id="headingfour">
-  Heading level four
-</CardHeading>
+### Full-click functionality
 
-// Incorrect
+Passing a URL to the `mainActionLink` prop will make the entire `Card` clickable.
+Other links in the `CardActions` component can still be accessed by tabbing
+through and pressing "enter" or by clicking as you normally would on a link.
 
-<CardHeading level="h2" id="headingtwo">
-  Heading level Two
-</CardHeading>
-<CardHeading level="h4" id="headingfour">
-  Heading level four
-</CardHeading>
-`} language="jsx" />
+## Image position
 
-### Full-Click Functionality
+By default, the image is always the first element within a `Card` (at the top in
+a column layout and on the left in a row layout). However, you can use the
+`imageProps.isAtEnd` boolean prop to override the default placement and move the
+image to the last element within a `Card`.
 
-Passing in a URL in the `mainActionLink` prop will make the entire `Card`
-clickable. Other links in the `CardActions` component can still be accessed by
-tabbing through and pressing "enter" or by clicking as you normally would on a
-link.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> <code>Card</code> always displays as a column at
+      smaller container widths.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
-## Image Position
-
-By default, the image is always the first element within a `Card`. This means
-the image is at the top of a `Card` with a column layout and on the left side of
-a `Card` with a row layout. However, you can use the `imageProps.isAtEnd` boolean
-prop to override the default placement and move the image to the last element
-within a `Card`.
-
-### Column Cards
+### Column cards
 
 <Canvas of={CardStories.ImagePositionColumnCards} />
 
-### Row Cards
+### Row cards
 
 <Canvas of={CardStories.ImagePositionRowCards} />
 
-## Image Size
+## Image size
 
 By default, the image width is `100%` for a `Card` with a column layout and
 `225px` for a `Card` with a row layout. However, you can use the `imageProps.size`
 prop to override the default width.
 
-### Column Cards
+### Column cards
 
 <Canvas of={CardStories.ImageSizeColumnCards} />
 
-### Row Cards
+### Row cards
 
 <Canvas of={CardStories.ImageSizeRowCards} />
 
-## Custom Image Component
+## Custom image component
 
 Instead of passing a path for the `imageProps.src` prop, you can pass a custom
-image component in using the `imageProps.component` prop.
+image component using the `imageProps.component` prop.
 
 <Canvas of={CardStories.CustomImageComponent} />
 
-## Fallback Image
+## Fallback image
 
 Following the same pattern as the `Image` component, the `Card` component can
 also render a fallback image when the main image fails to load. Set a fallback
@@ -221,16 +230,15 @@ a general example.
 
 <Canvas of={CardStories.FallbackImage} />
 
-## Card with Link Heading
+## Card with link heading
 
-The `CardHeading` component works just like the DS `Heading` component. This
+Making a `CardHeading` a link works just like the DS `Heading` component. This
 means that a URL can be passed in the `url` prop for `CardHeading` or a `Link`
-component can be used as a child. Click on "Show code" in the example below to
-see both patterns.
+component can be used as a child.
 
 <Canvas of={CardStories.HeadingAsLink} />
 
-## Card With Full-Click Functionality
+## Card with full-click functionality
 
 To enable the full-click functionality in the `Card` component, pass a URL in
 the `mainActionLink` prop. This will make the entire `Card` component clickable.
@@ -247,52 +255,54 @@ This example can be found in the [Turbine homepage](https://nypl-ds-test-app.ver
 
 <Canvas of={CardStories.CardFullClickTurbineExample} />
 
-## Card With Full-Click Functionality and Tooltip
+## Card with full-click functionality and tooltip
 
-When the `Card` is fully clickable, an internal component wraps everything in a link, which in turn overrides the pointer events that trigger a `Tooltip`.
+When the `Card` is fully clickable, an internal component wraps everything in a
+link, which in turn overrides the pointer events that trigger a tooltip.
 
-If you need a tooltip within a clickable `Card`, wrap the entire `Card` component inside the `Tooltip` and use the `Tooltip`'s `placement` and `offset` props to move the `Tooltip` to display next to the intended reference.
-Keep in mind that `offset` is static pixel values, so check where the `Tooltip` displays on all breakpoints.
+If you need a tooltip within a clickable `Card`, wrap the entire `Card`
+component inside the `Tooltip` and use the `Tooltip`'s `placement` and `offset`
+props to move the `Tooltip` to display next to the intended reference.
+Keep in mind that `offset` is static pixel values, so check where the `Tooltip`
+displays on all breakpoints.
 
-You may need to keep track of the offset values through state, and update accordingly– see below example.
+You may need to keep track of the offset values through state, and update
+accordingly– see below example.
 
 <Source
   code={`
   const [offset, setOffset] = useState<[number, number]>([0, 0]);
-const cardRef = useRef<HTMLDivElement>(null);
-const getOffset = () => {
-    if (cardRef.current) {
-      const image = cardRef.current.children[0] as HTMLElement;
-      const percentageHeightOffset = image.offsetHeight * 1.01;
-      const percentageWidthOffset = image.offsetWidth * 0.4;
-      setOffset([-percentageWidthOffset, -percentageHeightOffset]);
-    }
-  };
-useEffect(() => {
-  setTimeout(getOffset, 0);
-  window.addEventListener("resize", getOffset);
-  return () => {
-      window.removeEventListener("resize", getOffset);
-  }}
-[]);
-
-return (
-
-<Tooltip offset={offset} content={"Tooltip text"}>
-  <Card
-    ref={cardRef}
-    // ..
-  />
-</Tooltip>
-)
-
-`}
-language="tsx"
+  const cardRef = useRef<HTMLDivElement>(null);
+  const getOffset = () => {
+      if (cardRef.current) {
+        const image = cardRef.current.children[0] as HTMLElement;
+        const percentageHeightOffset = image.offsetHeight * 1.01;
+        const percentageWidthOffset = image.offsetWidth * 0.4;
+        setOffset([-percentageWidthOffset, -percentageHeightOffset]);
+      }
+    };
+  useEffect(() => {
+    setTimeout(getOffset, 0);
+    window.addEventListener("resize", getOffset);
+    return () => {
+        window.removeEventListener("resize", getOffset);
+    }}
+  []);
+  return (
+    <Tooltip offset={offset} content={"Tooltip text"}>
+      <Card
+        ref={cardRef}
+        // ..
+      />
+    </Tooltip>
+  ) 
+  `}
+  language="tsx"
 />
 
 <Canvas of={CardStories.FullClickWithTooltip} />
 
-## Card with Right Side CardActions
+## Card with right side CardActions
 
 It's possible to set only the `CardActions` component on the right side of the
 main content area of the `Card`. This is possible only in the `layout="row"`
@@ -301,15 +311,15 @@ must be set to `true`.
 
 <Canvas of={CardStories.CardWithRightSideCardActions} />
 
-## Cards in a Grid
+## Cards in a `Grid`
 
 <Canvas of={CardStories.GridExample} />
 
-## Cards in a Stack
+## Cards in a `Stack`
 
 <Canvas of={CardStories.StackExample} />
 
-## Cards Without Images
+## Cards without images
 
 <Canvas of={CardStories.WithoutImages} />
 
