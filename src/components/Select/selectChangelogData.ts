@@ -21,6 +21,7 @@ export const changelogData: ChangelogData[] = [
       "Rename `selectType` to `variant`.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
       "Adds `data-testid` value of `ds-select` to the parent element.",
+      "Fixes helper error text alignment when label is not shown and it is inlined.",
     ],
   },
   {

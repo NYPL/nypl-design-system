@@ -105,6 +105,7 @@ export const Select: ChakraComponent<
       const styles = useMultiStyleConfig("ReservoirSelect", {
         variant,
         labelPosition,
+        showLabel,
       });
       const finalInvalidText = invalidText
         ? invalidText
