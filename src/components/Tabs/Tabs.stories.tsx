@@ -92,9 +92,9 @@ type Story = StoryObj<typeof Tabs>;
  */
 export const WithControls: Story = {
   args: {
-    tabsData: animalCrossingData,
     defaultIndex: 0,
     onChange: undefined,
+    tabsData: animalCrossingData,
     useHash: false,
   },
   parameters: {

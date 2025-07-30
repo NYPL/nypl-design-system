@@ -362,7 +362,7 @@ export const BorderVariations: Story = {
         />
         <SocialMediaLinks borders="circular" linksData={exampleLinkData} />
         <Text size={"caption"} mt="s">
-          NOTE: labels are disallowed with circular borders.
+          NOTE: labels are not recommended with circular borders.
         </Text>
       </Box>
     </VStack>

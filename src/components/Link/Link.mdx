@@ -8,10 +8,10 @@ import {
 } from "@storybook/addon-docs/blocks";
 import { cloneElement } from "react";
 
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Icon from "../Icons/Icon";
-import Link from "./Link";
 import * as LinkStories from "./Link.stories";
 import { changelogData } from "./linkChangelogData";
 
@@ -29,21 +29,21 @@ import { changelogData } from "./linkChangelogData";
 
 ## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#visited-state-patterns" target="_self">Visited State Patterns</Link>}
-- {<Link href="#all-link-variants" target="_self">All Link Variants</Link>}
-- {<Link href="#links-with-icons" target="_self">Links With Icons</Link>}
-- {<Link href="#anchor-element-rendering" target="_self">Anchor Element Rendering</Link>}
-- {<Link href="#link-with-routers" target="_self">Link with Routers</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Visited state patterns](#visited-state-patterns)
+- [All link variants](#all-link-variants)
+- [Links with icons](#links-with-icons)
+- [Anchor element rendering](#anchor-element-rendering)
+- [Link with routers](#link-with-routers)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={LinkStories} />
 
-## Component Props
+## Component props
 
 `Link` composes an HTML `a` element, so you may pass any HTML `a` attributes,
 as well as the Chakra `as` prop, any of the Chakra style props, and the props below.
@@ -77,7 +77,7 @@ be used to provide additional context to the link when the text is short, such
 as visible "Read more..." text.
 
 For details about NYPL link patterns, refer to the [Links Accessibility
-Guide](/?path=/docs/accessibility-guide-links--docs).
+Guide](./?path=/docs/accessibility-guide-links--docs).
 
 Resources:
 
@@ -86,7 +86,7 @@ Resources:
 - [WebAIM: Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
 - [IANA: Link Relation Types](https://www.iana.org/assignments/link-relations/link-relations.xhtml)
 
-## Visited State Patterns
+## Visited state patterns
 
 To improve accessibility, the `Link` component by default will render `visited`
 state styles when a link's `href` value matches an entry in a browser's history
@@ -107,18 +107,18 @@ component.
 
 <Source
   code={`
-<Link
-  hasVisitedState={false}
-  href="https://nypl.org"
-  variant="action"
->
-  NYPL Website
-</Link>
+  <Link
+    hasVisitedState={false}
+    href="https://nypl.org"
+    variant="action"
+  >
+    NYPL Website
+  </Link>
 `}
   language="jsx"
 />
 
-## All Link Variants
+## All link variants
 
 The `Link` component offers multiple variants for differing UX situations.
 
@@ -140,13 +140,23 @@ Use the button variants when a link needs to be highlighted or emphasized within
 a CTA element. For example, a link to a book detail page from cards within a
 search results set.
 
-IMPORTANT: Links that look like buttons should still act like links and not act
-like buttons. Refer to the <Link href="#accessibility"
-target="_self">Accessibility</Link> section above for clarification.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> Links that look like buttons should still act
+      like links and not act like buttons. Refer to the{" "}
+      <a href="#accessibility">Accessibility</a> section above for
+      clarification.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Canvas of={LinkStories.AllLinkVariants} />
 
-## Links With Icons
+## Links with icons
 
 To render an `Icon` as part of the link, make sure that the `Link` component
 wraps the `Icon`. Use `variant="action"` to apply appropriate styling to
@@ -154,76 +164,29 @@ links with icons. Icons can be rendered to the left or right of the link text.
 
 <Canvas of={LinkStories.LinksWithIcons} />
 
-## DS v3 Breaking Change
-
-Previous versions of the Design System allowed an anchor element to be passed
-as a child if no `href` was passed.
-
-<Source
-  code={`
-import { Link } from "@nypl/design-system-react-components";
-// ...
-
-<Link>
-  <a href="#">Next Page</a>
-</Link>
-`} language="jsx" />
-
-In DS 3.0.0+, this pattern is no longer supported. The `href` attribute should be
-passed to render an accessible and valid link. There are cases where the `href`
-attribute is not required, such as when using the component with an application
-framework router. For more information and recommended routing patterns, see the
-following sections.
-
-## Link with Routers
+## Link with routers
 
 When it comes to routing, the patterns set in [Chakra's `Link`](https://chakra-ui.com/docs/components/link)
 component can also be used in the Design System's `Link` component. This means
 that the routing library's component should be passed to the DS `Link` component
 in the `as` prop. By default, an anchor `<a>` element is rendered.
 
-### React Router
-
-The recommended pattern is to pass the React Router's `Link` component in the
-`as` prop in the DS' `Link` component.
-
-**Important**: NYPL uses Next.js for their web applications so while the
-following pattern is available, it has not been heavily tested.
-
-<Source
-  code={`
-// In this first example, React Router's \`Link\` component
-// is renamed as \`ReactRouterLink\`.
-import { Link as ReactRouterLink } from "react-router-dom";
-import { Link } from "@nypl/design-system-react-components";
-// ...
-
-<Link as={ReactRouterLink} variant="action" href="#">
-  Next Page
-</Link>
-`} language="jsx" />
-
 ### Next.js
 
-In Next.js 13+, their `Link` component renders an anchor element and this
-causes a conflict with the Design System's 2.X `Link` component which also
-renders an anchor element. The nested anchor element is an HTML and
-accessibility issue. In DS 3.0.0+, we are using React 18 and expect consuming
-applications to use Next.js 13+ and React 18 as well.
-
-To resolve the conflict, we are following Chakra's recommended pattern to pass
-the NextJS `Link` component in the `as` prop in the DS `Link` component.
+Following Next.js 13+ and Chakra's recommendations, pass the NextJS `Link`
+component in the `as` prop in the DS `Link` component.
 
 <Source
   code={`
-import { Link as NextLink } from "next/link";
-import { Link } from "@nypl/design-system-react-components";
-// ...
-
-<Link as={NextLink} variant="action" href="#">
-  Next Page
-</Link>
-`} language="jsx" />
+  import { Link as NextLink } from "next/link";
+  import { Link } from "@nypl/design-system-react-components";
+  // ...
+  <Link as={NextLink} variant="action" href="#">
+    Next Page
+  </Link>
+`}
+  language="tsx"
+/>
 
 If you want to use the previous Next.js pattern, it is still available. Pass in
 the `legacyBehavior` prop to the Next.js `Link` component along with the
@@ -231,14 +194,47 @@ the `legacyBehavior` prop to the Next.js `Link` component along with the
 
 <Source
   code={`
-import { Link as NextLink } from "next/link";
-import { Link } from "@nypl/design-system-react-components";
-// ...
+  import { Link as NextLink } from "next/link";
+  import { Link } from "@nypl/design-system-react-components";
+  // ...
+  <NextLink href="/about" passHref legacyBehavior>
+    <Link>About</Link>
+  </NextLink>
+`}
+  language="tsx"
+/>
 
-<NextLink href="/about" passHref legacyBehavior>
-  <Link>About</Link>
-</NextLink>
-`} language="jsx" />
+### React router
+
+The recommended pattern is to pass the React Router's `Link` component in the
+`as` prop in the DS' `Link` component.
+
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> NYPL uses Next.js for their web applications
+      so while the following pattern is available, it has not been heavily
+      tested.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
+
+<Source
+  code={`
+  // In this first example, React Router's \`Link\` component
+  // is renamed as \`ReactRouterLink\`.
+  import { Link as ReactRouterLink } from "react-router-dom";
+  import { Link } from "@nypl/design-system-react-components";
+  // ...
+  <Link as={ReactRouterLink} variant="action" href="#">
+    Next Page
+  </Link>
+`}
+  language="tsx"
+/>
 
 ## Changelog
 

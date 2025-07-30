@@ -36,7 +36,6 @@ export const WithControls: Story = {
   args: {
     buttonText: "Open Modal",
     modalProps: {
-      variant: "default",
       bodyContent:
         "Modal body text. Et perspiciatis ad nulla vel autem sed. Ad sequi cupiditate veritatis voluptas itaque aspernatur illo nostrum sequi eius soluta consectetur dolorem. Odit eum est officiis et natus doloribus sed in id. Voluptatum sed repellendus delectus voluptas sit omnis aut eius laboriosam corrupti.",
       closeButtonLabel: "Close Modal",
@@ -61,6 +60,7 @@ export const WithControls: Story = {
       onClose: () => {
         console.log("custom close");
       },
+      variant: "default",
     },
   },
   render: (args) => <ModalTrigger {...args} />,
@@ -72,7 +72,6 @@ export const WithControls: Story = {
 const ModalStory = () => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
-    variant: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>
@@ -90,11 +89,12 @@ const ModalStory = () => {
       console.log("custom close");
       onClose();
     },
+    variant: "default",
   };
 
   return (
     <>
-      <ButtonGroup>
+      <ButtonGroup mb="s">
         <Button id="1" onClick={onOpen}>
           Open Modal
         </Button>
@@ -114,7 +114,6 @@ const ModalStory = () => {
 const ConfirmationModalStory = () => {
   const { onClose, onOpen, Modal } = useModal();
   const confirmationModalProps = {
-    variant: "confirmation",
     bodyContent: <Text>This is the body content.</Text>,
     closeButtonLabel: "Cancel Button",
     confirmButtonLabel: "Confirm Button",
@@ -127,11 +126,12 @@ const ConfirmationModalStory = () => {
       console.log("custom confirm");
       onClose();
     },
+    variant: "confirmation",
   };
 
   return (
     <>
-      <ButtonGroup>
+      <ButtonGroup mb="m">
         <Button id="1" onClick={onOpen}>
           Open Confirmation Modal
         </Button>
@@ -147,13 +147,6 @@ const ConfirmationModalStory = () => {
 // The following are additional Modal example Stories.
 export const useModalStory: Story = {
   argTypes: {
-    variant: {
-      options: ["default", "confirmation"],
-      table: {
-        defaultValue: { summary: "default" },
-      },
-      description: "Modal variants: default or confirmation.",
-    },
     buttonText: { table: { disable: true } },
     bodyContent: {
       control: { type: "text" },
@@ -194,6 +187,13 @@ export const useModalStory: Story = {
         "Function to call when the modal action is canceled. Do not pass this prop with the default variant.",
     },
     modalProps: { table: { disable: true } },
+    variant: {
+      options: ["default", "confirmation"],
+      table: {
+        defaultValue: { summary: "default" },
+      },
+      description: "Modal variants: default or confirmation.",
+    },
   },
   render: () => <ModalStory />,
   name: "useModal Component",
@@ -278,7 +278,6 @@ const scrollModalProps: BaseModalProps = {
 };
 
 const defaultHeadingModalProps: BaseModalProps = {
-  variant: "default",
   bodyContent: (
     <Text>
       The heading of this modal is level "h2" and size "heading4", since no
@@ -287,10 +286,10 @@ const defaultHeadingModalProps: BaseModalProps = {
   ),
   closeButtonLabel: "Close Button",
   headingText: "Default Heading",
+  variant: "default",
 };
 
 const confirmationProps: BaseModalProps = {
-  variant: "confirmation",
   bodyContent: <Text>The action is happening</Text>,
   closeButtonLabel: "Cancel action",
   confirmButtonLabel: "Confirm action",
@@ -301,6 +300,7 @@ const confirmationProps: BaseModalProps = {
     console.log("confirm");
   },
   headingText: "This is an action",
+  variant: "confirmation",
 };
 
 export const ConfirmationUseModal: Story = {

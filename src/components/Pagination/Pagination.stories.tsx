@@ -29,8 +29,10 @@ type Story = StoryObj<typeof Pagination>;
  */
 export const URLUpdates: Story = {
   args: {
+    currentPage: undefined,
     getPageHref: hrefProps.getPageHref,
     initialPage: hrefProps.computedCurrentPage || 1,
+    onPageChange: undefined,
     pageCount: 10,
   },
   name: "Pagination with URL Updates",

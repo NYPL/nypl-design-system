@@ -8,7 +8,6 @@ import {
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import Link from "../Link/Link";
 import * as PaginationStories from "./Pagination.stories";
 import { changelogData } from "./paginationChangelogData";
 
@@ -26,11 +25,11 @@ import { changelogData } from "./paginationChangelogData";
 
 ## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#pagination-with-url-updates" target="_self">Pagination with URL Updates</Link>}
-- {<Link href="#pagination-with-unchanging-url" target="_self">Pagination with Unchanging URL</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Accessibility](#accessibility)
+- [Pagination with URL updates](#pagination-with-url-updates)
+- [Pagination with unchanging URL](#pagination-with-unchanging-url)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -38,7 +37,7 @@ import { changelogData } from "./paginationChangelogData";
 
 The `Pagination` component helps navigate between pages of a multi-page
 application. It is commonly used on a search results page. Update the `pageCount`
-prop in the Controls to explore this component with many or few pages.
+prop in the Controls tab to explore this component with many or few pages.
 
 ## Accessibility
 
@@ -53,7 +52,7 @@ Resources:
 - [W3C Design System Pagination](https://design-system.w3.org/components/pagination.html)
 - [a11ymatters Accessible Pagination](https://www.a11ymatters.com/pattern/pagination/)
 
-## Pagination with URL Updates
+## Pagination with URL updates
 
 In order to update the URL with a query parameter, the parent component must
 declare and pass a `getPageHref` function to the `Pagination` component. This
@@ -67,24 +66,24 @@ named anything but you have to pick up the value in the wrapper component.
 
 <Source
   code={`
-// Example in a search results page.
-const getPageHref = (selectedPage: number) => {
-  // This should be updated for your router system, if any, including the
-  // base or origin URL.
-  return \`{location.origin}?q=celeste&page=\$\{selectedPage\}\`;
-};
+  // Example in a search results page.
+  const getPageHref = (selectedPage: number) => {
+    // This should be updated for your router system, if any, including the
+    // base or origin URL.
+    return \`\${location.origin}?q=celeste&page=\$\{selectedPage\}\`;
+  };
 `}
-  language="jsx"
+  language="tsx"
 />
 
 <Canvas of={PaginationStories.URLUpdates} />
 
-`Pagination` composes a Chakra `Box` component, so you may pass
-any Chakra `Box` props, as well as the props below.
+`Pagination` composes a Chakra `Box` component, so you may pass any Chakra `Box`
+props, as well as the props below.
 
 <ArgTypes of={PaginationStories.URLUpdates} />
 
-## Pagination with Unchanging URL
+## Pagination with unchanging URL
 
 It is preferred to use the `Pagination` component with the `getPageHref`
 function passed as a prop and that the URL is updated whenever a page is
@@ -97,18 +96,18 @@ component through its own state.
 
 <Source
   code={`
-// Example in a search results page.
-const onPageChange = (selectedPage: number) => {
-  console.log(\`Current page: \$\{selectedPage\}\`);
-  // Do what you need to with the \`currentPage\` value.
-};
+  // Example in a search results page.
+  const onPageChange = (selectedPage: number) => {
+    console.log(\`Current page: \$\{selectedPage\}\`);
+    // Do what you need to with the \`currentPage\` value.
+  };
 `}
   language="jsx"
 />
 
 <Canvas of={PaginationStories.UnchangingURL} />
 
-### Forcing a Page Change Programmatically
+### Forcing a page change programmatically
 
 There may be circumstances when you want to programmatically force the page
 number to change without the user explicitly requesting it (for example, if
