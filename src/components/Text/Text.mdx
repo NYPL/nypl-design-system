@@ -1,13 +1,7 @@
-import {
-  ArgTypes,
-  Canvas,
-  Description,
-  Meta,
-} from "@storybook/addon-docs/blocks";
+import { ArgTypes, Canvas, Meta } from "@storybook/addon-docs/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import Link from "../Link/Link";
 import * as TextStories from "./Text.stories";
 import { changelogData } from "./textChangelogData";
 
@@ -25,19 +19,18 @@ import { changelogData } from "./textChangelogData";
 
 ## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Typographic styles](#typographic-styles)
+- [Changelog](#changelog)
 
 ## Overview
-
-<Description of={TextStories} />
 
 The `Text` component renders a basic `<p>` element and can be used to render
 text for differing content types, including multiple subtitle variants.
 
-## Component Props
+## Component props
 
 You may pass any Chakra `Box` props, as well as the props below.
 
@@ -55,13 +48,13 @@ Resources:
 
 - [Chakra UI Text](https://chakra-ui.com/docs/components/typography/text)
 
-## Typographic Styles
+## Typographic styles
 
 For usage recommendations of each of the `size` options, please refer to the
 [Typography Style
-Guide](../?path=/docs/style-guide-typography--docs#text-display-sizes).
+Guide](./?path=/docs/style-guide-typography--docs#text-display-sizes).
 
-### Recommended Options
+### Recommended options
 
 `body1`, `body2`, `caption`, `subtitle1`, `subtitle2`, `overline1`, `overline2`
 

@@ -41,14 +41,14 @@ import { exampleWrapperStyles } from "../../utils/utils.ts";
 
 ## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#child-components" target="_self">Child Components</Link>}
-- {<Link href="#layout-variants" target="_self">Layout Variants</Link>}
-- {<Link href="#understanding-the-fluid-layout" target="_self">Understanding the Fluid Layout</Link>}
-- {<Link href="#full-page-composition" target="_self">Full Page Composition</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Child components](#child-components)
+- [Layout variants](#layout-variants)
+- [Understanding the fluid layout](#understanding-the-fluid-layout)
+- [Full page composition](#full-page-composition)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -60,31 +60,31 @@ import { exampleWrapperStyles } from "../../utils/utils.ts";
 
 <Source
   code={`
-import {
-  Template,
-  TemplateBreakout,
-  TemplateContent,
-  TemplateFooter,
-  TemplateFull,
-  TemplateHeader,
-  TemplateMain,
-  TemplateSidebar,
-} from "@nypl/design-system-react-components";
-//...
-<Template sidebar="...">
-  <TemplateBreakout>...</TemplateBreakout>
-  <TemplateHeader>...</TemplateHeader>
-  <TemplateFull>...</TemplateFull>
-  <TemplateSidebar>...</TemplateSidebar>
-  <TemplateContent>...</TemplateContent>
-  <TemplateFull>...</TemplateFull>
-  <TemplateFooter>...</TemplateFooter>
-</Template>
+  import {
+    Template,
+    TemplateBreakout,
+    TemplateContent,
+    TemplateFooter,
+    TemplateFull,
+    TemplateHeader,
+    TemplateMain,
+    TemplateSidebar,
+  } from "@nypl/design-system-react-components";
+  //...
+  <Template sidebar="...">
+    <TemplateBreakout>...</TemplateBreakout>
+    <TemplateHeader>...</TemplateHeader>
+    <TemplateFull>...</TemplateFull>
+    <TemplateSidebar>...</TemplateSidebar>
+    <TemplateContent>...</TemplateContent>
+    <TemplateFull>...</TemplateFull>
+    <TemplateFooter>...</TemplateFooter>
+  </Template>
 `}
-  language="jsx"
+  language="tsx"
 />
 
-## Component Props
+## Component props
 
 The `Template` and its children compose Chakra `Box` components, so you may pass
 any Chakra `Box` props, as well as the props below.
@@ -93,7 +93,7 @@ any Chakra `Box` props, as well as the props below.
 
 ## Accessibility
 
-### Content Width
+### Content width
 
 When used without a sidebar, the `TemplateContent` component has a max width of
 `1280px`, which is much wider than the ideal line length for standard text. When
@@ -101,7 +101,7 @@ page content is predominantly large blocks of text, the `Template` component
 should be set to use the `narrow` variant to restrict the width of the
 `TemplateContent` component.
 
-### DOM Structure and Skip Navigation
+### DOM structure and skip navigation
 
 The `TemplateMain` component renders the content in a `<main>` element. It is
 recommended to add an `id` of `"mainContent"` to the `TemplateMain` component to
@@ -119,7 +119,7 @@ Resources
 - [WebAim Skip Navigation Link](https://webaim.org/techniques/skipnav/)
 - [A11ymatters Skip Navigation Link](https://www.a11ymatters.com/pattern/skip-link/)
 
-## Child Components
+## Child components
 
 In addition to the root `Template` component, the following child components are
 offered:
@@ -401,7 +401,7 @@ a page.
 />
 }
 
-## Layout Variants
+## Layout variants
 
 Use the `variant` prop to set the template layout
 
@@ -412,11 +412,11 @@ Use the `variant` prop to set the template layout
 
 <Source
   code={`
-<Template variant="sidebarLeft">
-  ...
-</Template>
+  <Template variant="sidebarLeft">
+    ...
+  </Template>
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ### variant="full"
@@ -507,7 +507,7 @@ Use the `variant` prop to set the template layout
 />
 }
 
-## Understanding the Fluid Layout
+## Understanding the fluid layout
 
 - When using the `sidebarLeft` or `sidebarRight` layout variants,
   `TemplateSidebar` and `TemplateContent` use fluid sizing where each fills a
@@ -517,8 +517,18 @@ Use the `variant` prop to set the template layout
   to the <Link href="/?path=/docs/style-guide-responsive-grid--docs">
   responsive grid</Link> recommendations and patterns
 
-**NOTE:** In the examples below, `TemplateSidebar` is highlighted in blue and
-`TemplateContent` is highlighted in purple.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> In the examples below, <code>TemplateSidebar</code>{" "}
+      is highlighted in blue and <code>TemplateContent</code> is highlighted in
+      purple.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 {
 
@@ -598,7 +608,7 @@ Use the `variant` prop to set the template layout
 </Box>
 }
 
-## Full Page Composition
+## Full page composition
 
 {
 
@@ -643,48 +653,50 @@ Use the `variant` prop to set the template layout
 
 <Source
   code={`
-import {
-  Template,
-  TemplateBreakout,
-  TemplateContent,
-  TemplateFull,
-  TemplateMain,
-  TemplateSidebar,
-} from "@nypl/design-system-react-components";
-//...
-<style>
-  #header-placeholder {
-    min-height: 62px;
-  }
-  @media screen and (min-width: 832px) {
+  import {
+    Template,
+    TemplateBreakout,
+    TemplateContent,
+    TemplateFull,
+    TemplateMain,
+    TemplateSidebar,
+  } from "@nypl/design-system-react-components";
+  //...
+  <style>
     #header-placeholder {
-      min-height: 130px;
+      min-height: 62px;
     }
-  }
-</style>
-<!-- .... -->
-<div id="header-placeholder">
-  <div id="nypl-header"></div>
-  <script
-    type="module"
-    src="https://ds-header.nypl.org/header.min.js?containerId=nypl-header"
-    async
-  ></script>
-</div>
-<DSProvider>
-  <Template variant="...">
-    <TemplateBreakout>...</TemplateBreakout>
-    <TemplateMain id="mainContent">
-      <TemplateFull>...</TemplateFull>
-      <TemplateSidebar>...</TemplateSidebar>
-      <TemplateContent>...</TemplateContent>
-      <TemplateFull>...</TemplateFull>
-    </TemplateMain>
-  </Template>
-</DSProvider>
-<div id="nypl-footer"></div>
-<script type="module" src="https://ds-header.nypl.org/footer.min.js?containerId=nypl-footer" async></script>
-`} language="jsx" />
+    @media screen and (min-width: 832px) {
+      #header-placeholder {
+        min-height: 130px;
+      }
+    }
+  </style>
+  <!-- .... -->
+  <div id="header-placeholder">
+    <div id="nypl-header"></div>
+    <script
+      type="module"
+      src="https://ds-header.nypl.org/header.min.js?containerId=nypl-header"
+      async
+    ></script>
+  </div>
+  <DSProvider>
+    <Template variant="...">
+      <TemplateBreakout>...</TemplateBreakout>
+      <TemplateMain id="mainContent">
+        <TemplateFull>...</TemplateFull>
+        <TemplateSidebar>...</TemplateSidebar>
+        <TemplateContent>...</TemplateContent>
+        <TemplateFull>...</TemplateFull>
+      </TemplateMain>
+    </Template>
+  </DSProvider>
+  <div id="nypl-footer"></div>
+  <script type="module" src="https://ds-header.nypl.org/footer.min.js?containerId=nypl-footer" async></script>
+`}
+  language="tsx"
+/>
 
 ## Changelog
 

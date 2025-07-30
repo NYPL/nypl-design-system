@@ -1,5 +1,6 @@
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 import { Box } from "@chakra-ui/react";
+
 import Banner from "../components/Banner/Banner";
 import ComponentDocsHeader from "../utils/components/ComponentDocsHeader";
 import useResponsiveSpacing from "../hooks/useResponsiveSpacing";
@@ -16,17 +17,17 @@ import useResponsiveSpacing from "../hooks/useResponsiveSpacing";
 
 <Source
   code={`
-import { 
-  useResponsiveSpacing,
-} from "@nypl/design-system-react-components";
-// ...
-const {
-  responsiveGap,
-  responsiveMargin,
-  responsivePadding,
-} = useResponsiveSpacing();
+  import {
+    useResponsiveSpacing,
+  } from "@nypl/design-system-react-components";
+  // ...
+  const {
+    responsiveGap,
+    responsiveMargin,
+    responsivePadding,
+  } = useResponsiveSpacing();
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Usage
@@ -58,24 +59,24 @@ repeating grids and table.
 
 <Source
   code={`
-const {
-  responsiveGap
-} = useResponsiveSpacing();
-// ...
-<Box 
-  display="grid"
-  gap={responsiveGap}
-  gridTemplateColumns="repeat(3, 1fr)"
->
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-  <div>...</div>
-</Box>
+  const {
+    responsiveGap
+  } = useResponsiveSpacing();
+  // ...
+  <Box 
+    display="grid"
+    gap={responsiveGap}
+    gridTemplateColumns="repeat(3, 1fr)"
+  >
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+    <div>...</div>
+  </Box>
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## responsiveMargin and responsivePadding
@@ -92,18 +93,18 @@ object that aligns semantically with spacing methods used in consuming apps.
 
 <Source
   code={`
-const {
-  responsivePadding,
-} = useResponsiveSpacing();
-// ...
-<Box 
-  maxWidth="1280px"
-  px={responsivePadding}
->
-  <div>...</div>
-</Box>
+  const {
+    responsivePadding,
+  } = useResponsiveSpacing();
+  // ...
+  <Box 
+    maxWidth="1280px"
+    px={responsivePadding}
+  >
+    <div>...</div>
+  </Box>
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Visual example

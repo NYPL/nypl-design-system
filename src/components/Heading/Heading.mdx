@@ -6,9 +6,9 @@ import {
   Source,
 } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as HeadingStories from "./Heading.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./headingChangelogData";
 
@@ -26,17 +26,16 @@ import { changelogData } from "./headingChangelogData";
 
 ## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#updated-typographic-styles" target="_self">Updated Typographic Styles</Link>}
-- {<Link href="#native-heading-elements" target="_self">Native Heading Elements</Link>}
-- {<Link href="#size-styles" target="_self">Size Styles</Link>}
-- {<Link href="#overline-and-subtitle" target="_self">Overline and Subtitle Elements</Link>}
-- {<Link href="#heading-with-bold-text" target="_self">Heading with Bold Text</Link>}
-- {<Link href="#heading-with-links" target="_self">Heading with Links</Link>}
-- {<Link href="#custom-color" target="_self">Custom Color</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Native heading elements](#native-heading-elements)
+- [Size styles](#size-styles)
+- [Overline and subtitle](#overline-and-subtitle)
+- [Heading with bold text](#heading-with-bold-text)
+- [Heading with links](#heading-with-links)
+- [Custom color](#custom-color)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -46,7 +45,7 @@ A `Heading` component will render a standard HTML `<h>` tag (1-6). The heading's
 text can be passed in through a `text` prop or as a child. Default styles for
 semantic elements can be overwritten using the `size` prop.
 
-## Component Props
+## Component props
 
 You may pass any Chakra `Box` props, as well as the props below.
 
@@ -91,7 +90,7 @@ Resources:
 - [A11y Project Accessible heading structure](https://www.a11yproject.com/posts/how-to-accessible-heading-structure/)
 - [Chakra UI Heading](https://chakra-ui.com/docs/components/typography/heading)
 
-## Native Heading Elements
+## Native heading elements
 
 The `level` prop can be used to set a native heading element (ex. `<h1>`,
 `<h2>`, ...).
@@ -100,7 +99,7 @@ The `level` prop can be used to set a native heading element (ex. `<h1>`,
   code={`
   <Heading level="h1" />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 The default text styles for the native heading element levels correspond
@@ -114,7 +113,7 @@ The following values should be used for the `level` prop.
 
 <Canvas of={HeadingStories.DefaultStyles} />
 
-## Size Styles
+## Size styles
 
 The `size` prop can be used to override the default styles of the native heading
 elements.
@@ -123,7 +122,7 @@ elements.
   code={`
   <Heading size="heading1" />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 The following values should be used for the `size` prop.
@@ -133,14 +132,23 @@ The following values should be used for the `size` prop.
 
 For usage recommendations of each of the `size` options, please refer to the
 [Typography Style
-Guide](../?path=/docs/style-guide-typography--docs#size-options).
+Guide](./?path=/docs/style-guide-typography--docs#size-options).
 
-**Note:** In the examples below, the `level` prop is set to `level="h1"` for
-each `Heading` component and the `size` prop is used to adjust the text size.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> In the examples below, the <code>level</code> prop
+      is set to <code>level="h1"</code> for each <code>Heading</code> component
+      and the <code>size</code> prop is used to adjust the text size.
+    </>
+  }
+  mb="s"
+  variant="informative"
+/>
 
 <Canvas of={HeadingStories.SizeStyles} />
 
-## Overline and Subtitle
+## Overline and subtitle
 
 The `Heading` component offers two additional text elements as part of the full
 heading lockup: overline and subtitle. When the `overline` or `subtitle` props
@@ -153,8 +161,17 @@ font size for both elements based on the `size` prop. For `display1`,
 for `heading3`, `heading4`, `heading5`, `heading6`, `heading7`, and `heading8`,
 the text for these elements will be another (smaller) size.
 
-**Note:** In the examples below, the `level` prop is set to `level="h1"` for
-each `Heading` component and the `size` prop is used to adjust the text size.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> In the examples below, the <code>level</code> prop
+      is set to <code>level="h1"</code> for each <code>Heading</code> component
+      and the <code>size</code> prop is used to adjust the text size.
+    </>
+  }
+  mb="s"
+  variant="informative"
+/>
 
 ### Overline
 
@@ -168,7 +185,7 @@ above the heading text. The overline text is styled to be all uppercase.
     text="Lorem ipsum dolor"
   />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 <Canvas of={HeadingStories.Overline} />
@@ -185,12 +202,12 @@ heading text.
     text="Lorem ipsum dolor"
   />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 <Canvas of={HeadingStories.Subtitle} />
 
-### Full Heading Lockup
+### Full heading lockup
 
 Or use both the `overline` and `subtitle` props in combination to render a fully
 composed heading lockup.
@@ -203,23 +220,32 @@ composed heading lockup.
     text="Lorem ipsum dolor"
   />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 <Canvas of={HeadingStories.OverlineAndSubtitle} />
 
-## Heading with Bold Text
+## Heading with bold text
 
 <Canvas of={HeadingStories.BoldText} />
 
-## Heading with Links
+## Heading with links
 
 The recommended pattern to make headings linkable is to use the `url` prop. This
 will create a child `<a>` element within the heading element. Alternatively, you
 can pass a DS `Link` component, a custom `Link` component, or an HTML `anchor`
 element as the **only child** of the `Heading` component.
 
-**Important**: Linked headings should have the link color but not be underlined.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> Linked headings should have the link color but
+      not be underlined.
+    </>
+  }
+  mb="s"
+  variant="informative"
+/>
 
 If only a specific portion of the heading should be linked, then the `url` prop
 cannot be used. Instead, use a `Link` or HTML `anchor` element to wrap the text
@@ -232,7 +258,7 @@ is possible with the `Heading` component, this pattern SHOULD NOT be used.
 
 <Canvas of={HeadingStories.Links} />
 
-## Custom Color
+## Custom color
 
 The `Heading` component can be configured to render a custom color by passing
 the native `color` style prop.
@@ -246,7 +272,7 @@ the native `color` style prop.
     text="Lorem ipsum dolor"
   />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 <Canvas of={HeadingStories.CustomColor} />
