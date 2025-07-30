@@ -227,8 +227,7 @@ export const WithSearchElement: Story = {
     <search>
       <SearchBar
         headingText={<Heading level="h4">Search items</Heading>}
-        id="custom-heading"
-        labelText="Custom Heading example"
+        labelText="Search items"
         onSubmit={() => {}}
         textInputProps={{
           labelText: "Item Search",
