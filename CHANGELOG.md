@@ -68,6 +68,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
 - Removes all files related to the `Autosuggest` component guidelines.
 - Removes the exported `TagSetTypeProps` type.
+- Removes the `useWindowSize` and `useCarouselStyles` hooks.
 
 ### Fixes
 
