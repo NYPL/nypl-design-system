@@ -5,8 +5,6 @@ import { useState } from "react";
 import SearchBar from "./SearchBar";
 import Heading from "../Heading/Heading";
 import { argsBooleanType } from "../../helpers/storybookUtils";
-import { Box, Button, Flex, TextInput } from "../..";
-import Checkbox from "../Checkbox/Checkbox";
 
 const meta: Meta<typeof SearchBar> = {
   title: "Components/Form Elements/SearchBar",
@@ -227,15 +225,16 @@ export const DisabledState: Story = {
 export const WithSearchElement: Story = {
   render: () => (
     <search>
-      {/* TODO: Replace with Searchbar component. */}
-      <Heading size="heading6"> Search items </Heading>
-      <Flex justifyContent="align-content">
-        <TextInput id="search-input" labelText="Search" showLabel={false} />
-        <Button id="search-btn">Search</Button>
-      </Flex>
-      <Box sx={{ marginTop: "s" }}>
-        <Checkbox id="public-domain" labelText="Only public domain" />
-      </Box>
+      <SearchBar
+        headingText={<Heading level="h4">Search items</Heading>}
+        labelText="Search items"
+        onSubmit={() => {}}
+        textInputProps={{
+          labelText: "Item Search",
+          name: "textInputName",
+          placeholder: "Item Search",
+        }}
+      />
     </search>
   ),
   name: "Search Landmark Element Example",
