@@ -52,9 +52,9 @@ The `RadioGroup` composes a Chakra `Box` component, so you may pass any Chakra
 <Banner
   content={
     <>
-      <strong>NOTE:</strong> It's recommended to pass an `id` value for
-      accessibility requirements. If no `id` is passed, a random `id` will be
-      generated.
+      <strong>NOTE:</strong> It's recommended to pass an <code>id</code> value
+      for accessibility requirements. If no <code>id</code> is passed, a random{" "}
+      <code>id</code> will be generated.
     </>
   }
   mt="s"
@@ -88,8 +88,19 @@ If you need to add dynamic content or a layout to the `Radio` labels, you can
 pass JSX elements in lieu of strings. For example, you can achieve the following
 with the help of the `Flex` and `Spacer` components.
 
-Note: the width of `RadioGroup` is _not_ set to full by default. In order to make
-this work, you'd need to pass the `isFullWidth` prop.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> The width of <code>RadioGroup</code> is{" "}
+      <em>not</em> set to full by default. In order to make this work, you'd
+      need to pass the
+      <code>isFullWidth</code> prop.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="recommendation"
+/>
 
 <Canvas of={RadioGroupStories.JSXElement} />
 
@@ -134,8 +145,8 @@ time a new value is selected. Open the browser's console to see the output.
   content={
     <>
       <strong>NOTE:</strong> The following implementation is not working at this
-      time due to an issue with forwarding the ref to Chakra's own `RadioGroup`.
-      We recommend to use the controlled pattern above.
+      time due to an issue with forwarding the ref to Chakra's own{" "}
+      <code>RadioGroup</code>. We recommend to use the controlled pattern above.
     </>
   }
   mt="s"

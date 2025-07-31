@@ -6,6 +6,7 @@ import {
   Source,
 } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
@@ -77,10 +78,19 @@ Resources:
 
 ## JSX elements passed to `descriptionText` prop
 
-When passing a JSX Element to `descriptionText`, the consuming app is responsible
-for ensuring its accessibility.
-
-_NOTE: This is applicable for all component props accepting HTML/JSX elements._
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> When passing a JSX Element to
+      <code>descriptionText</code>, the consuming app is responsible for ensuring
+      its accessibility. This is applicable for all component props accepting HTML/JSX
+      elements.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Canvas of={NewsletterSignupStories.DescriptionUsingJSXElements} />
 
@@ -112,7 +122,17 @@ In the following example, the heading is an `h4` defined as:
 
 ## Accessing form input with `onChange` and `onSubmit`
 
-_NOTE: open the browser console to see the values logged in the example below._
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> Open the browser console to see the values logged
+      in the example below.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 The value typed into the `TextInput` can be accessed by the functions passed to
 the `onChange` and `onSubmit` props through the `event` object.
