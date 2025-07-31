@@ -50,7 +50,6 @@ export const Logo: ChakraComponent<
   >((props, ref?) => {
     const {
       children,
-      className,
       decorative = false,
       id,
       name,
@@ -65,7 +64,6 @@ export const Logo: ChakraComponent<
     });
     const logoProps = {
       "aria-hidden": decorative,
-      className,
       id,
       role: "img",
       title,

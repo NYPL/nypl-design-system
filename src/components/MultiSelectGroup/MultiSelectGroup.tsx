@@ -40,7 +40,6 @@ export const MultiSelectGroup: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, MultiSelectGroupProps>((props, ref?) => {
     const {
-      className = "",
       id,
       labelText,
       layout = "row",
@@ -53,14 +52,13 @@ export const MultiSelectGroup: ChakraComponent<
 
     return (
       <Fieldset
-        data-testid={`ds-multiSelectGroup`}
+        data-testid="ds-multiSelectGroup"
         id={`${mainId}-fieldset`}
         legendText={labelText}
         isLegendHidden={!showLabel}
         {...rest}
       >
         <Stack
-          className={className}
           columnGap="xs"
           data-testid={`${mainId}-multiselectGroup-stack`}
           direction={{ base: "column", md: layout }}

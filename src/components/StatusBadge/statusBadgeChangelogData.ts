@@ -21,6 +21,7 @@ export const changelogData: ChangelogData[] = [
       "Renames `type` to `variant`.",
       "Replaces `statusBadgeTypeArray` with shared message variants array.",
       "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-statusBadge` to the parent element.",
     ],
   },
   {

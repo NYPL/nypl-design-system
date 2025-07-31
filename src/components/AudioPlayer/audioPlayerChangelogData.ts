@@ -15,9 +15,11 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Accessibility", "Functionality"],
     notes: [
-      "Display a fallback warning message on JavaScript-disabled browsers.",
-      "Removed explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
-      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Displays a fallback warning message on JavaScript-disabled browsers.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Removes the internal `audioplayer` class.",
+      "Adds `data-testid` value of `ds-audioPlayer` to the parent element.",
     ],
   },
   {

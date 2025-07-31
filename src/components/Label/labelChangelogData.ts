@@ -19,6 +19,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `htmlFor` prop (as HTML equivalent may be used) and updates docs.",
       "Removes default external spacing.",
       "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-label` to the parent element.",
     ],
   },
   {

@@ -1,7 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import Button, { buttonElementTypeArray, buttonVariantsArray } from "./Button";
+import Button, { buttonVariantsArray } from "./Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Icon from "../Icons/Icon";
 import { iconNamesArray } from "../Icons/iconVariables";
@@ -12,39 +12,37 @@ const meta: Meta<typeof Button> = {
   title: "Components/Form Elements/Button",
   component: Button,
   argTypes: {
-    buttonText: {
-      description: "**Only used for Storybook – ** Set the button label text.",
+    isDisabled: { table: { defaultValue: { summary: "false" } } },
+    mouseDown: { table: { defaultValue: { summary: "false" } } },
+    size: {
+      control: { type: "radio" },
+      options: sizesArray,
+      table: { defaultValue: { summary: "medium" } },
     },
     variant: {
       control: { type: "select" },
       options: buttonVariantsArray,
       table: { defaultValue: { summary: "primary" } },
     },
+    buttonText: {
+      description: "**Only used for Storybook – ** Set the button label text.",
+      table: { category: "Storybook Only" },
+    },
     displayIcon: {
       control: { type: "boolean" },
       description: "**Only used for Storybook – ** Toggle the icon visibility.",
+      table: { category: "Storybook Only" },
     },
     displayIconLeft: {
       description:
         "**Only used for Storybook – ** Move the icon left or right.",
+      table: { category: "Storybook Only" },
     },
     iconType: {
       control: { type: "select" },
       options: iconNamesArray,
       description: "**Only used for Storybook – ** Select an icon. ",
-    },
-    isDisabled: { table: { defaultValue: { summary: "false" } } },
-    mouseDown: { table: { defaultValue: { summary: "false" } } },
-    onClick: { control: false },
-    size: {
-      control: { type: "radio" },
-      options: sizesArray,
-      table: { defaultValue: { summary: "medium" } },
-    },
-    type: {
-      control: { type: "radio" },
-      options: buttonElementTypeArray,
-      table: { defaultValue: { summary: "button" } },
+      table: { category: "Storybook Only" },
     },
   },
 };
@@ -58,17 +56,15 @@ type Story = StoryObj<typeof Button>;
  */
 export const WithControls: Story = {
   args: {
-    buttonText: "Button Text",
+    isDisabled: false,
+    mouseDown: undefined,
+    screenreaderOnlyText: "Screenreader only text",
+    size: undefined,
     variant: "primary",
+    buttonText: "Button Text",
     displayIcon: false,
     displayIconLeft: true,
     iconType: "search",
-    isDisabled: false,
-    mouseDown: undefined,
-    onClick: undefined,
-    screenreaderOnlyText: "Screenreader only text",
-    size: undefined,
-    type: "button",
   },
   parameters: {
     design: {
@@ -206,7 +202,7 @@ export const DisabledButtons: Story = {
   ),
 };
 
-const sizeHeaders = ["--", "small", "medium (default)", "large"];
+const sizeHeaders = ["variant value", "small", "medium (default)", "large"];
 const buttonData = [
   [
     "primary",

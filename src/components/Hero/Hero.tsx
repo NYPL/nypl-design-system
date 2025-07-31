@@ -84,6 +84,7 @@ export const Hero: ChakraComponent<
         isDarkText,
         isDarkBackgroundImage = false,
         subHeaderText,
+        ...rest
       } = props;
       const styles = useMultiStyleConfig("Hero", {
         foregroundColor,
@@ -295,6 +296,26 @@ export const Hero: ChakraComponent<
           </>
         );
 
+      const contentPrep = (
+        <Box
+          data-testid="ds-hero-content"
+          __css={{ ...styles.content, ...contentBoxStyling }}
+        >
+          {childrenToRender}
+        </Box>
+      );
+
+      // Set final DOM structure based on variant
+      // Hint: The primary variant needs a grid wrapper
+      const contentFinal =
+        variant === "primary" ? (
+          <Box data-testid="ds-hero-grid" __css={styles.grid}>
+            {contentPrep}
+          </Box>
+        ) : (
+          contentPrep
+        );
+
       return (
         <Box
           data-testid="ds-hero"
@@ -305,14 +326,9 @@ export const Hero: ChakraComponent<
             ...styles.base,
             ...backgroundImageStyle,
           }}
+          {...rest}
         >
-          <Box
-            data-testid="hero-content"
-            style={contentBoxStyling}
-            __css={{ ...styles.content, ...contentBoxStyling }}
-          >
-            {childrenToRender}
-          </Box>
+          {contentFinal}
         </Box>
       );
     }

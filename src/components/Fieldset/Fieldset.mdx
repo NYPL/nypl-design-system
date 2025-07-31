@@ -8,7 +8,6 @@ import {
 import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import Link from "../Link/Link";
 import * as FieldsetStories from "./Fieldset.stories";
 import { changelogData } from "./fieldsetChangelogData";
 
@@ -24,12 +23,12 @@ import { changelogData } from "./fieldsetChangelogData";
 
 <Canvas of={FieldsetStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -54,7 +53,7 @@ any Chakra `Box` props, as well as the props below.
   }
   mt="s"
   mb="s"
-  type="recommendation"
+  variant="recommendation"
 />
 
 This is a simple component but is very important to use when building web forms.
@@ -64,10 +63,12 @@ example, when building out a form for a user to create an account, one `Fieldset
 should be used to group the user's first and last names and another `Fieldset`
 to group the user's address information.
 
-The Reservoir DS implements the `Fieldset` component in the following form
+The Reservoir DS renders the `Fieldset` component in the following form
 components:
 
-- `CheckboxGroup`, `DatePicker`, `RadioGroup`.
+- `CheckboxGroup`
+- `DatePicker`
+- `RadioGroup`
 
 Resources:
 

@@ -20,6 +20,9 @@ export const changelogData: ChangelogData[] = [
       "Replaces `actionBackgroundColorsArray` and `highlightColorsArray` with shared background/highlight colors arrays.",
       "Removes child validation and warning.",
       "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Updates the className `selectedItem` to `ds-subNav-selectedItem` to align with the new naming convention.",
+      "Removes the explicit `className` prop in favor of `rest`.",
+      "Adds `data-testid` value of `ds-subNav` to the parent element.",
     ],
   },
   {

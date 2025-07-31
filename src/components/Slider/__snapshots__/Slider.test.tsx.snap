@@ -18,7 +18,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     className="css-0"
   >
     <div
-      className="css-ho21zx"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="defaultRangeSlider-textInput-start-componentWrapper"
     >
@@ -148,7 +148,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="defaultRangeSlider-textInput-end-componentWrapper"
     >
@@ -212,7 +212,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <div
-      className="css-ho21zx"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="errored-textInput-start-componentWrapper"
     >
@@ -352,7 +352,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="errored-textInput-end-componentWrapper"
     >
@@ -429,7 +429,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <div
-      className="css-ho21zx"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="required-textInput-start-componentWrapper"
     >
@@ -560,7 +560,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="required-textInput-end-componentWrapper"
     >
@@ -625,7 +625,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <div
-      className="css-ho21zx"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="disabled-textInput-start-componentWrapper"
     >
@@ -757,7 +757,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="disabled-textInput-end-componentWrapper"
     >
@@ -813,7 +813,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
     className="css-0"
   >
     <div
-      className="css-ho21zx"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="noLabels-textInput-start-componentWrapper"
     >
@@ -943,7 +943,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="noLabels-textInput-end-componentWrapper"
     >
@@ -1325,7 +1325,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="defaultSlider-textInput-end-componentWrapper"
     >
@@ -1469,7 +1469,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="errored-textInput-end-componentWrapper"
     >
@@ -1626,7 +1626,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="required-textInput-end-componentWrapper"
     >
@@ -1773,7 +1773,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="disabled-textInput-end-componentWrapper"
     >
@@ -1909,7 +1909,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="noLabels-textInput-end-componentWrapper"
     >
@@ -2243,7 +2243,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="chakra-textInput-end-componentWrapper"
     >
@@ -2387,7 +2387,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
       100
     </div>
     <div
-      className="css-1f1uedm"
+      className="css-1xdhyk6"
       data-testid="ds-textInput"
       id="props-textInput-end-componentWrapper"
     >

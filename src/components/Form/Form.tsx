@@ -32,7 +32,7 @@ export const FormRow: ChakraComponent<
   >,
   FormChildProps
 > = chakra((props: React.PropsWithChildren<FormChildProps>) => {
-  const { children, className, gap, id, ...rest } = props;
+  const { children, gap, id, ...rest } = props;
   const count = React.Children.count(children);
   const alteredChildren = React.Children.map(
     children as JSX.Element,
@@ -45,13 +45,7 @@ export const FormRow: ChakraComponent<
     }
   );
   return (
-    <SimpleGrid
-      columns={count}
-      className={className}
-      gap={gap}
-      id={id}
-      {...rest}
-    >
+    <SimpleGrid columns={count} gap={gap} id={id} {...rest}>
       {alteredChildren}
     </SimpleGrid>
   );
@@ -65,15 +59,20 @@ export const FormField: ChakraComponent<
   >,
   FormChildProps
 > = chakra((props: React.PropsWithChildren<FormChildProps>) => {
-  const { children, className, gap, id, ...rest } = props;
+  const { children, gap, id, ...rest } = props;
   return (
-    <SimpleGrid columns={1} className={className} gap={gap} id={id} {...rest}>
+    <SimpleGrid columns={1} gap={gap} id={id} {...rest}>
       {children}
     </SimpleGrid>
   );
 });
 
-/** Main Form component */
+/**
+ * The `Form` component renders a standard `<form>` element and should be used
+ * to handle layout and spacing for child input fields. `FormRow` and `FormField`
+ * components should be used to build the `<form>` structure and to arrange input
+ * fields as needed.
+ */
 export const Form: ChakraComponent<
   React.ForwardRefExoticComponent<
     React.PropsWithChildren<FormProps> &

@@ -2,7 +2,7 @@
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 <div
-  className="css-1u8qly9"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="myTextarea-componentWrapper"
 >
@@ -35,7 +35,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 <div
-  className="css-1u8qly9"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -73,7 +73,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 <div
-  className="css-1u8qly9"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -111,7 +111,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 <div
-  className="css-1u8qly9"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -145,7 +145,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 <div
-  className="css-1u8qly9"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -173,7 +173,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 <div
-  className="css-1u8qly9"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -229,7 +229,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 <div
-  className="css-1u8qly9"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -286,7 +286,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 <div
-  className="css-1u8qly9"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -324,7 +324,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
 <div
-  className="css-1u8qly9"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -358,7 +358,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
 <div
-  className="css-1y4kn3e"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="chakra-componentWrapper"
 >
@@ -392,8 +392,8 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
 <div
-  className="css-1u8qly9"
-  data-testid="props"
+  className="css-1xdhyk6"
+  data-testid="ds-textInput"
   id="props-componentWrapper"
 >
   <label
@@ -427,7 +427,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
 <div
-  className="css-1u8qly9"
+  className="css-1xdhyk6"
   data-testid="ds-textInput"
   id="autocomplete-componentWrapper"
 >

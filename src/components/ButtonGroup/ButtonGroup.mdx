@@ -6,10 +6,9 @@ import {
 } from "@storybook/addon-docs/blocks";
 
 import Banner from "../Banner/Banner";
+import * as ButtonGroupStories from "./ButtonGroup.stories";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import Link from "../Link/Link";
-import * as ButtonGroupStories from "./ButtonGroup.stories";
 import { changelogData } from "./buttonGroupChangelogData";
 
 <Meta of={ButtonGroupStories} />
@@ -24,15 +23,15 @@ import { changelogData } from "./buttonGroupChangelogData";
 
 <Canvas of={ButtonGroupStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#button-width" target="_self">Button Width</Link>}
-- {<Link href="#layout" target="_self">Layout</Link>}
-- {<Link href="#isDisabled" target="_self">isDisabled</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Button Width](#button-width)
+- [Layout](#layout)
+- [isDisabled](#isdisabled)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -83,7 +82,7 @@ The `layout` prop can be used to set the layout to either `row` or `column`.
 
 <Canvas of={ButtonGroupStories.Layout} />
 
-## Disabled
+## isDisabled
 
 The `isDisabled` prop can be used to disable all the `Button` children at once.
 Individual `Button`s can still be disabled with their own `isDisabled` prop.

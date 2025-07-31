@@ -154,10 +154,11 @@ describe("Hero", () => {
       />
     );
 
-    expect(screen.getByTestId("hero-content")).toHaveAttribute(
-      "style",
-      "color: rgb(18, 52, 86); background-color: rgb(101, 67, 33);"
-    );
+    expect(screen.getByTestId("ds-hero-content")).toBeInTheDocument();
+    expect(screen.getByTestId("ds-hero-content")).toHaveStyle({
+      color: "#123456",
+      "background-color": "#654321",
+    });
   });
 
   it("logs a warning if `imageProps.src` prop is passed but not `imageProps.alt`", () => {

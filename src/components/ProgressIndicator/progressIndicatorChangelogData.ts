@@ -18,6 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Removes deprecated `darkMode` prop.",
       "Extends prop interface to include Chakra props or HTML attributes.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-progressIndicator` to the parent element.",
     ],
   },
   {

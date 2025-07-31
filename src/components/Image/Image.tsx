@@ -152,7 +152,6 @@ export const Image: ChakraComponent<
       alt = "",
       aspectRatio = "original",
       caption,
-      className = "",
       component,
       credit,
       fallbackSrc,
@@ -233,7 +232,6 @@ export const Image: ChakraComponent<
     const finalImage = useImageWrapper ? (
       <ImageWrapper
         additionalWrapperStyles={additionalWrapperStyles}
-        className={className}
         id={id ? `${id}-wrapper` : null}
         ratio={aspectRatio}
         size={size}

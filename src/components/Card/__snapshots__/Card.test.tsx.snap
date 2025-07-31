@@ -2,12 +2,12 @@
 
 exports[`Card Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   data-testid="ds-card"
   id="regularCard"
 >
   <div
-    className="css-1u8qly9"
+    className="css-1xdhyk6"
     data-cardwrapper={true}
     data-testid="ds-cardWrapper"
   >
@@ -23,7 +23,7 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
       >
         <img
           alt="Alt text"
-          className="css-0"
+          className="css-1xdhyk6"
           id="img-id-regularCard"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
@@ -68,12 +68,12 @@ exports[`Card Renders the UI snapshot correctly 1`] = `
 
 exports[`Card Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-0"
+  className="edition-card css-1xdhyk6"
   data-testid="ds-card"
   id="cardWithExtendedStyles"
 >
   <div
-    className="edition-card css-1u8qly9"
+    className="css-1xdhyk6"
     data-cardwrapper={true}
     data-testid="ds-cardWrapper"
   >
@@ -89,7 +89,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
       >
         <img
           alt="Alt text"
-          className="css-0"
+          className="css-1xdhyk6"
           id="img-id-cardWithExtendedStyles"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
@@ -127,6 +127,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
       >
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="online"
           id="link-online"
           rel={null}
@@ -136,6 +137,7 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
         </a>
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="#url"
           id="link-icon"
           rel={null}
@@ -160,12 +162,12 @@ exports[`Card Renders the UI snapshot correctly 2`] = `
 
 exports[`Card Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-0"
+  className="edition-card css-1xdhyk6"
   data-testid="ds-card"
   id="cardWithNoCTAs"
 >
   <div
-    className="edition-card css-1u8qly9"
+    className="css-1xdhyk6"
     data-cardwrapper={true}
     data-testid="ds-cardWrapper"
   >
@@ -181,7 +183,7 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
       >
         <img
           alt="Alt text"
-          className="css-0"
+          className="css-1xdhyk6"
           id="img-id-cardWithNoCTAs"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
@@ -220,12 +222,12 @@ exports[`Card Renders the UI snapshot correctly 3`] = `
 
 exports[`Card Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-0"
+  className="edition-card css-1xdhyk6"
   data-testid="ds-card"
   id="cardWithNoContent"
 >
   <div
-    className="edition-card css-1u8qly9"
+    className="css-1xdhyk6"
     data-cardwrapper={true}
     data-testid="ds-cardWrapper"
   >
@@ -241,7 +243,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       >
         <img
           alt="Alt text"
-          className="css-0"
+          className="css-1xdhyk6"
           id="img-id-cardWithNoContent"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
@@ -259,6 +261,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       >
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="#edition-link"
           rel={null}
           target={null}
@@ -272,6 +275,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
       >
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="online"
           id="link-online"
           rel={null}
@@ -281,6 +285,7 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
         </a>
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="#url"
           id="link-icon"
           rel={null}
@@ -305,12 +310,12 @@ exports[`Card Renders the UI snapshot correctly 4`] = `
 
 exports[`Card Renders the UI snapshot correctly 5`] = `
 <div
-  className="css-0"
+  className="edition-card css-1xdhyk6"
   data-testid="ds-card"
   id="cardWithNoImage"
 >
   <div
-    className="edition-card css-1u8qly9"
+    className="css-1xdhyk6"
     data-cardwrapper={true}
     data-testid="ds-cardWrapper"
   >
@@ -326,6 +331,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       >
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="#edition-link"
           rel={null}
           target={null}
@@ -345,6 +351,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
       >
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="online"
           id="link-online"
           rel={null}
@@ -354,6 +361,7 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
         </a>
         <a
           className="chakra-link css-1xdhyk6"
+          data-testid="ds-link"
           href="#url"
           id="link-icon"
           rel={null}
@@ -378,12 +386,12 @@ exports[`Card Renders the UI snapshot correctly 5`] = `
 
 exports[`Card Renders the UI snapshot correctly 6`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   data-testid="ds-card"
   id="fullclick"
 >
   <div
-    className="chakra-linkbox css-2zg2m0"
+    className="chakra-linkbox css-uhbnde"
     data-cardwrapper={true}
     data-testid="ds-cardWrapper"
   >
@@ -399,7 +407,7 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
       >
         <img
           alt="Alt text"
-          className="css-0"
+          className="css-1xdhyk6"
           id="img-id-fullclick"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
@@ -450,12 +458,12 @@ exports[`Card Renders the UI snapshot correctly 6`] = `
 
 exports[`Card Renders the UI snapshot correctly 7`] = `
 <div
-  className="css-0"
+  className="css-1xdhyk6"
   data-testid="ds-card"
   id="cardID"
 >
   <div
-    className="css-1u8qly9"
+    className="css-1xdhyk6"
     data-cardwrapper={true}
     data-testid="ds-cardWrapper"
   >
@@ -471,7 +479,7 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
       >
         <img
           alt="Alt text"
-          className="css-0"
+          className="css-1xdhyk6"
           id="img-id-cardWithRightActions"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
@@ -530,12 +538,12 @@ exports[`Card Renders the UI snapshot correctly 7`] = `
 
 exports[`Card Renders the UI snapshot correctly 8`] = `
 <div
-  className="css-0"
+  className="css-1t0bvx9"
   data-testid="ds-card"
   id="chakraProps"
 >
   <div
-    className="css-2bbtg1"
+    className="css-1xdhyk6"
     data-cardwrapper={true}
     data-testid="ds-cardWrapper"
   >
@@ -551,7 +559,7 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
       >
         <img
           alt="Alt text"
-          className="css-0"
+          className="css-1xdhyk6"
           id="img-id-chakraProps"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
@@ -596,14 +604,14 @@ exports[`Card Renders the UI snapshot correctly 8`] = `
 
 exports[`Card Renders the UI snapshot correctly 9`] = `
 <div
-  className="css-0"
-  data-testid="ds-card"
+  className="css-1xdhyk6"
+  data-testid="card-testid"
   id="otherProps"
 >
   <div
-    className="css-1u8qly9"
+    className="css-1xdhyk6"
     data-cardwrapper={true}
-    data-testid="card-testid"
+    data-testid="ds-cardWrapper"
   >
     <div
       className="css-0"
@@ -617,7 +625,7 @@ exports[`Card Renders the UI snapshot correctly 9`] = `
       >
         <img
           alt="Alt text"
-          className="css-0"
+          className="css-1xdhyk6"
           id="img-id-otherProps"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />

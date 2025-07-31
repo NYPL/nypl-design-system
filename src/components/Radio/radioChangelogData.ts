@@ -19,6 +19,8 @@ export const changelogData: ChangelogData[] = [
       "Removes `name` and `onChange` props (as HTML equivalents may be used) and updates docs.",
       "Adds a hook to consume `RadioGroup` context.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Removes the explicit `className` prop in favor of `rest`.",
+      "Adds `data-testid` value of `ds-radio` to the parent element.",
     ],
   },
   {

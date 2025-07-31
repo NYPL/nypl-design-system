@@ -17,6 +17,8 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Major update to component and styles based on the Template TAD. Updates include simplified code and exported components, responsive sidebar and spacing, and accomodations for content needing a narrower container.",
       "Extends prop interface to include Chakra props or HTML attributes.",
+      "Updates the className `reservoir-template-content` and `reservoir-template-sidebar` to `ds-template-content` and `ds-template-sidebar` to align with the new naming convention.",
+      "Adds `data-testid` value of `ds-template` to the parent element.",
     ],
   },
   {

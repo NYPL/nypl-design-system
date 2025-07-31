@@ -33,6 +33,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Table`'s `tableTextSize` prop to accept `caption`.
 - Renames `Accordion`, `Banner`, `Breadcrumbs`, `Button`, `Hero`, `Icon`, `Link`, `List`, `Modal`, `Notification`, `Select`, `StatusBadge`, `TagSet`, and `TextInput` props using "type" to use "variant".
 - Updates the `id` prop for all components to reduce `undefined` and makes previously required `id`s optional in the following components: `Accordion`, `Button`, `ButtonGroup`, `Checkbox`, `CheckboxGroup`, `DatePicker`, `Fieldset`, `Form`, `MultiSelect`, `MultiSelectGroup`, `ProgressIndicator`, `Radio`, `RadioGroup`, `SearchBar`, `Slider`, `TextInput`, `Toggle`
+- Moves up the `...rest` prop spread statement to the parent element in every component.
+- Updates how the `className` prop is used in components. They are no longer explicit internal props but can be passed as other props through the `rest` prop.
+- Updates internal `className` values to use the `ds-[componentName]` naming convention.
+- Updates `README.md` for v4
 
 ### Removals
 
@@ -63,6 +67,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes `noSpace` prop from Text component.
 - Removes default spacing values set on the `DatePicker`, `Heading`, `HelperErrorText`, `HorizontalRule`, `Label`, `List`, `StyledList`, and `Text` components.
 - Removes all files related to the `Autosuggest` component guidelines.
+- Removes the exported `TagSetTypeProps` type.
 
 ### Fixes
 

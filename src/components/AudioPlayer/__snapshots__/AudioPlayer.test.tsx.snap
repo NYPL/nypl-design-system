@@ -2,7 +2,7 @@
 
 exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
 <div
-  className="audioplayer css-1u8qly9"
+  className="css-1u8qly9"
   data-testid="ds-audioPlayer"
 >
   <noscript>
@@ -24,7 +24,7 @@ exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
 
 exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
 <div
-  className="audioplayer css-1u8qly9"
+  className="css-1u8qly9"
   data-testid="ds-audioPlayer"
 >
   <h2
@@ -74,7 +74,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
 
 exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
 <div
-  className="audioplayer css-1u8qly9"
+  className="css-1u8qly9"
   data-testid="ds-audioPlayer"
 >
   <div
@@ -104,7 +104,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
 
 exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
 <div
-  className="audioplayer css-1u8qly9"
+  className="css-1u8qly9"
   data-testid="ds-audioPlayer"
 >
   <noscript>
@@ -126,7 +126,7 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
 
 exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
 <div
-  className="audioplayer css-1u8qly9"
+  className="css-1u8qly9"
   data-testid="ds-audioPlayer"
 >
   <div

@@ -7,7 +7,7 @@ exports[`Image Renders the UI snapshot correctly 1`] = `
 >
   <img
     alt=""
-    className="css-0"
+    className="css-1xdhyk6"
     src="test.png"
   />
 </div>
@@ -23,7 +23,7 @@ exports[`Image Renders the UI snapshot correctly 2`] = `
   >
     <img
       alt=""
-      className="css-0"
+      className="css-1xdhyk6"
       src="test.png"
     />
     <figcaption
@@ -59,7 +59,7 @@ exports[`Image Renders the UI snapshot correctly 3`] = `
   >
     <img
       alt=""
-      className="css-0"
+      className="css-1xdhyk6"
       src="test.png"
     />
     <figcaption
@@ -95,7 +95,7 @@ exports[`Image Renders the UI snapshot correctly 4`] = `
   >
     <img
       alt=""
-      className="css-0"
+      className="css-1xdhyk6"
       src="test.png"
     />
     <figcaption
@@ -143,7 +143,7 @@ exports[`Image Renders the UI snapshot correctly 5`] = `
 >
   <img
     alt=""
-    className="css-0"
+    className="css-1xdhyk6"
     src="test.png"
   />
 </div>
@@ -156,7 +156,7 @@ exports[`Image Renders the UI snapshot correctly 6`] = `
 >
   <img
     alt=""
-    className="css-0"
+    className="css-1xdhyk6"
     src="test.png"
   />
 </div>
@@ -169,7 +169,7 @@ exports[`Image Renders the UI snapshot correctly 7`] = `
 >
   <img
     alt=""
-    className="css-0"
+    className="css-1xdhyk6"
     src="test.png"
   />
 </div>
@@ -182,7 +182,7 @@ exports[`Image Renders the UI snapshot correctly 8`] = `
 >
   <img
     alt=""
-    className="css-0"
+    className="css-1xdhyk6"
     src="test.png"
   />
 </div>
@@ -195,7 +195,7 @@ exports[`Image Renders the UI snapshot correctly 9`] = `
 >
   <img
     alt=""
-    className="css-0"
+    className="css-1xdhyk6"
     src="test.png"
   />
 </div>
@@ -208,7 +208,7 @@ exports[`Image Renders the UI snapshot correctly 10`] = `
 >
   <img
     alt=""
-    className="css-0"
+    className="css-1xdhyk6"
     src="test.png"
   />
 </div>
@@ -229,7 +229,7 @@ exports[`Image Renders the UI snapshot correctly 11`] = `
     >
       <img
         alt=""
-        className="css-0"
+        className="css-m52qfj"
         src="test.png"
       />
     </div>
@@ -252,7 +252,7 @@ exports[`Image Renders the UI snapshot correctly 12`] = `
     >
       <img
         alt=""
-        className="css-0"
+        className="css-rwvwz0"
         src="test.png"
       />
     </div>
@@ -275,7 +275,7 @@ exports[`Image Renders the UI snapshot correctly 13`] = `
     >
       <img
         alt=""
-        className="css-0"
+        className="css-1hjmh7x"
         src="test.png"
       />
     </div>
@@ -298,7 +298,7 @@ exports[`Image Renders the UI snapshot correctly 14`] = `
     >
       <img
         alt=""
-        className="css-0"
+        className="css-s8skks"
         src="test.png"
       />
     </div>
@@ -313,7 +313,7 @@ exports[`Image Renders the UI snapshot correctly 15`] = `
 >
   <img
     alt=""
-    className="css-0"
+    className="css-ca2ypk"
     src="test.png"
   />
 </div>
@@ -334,7 +334,7 @@ exports[`Image Renders the UI snapshot correctly 16`] = `
     >
       <img
         alt=""
-        className="css-0"
+        className="css-15psnkv"
         src="test.png"
       />
     </div>
@@ -357,7 +357,7 @@ exports[`Image Renders the UI snapshot correctly 17`] = `
     >
       <img
         alt=""
-        className="css-0"
+        className="css-1vi2e38"
         src="test.png"
       />
     </div>
@@ -380,7 +380,7 @@ exports[`Image Renders the UI snapshot correctly 18`] = `
     >
       <img
         alt=""
-        className="css-0"
+        className="css-3lyhl6"
         src="test.png"
       />
     </div>
@@ -403,7 +403,7 @@ exports[`Image Renders the UI snapshot correctly 19`] = `
     >
       <img
         alt=""
-        className="css-0"
+        className="css-ztbuvv"
         src="test.png"
       />
     </div>
@@ -426,7 +426,7 @@ exports[`Image Renders the UI snapshot correctly 20`] = `
     >
       <img
         alt=""
-        className="css-0"
+        className="css-2deslp"
         src="test.png"
       />
     </div>
@@ -449,7 +449,7 @@ exports[`Image Renders the UI snapshot correctly 21`] = `
     >
       <img
         alt=""
-        className="css-0"
+        className="css-1vi2e38"
         src="test.png"
       />
     </div>
@@ -464,7 +464,7 @@ exports[`Image Renders the UI snapshot correctly 22`] = `
 >
   <img
     alt=""
-    className="css-qvgr6z"
+    className="css-16h1ce8"
     src="test.png"
   />
 </div>
@@ -477,7 +477,7 @@ exports[`Image Renders the UI snapshot correctly 23`] = `
 >
   <img
     alt=""
-    className="css-0"
+    className="css-1xdhyk6"
     data-testid="image"
     src="test.png"
   />

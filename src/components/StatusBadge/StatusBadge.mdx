@@ -1,4 +1,10 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 import * as StatusBadgeStories from "./StatusBadge.stories";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
@@ -18,22 +24,22 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Canvas of={StatusBadgeStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#visual-style" target="_self">Visual Style</Link>}
-- {<Link href="#font-size" target="_self">Font Size</Link>}
-- {<Link href="#label-capitalization" target="_self">Capitalization</Link>}
-- {<Link href="#icons" target="_self">Icons</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Visual style](#visual-style)
+- [Font size](#font-size)
+- [Capitalization](#label-capitalization)
+- [Icons](#icons)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={StatusBadgeStories} />
 
-## Component Props
+## Component props
 
 `StatusBadge` composes a Chakra `Box` component, so you may pass any Chakra `Box` props,
 as well as the props below.
@@ -42,33 +48,30 @@ as well as the props below.
 
 ## Accessibility
 
-The visual aspect of the `StatusBadge` component is able to displays multiple
-statuses and priorities through the use of different colors, so it is
-recommended to align the usage of the component with the semantic meaning of one
-of the component's variants.
+`StatusBadge` is able to display multiple statuses through the use of different
+colors, so it is recommended to align the usage of the component with the semantic
+meaning of the component's variants.
 
-However, when using the `StatusBadge` component, the implementation should not
-rely on the color alone to convey meaning, as color is not a universal
-experience for everyone. It is important that the meaning of the label aligns
-with the general meaning associated with the semantic colors used in a specific
-variant. In this way, the user will be able to understand the priority of the
-`StatusBadge` and not rely just on the color.
+However, the implementation should not rely on color alone to convey meaning,
+as color is not a universal experience for everyone. It is important that the
+meaning of the label text also aligns with the general meaning of the semantic
+color.
 
-## Visual Style
+## Visual style
 
 The component offers two props for setting the visual style:
 
 - `variant`
 - `fontSize`
+  <p>&nbsp;</p>
 
 ### Variant
 
-- The semantic variants align with specific uses.
-- Refer to the table below for the recommended purpose of each variant.
+Semantic variants align with specific uses.
 
 <Canvas of={StatusBadgeStories.Variants} />
 
-## Font Size
+## Font size
 
 Use the `fontSize` prop to set the font size with the following design tokens:
 
@@ -82,8 +85,8 @@ The default label font size is `desktop.body.body2`.
 
 ## Capitalization
 
-- Capitalization of a badge label will not be forced by the component.
-- Labels will render exactly as they are passed into the component.
+- Capitalization is not enforced by the component, and labels will render exactly
+  as they are passed.
 - Text capitalization is dependent on each use case and final decisions should
   come from Product and UX.
 
@@ -101,35 +104,33 @@ The default label font size is `desktop.body.body2`.
 
 <Source
   code={`
-// Icon first (add margin-right)
-
-<StatusBadge variant="negative">
-  <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
-  On-Site Access Only
-</StatusBadge>
-
-<StatusBadge font-size="caption" variant="warning">
-  <Icon
-    color="ui.warning.secondary"
-    mr="xs"
-    name="actionHelpDefault"
-    size="medium"
-  />
-  Missing information
-</StatusBadge>
-
-// Icon second (add margin-left)
-
-<StatusBadge variant="neutral">
-  Registration Required
-  <Icon color="ui.black" ml="xs" name="actionIdentityFilled" size="medium" />
-</StatusBadge>
-
-<StatusBadge font-size="body1" variant="informative">
-  Includes audio
-  <Icon color="ui.link.secondary" ml="xs" name="headset" size="medium" />
-</StatusBadge>
-`} language="jsx" />
+  // Icon first (add margin-right)
+  <StatusBadge variant="negative">
+    <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
+    On-site access only
+  </StatusBadge>
+  <StatusBadge font-size="caption" variant="warning">
+    <Icon
+      color="ui.warning.secondary"
+      mr="xs"
+      name="actionHelpDefault"
+      size="medium"
+    />
+    Missing information
+  </StatusBadge>
+  
+  // Icon second (add margin-left)
+  <StatusBadge variant="neutral">
+    Registration required
+    <Icon color="ui.black" ml="xs" name="actionIdentityFilled" size="medium" />
+  </StatusBadge>
+  <StatusBadge font-size="body1" variant="informative">
+    Includes audio
+    <Icon color="ui.link.secondary" ml="xs" name="headset" size="medium" />
+  </StatusBadge>
+`}
+  language="jsx"
+/>
 
 ## Changelog
 

@@ -20,6 +20,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `isDarkMode` in favor of Chakra's `_dark` conditional key.",
       "Removes `name` prop (as HTML equivalent may be used) and updates docs.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-slider` to the parent element.",
     ],
   },
   {

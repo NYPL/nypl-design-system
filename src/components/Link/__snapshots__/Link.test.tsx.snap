@@ -3,6 +3,7 @@
 exports[`Link renders the UI snapshot correctly 1`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="standard-link"
   rel={null}
@@ -15,6 +16,7 @@ exports[`Link renders the UI snapshot correctly 1`] = `
 exports[`Link renders the UI snapshot correctly 2`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="forwards-link"
   rel={null}
@@ -36,6 +38,7 @@ exports[`Link renders the UI snapshot correctly 2`] = `
 exports[`Link renders the UI snapshot correctly 3`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="backwards-link"
   rel={null}
@@ -57,6 +60,7 @@ exports[`Link renders the UI snapshot correctly 3`] = `
 exports[`Link renders the UI snapshot correctly 4`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="external-link"
   rel="nofollow noopener noreferrer"
@@ -83,6 +87,7 @@ exports[`Link renders the UI snapshot correctly 4`] = `
 exports[`Link renders the UI snapshot correctly 5`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="standalone-link"
   rel={null}
@@ -104,6 +109,7 @@ exports[`Link renders the UI snapshot correctly 5`] = `
 exports[`Link renders the UI snapshot correctly 6`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="button-link"
   rel={null}
@@ -116,6 +122,7 @@ exports[`Link renders the UI snapshot correctly 6`] = `
 exports[`Link renders the UI snapshot correctly 7`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="button-link"
   rel={null}
@@ -128,6 +135,7 @@ exports[`Link renders the UI snapshot correctly 7`] = `
 exports[`Link renders the UI snapshot correctly 8`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="button-link"
   rel={null}
@@ -140,6 +148,7 @@ exports[`Link renders the UI snapshot correctly 8`] = `
 exports[`Link renders the UI snapshot correctly 9`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="button-link"
   rel={null}
@@ -152,6 +161,7 @@ exports[`Link renders the UI snapshot correctly 9`] = `
 exports[`Link renders the UI snapshot correctly 10`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="button-link"
   rel={null}
@@ -164,6 +174,7 @@ exports[`Link renders the UI snapshot correctly 10`] = `
 exports[`Link renders the UI snapshot correctly 11`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="button-link"
   rel={null}
@@ -176,6 +187,7 @@ exports[`Link renders the UI snapshot correctly 11`] = `
 exports[`Link renders the UI snapshot correctly 12`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="icon-link"
   rel={null}
@@ -197,6 +209,7 @@ exports[`Link renders the UI snapshot correctly 12`] = `
 exports[`Link renders the UI snapshot correctly 13`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   id="anchor-link"
   rel={null}
   target={null}
@@ -212,6 +225,7 @@ exports[`Link renders the UI snapshot correctly 13`] = `
 exports[`Link renders the UI snapshot correctly 14`] = `
 <a
   className="chakra-link css-1xdhyk6"
+  data-testid="ds-link"
   id="anchor-icon-link"
   rel={null}
   target={null}
@@ -236,6 +250,7 @@ exports[`Link renders the UI snapshot correctly 14`] = `
 exports[`Link renders the UI snapshot correctly 15`] = `
 <a
   className="chakra-link css-16h1ce8"
+  data-testid="ds-link"
   href="#passed-in-link"
   id="chakra"
   rel={null}

@@ -21,6 +21,7 @@ export const changelogData: ChangelogData[] = [
       "Removes children count warning.",
       'Removes the `noSpace` prop and sets all margins to "0" by default.',
       "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-heading` to the parent element.",
     ],
   },
   {

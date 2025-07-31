@@ -22,6 +22,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `Children.map` logic as warning is no longer going to be used.",
       "Removes default external spacing from `ol` and `ul` variants.",
       "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-list` to the parent element.",
     ],
   },
   {

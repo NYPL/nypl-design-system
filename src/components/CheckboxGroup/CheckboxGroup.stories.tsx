@@ -122,7 +122,6 @@ export const Layout: Story = {
         <Checkbox id="checkbox-4" value="4" labelText="Checkbox 4" />
         <Checkbox id="checkbox-5" value="5" labelText="Checkbox 5" />
       </CheckboxGroup>
-      <br />
       <CheckboxGroup id="row" labelText="Row" name="row-example" layout="row">
         <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
         <Checkbox id="checkbox-3" value="3" labelText="Checkbox 3" />

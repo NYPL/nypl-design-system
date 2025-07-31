@@ -19,6 +19,7 @@ export const changelogData: ChangelogData[] = [
       "Extends prop type by Chakra's `BoxProps` so consumers can pass Chakra style props and updates documentation.",
       "Replaces `Children.map` logic with `CheckboxGroupContext`.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-checkboxGroup` to the parent element.",
     ],
   },
   {

@@ -1,10 +1,14 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+} from "@storybook/addon-docs/blocks";
 
-import * as SkeletonLoaderStories from "./SkeletonLoader.stories";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./skeletonLoaderChangelogData";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import Link from "../Link/Link";
+import * as SkeletonLoaderStories from "./SkeletonLoader.stories";
+import { changelogData } from "./skeletonLoaderChangelogData";
 
 <Meta of={SkeletonLoaderStories} />
 
@@ -18,15 +22,15 @@ import Link from "../Link/Link";
 
 <Canvas of={SkeletonLoaderStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#in-a-grid" target="_self">In a Grid</Link>}
-- {<Link href="#in-a-list" target="_self">In a List</Link>}
-- {<Link href="#with-buttons" target="_self">With Buttons</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [In a Grid](#in-a-grid)
+- [In a List](#in-a-list)
+- [With Buttons](#with-buttons)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -35,8 +39,8 @@ import Link from "../Link/Link";
 The `layout`, `width`, and placeholder elements within the `SkeletonLoader` can
 be customized.
 
-Please note that the initial rendering below has the `width` prop set to `300px`
-to better view the example. The default value is `100%`.
+Please note that the example above has the `width` prop set to `300px` to better
+demonstrate the component. The default `width` value is `100%`.
 
 ## Component Props
 

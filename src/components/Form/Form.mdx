@@ -9,7 +9,6 @@ import {
 import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import Link from "../Link/Link";
 import * as FormStories from "./Form.stories";
 import { changelogData } from "./formChangelogData";
 
@@ -25,18 +24,16 @@ import { changelogData } from "./formChangelogData";
 
 <Canvas of={FormStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#spacing-variants" target="_self">Spacing Variants</Link>}
-- {<Link href="#example-code" target="_self">Example Code</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Spacing Variants](#spacing-variants)
+- [Example Code](#example-code)
+- [Changelog](#changelog)
 
 ## Overview
-
-<Description of={FormStories} />
 
 The `Form` component renders a standard `<form>` element and should be used to
 handle layout and spacing for child input fields. `FormRow` and `FormField`
@@ -87,7 +84,7 @@ as well as any Chakra style props and the props below.
   }
   mt="s"
   mb="s"
-  type="recommendation"
+  variant="recommendation"
 />
 
 The `Form` component renders a standard `<form>` element and should be used to
@@ -108,8 +105,15 @@ By default, the `Form` component will handle the NYPL spacing around form input
 elements. The default spacing value is large `grid.l`, which corresponds to the
 CSS variable `--nypl-space-l` (2rem / 32px).
 
-**IMPORTANT:** The default spacing should not be overwritten without a very good
-reason.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The default spacing should not be overwritten
+      without a very good reason.
+    </>
+  }
+  mb="s"
+/>
 
 Below are examples of the spacing values available to use in the `gap` prop of
 the `Form` component: `"grid.xxs"`, `"grid.xs"`, `"grid.s"`, `"grid.m"`,
@@ -121,48 +125,48 @@ the `Form` component: `"grid.xxs"`, `"grid.xs"`, `"grid.s"`, `"grid.m"`,
 
 <Source
   code={`
-<Form action="/end/point" method="get" gap="grid.l" id="example-form">
-  <FormField>
-    <TextInput
-      labelText="Username"
-      helperText="Make sure to complete this field."
-      isRequired
-    />
-  </FormField>
-  <FormField>
-    <TextInput
-      labelText="Password"
-      helperText="Make sure to complete this field."
-      isRequired
-    />
-  </FormField>
-  <FormRow>
+  <Form action="/end/point" method="get" gap="grid.l" id="example-form">
     <FormField>
       <TextInput
-        labelText="Phone Field"
-        helperText="This one is up to you."
-        type="tel"
+        labelText="Username"
+        helperText="Make sure to complete this field."
+        isRequired
       />
     </FormField>
     <FormField>
       <TextInput
-        labelText="URL Field"
-        helperText="This one is up to you."
-        type="url"
+        labelText="Password"
+        helperText="Make sure to complete this field."
+        isRequired
       />
     </FormField>
+    <FormRow>
+      <FormField>
+        <TextInput
+          labelText="Phone Field"
+          helperText="This one is up to you."
+          type="tel"
+        />
+      </FormField>
+      <FormField>
+        <TextInput
+          labelText="URL Field"
+          helperText="This one is up to you."
+          type="url"
+        />
+      </FormField>
+      <FormField>
+        <TextInput
+          labelText="Age"
+          helperText="This one is up to you."
+          type="number"
+        />
+      </FormField>
+    </FormRow>
     <FormField>
-      <TextInput
-        labelText="Age"
-        helperText="This one is up to you."
-        type="number"
-      />
+      <Button>Submit</Button>
     </FormField>
-  </FormRow>
-  <FormField>
-    <Button>Submit</Button>
-  </FormField>
-</Form>
+  </Form>
 `}
   language="tsx"
 />

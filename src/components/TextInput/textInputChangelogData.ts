@@ -19,6 +19,8 @@ export const changelogData: ChangelogData[] = [
       "Removes `defaultValue`, `max`, `maxLength`, `min`, `name`, `onChange`, `onClick`, `onFocus`, `pattern`, `placeholder`, `step`, and `value` props (as HTML equivalents may be used) and updates docs.",
       "Renames `textInputType` to `textInputVariant`.",
       "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Removes the parent `rest` prop since it's used for the internal Chakra `Input` component.",
+      "Adds `data-testid` value of `ds-textInput` to the parent element.",
     ],
   },
   {

@@ -41,12 +41,6 @@ export interface MultiSelectProps extends BoxProps {
   /** The number of items that will be visible in the list when the component
    * first loads. */
   defaultItemsVisible?: number;
-  /** The action to perform for the clear/reset button of individual MultiSelects. */
-  onClear?: () => void;
-  /** The action to perform on the checkbox's onChange function. */
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** The action to perform for a mixed state checkbox (parent checkbox). */
-  onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Boolean value used to control how the MultiSelect component will render
    * within the page and interact with other DOM elements. The default value is false. */
   isBlockElement?: boolean;
@@ -60,6 +54,13 @@ export interface MultiSelectProps extends BoxProps {
   /** listOverflow is a property indicating how the list should handle overflow,
    * with options limited to either "scroll" or "expand." */
   listOverflow?: MultiSelectListOverflowTypes;
+  /** The action to perform for the clear/reset button of individual MultiSelects. */
+  onClear?: () => void;
+  /** The action to perform on the checkbox's onChange function. Note, if using
+   * this prop, it must be of the type listed below. */
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** The action to perform for a mixed state checkbox (parent checkbox). */
+  onMixedStateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** The selected items state (items that were checked by user). */
   selectedItems: SelectedItems;
   /** Value used to set the width for the MultiSelect component. */

@@ -21,6 +21,7 @@ export const changelogData: ChangelogData[] = [
       "Removes `checkListChildrenError` function because this warning will no longer be used.",
       "Removes default external spacing.",
       "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-styledList` to the parent element.",
     ],
   },
   {

@@ -57,8 +57,8 @@ export interface CheckboxGroupProps extends Omit<BoxProps, "onChange"> {
 /**
  * Wrapper component to wrap `Checkbox` components. Can be displayed in a
  * column or in a row. The `CheckboxGroup` component renders all the necessary
- * wrapping and associated text elements, but the checkbox input elements
- * _need_ to be child `Checkbox` components from the NYPL Design System.
+ * wrapping and associated text elements. We highly recommend using DS
+ * `Checkbox` components as children.
  */
 export const CheckboxGroup: ChakraComponent<
   React.ForwardRefExoticComponent<

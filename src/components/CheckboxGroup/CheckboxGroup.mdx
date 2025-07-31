@@ -25,20 +25,20 @@ import { changelogData } from "./checkboxGroupChangelogData";
 
 <Canvas of={CheckboxGroupStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#layout-patterns" target="_self">Layout Patterns</Link>}
-- {<Link href="#errored" target="_self">Errored</Link>}
-- {<Link href="#required" target="_self">Required</Link>}
-- {<Link href="#disabled" target="_self">Disabled</Link>}
-- {<Link href="#labels-using-jsx-elements" target="_self">Labels Using JSX Elements</Link>}
-- {<Link href="#indeterminate-example" target="_self">Indeterminate Example</Link>}
-- {<Link href="#getting-checkbox-input-values" target="_self">Getting Checkbox Input Values</Link>}
-- {<Link href="#programmatically-update" target="_self">Programmatically Update</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Layout Patterns](#layout-patterns)
+- [Errored](#errored)
+- [Required](#required)
+- [Disabled](#disabled)
+- [Labels Using JSX Elements](#labels-using-jsx-elements)
+- [Indeterminate Example](#indeterminate-example)
+- [Getting Checkbox Input Values](#getting-checkbox-input-values)
+- [Programmatically Update](#programmatically-update)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -67,9 +67,9 @@ most Chakra `Box` props, as well as the props below. Note, if using the
   variant="recommendation"
 />
 
-The `CheckboxGroup` renders a group of `Checkbox` components that are wrapped in
-a `<fieldset>` element. The `<fieldset>` element renders a `<legend>` element that
-can be visually hidden through the `showLabel` prop.
+The `CheckboxGroup` renders a `<fieldset>` element wrapper and any `Checkbox`
+children components that are passed. The `<fieldset>` element renders a
+`<legend>` element that can be visually hidden through the `showLabel` prop.
 
 Resources:
 
@@ -102,14 +102,14 @@ For example, if a `Checkbox` label needs to display how many items that option
 has, it can be displayed with the help of the `Flex` and `Spacer` components.
 
 Note: the width of `CheckboxGroup` is _not_ set to full width by default. In
-order to make this work, pass in the `isFullWidth` prop.
+order to make this work, set the `isFullWidth` prop to `true`.
 
 <Canvas of={CheckboxGroupStories.LabelsUsingJSXElements} />
 
 ## Indeterminate Example
 
 The "indeterminate" state can be used when a group of checkboxes are not all
-checked or unchecked. In the following example, if only one child checkebox is
+checked or unchecked. In the following example, if only one child checkbox is
 checked, the parent checkbox will be in the "indeterminate" state. Once both
 children are checked, the parent will be in the "checked" state.
 
@@ -122,36 +122,37 @@ Note that this example is specifically using Reservoir Design System (DS)
 <Source
   code={`
   export function IndeterminateExample() {
-  const [checkedItems, setCheckedItems] = React.useState([false, false]);
-  const allChecked = checkedItems.every(Boolean);
-  const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
-  return (
-    <CheckboxGroup
-      id="indeterminate"
-      labelText="Indeterminate Example"
-      name="indeterminate-example"
-    >
-      <Checkbox
-        isChecked={allChecked}
-        isIndeterminate={isIndeterminate}
-        onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
-        labelText="Parent Checkbox"
-        id="parent-checkbox"
-      />
-      <Checkbox
-        isChecked={checkedItems[0]}
-        onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
-        labelText="Child Checkbox 1"
-        id="child-checkbox-1"
-      />
-      <Checkbox
-        isChecked={checkedItems[1]}
-        onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
-        labelText="Child Checkbox 2"
-        id="child-checkbox-2"
-      />
-    </CheckboxGroup>
-  )`}
+    const [checkedItems, setCheckedItems] = useState([false, false]);
+    const allChecked = checkedItems.every(Boolean);
+    const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
+    return (
+      <CheckboxGroup
+        id="indeterminate"
+        labelText="Indeterminate Example"
+        name="indeterminate-example"
+      >
+        <Checkbox
+          isChecked={allChecked}
+          isIndeterminate={isIndeterminate}
+          onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
+          labelText="Parent Checkbox"
+          id="parent-checkbox"
+        />
+        <Checkbox
+          isChecked={checkedItems[0]}
+          onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}
+          labelText="Child Checkbox 1"
+          id="child-checkbox-1"
+        />
+        <Checkbox
+          isChecked={checkedItems[1]}
+          onChange={(e) => setCheckedItems([checkedItems[0], e.target.checked])}
+          labelText="Child Checkbox 2"
+          id="child-checkbox-2"
+        />
+      </CheckboxGroup>
+    );
+  }`}
   language="tsx"
 />
 
@@ -161,34 +162,33 @@ Note that this example is specifically using Reservoir Design System (DS)
 
 ### Controlled Component using name, defaultValue, and onChange props
 
-If your application uses controlled React components and the DS CheckboxGroup
+If your application uses controlled React components and the DS `CheckboxGroup`
 must be controlled, you can extract the data through the `name`, `defaultValue`,
 and `onChange` props. The `onChange` function will be called every time a new
 `Checkbox` value is checked or unchecked.
 
- <Source
- code={`
- const onChange = (data: string[]) => {
-  // This will return the values selected as an array of strings.
-  // Ex: ["2", "4"]
-  console.log(data);
-};
-// ...
-
-// Example of the DS CheckboxGroup instance with the function above:
-
-<CheckboxGroup
-  id="controlled-example"
-  labelText="Checkbox Group"
-  name="CheckboxExample"
-  defaultValue={["2"]}
-  onChange={onChange}
->
-  <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
-  <Checkbox id="checkbox-3" value="3" labelText="Checkbox 3" />
-  <Checkbox id="checkbox-4" value="4" labelText="Checkbox 4" />
-</CheckboxGroup>
-;`} language="jsx"/>
+<Source
+  code={`
+  const onChange = (data: string[]) => {
+    // This will return the values selected as an array of strings.
+    // Ex: ["2", "4"]
+    console.log(data);
+  };
+  // Example of the DS CheckboxGroup instance with the function above:
+  <CheckboxGroup
+    id="controlled-example"
+    labelText="Checkbox Group"
+    name="CheckboxExample"
+    defaultValue={["2"]}
+    onChange={onChange}
+  >
+    <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
+    <Checkbox id="checkbox-3" value="3" labelText="Checkbox 3" />
+    <Checkbox id="checkbox-4" value="4" labelText="Checkbox 4" />
+  </CheckboxGroup>
+`}
+  language="jsx"
+/>
 
 ### Uncontrolled Component using ref's
 
@@ -198,74 +198,78 @@ to the DS CheckboxGroup component to get the selected value from the DOM.
 The following example is using the `register` React `ref` from the
 `react-hook-form` package.
 
-<Source 
-code={`
-import { useFormContext, Controller } from "react-hook-form";
-// ...
-const { register, handleSubmit, control } = useFormContext();
-// ...
-const submitForm = (formData) => {
-  // This will return an object with all the DOM element values that were
-  // registered with a 'name' attribute.
-  // {
-  //   checkboxExample: ["3"]
-  // }
-  console.log(formData);
+<Source
+  code={`
+  import { useFormContext, Controller } from "react-hook-form";
   // ...
-};
-
-<form
-  onSubmit={handleSubmit(submitForm)}
-  method="post"
-  action="/some/api/endpoint"
->
-  <Controller
-    as={
-      <CheckboxGroup
-        id="uncontrolled-example"
-        labelText="Checkbox Group"
-        name="checkboxExample"
-        defaultValue={["3"]}
-        ref={register()}
-      >
-        <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
-        <Checkbox id="checkbox-3" value="3" labelText="Checkbox 3" />
-        <Checkbox id="checkbox-4" value="4" labelText="Checkbox 4" />
-      </CheckboxGroup>
-    }
-    name="checkboxExample"
-    control={control}
-  />
-</form>
-;`} language="jsx"/>
+  const { register, handleSubmit, control } = useFormContext();
+  // ...
+  const submitForm = (formData) => {
+    // This will return an object with all the DOM element values that were
+    // registered with a 'name' attribute.
+    // {
+    //   checkboxExample: ["3"]
+    // }
+    console.log(formData);
+    // ...
+  };
+  // ...
+  <form
+    onSubmit={handleSubmit(submitForm)}
+    method="post"
+    action="/some/api/endpoint"
+  >
+    <Controller
+      as={
+        <CheckboxGroup
+          id="uncontrolled-example"
+          labelText="Checkbox Group"
+          name="checkboxExample"
+          defaultValue={["3"]}
+          ref={register()}
+        >
+          <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
+          <Checkbox id="checkbox-3" value="3" labelText="Checkbox 3" />
+          <Checkbox id="checkbox-4" value="4" labelText="Checkbox 4" />
+        </CheckboxGroup>
+      }
+      name="checkboxExample"
+      control={control}
+    />
+  </form>
+`}
+  language="jsx"
+/>
 
 The above is specific to `react-hook-form` but a similar pattern can be used
 with normal React `ref` values.
 
-<Source 
-code={`
-const CheckboxGroupRef = React.createRef<HTMLInputElement>();
-// ...
-<CheckboxGroup
-  id="uncontrolled-example"
-  labelText="Checkbox Group"
-  name="checkboxExample"
-  defaultValue={["3"]}
-  ref={CheckboxGroupRef}
->
-  <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
-  <Checkbox id="checkbox-3" value="3" labelText="Checkbox 3" />
-  <Checkbox id="checkbox-4" value="4" labelText="Checkbox 4" />
-</CheckboxGroup>
+<Source
+  code={`
+  const checkboxGroupRef = React.createRef<HTMLInputElement>();
+  // ...
+  <CheckboxGroup
+    id="uncontrolled-example"
+    labelText="Checkbox Group"
+    name="checkboxExample"
+    defaultValue={["3"]}
+    ref={checkboxGroupRef}
+  >
+    <Checkbox id="checkbox-2" value="2" labelText="Checkbox 2" />
+    <Checkbox id="checkbox-3" value="3" labelText="Checkbox 3" />
+    <Checkbox id="checkbox-4" value="4" labelText="Checkbox 4" />
+  </CheckboxGroup>
+  // ...
+  // Get the value through:
+  const onSubmit = () => {
+    // Do something with the value
+    const checkboxGroupValue = checkboxGroupRef.current.value;
+  };
+`}
+  language="jsx"
+/>
 
-// ...
-// Get the value through:
-const onSubmit = () => {
-// ...
-const CheckboxGroupValue = CheckboxGroupRef.current.value;
-};`} language="jsx"/>
-
-### Programmatically Update
+## Programmatically Update
 
 Within the `CheckboxGroup`, individual `Checkbox`es can be updated programmatically
 through the `value` prop. Similar to the `defaultValue` prop, the `value` prop
@@ -286,54 +290,54 @@ the values.
 
 <Source
   code={`
-export function CheckboxGroupValuesUpdateExample() {
-  const [value, setValue] = useState([]);
-  const onClick1 = () => {
-    setValue(["art", "science", "math"]);
-  };
-  const onClick2 = () => {
-    setValue(["math", "music", "magic"]);
-  };
-  const onClick3 = () => {
-    setValue(["physics", "science", "chemistry"]);
-  };
-  const onChange = (data) => {
-    setValue(data);
-    console.log("Selected values:", data);
-  };
-  return (
-    <VStack align="stretch" spacing="m">
-      <span>Set values to:</span>
-      <ButtonGroup>
-        <Button id="btn1" onClick={onClick1}>
-          "art", "science", "math"
-        </Button>
-        <Button id="btn2" onClick={onClick2}>
-          "math", "music", "magic"
-        </Button>
-        <Button id="btn3" onClick={onClick3}>
-          "physics", "science", "chemistry"
-        </Button>
-      </ButtonGroup>
-      <CheckboxGroup
-        id="programmatically-update-example"
-        labelText="Course Selection"
-        name="courseSelection"
-        onChange={onChange}
-        value={value}
-      >
-        <Checkbox id="art" labelText="Art" value="art" />
-        <Checkbox id="chemistry" labelText="Chemistry" value="chemistry" />
-        <Checkbox id="english" labelText="English" value="english" />
-        <Checkbox id="magic" labelText="Magic" value="magic" />
-        <Checkbox id="math" labelText="Math" value="math" />
-        <Checkbox id="music" labelText="Music" value="music" />
-        <Checkbox id="physics" labelText="Physics" value="physics" />
-        <Checkbox id="science" labelText="Science" value="science" />
-      </CheckboxGroup>
-    </VStack>
-  );
-}`}
+  export function CheckboxGroupValuesUpdateExample() {
+    const [value, setValue] = useState([]);
+    const onClick1 = () => {
+      setValue(["art", "science", "math"]);
+    };
+    const onClick2 = () => {
+      setValue(["math", "music", "magic"]);
+    };
+    const onClick3 = () => {
+      setValue(["physics", "science", "chemistry"]);
+    };
+    const onChange = (data) => {
+      setValue(data);
+      console.log("Selected values:", data);
+    };
+    return (
+      <VStack align="stretch" spacing="m">
+        <span>Set values to:</span>
+        <ButtonGroup>
+          <Button id="btn1" onClick={onClick1}>
+            "art", "science", "math"
+          </Button>
+          <Button id="btn2" onClick={onClick2}>
+            "math", "music", "magic"
+          </Button>
+          <Button id="btn3" onClick={onClick3}>
+            "physics", "science", "chemistry"
+          </Button>
+        </ButtonGroup>
+        <CheckboxGroup
+          id="programmatically-update-example"
+          labelText="Course Selection"
+          name="courseSelection"
+          onChange={onChange}
+          value={value}
+        >
+          <Checkbox id="art" labelText="Art" value="art" />
+          <Checkbox id="chemistry" labelText="Chemistry" value="chemistry" />
+          <Checkbox id="english" labelText="English" value="english" />
+          <Checkbox id="magic" labelText="Magic" value="magic" />
+          <Checkbox id="math" labelText="Math" value="math" />
+          <Checkbox id="music" labelText="Music" value="music" />
+          <Checkbox id="physics" labelText="Physics" value="physics" />
+          <Checkbox id="science" labelText="Science" value="science" />
+        </CheckboxGroup>
+      </VStack>
+    );
+  }`}
   language="jsx"
 />
 

@@ -25,15 +25,15 @@ import { changelogData } from "./multiSelectGroupChangelogData";
 
 <Canvas of={MultiSelectGroupStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#layout-patterns" target="_self">Layout Patterns</Link>}
-- {<Link href="#passing-multiselect-children" target="_self">Passing `MultiSelect` Children</Link>}
-- {<Link href="#close-on-blur-state" target="_self">Close on Blur State</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Layout Patterns](#layout-patterns)
+- [Passing MultiSelect Children](#passing-multiselect-children)
+- [Close on Blur State](#close-on-blur-state)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -58,7 +58,7 @@ any Chakra `Box` props, as well as the props below.
   }
   mt="s"
   mb="s"
-  type="recommendation"
+  variant="recommendation"
 />
 
 The `MultiSelectGroup` renders a group of `MultiSelect` components that are
@@ -68,7 +68,7 @@ element that can be visually hidden through the `showLabel` prop. If the
 rendered instead.
 
 For accessibility information on the `MultiSelect` component, see the
-[MultiSelect Accessibility](../?path=/docs/components-form-elements-multiselect--docs#accessibility) documentation.
+[MultiSelect Accessibility](./?path=/docs/components-form-elements-multiselect--docs#accessibility) documentation.
 
 ## Layout Patterns
 
@@ -76,10 +76,6 @@ The width of the MultiSelect components can be passed through the
 `multiSelectWidth` prop, with values of `"fitContent"` or `"full"`.
 On screen width under 600px width the `layout` is automatically set to "column"
 and the `multiSelectWidth` to "full".
-
-**IMPORTANT**: It is recommended to not set `multiSelectWidth` to `"full"` and
-`layout` to `"row"` at the same time. When the `MultiSelect` components are
-opened, the overlap will cause z-index issues with the selected count button.
 
 <Canvas of={MultiSelectGroupStories.LayoutPatterns} />
 
@@ -96,34 +92,34 @@ argument value should be passed to the `width` prop of the `MultiSelect`.
 
 <Source
   code={`
-<MultiSelectGroup
-  {...otherArgs}
-  renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
-    return (
-      multiSelectItems.map((multiSelect) => (
-        <MultiSelect
-          buttonText="MultiSelect"
-          defaultItemsVisible={defaultItemsVisible}
-          id={multiSelect.id}
-          isBlockElement={isBlockElement}
-          items={multiSelect.items}
-          key={multiSelect.id}
-          onChange={(e) => onChange(e.target.id, multiSelect.id)}
-          onClear={() => onClear(multiSelect.id)}
-          onMixedStateChange={(e) =>
-            onMixedStateChange({
-              parentId: e.target.id,
-              multiSelectId: multiSelect.id,
-              items: multiSelect.items,
-            });
-          }
-          selectedItems={selectedItems}
-          width={multiSelectWidth}
-        />
-      ))
-    );
-  }}
-/>
+  <MultiSelectGroup
+    {...otherArgs}
+    renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
+      return (
+        multiSelectItems.map((multiSelect) => (
+          <MultiSelect
+            buttonText="MultiSelect"
+            defaultItemsVisible={defaultItemsVisible}
+            id={multiSelect.id}
+            isBlockElement={isBlockElement}
+            items={multiSelect.items}
+            key={multiSelect.id}
+            onChange={(e) => onChange(e.target.id, multiSelect.id)}
+            onClear={() => onClear(multiSelect.id)}
+            onMixedStateChange={(e) =>
+              onMixedStateChange({
+                parentId: e.target.id,
+                multiSelectId: multiSelect.id,
+                items: multiSelect.items,
+              });
+            }
+            selectedItems={selectedItems}
+            width={multiSelectWidth}
+          />
+        ))
+      );
+    }}
+  />
 `}
   language="tsx"
 />
@@ -131,8 +127,8 @@ argument value should be passed to the `width` prop of the `MultiSelect`.
 ## Close on Blur State
 
 When `closeOnBlur` is set to `true`, the `MultiSelect` accordion will close when
-focus leaves the component (the user clicks outside). In the case of a `MultiSelectGroup`,
-this means only one accordion will be open at a time.
+focus leaves the component (the user clicks outside). In the case of a
+`MultiSelectGroup`, this means only one accordion will be open at a time.
 
 <Canvas of={MultiSelectGroupStories.closeOnBlurState} />
 

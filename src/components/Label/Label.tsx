@@ -38,8 +38,6 @@ export const Label: ChakraComponent<
   >((props, ref?) => {
     const {
       children,
-      htmlFor,
-      id,
       isInlined = false,
       isRequired = false,
       requiredLabelText,
@@ -48,15 +46,7 @@ export const Label: ChakraComponent<
     const styles = useStyleConfig("Label", { isInlined });
 
     return (
-      <Box
-        as="label"
-        data-testid="ds-label"
-        id={id}
-        htmlFor={htmlFor}
-        ref={ref}
-        __css={styles}
-        {...rest}
-      >
+      <Box as="label" data-testid="ds-label" ref={ref} __css={styles} {...rest}>
         {children}
         {isRequired && (
           <span>

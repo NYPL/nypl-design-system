@@ -36,7 +36,6 @@ export const HelperErrorText: ChakraComponent<
       {
         "aria-atomic": ariaAtomic = true,
         "aria-live": ariaLive = "polite",
-        className = "",
         id,
         isInvalid = false,
         isRenderedText = true,
@@ -50,7 +49,6 @@ export const HelperErrorText: ChakraComponent<
       const props = {
         "aria-atomic": ariaAtomic,
         "aria-live": ariaLive === "off" ? undefined : ariaLive,
-        className,
         "data-isinvalid": isInvalid,
         "data-testid": "ds-helperErrorText",
         id,

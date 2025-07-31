@@ -164,26 +164,21 @@ export const Heading: ChakraComponent<
         ? "subtitle1"
         : "subtitle2";
 
-      /** The styles that should be applied to the outer-most wrapper of the
-       * Heading component. */
-      const wrapperStyles = styles.headingWrapper;
+      /** `colorStyle` defines the default color for the heading. Any custom
+       * color passed as a prop will override this default, following standard
+       * CSS precedence rules. */
+      const defaultColorStyle = styles.defaultColorStyle;
 
-      /** The styles for the actual native heading element. If the native
-       * element is going to sit by itself, without the overline or subtitle
-       * elements, then the wrapper styles can be applied directly to the native
-       * element. Otherwise, the wrapper styles will be used later. */
-      const headingStyles =
-        overline || subtitle
-          ? {
-              ...styles.base,
-            }
+      /** If there is an `overline` or a `subtitle`, `...rest` and
+       * `...defaultColorStyle` will be passed to the `<hgroup>`, otherwise,
+       * they will be passed directly to the `<h>`. */
+      const aggregatedProps =
+        overline && subtitle
+          ? { sx: { ...styles.base } }
           : {
-              ...styles.base,
-              ...wrapperStyles,
+              ...rest,
+              sx: { ...styles.base, ...defaultColorStyle },
             };
-      /** If there is an `overline` or a `subtitle`, `...rest` will be passed to
-       * the `<hgroup>`, otherwise, it will be passed directly to the `<h>`. */
-      const headingRest = !overline && !subtitle && { ...rest };
 
       /** The final text elements that will make up the rendered component. */
       const finalContent = (
@@ -203,10 +198,7 @@ export const Heading: ChakraComponent<
             data-testid="ds-heading"
             id={id}
             ref={ref}
-            sx={{
-              ...headingStyles,
-            }}
-            {...headingRest}
+            {...aggregatedProps}
           >
             {content}
           </ChakraHeading>
@@ -232,7 +224,7 @@ export const Heading: ChakraComponent<
           aria-roledescription="Heading group"
           data-testid="ds-heading-group"
           role="group"
-          sx={{ ...wrapperStyles }}
+          sx={{ ...defaultColorStyle }}
           {...rest}
         >
           {finalContent}

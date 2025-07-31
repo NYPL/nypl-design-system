@@ -56,19 +56,7 @@ export const WithControls: Story = {
     },
     jest: ["Heading.test.tsx"],
   },
-  render: (args) => (
-    <VStack align="left" spacing="l">
-      <Heading {...args} />
-      <Heading {...args} color="brand.primary" />
-      <Heading
-        {...args}
-        bgColor="brand.primary"
-        color="ui.white"
-        px="s"
-        py="xs"
-      />
-    </VStack>
-  ),
+  render: (args) => <Heading {...args} />,
 };
 
 // The following are additional Heading example Stories.
@@ -224,63 +212,63 @@ export const Subtitle: Story = {
         id="heading-display1"
         level="h1"
         size="display1"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
         id="heading-heading1"
         level="h1"
         size="heading1"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
         id="heading-heading2"
         level="h1"
         size="heading2"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
         id="heading-heading3"
         level="h1"
         size="heading3"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
         id="heading-heading4"
         level="h1"
         size="heading4"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
         id="heading-heading5"
         level="h1"
         size="heading5"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
         id="heading-heading6"
         level="h1"
         size="heading6"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
         id="heading-heading7"
         level="h1"
         size="heading7"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
         id="heading-heading8"
         level="h1"
         size="heading8"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
     </VStack>
@@ -296,7 +284,7 @@ export const OverlineAndSubtitle: Story = {
         level="h1"
         overline="Overline"
         size="display1"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
@@ -304,7 +292,7 @@ export const OverlineAndSubtitle: Story = {
         level="h1"
         overline="Overline"
         size="heading1"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
@@ -312,7 +300,7 @@ export const OverlineAndSubtitle: Story = {
         level="h1"
         overline="Overline"
         size="heading2"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
@@ -320,7 +308,7 @@ export const OverlineAndSubtitle: Story = {
         level="h1"
         overline="Overline"
         size="heading3"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
@@ -328,7 +316,7 @@ export const OverlineAndSubtitle: Story = {
         level="h1"
         overline="Overline"
         size="heading4"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
@@ -336,7 +324,7 @@ export const OverlineAndSubtitle: Story = {
         level="h1"
         overline="Overline"
         size="heading5"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
@@ -344,7 +332,7 @@ export const OverlineAndSubtitle: Story = {
         level="h1"
         overline="Overline"
         size="heading6"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
@@ -352,7 +340,7 @@ export const OverlineAndSubtitle: Story = {
         level="h1"
         overline="Overline"
         size="heading7"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
       <Heading
@@ -360,7 +348,7 @@ export const OverlineAndSubtitle: Story = {
         level="h1"
         overline="Overline"
         size="heading8"
-        subtitle="The subtitle text sits below the main heading text."
+        subtitle="The subtitle text sits below the main heading text"
         text="Lorem ipsum dolor"
       />
     </VStack>
@@ -414,6 +402,38 @@ export const Links: Story = {
           <span> Not a recommended pattern</span>
         </>
       </Heading>
+    </VStack>
+  ),
+};
+
+export const CustomColor: Story = {
+  render: () => (
+    <VStack align="left" spacing="l">
+      <Heading
+        color="brand.primary"
+        overline="Overline"
+        subtitle="The subtitle text sits below the main heading text"
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        color="section.research-library.schwarzman"
+        overline="Overline"
+        text="Lorem ipsum dolor"
+      />
+      <Heading
+        color="section.research.primary"
+        subtitle="The subtitle text sits below the main heading text"
+        text="Lorem ipsum dolor"
+      />
+      <Heading color="section.education.primary" text="Lorem ipsum dolor" />
+      <Heading
+        bgColor="section.connect.secondary"
+        color="ui.white"
+        overline="Overline"
+        p="l"
+        subtitle="The subtitle text sits below the main heading text"
+        text="Lorem ipsum dolor"
+      />
     </VStack>
   ),
 };

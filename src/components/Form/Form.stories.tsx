@@ -19,11 +19,6 @@ const meta: Meta<typeof Form> = {
   title: "Components/Form Elements/Form",
   component: Form,
   argTypes: {
-    action: { control: false },
-    method: {
-      control: { type: "radio" },
-      options: ["get", "post"],
-    },
     gap: {
       control: { type: "select" },
       table: { defaultValue: { summary: "grid.l" } },
@@ -41,8 +36,6 @@ type Story = StoryObj<typeof Form>;
  */
 export const WithControls: Story = {
   args: {
-    action: "/end/point",
-    method: "get",
     gap: "grid.l",
   },
   parameters: {
@@ -53,7 +46,7 @@ export const WithControls: Story = {
     jest: "Form.test.tsx",
   },
   render: (args) => (
-    <Form {...args} id="form-id">
+    <Form id="form-id" action="/end/point" method="get" {...args}>
       <FormRow>
         <FormField>
           <TextInput
@@ -274,7 +267,7 @@ const formRow = (gapValue) => {
           </FormField>
         </FormRow>
       </Form>
-      <HorizontalRule />
+      <HorizontalRule my="s" />
     </li>
   );
 };

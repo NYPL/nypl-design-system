@@ -27,15 +27,6 @@ describe("SkeletonLoader", () => {
     expect(container.querySelector("#skeleton")).toBeInTheDocument();
   });
 
-  it("renders in the column or row layout", () => {
-    const { container, rerender } = render(<SkeletonLoader layout="column" />);
-
-    expect(container.querySelector(".column")).toBeInTheDocument();
-
-    rerender(<SkeletonLoader layout="row" />);
-    expect(container.querySelector(".row")).toBeInTheDocument();
-  });
-
   it("renders default elements", () => {
     const { container } = render(<SkeletonLoader />);
 

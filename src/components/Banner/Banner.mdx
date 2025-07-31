@@ -26,31 +26,41 @@ import { changelogData } from "./bannerChangelogData";
 
 <Canvas of={BannerStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#variants" target="_self">Variants</Link>}
-- {<Link href="#banner-heading" target="_self">Banner Heading</Link>}
-- {<Link href="#banner-icon" target="_self">Banner Icon</Link>}
-- {<Link href="#with-html-content" target="_self">With HTML Content</Link>}
-- {<Link href="#custom-color" target="_self">Custom Color</Link>}
-- {<Link href="#dismissible" target="_self">Dismissible</Link>}
-- {<Link href="#with-html-content-passed-as-string" target="_self">With HTML content passed as string</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Variants](#variants)
+- [Banner heading](#banner-heading)
+- [Banner icon](#banner-icon)
+- [With HTML content](#with-html-content)
+- [Custom color](#custom-color)
+- [Dismissible](#dismissible)
+- [With HTML content passed as string](#with-html-content-passed-as-string)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={BannerStories} />
 
-**IMPORTANT:** The `Banner` component is similar in form and function to the
-`Notification` component. However, the `Notification` component should be used
-for global messaging located at the top of the site, above the NYPL header,
-while the `Banner` component should be used for all messaging that sits within
-the flow of the page.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The <code>Banner</code> component is similar
+      in form and function to the <code>Notification</code> component. However,
+      the <code>Notification</code> component should be used for global
+      messaging at the top of the site, above the NYPL header, while the{" "}
+      <code>Banner</code> component should be used for all messaging that sits
+      within the flow of the page.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
-## Component Props
+## Component props
 
 The `Banner` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.
@@ -72,14 +82,14 @@ any Chakra `Box` props, as well as the props below.
   variant="recommendation"
 />
 
-The `Banner` component renders with an HTML `aside` element as its
-wrapper. This is an HTML landmark element that is similar to adding an attribute
-of `role="complementary"`. For accessibility purposes, landmark elements should
+The `Banner` component renders with an HTML `aside` element as its wrapper. This
+is an HTML landmark element that is similar to adding an attribute of
+`role="complementary"`. For accessibility purposes, landmark elements should
 not be rendered inside other landmark elements such as the `header` and `footer`
 landmark elements. Adding a `Banner` component inside an HTML `main`
 landmark element is acceptable.
 
-### ARIA Label
+### ARIA label
 
 If an `aria-label` is needed, one may be passed to the `Banner` component. If
 there are multiple `Banner` components on a page, they must each have unique
@@ -94,7 +104,7 @@ means that they are hidden to screen readers. If `isDismissable` is true, the
 "X" close icon is wrapped inside a button with an appropriate `aria-label`
 attribute.
 
-### Language Patterns
+### Language patterns
 
 When the `Banner` component is rendered, the text within the component
 should always include wording that aligns with the type of notitication that is
@@ -102,9 +112,9 @@ being delivered. For example, if the Banner is a warning or error, the
 heading or body copy within the Banner should use the words `"warning"` or
 `"error"` and provide a clear description of the existing or potential isssue.
 
-### Dynamic Banners
+### Dynamic banners
 
-If dynamically generated `Banners` are required, a container into which the
+If dynamically generated `Banner`s are required, a container into which the
 `Banner` will be injected should be included in the DOM. The container
 element should have `aria-live="polite"` applied. The container element should
 always be rendered in the DOM regardless of the presence of the `Banner`
@@ -113,9 +123,9 @@ recognized and announced by assistive technology.
 
 <Source
   code={`
-<div aria-live="polite">
-  <Banner {...props} />
-</div>
+  <div aria-live="polite">
+    <Banner {...props} />
+  </div>
 `}
   language="tsx"
 />
@@ -129,15 +139,13 @@ recognized and announced by assistive technology.
 
 ## Variants
 
-The `variant` prop can be used to render different variants of `Banner`. Each
-variant has a different color and iconography.
+Each `Banner` variant has a different color and iconography.
 
-It is recommended to align the usage of the Banner component to the semantic
-meaning of one of the component’s variants. When using the Banner component,
+It is recommended to align the usage of the `Banner` component to the semantic
+meaning of one of the component’s variants. When using the `Banner` component,
 the implementation should not rely on the color alone to convey meaning, as
-color is not a universal experience for everyone. The meaning of the heading
-and body copy should align with the general meaning associated with the semantic
-colors used in a specific variant.
+color is not a universal experience for everyone. The heading and body copy
+should align with the semantic meaning of the variant.
 
 **IMPORTANT:** The text color for links within the content will NOT use the
 DS standard link color. Instead, the color will match the color of the content.
@@ -149,13 +157,13 @@ for dark mode.
 
 <Canvas of={BannerStories.TypeVariants} />
 
-## Banner Heading
+## `Banner` heading
 
-The `Banner` component can be rendered with and without a heading. By
-default, when a string is passed to the `heading` prop, the
-`Banner` component will render an `h2` element sized as a `heading6`
-heading. If this causes accessibility issues in your app, you can set a custom
-heading by passing in a DS `Heading` component.
+The `Banner` component can be rendered with or without a heading. By default,
+when a string is passed to the `heading` prop, the `Banner` component will
+render an `h2` element sized as a `heading6` heading. If this causes
+accessibility issues in your app, you can set a custom heading by passing in a
+DS `Heading` component.
 
 In the following examples, the `Banner` component will render custom `h3`
 and `h5` elements. Note that no matter what heading level is set, the size will
@@ -163,17 +171,17 @@ always be set to `heading6` internally by the `Banner` component.
 
 <Source
   code={`
-
-const customH3 = <Heading level="h3">Custom H3 Heading</Heading>;
-const customH5 = <Heading level="h5">Custom H5 Heading</Heading>;
-
-<Banner heading={customH3} {...props} />
-<Banner heading={customH5} {...props} />
-`} language="tsx" />
+  const customH3 = <Heading level="h3">Custom H3 Heading</Heading>;
+  const customH5 = <Heading level="h5">Custom H5 Heading</Heading>;
+  <Banner heading={customH3} {...props} />
+  <Banner heading={customH5} {...props} />
+`}
+  language="tsx"
+/>
 
 <Canvas of={BannerStories.BannerHeading} />
 
-## Banner Icon
+## Banner icon
 
 The default icon can be overridden by using the `icon` prop to pass a
 custom `Icon` component. Make sure to set `size="large"` and `marginTop="xxxs"`
@@ -181,69 +189,69 @@ as props to match desired styling.
 
 <Source
   code={`
-<Banner
-  content={
-    <>
-      Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
-      mollis interdum. Morbi leo risus, porta ac consectetur ac,
-      vestibulum at eros. Cum sociis natoque penatibus et magnis dis
-      parturient montes, nascetur ridiculus mus.
-    </>
-  }
-  heading="Banner with Custom Icon"
-  icon={
-    <Icon
-      name="actionLightbulb"
-      title="Banner with custom icon"
-      size="large"
-      marginTop="xxxs"
-    />
-  }
-  variant="informative"
-/>
+  <Banner
+    content={
+      <>
+        Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
+        mollis interdum. Morbi leo risus, porta ac consectetur ac,
+        vestibulum at eros. Cum sociis natoque penatibus et magnis dis
+        parturient montes, nascetur ridiculus mus.
+      </>
+    }
+    heading="Banner with Custom Icon"
+    icon={
+      <Icon
+        name="actionLightbulb"
+        title="Banner with custom icon"
+        size="large"
+        marginTop="xxxs"
+      />
+    }
+    variant="informative"
+  />
 `}
   language="tsx"
 />
 
 <Canvas of={BannerStories.CustomBannerIcon} />
 
-## With HTML Content
+## With HTML content
 
 The `content` prop can accept HTML.
 
 <Source
   code={`
-<Banner
-  heading="Standard Banner with HTML content"
-  content={
-    <>
-      <Text>
-        Cras mattis consectetur purus sit amet fermentum. Maecenas
-        faucibus mollis interdum.
-      </Text>
-      <Text>
-        Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
-        <b>
-          Cum sociis natoque penatibus et magnis dis parturient montes,
-          nascetur ridiculus mus
-        </b>
-        . <Link href="#">This is a link</Link>.
-      </Text>
-    </>
-  }
-/>
+  <Banner
+    heading="Standard Banner with HTML content"
+    content={
+      <>
+        <Text>
+          Cras mattis consectetur purus sit amet fermentum. Maecenas
+          faucibus mollis interdum.
+        </Text>
+        <Text>
+          Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
+          <b>
+            Cum sociis natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus
+          </b>
+          . <Link href="#">This is a link</Link>.
+        </Text>
+      </>
+    }
+  />
 `}
   language="tsx"
 />
 
 <Canvas of={BannerStories.HTMLContent} />
 
-## Custom Color
+## Custom color
 
-It is recommended to rely on the color styles set with the `variant` prop.
-However, in cases where a different color is necessary, a value from a defined
-set of colors can be used. Both `backgroundColor` and `highlightColor` must be
-set in order to override the predefined variants.
+It is recommended to use the color styles set with the `variant` prop. However,
+in cases where a different color is necessary, a value from a defined set of
+colors can be used. Both `backgroundColor` and `highlightColor` must be set in
+order to override the predefined variants.
 
 - The `backgroundColor` prop can be used to set the color of the entire
   background.
@@ -254,23 +262,23 @@ set in order to override the predefined variants.
 
 ## Dismissible
 
-A dismissible `Banner` component can be created by setting the
-`isDismissible` prop to `true`. Once the "X" close icon on the upper right is
-clicked, the `Banner` will be removed from the DOM, therefore it only
-renders once.
+A dismissible `Banner` component can be created by setting the `isDismissible`
+prop to `true`. Once the "X" close icon on the upper right is clicked, the
+`Banner` will be removed from the DOM. Therefore, it only renders once.
 
 <Canvas of={BannerStories.Dismissible} />
 
 ## With HTML content passed as string
 
-HTML content passed as a string is rendered as HTML, useful in cases where HTML content is stored in an environment variable or from other sources where the content is stored as strings.
+HTML content passed as a string is rendered as HTML. This is useful in cases
+where HTML content is stored as a string in an environment variable or elsewhere.
 
 <Source
   code={`
-<Banner
-  heading="Standard Banner with HTML content passed as string"
-  content="<p>Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</p><p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. <b>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</b>. <a href='#'>This is a link</a>.</p>"
-/>
+  <Banner
+    heading="Standard Banner with HTML content passed as string"
+    content="<p>Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</p><p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. <b>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</b>. <a href='#'>This is a link</a>.</p>"
+  />
 `}
   language="tsx"
 />

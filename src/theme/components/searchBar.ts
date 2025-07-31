@@ -29,7 +29,7 @@ const SearchBar = defineMultiStyleConfig({
             ...iconSizeStyles["medium"],
           },
         },
-        ".textInput": {
+        ".ds-searchBar-textInput": {
           "div > input": {
             borderLeftRadius: hasSelectElem ? "sm" : null,
           },
@@ -66,21 +66,21 @@ const SearchBar = defineMultiStyleConfig({
             ...iconSizeStyles["small"],
           },
         },
-        ".textInput": {
+        ".ds-searchBar-textInput": {
           "div > input": {
             borderLeftRadius: 0,
           },
         },
       },
     }),
-    ".textInput": {
+    ".ds-searchBar-textInput": {
       flexGrow: 1,
       "div > input": {
         borderRight: 0,
         borderRightRadius: 0,
       },
     },
-    ".searchButton": {
+    ".ds-searchBar-button": {
       minWidth: "44px",
       borderLeftRadius: "none",
       lineHeight: "1.70",

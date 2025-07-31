@@ -102,7 +102,6 @@ export const SearchBar: ChakraComponent<
     const {
       action,
       buttonOnClick,
-      className,
       descriptionText,
       headingText,
       helperText,
@@ -163,7 +162,7 @@ export const SearchBar: ChakraComponent<
     const textInputNative = textInputProps && (
       <TextInput
         aria-describedby={footnote ? `${mainId}-helperText` : undefined}
-        className="textInput"
+        className="ds-searchBar-textInput"
         defaultValue={textInputProps?.defaultValue}
         id={`${textInputProps?.id || mainId}-textInput`}
         isClearable={textInputProps?.isClearable}
@@ -185,7 +184,7 @@ export const SearchBar: ChakraComponent<
     // Render the `Button` component.
     const buttonElem = (
       <Button
-        className="searchButton"
+        className="ds-searchBar-button"
         data-button
         id={`${mainId}-submit-button`}
         isDisabled={isDisabled}
@@ -220,7 +219,6 @@ export const SearchBar: ChakraComponent<
         <Box
           as="form"
           id={`${mainId}-form`}
-          className={className}
           aria-label={finalAriaLabel}
           onSubmit={onSubmit}
           method={method}

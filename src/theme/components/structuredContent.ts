@@ -99,7 +99,7 @@ const StructuredContent = defineMultiStyleConfig({
          */
         // This gives Chakra `Box` styles to divs inside the
         // main `StructuredContent` content area.
-        ".structuredcontent-body > div": {
+        ".ds-structuredContent-body > div": {
           marginTop: "var(--nypl-space-l)",
           marginInlineEnd: "var(--nypl-space-0)",
           marginBottom: "var(--nypl-space-0)",

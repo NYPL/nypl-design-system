@@ -73,7 +73,6 @@ export const Checkbox: ChakraComponent<
 > = chakra(
   forwardRef<HTMLInputElement, CheckboxProps>((props, ref?) => {
     const {
-      className,
       helperText,
       id,
       invalidText,
@@ -116,7 +115,6 @@ export const Checkbox: ChakraComponent<
         {...rest}
       >
         <ChakraCheckbox
-          className={className}
           icon={icon}
           id={mainId}
           isDisabled={groupProps?.isDisabled || isDisabled}

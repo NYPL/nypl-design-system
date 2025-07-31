@@ -127,7 +127,7 @@ export const SkeletonLoader: ChakraComponent<
               <Box __css={{ ...styles.element, ...styles.image }} />
             </ChakraSkeleton>
           )}
-          <Box className={layout} __css={styles.container}>
+          <Box __css={styles.container}>
             {showHeading && (
               <Box __css={styles.section}>
                 {getSkeletonElements({

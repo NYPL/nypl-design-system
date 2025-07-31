@@ -57,7 +57,6 @@ const getIcon = ({
   const iconName = isExpanded ? "minus" : "plus";
   return (
     <Icon
-      className="accordion-icon"
       color="currentColor"
       id={`${id}-icon-${index}`}
       name={iconName}

@@ -46,7 +46,7 @@ export interface ButtonProps
 }
 
 /**
- * Renders a simple `button` element with custom variant styles.
+ * Renders a simple `button` element with custom `variant` styles.
  */
 export const Button: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -58,7 +58,6 @@ export const Button: ChakraComponent<
   forwardRef<HTMLButtonElement, React.PropsWithChildren<ButtonProps>>(
     (props, ref?) => {
       const {
-        variant = "primary",
         children,
         id,
         isDisabled = false,
@@ -67,6 +66,7 @@ export const Button: ChakraComponent<
         screenreaderOnlyText,
         size = "medium",
         type = "button",
+        variant = "primary",
         ...rest
       } = props;
       const mainId = useSafeId(id);

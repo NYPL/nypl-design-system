@@ -17,7 +17,9 @@ export const changelogData: ChangelogData[] = [
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Replaces `Children.map` logic with a `forEach` loop because the resulting array wasn't being used.",
-      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Moves the `rest` prop to the parent Box component.",
+      "Adds `data-testid` value of `ds-card` to the parent element.",
     ],
   },
   {

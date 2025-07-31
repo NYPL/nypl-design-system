@@ -135,7 +135,7 @@ const TemplateContent: React.FC<React.PropsWithChildren<TemplateMainProps>> = ({
   children,
   ...rest
 }) => (
-  <Box className="reservoir-template-content" {...rest}>
+  <Box className="ds-template-content" {...rest}>
     {children}
   </Box>
 );
@@ -148,7 +148,7 @@ const TemplateContent: React.FC<React.PropsWithChildren<TemplateMainProps>> = ({
  */
 const TemplateSidebar: React.FC<React.PropsWithChildren<TemplateChildProps>> =
   ({ children, ...rest }) => (
-    <Box className="reservoir-template-sidebar" {...rest}>
+    <Box className="ds-template-sidebar" {...rest}>
       {children}
     </Box>
   );
