@@ -263,7 +263,7 @@ export const Slider: ChakraComponent<
             // Specific margins for each text input to
             // push the elements inside.
             marginRight: type === "start" ? "s" : null,
-            marginLeft: type === "end" ? "xs" : null,
+            marginLeft: type === "end" ? "s" : null,
           }}
           {...inputProps[type]}
         />
