@@ -14,16 +14,16 @@ import ComponentDocsHeader from "../utils/components/ComponentDocsHeader";
 
 <Source
   code={`
-import {
-  useScrollFadeStyles
-} from "@nypl/design-system-react-components";
-// ...
-const {
-  scrollableRef,
-  showRightFade,
-} = useScrollFadeStyles();
+  import {
+    useScrollFadeStyles
+  } from "@nypl/design-system-react-components";
+  // ...
+  const {
+    scrollableRef,
+    showRightFade,
+  } = useScrollFadeStyles();
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Usage
@@ -38,30 +38,26 @@ boolean values.
 
 <Source
   code={`
-const fadeEffect = () => ({
-  position: "absolute",
-  top: 0,
-  right: 0,
-  height: "100%",
-  width: "50px",
-  background: "linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)",
-  pointerEvents: "none",
-  zIndex: 1,
-});
-// ...
-<Box>
-  <div>
-    <List variant="ul" m="0" ref={scrollableRef} inline noStyling>
-      <li>
+  const fadeEffect = {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    height: "100%",
+    width: "50px",
+    background: "linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)",
+    pointerEvents: "none",
+    zIndex: 1,
+  };
+  // ...
+  <Box>
+    <div>
+      <List variant="ul" m="0" ref={scrollableRef} inline noStyling>
         <SubNavButton id="subnav-action">Action</SubNavButton>
-      </li>
-      <li>
         <SubNavLink id="subnav-link">Link</SubNavLink>
-      </li>
-    </List>
-    {showRightFade && <Box sx={fadeEffect()} />}
-  </div>
-</Box>
+      </List>
+      {showRightFade && <Box sx={...fadeEffect} />}
+    </div>
+  </Box>
 `}
-  language="jsx"
+  language="tsx"
 />
