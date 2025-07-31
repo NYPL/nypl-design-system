@@ -121,8 +121,7 @@ export const Icon: ChakraComponent<
     // Apply icon props to the SVG child.
     if (
       (children as JSX.Element).type === "svg" ||
-      (children as JSX.Element).props?.type === "svg" ||
-      (children as JSX.Element).props?.mdxType === "svg"
+      (children as JSX.Element).props?.type === "svg"
     ) {
       childSVG = React.cloneElement(children as JSX.Element, {
         ...iconProps,
