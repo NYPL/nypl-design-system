@@ -16,12 +16,12 @@ import { useSafeId } from "../../hooks/useSafeId";
 export const accordionVariantsArray = ["default", "warning", "error"] as const;
 export type AccordionVariants = typeof accordionVariantsArray[number];
 export interface AccordionDataProps {
-  variant?: AccordionVariants;
   ariaLabel?: string;
   /** Ref to the DOM element of the AccordionButton. */
   buttonInteractionRef?: any;
   label: string | JSX.Element;
   panel: string | React.ReactNode;
+  variant?: AccordionVariants;
 }
 
 export interface AccordionProps extends Omit<BoxProps, "onChange"> {

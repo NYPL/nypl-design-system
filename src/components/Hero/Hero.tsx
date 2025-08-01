@@ -296,31 +296,25 @@ export const Hero: ChakraComponent<
           </>
         );
 
+      const contentPrep = (
+        <Box
+          data-testid="ds-hero-content"
+          __css={{ ...styles.content, ...contentBoxStyling }}
+        >
+          {childrenToRender}
+        </Box>
+      );
+
       // Set final DOM structure based on variant
       // Hint: The primary variant needs a grid wrapper
-      const finalContentDOM = (
-        <>
-          {variant === "primary" ? (
-            <Box data-testid="ds-hero-grid" __css={styles.grid}>
-              <Box
-                data-testid="ds-hero-content"
-                __css={{ ...styles.content, ...contentBoxStyling }}
-              >
-                {childrenToRender}
-              </Box>
-            </Box>
-          ) : (
-            <>
-              <Box
-                data-testid="ds-hero-content"
-                __css={{ ...styles.content, ...contentBoxStyling }}
-              >
-                {childrenToRender}
-              </Box>
-            </>
-          )}
-        </>
-      );
+      const contentFinal =
+        variant === "primary" ? (
+          <Box data-testid="ds-hero-grid" __css={styles.grid}>
+            {contentPrep}
+          </Box>
+        ) : (
+          contentPrep
+        );
 
       return (
         <Box
@@ -334,7 +328,7 @@ export const Hero: ChakraComponent<
           }}
           {...rest}
         >
-          {finalContentDOM}
+          {contentFinal}
         </Box>
       );
     }

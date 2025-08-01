@@ -174,7 +174,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
       className="chakra-select__wrapper css-42b2qy"
     >
       <select
-        aria-describedby="select-helperText"
+        aria-describedby="select-helperErrorText"
         aria-invalid={true}
         className="chakra-select css-1ik61og"
         disabled={false}
@@ -267,7 +267,7 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
       className="chakra-select__wrapper css-42b2qy"
     >
       <select
-        aria-describedby="select-helperText"
+        aria-describedby="select-helperErrorText"
         className="chakra-select css-1ik61og"
         disabled={false}
         id="select"

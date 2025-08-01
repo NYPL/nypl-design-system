@@ -237,7 +237,6 @@ export const TextInput: ChakraComponent<
             name,
             onChange: internalOnChange,
             ref: finalRef,
-            ...rest,
           }
         : {
             "aria-required": isRequired,
@@ -268,7 +267,6 @@ export const TextInput: ChakraComponent<
             ref: finalRef,
             // The `step` attribute is useful for the number type.
             step: type === "number" ? step : null,
-            ...rest,
             ...ariaAttributes,
           };
       // For `input` and `textarea`, all attributes are the same but `input`
@@ -311,6 +309,7 @@ export const TextInput: ChakraComponent<
           isInvalid={finalIsInvalid}
           showHelperInvalidText={showHelperInvalidText && !isHidden}
           __css={styles}
+          {...rest}
         >
           {labelText && showLabel && !isHidden && (
             <Label

@@ -271,12 +271,9 @@ export const Card: ChakraComponent<
       });
 
       childrenArray.forEach((child, key) => {
-        const isCardActions =
-          child.type === CardActions || child.props.mdxType === "CardActions";
-        const isCardContent =
-          child.type === CardContent || child.props.mdxType === "CardContent";
-        const isCardHeading =
-          child.type === CardHeading || child.props.mdxType === "CardHeading";
+        const isCardActions = child.type === CardActions;
+        const isCardContent = child.type === CardContent;
+        const isCardHeading = child.type === CardHeading;
 
         if (isCardHeading) {
           // If the child is a `CardHeading` component, then we add the

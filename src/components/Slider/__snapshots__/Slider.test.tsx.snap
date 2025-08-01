@@ -18,7 +18,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
     className="css-0"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-ho21zx"
       data-testid="ds-textInput"
       id="defaultRangeSlider-textInput-start-componentWrapper"
     >
@@ -28,7 +28,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
         <input
           aria-label="Label - start value"
           autoComplete={null}
-          className="chakra-input css-bunm4f"
+          className="chakra-input css-0"
           disabled={false}
           id="defaultRangeSlider-textInput-start"
           max={100}
@@ -148,7 +148,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="defaultRangeSlider-textInput-end-componentWrapper"
     >
@@ -158,7 +158,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 1`] = `
         <input
           aria-label="Label - end value"
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={false}
           id="defaultRangeSlider-textInput-end"
           max={100}
@@ -212,7 +212,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     className="css-0"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-ho21zx"
       data-testid="ds-textInput"
       id="errored-textInput-start-componentWrapper"
     >
@@ -220,11 +220,11 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         className="css-79elbk"
       >
         <input
-          aria-describedby="errored-textInput-start-helperText"
+          aria-describedby="errored-textInput-start-helperErrorText"
           aria-invalid={true}
           aria-label="Label - start value"
           autoComplete={null}
-          className="chakra-input css-bunm4f"
+          className="chakra-input css-0"
           disabled={false}
           id="errored-textInput-start"
           max={100}
@@ -352,7 +352,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="errored-textInput-end-componentWrapper"
     >
@@ -360,11 +360,11 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         className="css-79elbk"
       >
         <input
-          aria-describedby="errored-textInput-end-helperText"
+          aria-describedby="errored-textInput-end-helperErrorText"
           aria-invalid={true}
           aria-label="Label - end value"
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={false}
           id="errored-textInput-end"
           max={100}
@@ -429,7 +429,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
     className="css-0"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-ho21zx"
       data-testid="ds-textInput"
       id="required-textInput-start-componentWrapper"
     >
@@ -440,7 +440,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
           aria-label="Label - start value"
           aria-required={true}
           autoComplete={null}
-          className="chakra-input css-bunm4f"
+          className="chakra-input css-0"
           disabled={false}
           id="required-textInput-start"
           max={100}
@@ -560,7 +560,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="required-textInput-end-componentWrapper"
     >
@@ -571,7 +571,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 3`] = `
           aria-label="Label - end value"
           aria-required={true}
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={false}
           id="required-textInput-end"
           max={100}
@@ -625,7 +625,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
     className="css-0"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-ho21zx"
       data-testid="ds-textInput"
       id="disabled-textInput-start-componentWrapper"
     >
@@ -635,7 +635,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
         <input
           aria-label="Label - start value"
           autoComplete={null}
-          className="chakra-input css-bunm4f"
+          className="chakra-input css-0"
           disabled={true}
           id="disabled-textInput-start"
           max={100}
@@ -757,7 +757,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="disabled-textInput-end-componentWrapper"
     >
@@ -767,7 +767,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 4`] = `
         <input
           aria-label="Label - end value"
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={true}
           id="disabled-textInput-end"
           max={100}
@@ -813,7 +813,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
     className="css-0"
   >
     <div
-      className="css-1xdhyk6"
+      className="css-ho21zx"
       data-testid="ds-textInput"
       id="noLabels-textInput-start-componentWrapper"
     >
@@ -823,7 +823,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
         <input
           aria-label="Label - start value"
           autoComplete={null}
-          className="chakra-input css-bunm4f"
+          className="chakra-input css-0"
           disabled={false}
           id="noLabels-textInput-start"
           max={100}
@@ -943,7 +943,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="noLabels-textInput-end-componentWrapper"
     >
@@ -953,7 +953,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 5`] = `
         <input
           aria-label="Label - end value"
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={false}
           id="noLabels-textInput-end"
           max={100}
@@ -1325,7 +1325,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="defaultSlider-textInput-end-componentWrapper"
     >
@@ -1335,7 +1335,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 1`] = `
         <input
           aria-label="Label - value"
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={false}
           id="defaultSlider-textInput-end"
           max={100}
@@ -1469,7 +1469,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="errored-textInput-end-componentWrapper"
     >
@@ -1477,11 +1477,11 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
         className="css-79elbk"
       >
         <input
-          aria-describedby="errored-textInput-end-helperText"
+          aria-describedby="errored-textInput-end-helperErrorText"
           aria-invalid={true}
           aria-label="Label - value"
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={false}
           id="errored-textInput-end"
           max={100}
@@ -1626,7 +1626,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="required-textInput-end-componentWrapper"
     >
@@ -1637,7 +1637,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 3`] = `
           aria-label="Label - value"
           aria-required={true}
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={false}
           id="required-textInput-end"
           max={100}
@@ -1773,7 +1773,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="disabled-textInput-end-componentWrapper"
     >
@@ -1783,7 +1783,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 4`] = `
         <input
           aria-label="Label - value"
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={true}
           id="disabled-textInput-end"
           max={100}
@@ -1909,7 +1909,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="noLabels-textInput-end-componentWrapper"
     >
@@ -1919,7 +1919,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 5`] = `
         <input
           aria-label="Label - value"
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={false}
           id="noLabels-textInput-end"
           max={100}
@@ -2243,7 +2243,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="chakra-textInput-end-componentWrapper"
     >
@@ -2253,7 +2253,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 8`] = `
         <input
           aria-label="Label - value"
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={false}
           id="chakra-textInput-end"
           max={100}
@@ -2387,7 +2387,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
       100
     </div>
     <div
-      className="css-1xdhyk6"
+      className="css-1f1uedm"
       data-testid="ds-textInput"
       id="props-textInput-end-componentWrapper"
     >
@@ -2397,7 +2397,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 9`] = `
         <input
           aria-label="Label - value"
           autoComplete={null}
-          className="chakra-input css-1ebeaqx"
+          className="chakra-input css-0"
           disabled={false}
           id="props-textInput-end"
           max={100}

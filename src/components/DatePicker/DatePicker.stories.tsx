@@ -81,7 +81,7 @@ export const WithControls: Story = {
     isInvalid: false,
     isRequired: false,
     labelText: "Select the date you want to visit NYPL",
-    maxDate: "1/1/2025",
+    maxDate: "1/1/2027",
     minDate: "1/1/2022",
     nameFrom: "visit-dates-from",
     nameTo: "visit-dates-to",

@@ -61,7 +61,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
           id="test-id-form-child0"
         >
           <div
-            className="css-1xdhyk6"
+            className="css-1u8qly9"
             data-testid="ds-textInput"
             id="test-id-textInput-componentWrapper"
           >
@@ -80,11 +80,11 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
               className="css-79elbk"
             >
               <input
-                aria-describedby="test-id-textInput-helperText"
+                aria-describedby="test-id-textInput-helperErrorText"
                 aria-invalid={true}
                 aria-required={true}
                 autoComplete="email"
-                className="chakra-input css-1xdhyk6"
+                className="chakra-input css-0"
                 disabled={false}
                 id="test-id-textInput"
                 name="email"
@@ -425,7 +425,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
           id="test-id-form-child0"
         >
           <div
-            className="css-1xdhyk6"
+            className="css-1u8qly9"
             data-testid="ds-textInput"
             id="test-id-textInput-componentWrapper"
           >
@@ -444,10 +444,10 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               className="css-79elbk"
             >
               <input
-                aria-describedby="test-id-textInput-helperText"
+                aria-describedby="test-id-textInput-helperErrorText"
                 aria-required={true}
                 autoComplete="email"
-                className="chakra-input css-1xdhyk6"
+                className="chakra-input css-0"
                 disabled={false}
                 id="test-id-textInput"
                 name="email"
@@ -566,7 +566,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
           id="test-id-form-child0"
         >
           <div
-            className="css-1xdhyk6"
+            className="css-1u8qly9"
             data-testid="ds-textInput"
             id="test-id-textInput-componentWrapper"
           >
@@ -585,10 +585,10 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               className="css-79elbk"
             >
               <input
-                aria-describedby="test-id-textInput-helperText"
+                aria-describedby="test-id-textInput-helperErrorText"
                 aria-required={true}
                 autoComplete="email"
-                className="chakra-input css-1xdhyk6"
+                className="chakra-input css-0"
                 disabled={false}
                 id="test-id-textInput"
                 name="email"
@@ -701,7 +701,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
           id="test-id-form-child0"
         >
           <div
-            className="css-1xdhyk6"
+            className="css-1u8qly9"
             data-testid="ds-textInput"
             id="test-id-textInput-componentWrapper"
           >
@@ -720,10 +720,10 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               className="css-79elbk"
             >
               <input
-                aria-describedby="test-id-textInput-helperText"
+                aria-describedby="test-id-textInput-helperErrorText"
                 aria-required={true}
                 autoComplete="email"
-                className="chakra-input css-1xdhyk6"
+                className="chakra-input css-0"
                 disabled={false}
                 id="test-id-textInput"
                 name="email"
@@ -837,7 +837,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
           id="test-id-form-child0"
         >
           <div
-            className="css-1xdhyk6"
+            className="css-1u8qly9"
             data-testid="ds-textInput"
             id="test-id-textInput-componentWrapper"
           >
@@ -856,10 +856,10 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               className="css-79elbk"
             >
               <input
-                aria-describedby="test-id-textInput-helperText"
+                aria-describedby="test-id-textInput-helperErrorText"
                 aria-required={true}
                 autoComplete="email"
-                className="chakra-input css-1xdhyk6"
+                className="chakra-input css-0"
                 disabled={true}
                 id="test-id-textInput"
                 name="email"
