@@ -562,6 +562,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Removes console warnings from the `CheckboxGroup` component when a non-`Checkbox` component is passed as a child.
 - Fixes the responsive styles related to the image in the `FeaturedContent` component.
+- Fixes helper error text alignment in the `Select` component when label is not shown and it is inlined.
 
 ### Breaking Changes
 
