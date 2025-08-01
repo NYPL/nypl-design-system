@@ -2,7 +2,7 @@
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-textInput"
   id="myTextarea-componentWrapper"
 >
@@ -19,7 +19,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
   >
     <textarea
       autoComplete={null}
-      className="chakra-textarea css-1xdhyk6"
+      className="chakra-textarea css-0"
       disabled={false}
       id="myTextarea"
       onBlur={[Function]}
@@ -35,7 +35,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -56,7 +56,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
     <input
       aria-required={true}
       autoComplete={null}
-      className="chakra-input css-1xdhyk6"
+      className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
       onBlur={[Function]}
@@ -73,7 +73,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -94,7 +94,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
     <input
       aria-required={true}
       autoComplete={null}
-      className="chakra-input css-1xdhyk6"
+      className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
       onBlur={[Function]}
@@ -111,7 +111,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -128,7 +128,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
   >
     <input
       autoComplete={null}
-      className="chakra-input css-1xdhyk6"
+      className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
       onBlur={[Function]}
@@ -145,7 +145,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -156,7 +156,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
       aria-label="Custom Input Label"
       aria-required={true}
       autoComplete={null}
-      className="chakra-input css-1xdhyk6"
+      className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
       onBlur={[Function]}
@@ -173,7 +173,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -195,7 +195,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
       aria-describedby="myTextInput-helperErrorText"
       aria-required={true}
       autoComplete={null}
-      className="chakra-input css-1xdhyk6"
+      className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
       onBlur={[Function]}
@@ -229,7 +229,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -252,7 +252,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
       aria-invalid={true}
       aria-required={true}
       autoComplete={null}
-      className="chakra-input css-1xdhyk6"
+      className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
       onBlur={[Function]}
@@ -286,7 +286,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -307,7 +307,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
     <input
       aria-required={true}
       autoComplete={null}
-      className="chakra-input css-1xdhyk6"
+      className="chakra-input css-0"
       disabled={true}
       id="myTextInput"
       onBlur={[Function]}
@@ -324,7 +324,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-textInput"
   id="myTextInput-componentWrapper"
 >
@@ -341,7 +341,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
   >
     <input
       autoComplete={null}
-      className="chakra-input css-1xdhyk6"
+      className="chakra-input css-0"
       disabled={false}
       id="myTextInput"
       onBlur={[Function]}
@@ -358,7 +358,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1y4kn3e"
   data-testid="ds-textInput"
   id="chakra-componentWrapper"
 >
@@ -375,7 +375,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
   >
     <input
       autoComplete={null}
-      className="chakra-input css-kle7zy"
+      className="chakra-input css-0"
       disabled={false}
       id="chakra"
       onBlur={[Function]}
@@ -392,8 +392,8 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
 <div
-  className="css-1xdhyk6"
-  data-testid="ds-textInput"
+  className="css-1u8qly9"
+  data-testid="props"
   id="props-componentWrapper"
 >
   <label
@@ -409,8 +409,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
   >
     <input
       autoComplete={null}
-      className="chakra-input css-1xdhyk6"
-      data-testid="props"
+      className="chakra-input css-0"
       disabled={false}
       id="props"
       onBlur={[Function]}
@@ -427,7 +426,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
 
 exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="ds-textInput"
   id="autocomplete-componentWrapper"
 >
@@ -444,7 +443,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
   >
     <input
       autoComplete="name"
-      className="chakra-input css-1xdhyk6"
+      className="chakra-input css-0"
       disabled={false}
       id="autocomplete"
       onBlur={[Function]}
