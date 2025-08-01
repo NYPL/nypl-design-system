@@ -298,7 +298,6 @@ export type {
   VideoPlayerTypes,
 } from "./components/VideoPlayer/VideoPlayer";
 // Hooks
-export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
 export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
 export { default as useFormatNumber } from "./hooks/useFormatNumber";
 export { default as useMultiSelect } from "./hooks/useMultiSelect";
@@ -306,6 +305,5 @@ export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
 export { default as useResponsiveSpacing } from "./hooks/useResponsiveSpacing";
 export { default as useScrollFadeStyles } from "./hooks/useScrollFadeStyles";
-export { default as useWindowSize } from "./hooks/useWindowSize";
 // Utils
 export type { AutoCompleteValues } from "./utils/constantValues";

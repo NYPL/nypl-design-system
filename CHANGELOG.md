@@ -69,6 +69,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Removes all files related to the `Autosuggest` component guidelines.
 - Removes the exported `TagSetTypeProps` type.
 - Removes `.mdxtype` DOM children logic check in `Card`, `Form`, `Icon`, and `Tabs` components.
+- Removes the `useWindowSize` and `useCarouselStyles` hooks.
 
 ### Fixes
 
