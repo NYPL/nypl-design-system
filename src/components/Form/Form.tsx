@@ -38,7 +38,7 @@ export const FormRow: ChakraComponent<
     children as JSX.Element,
     (child: React.ReactElement, i) => {
       if (!child) return null;
-      if (child.type === FormField || child.props.mdxType === "FormField") {
+      if (child.type === FormField) {
         return React.cloneElement(child, { id: `${id}-grandchild${i}` });
       }
       return null;

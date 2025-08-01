@@ -118,7 +118,7 @@ const getElementsFromChildren = (children): TabPanelProps => {
   }
 
   children.forEach((child: JSX.Element) => {
-    if (child.type === TabList || child.props.mdxType === "TabList") {
+    if (child.type === TabList) {
       tabs.push(child);
 
       const childTabs = React.Children.count(child.props.children);
@@ -130,7 +130,7 @@ const getElementsFromChildren = (children): TabPanelProps => {
       }
     }
 
-    if (child.type === TabPanels || child.props.mdxType === "TabPanels") {
+    if (child.type === TabPanels) {
       panels.push(child);
     }
   });
