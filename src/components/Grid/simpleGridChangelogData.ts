@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Functionality"],
     notes: [
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
-      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
       "Adds `data-testid` value of `ds-simpleGrid` to the parent element.",
     ],
   },

@@ -154,9 +154,9 @@ export const Breadcrumbs: ChakraComponent<
   forwardRef<HTMLDivElement, BreadcrumbProps>((props, ref?) => {
     const {
       breadcrumbsData,
-      variant = "whatsOn",
       customLinkComponent,
       id,
+      variant = "whatsOn",
       ...rest
     } = props;
 

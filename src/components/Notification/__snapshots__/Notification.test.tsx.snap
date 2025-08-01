@@ -4,7 +4,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-notification"
-  data-type="standard"
+  data-variant="standard"
   id="notificationID1"
 >
   <div
@@ -49,7 +49,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-notification"
-  data-type="announcement"
+  data-variant="announcement"
   id="notificationID2"
 >
   <div
@@ -94,7 +94,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-notification"
-  data-type="warning"
+  data-variant="warning"
   id="notificationID3"
 >
   <div
@@ -139,7 +139,7 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-notification"
-  data-type="standard"
+  data-variant="standard"
   id="notificationID4"
 >
   <div
@@ -177,7 +177,7 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-notification"
-  data-type="standard"
+  data-variant="standard"
   id="notificationID5"
 >
   <div
@@ -213,7 +213,7 @@ exports[`Notification renders the UI snapshot correctly 6`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-notification"
-  data-type="standard"
+  data-variant="standard"
   id="notificationID6"
 >
   <div
@@ -237,7 +237,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="ds-notification"
-  data-type="standard"
+  data-variant="standard"
   id="notificationID7"
 >
   <div
@@ -293,7 +293,7 @@ exports[`Notification renders the UI snapshot correctly 8`] = `
 <aside
   className="css-kle7zy"
   data-testid="ds-notification"
-  data-type="standard"
+  data-variant="standard"
   id="chakra"
 >
   <div
@@ -338,7 +338,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="props"
-  data-type="standard"
+  data-variant="standard"
   id="props"
 >
   <div

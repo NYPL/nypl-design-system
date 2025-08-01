@@ -137,7 +137,7 @@ describe("TextInput", () => {
   it("adds aria-describedby attribute", async () => {
     expect(screen.getByRole("textbox")).toHaveAttribute(
       "aria-describedby",
-      "myTextInput-helperText"
+      "myTextInput-helperErrorText"
     );
 
     utils.rerender(
@@ -155,7 +155,7 @@ describe("TextInput", () => {
     await waitFor(() =>
       expect(screen.getByRole("textbox")).toHaveAttribute(
         "aria-describedby",
-        "myEmailInput-helperText"
+        "myEmailInput-helperErrorText"
       )
     );
   });

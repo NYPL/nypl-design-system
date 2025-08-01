@@ -85,7 +85,7 @@ export const Toggle: ChakraComponent<
     const footnote = isInvalid ? invalidText : helperText;
     const ariaAttributes = getAriaAttrs({
       footnote,
-      id,
+      id: mainId,
       labelText,
       name: "Toggle",
       showLabel: true,

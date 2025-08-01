@@ -289,7 +289,7 @@ describe("DatePicker", () => {
       const input = screen.getByRole("textbox");
       expect(input).toHaveAttribute(
         "aria-describedby",
-        "testId-datePicker-start-textInput-helperText"
+        "testId-datePicker-start-textInput-helperErrorText"
       );
 
       // When not errored, we expect only the helper text to appear.
@@ -318,7 +318,7 @@ describe("DatePicker", () => {
       // The error text replaces the original helper text.
       expect(input).toHaveAttribute(
         "aria-describedby",
-        "testId-datePicker-start-textInput-helperText"
+        "testId-datePicker-start-textInput-helperErrorText"
       );
     });
 
@@ -673,14 +673,14 @@ describe("DatePicker", () => {
       // more general to more specific.
       expect(inputFrom).toHaveAttribute(
         "aria-describedby",
-        "datePicker-helperText datePicker-datePicker-start-textInput-helperText"
+        "datePicker-helperErrorText datePicker-datePicker-start-textInput-helperErrorText"
       );
       // The `toInput` should have an `aria-describedby` value of both the id of
       // the `helperText` and the id of the `helperTextTo` in that order - from
       // more general to more specific.
       expect(inputTo).toHaveAttribute(
         "aria-describedby",
-        "datePicker-helperText datePicker-datePicker-end-textInput-helperText"
+        "datePicker-helperErrorText datePicker-datePicker-end-textInput-helperErrorText"
       );
     });
 

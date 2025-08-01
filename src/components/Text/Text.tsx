@@ -24,7 +24,7 @@ export type TextSizes = typeof textSizesArray[number];
 export interface TextProps extends BoxProps {
   /** Optional prop used to show bolded text */
   isBold?: boolean;
-  /** Optional prop used to show itlicized text */
+  /** Optional prop used to show italicized text */
   isItalic?: boolean;
   /** Optional prop used to show capitalized text */
   isCapitalized?: boolean;
