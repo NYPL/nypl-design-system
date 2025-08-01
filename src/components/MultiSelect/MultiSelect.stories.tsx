@@ -318,6 +318,7 @@ export const withControls: Story = {
   args: {
     buttonText: "MultiSelect",
     closeOnBlur: true,
+    id: "multiSelect-with-controls",
     defaultItemsVisible: undefined,
     isBlockElement: true,
     isDefaultOpen: false,
@@ -347,7 +348,7 @@ export const withControls: Story = {
     const checkbox2Label = within(canvasElement).getByText(/Cartography/);
     await userEvent.click(checkbox2Label);
     let clearMultiselect = within(canvasElement).getByTestId(
-      "multi-select-close-button-testid"
+      "ds-multiSelectItemsCountButton"
     );
     await expect(clearMultiselect).toHaveAttribute(
       "aria-label",

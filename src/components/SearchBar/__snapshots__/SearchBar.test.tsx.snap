@@ -24,7 +24,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
           className="css-79elbk"
         >
           <input
-            aria-describedby="basic-helperText"
+            aria-describedby="basic-helperErrorText"
             aria-label="Item Search"
             autoComplete={null}
             className="chakra-input css-0"
@@ -205,7 +205,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           className="css-79elbk"
         >
           <input
-            aria-describedby="withSelect-helperText"
+            aria-describedby="withSelect-helperErrorText"
             aria-label="Item Search"
             autoComplete={null}
             className="chakra-input css-0"
@@ -353,7 +353,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
           className="css-79elbk"
         >
           <input
-            aria-describedby="withClearButton-helperText"
+            aria-describedby="withClearButton-helperErrorText"
             aria-label="Item Search"
             autoComplete={null}
             className="chakra-input css-0"
@@ -436,7 +436,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
           className="css-79elbk"
         >
           <input
-            aria-describedby="invalidState-textInput-helperText"
+            aria-describedby="invalidState-textInput-helperErrorText"
             aria-invalid={true}
             aria-label="Item Search"
             autoComplete={null}
@@ -857,7 +857,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
           className="css-79elbk"
         >
           <input
-            aria-describedby="chakra-helperText"
+            aria-describedby="chakra-helperErrorText"
             aria-label="Item Search"
             autoComplete={null}
             className="chakra-input css-0"
@@ -940,7 +940,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
           className="css-79elbk"
         >
           <input
-            aria-describedby="props-helperText"
+            aria-describedby="props-helperErrorText"
             aria-label="Item Search"
             autoComplete={null}
             className="chakra-input css-0"

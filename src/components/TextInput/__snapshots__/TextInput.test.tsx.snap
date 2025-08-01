@@ -192,7 +192,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     className="css-79elbk"
   >
     <input
-      aria-describedby="myTextInput-helperText"
+      aria-describedby="myTextInput-helperErrorText"
       aria-required={true}
       autoComplete={null}
       className="chakra-input css-0"
@@ -248,7 +248,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
     className="css-79elbk"
   >
     <input
-      aria-describedby="myTextInput-helperText"
+      aria-describedby="myTextInput-helperErrorText"
       aria-invalid={true}
       aria-required={true}
       autoComplete={null}

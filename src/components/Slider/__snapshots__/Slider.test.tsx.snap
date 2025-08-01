@@ -220,7 +220,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         className="css-79elbk"
       >
         <input
-          aria-describedby="errored-textInput-start-helperText"
+          aria-describedby="errored-textInput-start-helperErrorText"
           aria-invalid={true}
           aria-label="Label - start value"
           autoComplete={null}
@@ -360,7 +360,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         className="css-79elbk"
       >
         <input
-          aria-describedby="errored-textInput-end-helperText"
+          aria-describedby="errored-textInput-end-helperErrorText"
           aria-invalid={true}
           aria-label="Label - end value"
           autoComplete={null}
@@ -1477,7 +1477,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
         className="css-79elbk"
       >
         <input
-          aria-describedby="errored-textInput-end-helperText"
+          aria-describedby="errored-textInput-end-helperErrorText"
           aria-invalid={true}
           aria-label="Label - value"
           autoComplete={null}

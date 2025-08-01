@@ -136,7 +136,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
       className="css-xy0wy2"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
-      id="basic-helperText"
+      id="basic-helperErrorText"
     >
       <div
         className="css-0"
@@ -282,7 +282,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
       className="css-xy0wy2"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
-      id="no-label-helperText"
+      id="no-label-helperErrorText"
     >
       <div
         className="css-0"
@@ -428,7 +428,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
       className="css-xy0wy2"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
-      id="custom-format-helperText"
+      id="custom-format-helperErrorText"
     >
       <div
         className="css-0"
@@ -493,7 +493,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 className="css-79elbk"
               >
                 <input
-                  aria-describedby="invalid-datePicker-start-textInput-helperText"
+                  aria-describedby="invalid-datePicker-start-textInput-helperErrorText"
                   aria-invalid={true}
                   aria-label="From, Press tab to access the calendar."
                   autoComplete={null}
@@ -567,7 +567,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 className="css-79elbk"
               >
                 <input
-                  aria-describedby="invalid-datePicker-end-textInput-helperText"
+                  aria-describedby="invalid-datePicker-end-textInput-helperErrorText"
                   aria-invalid={true}
                   aria-label="To, Press tab to access the calendar."
                   autoComplete={null}
@@ -612,7 +612,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
       className="css-xy0wy2"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
-      id="invalid-helperText"
+      id="invalid-helperErrorText"
     >
       <div
         className="css-0"
@@ -763,7 +763,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
       className="css-xy0wy2"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
-      id="disabled-helperText"
+      id="disabled-helperErrorText"
     >
       <div
         className="css-0"
@@ -845,7 +845,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
     className="css-xy0wy2"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-    id="basic-helperText"
+    id="basic-helperErrorText"
   />
 </div>
 `;
@@ -909,7 +909,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
     className="css-xy0wy2"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-    id="no-label-helperText"
+    id="no-label-helperErrorText"
   />
 </div>
 `;
@@ -981,7 +981,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
     className="css-xy0wy2"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-    id="custom-format-helperText"
+    id="custom-format-helperErrorText"
   />
 </div>
 `;
@@ -1028,7 +1028,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             className="css-79elbk"
           >
             <input
-              aria-describedby="invalid-datePicker-start-textInput-helperText"
+              aria-describedby="invalid-datePicker-start-textInput-helperErrorText"
               aria-invalid={true}
               aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
@@ -1072,7 +1072,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
     className="css-xy0wy2"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-    id="invalid-helperText"
+    id="invalid-helperErrorText"
   />
 </div>
 `;
@@ -1119,7 +1119,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
             className="css-79elbk"
           >
             <input
-              aria-describedby="disabled-datePicker-start-textInput-helperText"
+              aria-describedby="disabled-datePicker-start-textInput-helperErrorText"
               aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
               className="chakra-input css-0"
@@ -1162,7 +1162,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
     className="css-xy0wy2"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-    id="disabled-helperText"
+    id="disabled-helperErrorText"
   />
 </div>
 `;
@@ -1209,7 +1209,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
             className="css-79elbk"
           >
             <input
-              aria-describedby="chakra-datePicker-start-textInput-helperText"
+              aria-describedby="chakra-datePicker-start-textInput-helperErrorText"
               aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
               className="chakra-input css-0"
@@ -1252,7 +1252,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
     className="css-xy0wy2"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-    id="chakra-helperText"
+    id="chakra-helperErrorText"
   />
 </div>
 `;
@@ -1299,7 +1299,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
             className="css-79elbk"
           >
             <input
-              aria-describedby="props-datePicker-start-textInput-helperText"
+              aria-describedby="props-datePicker-start-textInput-helperErrorText"
               aria-label="Select the date you want to visit NYPL, Press tab to access the calendar."
               autoComplete={null}
               className="chakra-input css-0"
@@ -1342,7 +1342,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
     className="css-xy0wy2"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-    id="props-helperText"
+    id="props-helperErrorText"
   />
 </div>
 `;

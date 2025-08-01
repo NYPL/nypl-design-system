@@ -174,7 +174,7 @@ describe("Notification", () => {
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "announcement"
     );
   });
@@ -190,7 +190,7 @@ describe("Notification", () => {
     );
 
     expect(utils.container.querySelector("aside")).toHaveAttribute(
-      "data-type",
+      "data-variant",
       "warning"
     );
   });

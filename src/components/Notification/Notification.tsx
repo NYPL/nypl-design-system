@@ -284,7 +284,7 @@ export const Notification: ChakraComponent<
       <Box
         as="aside"
         data-testid="ds-notification"
-        data-type={variant}
+        data-variant={variant}
         id={mainId}
         ref={ref}
         __css={styles}
