@@ -66,7 +66,7 @@ const select = (labelPosition: string) => ({
 
 const Select = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({ labelPosition, showLabel }: SelectBaseStyle) => {
+    ({ labelPosition, labelWidth, showLabel }: SelectBaseStyle) => {
       return {
         inline: {
           display: { md: "flex" },
@@ -76,7 +76,8 @@ const Select = defineMultiStyleConfig({
         label: { marginBottom: "label.default" },
         select: select(labelPosition),
         "div[data-testid='ds-helperErrorText']": {
-          marginLeft: !showLabel && labelPosition === "inline" ? "0" : null,
+          marginLeft:
+            !showLabel && labelPosition === "inline" ? "0" : `${labelWidth}px`,
         },
       };
     }
