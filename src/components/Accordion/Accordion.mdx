@@ -64,9 +64,17 @@ the main button element in each accordion with an accordion group.
 
 <Source
   code={`
-  const accordionData = [
+  // Internally defined type and exported for use in any application.
+  export interface AccordionDataProps {
+    ariaLabel?: string;
+    buttonInteractionRef?: any;
+    label: string | JSX.Element;
+    panel: string | React.ReactNode;
+    variant?: AccordionVariants;
+  }
+  // ...
+  const accordionData: AccordionDataProps[] = [
     {
-      variant: "default",
       ariaLabel: "Tom Nook, known in Japan as Tanukichi",
       label: "Tom Nook",
       panel: (
@@ -89,6 +97,7 @@ the main button element in each accordion with an accordion group.
           </CardContent>
         </Card>
       ),
+      variant: "default",
     },
   ];
   // ...
@@ -139,7 +148,7 @@ You may pass any Chakra `Box` props, as well as the props below.
     expanded (`true`) or collapsed (`false`).
   - Use the `aria-controls` attribute to associate the control with the panel.
 - This component deviates from USWDS in that the user can open multiple panels.
-  Opening one, does not collapse already expanded panel.
+  Opening one does not collapse already expanded panel.
 - The open and close icons are decorative (`aria-hidden` is `true`).
 - Visible focus goes around the entire button.
 - An `aria-label` attribute can be applied to the accordion button using

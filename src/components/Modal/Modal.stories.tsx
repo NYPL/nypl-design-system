@@ -131,7 +131,7 @@ const ConfirmationModalStory = () => {
 
   return (
     <>
-      <ButtonGroup mb="m">
+      <ButtonGroup>
         <Button id="1" onClick={onOpen}>
           Open Confirmation Modal
         </Button>

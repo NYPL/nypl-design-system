@@ -31,7 +31,7 @@ import { changelogData } from "./menuChangelogData";
 
 ## Overview
 
-The Menu component renders a collection of button and/or link elements within a
+The `Menu` component renders a collection of button and/or link elements within a
 dropdown menu format. The component allows users to perform multiple actions
 from an element with a small footprint.
 
@@ -89,15 +89,15 @@ is used for the `aria-label`.
 <Banner
   content={
     <>
-      <strong>IMPORTANT:</strong> A <code>Menu</code> with{" "}
-      <code>showSelectionAsLabel</code> enabled should be accompanied by nearby
-      directions ("Sort By", "Select theme", etc.) so that the function of the
-      menu is clear.
+      <strong>RECOMMENDATION:</strong> It is recommended for a <code>Menu</code>{" "}
+      with <code>showSelectionAsLabel</code> enabled, that it should be
+      accompanied by nearby directions ("Sort By", "Select theme", etc.) so that
+      the function of the menu is clear.
     </>
   }
   mt="s"
   mb="s"
-  variant="informative"
+  variant="recommendation"
 />
 
 <Canvas of={MenuStories.MenuLabel} />
@@ -116,13 +116,14 @@ width, menu items will wrap onto the next line.
 <Banner
   content={
     <>
-      <strong>IMPORTANT:</strong> Avoid long labels for list items. Keep the
-      item labels short and avoid sentences from wrapping to the next line.
+      <strong>RECOMMENDATION:</strong> It is recommended to avoid long labels
+      for list items. Keep the item labels short and avoid sentences from
+      wrapping to the next line.
     </>
   }
   mt="s"
   mb="s"
-  variant="informative"
+  variant="recommendation"
 />
 
 Content is passed to the menu through `listItemsData`, and each menu item needs

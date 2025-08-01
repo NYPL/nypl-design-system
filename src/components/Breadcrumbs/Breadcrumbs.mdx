@@ -94,9 +94,9 @@ to be applied on a link-by-link basis.
 <Banner
   content={
     <>
-      <strong>NOTE:</strong> assigning a value for <code>href</code> in
-      <code>linkProps</code> will override the <code>url</code> prop, so we recommend
-      against this.
+      <strong>RECOMMENDATION:</strong> It is NOT recommended to assign a value
+      for <code>href</code> in <code>linkProps</code> since it will override the
+      top level <code>url</code> property value.
     </>
   }
   mt="s"
@@ -123,7 +123,7 @@ to be applied on a link-by-link basis.
   language="tsx"
 />
 
-The Story below uses the DS `Link` component.
+The story below uses the DS `Link` component.
 
 <Canvas of={BreadcrumbsStories.CustomLinkComponent} />
 
