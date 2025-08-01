@@ -6,9 +6,9 @@ import {
   Source,
 } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import Link from "../Link/Link";
 import * as SkipNavigationStories from "./SkipNavigation.stories";
 import { changelogData } from "./skipNavigationChangelogData";
 
@@ -22,25 +22,36 @@ import { changelogData } from "./skipNavigationChangelogData";
   versionLatest="Prerelease"
 />
 
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> In order to see the links in the{" "}
+      <code>SkipNavigation</code> component, start by focusing on the button
+      below by tabbing or clicking on it. Then press "tab" to see the first link
+      and press "tab" again to see the second link. The links are intentionally
+      hidden until they are focused or tabbed to, as this is a common practice
+      for skip navigation links.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
+
 <Canvas of={SkipNavigationStories.WithControls} />
 
 ## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={SkipNavigationStories} />
 
-**NOTE: In order to see the links in the `SkipNavigation` component, start by focusing
-on the button below by tabbing or clicking on it. Then press "tab" to see the
-first link and press "tab" again to see the second link. Hiding the links
-intentional as the links should initially be visually hidden.**
-
-## Component Props
+## Component props
 
 `SkipNavigation` composes a Chakra `Box` component, so you may pass
 any Chakra `Box` props, as well as the props below.
@@ -57,9 +68,10 @@ element, an unordered list is rendered.
 
 The reason this is a navigation list of links is because the first main link
 points to the anchor of the main content, in this case `"#mainContent"`. The
-second link points to accessibility information on [NYPL.org/accessibility](https://nypl.org/accessibility).
+second link points to accessibility information on
+[NYPL.org/accessibility](https://nypl.org/accessibility).
 
-See the [Skip Navigation accessibility guide](../?path=/docs/accessibility-guide-skip-navigation--docs)
+See the [Skip Navigation accessibility guide](./?path=/docs/accessibility-guide-skip-navigation--docs)
 for more information on how to use this component with other DS components.
 
 Resources:

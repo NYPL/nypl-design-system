@@ -56,8 +56,8 @@ type Story = StoryObj<typeof Breadcrumbs>;
 export const WithControls: Story = {
   args: {
     breadcrumbsData,
-    variant: "whatsOn",
     customLinkComponent: undefined,
+    variant: "whatsOn",
   },
   parameters: {
     design: {
