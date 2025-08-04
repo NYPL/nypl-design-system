@@ -1,10 +1,4 @@
-import {
-  ArgTypes,
-  Canvas,
-  Description,
-  Meta,
-  Source,
-} from "@storybook/addon-docs/blocks";
+import { ArgTypes, Canvas, Meta, Source } from "@storybook/addon-docs/blocks";
 
 import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
@@ -59,9 +53,9 @@ you're using), as well any Chakra style props and the props below.
 <Banner
   content={
     <>
-      <strong>NOTE:</strong> It's recommended to pass an <code>id</code> value
-      for accessibility requirements. If no <code>id</code> is passed, a random{" "}
-      <code>id</code> will be generated.
+      <strong>RECOMMENDATION:</strong> It's recommended to pass an{" "}
+      <code>id</code> value for accessibility requirements. If no{" "}
+      <code>id</code> is passed, a random <code>id</code> will be generated.
     </>
   }
   mt="s"
@@ -200,7 +194,8 @@ when the clear button is clicked.
 situation may arise where you need to further manage focus. The following
 example was found in the Research Catalog's
 [My Account](https://nypl.org/research/research-catalog/account) page (you have
-to sign in).
+to sign in). The page's accessibility requirements conflicted with the
+`TextInput` component's internal focus management.
 
 When the user clicks the "Edit" button, focus needs to go to the input field.
 To do this, pass a ref to the `TextInput` component as you normally would with a

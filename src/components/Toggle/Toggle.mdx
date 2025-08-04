@@ -1,15 +1,8 @@
-import {
-  ArgTypes,
-  Canvas,
-  Description,
-  Meta,
-  Source,
-} from "@storybook/addon-docs/blocks";
+import { ArgTypes, Canvas, Meta, Source } from "@storybook/addon-docs/blocks";
 
 import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import Link from "../Link/Link";
 import * as ToggleStories from "./Toggle.stories";
 import { changelogData } from "./toggleChangelogData";
 
@@ -27,14 +20,14 @@ import { changelogData } from "./toggleChangelogData";
 
 ## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#sizes" target="_self">Sizes</Link>}
-- {<Link href="#controlled-toggle" target="_self">Controlled Toggle</Link>}
-- {<Link href="#browser-states" target="_self">Browser States</Link>}
-- {<Link href="#layouts" target="_self">Layouts</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Sizes](#sizes)
+- [Controlled toggle](#controlled-toggle)
+- [Browser states](#browser-states)
+- [Layouts](#layouts)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -56,9 +49,9 @@ attributes, as well any Chakra style props and the props below.
 <Banner
   content={
     <>
-      <strong>NOTE:</strong> It's recommended to pass an <code>id</code> value
-      for accessibility requirements. If no <code>id</code> is passed, a random{" "}
-      <code>id</code> will be generated.
+      <strong>RECOMMENDATION:</strong> It's recommended to pass an{" "}
+      <code>id</code> value for accessibility requirements. If no{" "}
+      <code>id</code> is passed, a random <code>id</code> will be generated.
     </>
   }
   mt="s"
