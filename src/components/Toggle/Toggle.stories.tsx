@@ -79,18 +79,6 @@ export const Sizes: Story = {
     </SimpleGrid>
   ),
 };
-export const ControlledToggle: Story = {
-  render: () => (
-    <Toggle
-      id="toggle"
-      isChecked={true}
-      labelText="Controlled Toggle"
-      onChange={(e) => {
-        console.log(e.target.value);
-      }}
-    />
-  ),
-};
 
 export const BrowserStates: Story = {
   render: () => (

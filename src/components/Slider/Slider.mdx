@@ -27,26 +27,27 @@ import { changelogData } from "./sliderChangelogData";
 
 ## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#rangeslider" target="_self">RangeSlider</Link>}
-- {<Link href="#examples" target="_self">Examples</Link>}
-- {<Link href="#get-input-values" target="_self">Get Input Values</Link>}
-- {<Link href="#programmatically-update" target="_self">Programmatically Update</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [RangeSlider](#rangeslider)
+- [Examples](#examples)
+- [Get input values](#get-input-values)
+- [Programmatically update](#programmatically-update)
+- [Changelog](#changelog)
 
 ## Overview
 
-<Description of={SliderStories.WithControls} />
+`Slider` is an input element that allows a user to select a value or range of
+values from a predefined range.
 
-The text input component doubles as a display for the slider's current value.
+The text input at the end(s) is a display for the slider's current value.
 For this type of component, the `value` prop must be a single number.
 
 If you are using the `Slider` in a form, pass an HTML `name` attribute for use
 in the form data.
 
-## Component Props
+## Component props
 
 The `Slider` composes an HTML `input` element, so you may pass any HTML `input`
 attributes, as well any Chakra style props and the props below.
@@ -58,9 +59,9 @@ attributes, as well any Chakra style props and the props below.
 <Banner
   content={
     <>
-      <strong>NOTE:</strong> It's recommended to pass an `id` value for
-      accessibility requirements. If no `id` is passed, a random `id` will be
-      generated.
+      <strong>RECOMMENDATION:</strong> It's recommended to pass an{" "}
+      <code>id</code> value for accessibility requirements. If no{" "}
+      <code>id</code> is passed, a random <code>id</code> will be generated.
     </>
   }
   mt="s"
@@ -69,22 +70,20 @@ attributes, as well any Chakra style props and the props below.
 />
 
 The `Slider` component is accessible via keyboard. In addition to the text fields,
-a keyboard user can tab to the blue slider thumb and then with left and right
-arrows increase or decrease the value. The color contrast between foreground
-color and background color is 4.5:1. If text size is 200%, the button scales
-with text so there is no overlap. Internally, a `Label` is associated with the
-`<input>` element.
+a keyboard user can tab to the blue slider thumb and increase or decrease the value
+with left and right arrows.
 
-The `labelText` value is used to populate a global visual label for component.
-The value is also used to generate appropriate `aria-label` values for the
-component's text input and slider thumb. When `showLabel` is set to false, the
-visual label will be removed from the UI, but the value will still be used to
-generate the aria-label values for the previously mentioned internal
-elements.
+The color contrast between foreground color and background color is 4.5:1. If
+text size is 200%, the button scales with text so there is no overlap. Internally,
+a `Label` is associated with the `<input>` element.
 
-In addition to the `aria-label` attribute, the slider thumb will also contain
-the `aria-valuemin`, `aria-valuemax`, `aria-orientation`, and `aria-valuenow`
-attributes.
+Beyond just a visual label for component, `labelText` is also used to generate
+`aria-label` values for the component's text input and slider thumb. When
+`showLabel` is set to false, the visual label will be removed from the UI, but
+the value will still be used to generate the `aria-label` values.
+
+The slider thumb also contains the `aria-valuemin`, `aria-valuemax`,
+`aria-orientation`, and `aria-valuenow` attributes.
 
 Resources:
 
@@ -93,21 +92,6 @@ Resources:
 - [Chakra Slider](https://chakra-ui.com/docs/components/form/slider)
 - [Chakra RangeSlider](https://chakra-ui.com/docs/components/form/range-slider)
 
-### Slider Accessibility Implementation
-
-Chakra's `Slider` component is accessible and, as recommended, we pass in an
-`aria-label` to their `Slider` component. On top of that, the Reservoir Design
-System (DS) `Slider` component's `<label>` points to the `<input>` element
-which shows the current value. This `input` element also has its own
-`aria-label`. When the input box is hidden, the `for` attribute in the `label`
-element is removed.
-
-Note that Chakra will automatically generate the values for the following aria
-attributes on the single slider thumb: `aria-valuemin`, `aria-valuemax`,
-`aria-valuenow`, and `aria-orientation`. However, Chakra does not generate the
-value for the `aria-label` attribute on the single slider thumb. The value for
-the `aria-label` attribute is dependent on the `labelText` value.
-
 ## RangeSlider
 
 Set `isRangeSlider` to `true` to create a range slider. The text input
@@ -115,42 +99,28 @@ components double as displays for the slider's current minimum and maximum
 value. For this type of component, the `value` prop must be an array of two
 numbers. This signifies the starting and ending values of the range slider.
 
-Similar to the single slider configuration, each of the two sliders in the range
-slider configuration will contain the `aria-label`, `aria-valuemin`,
-`aria-valuemax`, `aria-orientation`, and `aria-valuenow` attributes.
-
 <Canvas of={SliderStories.RangeSliderWithControls} />
 
-### RangeSlider Accessibility Implementation
+### RangeSlider accessibility implementation
 
-Chakra's `RangeSlider` component is accessible and, as recommended, we pass in
-two `aria-label` values to their `RangeSlider` component. The syntax is
-different than the expected standard string; the `RangeSlider` expects
-`aria-label` to be an array of two strings. On top of this, the DS `Slider`'s
-`<label>` element, when in the `isRangeSlider` state, points to the _first_
-`<input>` element which shows the current _start_ value. These two `input`
-elements also have their own `aria-label`s. When the input boxes are hidden, the
-`for` attribute in the `label` element is removed.
-
-Note that Chakra will automatically generate the values for the following aria
-attributes on the two slider thumbs: `aria-valuemin`, `aria-valuemax`,
-`aria-valuenow`, and `aria-orientation`. However, Chakra will not generate the
-values for the `aria-label` attributes on the two slider thumbs. The values for
-the `aria-label` attributes are dependent on the `labelText` value.
+When `isRangeSlider` is `true`, each slider thumb will receive an `aria-label`
+derived from the passed `labelText`. If the `<label>` is visible, it will point
+to the _first_ `<input>` element (showing the current _start_ value). If the
+input boxes are hidden, the `for` attribute in the `label` element is removed.
 
 ## Examples
 
-### Single Slider States
+### Single slider states
 
 <Canvas of={SliderStories.SingleSliderStates} />
 
-### Range Slider States
+### Range slider states
 
-To enable the Range Slider, set the `isRangeSlider` prop to true.
+`isRangeSlider` set to true
 
 <Canvas of={SliderStories.RangeSliderStates} />
 
-### Single Slider Variants
+### Single slider variants
 
 In the following example, the min/max values and the current value text
 input are hidden.
@@ -161,137 +131,169 @@ For the following examples, all labels are hidden.
 
 <Canvas of={SliderStories.SingleSliderVariantsHiddenLabels} />
 
-### Range Slider with Adjusted Handles
+### Range slider with adjusted handles
 
 In the following examples, all the labels are hidden.
 
 <Canvas of={SliderStories.RangeSliderWithAdjustedHandles} />
 
-## Get Input Values
+## Get input values
 
-Pass a callback function to the `onChange` prop to get the current number value
-of the `Slider` component or an array of two numbers when it is a range slider.
 Internally, the `Slider` component handles the state of the current selected
-value or values. Once the value(s) is updated, the `onChange` callback will be
-called and the values will be passed. If no `onChange` callback is provided,
-you won't be able to get the updated value(s) of the `Slider` component.
+value or values. Pass a callback function to the `onChange` prop to get the
+current number value of the `Slider` component or an array of two numbers when
+it is a range slider.
 
-### Single Slider Value
+### Single slider value
 
-Open up the browser's developer console to see the value of the `Slider`
-after updating it.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> Open the browser console to see the value logged on
+      each change.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Source
   code={`
-// Typescript example:
-function SliderExample() {
-  const onChange = (newValue: number) => {
-    console.log(\`The single Slider updated value is: \${newValue}\`);
-  };
-  return (
-    <Slider
-      helperText="Component helper text."
-      id="slider"
-      labelText="Label"
-      onChange={onChange}
-    />
-  );
-}
+  // Typescript example:
+  function SliderExample() {
+    const onChange = (newValue: number) => {
+      console.log(\`The single Slider updated value is: \${newValue}\`);
+    };
+    return (
+      <Slider
+        helperText="Component helper text."
+        id="slider"
+        labelText="Label"
+        onChange={onChange}
+      />
+    );
+  }
 `}
   language="tsx"
 />
 
 <Canvas of={SliderStories.GetInputValuesSingleSlider} />
 
-### Range Slider Values
+### Range slider values
 
-Open up the browser's developer console to see the values of the `Slider`
-after updating it in the `isRangeSlider` state.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> Open the browser console to see the array value
+      logged on each change.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Source
   code={`
-// Typescript example:
-function RangeSliderExample() {
-  const onChange = (newValue: number[]) => {
-    const [start, end] = newValue;
-    console.log(\`The Range Slider updated start value is: \${start}\`);
-    console.log(\`The Range Slider updated end value is: \${end}\`);
-  };
-  return (
-    <Slider
-      helperText="Component helper text."
-      id="range-slider"
-      isRangeSlider
-      labelText="Label"
-      onChange={onChange}
-    />
-  );
-}
+  // Typescript example:
+  function RangeSliderExample() {
+    const onChange = (newValue: number[]) => {
+      const [start, end] = newValue;
+      console.log(\`The Range Slider updated start value is: \${start}\`);
+      console.log(\`The Range Slider updated end value is: \${end}\`);
+    };
+    return (
+      <Slider
+        helperText="Component helper text."
+        id="range-slider"
+        isRangeSlider
+        labelText="Label"
+        onChange={onChange}
+      />
+    );
+  }
 `}
   language="tsx"
 />
 
 <Canvas of={SliderStories.GetInputValuesRangeSlider} />
 
-### Get Final Slider Value
-
-Pass a callback function to the `onChangeEnd` prop to get the final number value
-of the `Slider` component or an array of two numbers when it is a range slider.
+### Get final slider value only
 
 Dragging the slider can trigger lots of updates and the consuming app might
 only be interested in the final result after sliding is complete. You can use
-`onChangeEnd` for this.
+`onChangeEnd` to get the final number value of the `Slider` component or an array
+of two numbers when it is a range slider.
 
-#### Single Slider Value
+#### Single slider value
 
-Open up the browser's developer console to see the value of the `Slider` after
-updating it. Notice the value is updated only when you stop dragging the slider.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> Open the browser console to see the value logged
+      only when you stop dragging the slider.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Source
   code={`
-// Typescript example:
-function SliderEndExample() {
-  const onChangeEnd = (newValue: number) => {
-    console.log(\`The single Slider updated value is: \${newValue}\`);
-  };
-  return (
-    <Slider
-      helperText="Component helper text."
-      id="slider"
-      labelText="Label"
-      onChangeEnd={onChangeEnd}
-    />
-  );
-}
+  // Typescript example:
+  function SliderEndExample() {
+    const onChangeEnd = (newValue: number) => {
+      console.log(\`The single Slider updated value is: \${newValue}\`);
+    };
+    return (
+      <Slider
+        helperText="Component helper text."
+        id="slider"
+        labelText="Label"
+        onChangeEnd={onChangeEnd}
+      />
+    );
+  }
 `}
   language="tsx"
 />
 
 <Canvas of={SliderStories.FinalSingleSliderValue} />
 
-#### Range Slider Values
+#### Range slider values
 
-Open up the browser's developer console to see the values of the `Slider`
-after updating it in the `isRangeSlider` state.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> Open the browser console to see the array value
+      logged only when you stop dragging the slider.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Source
   code={`
-// Typescript example:
-function RangeSliderEndExample() {
-  const onChangeEnd = (newValue: number[]) => {
-    const [start, end] = newValue;
-    console.log(\`The Range Slider updated start value is: \${start}\`);
-    console.log(\`The Range Slider updated end value is: \${end}\`);
-  };
-  return (
-    <Slider
-      helperText="Component helper text."
-      id="range-slider"
-      isRangeSlider
-      labelText="Label"
-      onChangeEnd={onChangeEnd}
-    />
-  );
+  // Typescript example:
+  function RangeSliderEndExample() {
+    const onChangeEnd = (newValue: number[]) => {
+      const [start, end] = newValue;
+      console.log(\`The Range Slider updated start value is: \${start}\`);
+      console.log(\`The Range Slider updated end value is: \${end}\`);
+    };
+    return (
+      <Slider
+        helperText="Component helper text."
+        id="range-slider"
+        isRangeSlider
+        labelText="Label"
+        onChangeEnd={onChangeEnd}
+      />
+    );
 }
 `}
   language="tsx"
@@ -299,63 +301,69 @@ function RangeSliderEndExample() {
 
 <Canvas of={SliderStories.FinalRangeSliderValue} />
 
-### Programmatically Update
+### Programmatically update
 
 The `Slider` can be updated programmatically through the `value` prop. Like the
-`defaultValue` prop, the `value` prop also takes in a single number for the regular
-`Slider` component or an array of two numbers for the "Range" `Slider` component.
+`defaultValue` prop, the `value` prop takes a single number for the regular
+`Slider` component or an array of two numbers for the "Range" `Slider`. In this
+case, the consuming app is controlling the state of the values.
 
-When doing this, the consuming app is controlling the state of the values. By
-default, the `Slider` component internally keeps track of the current value(s)
-and returns the value(s) to the consuming app through the `onChange` callback.
-
-Open up the browser's developer console to see the values of the `Slider` after
-updating the two corresponding input elements below.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> Open the browser console to see the array value
+      logged only when you stop dragging the slider.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Source
   code={`
-function RangeSliderValuesUpdateExample() {
-  const [value, setValue] = React.useState([15, 75]);
-  const onChangeFirst = (newValue) => {
-    setValue([newValue.target.value, value[1]]);
-  };
-  const onChangeSecond = (newValue) => {
-    setValue([value[0], newValue.target.value]);
-  };
-  return (
-    <Form id="slider-example">
-      <FormRow>
-        <FormField>
-          <TextInput
-            id="textInput-s1"
-            labelText="First Slider value"
-            onChange={onChangeFirst}
-          />
-        </FormField>
-        <FormField>
-          <TextInput
-            id="textInput-s2"
-            labelText="Second Slider value"
-            onChange={onChangeSecond}
-          />
-        </FormField>
-      </FormRow>
-      <FormRow>
-        <FormField>
-          <Slider
-            defaultValue={[15, 75]}
-            helperText="Values can be updated through the two inputs above."
-            id="range-slider-text-example"
-            isRangeSlider
-            labelText="Slider with Updated Values"
-            showBoxes={false}
-            value={value}
-          />
-        </FormField>
-      </FormRow>
-    </Form>
-  );
-}
+  function RangeSliderValuesUpdateExample() {
+    const [value, setValue] = React.useState([15, 75]);
+    const onChangeFirst = (newValue) => {
+      setValue([newValue.target.value, value[1]]);
+    };
+    const onChangeSecond = (newValue) => {
+      setValue([value[0], newValue.target.value]);
+    };
+    return (
+      <Form id="slider-example">
+        <FormRow>
+          <FormField>
+            <TextInput
+              id="textInput-s1"
+              labelText="First Slider value"
+              onChange={onChangeFirst}
+            />
+          </FormField>
+          <FormField>
+            <TextInput
+              id="textInput-s2"
+              labelText="Second Slider value"
+              onChange={onChangeSecond}
+            />
+          </FormField>
+        </FormRow>
+        <FormRow>
+          <FormField>
+            <Slider
+              defaultValue={[15, 75]}
+              helperText="Values can be updated through the two inputs above."
+              id="range-slider-text-example"
+              isRangeSlider
+              labelText="Slider with Updated Values"
+              showBoxes={false}
+              value={value}
+            />
+          </FormField>
+        </FormRow>
+      </Form>
+    );
+  }
 `}
   language="tsx"
 />

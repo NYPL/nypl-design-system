@@ -71,7 +71,7 @@ export type NewsletterSignupViewType =
   | "error";
 
 /**
- * The NewsletterSignup component provides a way for patrons to register for an
+ * The `NewsletterSignup` component provides a way for patrons to register for an
  * email-based newsletter distribution list.
  */
 export const NewsletterSignup: ChakraComponent<

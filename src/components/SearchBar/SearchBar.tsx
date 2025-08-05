@@ -89,8 +89,8 @@ export interface SearchBarProps
 }
 
 /**
- * Renders a wrapper `form` element to be used with `Select` (optional),
- * `Input`, and `Button` components together.
+ * `SearchBar` renders a wrapper `form` element containing an `Input`, `Button`,
+ * and optional `Select`.
  */
 export const SearchBar: ChakraComponent<
   React.ForwardRefExoticComponent<
