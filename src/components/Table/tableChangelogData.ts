@@ -18,7 +18,7 @@ export const changelogData: ChangelogData[] = [
       "Changes theme name from `CustomTable` to `ReservoirTable` for consistency.",
       "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
       "Removes the `tableTextSize` prop in favor of using the native `fontSize` CSS prop.",
-      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
       "Adds `data-testid` value of `ds-table` to the parent element.",
     ],
   },

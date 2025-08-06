@@ -152,7 +152,6 @@ export const WithControls: Story = {
     columnHeadersBackgroundColor: undefined,
     columnHeadersTextColor: undefined,
     columnStyles: undefined,
-    id: undefined,
     isScrollable: false,
     showRowDividers: false,
     showTitleText: false,

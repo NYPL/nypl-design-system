@@ -16,21 +16,22 @@ import Link from "../components/Link/Link";
 
 <Source
   code={`
-import {
-  useNYPLBreakpoints
-} from "@nypl/design-system-react-components";
+  import {
+    useNYPLBreakpoints
+  } from "@nypl/design-system-react-components";
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#mobile-first" target="_self">Mobile-First</Link>}
-- {<Link href="#usage" target="_self">Usage</Link>}
-- {<Link href="#common-patterns" target="_self">Common Patterns</Link>}
-- {<Link href="#code-example" target="_self">Code Example</Link>}
-- {<Link href="#functional-example" target="_self">Functional Example</Link>}
+- [Overview](#overview)
+- [Mobile-first](#mobile-first)
+- [Usage](#usage)
+- [Common patterns](#common-patterns)
+- [Testing](#testing)
+- [Code example](#code-example)
+- [Functional examples](#functional-examples)
 
 ## Overview
 
@@ -38,12 +39,12 @@ This custom hook is inspired by Chakra's `useMediaQuery` hook. Internally, the
 hook uses the `useMediaQuery` hook and the `MediaMatch` API to determine the
 current breakpoint size based on NYPL's breakpoint configuration.
 
-## Mobile-First
+## Mobile-first
 
 In order to follow mobile-first responsive design patterns, the "min-width"
 media query is used with the breakpoint configuration. The list of breakpoints
 can be found on the [Reservoir's
-Breakpoints](../?path=/docs/style-guide-breakpoints--docs) style guide.
+Breakpoints](./?path=/docs/style-guide-breakpoints--docs) style guide.
 
 ## Usage
 
@@ -53,26 +54,26 @@ semantic naming convention.
 
 <Source
   code={`
-const {
-  // Chakra syntax
-  isLargerThanSmall,
-  isLargerThanMedium,
-  isLargerThanLarge,
-  isLargerThanXLarge,
-  
-  // NYPL semantic syntax
-  isLargerThanSmallMobile,
-  isLargerThanLargeMobile,
-  isLargerThanSmallTablet,
-  isLargerThanLargeTablet,
-  isLargerThanMobile,
-  isLargerThanTablet,
-} = useNYPLBreakpoints();
+  const {
+    // Chakra syntax
+    isLargerThanSmall,
+    isLargerThanMedium,
+    isLargerThanLarge,
+    isLargerThanXLarge,
+    // ...
+    // NYPL semantic syntax
+    isLargerThanSmallMobile,
+    isLargerThanLargeMobile,
+    isLargerThanSmallTablet,
+    isLargerThanLargeTablet,
+    isLargerThanMobile,
+    isLargerThanTablet,
+  } = useNYPLBreakpoints();
 `}
-  language="jsx"
+  language="tsx"
 />
 
-## Common Patterns
+## Common patterns
 
 NYPL Product Designers will often only provide `mobile` and `desktop` layouts.
 When necesary, NYPL Product Designer may also provide `tablet` layouts.
@@ -95,36 +96,37 @@ When development needs more granular control when targetting viewports:
 
 ## Testing
 
-Because `useNYPLBreakpoints` uses the `MediaMatch` API, you will need to mock the API
-when unit testing. There is a mock you may import from Reservoir, or you can use your own.
+Because `useNYPLBreakpoints` uses the `MediaMatch` API, you will need to mock
+the API when unit testing. There is a mock you may import from Reservoir, or
+you can use your own.
 
 <Source
   code={`
-import { MatchMedia } from "@nypl/design-system-react-components";
+  import { MatchMedia } from "@nypl/design-system-react-components";
 
 new MatchMedia();
 `}
-language="jsx"
+language="tsx"
 />
 
-## Code Example
+## Code example
 
 Conditionally render different components based on the current size of the
 viewport.
 
 <Source
   code={`
-const DesktopLayout = () => ...
-const MobileLayout = () => ...
-// ...
-<Box>
-  <Text>
-    {isLargerThanMobile ? "Larger than mobile" : "Smaller than mobile"}
-  </Text>
-  {isLargerThanMobile ? <DesktopLayout /> : <MobileLayout />}
-</Box>
+  const DesktopLayout = () => ...
+  const MobileLayout = () => ...
+  // ...
+  <Box>
+    <Text>
+      {isLargerThanMobile ? "Larger than mobile" : "Smaller than mobile"}
+    </Text>
+    {isLargerThanMobile ? <DesktopLayout /> : <MobileLayout />}
+  </Box>
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Functional Examples
@@ -136,74 +138,77 @@ the window decreases and increases.
 
 <Source
   code={`
-import {
-  Heading,
-  List,
-  Text,
-  useNYPLBreakpoints,
-} from "@nypl/design-system-react-components";
-const {
-  isLargerThanSmall,
-  isLargerThanMedium,
-  isLargerThanLarge,
-  isLargerThanXLarge,
-  isLargerThanSmallMobile,
-  isLargerThanLargeMobile,
-  isLargerThanMobile,
-  isLargerThanSmallTablet,
-  isLargerThanLargeTablet,
-  isLargerThanTablet,
-} = useNYPLBreakpoints();
-
-<Stack direction="row" spacing="l" width="100%">
-  <Box flexBasis="50%">
-    <Heading text="Charka Syntax" level="h3" size="heading6" />
-    <Text>The windows size is currently:</Text>
-    <List variant="ul">
-      <li>
-        {isLargerThanSmall ? <strong>LARGER</strong> : "smaller"} than small
-      </li>
-      <li>
-        {isLargerThanMedium ? <strong>LARGER</strong> : "smaller"} than medium
-      </li>
-      <li>
-        {isLargerThanLarge ? <strong>LARGER</strong> : "smaller"} than large
-      </li>
-      <li>
-        {isLargerThanXLarge ? <strong>LARGER</strong> : "smaller"} than extra
-        large
-      </li>
-    </List>
-  </Box>
-  <Box flexBasis="50%">
-    <Heading text="Semantic Syntax" level="h3" size="heading6" />
-    <Text>The windows size is currently:</Text>
-    <List variant="ul">
-      <li>
-        {isLargerThanSmallMobile ? <strong>LARGER</strong> : "smaller"} than
-        small mobile
-      </li>
-      <li>
-        {isLargerThanLargeMobile ? <strong>LARGER</strong> : "smaller"} than
-        large mobile
-      </li>
-      <li>
-        {isLargerThanMobile ? <strong>LARGER</strong> : "smaller"} than mobile
-        (small and large)
-      </li>
-      <li>
-        {isLargerThanSmallTablet ? <strong>LARGER</strong> : "smaller"} than
-        small tablet
-      </li>
-      <li>
-        {isLargerThanLargeTablet ? <strong>LARGER</strong> : "smaller"} than
-        large tablet
-      </li>
-      <li>
-        {isLargerThanTablet ? <strong>LARGER</strong> : "smaller"} than tablet
-        (small and large)
-      </li>
-    </List>
-  </Box>
-</Stack>
-`} language="jsx" />
+  import {
+    Heading,
+    List,
+    Text,
+    useNYPLBreakpoints,
+  } from "@nypl/design-system-react-components";
+  // ...
+  const {
+    isLargerThanSmall,
+    isLargerThanMedium,
+    isLargerThanLarge,
+    isLargerThanXLarge,
+    isLargerThanSmallMobile,
+    isLargerThanLargeMobile,
+    isLargerThanMobile,
+    isLargerThanSmallTablet,
+    isLargerThanLargeTablet,
+    isLargerThanTablet,
+  } = useNYPLBreakpoints();
+  // ...
+  <Stack direction="row" spacing="l" width="100%">
+    <Box flexBasis="50%">
+      <Heading text="Charka Syntax" level="h3" size="heading6" />
+      <Text>The windows size is currently:</Text>
+      <List variant="ul">
+        <li>
+          {isLargerThanSmall ? <strong>LARGER</strong> : "smaller"} than small
+        </li>
+        <li>
+          {isLargerThanMedium ? <strong>LARGER</strong> : "smaller"} than medium
+        </li>
+        <li>
+          {isLargerThanLarge ? <strong>LARGER</strong> : "smaller"} than large
+        </li>
+        <li>
+          {isLargerThanXLarge ? <strong>LARGER</strong> : "smaller"} than extra
+          large
+        </li>
+      </List>
+    </Box>
+    <Box flexBasis="50%">
+      <Heading text="Semantic Syntax" level="h3" size="heading6" />
+      <Text>The windows size is currently:</Text>
+      <List variant="ul">
+        <li>
+          {isLargerThanSmallMobile ? <strong>LARGER</strong> : "smaller"} than
+          small mobile
+        </li>
+        <li>
+          {isLargerThanLargeMobile ? <strong>LARGER</strong> : "smaller"} than
+          large mobile
+        </li>
+        <li>
+          {isLargerThanMobile ? <strong>LARGER</strong> : "smaller"} than mobile
+          (small and large)
+        </li>
+        <li>
+          {isLargerThanSmallTablet ? <strong>LARGER</strong> : "smaller"} than
+          small tablet
+        </li>
+        <li>
+          {isLargerThanLargeTablet ? <strong>LARGER</strong> : "smaller"} than
+          large tablet
+        </li>
+        <li>
+          {isLargerThanTablet ? <strong>LARGER</strong> : "smaller"} than tablet
+          (small and large)
+        </li>
+      </List>
+    </Box>
+  </Stack>
+`}
+  language="tsx"
+/>
