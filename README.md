@@ -257,7 +257,7 @@ After writing new tests, run `npm run test:generate-output` to create a new JSON
 
 _Make sure not to commit the directory created from the following process_.
 
-There should be no need to run the static Storybook instance while actively developing -- it's used exclusively for building out the `gh-pages` environment and deploying it to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v3/?path=/docs/welcome--docs). In the event that you do want to run the static Storybook npm script, run:
+There should be no need to run the static Storybook instance while actively developing -- it's used exclusively for building out the `gh-pages` environment and deploying it to [Github Pages](https://nypl.github.io/nypl-design-system/reservoir/v4/?path=/docs/welcome--docs). In the event that you do want to run the static Storybook npm script, run:
 
 ```sh
 $ npm run build-storybook:v4
