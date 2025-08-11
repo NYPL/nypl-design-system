@@ -12,10 +12,8 @@ const meta: Meta<typeof Pagination> = {
   title: "Components/Navigation/Pagination",
   component: Pagination,
   argTypes: {
-    className: { control: false },
     currentPage: { control: false },
     getPageHref: { control: false },
-    id: { control: false },
     initialPage: { control: false, table: { defaultValue: { summary: "1" } } },
     onPageChange: { control: false },
   },
@@ -31,10 +29,10 @@ type Story = StoryObj<typeof Pagination>;
  */
 export const URLUpdates: Story = {
   args: {
-    className: undefined,
+    currentPage: undefined,
     getPageHref: hrefProps.getPageHref,
-    id: "pagination-id",
     initialPage: hrefProps.computedCurrentPage || 1,
+    onPageChange: undefined,
     pageCount: 10,
   },
   name: "Pagination with URL Updates",
@@ -49,8 +47,6 @@ export const URLUpdates: Story = {
 };
 export const UnchangingURL: Story = {
   args: {
-    className: undefined,
-    id: "pagination-id-2",
     initialPage: 7,
     onPageChange: (selectedPage) => {
       console.log(`Current page: ${selectedPage}`);

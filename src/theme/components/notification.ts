@@ -1,13 +1,12 @@
-import { NotificationTypes } from "../../components/Notification/Notification";
+import { NotificationVariants } from "../../components/Notification/Notification";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 import { customFocusColor } from "./global";
 
 interface NotificationBaseStyle extends StyleFunctionProps {
   isCentered: boolean;
-  noMargin: boolean;
   notificationHeading: string;
-  notificationType: NotificationTypes;
+  variant: NotificationVariants;
   showIcon: boolean;
 }
 
@@ -15,22 +14,15 @@ const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["container", "dismissibleButton"]);
 
 const baseStyle = definePartsStyle(
-  ({
-    isCentered,
-    noMargin,
-    notificationHeading,
-    notificationType,
-  }: NotificationBaseStyle) => {
+  ({ isCentered, notificationHeading, variant }: NotificationBaseStyle) => {
     let bg = "ui.status.primary";
-    if (notificationType === "announcement" || notificationType === "warning") {
+    if (variant === "announcement" || variant === "warning") {
       bg = "ui.gray.x-light-cool";
     }
     return {
       bg,
-      borderRadius: noMargin ? "0" : "4px",
       display: "flex",
       fontSize: "desktop.body.body2", // slightly smaller than the default size
-      m: noMargin ? "0" : "s",
       position: "relative",
       p: "inset.default",
       textAlign: isCentered ? "center" : null,

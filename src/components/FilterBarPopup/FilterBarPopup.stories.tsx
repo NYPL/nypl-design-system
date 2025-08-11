@@ -66,16 +66,14 @@ const meta: Meta<typeof FilterBarPopup> = {
   title: "Components/Form Elements/FilterBarPopup",
   component: FilterBarPopup,
   argTypes: {
-    className: { control: false },
     heading: { control: false },
-    id: { control: false },
-    isOpen: { table: { disable: true } },
+    isOpen: { control: false },
     onClear: {
       description:
         "Function to clear all selectedItems - needs to be provided by consuming app",
     },
-    onClose: { table: { disable: true } },
-    onOpen: { table: { disable: true } },
+    onClose: { control: false },
+    onOpen: { control: false },
     onSubmit: {
       description:
         "Function to handle submit of all selectedItems - needs to be provided by consuming app",
@@ -94,7 +92,6 @@ type Story = StoryObj<typeof FilterBarPopup>;
  */
 export const WithControls: Story = {
   args: {
-    id: "filterbar-popup-id",
     heading: "FilterBarPopup",
   },
   render: (args) => <FilterBarPopupStory {...args} />,
@@ -137,11 +134,11 @@ const FilterBarPopupStory = (args) => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -173,6 +170,7 @@ const FilterBarPopupStory = (args) => {
     />
   );
 };
+FilterBarPopupStory.displayName = "FilterBarPopupStory";
 
 const FilterBarPopupHeadingStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear } =
@@ -191,11 +189,11 @@ const FilterBarPopupHeadingStory = () => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -233,6 +231,7 @@ const FilterBarPopupHeadingStory = () => {
     </VStack>
   );
 };
+FilterBarPopupHeadingStory.displayName = "FilterBarPopupHeadingStory";
 
 const FilterBarChildrenStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -268,11 +267,11 @@ const FilterBarChildrenStory = (args) => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -328,11 +327,12 @@ const FilterBarChildrenStory = (args) => {
     />
   );
 };
+FilterBarChildrenStory.displayName = "FilterBarChildrenStory";
 
 const FilterBarTotalResultsStory = () => {
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
   const [textValue, setTextValue] = useState("");
-  const [totalResults, setTotalResults] = useState(100);
+  const [totalResults, setTotalResults] = useState(72);
   const [selectedFilterItems, setSelectedFilterItems] = useState([
     selectedCheckbox,
     textValue,
@@ -347,7 +347,7 @@ const FilterBarTotalResultsStory = () => {
   };
 
   const clearFilters = () => {
-    setTotalResults(100);
+    setTotalResults(72);
     setTextValue("");
     setSelectedCheckbox([]);
   };
@@ -388,7 +388,7 @@ const FilterBarTotalResultsStory = () => {
   return (
     <>
       <FilterBarPopup
-        id="filterbar-with-tagset"
+        id="filterBarPopup-with-tagset"
         onClear={clearFilters}
         selectedItems={selectedFilterItems}
         renderChildren={renderFilterComponents}
@@ -397,3 +397,4 @@ const FilterBarTotalResultsStory = () => {
     </>
   );
 };
+FilterBarTotalResultsStory.displayName = "FilterBarTotalResultsStory";

@@ -10,6 +10,21 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: [
+      "Removes `tag` and `mini` values from `textSizesArray`.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes explicit `children` prop as its not required when React.PropsWithChildren is used.",
+      "Removes `checkListChildrenError` function because this warning will no longer be used.",
+      "Removes default external spacing.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-styledList` to the parent element.",
+    ],
+  },
+  {
     date: "2024-07-25",
     version: "3.2.0",
     type: "Update",

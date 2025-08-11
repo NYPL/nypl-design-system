@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
@@ -58,6 +58,15 @@ describe("Grid Accessibility", () => {
 });
 
 describe("SimpleGrid", () => {
+  it("should not render an id if none is passed", () => {
+    render(
+      <SimpleGrid>
+        <p>This is a grid</p>
+      </SimpleGrid>
+    );
+    expect(screen.getByTestId("ds-simpleGrid")).not.toHaveAttribute("id");
+  });
+
   it("Renders the SimpleGrid UI snapshot correctly", () => {
     const tree = renderer.create(<SimpleGrid id="test-grid" />).toJSON();
     const withChakraProps = renderer

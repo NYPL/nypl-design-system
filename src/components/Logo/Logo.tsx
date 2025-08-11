@@ -1,7 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Icon as ChakraIcon,
   useStyleConfig,
 } from "@chakra-ui/react";
@@ -14,14 +16,11 @@ import { logoNamesArray, logoSizesArray } from "./logoVariables";
 export type LogoNames = typeof logoNamesArray[number];
 export type LogoSizes = typeof logoSizesArray[number];
 
-export interface LogoProps {
-  /** Optional className that will be added to the parent element */
-  className?: string;
+export interface LogoProps
+  extends Pick<BoxProps, "id" | "className" | keyof ChakraProps> {
   /** Logos designated as decorative will be ignored by screenreaders. False
    * by default. */
   decorative?: boolean;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** The name of the logo you want to use. */
   name?: LogoNames;
   /** Sets the logo size. */
@@ -51,7 +50,6 @@ export const Logo: ChakraComponent<
   >((props, ref?) => {
     const {
       children,
-      className,
       decorative = false,
       id,
       name,
@@ -66,7 +64,6 @@ export const Logo: ChakraComponent<
     });
     const logoProps = {
       "aria-hidden": decorative,
-      className,
       id,
       role: "img",
       title,
@@ -101,24 +98,14 @@ export const Logo: ChakraComponent<
 
     // If no `name` prop was passed, we expect a child SVG element to be passed.
     // Apply logo props to the SVG child.
-    if (
-      (children as JSX.Element).type === "svg" ||
-      (children as JSX.Element).props?.type === "svg" ||
-      (children as JSX.Element).props?.mdxType === "svg"
-    ) {
-      childSVG = React.cloneElement(children as JSX.Element, {
-        ...logoProps,
-        ref,
-      });
-    } else {
-      console.warn(
-        "NYPL Reservoir Logo: An `svg` element must be passed to the `Logo` " +
-          "component as its child."
-      );
-    }
+
+    childSVG = React.cloneElement(children as JSX.Element, {
+      ...logoProps,
+      ref,
+    });
 
     return (
-      <Box ref={ref} __css={styles}>
+      <Box data-testid="ds-logo" ref={ref} __css={styles}>
         {childSVG}
       </Box>
     );

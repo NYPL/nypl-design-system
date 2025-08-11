@@ -1,29 +1,26 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   RadioGroup as ChakraRadioGroup,
   Stack,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useMemo } from "react";
 
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import { spacing } from "../../theme/foundations/spacing";
-import Radio from "../Radio/Radio";
 import { LayoutTypes } from "../../helpers/types";
+import { RadioGroupContext } from "./RadioGroupContext";
 
-export interface RadioGroupProps {
-  /** Additional class name. */
-  className?: string;
+export interface RadioGroupProps extends Omit<BoxProps, "onChange"> {
   /** Populates the initial value of the input */
   defaultValue?: string;
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the HelperErrorText for error state */
   invalidText?: HelperErrorTextType;
   /** Adds the 'disabled' prop to the input when true. */
@@ -54,13 +51,12 @@ export interface RadioGroupProps {
   showRequiredLabel?: boolean;
 }
 
-const noop = () => {};
-
 /**
  * `RadioGroup` is a wrapper for DS `Radio` components that render together
- * along with an optional helper text. The `name` prop is essential for this
- * form group element and is not needed for individual DS `Radio`
- * components when `RadioGroup` is used.
+ * along with an optional helper text.
+ *
+ * The `name` prop is essential for this form group element and is not needed
+ * for individual DS `Radio` components when `RadioGroup` is used.
  */
 export const RadioGroup: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -73,7 +69,6 @@ export const RadioGroup: ChakraComponent<
     (props, ref?) => {
       const {
         children,
-        className = "",
         defaultValue,
         helperText,
         id,
@@ -96,7 +91,6 @@ export const RadioGroup: ChakraComponent<
         ? invalidText
         : helperText;
       const spacingProp = layout === "column" ? spacing.s : spacing.l;
-      const newChildren: JSX.Element[] = [];
       // Get the Chakra-based styles for the custom elements in this component.
       const styles = useMultiStyleConfig("RadioGroup", {
         isFullWidth,
@@ -104,7 +98,7 @@ export const RadioGroup: ChakraComponent<
       });
       // Props for the `ChakraRadioGroup` component.
       const radioGroupProps = {
-        ["aria-labelledby"]: `rg-span-title-${id}`,
+        ["aria-labelledby"]: `${id}-span-title`,
         name,
         onChange: (selected: string) => {
           setValue(selected);
@@ -114,58 +108,31 @@ export const RadioGroup: ChakraComponent<
         value,
       };
 
-      if (!id) {
-        console.warn(
-          "NYPL Reservoir RadioGroup: This component's required `id` prop was not passed."
-        );
-      }
-
-      // Go through the Radio children and update them as needed.
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement, key) => {
-          if (child?.type !== Radio) {
-            // Special case for Storybook MDX documentation.
-            if (child.props?.mdxType && child.props?.mdxType === "Radio") {
-              noop();
-            } else {
-              console.warn(
-                "NYPL Reservoir RadioGroup: Only `Radio` components are allowed " +
-                  "inside the `RadioGroup` component."
-              );
-            }
-          }
-
-          if (child !== undefined && child !== null) {
-            const newProps = {
-              key,
-              isDisabled,
-              isInvalid,
-              isRequired,
-            };
-            newChildren.push(React.cloneElement(child, newProps));
-          }
-        }
+      const radioGroupContextValue = useMemo(
+        () => ({
+          isDisabled,
+          isInvalid,
+          isRequired,
+          name,
+        }),
+        [isDisabled, isInvalid, isRequired, name]
       );
 
       return (
-        <Box
-          className={className}
-          id={`radio-group-${id}`}
-          {...rest}
-          __css={styles}
-        >
-          <Box as="span" id={`rg-span-title-${id}`} __css={styles.spanLegend}>
+        <Box data-testid="ds-radioGroup" id={id} __css={styles} {...rest}>
+          <Box as="span" id={`${id}-span-title`} __css={styles.spanLegend}>
             {labelText}
             {showRequiredLabel && isRequired && <span> (required)</span>}
           </Box>
           <ChakraRadioGroup {...radioGroupProps}>
             <Stack
-              className="radioGroupStack"
+              className="ds-radioGroup-stack"
               direction={[layout]}
               spacing={spacingProp}
             >
-              {newChildren}
+              <RadioGroupContext.Provider value={radioGroupContextValue}>
+                {children}
+              </RadioGroupContext.Provider>
             </Stack>
           </ChakraRadioGroup>
           <HelperErrorText

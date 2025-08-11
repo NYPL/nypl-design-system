@@ -1,28 +1,37 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
-import { changelogData } from "./buttonGroupChangelogData";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+} from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
 import * as ButtonGroupStories from "./ButtonGroup.stories";
-import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import { changelogData } from "./buttonGroupChangelogData";
 
 <Meta of={ButtonGroupStories} />
 
-# ButtonGroup
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="ButtonGroup"
+  summary="Grouping of related button elements"
+  versionAdded="0.28.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.28.0`   |
-| Latest            | `3.2.0`    |
+<Canvas of={ButtonGroupStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#button-width" target="_self">Button Width</Link>}
-- {<Link href="#layout" target="_self">Layout</Link>}
-- {<Link href="#isDisabled" target="_self">isDisabled</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Button Width](#button-width)
+- [Layout](#layout)
+- [isDisabled](#isdisabled)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -34,11 +43,24 @@ width.
 
 ## Component Props
 
-<Canvas of={ButtonGroupStories.WithControls} />
+You may pass any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={ButtonGroupStories.WithControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an <code>id</code> value
+      for accessibility requirements. If no <code>id</code> is passed, a random{" "}
+      <code>id</code> will be generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="recommendation"
+/>
 
 This component is a wrapper around the `Button` component. For accessibility
 information on the `Button` component, see the [Button
@@ -60,7 +82,7 @@ The `layout` prop can be used to set the layout to either `row` or `column`.
 
 <Canvas of={ButtonGroupStories.Layout} />
 
-## Disabled
+## isDisabled
 
 The `isDisabled` prop can be used to disable all the `Button` children at once.
 Individual `Button`s can still be disabled with their own `isDisabled` prop.

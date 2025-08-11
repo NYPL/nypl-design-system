@@ -19,12 +19,10 @@ const meta: Meta<typeof VideoPlayer> = {
         defaultValue: { summary: "sixteenByNine" },
       },
     },
-    className: { control: false },
     descriptionText: { control: "text" },
     embedCode: { control: false },
     headingText: { control: "text" },
     helperText: { control: "text" },
-    id: { control: false },
     iframeTitle: { control: "text" },
     showHelperInvalidText: argsBooleanType("true"),
     videoId: { control: "text" },
@@ -45,14 +43,12 @@ type Story = StoryObj<typeof VideoPlayer>;
 export const WithControls: Story = {
   args: {
     aspectRatio: "sixteenByNine",
-    className: undefined,
     descriptionText:
       "Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
     embedCode: `<iframe src="https://player.vimeo.com/video/421404144?h=5467db7edd" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`,
     headingText: "NYPL Video",
     helperText:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.",
-    id: "videoPlayer-id",
     iframeTitle: undefined,
     showHelperInvalidText: true,
     videoId: undefined,

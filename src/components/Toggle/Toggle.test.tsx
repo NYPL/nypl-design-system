@@ -6,8 +6,20 @@ import renderer from "react-test-renderer";
 
 import Toggle from "./Toggle";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Toggle Accessibility", () => {
   it("Passes axe accessibility test", async () => {
+    const { container } = render(
+      <Toggle id="inputID" onChange={jest.fn()} labelText="Test Label" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("Passes axe accessibility test with no id", async () => {
     const { container } = render(
       <Toggle id="inputID" onChange={jest.fn()} labelText="Test Label" />
     );
@@ -20,6 +32,12 @@ describe("Toggle", () => {
 
   beforeEach(() => {
     changeHandler = jest.fn();
+  });
+
+  it("should add an id to the component even if none is passed", () => {
+    render(<Toggle labelText="Test Label" />);
+    const toggleInput = screen.getByTestId("ds-toggle");
+    expect(toggleInput).toHaveAttribute("id", "test-id-componentWrapper");
   });
 
   it("Renders with a Toggle input and label", () => {
@@ -108,18 +126,6 @@ describe("Toggle", () => {
     expect(changeHandler).toHaveBeenCalledTimes(0);
     userEvent.click(utils.getByText("onChangeTest Lab"));
     expect(changeHandler).toHaveBeenCalledTimes(1);
-  });
-
-  it("Logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <Toggle labelText="test" />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Toggle: This component's required `id` prop was not passed."
-    );
   });
 
   it("Renders the UI snapshot correctly", () => {

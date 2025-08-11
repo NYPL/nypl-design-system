@@ -2,29 +2,30 @@
 
 exports[`Hero Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1wmtxb5"
+  className="css-8x56sg"
   data-responsive-background-image={true}
-  data-testid="hero"
+  data-testid="ds-hero"
 >
   <div
-    className="css-24mlj5"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.black",
-      }
-    }
+    className="css-0"
+    data-testid="ds-hero-grid"
   >
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="primary-hero"
-    >
-      Hero Primary
-    </h1>
     <div
-      className="css-0"
+      className="css-24mlj5"
+      data-testid="ds-hero-content"
     >
-      Example Subtitle
+      <h1
+        className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
+        id="primary-hero"
+      >
+        Hero Primary
+      </h1>
+      <div
+        className="css-0"
+      >
+        Example Subtitle
+      </div>
     </div>
   </div>
 </div>
@@ -32,246 +33,17 @@ exports[`Hero Renders the UI snapshot correctly 1`] = `
 
 exports[`Hero Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-b2u002"
+  className="css-5oa3pe"
   data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-0"
-    data-testid="hero-content"
-    style={{}}
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": undefined,
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="secondary-hero"
-    >
-      Hero Secondary
-    </h1>
-    <div
-      className="css-0"
-    >
-      Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 3`] = `
-<div
-  className="css-0"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-0"
-    data-testid="hero-content"
-    style={{}}
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": undefined,
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="secondary-hero"
-    >
-      Hero Secondary Books and More
-    </h1>
-    <div
-      className="css-0"
-    >
-      Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 4`] = `
-<div
-  className="css-0"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-0"
-    data-testid="hero-content"
-    style={{}}
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": undefined,
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="secondary-hero"
-    >
-      Hero Secondary Locations
-    </h1>
-    <div
-      className="css-0"
-    >
-      Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 5`] = `
-<div
-  className="css-0"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-0"
-    data-testid="hero-content"
-    style={{}}
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": undefined,
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="secondary-hero"
-    >
-      Hero Secondary
-    </h1>
-    <div
-      className="css-0"
-    >
-      Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 6`] = `
-<div
-  className="css-0"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-0"
-    data-testid="hero-content"
-    style={{}}
-  >
-    <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": undefined,
-        }
-      }
-    >
-      <div
-        className="css-0"
-      >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
-      </div>
-    </div>
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="secondary-hero"
-    >
-      Hero Secondary What's On
-    </h1>
-    <div
-      className="css-0"
-    >
-      Explore our collection of hundreds of online resources and databases. Use our free online content to help with your research, whether it's finding a single article, tracing a family tree, learning a new language, or anything in between.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 7`] = `
-<div
-  className="css-14tngpx"
-  data-responsive-background-image={true}
-  data-testid="hero"
+  data-testid="ds-hero"
 >
   <div
     className="css-14tngpx"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.gray.x-dark",
-      }
-    }
+    data-testid="ds-hero-content"
   >
     <h1
       className="chakra-heading css-1xdhyk6"
+      data-testid="ds-heading"
       id="tertiary-hero"
     >
       Hero Tertiary
@@ -283,20 +55,15 @@ exports[`Hero Renders the UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`Hero Renders the UI snapshot correctly 8`] = `
+exports[`Hero Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-x5wp36"
+  className="css-16jme9j"
   data-responsive-background-image={true}
-  data-testid="hero"
+  data-testid="ds-hero"
 >
   <div
     className="css-24mlj5"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.black",
-      }
-    }
+    data-testid="ds-hero-content"
   >
     <div
       className="css-0"
@@ -308,10 +75,12 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
     >
       <div
         className="css-0"
+        data-testid="ds-image"
+        id="image-example"
       >
         <img
           alt="Image example"
-          className="css-0"
+          className="css-1xdhyk6"
           id="image-example"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
@@ -322,6 +91,7 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
     >
       <h1
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="campaign-hero"
       >
         Hero Campaign
@@ -332,104 +102,63 @@ exports[`Hero Renders the UI snapshot correctly 8`] = `
 </div>
 `;
 
-exports[`Hero Renders the UI snapshot correctly 9`] = `
+exports[`Hero Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-b2u002"
+  className="css-uq9vkr"
   data-responsive-background-image={true}
-  data-testid="hero"
+  data-testid="ds-hero"
 >
   <div
-    className="css-b2u002"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.bg.default",
-      }
-    }
+    className="css-0"
+    data-testid="ds-hero-grid"
   >
     <div
-      className="css-0"
-      style={
-        {
-          "backgroundImage": "/**/url("https://images.nypl.org/index.php?id=swope_243048&t=r")",
-        }
-      }
+      className="css-24mlj5"
+      data-testid="ds-hero-content"
     >
+      <h1
+        className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
+        id="chakra"
+      >
+        Hero Primary
+      </h1>
       <div
         className="css-0"
       >
-        <img
-          alt="Image example"
-          className="css-0"
-          id="image-example"
-          src="https://images.nypl.org/index.php?id=swope_243048&t=r"
-        />
+        Example Subtitle
       </div>
     </div>
-    <div
-      className="css-0"
-    >
-      With 92 locations across the Bronx, Manhattan, and Staten Island, The New York Public Library is an essential part of neighborhoods across the city. Visit us today.
-    </div>
   </div>
 </div>
 `;
 
-exports[`Hero Renders the UI snapshot correctly 10`] = `
+exports[`Hero Renders the UI snapshot correctly 5`] = `
 <div
-  className="css-1wmtxb5"
+  className="css-8x56sg"
   data-responsive-background-image={true}
-  data-testid="hero"
+  data-testid="props"
 >
   <div
-    className="css-24mlj5"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.black",
-      }
-    }
+    className="css-0"
+    data-testid="ds-hero-grid"
   >
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="chakra"
-    >
-      Hero Primary
-    </h1>
     <div
-      className="css-0"
+      className="css-24mlj5"
+      data-testid="ds-hero-content"
     >
-      Example Subtitle
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hero Renders the UI snapshot correctly 11`] = `
-<div
-  className="css-1wmtxb5"
-  data-responsive-background-image={true}
-  data-testid="hero"
->
-  <div
-    className="css-24mlj5"
-    data-testid="hero-content"
-    style={
-      {
-        "bgColor": "ui.black",
-      }
-    }
-  >
-    <h1
-      className="chakra-heading css-1xdhyk6"
-      id="props"
-    >
-      Hero Primary
-    </h1>
-    <div
-      className="css-0"
-    >
-      Example Subtitle
+      <h1
+        className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
+        id="props"
+      >
+        Hero Primary
+      </h1>
+      <div
+        className="css-0"
+      >
+        Example Subtitle
+      </div>
     </div>
   </div>
 </div>

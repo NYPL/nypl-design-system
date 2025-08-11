@@ -1,8 +1,13 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import ComponentDocsHeader from "../../../utils/components/ComponentDocsHeader";
+
 <Meta title="Style Guide/Filtering/JavaScript disabled" />
 
-# Filtering when JavaScript is disabled
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Filtering when JavaScript is disabled"
+/>
 
 Our engineering implementation goal is to reach parity of outcomes instead of
 parity of interaction. Live or real-time filtering is not achievable when a
@@ -13,7 +18,7 @@ increases the risk of encountering no results with all the selected filters, it
 still provides the ability to filter and reach the same outcome as real-time
 filtering with JavaScript.
 
-At a base default level, the filter UIs should include “apply” or “submit”
+At a base default level, the filter UIs should include “Apply” or “Submit”
 buttons that get removed once JavaScript loads. Developers need to keep in mind
 that the HTML form implementation and individual input elements need to be
 either uncontrolled or controlled for their specific application-needs and

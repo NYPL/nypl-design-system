@@ -51,8 +51,8 @@ const NewsletterSignup = defineMultiStyleConfig({
     form: {
       width: "100%",
     },
-    // Overwrites the default styling of the Form component layout
-    "#newsletter-form-parent": {
+    // Alter the styles of the underlying Form component
+    ".ds-newslettersignup-form > div": {
       // The button is 78px wide and must sit to the right of the input field >lg.
       gridTemplateColumns: { base: null, lg: "1fr 78px" },
       gap: { base: "s", lg: "xs" },

@@ -10,6 +10,19 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Removes the explicit `className` prop in favor of `rest`.",
+      "Moves the `rest` prop to the parent Box component.",
+      "Adds `data-testid` value of `ds-menu` to the parent element.",
+    ],
+  },
+  {
     date: "2025-04-10",
     version: "3.6.0",
     type: "Update",

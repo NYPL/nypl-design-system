@@ -1,19 +1,31 @@
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
 import Button from "../Button/Button";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 import Text from "../Text/Text";
 
 <Meta title="Development Guide/v3 Migration Guide" />
 
-# Reservoir v3 Migration Guide
+<Banner
+  content={<>The Reservoir team will support v3 until the end of Q2 FY26.</>}
+  mt="s"
+  mb="s"
+  variant="warning"
+/>
 
-## Table of Contents
+<ComponentDocsHeader
+  category="Development Guide"
+  componentName="Reservoir v3 Migration Guide"
+/>
 
-- {<Link href="#general-updates-requirements">General Updates & Requirements</Link>}
-- {<Link href="#upgrade-path">Upgrade Path</Link>}
-- {<Link href="#breaking-changes">Breaking Changes</Link>}
-- {<Link href="#additional-testing-needs">Additional Testing Needs</Link>}
+## Table of contents
+
+- [General Updates & Requirements](#general-updates-requirements)
+- [Upgrade Path](#upgrade-path)
+- [Breaking Changes](#breaking-changes)
+- [Additional Testing Needs](#additional-testing-needs)
 
 ## General Updates & Requirements
 
@@ -48,10 +60,10 @@ The recommended approach to upgrade to v3 is to update the
 
 <Source
   code={`
-// Update the package.json file
-"dependencies": {
-  "@nypl/design-system-react-components": "3.0.0",
-}
+  // Update the package.json file
+  "dependencies": {
+    "@nypl/design-system-react-components": "3.0.0",
+  }
 `}
   language="json"
 />
@@ -99,24 +111,25 @@ but the main points to note are:
 
 <Source
   code={`
-// Assuming that Next.js 13+ is being used
-
-// Do This
-import Link as NextLink from "next/link";
-import { Link } from "@nypl/design-system-react-components";
-
-<Link href="/about" as={NextLink}>
-  About
-</Link>
-
-// Don't Do This
-import Link from "next/link";
-import { Link as DSLink } from "@nypl/design-system-react-components";
-
-<Link href="/about" passHref>
-  <DSLink>About</DSLink>
-</Link>
-`} language="jsx" />
+  // Assuming that Next.js 13+ is being used
+  // Do This
+  import Link as NextLink from "next/link";
+  import { Link } from "@nypl/design-system-react-components";
+  
+  <Link href="/about" as={NextLink}>
+    About
+  </Link>
+  
+  // Don't Do This
+  import Link from "next/link";
+  import { Link as DSLink } from "@nypl/design-system-react-components";
+  
+  <Link href="/about" passHref>
+    <DSLink>About</DSLink>
+  </Link>
+`}
+  language="jsx"
+/>
 
 - The `TagSet` `"filter"` variant has been updated to improve filtering logic in
   consuming apps.
@@ -173,12 +186,12 @@ window.HTMLElement.prototype.scrollIntoView = jest.fn()
 
 <Source
   code={`
-// Related to the Slider component
-class ResizeObserver {
-  observe() {}
-  unobserve() {}
-  disconnect() {
-}
+  // Related to the Slider component
+  class ResizeObserver {
+    observe() {}
+    unobserve() {}
+    disconnect() {
+  }
 
 window.ResizeObserver = ResizeObserver;
 `}

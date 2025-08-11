@@ -1,6 +1,7 @@
 import React, { forwardRef, useRef, useState } from "react";
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Flex,
@@ -10,12 +11,10 @@ import {
 import { Button } from "../Button/Button";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 
-export interface AlphabetFilterProps {
+export interface AlphabetFilterProps extends Omit<BoxProps, "onClick"> {
   /** Array of letters to specify which `Button` components should be set in an `enabled`
    * state. By default, all buttons are `enabled`. */
   activeLetters?: string[];
-  /** A class name for the AlphabetFilter parent div. */
-  className?: string;
   /** The currentLetter can be used to programatically set the selected letter without the
    * user explicitly requesting it. */
   currentLetter?: string;
@@ -25,8 +24,6 @@ export interface AlphabetFilterProps {
    * a DS Heading component that can be passed in.
    */
   headingText?: string | JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Adds the `disabled` prop to the AlphabetFilter when true. */
   isDisabled?: boolean;
   /** The callback function called when a letter button or the Show All button is clicked. */
@@ -42,7 +39,6 @@ export const AlphabetFilter: ChakraComponent<
   forwardRef<HTMLDivElement, AlphabetFilterProps>((props, ref?) => {
     const {
       activeLetters,
-      className,
       currentLetter,
       descriptionText,
       headingText,
@@ -51,7 +47,6 @@ export const AlphabetFilter: ChakraComponent<
       onClick,
       ...rest
     } = props;
-
     const styles = useMultiStyleConfig("AlphabetFilter", {});
 
     const filterButtons = [
@@ -142,7 +137,7 @@ export const AlphabetFilter: ChakraComponent<
           aria-label={
             item.text === "Show All" ? item.text : "Page " + item.text
           }
-          buttonType="text"
+          variant="text"
           id={`filter-${item.value}`}
           isDisabled={isButtonDisabled}
           key={item.value}
@@ -163,14 +158,19 @@ export const AlphabetFilter: ChakraComponent<
     };
 
     return (
-      <Box as="nav" ref={ref} aria-label="Filter by letter">
+      <Box
+        as="nav"
+        aria-label="Filter by letter"
+        data-testid="ds-alphabetFilter"
+        id={id}
+        ref={ref}
+        {...rest}
+      >
         <ComponentWrapper
-          id={id}
-          className={className}
-          __css={styles}
-          {...rest}
-          headingText={headingText ? headingText : undefined}
           descriptionText={descriptionText ? descriptionText : undefined}
+          headingText={headingText ? headingText : undefined}
+          id={id}
+          __css={styles}
         >
           <Flex wrap="wrap">{getFilterLetters()}</Flex>
         </ComponentWrapper>

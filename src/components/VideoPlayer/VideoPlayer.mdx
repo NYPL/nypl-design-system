@@ -1,75 +1,78 @@
-import {
-  ArgTypes,
-  Canvas,
-  Description,
-  Meta,
-  Source,
-} from "@storybook/addon-docs/blocks";
+import { ArgTypes, Canvas, Meta, Source } from "@storybook/addon-docs/blocks";
 
-import * as VideoPlayerStories from "./VideoPlayer.stories";
-import Link from "../Link/Link";
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as VideoPlayerStories from "./VideoPlayer.stories";
 import { changelogData } from "./videoPlayerChangelogData";
 
 <Meta of={VideoPlayerStories} />
 
-# Video Player
+<ComponentDocsHeader
+  category="Media & icon component"
+  componentName="VideoPlayer"
+  summary="Used to embed a video from a 3rd party provider"
+  versionAdded="0.23.2"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.23.2`   |
-| Latest            | `3.6.4`    |
+<Canvas of={VideoPlayerStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#with-custom-heading" target="_self">With Custom Heading</Link>}
-- {<Link href="#extracting-video-ids" target="_self">Extracting Video IDs</Link>}
-- {<Link href="#example-embed-code-snippets" target="_self">Example Embed Code Snippets</Link>}
-- {<Link href="#errored" target="_self">Errored</Link>}
-- {<Link href="#html-in-helper-text" target="_self">HTML in Helper Text</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [With custom heading](#with-custom-heading)
+- [Extracting video IDs](#extracting-video-ids)
+- [Example embed code snippets](#example-embed-code-snippets)
+- [Errored](#errored)
+- [HTML in helper text](#html-in-helper-text)
+- [Changelog](#changelog)
 
 ## Overview
-
-<Description of={VideoPlayerStories} />
 
 The `VideoPlayer` component is used to embed a `Vimeo` or `YouTube` video player
 on a page. The component requires the `embedCode` prop or both the `videoType`
 and `videoId` props. The component will not function properly if you try to set
 all of them.
 
-You can extract the videoId from the video's URL. **IMPORTANT:** Do not try to
-enter the full video URL as the `videoId` value.
-
-The `aspectRatio` prop is used to control the sizing of the space allotted for
-the video rendering. Ultimately, the `aspectRatio` prop should be set to match
-the aspect ratio of the video that is being rendered. The default aspect ratio
-is `16:9`.
-
-## Component Props
-
-<Canvas of={VideoPlayerStories.WithControls} />
-
-<ArgTypes of={VideoPlayerStories.WithControls} />
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The <code>aspectRatio</code> prop should be
+      set to match the aspect ratio of the video that is being rendered. The
+      default aspect ratio is 16:9.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="warning"
+/>
 
 **Example Vimeo IDs:** `474719268`, `491405018`, `493795778` (square)<br />
 **Example YouTube IDs:** `PfqgDG1qrKg`, `roi5V8ppi7Y`, `nm-dD2tx6bk`
 
+## Component props
+
+The `VideoPlayer` composes a Chakra `Box` component, so you may pass any Chakra
+`Box` props, as well as the props below.
+
+<ArgTypes of={VideoPlayerStories.WithControls} />
+
 ## Accessibility
 
 The `VideoPlayer` component renders an `iframe` element with either a Vimeo or
-YouTube video. `iframe`s can be accessible if a `title` attribute is provided.
-When passing in a video type and a video `id`, make sure to pass a title.
-Otherwise, the title must already be provided in the embed code value that is
-passed to the `embedCode` prop. A default one is provided but a custom one is
-recommended.
+YouTube video.
+
+The accessibility of the `iframe` element can be improved if a `title` attribute
+is provided. It is recommended to include a custom `title` in the `embedCode`.
+Otherwise, a default `title` will be added.
 
 Not all the Vimeo or YouTube videos passed to the `VideoPlayer` component will
 be owned by The New York Public Library. Because these videos are hosted on a
-third-party platform, we cannot guarantee that the video will be accessible.
+3rd party platform, we cannot guarantee that the video will be accessible.
 Besides setting the `title` in the embedded `iframe`, there are _some_ ways we
 can reduce accessibility issues.
 
@@ -86,32 +89,45 @@ Resources:
 - [MDN iframe: The Inline Frame element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
 - [Deque University Be Sure to Provide Titles for Iframes](https://dequeuniversity.com/tips/provide-iframe-titles)
 
-## With Custom Heading
+## With custom heading
 
 By default, the `VideoPlayer` will render an `h2` element when a string is
-passed to the `headingText` component. If this is an accessibility issue, it's
-possible to pass in a custom heading element.
+passed to the `headingText` component. If this does not fit in your page's heading
+hierarchy, pass a custom heading element that meets accessibility requirements.
 
 In the following example, an `h4` is rendered through the DS `Heading` component.
 
 <Source
   code={`
-
-const customH4 = <Heading level="h4">Custom H4 Heading</Heading>;
-
-<VideoPlayer headingText={customH4} {...props} />
-`} language="tsx" />
+  const customH4 = <Heading level="h4">Custom H4 Heading</Heading>;
+  <VideoPlayer headingText={customH4} {...props} />
+`}
+  language="tsx"
+/>
 
 <Canvas of={VideoPlayerStories.WithCustomHeading} />
 
-## Extracting Video IDs
+## Extracting video IDs
+
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> You can <em>extract</em> the{" "}
+      <code>videoId</code> from the video's URL. Do not try to enter the full
+      URL as the <code>videoId</code> value.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="warning"
+/>
 
 ### Vimeo
 
 <Source
   code={`
-https://vimeo.com/[VIDEO_ID]
-https://vimeo.com/474719268
+  https://vimeo.com/[VIDEO_ID]
+  https://vimeo.com/474719268
 `}
   language="html"
 />
@@ -120,13 +136,13 @@ https://vimeo.com/474719268
 
 <Source
   code={`
-https://www.youtube.com/watch?v=[VIDEO_ID]
-https://www.youtube.com/watch?v=nm-dD2tx6bk
+  https://www.youtube.com/watch?v=[VIDEO_ID]
+  https://www.youtube.com/watch?v=nm-dD2tx6bk
 `}
   language="html"
 />
 
-## Example Embed Code Snippets
+## Example embed code snippets
 
 The examples below are shown with precise HTML formatting. However, often the
 embed code snippets provided by 3rd party video services are delivered as one
@@ -136,14 +152,14 @@ long string.
 
 <Source
   code={`
-<iframe
-  src="https://player.vimeo.com/video/421404144?h=5467db7edd"
-  width="640"
-  height="360"
-  frameborder="0"
-  allow="autoplay; fullscreen; picture-in-picture"
-  allowfullscreen
-></iframe>
+  <iframe
+    src="https://player.vimeo.com/video/421404144?h=5467db7edd"
+    width="640"
+    height="360"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen
+  ></iframe>
 `}
   language="html"
 />
@@ -152,15 +168,15 @@ long string.
 
 <Source
   code={`
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/nm-dD2tx6bk"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/nm-dD2tx6bk"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
 `}
   language="html"
 />
@@ -172,7 +188,7 @@ component UI will display an error message.
 
 <Canvas of={VideoPlayerStories.Errored} />
 
-## HTML in Helper Text
+## HTML in helper text
 
 It's possible to include HTML in the `helperText` prop.
 

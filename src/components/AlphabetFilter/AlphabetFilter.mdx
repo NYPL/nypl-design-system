@@ -1,62 +1,72 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
-import * as AlphabetFilterStories from "./AlphabetFilter.stories";
-import Link from "../Link/Link";
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as AlphabetFilterStories from "./AlphabetFilter.stories";
 import { changelogData } from "./alphabetFilterChangelogData";
 
 <Meta of={AlphabetFilterStories} />
 
-# AlphabetFilter
+<ComponentDocsHeader
+  category="Navigation component"
+  componentName="AlphabetFilter"
+  summary="Navigation element used to apply an alphabetic filter to a list of items"
+  versionAdded="1.2.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.2.0`    |
-| Latest            | `3.5.4`    |
+<Canvas of={AlphabetFilterStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#with-custom-heading" target="_self">With Custom Heading</Link>}
-- {<Link href="#examples" target="_self">Examples</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [With custom heading](#with-custom-heading)
+- [Examples](#examples)
+- [Changelog](#changelog)
 
 ## Overview
 
-<Description of={AlphabetFilterStories} />
+The `AlphabetFilter` renders a list of letter buttons, a pound sign button, and
+a "Show All" (reset) button that can be used filter results. Displaying updated
+results based on the user's selection is the responsibility of the consuming app.
 
-The `AlphabetFilter` component renders a list of letter buttons, a pound sign
-button, and show all (reset) button that can be used to select one alphabetical
-filter. Displaying updated results based on the user's selection is the
-responsibility of the consuming app.
-
-### Consuming App Responsibilities
+### Consuming app responsibilities
 
 When the `onClick` handler is executed, it will be up to the consuming app to
 execute filtering updates in real-time on the client-side or to perform a full
 page refresh.
 
-If the `filterValue` passed to `onClick` is `showAll` (meaning the Show All
+If the `filterValue` passed to `onClick` is `showAll` (meaning the "Show All"
 button was clicked), all filtering should be removed from the list of items the
 component is addressing and the full list of items should be displayed.
 
-## Component Props
+## Component props
 
-<Canvas of={AlphabetFilterStories.WithControls} />
+The `AlphabetFilter` composes a Chakra `Box` component, so you may pass any
+Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={AlphabetFilterStories.WithControls} />
 
 ## Accessibility
 
 The `AlphabetFilter` component renders as an HTML `<nav>` element with a
-WAI-ARIA role of `role="navigation"`. Each letter button has an attribute of
-`aria-label="Page {#}"`, where `{#}` is equal to a button's letter value. The
-`Show All` button has `aria-label="Show All"` applied. When a letter button is
-set to a current state (when a button is clicked or `currentLetter` is
-programmatically set), `aria-current="page"` is applied to the button and
-removed from all other letter buttons.
+WAI-ARIA role of `role="navigation"`.
+
+Each letter button has an attribute of `aria-label="Page {#}"`, where `{#}` is
+equal to a button's letter value. The "Show All" button has `aria-label="Show All"`
+applied. When a letter button is set to the current state (when a button is
+clicked or `currentLetter` is programmatically set), `aria-current="page"` is
+applied to the button and removed from all other letter buttons.
 
 The `AlphabetFilter` component is accessible via keyboard. The color contrast
 between foreground color and background color is 4.5:1. If text size is 200%,
@@ -73,18 +83,18 @@ Resources:
 - [MDN aria-current](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 - [MDN nav](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav#exampless)
 
-### Consuming App Accessibility
+### Consuming app accessibility
 
 If filter results are refreshed on the client-side without a full page refresh,
 the updated filter results must be the child of an element that has the
-`role=”alert”` attribute applied or as a child of a Live Region container with
+`role=”alert”` attribute applied or as a child of a live region container with
 the `aria-live="polite"` attribute applied.
 
-## With Custom Heading
+## With custom heading
 
 By default, the `AlphabetFilter` will render an `h2` element when a string is
-passed to the `headingText` component. If this is an accessibility issue, it's
-possible to pass in a custom heading element.
+passed to the `headingText` component. If this does not fit in your page's heading
+hierarchy, pass a custom heading element that meets accessibility requirements.
 
 In the following example, an `h4` is rendered through the DS `Heading` component.
 
@@ -108,37 +118,45 @@ Values not passed through the prop will always be disabled.
 A use case for this is when the consuming app does not have results values
 passed to `activeLetters` to limit filter options available to the user.
 
-Ex. `"#", "a", "c", "d", "e", "h", "l", "m", "n", "p", "r", "s"]`
+Ex. `["#", "a", "c", "d", "e", "h", "l", "m", "n", "p", "r", "s"]`
 
 <Canvas of={AlphabetFilterStories.SetActiveLetters} />
 
 ### Set letter selection programmatically
 
-Use the `currentLetter` prop to pass a single letter value to set the selected
-letter page when the component first renders, or to programmatically set the
-current letter.
+Use the `currentLetter` prop to programmatically set the selected letter, either
+when the component first renders or at a later point.
 
 <Canvas of={AlphabetFilterStories.SetCurrentLetter} />
 
 ### Dynamically update currentLetter using onClick
 
 You can pass and extract the value through the `currentLetter` and `onClick`
-props. `onClick` is called with the corresponding `Button` value every time one
+props. `onClick` is called with the corresponding button value every time one
 of the 28 buttons is clicked.
 
-Try it out: open up the browser's console to see new values being logged on each
-change.
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> Open the browser console to see the value logged on
+      each change.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Source
   code={`
-  export function CurrentLetterExample() {
-  const [currentLetter, setCurrentLetter] = React.useState();
-  const onClick = (letter: string) => {
-    console.log(letter);
-    setCurrentLetter(letter);
-  };
-  return <AlphabetFilter currentLetter={currentLetter} onClick={onClick} />;
-}
+    export function CurrentLetterExample() {
+    const [currentLetter, setCurrentLetter] = React.useState();
+    const onClick = (letter: string) => {
+      console.log(letter);
+      setCurrentLetter(letter);
+    };
+    return <AlphabetFilter currentLetter={currentLetter} onClick={onClick} />;
+  }
 `}
   language="tsx"
 />

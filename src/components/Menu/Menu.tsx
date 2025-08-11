@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Flex,
@@ -16,11 +17,7 @@ import Image from "../Image/Image";
 import React, { forwardRef, useRef, useState } from "react";
 import { SectionTypes } from "../../helpers/types";
 
-export interface MenuProps {
-  /** Optional CSS class name that will be added to the component's parent element. */
-  className?: string;
-  /** Optional ID string that other components can cross reference for accessibility purposes. */
-  id?: string;
+export interface MenuProps extends BoxProps {
   /** Optional string used to identify and highlight an item when the menu opens. The value should
    * match the id associated with one of the items. */
   selectedItem?: string;
@@ -85,7 +82,6 @@ export const Menu: ChakraComponent<
   forwardRef<HTMLDivElement, MenuProps>(
     (
       {
-        className,
         id,
         labelText,
         listAlignment = "left",
@@ -297,12 +293,8 @@ export const Menu: ChakraComponent<
 
       const initialRef = useRef();
       return (
-        <Box ref={ref}>
-          <ChakraMenu
-            id={id}
-            initialFocusRef={selected ? initialRef : null}
-            {...rest}
-          >
+        <Box data-testid="ds-menu" id={id} ref={ref} {...rest}>
+          <ChakraMenu initialFocusRef={selected ? initialRef : null}>
             {({ isOpen }) => (
               <Flex
                 flexDirection={

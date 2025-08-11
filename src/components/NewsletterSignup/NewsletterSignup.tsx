@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   Stack,
   useColorModeValue,
@@ -15,10 +16,10 @@ import { NewsletterSignupResponse } from "./NewsletterSignupResponse";
 import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 import useDSHeading from "../../hooks/useDSHeading";
+import { highlightColorsArray } from "../../theme/sharedTypes";
+import { useSafeId } from "../../hooks/useSafeId";
 
-export interface NewsletterSignupProps {
-  /** Additional class name to add. */
-  className?: string;
+export interface NewsletterSignupProps extends Omit<BoxProps, "title"> {
   /** Text displayed next to the confirmation icon after a successful email submission */
   confirmationHeading: string;
   /** Detail text for the confirmation view */
@@ -32,12 +33,9 @@ export interface NewsletterSignupProps {
   /** Appears below the input field's example text to provide any additional instructions. Accepts a string or
    *  an element. */
   formHelperText?: string | JSX.Element;
-  /** ID that other components can cross-reference for accessibility purposes */
-  id?: string;
   /** Toggles the invalid state for the email field. */
   isInvalidEmail?: boolean;
-  /** Value to determine the section color highlight.
-   */
+  /** Value to determine the section color highlight. */
   highlightColor?: HighlightColorTypes;
   /** A handler function that will be called when the form is submitted. */
   onSubmit: (event: React.FormEvent<any>) => void;
@@ -59,21 +57,12 @@ export interface NewsletterSignupProps {
   view?: NewsletterSignupViewType;
 }
 
-export const highlightColorTypesArray = [
+export const newsletterHighlightColorsArray = [
   "ui.gray.medium",
-  "section.blogs.secondary",
-  "section.books-and-more.primary",
-  "brand.primary",
-  "section.connect.primary",
-  "section.education.primary",
-  "section.locations.primary",
-  "section.research.primary",
-  "section.research-library.lpa",
-  "section.research-library.schomburg",
-  "section.research-library.schwartzman",
-  "section.whats-on.primary",
-] as const;
-export type HighlightColorTypes = typeof highlightColorTypesArray[number];
+  ...highlightColorsArray,
+];
+
+export type HighlightColorTypes = typeof newsletterHighlightColorsArray[number];
 
 export type NewsletterSignupViewType =
   | "form"
@@ -82,7 +71,7 @@ export type NewsletterSignupViewType =
   | "error";
 
 /**
- * The NewsletterSignup component provides a way for patrons to register for an
+ * The `NewsletterSignup` component provides a way for patrons to register for an
  * email-based newsletter distribution list.
  */
 export const NewsletterSignup: ChakraComponent<
@@ -95,7 +84,6 @@ export const NewsletterSignup: ChakraComponent<
   forwardRef<HTMLDivElement, NewsletterSignupProps>(
     (
       {
-        className,
         confirmationHeading,
         confirmationText,
         descriptionText,
@@ -116,6 +104,7 @@ export const NewsletterSignup: ChakraComponent<
       },
       ref?
     ) => {
+      const mainId = useSafeId(id);
       const styles = useMultiStyleConfig("NewsletterSignup", {
         highlightColor,
       });
@@ -143,23 +132,23 @@ export const NewsletterSignup: ChakraComponent<
 
       return (
         <Stack
+          data-testid="ds-newsletterSignup"
           direction={{ base: "column", md: "row" }}
+          id={mainId}
+          gap="0"
           ref={ref}
           __css={styles}
           {...rest}
-          gap="0"
         >
           <VStack
-            __css={styles.pitch}
-            className="newsletter-signup-appeal"
             alignItems="flex-start"
+            data-testid="ds-newsletterSignup-appeal"
+            __css={styles.pitch}
           >
             {finalTitle}
             {descriptionText ? (
               typeof descriptionText === "string" ? (
-                <Text noSpace size="body2">
-                  {descriptionText}
-                </Text>
+                <Text size="body2">{descriptionText}</Text>
               ) : (
                 descriptionText
               )
@@ -167,7 +156,7 @@ export const NewsletterSignup: ChakraComponent<
             {showPrivacyLink && (
               <Link
                 href={privacyPolicyLink}
-                type="external"
+                variant="external"
                 isUnderlined={false}
                 __css={styles.privacy}
               >
@@ -175,12 +164,16 @@ export const NewsletterSignup: ChakraComponent<
               </Link>
             )}
           </VStack>
-          <VStack __css={styles.action} className="newsletter-signup-form">
+          <VStack __css={styles.action} data-testid="ds-newsletterSignup-form">
             {isFormView && (
-              <Form id="newsletter-form" onSubmit={onSubmit}>
+              <Form
+                className="ds-newslettersignup-form"
+                id={`${mainId}-form`}
+                onSubmit={onSubmit}
+              >
                 <FormField key="formfield-input">
                   <TextInput
-                    id="email-input"
+                    id={`${mainId}-textInput`}
                     isDisabled={view === "submitting"}
                     isRequired
                     invalidText="There was a problem. Please enter a valid email address."
@@ -196,7 +189,7 @@ export const NewsletterSignup: ChakraComponent<
                 </FormField>
                 <FormField key="formfield-button">
                   <Button
-                    id="submit"
+                    id={`${mainId}-submit`}
                     isDisabled={view === "submitting"}
                     type="submit"
                   >

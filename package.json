@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "3.6.4",
+  "version": "4.0.0-rc",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
     "lint": "eslint src --ext=ts,tsx --cache",
     "prepare": "npm run build && husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook:v3": "storybook build -c .storybook -o ./reservoir/v3",
+    "build-storybook:v4": "storybook build -c .storybook -o ./reservoir/v4",
     "prebuild:storybook": "npm run test:generate-output",
     "build-storybook": "storybook build"
   },
@@ -115,10 +115,10 @@
     "prettier": "2.4.1",
     "prop-types": "15.8.1",
     "react": "18.2.0",
-    "react-autosuggest": "10.0.2",
     "react-dom": "18.2.0",
     "react-test-renderer": "18.2.0",
     "remark-gfm": "4.0.0",
+    "rollup": "3.29.5",
     "sass": "1.60.0",
     "storybook": "9.0.16",
     "ts-jest": "29.1.5",

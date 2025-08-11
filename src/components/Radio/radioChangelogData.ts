@@ -10,6 +10,20 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes `name` and `onChange` props (as HTML equivalents may be used) and updates docs.",
+      "Adds a hook to consume `RadioGroup` context.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Removes the explicit `className` prop in favor of `rest`.",
+      "Adds `data-testid` value of `ds-radio` to the parent element.",
+    ],
+  },
+  {
     date: "2025-04-10",
     version: "3.6.0",
     type: "Update",

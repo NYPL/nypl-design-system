@@ -10,6 +10,21 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Changes theme name from `CustomSelect` to `ReservoirSelect` for consistency.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes `name`, `onChange`, and `value` props (as HTML equivalents may be used) and updates docs.",
+      "Rename `selectType` to `variant`.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-select` to the parent element.",
+      "Fixes helper error text alignment when label is not shown and it is inlined.",
+    ],
+  },
+  {
     date: "2025-04-10",
     version: "3.6.0",
     type: "Update",

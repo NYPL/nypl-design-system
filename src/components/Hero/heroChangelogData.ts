@@ -10,6 +10,21 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Removes deprecated `secondary` and `fiftyFifty` variants.",
+      "Updates the grid layout for the `primary` variant.",
+      "Extends prop interface to include Chakra props or HTML attributes.",
+      "Renames `heroType` to `variant`.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `rest` prop to allow passing additional props to the parent component.",
+      "Adds `data-testid` value of `ds-hero` to the parent element.",
+    ],
+  },
+  {
     date: "2025-02-13",
     version: "3.5.4",
     type: "Update",

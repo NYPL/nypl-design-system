@@ -1,65 +1,73 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
-import * as NewsletterSignupStories from "./NewsletterSignup.stories";
-import Link from "../Link/Link";
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as NewsletterSignupStories from "./NewsletterSignup.stories";
 import { changelogData } from "./newsletterSignupChangelogData";
 
 <Meta of={NewsletterSignupStories} />
 
-# NewsletterSignup
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="NewsletterSignup"
+  summary="Used to render and control the full NYPL newsletter signup experience"
+  versionAdded="2.1.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `2.1.0`    |
-| Latest            | `3.6.2`    |
+<Canvas of={NewsletterSignupStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#jsx-elements-passed-to-descriptiontext-prop">JSX Elements passed to descriptionText Prop</Link>}
-- {<Link href="#custom-title-heading" target="_self">Custom Title Heading</Link>}
-- {<Link href="#form-submission-data" target="_self">Form Submission Data</Link>}
-- {<Link href="#interactive-example-with-onchange-and-onsubmit" target="_self">Interactive Example with onChange and onSubmit</Link>}
-- {<Link href="#component-states" target="_self">Component States</Link>}
-- {<Link href="#component-color-styles-using-highlight-color" target="_self">Component color styles using Highlight Color</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [JSX elements passed to descriptionText prop](#jsx-elements-passed-to-descriptiontext-prop)
+- [Custom title heading](#custom-title-heading)
+- [Accessing form input with onChange and onSubmit](#accessing-form-input-with-onchange-and-onsubmit)
+- [Component states](#component-states)
+- [Component color styles using highlight color](#component-color-styles-using-highlight-color)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={NewsletterSignupStories} />
 
-## Component Props
+## Component props
 
-<Canvas of={NewsletterSignupStories.WithControls} />
+`NewsletterSignup` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={NewsletterSignupStories.WithControls} />
 
 ## Accessibility
 
-The `NewsletterSignup` component is a complex component built from various
-Reservoir DS and Chakra components.
+`NewsletterSignup` is a complex component built from various Reservoir DS and
+Chakra components.
 
-The `title` prop of the `NewsletterSignup` component accepts a `string`, a `HTML Element` or
-a `React Component`. When passing a string, it will render as a `h2` tag but it is the
-responsibility of the consuming app to pass the heading tag (`h*`) that aligns with the page
-structure and ensures accessibility.
+The `title` prop accepts a string or an element. If a `string` is passed, it will
+render as an `h2` with the size set to `heading3`. If an `h2` does not fit into
+the page's heading hierarchy, it is the responsibility of the consuming app to
+pass the correct heading tag (`h*`) to ensure accessibility.
 
-Within the `NewsletterSignup` component, the DS `form` component wraps around
-two DS `FormField` components. Those`FormField` components hold a DS `TextInput`
-component of `type="email"` and a DS `Button` component of `type="submit"`
-respectively. Each of these components has their own accessibility features
+A `Form` wraps a `TextInput` component of `type="email"` and a `Button` component
+of `type="submit"`. Each of these components has their own accessibility features
 documented in their respective Storybook pages.
 
-After the `NewsletterSignup` form is submitted, focus is set to the confirmation
-message or the error message if an error occurs. The `tabindex` for the focused
-element is set to `"-1"`, allowing for programmatic focus to be set. After focus
-is set programmatically, the user will be in control of focus and will not be
-able to tab back to the confirmation message or error message after tabbing
-away. This is standard accessibility behavior and the user should not expect to
-be able to tab back to a non-interactive element.
+After the form is submitted, focus is set to the confirmation message or the error
+message if an error occurs. The `tabindex` for the focused element is set to
+`"-1"`, allowing for programmatic focus to be set. After focus is set
+programmatically, the user will be in control of focus and will not be able to tab
+back to the message after tabbing away. This is standard accessibility behavior
+and the user should not expect to be able to tab back to a non-interactive element.
 
 Resources:
 
@@ -68,139 +76,105 @@ Resources:
 - [DS Button Accessibility](../?path=/docs/components-form-elements-button--docs#accessibility)
 - [DS TextInput Accessibility](../?path=/docs/components-form-elements-textinput--docs#accessibility)
 
-## JSX Elements passed to descriptionText Prop
+## JSX elements passed to `descriptionText` prop
 
-Alternatively to a `descriptionText` of type `string`, a HTML Element or React
-component can be passed. When passing a JSX Element, the consuming app is
-responsible to assure its accessibility.
-
-_NOTE: This is applicable for all component props accepting HTML/JSX elements._
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> When passing a JSX Element to
+      <code>descriptionText</code>, the consuming app is responsible for ensuring
+      its accessibility. This is applicable for all component props accepting HTML/JSX
+      elements.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Canvas of={NewsletterSignupStories.DescriptionUsingJSXElements} />
 
-## Custom Title Heading
+## Custom title heading
 
-The `title` prop accepts either a `string` or a `Element`. If a `string` is passed
-it will render the `Newsletter`'s heading as an `h2` with the size set to `heading3`.
-If the `h2` does not fit into the page's heading hierarchy or the heading size needs
-to be customized, a custom `Heading` element can be passed instead.
+The `title` prop accepts a string or an element. If a `string` is passed, it will
+render as an `h2` with the size set to `heading3`. If an `h2` does not fit into
+the page's heading hierarchy or the size needs changing, you will need to pass
+the correct heading component.
 
 In the following example, the heading is an `h4` defined as:
 
 <Source
   code={`
-// String Heading Example
-const stringHeading = "String heading";
-// ...
-
-<NewsletterSignup title={stringHeading} {...otherArgs} />
-
-// JSX Heading Example
-
-const jsxHeading = <Heading level="h4">Custom h4 DS Heading</Heading>;
-// ...
-
-<NewsletterSignup title={jsxHeading} {...otherArgs} />
-`} language="jsx" />
+  // String Heading Example
+  const stringHeading = "String heading";
+  // ...
+  <NewsletterSignup title={stringHeading} {...otherArgs} />
+  
+  // JSX Heading Example
+  const jsxHeading = <Heading level="h4">Custom h4 DS Heading</Heading>;
+  // ...
+  <NewsletterSignup title={jsxHeading} {...otherArgs} />
+`}
+  language="jsx"
+/>
 
 <Canvas of={NewsletterSignupStories.CustomHeadings} />
 
-## Form Submission Data
+## Accessing form input with `onChange` and `onSubmit`
 
-Submitted form data can be retrieved when the `NewsletterSignup` component is
-submitted through the required `onSubmit` prop. This prop expects a function and
-it will be called when the form is submitted. Similar to other DS
-form-components that have function props, the data from the component will be
-returned in the function's argument. In this case, it will be a single object.
-
-The submitted form data will be passed as an object that the parent component
-can use. The returned object will always contain the "email" field.
-
-Below is an example callback function named `onSubmit` that is passed to the
-`NewsletterSignup` component's `onSubmit` prop and how the view is controlled in
-the data submission process. The form data will be returned through the
-function's argument as an object, called `values` in the example below.
-
-<Source 
-  code={`
-const [view, setView] = React.useState("form");
-const onSubmit = async (values) => {
-  e.preventDefault();
-  setView("submitting");
-  const endpoint = "...";
-  //Form the request for sending data to the server.
-  const options = {
-    method: "POST",
-    headers: {Content-Type: "application/json"},
-    body: JSON.stringify(values),
-  };
-  //Send the form and await response.
-  try {
-    const response = await fetch(endpoint, options);
-    const result = await response.json();
-    setView("confirmation");
-  } catch (error) {
-    setView("error");
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> Open the browser console to see the values logged
+      in the example below.
+    </>
   }
-};
-
-//....
-
-<NewsletterSignup onChange={onChange} onSubmit={onSubmit} view={view} />
-
-`}
-language="jsx"
+  mt="s"
+  mb="s"
+  variant="informative"
 />
 
-## Interactive Example with onChange and onSubmit
+The value typed into the `TextInput` can be accessed by the functions passed to
+the `onChange` and `onSubmit` props through the `event` object.
 
-_NOTE: open the browser console to see the values logged in the example below._
-
-The input value typed into the `TextInput` of the `NewsletterSignup` component
-can be accessed by the functions passed to the `onChange` and `onSubmit` prop.
-
-Both the `onChange` and `onSubmit` callback functions can retrieved the
-submitted value as `event.target.email.value` through the `event` object passed
-as the single argument.
-
-The following example logs the `event.target.email.value` to the console on each
-`onChange` call and upon clicking the Submit button which triggers the
-`onSubmit` function and simulate a submission. The component will transition
-through a `"submitting"` view to an alternating `"confirmation"`, `"error"` or
-"invalid Email" view.
+The following example logs the email to the console on each `onChange` call and
+after clicking the "Submit" button. The component will transition through a
+`"submitting"` view to an alternating `"confirmation"`, `"error"` or "invalid
+email" view.
 
 <Source
   code={`
-function NewsletterSignupOnSubmitExampleComponent() {
-  const [view, setView] = React.useState("form");
-  const [inputVal, setInputVal] = React.useState("");
-  const handleChange = (event) => {
-    console.log(\`onChange Email Input value: \${event.target.value}\`);
-    setInputVal(event.target.value);
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(\`onSubmit Email Input value: \${event.target.email.value}\`);
-  };
-  return (
-    <NewsletterSignup
-    id="interactive"
-    view={view}
-    isInvalidEmail={counter === 3}
-    valueEmail={inputVal}
-    onChange={handleChange}
-    onSubmit={handleSubmit}
-    confirmationHeading="Thank you for signing up!"
-    confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
-    />
-  );
-} `}
+  function NewsletterSignupOnSubmitExampleComponent() {
+    const [view, setView] = React.useState("form");
+    const [inputVal, setInputVal] = React.useState("");
+    const handleChange = (event) => {
+      console.log(\`onChange Email Input value: \${event.target.value}\`);
+      setInputVal(event.target.value);
+    };
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      console.log(\`onSubmit Email Input value: \${event.target.email.value}\`);
+    };
+    return (
+      <NewsletterSignup
+        id="interactive"
+        view={view}
+        isInvalidEmail={counter === 3}
+        valueEmail={inputVal}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+        confirmationHeading="Thank you for signing up!"
+        confirmationText="You can update your email subscription preferences at any time using the links at the bottom of the email."
+      />
+    );
+  } 
+`}
   language="jsx"
 />
 
 <Canvas of={NewsletterSignupStories.NewsletterSignupOnSubmitExample} />
 
-## Component States
+## Component states
 
 The display state can be controlled by setting the `view` prop to one of the following values:
 
@@ -211,22 +185,23 @@ The display state can be controlled by setting the `view` prop to one of the fol
 
 <Canvas of={NewsletterSignupStories.ComponentStates} />
 
-## Component color styles using Highlight Color
+## Component color styles using highlight color
 
-The `highlightColor` prop accepts a `string` value of a color defined in the `HighlightColorTypes`.
-`HighlightColorTypes` is a selection of Design System's `NYPL Section Colors` and offers a way to
-integrate the section color of a particular page into the `NewsletterSignup` component.
+The `highlightColor` prop accepts a value from `HighlightColorTypes`, a selection
+of Design System's `NYPL Section Colors`. It offers a way to integrate the
+section color of a particular page into the `NewsletterSignup` component.
 
 <Source
   code={`
-function NewsletterSignupHighlightColorExampleComponent() {
-  return (
-    <NewsletterSignup
-      highlightColor="section.education.primary"
-      {...other Args}
-    />
-  );
-} `}
+  function NewsletterSignupHighlightColorExampleComponent() {
+    return (
+      <NewsletterSignup
+        highlightColor="section.education.primary"
+        {...other Args}
+      />
+    );
+  } 
+`}
   language="jsx"
 />
 

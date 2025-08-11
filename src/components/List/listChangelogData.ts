@@ -10,6 +10,22 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: [
+      "Removes deprecated `button` value in `linkTypesArray`.",
+      "Replaces positional function arguments with object for `checkListChildrenError.`",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Renames `type` to `variant`.",
+      "Removes `Children.map` logic as warning is no longer going to be used.",
+      "Removes default external spacing from `ol` and `ul` variants.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-list` to the parent element.",
+    ],
+  },
+  {
     date: "2025-04-10",
     version: "3.6.0",
     type: "Update",

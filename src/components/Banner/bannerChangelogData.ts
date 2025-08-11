@@ -10,11 +10,28 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Renames `type` to `variant`.",
+      "Replaces `bannerTypesArray`, `bannerBgColorsArray`, and `bannerHighlightColorsArray` with shared message variants and background/highlight colors arrays.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Removes the internal `banner-icon` class.",
+      "Adds `data-testid` value of `ds-banner` to the parent element.",
+    ],
+  },
+  {
     date: "2025-03-20",
     version: "3.5.5",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Update space between heading and content."],
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: [
+      "Update space between heading and content.",
+      "Removes `ariaLabel` prop and instructs developers to use the native HTML attribute instead.",
+    ],
   },
   {
     date: "2024-08-29",

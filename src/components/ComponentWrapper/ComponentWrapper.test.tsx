@@ -30,7 +30,7 @@ describe("ComponentWrapper Accessibility", () => {
 
   it("Passes axe accessibility test without certain props", async () => {
     const { container } = render(
-      <ComponentWrapper id="id">
+      <ComponentWrapper>
         <div>children elements</div>
       </ComponentWrapper>
     );
@@ -39,6 +39,30 @@ describe("ComponentWrapper Accessibility", () => {
 });
 
 describe("ComponentWrapper", () => {
+  it("renders ids with -componentWrapper and -helperErrorText if it was passed", () => {
+    render(
+      <ComponentWrapper
+        descriptionText="description text"
+        headingText="heading text"
+        helperText="helper text"
+        id="test"
+        invalidText="invalid text"
+        isInvalid={false}
+      >
+        <div>children elements</div>
+      </ComponentWrapper>
+    );
+
+    expect(screen.getByTestId("ds-componentWrapper")).toHaveAttribute(
+      "id",
+      "test-componentWrapper"
+    );
+    expect(screen.getByTestId("ds-helperErrorText")).toHaveAttribute(
+      "id",
+      "test-helperErrorText"
+    );
+  });
+
   it("renders with different text sections and children elements", () => {
     render(
       <ComponentWrapper

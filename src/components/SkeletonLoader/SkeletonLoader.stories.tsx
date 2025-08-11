@@ -10,7 +10,6 @@ const meta: Meta<typeof SkeletonLoader> = {
   title: "Components/Feedback/SkeletonLoader",
   component: SkeletonLoader,
   argTypes: {
-    className: { control: false },
     contentSize: { table: { defaultValue: { summary: "3" } } },
     headingSize: { table: { defaultValue: { summary: "1" } } },
     imageAspectRatio: {
@@ -43,7 +42,6 @@ type Story = StoryObj<typeof SkeletonLoader>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     contentSize: 3,
     headingSize: 1,
     imageAspectRatio: "square",

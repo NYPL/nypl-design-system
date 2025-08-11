@@ -1,0 +1,271 @@
+import { Box, Stack } from "@chakra-ui/react";
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Icon from "../Icons/Icon";
+import Image from "../Image/Image";
+import Link from "../Link/Link";
+import SimpleGrid from "../Grid/SimpleGrid";
+import Text from "../Text/Text";
+import Table from "../Table/Table";
+
+<Meta title="Style Guide/Responsive Grid" />
+
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Responsive Grid"
+  summary="Recommendations for using NYPL design patters with a responsive grid"
+/>
+
+## Table of contents
+
+- {<Link href="#overview" target="_self">Overview</Link>}
+- {<Link href="#terminology" target="_self">Terminology</Link>}
+  - {<Link href="#breakpoints--breakpoint-ranges" target="_self">Breakpoints & breakpoint ranges</Link>}
+  - {<Link href="#grid-anatomy" target="_self">Grid anatomy</Link>}
+  - {<Link href="#perceived-columns" target="_self">Perceived columns</Link>}
+- {<Link href="#breakpoint-range-details" target="_self">Breakpoint range details</Link>}
+- {<Link href="#best-practices-and-recommendations" target="_self">Best practices and recommendations</Link>}
+- {<Link href="#breakpoint-range-visual-reference" target="_self">Breakpoint range visual reference</Link>}
+- {<Link href="#figma-reference" target="_self">Figma reference</Link>}
+
+## Overview
+
+Pages should be designed and built using a responsive grid system that
+dynamically adjusts based on the screen size. Using a responsive grid system
+helps to ensure consistent layouts across NYPL website.
+
+The structure of the responsive grid will scale in a fluid system as the
+viewport width increases from small to large. The defined NYPL breakpoints will
+determine when default adjustments are applied to the grid.
+
+## Terminology
+
+The following terms are used through the documentation, so it is important to
+understand what they mean.
+
+### Breakpoints & breakpoint ranges
+
+A breakpoint defines a specific pixel value within the viewport width spectrum,
+but when we talk about a breakpoint, we often think about it in terms of the
+width range that is covered by the breakpoint (i.e. breakpoint range). With
+that in mind, the NYPL Reservoir Design System will designate four actual
+breakpoints and from that we will define five breakpoint ranges:
+
+#### Breakpoints
+
+- 480px
+- 768px
+- 1024px
+- 1280px
+
+#### Breakpoint ranges
+
+- Small mobile (base): less than 480px (see the <Link href="#small-mobile-less-than-480px" target="_self">small mobile visual reference</Link>)
+- Large mobile (s): 480px - 767px (see the <Link href="#large-mobile-480px---767px" target="_self">large mobile visual reference</Link>)
+- Small tablet (m): 768px - 1023px (see the <Link href="#small-tablet-768px---1023px" target="_self">small tablet visual reference</Link>)
+- Large tablet (l): 1024px - 1279px (see the <Link href="#large-tablet-1024px---1279px" target="_self">large tablet visual reference</Link>)
+- Desktop (xl): 1280px and greater (see the <Link href="#desktop-1280px" target="_self">desktop visual reference</Link>)
+
+### Grid anatomy
+
+The anatomy of a responsive grid is made up of elements that scale in a fluid
+system as the device and viewport increases from small to large.
+
+<SimpleGrid>
+  <div>
+    #### Columns
+
+    <Image src="/responsiveGrid/gridColumns.png" alt="Grid columns" mb="s" />
+
+    - There are 12 columns that make up the foundation of a responsive grid system.
+    - Column widths are fluid and change based on the width of the screen.
+
+  </div>
+  <div>
+    #### Gutters
+
+    <Image src="/responsiveGrid/gridGutters.png" alt="Grid gutters" mb="s" />
+
+    - Gutters are the gaps that separate the columns.
+    - Gutter widths are fixed values (16px, 24px, etc.) based on breakpoints.
+
+  </div>
+  <div>
+    #### Margins
+
+    <Image src="/responsiveGrid/gridMargins.png" alt="Grid margin" mb="s" />
+
+    - Grid margins are the outer margins of the grid.
+    - They can be the same width as the gutters or greater.
+
+  </div>
+</SimpleGrid>
+
+### Perceived columns
+
+- The 12-columns that are the foundation of a responsive grid system are often
+  grouped to create "perceived columns."
+- Perceived columns define the basic structure of a page or page section.
+
+<SimpleGrid columns={4} mb="l">
+  <div>
+    #### One column
+
+    <Image
+      src="/responsiveGrid/gridPerceivedColumns1.png"
+      alt="One perceived column" />
+
+    <p style={{marginTop: "var(--nypl-space-xs)"}}>1 group of 12</p>
+
+  </div>
+  <div>
+    #### Two column
+
+    <Image src="/responsiveGrid/gridPerceivedColumns2.png" alt="Two perceived columns" />
+
+    <p style={{marginTop: "var(--nypl-space-xs)"}}>2 groups of 6</p>
+
+  </div>
+  <div>
+    #### Three column
+
+    <Image src="/responsiveGrid/gridPerceivedColumns3.png" alt="Three perceived columns" />
+
+    <p style={{marginTop: "var(--nypl-space-xs)"}}>3 groups of 4</p>
+
+  </div>
+  <div>
+    #### Four column
+
+    <Image src="/responsiveGrid/gridPerceivedColumns4.png" alt="Four perceived columns" />
+
+    <p style={{marginTop: "var(--nypl-space-xs)"}}>4 groups of 3</p>
+
+  </div>
+</SimpleGrid>
+
+## Breakpoint range details
+
+<Table
+  border="0"
+  columnHeaders={["Name", "Range (px)", "Gutters", "Margins", "Perceived Cols"]}
+  fontSize="desktop.body.body2"
+  tableData={[
+    ["Small mobile", "0 - 479", "1rem (16px)", "1rem (16px)", "1"],
+    ["Large mobile", "480 - 767", "1rem (16px)", "1rem (16px)", "1 or 2"],
+    [
+      "Small tablet",
+      "768 - 1023",
+      "1.5rem (24px)",
+      "1.5rem (24px)",
+      "1, 2, or 3",
+    ],
+    [
+      "Large tablet",
+      "1024 - 1279",
+      "1.5rem (24px)",
+      "1.5rem (24px)",
+      "1, 2, 3, or 4",
+    ],
+    ["Desktop", "1280+", "2rem (32px)", "1rem (16px)", "1, 2, 3, or 4"],
+  ]}
+  useRowHeaders
+/>
+
+## Best practices and recommendations
+
+### General
+
+- Use white space created by the grid system &ndash; too much dense information can be
+  disorienting and overwhelming
+- Avoid breaking alignment or slightly oversizing a container to stick out for
+  visual interest or to add emphasis
+- Create relationships and hierarchy between content elements by using the margins
+  and gutters in the grid shared by the page layout
+- Avoid rendering too much content in narrow column widths &ndash; based on the
+  NYPL typography recommendations, the width of a text block should be at least
+  300px (**NOTE:** some viewport width edge cases will be less than the 300px
+  width recommendation and that is okay)
+
+### Cards
+
+- The desired card layout (`"row"` vs. `"column"`) should be considered when
+  setting the structure of a card grid
+- The number of columns in a card grid should align with the recommended
+  "perceived columns" for a breakpoint range
+- For card grid layout recommendations, refer to the <Link
+  href="https://www.figma.com/design/qShodlfNCJHb8n03IFyApM/Main?node-id=91252-91410&t=WPK9UR9vJDTPfzUr-11"
+  target="_blank">Responsive Grid System</Link> page in the Reservoir Visual
+  Design Library
+
+### Mobile first
+
+- Begin designing with the smallest viewport width (one column) for small
+  devices like a phone.
+- Complete and optimize the layout for each successive viewport width.
+- Inspect responsive displays in between each breakpoint for how content
+  responds across the fluid spectrum.
+
+## Breakpoint range visual reference
+
+### Small mobile: less than 480px
+
+<Image
+  alt="Small mobile break point range"
+  display="inline-block"
+  mb="s"
+  size="large"
+  sizeBasedOn="height"
+  src="/responsiveGrid/breakpointRangeMobileSmall.png"
+/>
+
+### Large mobile: 480px - 767px
+
+<Image
+  alt="Large mobile break point range"
+  display="inline-block"
+  mb="s"
+  size="large"
+  sizeBasedOn="height"
+  src="/responsiveGrid/breakpointRangeMobileLarge.png"
+/>
+
+### Small tablet: 768px - 1023px
+
+<Image
+  alt="Small tablet break point range"
+  display="inline-block"
+  mb="s"
+  size="large"
+  sizeBasedOn="height"
+  src="/responsiveGrid/breakpointRangeTabletSmall.png"
+/>
+
+### Large tablet: 1024px - 1279px
+
+<Image
+  alt="Large tablet break point range"
+  display="inline-block"
+  mb="s"
+  size="large"
+  sizeBasedOn="height"
+  src="/responsiveGrid/breakpointRangeTabletLarge.png"
+/>
+
+### Desktop: 1280px+
+
+<Image
+  alt="Desktop break point range"
+  display="inline-block"
+  mb="s"
+  size="large"
+  sizeBasedOn="height"
+  src="/responsiveGrid/breakpointRangeDesktop.png"
+/>
+
+## Figma Reference
+
+For additional information, please refer to the Figma Main file.
+
+- [Breakpoints](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=36835-26738&mode=design&t=vWHiibuF5Yf9Ag1U-11)

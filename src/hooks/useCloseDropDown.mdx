@@ -1,20 +1,32 @@
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 
+import ComponentDocsHeader from "../utils/components/ComponentDocsHeader";
+
 <Meta title="Hooks/useCloseDropDown" />
 
-# useCloseDropDown
+<ComponentDocsHeader
+  category="Reservoir Custom Hook"
+  componentName="useCloseDropDown"
+  summary="Used to set the closed state of an open and close UI"
+  versionAdded="1.1.0"
+  versionLatest="1.5.2"
+/>
 
-| Hook Version | DS Version |
-| ------------ | ---------- |
-| Added        | `1.1.0`    |
-| Latest       | `1.5.2`    |
+<Source
+  code={`
+  import {
+    useCloseDropDown
+  } from "@nypl/design-system-react-components";
+`}
+  language="tsx"
+/>
 
 This hook sets event listeners on the document to "close" or set the state of an
 open and close UI to `false`. Typically, this is used for dropdown components
 that need to close when:
 
-- mouse clicks are made outside of the component,
-- the user presses the escape key.
+- mouse clicks are made outside of the component
+- the user presses the escape key
 
 ## Usage
 
@@ -27,9 +39,9 @@ state of the component where the hook is called. This callback function is
 triggered when the user clicks outside of the component, or presses the escape
 key.
 
-The `ref` argument is used in Chakra's `useOutsideClick` function to "close" a
-component. The `ref` allows the function to know where "outside the component"
-is.
+The `ref` argument is used in Chakra's `useOutsideClick` function,
+used internally, to "close" a component. The `ref` allows the function to know
+where "outside the component" is.
 
 In the example below, the `ButtonDropDownExample` component keeps track of its
 own open/close state and passes the `setIsOpen` function to the
@@ -37,17 +49,17 @@ own open/close state and passes the `setIsOpen` function to the
 
 <Source
   code={`
-const ButtonDropDownExample = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const ref = useRef<HTMLDivElement>(null);
-  useCloseDropDown(setIsOpen, ref);
-  // ...
-  return (
-    <div ref={ref}>
-      <Button onClick={() => setIsOpen(!isOpen)}>Button Drop Down</Button>
-      {isOpen && <div>Your dropdown content here.</div>}
-    </div>
-  );
+  const ButtonDropDownExample = () => {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const ref = useRef<HTMLDivElement>(null);
+    useCloseDropDown(setIsOpen, ref);
+    // ...
+    return (
+      <div ref={ref}>
+        <Button onClick={() => setIsOpen(!isOpen)}>Button Drop Down</Button>
+        {isOpen && <div>Your dropdown content here.</div>}
+      </div>
+    );
 }`}
-  language="jsx"
+  language="tsx"
 />

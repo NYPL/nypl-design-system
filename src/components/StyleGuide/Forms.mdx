@@ -1,32 +1,36 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
-import Link from "../Link/Link";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Meta title="Style Guide/Forms" />
 
-# Forms
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Forms"
+  summary="Guidelines for implementing NYPL design patterns with form elements"
+/>
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#general-information" target="_self">General Information</Link>}
-- {<Link href="#form-input-components" target="_self">Form Input Components</Link>}
-- {<Link href="#input-labelling" target="_self">Input Labelling</Link>}
-- {<Link href="#input-states" target="_self">Input States</Link>}
-- {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
+- [General information](#general-information)
+- [Form input components](#form-input-components)
+- [Input labeling](#input-labeling)
+- [Input states](#input-states)
+- [Figma reference](#figma-reference)
 
-## General Information
+## General information
 
 Use the [Form](../?path=/story/components-form-elements-form--with-controls)
 component to control the placement and spacing for standard HTML forms.
 
-## Form Layout
+## Form layout
 
-The `Form` component offers two child-components to assist with layout:
+The `Form` component offers two child components to assist with layout:
 `FormRow` and `FormField`.
 
 The `FormField` component is used as a parent for all input components from
 the Reservoir Design System (DS) (`Button`, `Select`, `TextInput`, etc.). When using the
-`Form` is it is necessary to wrap each individual form input component within
+`Form`, it is necessary to wrap each individual form input component within
 a `FormField` component to ensure proper spacing and responsiveness.
 
 The `FormRow` component is used as a parent of multiple `FormField` components
@@ -36,34 +40,32 @@ The recommended layout and spacing within individual form input components is
 built into the components. Consuming apps should rely on the components to
 handle NYPL best practices for layout and responsiveness.
 
-## Form Input Components
+## Form input components
 
 The list of form input fields available in the Reservoir Design System (DS)
 includes, but is not limited to, the following:
 
-- Button
-- Checkbox
-- CheckboxGroup
-- DatePicker
-- Fieldset
-- FileUploader \*\*\*
-- Form
-- Label
-- MultiSelect
-- Radio
-- RadioGroup
-- SearchBar
-- Select
-- Slider
-- TextInput (text, tel, url, number, password, textarea)
-- Toggle
+- [Button](./?path=/docs/components-form-elements-button--docs)
+- [Checkbox](./?path=/docs/components-form-elements-checkbox--docs)
+- [CheckboxGroup](./?path=/docs/components-form-elements-checkboxgroup--docs)
+- [DatePicker](./?path=/docs/components-form-elements-datepicker--docs)
+- [Fieldset](./?path=/docs/components-form-elements-fieldset--docs)
+- [Form](./?path=/docs/components-form-elements-form--docs)
+- [Label](./?path=/docs/components-form-elements-label--docs)
+- [MultiSelect](./?path=/docs/components-form-elements-multiselect--docs)
+- [MultiSelectGroup](./?path=/docs/components-form-elements-multiselectgroup--docs)
+- [Radio](./?path=/docs/components-form-elements-radio--docs)
+- [RadioGroup](./?path=/docs/components-form-elements-radiogroup--docs)
+- [SearchBar](./?path=/docs/components-form-elements-searchbar--docs)
+- [Select](./?path=/docs/components-form-elements-select--docs)
+- [Slider](./?path=/docs/components-form-elements-slider--docs)
+- [TextInput](./?path=/docs/components-form-elements-textinput--docs) (text, tel, url, number, password, textarea)
+- [Toggle](./?path=/docs/components-form-elements-toggle--docs)
 
-\*\*\* currently under development
-
-## Input Labelling
+## Input labeling
 
 Most form components in the DS will have the option to show a
-label, basic helper text and error text.
+label, basic helper text, and error text.
 
 For accessibility compliance, a text value for the label is always required. If
 necessary, the label can be hidden from the screen. In cases where the label is
@@ -71,12 +73,12 @@ hidden, appropriate ARIA tags will be added to the form input component.
 
 When the label is visible, `CheckboxGroup`, `DatePicker`, `FileUploader`,
 `RadioGroup`, `Select`, `Slider` and `TextInput` will show the label at the top
-of the rendered component. While `Checkbox`, `Radio` and `Toggle` will show the
+of the rendered component. While `Checkbox`, `Radio`, and `Toggle` will show the
 label to the right of the input field.
 
 The helper and error text will always be rendered below the input field.
 
-## Input States
+## Input states
 
 All form input fields offer styling for the following states:
 
@@ -85,8 +87,8 @@ All form input fields offer styling for the following states:
 - errored
 - disabled
 
-## Figma Reference
+## Figma reference
 
 For additional spacing information, please refer to the Figma Main file.
 
-- [General Forms Page](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A2768)
+- [General forms page](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A2768)

@@ -1,18 +1,24 @@
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 
 <Meta title="Development Guide/Design Tokens" />
 
-# Design Tokens
+<ComponentDocsHeader
+  category="Development Guide"
+  componentName="Design Tokens"
+  summary="Recommendations for using Reservoir design tokens in JavaScript and CSS"
+/>
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#what-are-design-tokens" target="_self">What are Design Tokens?</Link>}
-- {<Link href="#how-to-use-the-reservoir-design-tokens" target="_self">How to Use the Reservoir Design Tokens</Link>}
-- {<Link href="#using-reservoir-design-tokens-in-javascript" target="_self">Using Reservoir Design Tokens in Javascript</Link>}
-- {<Link href="#using-reservoir-design-tokens-in-css" target="_self">Using Reservoir Design Tokens in CSS</Link>}
-- {<Link href="#reservoir-design-token-categories" target="_self">Reservoir Design Token Categories</Link>}
+- [What are Design Tokens?](#what-are-design-tokens)
+- [How to Use the Reservoir Design Tokens](#how-to-use-the-reservoir-design-tokens)
+- [Using Reservoir Design Tokens in JavaScript](#using-reservoir-design-tokens-in-javascript)
+- [Using Reservoir Design Tokens in CSS](#using-reservoir-design-tokens-in-css)
+- [Reservoir Design Token Categories](#reservoir-design-token-categories)
 
 ## What are Design Tokens?
 
@@ -23,150 +29,74 @@ the Salesforce Design System
 
 Design tokens are a collection of style values &ndash; spacing, colors,
 typography, breakpoints, and more &ndash; used throughout a design system. They
-are a single source of truth for design styles, bringing consistency and
-cohesion to components within a design system, and they allow teams to more
-quickly and easily build various applications with the same look and feel.
+bring consistency and cohesion to components and allow teams to more quickly and
+easily build various applications with the same look and feel.
+
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The general rule of thumb is that the styles
+      and functionality of the DS components should not be altered. The
+      components should be used with the styles and variants as they are
+      depicted in Storybook. There may be times, however, when a component does
+      require a modification. If a DS component does need a style change in a
+      consuming app, designers/developers should first contact the Reservoir
+      team about the change before it is implemented.
+    </>
+  }
+  variant="warning"
+/>
 
 ## How to Use the Reservoir Design Tokens
 
-The NYPL design tokens are built into the Reservoir Design System (DS) and are
-offered in two formats for consumption: Javascript theme objects (recommended)
-and CSS variables. To access either of these formats, the DS `v0.25.9` or higher
-needs to be properly installed in a consuming React application.
+The NYPL design tokens are built into the Reservoir Design System (DS) and can be
+consumed as JavaScript theme objects (recommended) or CSS variables.
 
-## Using Reservoir Design Tokens in Javascript
+## Using Reservoir Design Tokens in JavaScript
 
-It is recommended that consuming apps use Javascript (rather than CSS) to apply
-styles to UI elements whenever possible.
-
-To use the DS <Link href="#reservoir-design-token-categories"
-target="_self">Javascript design tokens</Link>, the `DSProvider` wrapper
-component must first be imported and implemented properly in a consuming app.
-Please refer to the `DSProvider` section of the [DS Chakra
-UI](../?path=/docs/chakra-ui--docs#dsprovider) page for instructions on how to
-do this.
+To use the DS <Link href="#reservoir-design-token-categories" target="_self">JavaScript
+design tokens</Link>, the [`DSProvider`](../?path=/docs/chakra-ui--docs#dsprovider) must
+first be implemented properly in a consuming app.
 
 #### Design Tokens for DS and Chakra Components
 
-**IMPORTANT:** The general rule of thumb is that the styles and functionality of
-the DS components should not be altered. The components should be used with the
-styles and variants as they are depicted in Storybook. There may be times,
-however, when a component does require a modification. If a DS component does
-need a style change in a consuming app, designers/developers should first
-contact the Reservoir team about the change before it is implemented.
-
-The Javascript design tokens can be used to populate the values for style props
-added directly to the components. The shorthard nature of the Javascript tokens
-make it easy to quickly and logically add styles to a DS component.
-
-For example, if a `Heading` component needs to sit within a wrapper element and
-render its text using Reservoir's `brand primary` color and use a `medium`
-font weight, the following can be done:
+Design tokens can be used with style props and added directly to components.
 
 <Source
   code={`
-<Box
-  backgroundColor="ui.bg.default"
-  border="1px solid"
-  borderColor="ui.border.default"
-  padding="inset.default"
->
-  <Heading color="brand.primary" fontWeight="medium">
+  <Box
+    backgroundColor="ui.bg.default"
+    border="1px solid"
+    borderColor="ui.border.default"
+    padding="inset.default"
+  >
+    <Heading color="brand.primary" fontWeight="medium">
     Get a Digital Library Card Today in a Few Easy Steps
-  </Heading>
-</Box>
+    </Heading>
+  </Box>
 `}
   language="jsx"
 />
 
-#### Design Tokens for Custom Components and Native HTML Elements
-
-**IMPORTANT:** Javascript design tokens **cannot be used** with custom
-components and native HTML elements as they are not compatible with the way
-styles are passed into these elements. Instead, CSS design tokens must be used.
-
-To pass style attributes to custom components and native HTML elements, the
-React `style` prop must be used rather than the individual Javascript style
-props. The `style` prop can be populated in a number of ways.
-
-<Source
-  code={`
-// Style values assigned to variables
-const bg = "var(--nypl-colors-ui-bg-default)";
-const color = "var(--nypl-colors-ui-typography-heading)";
-const fontWeight = "var(--nypl-fontWeights-medium)";
-const padding = "var(--nypl-space-inset-default)";
-// ...
-<div
-  style={{
-    backgroundColor: bg,
-    color: color,
-    fontWeight: fontWeight,
-    padding: padding,
-  }}
-/>
-`}
-  language="jsx"
-/>
-
-<Source
-  code={`
-// Style values assigned to a data object
-const stylesDirectlyAssigned = {
-  backgroundColor: "var(--nypl-colors-ui-bg-default)",
-  color: "var(--nypl-colors-ui-typography-heading)",
-  fontWeight: "var(--nypl-fontWeights-medium)",
-  padding: "var(--nypl-space-inset-default)",
-};
-// ...
-<div style={stylesDirectlyAssigned} />
-`}
-  language="jsx"
-/>
-
-<Source
-  code={`
-// Style values assigned directly
-<div
-  style={{
-    backgroundColor: "var(--nypl-colors-ui-bg-default)",
-    color: "var(--nypl-colors-ui-typography-heading)",
-    fontWeight: "var(--nypl-fontWeights-medium)",
-    padding: "var(--nypl-space-inset-default)",
-  }}
-/>
-`}
-  language="jsx"
-/>
-
-Below is an example using a custom component. Please note that consuming apps
-are responsible for handling how styles are propagated and applied within custom
-components.
-
-<Source
-  code={`
-// Styles for a custom component
-const stylesForCustomComponent = {
-  backgroundColor: "var(--nypl-colors-ui-bg-default)",
-  color: "var(--nypl-colors-ui-typography-heading)",
-  fontWeight: "var(--nypl-fontWeights-medium)",
-  padding: "var(--nypl-space-inset-default)",
-};
-// ...
-<CustomComponent style={stylesForCustomComponent} />
-`}
-  language="jsx"
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> JavaScript design tokens{" "}
+      <strong>cannot be used</strong> with custom components and native HTML
+      elements as they are not compatible with the way styles are passed into
+      these elements. Instead, CSS design tokens must be used (see below).
+    </>
+  }
+  variant="warning"
 />
 
 ## Using Reservoir Design Tokens in CSS
 
-If your app uses CSS or SCSS to handle styles, the DS creates standard CSS
-custom properties (e.g. variables) for consumption in your stylesheets. If the
-DS is properly installed, the CSS custom properties will be available for you to
-use. Nothing more needs to be done to your app.
+If your app uses CSS or SCSS to handle styles, the DS creates standard CSS custom properties
+(e.g. variables). If the DS is properly installed, the CSS custom properties will be available
+for you to use.
 
-To assist with CSS scope isolation, all of the CSS custom properties created by
-the DS are prefixed with "nypl." Please see the examples below.
+All of the CSS custom properties created by the DS are prefixed with "nypl."
 
 <Source
   code={`
@@ -189,29 +119,99 @@ The CSS custom properties are defined on the :root pseudo-class and should be
 implemented using standard CSS custom properties conventions.
 
 <Source
-  code={`
-/* Property Declaration in the DS */
-:root {
-  --nypl-colors-brand-primary: #c60917;
-}
-/* Property Usage in Your Application */
-.custom-button {
-  background: var(--nypl-colors-brand-primary);
-}
-`}
+  code={`/* Property Declaration in the DS */
+    :root {
+       --nypl-colors-brand-primary: #c60917;
+    }
+    /* Property Usage in Your Application */
+    .custom-button {
+      background: var(--nypl-colors-brand-primary);
+    }`}
   language="css"
+/>
+
+#### Design Tokens for Custom Components and Native HTML Elements
+
+To pass style attributes to custom components and native HTML elements, the
+React `style` prop must be used.
+
+<Source
+  code={`
+  // Style values assigned to variables
+  const bg = "var(--nypl-colors-ui-bg-default)";
+  const color = "var(--nypl-colors-ui-typography-heading)";
+  const fontWeight = "var(--nypl-fontWeights-medium)";
+  const padding = "var(--nypl-space-inset-default)";
+  // ...
+  <div
+    style={{
+      backgroundColor: bg,
+      color: color,
+    }}
+  />
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
+  // Style values assigned to a data object
+  const stylesDirectlyAssigned = {
+    backgroundColor: "var(--nypl-colors-ui-bg-default)",
+    color: "var(--nypl-colors-ui-typography-heading)",
+    fontWeight: "var(--nypl-fontWeights-medium)",
+    padding: "var(--nypl-space-inset-default)",
+  };
+  // ...
+  <div style={stylesDirectlyAssigned} />
+`}
+  language="jsx"
+/>
+
+<Source
+  code={`
+  // Style values assigned directly
+  <div
+    style={{
+      backgroundColor: "var(--nypl-colors-ui-bg-default)",
+      color: "var(--nypl-colors-ui-typography-heading)",
+      fontWeight: "var(--nypl-fontWeights-medium)",
+      padding: "var(--nypl-space-inset-default)",
+    }}
+  />
+`}
+  language="jsx"
+/>
+
+Below is an example using a custom component. Please note that consuming apps
+are responsible for handling how styles are propagated and applied within custom
+components.
+
+<Source
+  code={`
+  // Styles for a custom component
+  const stylesForCustomComponent = {
+    backgroundColor: "var(--nypl-colors-ui-bg-default)",
+    color: "var(--nypl-colors-ui-typography-heading)",
+    fontWeight: "var(--nypl-fontWeights-medium)",
+    padding: "var(--nypl-space-inset-default)",
+  };
+  // ...
+  <CustomComponent style={stylesForCustomComponent} />
+`}
+  language="jsx"
 />
 
 ## Reservoir Design Token Categories
 
 The DS design tokens are broken into the following categories:
 
-- {<Link href="#breakpoints" target="_self">Breakpoints</Link>}
-- {<Link href="#color" target="_self">Color</Link>}
-- {<Link href="#radii" target="_self">Radii</Link>}
-- {<Link href="#sizes" target="_self">Sizes</Link>}
-- {<Link href="#space" target="_self">Space</Link>}
-- {<Link href="#typography" target="_self">Typography</Link>}
+- [Breakpoints](#breakpoints)
+- [Color](#color)
+- [Radii](#radii)
+- [Sizes](#sizes)
+- [Space](#space)
+- [Typography](#typography)
 
 When using the DS design tokens, semantic tokens should be used ahead of the
 base tokens.
@@ -221,13 +221,20 @@ base tokens.
 For more information about NYPL breakpoints, see the [Breakpoints Style
 Guide](../?path=/docs/style-guide-breakpoints--docs) page.
 
-| JS Token | CSS Token                | Value              |
-| :------- | :----------------------- | :----------------- |
-| --       | --nypl-breakpoint-small  | `20em` / `320px`   |
-| --       | --nypl-breakpoint-medium | `37.5em` / `600px` |
-| --       | --nypl-breakpoint-large  | `60em` / `960px`   |
-| --       | --nypl-breakpoint-xl     | `80em` / `1280px`  |
-| --       | --nypl-breakpoint-2xl    | `96em` / `1536px`  |
+| Syntax       | JS Token    | CSS Token                     | Value             |
+| :----------- | :---------- | :---------------------------- | :---------------- |
+| **Chakra**   | sm          | --nypl-breakpoint-small       | `30em` / `480px`  |
+|              | md          | --nypl-breakpoint-medium      | `48em` / `768px`  |
+|              | lg          | --nypl-breakpoint-large       | `64em` / `1024px` |
+|              | xl          | --nypl-breakpoint-xl          | `80em` / `1280px` |
+|              | 2xl         | --nypl-breakpoint-2xl         | `96em` / `1536px` |
+|              |             |                               |                   |
+| **Semantic** | smallMobile | --nypl-breakpoint-smallMobile | `30em` / `480px`  |
+|              | largeMobile | --nypl-breakpoint-largeMobile | `48em` / `768px`  |
+|              | mobile      | --nypl-breakpoint-mobile      | `48em` / `768px`  |
+|              | smallTablet | --nypl-breakpoint-smallTablet | `64em` / `1024px` |
+|              | largeTablet | --nypl-breakpoint-largeTablet | `80em` / `1280px` |
+|              | tablet      | --nypl-breakpoint-tablet      | `80em` / `1280px` |
 
 ### Color
 
@@ -505,6 +512,9 @@ Guide](../?path=/docs/style-guide-spacing--docs) page.
 |            |                            |                                   |       |
 | **Table**  | table.column               | --nypl-space-table-column         | m     |
 |            | table.row                  | --nypl-space-table-row            | l     |
+|            |                            |                                   |       |
+| **Text**   | heading.default            | --nypl-space-heading-default      | s     |
+|            | paragraph.default          | --nypl-space-paragraph-default    | s     |
 
 ### Typography
 
@@ -545,92 +555,78 @@ Guide](../?path=/docs/style-guide-typography--docs) page.
 The following tokens can be used with the `fontSize` (js) and `font-size` (css)
 style attribute.
 
-|                 | JS Token                    | CSS Token                                    | Value           | Deprecated |
-| --------------- | :-------------------------- | :------------------------------------------- | :-------------- | :--------- |
-| **Breadcrumbs** | desktop.breadcrumbs.default | --nypl-fontSizes-desktop-breadcrumbs-default | .875rem / 14px  |            |
-|                 |                             |                                              |                 |            |
-| **Button**      | desktop.button.small        | --nypl-fontSizes-desktop-button-small        | .75rem / 12px   |            |
-|                 | desktop.button.default      | --nypl-fontSizes-desktop-button-default      | .875rem / 14px  |            |
-|                 | desktop.button.large        | --nypl-fontSizes-desktop-button-large        | 1rem / 16px     |            |
-|                 |                             |                                              |                 |            |
-| **Heading**     | heading.display1            | --nypl-fontSizes-desktop-heading-display1    | 4.25rem / 68px  |            |
-|                 | heading.heading1            | --nypl-fontSizes-desktop-heading-heading1    | 3.375rem / 54px |            |
-|                 | heading.heading2            | --nypl-fontSizes-desktop-heading-heading2    | 2.625rem / 42px |            |
-|                 | heading.heading3            | --nypl-fontSizes-desktop-heading-heading3    | 2rem / 32px     |            |
-|                 | heading.heading4            | --nypl-fontSizes-desktop-heading-heading4    | 1.625rem / 26px |            |
-|                 | heading.heading5            | --nypl-fontSizes-desktop-heading-heading5    | 1.375rem / 22px |            |
-|                 | heading.heading6            | --nypl-fontSizes-desktop-heading-heading6    | 1.25rem / 20px  |            |
-|                 | heading.heading7            | --nypl-fontSizes-desktop-heading-heading7    | 1.125rem / 18px |            |
-|                 | heading.heading8            | --nypl-fontSizes-desktop-heading-heading8    | 1rem / 16px     |            |
-|                 | heading.primary             | --nypl-fontSizes-heading-primary             | 4               | x          |
-|                 | heading.secondary           | --nypl-fontSizes-heading-secondary           | 3               | x          |
-|                 | heading.tertiary            | --nypl-fontSizes-heading-tertiary            | 2               | x          |
-|                 | heading.callout             | --nypl-fontSizes-heading-callout             | 1               | x          |
-|                 |                             |                                              |                 |            |
-| **Subtitle**    | desktop.subtitle.subtitle1  | --nypl-fontSizes-desktop-subtitle-subtitle1  | 1.125rem / 18px |            |
-|                 | desktop.subtitle.subtitle2  | --nypl-fontSizes-desktop-subtitle-subtitle2  | 1rem / 16px     |            |
-|                 |                             |                                              |                 |            |
-| **Overline**    | desktop.overline.overline1  | --nypl-fontSizes-desktop-overline-overline1  | .75rem / 12px   |            |
-|                 | desktop.overline.overline2  | --nypl-fontSizes-desktop-overline-overline2  | .625rem / 10px  |            |
-|                 |                             |                                              |                 |            |
-| **Helper**      | desktop.helper.default      | --nypl-fontSizes-desktop-helper-default      | .75rem / 12px   |            |
-|                 |                             |                                              |                 |            |
-| **Label**       | desktop.label.label1        | --nypl-fontSizes-desktop-label-label1        | .875rem / 14px  |            |
-|                 | desktop.label.label2        | --nypl-fontSizes-desktop-label-label2        | .75rem / 12px   |            |
-|                 | label.default               | --nypl-fontSizes-label-default               | -1              | x          |
-|                 | label.secondary             | --nypl-fontSizes-label-secondary             | -2              | x          |
-|                 |                             |                                              |                 |            |
-| **Text**        | desktop.default             | --nypl-fontSizes-desktop-default             | 1rem / 16px     |            |
-|                 | desktop.body.body1          | --nypl-fontSizes-desktop-body-body1          | 1rem / 16px     |            |
-|                 | desktop.body.body2          | --nypl-fontSizes-desktop-body-body2          | .875rem / 14px  |            |
-|                 | desktop.caption             | --nypl-fontSizes-desktop-caption             | .75rem / 12px   |            |
-|                 | text.default                | --nypl-fontSizes-text-default                | 0               | x          |
-|                 | text.caption                | --nypl-fontSizes-text-caption                | -1              | x          |
-|                 | text.tag                    | --nypl-fontSizes-text-tag                    | -2              | x          |
-|                 | text.mini                   | --nypl-fontSizes-text-mini                   | -3              | x          |
+|                 | JS Token                    | CSS Token                                    | Value           |
+| --------------- | :-------------------------- | :------------------------------------------- | :-------------- |
+| **Breadcrumbs** | desktop.breadcrumbs.default | --nypl-fontSizes-desktop-breadcrumbs-default | .875rem / 14px  |
+|                 |                             |                                              |                 |
+| **Button**      | desktop.button.small        | --nypl-fontSizes-desktop-button-small        | .75rem / 12px   |
+|                 | desktop.button.default      | --nypl-fontSizes-desktop-button-default      | .875rem / 14px  |
+|                 | desktop.button.large        | --nypl-fontSizes-desktop-button-large        | 1rem / 16px     |
+|                 |                             |                                              |                 |
+| **Heading**     | heading.display1            | --nypl-fontSizes-desktop-heading-display1    | 4.25rem / 68px  |
+|                 | heading.heading1            | --nypl-fontSizes-desktop-heading-heading1    | 3.375rem / 54px |
+|                 | heading.heading2            | --nypl-fontSizes-desktop-heading-heading2    | 2.625rem / 42px |
+|                 | heading.heading3            | --nypl-fontSizes-desktop-heading-heading3    | 2rem / 32px     |
+|                 | heading.heading4            | --nypl-fontSizes-desktop-heading-heading4    | 1.625rem / 26px |
+|                 | heading.heading5            | --nypl-fontSizes-desktop-heading-heading5    | 1.375rem / 22px |
+|                 | heading.heading6            | --nypl-fontSizes-desktop-heading-heading6    | 1.25rem / 20px  |
+|                 | heading.heading7            | --nypl-fontSizes-desktop-heading-heading7    | 1.125rem / 18px |
+|                 | heading.heading8            | --nypl-fontSizes-desktop-heading-heading8    | 1rem / 16px     |
+|                 |                             |                                              |                 |
+| **Subtitle**    | desktop.subtitle.subtitle1  | --nypl-fontSizes-desktop-subtitle-subtitle1  | 1.125rem / 18px |
+|                 | desktop.subtitle.subtitle2  | --nypl-fontSizes-desktop-subtitle-subtitle2  | 1rem / 16px     |
+|                 |                             |                                              |                 |
+| **Overline**    | desktop.overline.overline1  | --nypl-fontSizes-desktop-overline-overline1  | .75rem / 12px   |
+|                 | desktop.overline.overline2  | --nypl-fontSizes-desktop-overline-overline2  | .625rem / 10px  |
+|                 |                             |                                              |                 |
+| **Helper**      | desktop.helper.default      | --nypl-fontSizes-desktop-helper-default      | .75rem / 12px   |
+|                 |                             |                                              |                 |
+| **Label**       | desktop.label.label1        | --nypl-fontSizes-desktop-label-label1        | .875rem / 14px  |
+|                 | desktop.label.label2        | --nypl-fontSizes-desktop-label-label2        | .75rem / 12px   |
+|                 |                             |                                              |                 |
+| **Text**        | desktop.default             | --nypl-fontSizes-desktop-default             | 1rem / 16px     |
+|                 | desktop.body.body1          | --nypl-fontSizes-desktop-body-body1          | 1rem / 16px     |
+|                 | desktop.body.body2          | --nypl-fontSizes-desktop-body-body2          | .875rem / 14px  |
+|                 | desktop.caption             | --nypl-fontSizes-desktop-caption             | .75rem / 12px   |
 
 #### Font Weight Semantic Tokens
 
 The following tokens can be used with the `fontWeight` (js) and `font-weight`
 (css) style attribute.
 
-|                 | JS Token              | CSS Token                                | Value    | Deprecated |
-| --------------- | :-------------------- | :--------------------------------------- | :------- | :--------- |
-| **Breadcrumbs** | breadcrumbs.default   | --nypl-fontWeights-breadcrumbs-default   | regular  |            |
-|                 | breadcrumbs.lastChild | --nypl-fontWeights-breadcrumbs-lastChild | bold     |            |
-|                 |                       |                                          |          |            |
-| **Button**      | button.default        | --nypl-fontWeights-button-default        | regular  |            |
-|                 |                       |                                          |          |            |
-| **Heading**     | heading.display1      | --nypl-fontWeights-heading-display1      | light    |            |
-|                 | heading.heading1      | --nypl-fontWeights-heading-heading1      | light    |            |
-|                 | heading.heading2      | --nypl-fontWeights-heading-heading2      | light    |            |
-|                 | heading.heading3      | --nypl-fontWeights-heading-heading3      | regular  |            |
-|                 | heading.heading4      | --nypl-fontWeights-heading-heading4      | medium   |            |
-|                 | heading.heading5      | --nypl-fontWeights-heading-heading5      | semibold |            |
-|                 | heading.heading6      | --nypl-fontWeights-heading-heading6      | semibold |            |
-|                 | heading.heading7      | --nypl-fontWeights-heading-heading7      | bold     |            |
-|                 | heading.heading8      | --nypl-fontWeights-heading-heading8      | bold     |            |
-|                 | heading.primary       | --nypl-fontWeights-heading-primary       | light    | x          |
-|                 | heading.secondary     | --nypl-fontWeights-heading-secondary     | medium   | x          |
-|                 | heading.tertiary      | --nypl-fontWeights-heading-tertiary      | medium   | x          |
-|                 | heading.callout       | --nypl-fontWeights-heading-callout       | medium   | x          |
-|                 |                       |                                          |          |            |
-| **Subtitle**    | subtitle.subtitle1    | --nypl-fontWeights-subtitle-subtitle1    | regular  |            |
-|                 | subtitle.subtitle2    | --nypl-fontWeights-subtitle-subtitle2    | regular  |            |
-|                 |                       |                                          |          |            |
-| **Overline**    | overline.overline1    | --nypl-fontWeights-overline-overline1    | semibold |            |
-|                 | overline.overline2    | --nypl-fontWeights-overline-overline2    | semibold |            |
-|                 |                       |                                          |          |            |
-| **Helper**      | helper.default        | --nypl-fontWeights-helper-default        | regular  |            |
-|                 |                       |                                          |          |            |
-| **Label**       | label.default         | --nypl-fontWeights-label-default         | medium   |            |
-|                 | label.secondary       | --nypl-fontWeights-label-secondary       | regular  |            |
-|                 |                       |                                          |          |            |
-| **Text**        | default               | --nypl-fontWeights-default               | regular  |            |
-|                 | body.body1            | --nypl-fontWeights-body-body1            | regular  |            |
-|                 | body.body2            | --nypl-fontWeights-body-body2            | regular  |            |
-|                 | caption               | --nypl-fontWeights-caption               | regular  |            |
-|                 | text.default          | --nypl-fontWeights-text-default          | regular  | x          |
-|                 | text.caption          | --nypl-fontWeights-text-caption          | regular  | x          |
-|                 | text.tag              | --nypl-fontWeights-text-tag              | regular  | x          |
-|                 | text.mini             | --nypl-fontWeights-text-mini             | regular  | x          |
+|                 | JS Token              | CSS Token                                | Value    |
+| --------------- | :-------------------- | :--------------------------------------- | :------- |
+| **Breadcrumbs** | breadcrumbs.default   | --nypl-fontWeights-breadcrumbs-default   | regular  |
+|                 | breadcrumbs.lastChild | --nypl-fontWeights-breadcrumbs-lastChild | bold     |
+|                 |                       |                                          |          |
+| **Button**      | button.default        | --nypl-fontWeights-button-default        | regular  |
+|                 |                       |                                          |          |
+| **Heading**     | heading.display1      | --nypl-fontWeights-heading-display1      | light    |
+|                 | heading.heading1      | --nypl-fontWeights-heading-heading1      | light    |
+|                 | heading.heading2      | --nypl-fontWeights-heading-heading2      | light    |
+|                 | heading.heading3      | --nypl-fontWeights-heading-heading3      | regular  |
+|                 | heading.heading4      | --nypl-fontWeights-heading-heading4      | medium   |
+|                 | heading.heading5      | --nypl-fontWeights-heading-heading5      | semibold |
+|                 | heading.heading6      | --nypl-fontWeights-heading-heading6      | semibold |
+|                 | heading.heading7      | --nypl-fontWeights-heading-heading7      | bold     |
+|                 | heading.heading8      | --nypl-fontWeights-heading-heading8      | bold     |
+|                 |                       |                                          |          |
+| **Subtitle**    | subtitle.subtitle1    | --nypl-fontWeights-subtitle-subtitle1    | regular  |
+|                 | subtitle.subtitle2    | --nypl-fontWeights-subtitle-subtitle2    | regular  |
+|                 |                       |                                          |          |
+| **Overline**    | overline.overline1    | --nypl-fontWeights-overline-overline1    | semibold |
+|                 | overline.overline2    | --nypl-fontWeights-overline-overline2    | semibold |
+|                 |                       |                                          |          |
+| **Helper**      | helper.default        | --nypl-fontWeights-helper-default        | regular  |
+|                 |                       |                                          |          |
+| **Label**       | label.default         | --nypl-fontWeights-label-default         | medium   |
+|                 | label.secondary       | --nypl-fontWeights-label-secondary       | regular  |
+|                 |                       |                                          |          |
+| **Text**        | default               | --nypl-fontWeights-default               | regular  |
+|                 | body.body1            | --nypl-fontWeights-body-body1            | regular  |
+|                 | body.body2            | --nypl-fontWeights-body-body2            | regular  |
+|                 | caption               | --nypl-fontWeights-caption               | regular  |
+
+```
+
+```

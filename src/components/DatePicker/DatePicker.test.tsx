@@ -7,6 +7,11 @@ import renderer from "react-test-renderer";
 import DatePicker, { DatePickerTypes, FullDateType } from "./DatePicker";
 import { TextInputRefType } from "../TextInput/TextInput";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 /** This adds a "0" padding for date values under "10". */
 const strPad = (n: number) => String("0" + n).slice(-2);
 const monthArray: string[] = [
@@ -35,6 +40,13 @@ describe("DatePicker Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility for a single date input with no id", async () => {
+    const { container } = render(
+      <DatePicker labelText="Select the date you want to visit NYPL" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility with hidden label", async () => {
     const { container } = render(
       <DatePicker
@@ -50,6 +62,16 @@ describe("DatePicker Accessibility", () => {
     const { container } = render(
       <DatePicker
         id="datePicker"
+        isDateRange
+        labelText="Select the date range you want to visit NYPL"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility for a date range with no id", async () => {
+    const { container } = render(
+      <DatePicker
         isDateRange
         labelText="Select the date range you want to visit NYPL"
       />
@@ -91,6 +113,16 @@ describe("DatePicker", () => {
   };
 
   describe("Single input", () => {
+    it("should add an id to the component even if none is passed", () => {
+      render(
+        <DatePicker labelText="Select the full date you want to visit NYPL" />
+      );
+
+      expect(screen.getByTestId("ds-datePicker")).toHaveAttribute(
+        "id",
+        "test-id"
+      );
+    });
     it("should render the basic date input field including a date", () => {
       render(
         <DatePicker
@@ -242,7 +274,7 @@ describe("DatePicker", () => {
     it("should render with helper text and error text", () => {
       const { rerender } = render(
         <DatePicker
-          id="datePicker"
+          id="testId"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           invalidText="Please select a valid date."
@@ -257,7 +289,7 @@ describe("DatePicker", () => {
       const input = screen.getByRole("textbox");
       expect(input).toHaveAttribute(
         "aria-describedby",
-        "datePicker-start-helperText"
+        "testId-datePicker-start-textInput-helperErrorText"
       );
 
       // When not errored, we expect only the helper text to appear.
@@ -267,7 +299,7 @@ describe("DatePicker", () => {
 
       rerender(
         <DatePicker
-          id="datePicker"
+          id="testId"
           labelText="Select the date you want to visit NYPL"
           helperText="Note that the Library may be closed on Sundays."
           invalidText="Please select a valid date."
@@ -286,7 +318,7 @@ describe("DatePicker", () => {
       // The error text replaces the original helper text.
       expect(input).toHaveAttribute(
         "aria-describedby",
-        "datePicker-start-helperText"
+        "testId-datePicker-start-textInput-helperErrorText"
       );
     });
 
@@ -641,14 +673,14 @@ describe("DatePicker", () => {
       // more general to more specific.
       expect(inputFrom).toHaveAttribute(
         "aria-describedby",
-        "datePicker-helper-text datePicker-start-helperText"
+        "datePicker-helperErrorText datePicker-datePicker-start-textInput-helperErrorText"
       );
       // The `toInput` should have an `aria-describedby` value of both the id of
       // the `helperText` and the id of the `helperTextTo` in that order - from
       // more general to more specific.
       expect(inputTo).toHaveAttribute(
         "aria-describedby",
-        "datePicker-helper-text datePicker-end-helperText"
+        "datePicker-helperErrorText datePicker-datePicker-end-textInput-helperErrorText"
       );
     });
 
@@ -1065,18 +1097,6 @@ describe("DatePicker", () => {
       userEvent.click(screen.getByText("2024"));
 
       expect(screen.getByDisplayValue("2024")).toBeInTheDocument();
-    });
-
-    it("logs a warning when there is no `id` passed", () => {
-      const warn = jest.spyOn(console, "warn");
-      render(
-        // @ts-ignore: Typescript complains when a required prop is not passed, but
-        // here we don't want to pass the required prop to make sure the warning appears.
-        <DatePicker labelText="Select the year you want to visit NYPL" />
-      );
-      expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir DatePicker: This component's required `id` prop was not passed."
-      );
     });
   });
 });

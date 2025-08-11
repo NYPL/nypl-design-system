@@ -1,25 +1,30 @@
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 
 <Meta title="Development Guide/Header" />
 
-# Header
+<ComponentDocsHeader
+  category="Development Guide"
+  componentName="Header"
+  summary="Recommendations for using the NYPL universal header"
+/>
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#implementation" target="_self">Implementation</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#skip-navigation" target="_self">Skip Navigation</Link>}
-- {<Link href="#catalog-log-in" target="_self">Catalog Log In</Link>}
-- {<Link href="#search" target="_self">Search</Link>}
-- {<Link href="#navigation" target="_self">Navigation</Link>}
-- {<Link href="#header-log-in-timeout" target="_self">Header Log In Timeout</Link>}
+- [Overview](#overview)
+- [Implementation](#implementation)
+- [Accessibility](#accessibility)
+- [Skip Navigation](#skip-navigation)
+- [Catalog Log In](#catalog-log-in)
+- [Search](#search)
+- [Navigation](#navigation)
+- [Header Log In Timeout](#header-log-in-timeout)
 
 ## Overview
 
-The NYPL `Header` is the top most feature on NYPL sites. Even though this component
+The NYPL `Header` is the top-most feature on NYPL sites. Even though this component
 appears on various NYPL digital applications, it is itself a separate application
 that gets embedded on said digital applications. This complex component is composed
 using the Reservoir Design System and contains features for logging in, logging
@@ -33,9 +38,9 @@ The `Header` component:
 - fetches data from different APIs,
 - uses the DS' `SkipNavigation` component for webpage accessibility,
 - has static NYPL.org navigational links,
-- a log in form for patrons to log into NYPL's [Catalog](https://nypl.na2.iiivega.com/)
+- has a log in form for NYPL's [Catalog](https://nypl.na2.iiivega.com/)
   and [Research Catalog](https://www.nypl.org/research/research-catalog/),
-- a search form for patrons to search the Catalog and across [NYPL.org](https://www.nypl.org/).
+- has a search form for the Catalog and across [NYPL.org](https://www.nypl.org/).
 
 ## Implementation
 
@@ -45,11 +50,11 @@ The `Header` should be embedded on an NYPL app through the following code snippe
   code={`
 <style>
   #header-placeholder {
-    min-height: 70px;
+    min-height: 62px;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 832px) {
     #header-placeholder {
-      min-height: 230px;
+      min-height: 130px;
     }
   }
 </style>
@@ -67,47 +72,46 @@ The `Header` should be embedded on an NYPL app through the following code snippe
 />
 
 The placeholder styles and `div` wrapper are additional elements that are used
-to mitigate the "jumping" effect that occurs when the `Header` is loaded on a
-page. The `Header` script is loaded asynchronously and this means that the
-`Header` will render after the rest of the page is rendered and it will push the
-main content down. The fixed height of the placeholder `div` prevents the main
-content from jumping down. Note that we cannot predict the length of the alert
-text in the banner (in any) and the page may still jump but not by much.
+to mitigate the "jumping" effect that occurs when the `Header` is loaded asynchronously
+on a page. Otherwise, once loaded, the main content will be pushed down.
+
+NOTE: we cannot predict the length of the alert text in the banner (if any) and the page
+may still jump, but not by much.
 
 ## Accessibility
 
-The `Header` component contains multiple native HTML elements that work together
+The `Header` contains multiple native HTML elements that work together
 to make the component accessible. It contains:
 
-- Skip navigation - More information about this feature in the following section.
-- Notification `<aside>` HTML element - This landmark element renders NYPL alert
-  messages. Per accessibility guidelines, this element cannot be nested within
-  the `<header>` element, so it is rendered above. More information can be found
-  in the [Notification Accessibility](../?path=/docs/components-feedback-notification--docs#accessibility)
-  section.
-- `<header>` HTML element - This landmark element denotes the top content section
-  of the page. There should only be one main `<header>` element on the page as a
-  child of the `<body>` element.
-- `<nav>` HTML elements - The `Header` component renders one (1) `<nav>` element
-  in the mobile view and two (2) `<nav>` elements in the desktop view. Each `<nav>`
-  element appropriately contains its own `aria-label` attribute to differentiate
-  it from one another.
-- `<form>` HTML element - The `<form>` element is used in the search feature.
-- Dropdowns buttons with focus-trap feature - The `Header` uses `react-focus-lock`
-  to trap (or loop) focus within its various dropdowns: the login submenu, the
-  search form, and the mobile navigation submenu. This is to make keyboard
-  navigation easier for users. Trapping focus means that when a parent element is
-  clicked and its dropdown becomes visible, focus remains among its children
-  while the user tabs. The user may close the dropdown and escape the focus trap
-  by clicking on the parent element once again, or by using the escape key.
-  Note: This is how the original NYPL `Header` was implemented and its Reservoir
-  counterpart replicates this behavior. However, this is not the
-  _currently recommended_ way to implement focus management in dropdowns.
-  According to the [W3C](https://www.w3.org/wiki/MenuButton), up and down arrow
-  keys, rather than tab, should loop focus over child elements. Tabbing should
-  instead close the dropdown and move focus to the following parent. In the
-  future, we hope to change the Reservoir Header to align with current best
-  practices.
+- Skip navigation
+  - More information about this feature in the following section.
+- Notification `<aside>` HTML element
+  - This landmark element renders NYPL alert messages. Per accessibility guidelines,
+    this element cannot be nested within the `<header>` element, so it is rendered above.
+    More information can be found in the [Notification Accessibility](../?path=/docs/components-feedback-notification--docs#accessibility)
+    section.
+- `<header>` HTML element
+  - This landmark element denotes the top content section of the page. There should only
+    be one main `<header>` element on the page as a child of the `<body>` element.
+- `<nav>` HTML elements
+  - The `Header` component renders one (1) `<nav>` element in the mobile view and two (2)
+    `<nav>` elements in the desktop view. Each `<nav>` element appropriately contains its own
+    `aria-label` attribute to differentiate it from one another.
+- `<form>` HTML element
+  - The `<form>` element is used in the search feature.
+- Dropdowns buttons with focus-trap feature
+  - The `Header` uses `react-focus-lock` to trap (or loop) focus within its various dropdowns:
+    the login submenu, the search form, and the mobile navigation submenu. This is to make
+    keyboard navigation easier for users. Trapping focus means that when a parent element is
+    clicked and its dropdown becomes visible, focus remains among its children while the user tabs.
+    The user may close the dropdown and escape the focus trap by clicking on the parent element
+    once again, or by using the escape key.
+  - Note: This is how the original NYPL `Header` was implemented and its Reservoir counterpart
+    replicates this behavior. However, this is not the _currently recommended_ way to implement
+    focus management in dropdowns. According to the [W3C](https://www.w3.org/wiki/MenuButton),
+    up and down arrow keys, rather than tab, should loop focus over child elements. Tabbing should
+    instead close the dropdown and move focus to the following parent. In the future, we hope to
+    change the Reservoir Header to align with current best practices.
 
 Resources:
 
@@ -131,16 +135,11 @@ It is important to note that the `SkipNavigation` component expects that the pag
 it is on has a `main` HTML element with an `id` of `mainContent`. This allows
 the first link in the skip navigation to function correctly.
 
-The second link in the skip navigation points to
-[NYPL's accessibility resource](https://www.nypl.org/accessibility).
+If using the Reservoir [`Template`](../?path=/docs/components-page-layout-template--docs)
+components, we recommend adding the `id` of `"mainContent"` to the `TemplateMain`
+component (which renders a `main` HTML element).
 
-### TemplateAppContainer
-
-The DS [`TemplateAppContainer`](../?path=/docs/components-page-layout-template--docs)
-component renders the same `SkipNavigation` component that the `Header` component
-renders. When using both the `Header` and the `TemplateAppContainer` components,
-set the `renderSkipNavigation` prop in the `TemplateAppContainer` component to
-`false`. This will prevent two `SkipNavigation` components from being rendered.
+The second link in the skip navigation points to [NYPL's accessibility resource](https://www.nypl.org/accessibility).
 
 ## Catalogs Log In
 

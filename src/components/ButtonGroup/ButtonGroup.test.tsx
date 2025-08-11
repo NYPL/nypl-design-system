@@ -10,7 +10,7 @@ describe("ButtonGroup Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <ButtonGroup>
-        <Button buttonType="secondary" id="btn-1">
+        <Button variant="secondary" id="btn-1">
           Button
         </Button>
         <Button id="btn-2">Submit</Button>
@@ -21,10 +21,25 @@ describe("ButtonGroup Accessibility", () => {
 });
 
 describe("ButtonGroup", () => {
+  it("should not render an id if none is passed", () => {
+    render(
+      <ButtonGroup>
+        <Button id="btn-1" variant="secondary">
+          Button
+        </Button>
+        <Button id="btn-2">Submit</Button>
+        <p data-test="paragraph">This is not a button</p>
+      </ButtonGroup>
+    );
+
+    const container = screen.getByTestId("ds-buttonGroup");
+    expect(container).not.toHaveAttribute("id");
+  });
+
   it("renders only Button components", () => {
     render(
       <ButtonGroup>
-        <Button buttonType="secondary" id="btn-1">
+        <Button variant="secondary" id="btn-1">
           Button
         </Button>
         <Button id="btn-2">Submit</Button>
@@ -39,7 +54,7 @@ describe("ButtonGroup", () => {
   it("sets all `Button` children as disabled if isDisabled is true", () => {
     const { rerender } = render(
       <ButtonGroup>
-        <Button buttonType="secondary" id="btn-1">
+        <Button variant="secondary" id="btn-1">
           Button
         </Button>
         <Button id="btn-2">Submit</Button>
@@ -51,7 +66,7 @@ describe("ButtonGroup", () => {
 
     rerender(
       <ButtonGroup isDisabled>
-        <Button buttonType="secondary" id="btn-1">
+        <Button variant="secondary" id="btn-1">
           Button
         </Button>
         <Button id="btn-2">Submit</Button>
@@ -62,27 +77,11 @@ describe("ButtonGroup", () => {
     expect(screen.getAllByRole("button")[1]).toBeDisabled();
   });
 
-  it("logs a warning when any element that is not a Button is passed ", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <ButtonGroup>
-        <Button buttonType="secondary" id="btn-1">
-          Button
-        </Button>
-        <Button id="btn-2">Submit</Button>
-        <p data-test="paragraph">This is not a button</p>
-      </ButtonGroup>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir ButtonGroup: Only Button components can be children of ButtonGroup."
-    );
-  });
-
   it("passes a ref to the div wrapper element", () => {
     const ref = React.createRef<HTMLDivElement>();
     const { container } = render(
       <ButtonGroup isDisabled ref={ref}>
-        <Button buttonType="secondary" id="btn-ref">
+        <Button variant="secondary" id="btn-ref">
           Button
         </Button>
       </ButtonGroup>
@@ -97,7 +96,7 @@ describe("ButtonGroup Snapshot", () => {
     const basic = renderer
       .create(
         <ButtonGroup>
-          <Button buttonType="secondary" id="btn-1">
+          <Button variant="secondary" id="btn-1">
             Button
           </Button>
           <Button id="btn-2">Submit</Button>
@@ -107,7 +106,7 @@ describe("ButtonGroup Snapshot", () => {
     const fullWidth = renderer
       .create(
         <ButtonGroup buttonWidth="full">
-          <Button buttonType="secondary" id="btn-1">
+          <Button variant="secondary" id="btn-1">
             Button
           </Button>
           <Button id="btn-2">Submit</Button>
@@ -117,7 +116,7 @@ describe("ButtonGroup Snapshot", () => {
     const column = renderer
       .create(
         <ButtonGroup layout="column">
-          <Button buttonType="secondary" id="btn-1">
+          <Button variant="secondary" id="btn-1">
             Button
           </Button>
           <Button id="btn-2">Submit</Button>
@@ -127,7 +126,7 @@ describe("ButtonGroup Snapshot", () => {
     const withChakraProps = renderer
       .create(
         <ButtonGroup p="s" color="ui.error.primary">
-          <Button buttonType="secondary" id="btn-1">
+          <Button variant="secondary" id="btn-1">
             Button
           </Button>
           <Button id="btn-2">Submit</Button>
@@ -137,7 +136,7 @@ describe("ButtonGroup Snapshot", () => {
     const withOtherProps = renderer
       .create(
         <ButtonGroup data-testid="testid">
-          <Button buttonType="secondary" id="btn-1">
+          <Button variant="secondary" id="btn-1">
             Button
           </Button>
           <Button id="btn-2">Submit</Button>

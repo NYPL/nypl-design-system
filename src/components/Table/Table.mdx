@@ -1,41 +1,52 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
-import * as TableStories from "./Table.stories";
-import Link from "../Link/Link";
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import * as TableStories from "./Table.stories";
 import { changelogData } from "./tableChangelogData";
 
 <Meta of={TableStories} />
 
-# Table
+<ComponentDocsHeader
+  category="Page layout component"
+  componentName="Table"
+  summary="Used to efficiently organize and display tabular data"
+  versionAdded="0.25.9"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.9`   |
-| Latest            | `3.6.2`    |
+<Canvas of={TableStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#title-text" target="_self">Title Text</Link>}
-- {<Link href="#row-dividers" target="_self">Row Dividers</Link>}
-- {<Link href="#row-headers" target="_self">Row Headers</Link>}
-- {<Link href="#custom-header-colors" target="_self">Custom Header Colors</Link>}
-- {<Link href="#custom-column-styles" target="_self">Custom Column Styles</Link>}
-- {<Link href="#horizontal-scrolling" target="_self">Horizontal Scrolling</Link>}
-- {<Link href="#responsive-mobile-layout" target="_self">Responsive Mobile Layout</Link>}
-- {<Link href="#jsx-elements" target="_self">JSX Elements</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Title text](#title-text)
+- [Font size](#font-size)
+- [Row dividers](#row-dividers)
+- [Row headers](#row-headers)
+- [Custom header colors](#custom-header-colors)
+- [Custom column styles](#custom-column-styles)
+- [Horizontal scrolling](#horizontal-scrolling)
+- [Responsive mobile layout](#responsive-mobile-layout)
+- [JSX elements](#jsx-elements)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={TableStories} />
 
-## Component Props
+## Component props
 
-<Canvas of={TableStories.WithControls} />
+You may pass any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={TableStories.WithControls} />
 
@@ -46,22 +57,22 @@ use of the `table`, `caption`, `thead`, `tbody`, `tr`, and `td` HTML elements.
 When titles are added through the `titleText` prop, the `caption` element will
 be rendered above the `thead` element.
 
-This component should be used to render tabular data only and not used for layout
-purposes.
+This component should be used to render tabular data only and not used for
+layout purposes.
 
 For improved accessibility, column headers are required and the first row
 in the table will always be rendered as a `thead` with a child `tr` and
-corresponsing `th` cells. Additionally, the first cell in a `tr` row can be a `th`
-header cell. Each `th` header cell has an appropriate scope attribute set to
-either `scope="col"` or `scope="row"`. For example, every `th` cell in a `thead`
-`tr` row will have `scope="col"`. Every `th` cell in a `tbody` `tr` row will
-have `scope="row"`.
+corresponsing `th` cells. Additionally, the first cell in a `tr` row can be a
+`th` header cell. Each `th` header cell has an appropriate scope attribute set
+to either `scope="col"` or `scope="row"`. For example, every `th` cell in a
+`thead` `tr` row will have `scope="col"`. Every `th` cell in a `tbody` `tr` row
+will have `scope="row"`.
 
 Header cells are visually different from the standard table data. Use the
 `columnHeaders` prop to pass the data for the column headers. Use the
 `useRowHeaders` prop to render the first cell in every row as a header. If a
-table has two levels of headers (such as two levels of horizontal headers), break
-the data into two separate tables.
+table has two levels of headers (such as two levels of horizontal headers),
+break the data into two separate tables.
 
 When horizontal scrolling is enabled for the `Table` component, the scrolling
 element (the `table` container) should have a proper role defined using
@@ -74,23 +85,33 @@ Resources:
 - [MDN HTML table advance features and accessibility](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced)
 - [Chakra UI Table](https://chakra-ui.com/docs/components/data-display/table)
 
-## Title Text
+## Title text
 
 The `titleText` prop can be used to add a visible title above the table or to
 add an `aria-label` attribute. If the `titleText` prop is passed, by default a
 visibel header will be rendered.
 
-**IMPORTANT:** While the `titleText` prop is not required, it is recommended to
-always use this prop for better accessibility.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> While the <code>titleText</code> prop is not
+      required, it is recommended to always use this prop for better
+      accessibility.
+    </>
+  }
+  variant="recommendation"
+/>
 
 <Source
-  code={`<Table
-  columnHeaders={columnHeaders}
-  id="table-title-text"
-  tableData={tableData}
-  titleText="Table with visible title"
-/>`}
-  language="jsx"
+  code={`
+  <Table
+    columnHeaders={columnHeaders}
+    id="table-title-text"
+    tableData={tableData}
+    titleText="Table with visible title"
+  />
+`}
+  language="tsx"
 />
 
 <Canvas of={TableStories.ShowTitleText} />
@@ -100,40 +121,71 @@ Use the `showTitleText` prop to control the visibility of the title. When
 instead of rendering the visisble header.
 
 <Source
-  code={`<Table
-  columnHeaders={columnHeaders}
-  id="table-aria-label"
-  showTitleText={false}
-  tableData={tableData}
-  titleText="Table with aria-label"
-/>`}
-  language="jsx"
+  code={`
+  <Table
+    columnHeaders={columnHeaders}
+    id="table-aria-label"
+    showTitleText={false}
+    tableData={tableData}
+    titleText="Table with aria-label"
+  />`}
+  language="tsx"
 />
 
 <Canvas of={TableStories.HideTitleText} />
 
-## Row Dividers
+## Font size
+
+The font size of the table content defaults to `1rem` (16px), but a custom size
+can be set using the `fontSize` CSS attribute.
+
+Recommended font sizes (design tokens):
+
+- `desktop.body.body1`
+- `desktop.body.body2`
+- `desktop.caption`
+
+For mobile viewports, the font size of the column headers will align with the
+font size of the table content. However, for desktop viewport, the font size of
+the column headers will always be `.75rem` (12px).
+
+<Source
+  code={`
+  <Table
+    columnHeaders={columnHeaders}
+    fontSize="desktop.body.body1"
+    id="table-font-size-body1"
+    showRowDividers
+    tableData={tableData}
+  />
+`}
+  language="tsx"
+/>
+
+<Canvas of={TableStories.FontSize} />
+
+## Row dividers
 
 Use the `showRowDividers` prop to render a divider between each row.
 
 <Canvas of={TableStories.RowDividers} />
 
-## Row Headers
+## Row headers
 
 Use the `useRowHeaders` prop to render the first cell in every row as a header.
 Notice that they are now bold and have a background color.
 
 <Canvas of={TableStories.RowHeaders} />
 
-## Custom Header Colors
+## Custom header colors
 
-It's possible to customize the header colors by using the `columnHeadersBackgroundColor`
-and `columnHeadersTextColor` props. Note that the colors need to have sufficient
-color contrast.
+It's possible to customize the header colors by using the
+`columnHeadersBackgroundColor` and `columnHeadersTextColor` props. Note that
+the colors need to have sufficient color contrast.
 
 <Canvas of={TableStories.CustomHeaderColors} />
 
-## Custom Column Styles
+## Custom column styles
 
 The `columnStyles` prop can be used to apply custom styles to to each column.
 The most column use case for this is to control the column widths and/or text
@@ -141,7 +193,7 @@ alignment for each column. Any style prop can be passed using the `columnStyles`
 prop, but it is recommended to use the default styles of the `Table` component
 as much as possible and to avoid excessive style overrides.
 
-### Native Column Widths
+### Native column widths
 
 Column widths in HTML `<table>` elements can be a bit confusing and
 unpredictable when relying on the default styles. Default table styles allow
@@ -151,7 +203,7 @@ resizing is unbalanced and text content within the columns becomes unreadable.
 
 <Canvas of={TableStories.NativeColumnStyles} />
 
-### Custom Column Widths
+### Custom column widths
 
 Using the `columnStyles` prop, specific `width` and `min-width` values can be
 set for each column in a table. Additional styles may also be set to format
@@ -162,31 +214,44 @@ For improved UX, it is recommended to apply a `min-width` value of at least
 `"200px"` to each column in a table.
 
 <Source
-  code={`const columnStyles = [
-  { minWidth: "200px", width: "15%" },
-  { minWidth: "400px", width: "auto" },
-  { minWidth: "200px", width: "15%", textAlign: "right" },
-];`}
-  language="jsx"
+  code={`
+  const columnStyles = [
+    { minWidth: "200px", width: "15%" },
+    { minWidth: "400px", width: "auto" },
+    { minWidth: "200px", width: "15%", textAlign: "right" },
+  ];
+`}
+  language="tsx"
 />
 
-**IMPORTANT:** The length of the array that makes up the `columnStyles` prop
-must match the length of the arrays that make up the `tableData` and
-`columnHeaders` props. If a column does not require custom styles, an empty
-object must be included in the `columnStyles` array. See the `With Empty Style Object` example below.
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The length of the array that makes up the
+      <code>columnStyles</code> prop must match the length of the arrays that make
+      up the <code>tableData</code> and <code>columnHeaders</code> props. If a column
+      does not require custom styles, an empty object must be included in the
+      <code>columnStyles</code> array. See the "With Empty Style Object" example
+      below.
+    </>
+  }
+  variant="informative"
+/>
 
 <Source
-  code={`const columnStyles = [
-  { minWidth: "200px", width: "15%" },
-  { },
-  { minWidth: "200px", width: "15%", textAlign: "right" },
-];`}
-  language="jsx"
+  code={`
+  const columnStyles = [
+    { minWidth: "200px", width: "15%" },
+    { },
+    { minWidth: "200px", width: "15%", textAlign: "right" },
+  ];
+`}
+  language="tsx"
 />
 
 <Canvas of={TableStories.CustomColumnStyles} />
 
-## Horizontal Scrolling
+## Horizontal scrolling
 
 When using `columnStyles`, if the `min-width` values cause a table to exceed the
 width of its parent element, the `isScrollable` prop can be used to enable
@@ -195,20 +260,22 @@ situation, the first column will remain fixed as the subsequent columns scroll
 beneath it.
 
 <Source
-  code={`const columnStyles = [
-  { minWidth: "200px", width: "15%" },
-  { minWidth: "200px", width: "15%" },
-  { minWidth: "200px", width: "15%" },
-  { minWidth: "500px", width: "auto" },
-  { minWidth: "500px", width: "auto" },
-  { minWidth: "200px", width: "15%", textAlign: "right" },
-];`}
-  language="jsx"
+  code={`
+  const columnStyles = [
+    { minWidth: "200px", width: "15%" },
+    { minWidth: "200px", width: "15%" },
+    { minWidth: "200px", width: "15%" },
+    { minWidth: "500px", width: "auto" },
+    { minWidth: "500px", width: "auto" },
+    { minWidth: "200px", width: "15%", textAlign: "right" },
+  ];
+`}
+  language="tsx"
 />
 
 <Canvas of={TableStories.HorizontalScrolling} />
 
-## Responsive Mobile Layout
+## Responsive mobile layout
 
 If the `isScrollable` prop is true, the layout of the `Table` component is the
 same for all viewports and horizontal scrolling will always be enabled. The only
@@ -221,46 +288,46 @@ converted to a stacked vertical layout, with each "row" visually separated by a
 prominent horizontal rule. Despite the significant visual changes in the
 responsive layout, all component props are still functional.
 
-To view and test this in Storybook, go to the [With Controls](../?path=/story/components-page-layout-table--with-controls)
+To view and test this in Storybook, go to the [With Controls](./?path=/story/components-page-layout-table--with-controls)
 Story and change the viewport in the Storybook toolbar at the top of the page.
 
-## JSX Elements
+## JSX elements
 
 It's possible to pass in JSX elements in the `tableData` prop.
 
 <Source
   code={`
-export const charactersData = [
-  [
-    "Tom",
-    "Nook",
-    <Image
-      alt="Tom Nook"
-      size="small"
-      src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-    />,
-  ],
-  [
-    "Isabelle",
-    "-",
-    <Image
-      alt="Isabelle"
-      size="small"
-      src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-    />,
-  ],
-  [
-    "K.K.",
-    "Slider",
-    <Image
-      alt="K.K Slider"
-      size="small"
-      src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
-    />,
-  ],
-];
+  export const charactersData = [
+    [
+      "Tom",
+      "Nook",
+      <Image
+        alt="Tom Nook"
+        size="small"
+        src="https://play.nintendo.com/images/AC_Tom_FRYtwIN.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+      />,
+    ],
+    [
+      "Isabelle",
+      "-",
+      <Image
+        alt="Isabelle"
+        size="small"
+        src="https://play.nintendo.com/images/AC_Isabelle_7XU6aGu.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+      />,
+    ],
+    [
+      "K.K.",
+      "Slider",
+      <Image
+        alt="K.K Slider"
+        size="small"
+        src="https://play.nintendo.com/images/AC_KK_jh4yj5t.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png"
+      />,
+    ],
+  ];
 `}
-  language="jsx"
+  language="tsx"
 />
 
 <Canvas of={TableStories.JSXElements} />

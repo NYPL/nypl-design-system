@@ -1,46 +1,74 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+} from "@storybook/addon-docs/blocks";
 
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import Banner from "../Banner/Banner";
 import * as CheckboxStories from "./Checkbox.stories";
-import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import { changelogData } from "./checkboxChangelogData";
 
 <Meta of={CheckboxStories} />
 
-# Checkbox
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Checkbox"
+  summary="Input element that allows a user to toggle between checked and not checked states."
+  versionAdded="0.1.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.1.0`    |
-| Latest            | `3.6.0`    |
+<Canvas of={CheckboxStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#checked" target="_self">Checked</Link>}
-- {<Link href="#indeterminate" target="_self">Indeterminate</Link>}
-- {<Link href="#additional-states" target="_self">Additional States</Link>}
-- {<Link href="#label-using-jsx-elements" target="_self">Label Using JSX Elements</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Checked](#checked)
+- [Indeterminate](#indeterminate)
+- [Additional States](#additional-states)
+- [Label Using JSX Elements](#label-using-jsx-elements)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={CheckboxStories} />
 
-The `Checkbox` component renders a checkbox input element. The `Checkbox` component should be used to allow users to select one or more options from a list of choices.
+The `Checkbox` component renders a checkbox input element. The `Checkbox`
+component should be used to allow users to select one or more options from a
+list of choices.
 
-Please note that the examples on this page show the `Checkbox` component in isolation. It is recommended to use the `Checkbox` component inside the
-DS `CheckboxGroup` component. The `CheckboxGroup` component will handle all the states and data management.
+Please note that the examples on this page show the `Checkbox` component in
+isolation. It is recommended to use the `Checkbox` component inside the
+DS `CheckboxGroup` component. The `CheckboxGroup` component will handle all
+the visual states and data management.
 
 ## Component Props
 
-<Canvas of={CheckboxStories.WithControls} />
+The `Checkbox` composes an HTML `input` element, so you may pass any HTML
+`input` attributes, as well any Chakra style props and the props below. Helpful
+props include `name` and `onChange`.
 
 <ArgTypes of={CheckboxStories.WithControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an <code>id</code> value
+      for accessibility requirements. If no <code>id</code> is passed, a random{" "}
+      <code>id</code> will be generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="recommendation"
+/>
 
 The `Checkbox` component renders `<label>` and `<input type="checkbox" />`
 elements that are associated with each other; the label has a `for` attribute
@@ -70,7 +98,10 @@ and removed manually by the parent component that controls this state.
 
 Note: This state only changes the icon through the `isIndeterminate` prop. This
 does not affect whether the checkbox is checked. The `isIndeterminate` prop must
-now be controlled and removed by the parent component in order to remove this state.
+now be controlled and removed by the parent component in order to remove this
+state. See the `CheckboxGroup`'s
+[Indeterminate Example](?path=/docs/components-form-elements-checkboxgroup--docs#indeterminate-example)
+documentation for more information on how to handle this state.
 
 <Canvas of={CheckboxStories.Indeterminate} />
 

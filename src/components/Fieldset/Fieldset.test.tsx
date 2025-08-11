@@ -15,6 +15,15 @@ describe("Fieldset Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility with no id", async () => {
+    const { container } = render(
+      <Fieldset legendText="Legend Text">
+        <p>Some other fields</p>
+      </Fieldset>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility with the legend hidden", async () => {
     const { container } = render(
       <Fieldset id="fieldset" legendText="Legend Text" isLegendHidden>
@@ -26,6 +35,17 @@ describe("Fieldset Accessibility", () => {
 });
 
 describe("Fieldset", () => {
+  it("should not render an id if none is passed", () => {
+    render(
+      <Fieldset legendText="Legend Text">
+        <p>Some other fields</p>
+      </Fieldset>
+    );
+
+    const container = screen.getByTestId("ds-fieldset");
+    expect(container).not.toHaveAttribute("id");
+  });
+
   it("renders text in a legend and fieldset along with its children", () => {
     render(
       <Fieldset id="fieldset" legendText="Legend Text">
@@ -71,20 +91,6 @@ describe("Fieldset", () => {
 
     expect(screen.getByText(/Legend Text/i)).toBeInTheDocument();
     expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <Fieldset legendText="Legend Text">
-        <p>Some other fields</p>
-      </Fieldset>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Fieldset: This component's required `id` prop was not passed."
-    );
   });
 
   it("renders the UI snapshot correctly", () => {

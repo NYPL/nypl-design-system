@@ -1,19 +1,19 @@
+import { Box } from "@chakra-ui/react";
 import { Meta } from "@storybook/addon-docs/blocks";
 
-import { Box } from "@chakra-ui/react";
 import Banner from "../../../Banner/Banner";
+import ComponentDocsHeader from "../../../../utils/components/ComponentDocsHeader";
 import Image from "../../../Image/Image";
-import Link from "../../../Link/Link";
 
-import imageExampleColumn from "/static/filteringStyleGuide/exampleColumn.png";
-import imageExamplePopup from "/static/filteringStyleGuide/examplePopup.png";
-import imageExampleRow from "/static/filteringStyleGuide/exampleRow.png";
-import imageFilterBar from "/static/filteringStyleGuide/filterBar.png";
+import imageExampleColumn from "/public/filteringStyleGuide/exampleColumn.png";
+import imageExamplePopup from "/public/filteringStyleGuide/examplePopup.png";
+import imageExampleRow from "/public/filteringStyleGuide/exampleRow.png";
+import imageFilterBar from "/public/filteringStyleGuide/filterBar.png";
 import { exampleWrapperStyles } from "../../../../utils/utils.ts";
 
 <Meta title="Style Guide/Filtering/Page elements/Filter bar" />
 
-# Filter bar
+<ComponentDocsHeader category="Style Guide" componentName="Filter bar" />
 
 The `filter bar` is a wrapper for individual form input elements, including the
 following DS components: `CheckboxGroup`, `MultiSelectGroup`, `RadioGroup`,
@@ -28,10 +28,10 @@ following DS components: `CheckboxGroup`, `MultiSelectGroup`, `RadioGroup`,
 
 ## Table of contents
 
-- {<Link href="#rendering" target="_self">Rendering</Link>}
-- {<Link href="#filter-option-labeling" target="_self">Filter option labeling</Link>}
-- {<Link href="#filter-option-status" target="_self">Filter option status</Link>}
-- {<Link href="#action-buttons" target="_self">Action buttons</Link>}
+- [Rendering](#rendering)
+- [Filter option labeling](#filter-option-labeling)
+- [Filter option status](#filter-option-status)
+- [Action buttons](#action-buttons)
 
 ## Rendering
 
@@ -49,7 +49,7 @@ components.
     </>
   }
   mb="s"
-  type="warning"
+  variant="warning"
 />
 
 ### Desktop and tablet
@@ -64,9 +64,9 @@ or row (horizontal).
 
   <Box>
     - The `filter bar` element should be placed in a sidebar on either the left or
-      right side of the main content area.
+      right side of the main content area
     - This configuration allows users to easily make selections across multiple
-      facets.
+      facets
     - This configuration is recommended:
       - for filters that are non-contextual and apply to the entirety of the main
         content area
@@ -97,7 +97,7 @@ or row (horizontal).
 
   <Box>
     - The `filter bar` should be placed above the area of the page that is pertinent
-      to the filters.
+      to the filters
     - The filters that compose the `filter bar` should render in one row for desktop
       viewports (approx. five filter facets)
       - For specific use cases that need more than five filter facets, the filters
@@ -211,14 +211,14 @@ Clicking the "Clear all filters" button should:
 ### Mobile
 
 For mobile viewports, the filter bar will display a "Show results" button and can
-display an optional "Clear all filters" button.
+display an optional "Clear all filters" button. The "Show results" button will always
+be rendered at the bottom of the modal popup regardless of the filtering method being used.
 
-The "Show results" button will always be rendered at the bottom of the modal
-popup regardless of the filtering method being used. It is recommended that the
-label for the "Show results" button also include the current number of items in
-the results list. For example, "Show 72 results." The number value should update
-as filter options are selected. Clicking the "Show results" button will close
-the modal overlay.
+It is recommended that the label for the "Show results" button also include the
+current number of items in the results list: for example, "Show 72 results."
+
+The number value should update as filter options are selected. Clicking the
+"Show results" button will close the modal overlay.
 
 The "Clear all filters" button is optional, but it is recommended to render the
 buttons. Clicking the "Clear all filters" button should:

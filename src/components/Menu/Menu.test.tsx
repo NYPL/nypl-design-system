@@ -23,15 +23,20 @@ import {
 describe("Menu Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
-      <Menu labelText={"Menu"} listItemsData={defaultListItems} />
+      <Menu labelText="Menu" listItemsData={defaultListItems} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
 });
 
 describe("Menu opens and closes", () => {
+  it("should not render an id if none is passed", () => {
+    render(<Menu labelText="Menu" listItemsData={defaultListItems} />);
+    expect(screen.getByTestId("ds-menu")).not.toHaveAttribute("id");
+  });
+
   it("renders content when it is opened", async () => {
-    render(<Menu labelText={"Menu"} listItemsData={defaultListItems} />);
+    render(<Menu labelText="Menu" listItemsData={defaultListItems} />);
 
     const openButton = screen.getByText("Menu").parentElement!;
 
@@ -40,7 +45,7 @@ describe("Menu opens and closes", () => {
   });
 
   it("closes when menu item is selected", async () => {
-    render(<Menu labelText={"Menu"} listItemsData={defaultListItems} />);
+    render(<Menu labelText="Menu" listItemsData={defaultListItems} />);
 
     const openButton = screen.getByText("Menu").parentElement!;
 
@@ -57,7 +62,7 @@ describe("Menu opens and closes", () => {
   });
 
   it("closes with Escape key when focus is on menu list", async () => {
-    render(<Menu labelText={"Menu"} listItemsData={defaultListItems} />);
+    render(<Menu labelText="Menu" listItemsData={defaultListItems} />);
 
     const openButton = screen.getByText("Menu").parentElement!;
 
@@ -74,7 +79,7 @@ describe("Menu opens and closes", () => {
   });
 
   it("closes when clicking outside of the menu", async () => {
-    render(<Menu labelText={"Menu"} listItemsData={defaultListItems} />);
+    render(<Menu labelText="Menu" listItemsData={defaultListItems} />);
 
     const openButton = screen.getByText("Menu").parentElement!;
 
@@ -88,7 +93,7 @@ describe("Menu opens and closes", () => {
 
 describe("Menu allows selection", () => {
   it("registered an item has been selected", () => {
-    render(<Menu labelText={"Menu"} listItemsData={defaultListItems} />);
+    render(<Menu labelText="Menu" listItemsData={defaultListItems} />);
     const openButton = screen.getByText("Menu");
     fireEvent.click(openButton);
     const button1 = screen.getByText("I'm item 1").closest("button");
@@ -100,7 +105,7 @@ describe("Menu allows selection", () => {
   });
 
   it("remembers selected item", () => {
-    render(<Menu labelText={"Menu"} listItemsData={defaultListItems} />);
+    render(<Menu labelText="Menu" listItemsData={defaultListItems} />);
     const openButton = screen.getByText("Menu");
     fireEvent.click(openButton);
     const button1 = screen.getByText("I'm item 1").closest("button");
@@ -148,7 +153,7 @@ describe("Menu logs errors when props are incorrect or missing", () => {
     const warn = jest.spyOn(console, "warn");
     // @ts-ignore: Typescript complains when a required prop is not passed, but
     // here we don't want to pass the required prop to make sure the warning appears.
-    render(<Menu labelText={"Menu"} />);
+    render(<Menu labelText="Menu" />);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Menu: The `listItemsData` prop is required."
     );
@@ -168,14 +173,14 @@ describe("Menu logs errors when props are incorrect or missing", () => {
   });
   it("logs an error if menu items have duplicate ids", () => {
     const warn = jest.spyOn(console, "warn");
-    render(<Menu labelText={"Menu"} listItemsData={duplicateIdListItems} />);
+    render(<Menu labelText="Menu" listItemsData={duplicateIdListItems} />);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Menu: The `id` values for the list items are not all unique."
     );
   });
   it("logs a warning if a menu item does not have a type", () => {
     const warn = jest.spyOn(console, "warn");
-    render(<Menu labelText={"Menu"} listItemsData={missingTypeListItems} />);
+    render(<Menu labelText="Menu" listItemsData={missingTypeListItems} />);
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Menu: A `type` value is required for each list item."
@@ -183,7 +188,7 @@ describe("Menu logs errors when props are incorrect or missing", () => {
   });
   it("logs a warning if a menu item does not have an id", () => {
     const warn = jest.spyOn(console, "warn");
-    render(<Menu labelText={"Menu"} listItemsData={missingIdListItems} />);
+    render(<Menu labelText="Menu" listItemsData={missingIdListItems} />);
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Menu: An `id` value is required for each list item."
@@ -191,7 +196,7 @@ describe("Menu logs errors when props are incorrect or missing", () => {
   });
   it("logs a warning if a menu item does not have a label", () => {
     const warn = jest.spyOn(console, "warn");
-    render(<Menu labelText={"Menu"} listItemsData={missingLabelListItems} />);
+    render(<Menu labelText="Menu" listItemsData={missingLabelListItems} />);
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Menu: A `label` value is required for all list actions and groups."
@@ -199,7 +204,7 @@ describe("Menu logs errors when props are incorrect or missing", () => {
   });
   it("logs a warning if a menu item does not have an onClick function", () => {
     const warn = jest.spyOn(console, "warn");
-    render(<Menu labelText={"Menu"} listItemsData={missingOnClickListItems} />);
+    render(<Menu labelText="Menu" listItemsData={missingOnClickListItems} />);
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Menu: An `onClick` function is required for all actions."
@@ -207,9 +212,7 @@ describe("Menu logs errors when props are incorrect or missing", () => {
   });
   it("logs a warning if a group item does not have children", () => {
     const warn = jest.spyOn(console, "warn");
-    render(
-      <Menu labelText={"Menu"} listItemsData={missingChildrenListItems} />
-    );
+    render(<Menu labelText="Menu" listItemsData={missingChildrenListItems} />);
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Menu: A `children` array is required for all list groups."

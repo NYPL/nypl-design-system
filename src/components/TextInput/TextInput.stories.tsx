@@ -19,10 +19,8 @@ const meta: Meta<typeof TextInput> = {
       options: autoCompleteValuesArray,
       table: { defaultValue: { summary: "off" } },
     },
-    className: { control: false },
     defaultValue: { control: false },
     helperText: { control: "text" },
-    id: { control: false },
     invalidText: { control: "text" },
     isClearable: argsBooleanType(),
     isClearableCallback: { control: false },
@@ -45,7 +43,7 @@ const meta: Meta<typeof TextInput> = {
     showLabel: argsBooleanType("true"),
     showRequiredLabel: argsBooleanType("true"),
     step: { table: { defaultValue: { summary: "1" } } },
-    textInputType: {
+    variant: {
       control: false,
       table: { defaultValue: { summary: "default" } },
     },
@@ -69,10 +67,8 @@ export const WithControls: Story = {
   args: {
     additionalHelperTextIds: undefined,
     autoComplete: undefined,
-    className: undefined,
     defaultValue: undefined,
     helperText: "Choose wisely.",
-    id: "textInput-id",
     isClearable: true,
     isClearableCallback: undefined,
     isDisabled: false,
@@ -94,7 +90,7 @@ export const WithControls: Story = {
     showLabel: true,
     showRequiredLabel: true,
     step: 1,
-    textInputType: "default",
+    variant: "default",
     type: "text",
     value: undefined,
   },
@@ -172,7 +168,7 @@ export const BrowserStates: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Invalid
         </Heading>
         <TextInput
@@ -185,7 +181,7 @@ export const BrowserStates: Story = {
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Disabled
         </Heading>
         <TextInput
@@ -348,10 +344,8 @@ export const HTMLHelperText: Story = {
 export const Textarea: Story = {
   args: {
     additionalHelperTextIds: undefined,
-    className: undefined,
     defaultValue: undefined,
     helperText: "Let it all out.",
-    id: "textarea",
     invalidText: "This is error text :(",
     isClearable: false,
     isClearableCallback: undefined,
@@ -373,13 +367,13 @@ export const Textarea: Story = {
     showLabel: true,
     showRequiredLabel: true,
     step: 1,
-    textInputType: "default",
+    variant: "default",
     type: "textarea",
     value: undefined,
   },
   argTypes: {
     type: { control: false },
-    textInputType: { control: false },
+    variant: { control: false },
   },
   render: (args) => <TextInput {...args} />,
 };

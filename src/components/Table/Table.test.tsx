@@ -96,6 +96,12 @@ describe("Table Accessibility", () => {
 });
 
 describe("Table", () => {
+  it("should not render an id if none is passed", () => {
+    render(<Table columnHeaders={columnHeaders} tableData={tableData} />);
+    const table = screen.getByTestId("ds-table");
+    expect(table).not.toHaveAttribute("id");
+  });
+
   it("renders a caption", () => {
     render(
       <Table

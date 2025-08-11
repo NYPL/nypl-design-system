@@ -2,32 +2,28 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
-import Notification, { notificationTypesArray } from "./Notification";
+import Notification, { notificationVariantsArray } from "./Notification";
 import Text from "../Text/Text";
 import Heading from "../Heading/Heading";
+import { VStack } from "@chakra-ui/react";
 
 const meta: Meta<typeof Notification> = {
   title: "Components/Feedback/Notification",
   component: Notification,
   argTypes: {
-    className: { control: false },
     dismissible: {
       table: { defaultValue: { summary: "false" } },
     },
     icon: { control: false },
-    id: { control: false },
     isCentered: {
       table: { defaultValue: { summary: "false" } },
     },
-    noMargin: {
-      table: { defaultValue: { summary: "false" } },
-    },
     notificationContent: { control: false },
-    notificationType: {
+    variant: {
       control: {
         type: "radio",
       },
-      options: notificationTypesArray,
+      options: notificationVariantsArray,
       table: { defaultValue: { summary: "standard" } },
     },
   },
@@ -42,13 +38,9 @@ type Story = StoryObj<typeof Notification>;
  */
 export const WithControls: Story = {
   args: {
-    ariaLabel: "Notification label",
-    className: undefined,
     dismissible: false,
     icon: undefined,
-    id: "notification-id",
     isCentered: false,
-    noMargin: false,
     notificationHeading: "Notification Heading",
     notificationContent: (
       <>
@@ -60,8 +52,8 @@ export const WithControls: Story = {
         luctus, nisi erat porttitor ligula.
       </>
     ),
-    notificationType: "standard",
     showIcon: true,
+    variant: "standard",
   },
   parameters: {
     design: {
@@ -72,7 +64,7 @@ export const WithControls: Story = {
   },
   render: (args) => (
     <div style={{ border: "1px solid #ccc" }}>
-      <Notification {...args} />
+      <Notification aria-label="Notification label" {...args} />
     </div>
   ),
 };
@@ -80,7 +72,7 @@ export const WithControls: Story = {
 // The following are additional Notification example Stories.
 export const NotificationHeading: Story = {
   render: () => (
-    <>
+    <VStack spacing="s">
       <Notification
         notificationHeading="Standard Notification"
         notificationContent={
@@ -95,7 +87,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="announcement"
+        variant="announcement"
         notificationHeading="Announcement Notification"
         notificationContent={
           <>
@@ -109,7 +101,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="warning"
+        variant="warning"
         notificationHeading="Warning Notification"
         notificationContent={
           <>
@@ -135,7 +127,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="announcement"
+        variant="announcement"
         notificationContent={
           <>
             This is an "announcement" Notification without a heading. Cras
@@ -148,7 +140,7 @@ export const NotificationHeading: Story = {
         }
       />
       <Notification
-        notificationType="warning"
+        variant="warning"
         notificationContent={
           <>
             This is a "warning" Notification without a heading. Cras mattis
@@ -160,13 +152,13 @@ export const NotificationHeading: Story = {
           </>
         }
       />
-    </>
+    </VStack>
   ),
 };
 
 export const CustomNotificationHeading: Story = {
   render: () => (
-    <>
+    <VStack spacing="s">
       <Notification
         notificationHeading={<Heading level="h3">Custom H3 Heading</Heading>}
         notificationContent={
@@ -193,13 +185,13 @@ export const CustomNotificationHeading: Story = {
           </>
         }
       />
-    </>
+    </VStack>
   ),
 };
 
 export const NotificationIcon: Story = {
   render: () => (
-    <>
+    <VStack spacing="s">
       <Notification
         notificationHeading="Notification with Icon"
         notificationContent={
@@ -244,7 +236,7 @@ export const NotificationIcon: Story = {
         }
         showIcon={false}
       />
-    </>
+    </VStack>
   ),
 };
 export const CustomIcon: Story = {
@@ -269,11 +261,11 @@ export const HTMLContent: Story = {
       notificationHeading="Standard Notification with HTML content"
       notificationContent={
         <>
-          <Text>
+          <Text mb="s">
             Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus
             mollis interdum.
           </Text>
-          <Text noSpace>
+          <Text>
             Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
             <b>
               Cum sociis natoque penatibus et magnis dis parturient montes,
@@ -300,7 +292,7 @@ export const Dismissible: Story = {
           nascetur ridiculus mus.
         </>
       }
-      notificationType="announcement"
+      variant="announcement"
     />
   ),
 };

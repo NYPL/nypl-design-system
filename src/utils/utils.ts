@@ -1,4 +1,5 @@
 import { HelperErrorTextType } from "../components/HelperErrorText/HelperErrorText";
+import { TemplateVariant } from "../components/Template/Template";
 import { AriaAttributes } from "./interfaces";
 // Utility functions to use throughout the codebase
 
@@ -7,7 +8,15 @@ import { AriaAttributes } from "./interfaces";
  * Get an array of values from `start` to `stop` - 1 with an optional
  * `step` between values.
  */
-export const range = (start: number, stop: number, step = 1): number[] => {
+export const range = ({
+  start,
+  stop,
+  step = 1,
+}: {
+  start: number;
+  stop: number;
+  step?: number;
+}): number[] => {
   if (!start) {
     return [];
   }
@@ -98,7 +107,7 @@ export const getAriaAttrs = ({
   if (footnote) {
     ariaAttributes["aria-describedby"] = `${
       additionalHelperTextIds ? additionalHelperTextIds + " " : ""
-    }${id}-helperText`;
+    }${id}-helperErrorText`;
   }
   return ariaAttributes;
 };
@@ -151,6 +160,11 @@ export const sanitizeStringForAttribute = (str: string) => {
   return sanitizedStr;
 };
 
+/** Sanitize any string */
+export const sanitizeString = (str: string) => {
+  return str.replace(/[^a-zA-Z0-9_-]/g, "-").toLowerCase();
+};
+
 /** Provides a random image to use as a placeholder. */
 // @TODO: once a valid larger image source is identified, add a "larger" option
 export type GetPlaceholderImageProps = "smaller" | "default";
@@ -177,6 +191,12 @@ export const getPlaceholderImage = (
   const selectedImage = imageArray[finalIndex];
   const finalImage = `${selectedImage}&t=${t}`;
   return finalImage;
+};
+
+/** Creates the correct sidebar label in Template stories or tests */
+export const sidebarLabel = (variant: TemplateVariant) => {
+  const side = variant === "sidebarLeft" ? "Left" : "Right";
+  return `${side} sidebar`;
 };
 
 /** The default styles for images added as examples within doc pages. */

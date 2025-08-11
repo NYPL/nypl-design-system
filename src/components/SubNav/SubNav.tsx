@@ -5,83 +5,28 @@ import {
   ChakraComponent,
   useMultiStyleConfig,
   Flex,
+  BoxProps,
 } from "@chakra-ui/react";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
 import List from "../List/List";
 import useScrollFadeStyles from "../../hooks/useScrollFadeStyles";
+import { bgColorsArray, highlightColorsArray } from "../../theme/sharedTypes";
 
-export const actionBackgroundColorsArray = [
-  "brand.primary-05",
-  "section.blogs.primary-05",
-  "section.books-and-more.primary-05",
-  "section.connect.primary-05",
-  "section.education.primary-05",
-  "section.locations.primary-05",
-  "section.research.primary-05",
-  "section.research-library.lpa-05",
-  "section.research-library.schomburg-05",
-  "section.research-library.schwarzman-05",
-  "section.whats-on.primary-05",
-  "dark.brand.primary-05",
-  "dark.section.blogs.primary-05",
-  "dark.section.books-and-more.primary-05",
-  "dark.section.connect.primary-05",
-  "dark.section.education.primary-05",
-  "dark.section.locations.primary-05",
-  "dark.section.research.secondary-05",
-  "dark.section.research-library.lpa-05",
-  "dark.section.research-library.schomburg-05",
-  "dark.section.research-library.schwarzman-05",
-  "dark.section.whats-on.primary-05",
-] as const;
-
-export type actionBackgroundColors = typeof actionBackgroundColorsArray[number];
-
-export const highlightColorsArray = [
-  "brand.primary",
-  "section.blogs.primary",
-  "section.books-and-more.primary",
-  "section.connect.primary",
-  "section.education.primary",
-  "section.locations.primary",
-  "section.research.primary",
-  "section.research-library-lpa.primary",
-  "section.research-library-schomburg.primary",
-  "section.research-library-schwarzman.primary",
-  "section.whats-on.primary",
-  "dark.brand.primary",
-  "dark.section.blogs.primary",
-  "dark.section.books-and-more.primary",
-  "dark.section.connect.primary",
-  "dark.section.education.primary",
-  "dark.section.locations.primary",
-  "dark.section.research.secondary",
-  "dark.section.research-library-lpa.primary",
-  "dark.section.research-library-schomburg.primary",
-  "dark.section.research-library-schwarzman.primary",
-  "dark.section.whats-on.primary",
-];
+export type actionBackgroundColors = typeof bgColorsArray[number];
 export type highlightColors = typeof highlightColorsArray[number];
 
-export interface SubNavProps {
+export interface SubNavProps extends BoxProps {
   /**
    * The background color to be applied to the hover and active states
    * of the SubNavLink and SubNavButton components.
    * This allows for customization of the action items.
    */
   actionBackgroundColor?: actionBackgroundColors;
-  /** Additional class name for the `SubNav` component. */
-  className?: string;
   /**
    * Custom color for SubNavLink, SubNavButton, and icons.
    */
   highlightColor?: highlightColors;
-  /**
-   * Optional unique ID for accessibility, allowing other components
-   * to reference this element.
-   */
-  id?: string;
   /**
    * Primary actions displayed on the left side of the SubNav.
    * Use SubNavButton and SubNavLink components, which mirror
@@ -98,7 +43,6 @@ export interface SubNavProps {
 
 interface SubNavItemProps {
   id: string;
-  children: React.ReactNode;
   isOutlined?: boolean;
   isSelected?: boolean;
   screenreaderOnlyText?: string;
@@ -130,8 +74,8 @@ export const SubNavButton: React.FC<
     <li>
       <Button
         aria-current={isSelected ? "page" : null}
-        buttonType="text"
-        className={isSelected ? "selectedItem" : ""}
+        variant="text"
+        className={isSelected ? "ds-subNav-selectedItem" : ""}
         id={id}
         onClick={onClick}
         screenreaderOnlyText={screenreaderOnlyText}
@@ -159,7 +103,7 @@ export const SubNavLink: React.FC<React.PropsWithChildren<SubNavLinkProps>> = ({
     <li>
       <Link
         aria-current={isSelected ? "page" : null}
-        className={isSelected ? "selectedItem" : ""}
+        className={isSelected ? "ds-subNav-selectedItem" : ""}
         href={href}
         id={id}
         isUnderlined={false}
@@ -187,15 +131,17 @@ export const SubNav: ChakraComponent<
   SubNavProps
 > = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<SubNavProps>>(
-    (props, _ref?) => {
-      const {
-        className,
+    (
+      {
         actionBackgroundColor,
+        id,
         highlightColor,
         primaryActions,
         secondaryActions,
-      } = props;
-
+        ...rest
+      },
+      _ref?
+    ) => {
       const { scrollableRef, showRightFade } = useScrollFadeStyles();
 
       if (actionBackgroundColor !== undefined && highlightColor === undefined) {
@@ -203,26 +149,6 @@ export const SubNav: ChakraComponent<
           "NYPL Reservoir SubNav: The `actionBackgroundColor` prop has been passed, but the `highlightColor` prop has not been passed. Because of this, the `actionBackgroundColor` prop will be ignored."
         );
       }
-
-      const validateActions = (actions: React.ReactNode, propName: string) => {
-        if (React.isValidElement(actions)) {
-          React.Children.forEach(
-            actions.props.children,
-            (child: React.ReactElement) => {
-              if (child.type !== SubNavButton && child.type !== SubNavLink) {
-                console.warn(
-                  `NYPL Reservoir SubNav: An element that is not a SubNavButton or SubNavLink component has been passed in the \`${propName}\` prop. That element may not work properly.`
-                );
-                return null;
-              }
-            }
-          );
-        }
-      };
-
-      // Validate primaryActions and secondaryActions
-      validateActions(primaryActions, "primaryActions");
-      validateActions(secondaryActions, "secondaryActions");
 
       const backgroundColor =
         highlightColor !== undefined ? actionBackgroundColor : undefined;
@@ -236,14 +162,16 @@ export const SubNav: ChakraComponent<
         <Box
           as="nav"
           aria-label="Sub-navigation menu"
-          className={className}
+          data-testid="ds-subNav"
+          id={id}
           __css={styles.base}
+          {...rest}
         >
           <Box __css={styles.container}>
             <Flex alignItems="center" gap="s" justify="space-between">
               <Box sx={styles.primaryList}>
                 <List
-                  type="ul"
+                  variant="ul"
                   m="0"
                   sx={{
                     ...styles.scrollableList,
@@ -261,7 +189,7 @@ export const SubNav: ChakraComponent<
                 <List
                   noStyling
                   inline
-                  type="ul"
+                  variant="ul"
                   sx={styles.secondaryActions}
                   m="0"
                   width="fit-content"

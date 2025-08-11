@@ -20,6 +20,10 @@ describe("HelperErrorText Accessibility", () => {
 });
 
 describe("HelperErrorText", () => {
+  it("should not render an id if none is passed", () => {
+    render(<HelperErrorText text="Text" />);
+    expect(screen.getByTestId("ds-helperErrorText")).not.toHaveAttribute("id");
+  });
   it("renders the text passed", () => {
     const { container } = render(<HelperErrorText text="Text" />);
     expect(container.querySelector("div")).toBeInTheDocument();
@@ -65,28 +69,28 @@ describe("HelperErrorText", () => {
     );
   });
 
-  it("sets custom aria-live attribute when ariaLive prop is passed as 'polite' or 'assertive'", () => {
+  it("sets custom aria-live attribute when aria-live prop is passed as 'polite' or 'assertive'", () => {
     const { container, rerender } = render(<HelperErrorText text="Text" />);
     expect(container.querySelector("div")).toHaveAttribute(
       "aria-live",
       "polite"
     );
 
-    rerender(<HelperErrorText ariaLive="assertive" text="Text" />);
+    rerender(<HelperErrorText aria-live="assertive" text="Text" />);
     expect(container.querySelector("div")).toHaveAttribute(
       "aria-live",
       "assertive"
     );
   });
 
-  it("does not have aria-live attribute when ariaLive prop is set to 'off'", () => {
+  it("does not have aria-live attribute when aria-live prop is set to 'off'", () => {
     const { container, rerender } = render(<HelperErrorText text="Text" />);
     expect(container.querySelector("div")).toHaveAttribute(
       "aria-live",
       "polite"
     );
 
-    rerender(<HelperErrorText ariaLive="off" text="Text" />);
+    rerender(<HelperErrorText aria-live="off" text="Text" />);
     expect(container.querySelector("div")).not.toHaveAttribute("aria-live");
   });
 
@@ -98,7 +102,7 @@ describe("HelperErrorText", () => {
     expect(container.querySelector("div")).toHaveAttribute("aria-atomic");
 
     rerender(
-      <HelperErrorText ariaAtomic={false} isInvalid text="Static Text" />
+      <HelperErrorText aria-atomic={false} isInvalid text="Static Text" />
     );
     // But the prop accepts false in case only part of the helper text
     // should only be read instead of the whole region.

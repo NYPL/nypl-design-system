@@ -1,16 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Label Renders the UI snapshot correctly 1`] = `
+exports[`SkipNavigation Renders the UI snapshot correctly 1`] = `
 <nav
   aria-label="Skip Navigation"
   className="css-1xdhyk6"
+  data-testid="ds-skipNavigation"
 >
   <ul
     className="css-1xdhyk6"
+    data-testid="ds-list"
   >
     <li>
       <a
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="#mainContent"
         rel={null}
         target={null}
@@ -21,6 +24,7 @@ exports[`Label Renders the UI snapshot correctly 1`] = `
     <li>
       <a
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="https://www.nypl.org/accessibility"
         rel={null}
         target={null}
@@ -32,17 +36,20 @@ exports[`Label Renders the UI snapshot correctly 1`] = `
 </nav>
 `;
 
-exports[`Label Renders the UI snapshot correctly 2`] = `
+exports[`SkipNavigation Renders the UI snapshot correctly 2`] = `
 <nav
   aria-label="Skip Navigation"
   className="css-1xdhyk6"
+  data-testid="ds-skipNavigation"
 >
   <ul
     className="css-1xdhyk6"
+    data-testid="ds-list"
   >
     <li>
       <a
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="customId"
         rel={null}
         target={null}
@@ -53,6 +60,7 @@ exports[`Label Renders the UI snapshot correctly 2`] = `
     <li>
       <a
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="https://www.nypl.org/accessibility"
         rel={null}
         target={null}
@@ -64,17 +72,20 @@ exports[`Label Renders the UI snapshot correctly 2`] = `
 </nav>
 `;
 
-exports[`Label Renders the UI snapshot correctly 3`] = `
+exports[`SkipNavigation Renders the UI snapshot correctly 3`] = `
 <nav
   aria-label="Skip Navigation"
   className="css-kle7zy"
+  data-testid="ds-skipNavigation"
 >
   <ul
     className="css-1xdhyk6"
+    data-testid="ds-list"
   >
     <li>
       <a
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="#mainContent"
         rel={null}
         target={null}
@@ -85,6 +96,7 @@ exports[`Label Renders the UI snapshot correctly 3`] = `
     <li>
       <a
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="https://www.nypl.org/accessibility"
         rel={null}
         target={null}
@@ -96,7 +108,7 @@ exports[`Label Renders the UI snapshot correctly 3`] = `
 </nav>
 `;
 
-exports[`Label Renders the UI snapshot correctly 4`] = `
+exports[`SkipNavigation Renders the UI snapshot correctly 4`] = `
 <nav
   aria-label="Skip Navigation"
   className="css-1xdhyk6"
@@ -104,10 +116,12 @@ exports[`Label Renders the UI snapshot correctly 4`] = `
 >
   <ul
     className="css-1xdhyk6"
+    data-testid="ds-list"
   >
     <li>
       <a
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="#mainContent"
         rel={null}
         target={null}
@@ -118,6 +132,7 @@ exports[`Label Renders the UI snapshot correctly 4`] = `
     <li>
       <a
         className="chakra-link css-1xdhyk6"
+        data-testid="ds-link"
         href="https://www.nypl.org/accessibility"
         rel={null}
         target={null}

@@ -1,31 +1,40 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as DatePickerStories from "./DatePicker.stories";
 import { changelogData } from "./datePickerChangelogData";
-import Link from "../Link/Link";
-import Table from "../Table/Table";
 
 <Meta of={DatePickerStories} />
 
-# DatePicker
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="DatePicker"
+  summary="Input element that allows a user to enter or select a single date value or a date range"
+  versionAdded="0.24.0"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.24.0`   |
-| Latest            | `3.3.2`    |
+<Canvas of={DatePickerStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#date-range" target="_self">Date Range</Link>}
-- {<Link href="#calendar-types" target="_self">Calendar Types</Link>}
-- {<Link href="#other-states" target="_self">Other States</Link>}
-- {<Link href="#date-inputs-and-output" target="_self">Date Inputs and Output</Link>}
-- {<Link href="#getting-date-input-values" target="_self">Getting Date Input Values</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Date Range](#date-range)
+- [Calendar Types](#calendar-types)
+- [Other States](#other-states)
+- [Date Inputs and Output](#date-inputs-and-output)
+- [Getting Date Input Values](#getting-date-input-values)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -37,11 +46,25 @@ also be added through props.
 
 ## Component Props
 
-<Canvas of={DatePickerStories.WithControls} />
+The `DatePicker` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={DatePickerStories.WithControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an <code>id</code> value
+      for accessibility requirements. If no <code>id</code> is passed, a random{" "}
+      <code>id</code> will be generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="recommendation"
+/>
 
 The Reservoir `DatePicker` component implements the `react-datepicker` npm package.
 This package exports a component that is used internally to display the popup
@@ -50,7 +73,7 @@ calendar, manage its data, and associate the `<label>` element with its correspo
 
 This component is accessible through keyboard navigation. When keyboard users tab to
 the input, the calendar automatically opens. Tabbing again moves focus into the
-calendar. Dates can be navigated to using the arrow keys. The enter key selects the
+calendar. Dates can be navigated by using the arrow keys. The enter key selects the
 date in focus and closes the calendar. Focus then returns to the input.
 
 The Reservoir `DatePicker` handles the grouping of the two `<input>` elements in
@@ -59,18 +82,20 @@ its own `<legend>` label for the group. Note that this is in addition to the two
 labels that each `<input>` element is associated with.
 
 `helperText` is also associated with the `<input>` elements via the `aria-describedby`
-attribute. If a `helperTextFrom` or `helperTextTo` is passed in addition to a general
-`helperText` for the entire `DatePicker`, then the `aria-describedby` attribute of the
-`<input>` element will be "\[general-helperText-id\] \[input-helperText-id\]".
+attribute. If a `helperTextFrom` or `helperTextTo` is passed in addition to a
+general `helperText` for the entire `DatePicker`, then the `aria-describedby`
+attribute of the `<input>` element will be a combination of the id values:
+"\[general-helperErrorText-id\] \[input-helperErrorText-id\]".
 
-The `DatePicker`'s `<input>` has an `aria-label` that tells screen reader users what
-the element is and how to access its calendar. In the "date range" mode, when `showLabel`
-is set to false, the `<fieldset>`'s `<legend>` will have the `labelText` visually hidden.
+The `DatePicker`'s `<input>` has an `aria-label` that tells screen reader users
+what the element is and how to access its calendar. In the "date range" mode,
+when `showLabel` is set to false, the `<fieldset>`'s `<legend>` will have the
+`labelText` visually hidden.
 
 Resources:
 
 - [react-datepicker Accessibility](https://github.com/Hacker0x01/react-datepicker#accessibility)
-- [Apex 4x Technical Style Guide: Aria Date Picker](https://whatsock.com/Templates/Datepickers/Basic,%20Auto%20Open/index.htm)
+- [Apex 4x Technical Style Guide: Aria Date Picker](https://whatsock.com/Templates/Datepickers/Basic,%20Auto%20Open/index.htm)]
 
 ## Date Range
 
@@ -81,9 +106,10 @@ will share the props and styling. Note that for date range types, a `fieldset`
 is used as the parent wrapper and the `labelText` is used for the `legend`
 element text.
 
-Note: In the following example, the minimum date is "1/1/2022" and the max date
-is "7/1/22". This means only values within this range are selectable from the
-popup calendar.
+Note: In the following example, the minimum date is "1/1/2025" and the max date
+is "12/31/25". This means only values within this range are selectable from the
+popup calendar. Try going back and forth past the min and max dates to see
+how unavailable dates are grayed out in the calendar.
 
 <Canvas of={DatePickerStories.DateRange} />
 
@@ -107,8 +133,8 @@ that all 12 months will appear in the popup calendar with their abbreviated name
 ### Year Date Input
 
 It's possible to select dates by only the year when `dateType` is set to
-`"year"`. Note that only 12 values will appear in the popup calendar; the four
-previous years, the current year, and the next seven years.
+`"year"`. Note that only 12 values will appear in the popup calendar; the eight
+previous years, the current year, and the next three years.
 
 <Canvas of={DatePickerStories.YearDateInput} />
 
@@ -140,8 +166,8 @@ written in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
 ### Max and Min Date Values
 
 The maximum and minimum date values can be set through the `maxDate` and
-`minDate` props, respectively. In this example, go back to January through
-February to see the dates that are available to select in 2022.
+`minDate` props, respectively. In this example, go back before January or after
+December to see unavailable dates grayed out in the calendar.
 
 <Canvas of={DatePickerStories.MaxMinDateValues} />
 
@@ -157,30 +183,30 @@ data is an object with `startDate` and `endDate` keys and `Date` object values.
 
 <Source
   code={`
-const onChange = (data) => {
-  // This will return an object such as:
-  // {
-  //   startDate: dateValue,
-  //   endDate: dateValue
-  // }
-  // Note that dateValue is a Date object so you need to get the date value
-  // yourself. The endDate attribute will only appear if the DS DatePicker
-  // component is a date range.
-  console.log(data);
-};
-// ...
-
-// Example of the DS DatePicker instance with the function above:
-
-<DatePicker
-  id="date-range"
-  dateType="full"
-  labelText="Select the date range you want to visit NYPL"
-  invalidText="Please select a valid date range."
-  onChange={onChange}
-  isDateRange
+  const onChange = (data) => {
+    // This will return an object such as:
+    // {
+    //   startDate: dateValue,
+    //   endDate: dateValue
+    // }
+    // Note that dateValue is a Date object so you need to get the date value
+    // yourself. The endDate attribute will only appear if the DS DatePicker
+    // component is a date range.
+    console.log(data);
+  };
+  // ...
+  // Example of the DS DatePicker instance with the function above:
+  <DatePicker
+    id="date-range"
+    dateType="full"
+    labelText="Select the date range you want to visit NYPL"
+    invalidText="Please select a valid date range."
+    onChange={onChange}
+    isDateRange
+  />
+`}
+  language="jsx"
 />
-`} language="jsx" />
 
 ### Uncontrolled Component Using refs
 
@@ -196,27 +222,51 @@ The following example is using the `register` React `ref` from the
 
 <Source
   code={`
-import { useFormContext } from "react-hook-form";
-// ...
-const { register, handleSubmit } = useFormContext();
-// ...
-const submitForm = (formData) => {
-  // This will return an object with all the DOM element values that were
-  // registered with a name attribute.
-  // Note that the returned values are strings and NOT Date objects.
-  // {
-  //   visitDateFrom: "2020-01-01"
-  //   visitDateTo: "2021-01-01"
-  // }
-  console.log(formData);
+  import { useFormContext } from "react-hook-form";
   // ...
-};
+  const { register, handleSubmit } = useFormContext();
+  // ...
+  const submitForm = (formData) => {
+    // This will return an object with all the DOM element values that were
+    // registered with a name attribute.
+    // Note that the returned values are strings and NOT Date objects.
+    // {
+    //   visitDateFrom: "2020-01-01"
+    //   visitDateTo: "2021-01-01"
+    // }
+    console.log(formData);
+    // ...
+  };
+  // ...
+  <form
+    onSubmit={handleSubmit(submitForm)}
+    method="post"
+    action="/some/api/endpoint"
+  >
+    <DatePicker
+      id="date-range"
+      dateType="full"
+      labelText="Select the date range you want to visit NYPL"
+      nameFrom="visitDateFrom"
+      nameTo="visitDateTo"
+      invalidText="Please select a valid date range."
+      ref={register()}
+      refTo={register()}
+      isDateRange
+    />
+  </form>
+`}
+  language="jsx"
+/>
 
-<form
-  onSubmit={handleSubmit(submitForm)}
-  method="post"
-  action="/some/api/endpoint"
->
+The above is specific to `react-hook-form` but a similar pattern can be used
+with normal React `ref` values.
+
+<Source
+  code={`
+  const refStart = React.createRef<TextInputRefType>();
+  const refEnd = React.createRef<TextInputRefType>();
+  // ...
   <DatePicker
     id="date-range"
     dateType="full"
@@ -224,39 +274,17 @@ const submitForm = (formData) => {
     nameFrom="visitDateFrom"
     nameTo="visitDateTo"
     invalidText="Please select a valid date range."
-    ref={register()}
-    refTo={register()}
+    ref={refStart}
+    refTo={refEnd}
     isDateRange
   />
-</form>
-`} language="jsx" />
-
-The above is specific to `react-hook-form` but a similar pattern can be used
-with normal React `ref` values.
-
-<Source
-  code={`
-const refStart = React.createRef<TextInputRefType>();
-const refEnd = React.createRef<TextInputRefType>();
-// ...
-<DatePicker
-  id="date-range"
-  dateType="full"
-  labelText="Select the date range you want to visit NYPL"
-  nameFrom="visitDateFrom"
-  nameTo="visitDateTo"
-  invalidText="Please select a valid date range."
-  ref={refStart}
-  refTo={refEnd}
-  isDateRange
-/>
-// ...
-// Get the value through:
-const onSubmit = () => {
   // ...
-  const startDate = refStart.current.value;
-  const endDate = refEnd.current.value;
-};
+  // Get the value through:
+  const onSubmit = () => {
+    // ...
+    const startDate = refStart.current.value;
+    const endDate = refEnd.current.value;
+  };
 `}
   language="jsx"
 />

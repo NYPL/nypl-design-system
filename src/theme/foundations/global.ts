@@ -1,5 +1,4 @@
 import { activeFocus } from "../components/global";
-import { textMargin } from "../components/global";
 
 /**
  * These rules affect all the global elements on the `body` element of the
@@ -42,9 +41,9 @@ const global = {
   "iframe, [href], [tabindex], [contentEditable='true']": {
     _focus: activeFocus(),
   },
-  p: textMargin,
-  ul: textMargin,
-  ol: textMargin,
+  // p: textMargin,
+  // ul: textMargin,
+  // ol: textMargin,
   "*, *::before, &::after": {
     boxSizing: "inherit",
   },

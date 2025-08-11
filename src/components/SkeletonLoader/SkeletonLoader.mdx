@@ -1,28 +1,36 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+} from "@storybook/addon-docs/blocks";
 
-import * as SkeletonLoaderStories from "./SkeletonLoader.stories";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import * as SkeletonLoaderStories from "./SkeletonLoader.stories";
 import { changelogData } from "./skeletonLoaderChangelogData";
-import Link from "../Link/Link";
 
 <Meta of={SkeletonLoaderStories} />
 
-# SkeletonLoader
+<ComponentDocsHeader
+  category="Feedback component"
+  componentName="SkeletonLoader"
+  summary="Placeholder to indicate loading state"
+  versionAdded="0.17.3"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.17.3`   |
-| Latest            | `3.6.1`    |
+<Canvas of={SkeletonLoaderStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#in-a-grid" target="_self">In a Grid</Link>}
-- {<Link href="#in-a-list" target="_self">In a List</Link>}
-- {<Link href="#with-buttons" target="_self">With Buttons</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [In a Grid](#in-a-grid)
+- [In a List](#in-a-list)
+- [With Buttons](#with-buttons)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -31,12 +39,13 @@ import Link from "../Link/Link";
 The `layout`, `width`, and placeholder elements within the `SkeletonLoader` can
 be customized.
 
-Please note that the initial rendering below has the `width` prop set to `300px`
-to better view the example. The default value is `100%`.
+Please note that the example above has the `width` prop set to `300px` to better
+demonstrate the component. The default `width` value is `100%`.
 
 ## Component Props
 
-<Canvas of={SkeletonLoaderStories.WithControls} />
+The `SkeletonLoader` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={SkeletonLoaderStories.WithControls} />
 

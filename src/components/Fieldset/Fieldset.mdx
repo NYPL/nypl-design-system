@@ -1,25 +1,34 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
-import { changelogData } from "./fieldsetChangelogData";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+} from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as FieldsetStories from "./Fieldset.stories";
-import { Link } from "../Link/Link";
+import { changelogData } from "./fieldsetChangelogData";
 
 <Meta of={FieldsetStories} />
 
-# Fieldset
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Fieldset"
+  summary="Renders a fieldset element for wrapping form components"
+  versionAdded="0.25.3"
+  versionLatest="Prerelease"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.3`   |
-| Latest            | `3.5.5`    |
+<Canvas of={FieldsetStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -27,11 +36,25 @@ import { Link } from "../Link/Link";
 
 ## Component Props
 
-<Canvas of={FieldsetStories.WithControls} />
+`Fieldset` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={FieldsetStories.WithControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an <code>id</code> value
+      for accessibility requirements. If no <code>id</code> is passed, a random{" "}
+      <code>id</code> will be generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="recommendation"
+/>
 
 This is a simple component but is very important to use when building web forms.
 Syntactically, the `Fieldset` component is used to group form elements. Semantically,
@@ -40,10 +63,12 @@ example, when building out a form for a user to create an account, one `Fieldset
 should be used to group the user's first and last names and another `Fieldset`
 to group the user's address information.
 
-The Reservoir DS implements the `Fieldset` component in the following form
+The Reservoir DS renders the `Fieldset` component in the following form
 components:
 
-- `CheckboxGroup`, `DatePicker`, `RadioGroup`.
+- `CheckboxGroup`
+- `DatePicker`
+- `RadioGroup`
 
 Resources:
 

@@ -1,6 +1,6 @@
-import React, { forwardRef } from "react";
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   LinkBox as ChakraLinkBox,
@@ -8,9 +8,12 @@ import {
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import { LayoutTypes } from "../../helpers/types";
+import React, { forwardRef } from "react";
+
 import Heading from "../Heading/Heading";
 import Image, { ComponentImageProps, ImageProps } from "../Image/Image";
+import { LayoutTypes } from "../../helpers/types";
+import { useSafeId } from "../../hooks/useSafeId";
 
 interface CustomColorProps {
   backgroundColor?: string;
@@ -25,11 +28,7 @@ interface CardBaseProps {
   layout?: LayoutTypes;
 }
 
-interface CardWrapperProps {
-  /** Optional CSS class name to add. */
-  className?: string;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+interface CardWrapperProps extends BoxProps {
   /** Main link to use when the full `Card` component should be clickable. */
   mainActionLink?: string;
   /** Additional object for styling the `Card`'s `div` wrapper. */
@@ -105,7 +104,7 @@ function CardImage(
   });
 
   return (
-    <Box __css={styles} data-imagewrapper>
+    <Box data-testid="ds-cardImage" __css={styles} data-imagewrapper>
       <Image
         alt={alt}
         aspectRatio={aspectRatio}
@@ -132,7 +131,7 @@ export const CardContent: React.FC<React.PropsWithChildren<any>> = chakra(
     const { children, ...rest } = props;
     const styles = useStyleConfig("CardContent");
     return children ? (
-      <Box __css={styles} {...rest}>
+      <Box data-testid="ds-cardContent" __css={styles} {...rest}>
         {children}
       </Box>
     ) : null;
@@ -152,7 +151,7 @@ export const CardActions: React.FC<React.PropsWithChildren<any>> = chakra(
     });
 
     return children ? (
-      <Box __css={styles} {...rest}>
+      <Box data-testid="ds-cardActions" __css={styles} {...rest}>
         {children}
       </Box>
     ) : null;
@@ -166,11 +165,10 @@ export const CardActions: React.FC<React.PropsWithChildren<any>> = chakra(
  */
 const CardWrapper: React.FC<any> = chakra(
   forwardRef<HTMLDivElement, React.PropsWithChildren<CardWrapperProps>>(
-    ({ className, children, id, mainActionLink, styles, ...rest }, ref) =>
+    ({ children, mainActionLink, styles, ...rest }, ref) =>
       mainActionLink ? (
         <ChakraLinkBox
-          id={id}
-          className={className}
+          data-testid="ds-cardWrapper"
           ref={ref}
           sx={styles}
           {...rest}
@@ -178,7 +176,7 @@ const CardWrapper: React.FC<any> = chakra(
           {children}
         </ChakraLinkBox>
       ) : (
-        <Box id={id} className={className} ref={ref} sx={styles} {...rest}>
+        <Box data-testid="ds-cardWrapper" ref={ref} sx={styles} {...rest}>
           {children}
         </Box>
       )
@@ -197,7 +195,9 @@ function CardLinkOverlay({
   mainActionLink,
 }: React.PropsWithChildren<CardWrapperProps>) {
   return mainActionLink ? (
-    <ChakraLinkOverlay href={mainActionLink}>{children}</ChakraLinkOverlay>
+    <ChakraLinkOverlay data-testid="ds-cardLinkOverlay" href={mainActionLink}>
+      {children}
+    </ChakraLinkOverlay>
   ) : (
     <>{children}</>
   );
@@ -214,7 +214,6 @@ export const Card: ChakraComponent<
       const {
         backgroundColor,
         children,
-        className,
         foregroundColor,
         id,
         imageProps = {
@@ -238,6 +237,7 @@ export const Card: ChakraComponent<
         mainActionLink,
         ...rest
       } = props;
+      const mainId = useSafeId(id);
       const hasImage = imageProps.src || imageProps.component;
       const finalImageAspectRatio = imageProps.component
         ? "original"
@@ -245,6 +245,7 @@ export const Card: ChakraComponent<
       const customColors: CustomColorProps = {};
       const cardContents: JSX.Element[] = [];
       const cardRightContents: JSX.Element[] = [];
+      const childrenArray = React.Children.toArray(children) as JSX.Element[];
       let cardHeadingCount = 0;
 
       if (imageProps.component && imageProps.aspectRatio) {
@@ -269,69 +270,65 @@ export const Card: ChakraComponent<
         imageSize: imageProps.size,
       });
 
-      React.Children.map(
-        children as JSX.Element,
-        (child: React.ReactElement, key) => {
-          const isCardActions =
-            child.type === CardActions || child.props.mdxType === "CardActions";
-          if (
-            child.type === CardHeading ||
-            child.props.mdxType === "CardHeading"
-          ) {
-            // If the child is a `CardHeading` component, then we add the
-            // `CardLinkOverlay` inside of the `Heading` component and wrap its text.
-            // This allows other links in the `CardActions` to be clickable. This is
-            // only done for the first `CardHeading` component but does not affect
-            // the full-click feature.
-            const newChildren =
-              cardHeadingCount === 0 ? (
-                <CardLinkOverlay mainActionLink={mainActionLink}>
-                  {child.props.children}
-                </CardLinkOverlay>
-              ) : (
-                child.props.children
-              );
-            const elem = React.cloneElement(child, {
-              key,
-              // Override the child text with the potential `CardLinkOverlay`.
-              children: newChildren,
-              layout,
-              __css: styles.heading,
-            });
-            cardContents.push(elem);
-            cardHeadingCount++;
-          } else if (
-            child.type === CardContent ||
-            child.props.mdxType === "CardContent"
-          ) {
-            const elem = React.cloneElement(child, { key });
-            cardContents.push(elem);
-          } else if (isCardActions) {
-            const elem = React.cloneElement(child, { key, isCentered, layout });
+      childrenArray.forEach((child, key) => {
+        const isCardActions = child.type === CardActions;
+        const isCardContent = child.type === CardContent;
+        const isCardHeading = child.type === CardHeading;
 
-            // Only allow `CardActions` to align to the right of the main
-            // `CardContent` component when in the row layout.
-            if (isAlignedRightActions && layout === "row") {
-              cardRightContents.push(elem);
-            } else {
-              cardContents.push(elem);
-            }
+        if (isCardHeading) {
+          // If the child is a `CardHeading` component, then we add the
+          // `CardLinkOverlay` inside of the `Heading` component and wrap its text.
+          // This allows other links in the `CardActions` to be clickable. This is
+          // only done for the first `CardHeading` component but does not affect
+          // the full-click feature.
+          const newChildren =
+            cardHeadingCount === 0 ? (
+              <CardLinkOverlay mainActionLink={mainActionLink}>
+                {child.props.children}
+              </CardLinkOverlay>
+            ) : (
+              child.props.children
+            );
+          const elem = React.cloneElement(child, {
+            key,
+            // Override the child text with the potential `CardLinkOverlay`.
+            children: newChildren,
+            layout,
+            __css: styles.heading,
+          });
+          cardContents.push(elem);
+          cardHeadingCount++;
+        } else if (isCardContent) {
+          const elem = React.cloneElement(child, { key });
+          cardContents.push(elem);
+        } else if (isCardActions) {
+          const elem = React.cloneElement(child, { key, isCentered, layout });
+
+          // Only allow `CardActions` to align to the right of the main
+          // `CardContent` component when in the row layout.
+          if (isAlignedRightActions && layout === "row") {
+            cardRightContents.push(elem);
+          } else {
+            cardContents.push(elem);
           }
         }
-      );
+      });
 
       return (
-        <Box __css={styles.base} ref={ref}>
+        <Box
+          data-testid="ds-card"
+          id={mainId}
+          ref={ref}
+          __css={styles.base}
+          {...rest}
+        >
           <CardWrapper
-            id={id}
-            className={className}
             mainActionLink={mainActionLink}
             styles={{
               ...styles.wrapper,
               ...customColors,
             }}
             data-cardwrapper
-            {...rest}
           >
             {hasImage && (
               <CardImage

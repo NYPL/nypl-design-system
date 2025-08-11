@@ -8,8 +8,6 @@
 // Base styles
 @import "./styles/_01-breakpoints";
 
-// Ideal styles for the `Autosuggest` component implementation.
-@import "./components/Autosuggest/_Autosuggest.scss";
 // Overrides for the `DatePicker` component.
 @import "./components/DatePicker/_DatePicker.scss";
 // An internal-only component.

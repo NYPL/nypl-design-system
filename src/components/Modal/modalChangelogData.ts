@@ -10,6 +10,17 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation"],
+    notes: [
+      "Renames `type` to `variant`.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-modal` to the parent element.",
+    ],
+  },
+  {
     date: "2025-05-22",
     version: "3.6.2",
     type: "Update",
