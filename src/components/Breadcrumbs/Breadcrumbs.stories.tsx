@@ -1,6 +1,7 @@
 import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Breadcrumbs, { breadcrumbTypeArray } from "./Breadcrumbs";
+
+import Breadcrumbs, { breadcrumbVariantsArray } from "./Breadcrumbs";
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
 
@@ -35,15 +36,13 @@ const meta: Meta<typeof Breadcrumbs> = {
   argTypes: {
     breadcrumbsData: { control: false },
     customLinkComponent: { control: false },
-    breadcrumbsType: {
+    variant: {
       table: { defaultValue: { summary: "whatsOn" } },
       control: {
         type: "select",
       },
-      options: breadcrumbTypeArray,
+      options: breadcrumbVariantsArray,
     },
-    className: { control: false },
-    id: { control: false },
   },
 };
 
@@ -57,10 +56,8 @@ type Story = StoryObj<typeof Breadcrumbs>;
 export const WithControls: Story = {
   args: {
     breadcrumbsData,
-    breadcrumbsType: "whatsOn",
-    className: undefined,
     customLinkComponent: undefined,
-    id: "breadcrumbs-id",
+    variant: "whatsOn",
   },
   parameters: {
     design: {
@@ -87,77 +84,59 @@ export const ColorVariations: Story = {
   render: () => (
     <VStack align="stretch" spacing="l">
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Blogs
         </Heading>
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="blogs"
+          variant="blogs"
           customLinkComponent={Link}
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Books and More
         </Heading>
-        <Breadcrumbs
-          breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="booksAndMore"
-        />
+        <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="booksAndMore" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Connect
         </Heading>
-        <Breadcrumbs
-          breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="connect"
-        />
+        <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="connect" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Digital Collections
         </Heading>
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="digitalCollections"
+          variant="digitalCollections"
         />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Education
         </Heading>
-        <Breadcrumbs
-          breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="education"
-        />
+        <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="education" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Locations
         </Heading>
-        <Breadcrumbs
-          breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="locations"
-        />
+        <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="locations" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           Research
         </Heading>
-        <Breadcrumbs
-          breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="research"
-        />
+        <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="research" />
       </Box>
       <Box>
-        <Heading level="h3" size="heading6">
+        <Heading level="h3" mb="s" size="heading6">
           What's On
         </Heading>
-        <Breadcrumbs
-          breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="whatsOn"
-        />
+        <Breadcrumbs breadcrumbsData={breadcrumbsData} variant="whatsOn" />
       </Box>
     </VStack>
   ),

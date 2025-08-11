@@ -1,38 +1,49 @@
 import { Box, Stack, HStack, VStack, Circle } from "@chakra-ui/react";
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta, Source } from "@storybook/addon-docs/blocks";
 
 import Icon from "../Icons/Icon";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Meta title="Components/Chakra Exports/Layout/Stack, HStack, VStack" />
 
-# Stack, HStack, VStack
+<ComponentDocsHeader
+  category="Chakra exports"
+  componentName="Stack, HStack, VStack"
+  summary="Containers used to render children in a vertical or horizontal stack"
+  versionAdded="0.24.0"
+  versionLatest="0.24.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.24.0`   |
+## Overview
 
-Note: This needs the use of the `DSProvider` component. See the
-[Chakra UI docs](../?path=/docs/chakra-ui--docs#dsprovider) for more information.
+`Stack`, `HStack`, and `VStack` are directly exported from Chakra UI. They are
+layout components that make it easy to stack elements together with spacing if
+desired.
 
-These components are directly exported from Chakra UI. The `Stack`, `HStack`,
-and `VStack` are layout component that makes it easy to stack elements together
-with spacing between them.
+More information can be found on the Chakra [Stacks](https://v2.chakra-ui.com/docs/components/stack/usage)
+page.
 
-All available props can be found on the [Style Props](https://chakra-ui.com/docs/features/style-props)
-guide on the Chakra UI site.
-
-In all the following examples, Design System `Icon` components are wrapped in
-Chakra's `Circle` component.
+In the following examples, Design System `Icon` components are wrapped in Chakra's
+`Circle` component.
 
 ## Stack
 
-The `Stack` component is the most flexible component because it can stack
-elements both horizontally and vertically through the `direction` prop and the
-`"row"` and `"column"` values, respectively.
+The `Stack` component can stack elements both horizontally and vertically through
+the `direction` prop and the `"row"` and `"column"` values, respectively. You can
+also use Chakra's responsive syntax to change the direction at certain breakpoints.
+
+<Source
+  code={`
+  <Stack align="right" direction={{ sm: "column", md: "row" }} spacing="s">
+    //...
+  </Stack>
+`}
+  language="tsx"
+/>
 
 {
 
-<Stack direction="column" spacing="s">
+<Stack direction={{ sm: "column", md: "row" }} spacing="s">
   <Circle size="50px" borderColor="ui.black" borderWidth="1px">
     <Icon name="errorFilled" size="large" />
   </Circle>
@@ -47,8 +58,8 @@ elements both horizontally and vertically through the `direction` prop and the
 
 ## HStack
 
-Stacks components horizontally. This is the same as the `Stack` component with
-a `direction` value of `"row"`.
+`HStack` stacks components horizontally. This is the same as the `Stack` component
+with a `direction` of `"row"`.
 
 {
 
@@ -67,13 +78,12 @@ a `direction` value of `"row"`.
 
 ## VStack
 
-Stacks components vertically. This is the same as the `Stack` component with
-a `direction` value of `"column"`.Pass in a value to the `align` prop to align
-all the elements in the stack.
+`VStack` stacks components vertically. This is the same as the `Stack` component
+with a `direction` of `"column"`.
 
 {
 
-<VStack align="left" spacing="s">
+<VStack spacing="s">
   <Circle size="50px" borderColor="ui.black" borderWidth="1px">
     <Icon name="errorFilled" size="large" />
   </Circle>

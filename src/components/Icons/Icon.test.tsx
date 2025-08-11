@@ -13,6 +13,11 @@ describe("Icon Accessibility", () => {
 });
 
 describe("Icon", () => {
+  it("should not render an id if none is passed", () => {
+    const { container } = render(<Icon name="download" />);
+    expect(container.querySelector("svg")).not.toHaveAttribute("id");
+  });
+
   it("consoles a warning if both name and children are passed to Icon", () => {
     const warn = jest.spyOn(console, "warn");
     render(

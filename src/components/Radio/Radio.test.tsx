@@ -6,9 +6,19 @@ import renderer from "react-test-renderer";
 
 import Radio from "./Radio";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Radio Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
     const { container } = render(<Radio id="inputID" labelText="Test Label" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(<Radio labelText="Test Label" />);
     expect(await axe(container)).toHaveNoViolations();
   });
 
@@ -37,6 +47,11 @@ describe("Radio Accessibility", () => {
 });
 
 describe("Radio Button", () => {
+  it("should add an id to the component even if none is passed", () => {
+    render(<Radio labelText="Test Label" />);
+    const radioInput = screen.getByTestId("ds-radio");
+    expect(radioInput).toHaveAttribute("id", "test-id-componentWrapper");
+  });
   it("renders with a radio input and label", () => {
     render(<Radio id="inputID" labelText="Test Label" />);
     expect(screen.getByLabelText("Test Label")).toBeInTheDocument();
@@ -160,18 +175,6 @@ describe("Radio Button", () => {
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Radio: `labelText` must be a string when `showLabel` is false."
-    );
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <Radio labelText="Arts" />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Radio: This component's required `id` prop was not passed."
     );
   });
 

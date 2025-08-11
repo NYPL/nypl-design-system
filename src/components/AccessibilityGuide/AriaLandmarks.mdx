@@ -1,14 +1,24 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
 import * as SearchBarStories from "../SearchBar/SearchBar.stories";
 import Link from "../Link/Link";
 import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 <Meta title="Accessibility Guide/ARIA Landmarks" />
 
-# ARIA Landmarks
+<ComponentDocsHeader
+  category="Accessibility Guide"
+  componentName="Aria Landmarks"
+/>
 
-## Table of Contents
+## Table of contents
 
 - {<Link href="#Landmarks-overview" target="_self">Landmarks overview</Link>}
 - {<Link href="#banner" target="_self">banner</Link>}
@@ -77,7 +87,7 @@ The `form` landmark identifies a region that contains a collection of elements t
       landmark when the form is used for search functionality.
     </>
   }
-  type="warning"
+  variant="warning"
 />
 
 Interfaces can have multiple `form` regions, and each should be identified with a unique label.
@@ -113,7 +123,7 @@ Note: There's not always a clear line between `complementary` content and conten
 
 The `search` landmark contains the page's search and filter functionality, which will likely include form controls (such as an `input type="search"`).
 
-Inspect below to see `<search>` in the DOM&mdash;notice that it wraps the `h2`, all of the `input` elements, and the `button`, not just the searchbar:
+Inspect below to see `<search>` in the DOM&mdash;notice that it wraps the `h4`, all of the `input` elements, and the `button`, not just the searchbar:
 
 <Canvas of={SearchBarStories.WithSearchElement} />
 

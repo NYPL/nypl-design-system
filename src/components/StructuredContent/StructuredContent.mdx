@@ -1,29 +1,39 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
-import * as StructuredContentStories from "./StructuredContent.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as StructuredContentStories from "./StructuredContent.stories";
 import { changelogData } from "./structuredContentChangelogData";
 
 <Meta of={StructuredContentStories} />
 
-# StructuredContent
+<ComponentDocsHeader
+  category="Page layout component"
+  componentName="StructuredContent"
+  summary="Container that provides a standardized layout for generic page content"
+  versionAdded="0.25.9"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.9`   |
-| Latest            | `3.0.0`    |
+<Canvas of={StructuredContentStories.Controls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#with-html-string-text-content" target="_self">With HTML String Text Content</Link>}
-- {<Link href="#with-html-element-text-content" target="_self">With HTML Element Text Content</Link>}
-- {<Link href="#with-custom-heading-levels" target="_self">With Custom Heading Levels</Link>}
-- {<Link href="#examples" target="_self">Examples</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [With HTML string text content](#with-html-string-text-content)
+- [With HTML element text content](#with-html-element-text-content)
+- [With custom heading levels](#with-custom-heading-levels)
+- [Examples](#examples)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -31,7 +41,8 @@ import { changelogData } from "./structuredContentChangelogData";
 
 ## Component Props
 
-<Canvas of={StructuredContentStories.Controls} />
+`StructuredContent` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={StructuredContentStories.Controls} />
 
@@ -51,20 +62,20 @@ be accessible. Please review your content and make sure that:
   not be followed by a `<h4>`.
 - Any links or text with colors should have a 4.5:1 contrast ratio.
 
-## With HTML String Text Content
+## With HTML string text content
 
 The following body content is passed as a string to the `bodyContent` prop. It
 includes HTML tags in the string.
 
 <Canvas of={StructuredContentStories.WithHTMLStringTextContent} />
 
-## With HTML Element Text Content
+## With HTML element text content
 
 The following content is passed as HTML DOM elements to the `bodyContent` prop.
 
 <Canvas of={StructuredContentStories.WithHTMLElementTextContent} />
 
-## With Custom Heading Levels
+## With custom heading levels
 
 By default, the `StructuredContent` component will render its `headingText` as
 an `h2` and its `calloutText` as an `h3`. If this needs to be updated in a
@@ -78,16 +89,17 @@ sequentially, so the callout heading level MUST be the next heading after the
 
 <Source
   code={`
-
-const customH3heading = <Heading level="h3">Custom H3 Heading Text</Heading>;
-const customH4callout = <Heading level="h4">Custom H4 callout Text</Heading>;
-
-<StructuredContent
-  headingText={customH3heading}
-  calloutText={customH4callout}
-  {...otherProps}
+  const customH3heading = <Heading level="h3">Custom H3 Heading Text</Heading>;
+  const customH4callout = <Heading level="h4">Custom H4 callout Text</Heading>;
+  // ...
+  <StructuredContent
+    headingText={customH3heading}
+    calloutText={customH4callout}
+    {...otherProps}
+  />
+`}
+  language="tsx"
 />
-`} language="tsx" />
 
 <Canvas of={StructuredContentStories.WithCustomHeadingsLevels} />
 

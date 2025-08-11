@@ -10,8 +10,6 @@ const HorizontalRule = defineStyleConfig({
     bg: "ui.bg.hover",
     border: "0",
     height: "2px",
-    marginBottom: "s",
-    marginTop: "s",
     marginStart: props.align === "left" ? 0 : "auto",
     marginEnd: props.align === "right" ? 0 : "auto",
     _dark: {

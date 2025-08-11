@@ -1,6 +1,8 @@
 import { Box, VStack } from "@chakra-ui/react";
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
@@ -10,9 +12,13 @@ import Text from "../Text/Text";
 
 <Meta title="Style Guide/Typography" />
 
-# Typography
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Typography"
+  summary="Recommendations for using NYPL typography styles"
+/>
 
-## Table of Contents
+## Table of contents
 
 - {<Link href="#general-information" target="_self">General Information</Link>}
 - {<Link href="#heading-component" target="_self">Heading Component</Link>}
@@ -40,12 +46,6 @@ equal to `16px`.
 Use the DS [Heading](../?path=/docs/components-typography-styles-heading--docs)
 component to render a native HTML `<h>` tag. The `level` prop can be used to set
 the specific `<h>` tag that you require.
-
-### Updated Typographic Styles
-
-New typographic styles were introduced in June 2023 and the new styles are the
-supported options. The old typographic styles are still available, but they have
-been deprecated.
 
 ### Default Styles for Native Heading Elements
 
@@ -92,51 +92,7 @@ Based on the June 2023 updates, the following values should be used for the
 </Box>
 }
 
-#### Deprecated Options
-
-The older `level` values and the associated styles are still available, but the
-values have been deprecated and they should only used to fulfill older design
-requirements.
-
-For the deprecated options, the `primary` size is the default style for the
-`<h1>` element. The `secondary` size is the default style for the `<h2>`
-element. The `tertiary` size is the default style for the `<h3>` element. And
-the `callout` size is the default style for the `<h4>` element. `<h5>` and
-`<h6>` do not have corresponding `size` styles.
-
-`one`, `two`, `three`, `four`, `five`, `six`
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="s"
->
-  <Heading color="ui.typography.heading" level="one">
-    Heading Level one (DEPRECATED)
-  </Heading>
-  <Heading color="ui.typography.heading" level="two" border="none">
-    Heading Level two (DEPRECATED)
-  </Heading>
-  <Heading color="ui.typography.heading" level="three">
-    Heading Level three (DEPRECATED)
-  </Heading>
-  <Heading color="ui.typography.heading" level="four">
-    Heading Level four (DEPRECATED)
-  </Heading>
-  <Heading color="ui.typography.heading" level="five">
-    Heading Level five (DEPRECATED)
-  </Heading>
-  <Heading color="ui.typography.heading" level="six">
-    Heading Level six (DEPRECATED)
-  </Heading>
-</Box>
-}
-
-#### Migrating from Old to New
+#### Migrating from v3 to v4
 
 When adopting the new `level` values, there is a direct relationship between the
 deprecated values and the new values. For example, from a DOM persepctive, `two`
@@ -160,7 +116,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>
     This style SHOULD be used for display headings meant to give an immediate
     great impact.
@@ -198,7 +154,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>Page title and hero text.</li>
   <li>
     This style SHOULD be used with short headlines. If headline text is beyond
@@ -233,7 +189,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>Page titles, hero text, and important section titles.</li>
   <li>
     This style SHOULD be used with short headlines. If headline text is beyond
@@ -268,7 +224,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>Hero text, card title, and important section titles.</li>
   <li>This style MAY be used with sentence length titles.</li>
 </List>
@@ -300,7 +256,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>Hero titles, card title, or lesser section titles.</li>
   <li>This style MAY be used with sentence length titles.</li>
 </List>
@@ -332,7 +288,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>Hero titles, card title, or lesser section titles.</li>
   <li>This style MAY be used with sentence length titles.</li>
 </List>
@@ -364,7 +320,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>Hero titles, card title, or lesser section titles.</li>
   <li>This style MAY be used with sentence length titles.</li>
 </List>
@@ -396,7 +352,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>Card titles or lesser section titles.</li>
   <li>This style MAY be used with sentence length titles.</li>
 </List>
@@ -428,7 +384,7 @@ the `size` prop can be used to apply a smaller or larger font size style.
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>Lesser section titles.</li>
   <li>This style MAY be used with sentence length titles.</li>
 </List>
@@ -456,120 +412,6 @@ the `size` prop can be used to apply a smaller or larger font size style.
 </Box>
 }
 
-#### Deprecated Options
-
-The older `size` values and the associated styles are still available, but the
-values should be consdidered deprecated and they should only used to fulfill
-older design requirements.
-
-##### Heading Primary (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token          | CSS Token                                 | Value     |
-| --------------- | :---------------- | :---------------------------------------- | :-------- |
-| **Font Size**   | `heading.primary` | `var(--nypl-fontSizes-heading-primary)`   | `2.25rem` |
-| **Font Weight** | `heading.primary` | `var(--nypl-fontWeights-heading-primary)` | `300`     |
-| **Line Height** | --                | --                                        | `1.1`     |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Heading color="ui.typography.heading" level="one" size="primary" m="0">
-    Heading Size primary (DEPRECATED)
-  </Heading>
-</Box>
-}
-
-##### Heading Secondary (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token            | CSS Token                                   | Value     |
-| --------------- | :------------------ | :------------------------------------------ | :-------- |
-| **Font Size**   | `heading.secondary` | `var(--nypl-fontSizes-heading-secondary)`   | `1.75rem` |
-| **Font Weight** | `heading.secondary` | `var(--nypl-fontWeights-heading-secondary)` | `500`     |
-| **Line Height** | --                  | --                                          | `1.25`    |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Heading color="ui.typography.heading" level="one" size="secondary" m="0">
-    Heading Size secondary (DEPRECATED)
-  </Heading>
-</Box>
-}
-
-##### Heading Tertiary (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token           | CSS Token                                  | Value      |
-| --------------- | :----------------- | :----------------------------------------- | :--------- |
-| **Font Size**   | `heading.tertiary` | `var(--nypl-fontSizes-heading-tertiary)`   | `1.375rem` |
-| **Font Weight** | `heading.tertiary` | `var(--nypl-fontWeights-heading-tertiary)` | `500`      |
-| **Line Height** | --                 | --                                         | `1.25`     |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Heading color="ui.typography.heading" level="one" size="tertiary" m="0">
-    Heading Size tertiary (DEPRECATED)
-  </Heading>
-</Box>
-}
-
-##### Heading Callout (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token          | CSS Token                                 | Value     |
-| --------------- | :---------------- | :---------------------------------------- | :-------- |
-| **Font Size**   | `heading.callout` | `var(--nypl-fontSizes-heading-callout)`   | `1.25rem` |
-| **Font Weight** | `heading.callout` | `var(--nypl-fontWeights-heading-callout)` | `500`     |
-| **Line Height** | --                | --                                        | `1.25`    |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Heading color="ui.typography.heading" level="one" size="callout" m="0">
-    Heading Size callout (DEPRECATED)
-  </Heading>
-</Box>
-}
-
 ## Text Component
 
 Use the DS [Text](../?path=/docs/components-typography-styles-text--docs)
@@ -578,12 +420,6 @@ component to render a standard HTML `<p>` tag.
 The `Text` component is used for body copy and captions. However, new
 typographic styles were introduced in June 2023 and the `Text` component can now
 be used to render `subtitle` and `overline` text elements.
-
-### Updated Typographic Styles
-
-New typographic styles were introduced in June 2023, adding `subtitle1`,
-`subtitle2`, `overline1` and `overline2`. As part of that update, the `tag` and
-`mini` styles have been deprecated.
 
 #### Recommended Options
 
@@ -620,26 +456,6 @@ New typographic styles were introduced in June 2023, adding `subtitle1`,
 </Box>
 }
 
-#### Deprecated Options
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="s"
->
-  <Text color="ui.typography.body" fontFamily="body" fontSize=".75rem">
-    Tag (DEPRECATED)
-  </Text>
-  <Text color="ui.typography.body" fontFamily="body" fontSize=".625rem">
-    Mini (DEPRECATED)
-  </Text>
-</Box>
-}
-
 ### Size Options
 
 The `size` prop can be used to render a specific style from the DS default text styles.
@@ -650,7 +466,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>This is the default size for body copy.</li>
   <li>This style SHOULD be used for standard body copy.</li>
 </List>
@@ -684,7 +500,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>
     This style MAY be used in tables, lists, and UI areas with limited space.
   </li>
@@ -719,7 +535,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>
     This style SHOULD be used for captions below an elements (ex. image, video
     player, audio player), helper text, and tag labels.
@@ -794,7 +610,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>
     This style SHOULD be used with text set as a subtitle grouped with a heading
     element.
@@ -837,7 +653,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>
     This style SHOULD be used with text set as a subtitle grouped with a heading
     element.
@@ -880,7 +696,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>
     This style SHOULD be used with text set as a pre-title grouped with a
     heading element.
@@ -923,7 +739,7 @@ The `size` prop can be used to render a specific style from the DS default text 
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>
     This style SHOULD be used with text set as a pre-title grouped with a
     heading element.
@@ -961,62 +777,6 @@ The `size` prop can be used to render a specific style from the DS default text 
 </Box>
 }
 
-#### Deprecated Options
-
-##### Tag (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token   | CSS Token                          | Value            |
-| --------------- | :--------- | :--------------------------------- | :--------------- |
-| **Font Size**   | `text.tag` | `var(--nypl-fontSizes-text-tag)`   | `0.75rem` (12px) |
-| **Font Weight** | `text.tag` | `var(--nypl-fontWeights-text-tag)` | `400` (regular)  |
-| **Line Height** | --         | --                                 | `1.5`            |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Text color="ui.typography.body" size="tag" mt="0">
-    Tag text (DEPRECATED)
-  </Text>
-</Box>
-}
-
-##### Mini (DEPRECATED)
-
-<List type="ul">
-  <li>This style SHOULD NOT be used.</li>
-</List>
-
-|                 | JS Token    | CSS Token                           | Value             |
-| --------------- | :---------- | :---------------------------------- | :---------------- |
-| **Font Size**   | `text.mini` | `var(--nypl-fontSizes-text-mini)`   | `0.625rem` (10px) |
-| **Font Weight** | `text.mini` | `var(--nypl-fontWeights-text-mini)` | `400` (regular)   |
-| **Line Height** | --          | --                                  | `1.5`             |
-
-{
-
-<Box
-  border="1px"
-  borderColor="ui.border.default"
-  borderRadius="5px"
-  mb="m"
-  p="inset.default"
->
-  <Text color="ui.typography.body" size="mini" m="0">
-    Mini text (DEPRECATED)
-  </Text>
-</Box>
-}
-
 ## Font Family
 
 With website accessibility in mind, font choices for the DS were made with an
@@ -1030,11 +790,19 @@ The following `font-family` design tokens are available through the DS.
 | **Heading** | `heading` | `var(--nypl-fonts-heading)` | `system-ui, sans-serif` |
 | **Body**    | `body`    | `var(--nypl-fonts-body)`    | `system-ui, sans-serif` |
 
-> **RECOMMENDATIONS**  
-> When making font selections for project based components outside the DS,
-> sans serif fonts display better on computers and mobile devices. Avoid
-> decorative or overly stylized fonts, as they are often difficult to read even
-> for users without visual impairments or reading Standard Text Default
+<Banner
+  content={
+    <>
+      <strong>RECOMMENDATION:</strong> When making font selections for project
+      based components outside the DS, sans serif fonts display better on
+      computers and mobile devices. Avoid decorative or overly stylized fonts,
+      as they are often difficult to read even for users without visual
+      impairments or reading Standard Text Default
+    </>
+  }
+  mb="s"
+  variant="recommendation"
+/>
 
 {
 
@@ -1048,7 +816,7 @@ The following `font-family` design tokens are available through the DS.
   <Text color="ui.typography.body" fontFamily="heading" fontSize="1rem" mt="0">
     Heading: system-ui, sans-serif
   </Text>
-  <Text color="ui.typography.body" fontFamily="body" fontSize="1rem" noSpace>
+  <Text color="ui.typography.body" fontFamily="body" fontSize="1rem">
     Body: system-ui, sans-serif
   </Text>
 </Box>
@@ -1079,7 +847,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
 
 {
 
-<List type="ul">
+<List variant="ul">
   <li>
     Large text (18pts or larger, or 14 pts or larger if bold) should meet a
     contrast ratio of 3:1.
@@ -1111,12 +879,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     <Heading color="ui.typography.heading" level="three">
       Default Heading Color on Page Background
     </Heading>
-    <Text
-      color="ui.typography.body"
-      fontFamily="body"
-      fontSize="desktop.body"
-      noSpace
-    >
+    <Text color="ui.typography.body" fontFamily="body" fontSize="desktop.body">
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
       et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
@@ -1135,12 +898,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     <Heading color="ui.typography.heading" level="three">
       Default Heading Color on Default Background
     </Heading>
-    <Text
-      color="ui.typography.body"
-      fontFamily="body"
-      fontSize="desktop.body"
-      noSpace
-    >
+    <Text color="ui.typography.body" fontFamily="body" fontSize="desktop.body">
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
       et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
@@ -1159,12 +917,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     <Heading color="ui.typography.heading" level="three">
       Default Heading Color on Hover Background
     </Heading>
-    <Text
-      color="ui.typography.body"
-      fontFamily="body"
-      fontSize="desktop.body"
-      noSpace
-    >
+    <Text color="ui.typography.body" fontFamily="body" fontSize="desktop.body">
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
       et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
@@ -1183,12 +936,7 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
     <Heading color="ui.typography.heading" level="three">
       Default Heading Color on Active Background
     </Heading>
-    <Text
-      color="ui.typography.body"
-      fontFamily="body"
-      fontSize="desktop.body"
-      noSpace
-    >
+    <Text color="ui.typography.body" fontFamily="body" fontSize="desktop.body">
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
       et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
@@ -1212,7 +960,6 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
       color="dark.ui.typography.body"
       fontFamily="body"
       fontSize="desktop.body"
-      noSpace
     >
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
@@ -1229,7 +976,6 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
       color="dark.ui.typography.body"
       fontFamily="body"
       fontSize="desktop.body"
-      noSpace
     >
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
@@ -1246,7 +992,6 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
       color="dark.ui.typography.body"
       fontFamily="body"
       fontSize="desktop.body"
-      noSpace
     >
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
@@ -1263,7 +1008,6 @@ standards](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html).
       color="dark.ui.typography.body"
       fontFamily="body"
       fontSize="desktop.body"
-      noSpace
     >
       This paragraph shows the default body text color. Curabitur blandit tempus
       porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur
@@ -1670,7 +1414,7 @@ prepositions do not get capital letters unless they start the title. For example
   mb="m"
   p="s"
 >
-  <List type="ul">
+  <List variant="ul">
     <li>Snow White and the Seven Dwarfs</li>
     <li>The Last of the Mohicans</li>
     <li>Spooky Books for Kids: The Ultimate Creepy Guide</li>

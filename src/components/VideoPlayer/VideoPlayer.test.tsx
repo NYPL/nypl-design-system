@@ -24,8 +24,13 @@ describe("VideoPlayer", () => {
       utils = render(<VideoPlayer videoType="youtube" videoId={videoId} />);
     });
 
+    it("should not render an id if none is passed", () => {
+      const videoPlayer = screen.getByTestId("ds-videoPlayer");
+      expect(videoPlayer).not.toHaveAttribute("id");
+    });
+
     it("Renders VideoPlayer container", () => {
-      expect(screen.getByTestId("video-player-component")).toBeInTheDocument();
+      expect(screen.getByTestId("ds-videoPlayer")).toBeInTheDocument();
     });
 
     it("Renders VideoPlayer iframe", () => {

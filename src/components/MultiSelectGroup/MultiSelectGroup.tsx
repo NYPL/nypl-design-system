@@ -1,16 +1,12 @@
-import { chakra, ChakraComponent, Stack } from "@chakra-ui/react";
+import { BoxProps, chakra, ChakraComponent, Stack } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
 import { LayoutTypes } from "../../helpers/types";
 import { MultiSelectWidths } from "../MultiSelect/MultiSelect";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
+import { useSafeId } from "../../hooks/useSafeId";
 
-export interface MultiSelectGroupProps {
-  /** Additional className to use. */
-  className?: string;
-  /** The id of the MultiSelectGroup. */
-  id: string;
+export interface MultiSelectGroupProps extends BoxProps {
   /** The label text rendered within the MultiSelectGroup. */
   labelText: string;
   /** Renders the layout of `MultiSelect` components in a row or column. */
@@ -44,7 +40,6 @@ export const MultiSelectGroup: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, MultiSelectGroupProps>((props, ref?) => {
     const {
-      className = "",
       id,
       labelText,
       layout = "row",
@@ -53,23 +48,21 @@ export const MultiSelectGroup: ChakraComponent<
       renderMultiSelect,
       ...rest
     } = props;
-    const { isLargerThanMobile } = useNYPLBreakpoints();
-    const finalLayout = isLargerThanMobile ? layout : "column";
-    const finalWidth = isLargerThanMobile ? multiSelectWidth : "full";
-    const isBlockElement = finalLayout === "column";
+    const mainId = useSafeId(id);
 
     return (
       <Fieldset
-        id={`multiselect-group-${id}`}
+        data-testid="ds-multiSelectGroup"
+        id={`${mainId}-fieldset`}
         legendText={labelText}
         isLegendHidden={!showLabel}
         {...rest}
       >
         <Stack
-          className={className}
           columnGap="xs"
-          data-testid={`multiselect-group-${id}`}
-          id={id}
+          data-testid={`${mainId}-multiselectGroup-stack`}
+          direction={{ base: "column", md: layout }}
+          id={mainId}
           ref={ref}
           rowGap="xs"
           spacing="xs"
@@ -87,7 +80,10 @@ export const MultiSelectGroup: ChakraComponent<
             },
           }}
         >
-          {renderMultiSelect({ isBlockElement, multiSelectWidth: finalWidth })}
+          {renderMultiSelect({
+            isBlockElement: layout === "column",
+            multiSelectWidth,
+          })}
         </Stack>
       </Fieldset>
     );

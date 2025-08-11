@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   ChakraComponent,
   chakra,
   useMultiStyleConfig,
@@ -12,9 +13,7 @@ import List from "../List/List";
 import { range } from "../../utils/utils";
 import Icon from "../Icons/Icon";
 
-export interface PaginationProps {
-  /** Additional className. */
-  className?: string;
+export interface PaginationProps extends BoxProps {
   /** The currentPage can be used to programatically force the selected page to change
    * without the user explicitly requesting it – for example, if the user should be
    * brought back to the first page of a set of results after a new search. */
@@ -23,8 +22,6 @@ export interface PaginationProps {
    * to use for a link's `href` attribute. This is used when the current
    * page should refresh when navigating. */
   getPageHref?: undefined | ((pageNumber: number) => string);
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** The initially selected page (default value is 1). */
   initialPage?: number;
   /** The callback function called when an item is selected and the current
@@ -45,7 +42,6 @@ export const Pagination: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, PaginationProps>((props, ref?) => {
     const {
-      className,
       currentPage,
       getPageHref,
       id,
@@ -141,19 +137,18 @@ export const Pagination: ChakraComponent<
 
       return (
         <Link
+          aria-label={`${isPrevious ? "Previous" : "Next"} page`}
+          aria-disabled={isDisabled}
           href={changeUrls ? getPageHref(pageNumber) : "#"}
-          id={`${id}-${text}`}
+          onClick={
+            changeUrls ? undefined : isPrevious ? previousPage : nextPage
+          }
+          variant="action"
           __css={{
             ...styles.link,
             ...styles.previousNextElement,
             ...disabledStyles,
           }}
-          type="action"
-          aria-label={`${isPrevious ? "Previous" : "Next"} page`}
-          aria-disabled={isDisabled}
-          onClick={
-            changeUrls ? undefined : isPrevious ? previousPage : nextPage
-          }
         >
           {!isPrevious && (
             <Text
@@ -243,7 +238,6 @@ export const Pagination: ChakraComponent<
       return (
         <Link
           href={changeUrls ? getPageHref(item as number) : "#"}
-          id={`${id}-${item}`}
           aria-label={`Page ${item}`}
           aria-current={isSelectedPage ? "page" : undefined}
           onClick={
@@ -336,7 +330,7 @@ export const Pagination: ChakraComponent<
               middleRangeStart > 3 ? "ellipse-start" : 2,
               // The middle range of page numbers to display.
               // Add +1 to the end since range() doesn't include the last number.
-              ...range(middleRangeStart, middleRangeEnd + 1),
+              ...range({ start: middleRangeStart, stop: middleRangeEnd + 1 }),
               // The next to last item will be the next to last
               // number or an ellipse.
               middleRangeEnd < pageCount - 2 ? "ellipse-end" : pageCount - 1,
@@ -379,15 +373,15 @@ export const Pagination: ChakraComponent<
     return (
       <Box
         as="nav"
-        id={id}
         aria-label="Pagination"
+        data-testid="ds-pagination"
+        id={id}
         role="navigation"
-        className={className}
         ref={ref}
         __css={styles}
         {...rest}
       >
-        <List type="ul" inline noStyling id={`${id}-list`}>
+        <List inline noStyling variant="ul">
           {previousLiLink}
           {getPaginationNumbers(selectedPage)}
           {nextLiLink}

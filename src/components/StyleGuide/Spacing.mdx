@@ -1,12 +1,17 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 
 <Meta title="Style Guide/Spacing" />
 
-# Spacing
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Spacing"
+  summary="How to use Reservoir spacing values and design tokens"
+/>
 
-## Table of Contents
+## Table of contents
 
 - {<Link href="#general-information" target="_self">General Information</Link>}
 - {<Link href="#default-spacing-values" target="_self">Default Spacing Values</Link>}
@@ -14,6 +19,7 @@ import Link from "../Link/Link";
 - {<Link href="#grid-spacing" target="_self">Grid Spacing</Link>}
 - {<Link href="#form-spacing" target="_self">Form Spacing</Link>}
 - {<Link href="#tabular-data-spacing" target="_self">Tabular Data Spacing</Link>}
+- {<Link href="#tabular-data-spacing" target="_self">Text Spacing</Link>}
 - {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
 
 ## General Information
@@ -99,6 +105,15 @@ a description list, etc.), the space between data cells in a row should be
 | :------------- | :------------- | :---------------------------- | :------- |
 | **Column Gap** | `table.column` | `--nypl-spacing-table-column` | `1.5rem` |
 | **Row Gap**    | `table.row`    | `--nypl-spacing-table-row`    | `2rem`   |
+
+## Text Spacing
+
+Use these tokens to add spacing before or after text elements.
+
+|               | JS Token            | CSS Token                          | Value  |
+| :------------ | :------------------ | :--------------------------------- | :----- |
+| **Heading**   | `heading.default`   | `--nypl-spacing-heading-default`   | `1rem` |
+| **Paragraph** | `paragraph.default` | `--nypl-spacing-paragraph-default` | `1rem` |
 
 ## Figma Reference
 

@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   CircularProgress as ChakraCircularProgress,
@@ -10,6 +11,7 @@ import {
 import React, { forwardRef } from "react";
 
 import Label from "../Label/Label";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export const progressIndicatorSizesArray = ["default", "small"] as const;
 export const progressIndicatorTypesArray = ["circular", "linear"] as const;
@@ -25,11 +27,7 @@ export type ProgressIndicatorTypes = typeof progressIndicatorTypesArray[number];
 export type ProgressIndicatorLabelPlacements =
   typeof progressIndicatorLabelPlacementsArray[number];
 
-interface BaseProgressIndicatorProps {
-  /** The darkMode prop is deprecated and should no longer be used. */
-  darkMode?: boolean;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id: string;
+interface BaseProgressIndicatorProps extends BoxProps {
   /** Whether the `ProgressIndicator` should be linear or circular. */
   indicatorType?: ProgressIndicatorTypes;
   /** Whether the progress animation should display because the `value` prop is
@@ -62,7 +60,7 @@ export type ProgressIndicatorProps =
   | CircularProgressIndicatorProps;
 
 /**
- * A component that displays a progress status for any task that takes a long
+ * `ProgressIndicator` displays a progress status for any task that takes a long
  * time to complete or consists of multiple steps. Examples include downloading,
  * uploading, or processing.
  */
@@ -74,7 +72,6 @@ export const ProgressIndicator: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, ProgressIndicatorProps>((props, ref?) => {
     const {
-      darkMode = false,
       id,
       indicatorType = "linear",
       isIndeterminate = false,
@@ -85,18 +82,14 @@ export const ProgressIndicator: ChakraComponent<
       value = 0,
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const finalLabelPlacement = labelPlacement ?? "bottom";
     const styles = useMultiStyleConfig("ProgressIndicator", {
-      darkMode,
       size,
       labelPlacement: finalLabelPlacement,
     });
     let finalValue = value;
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Progress Indicator: This component's required `id` prop was not passed."
-      );
-    }
+
     if (finalValue < 0 || finalValue > 100) {
       console.warn(
         "NYPL Reservoir ProgressIndicator: An invalid value was passed for the" +
@@ -106,11 +99,11 @@ export const ProgressIndicator: ChakraComponent<
       finalValue = 0;
     }
     const progressProps = {
-      id,
+      id: `${mainId}-progress`,
       // If the label is visually shown, associate it with the progress indicator.
       // Otherwise, the `aria-label` will be added.
       "aria-label": showLabel ? undefined : labelText,
-      "aria-labelledby": showLabel ? `${id}-label` : undefined,
+      "aria-labelledby": showLabel ? `${mainId}-label` : undefined,
       // If `isIndeterminate` is true, then it overrides the `value` prop.
       isIndeterminate: isIndeterminate || undefined,
       value: isIndeterminate ? undefined : finalValue,
@@ -129,7 +122,11 @@ export const ProgressIndicator: ChakraComponent<
               )}
             </ChakraCircularProgress>
             {showLabel && (
-              <Label id={`${id}-label`} htmlFor={id} sx={styles.circularLabel}>
+              <Label
+                id={`${mainId}-label`}
+                htmlFor={`${mainId}-progress`}
+                sx={styles.circularLabel}
+              >
                 {labelText}
               </Label>
             )}
@@ -140,7 +137,11 @@ export const ProgressIndicator: ChakraComponent<
       return (
         <>
           {showLabel && (
-            <Label id={`${id}-label`} htmlFor={id} mb="xxs">
+            <Label
+              id={`${mainId}-label`}
+              htmlFor={`${mainId}-progress`}
+              mb="xxs"
+            >
               {labelText}
             </Label>
           )}
@@ -155,7 +156,13 @@ export const ProgressIndicator: ChakraComponent<
     };
 
     return (
-      <Box ref={ref} __css={styles} {...rest}>
+      <Box
+        data-testid="ds-progressIndicator"
+        id={mainId}
+        ref={ref}
+        __css={styles}
+        {...rest}
+      >
         {progressComponent(indicatorType)}
       </Box>
     );

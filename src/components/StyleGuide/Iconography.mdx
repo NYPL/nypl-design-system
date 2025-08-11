@@ -1,30 +1,34 @@
 import { Box, Stack } from "@chakra-ui/react";
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Icon from "../Icons/Icon";
-import Link from "../Link/Link";
 
 <Meta title="Style Guide/Iconography" />
 
-# Iconography
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Iconography"
+  summary="Details about icons in Reservoir"
+/>
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#general-information" target="_self">General Information</Link>}
-- {<Link href="#icon-examples" target="_self">Icon Examples</Link>}
-- {<Link href="#icon-sizes" target="_self">Icon Sizes</Link>}
-- {<Link href="#icon-colors" target="_self">Icon Colors</Link>}
-- {<Link href="#development-notes" target="_self">Development Notes</Link>}
-- {<Link href="#figma-reference" target="_self">Figma Reference</Link>}
+- [General information](#general-information)
+- [Icon examples](#icon-examples)
+- [Icon sizes](#icon-sizes)
+- [Icon colors](#icon-colors)
+- [Development notes](#development-notes)
+- [Figma reference](#figma-reference)
 
-## General Information
+## General information
 
 Use the Reservoir Design System (DS) [Icon](../?path=/story/components-media-icons-icon--with-controls)
 component to render and control icons as `<svg>` elements within consuming apps.
 
 The DS utilizes the `Filled` icons available in the [Material UI Design System](https://material-ui.com/components/material-icons/).
 
-## Icon Examples
+## Icon examples
 
 The graphic of the `Icon` component is handled through the `name` prop. To see
 all graphic options for `Icon`, please refer to the [Icon](../?path=/docs/components-media-icons-icon--docs)
@@ -52,7 +56,7 @@ Storybook page.
 | `errorOutline`            |
 | `speakerNotes`            |
 
-## Icon Sizes
+## Icon sizes
 
 The size of the `Icon` component is handled through the `size` prop.
 
@@ -82,7 +86,7 @@ The size of the `Icon` component is handled through the `size` prop.
 | `xxlarge`  | `3rem` (48px)     | `--nypl-space-xl`  |
 | `xxxlarge` | `4rem` (64px)     | `--nypl-space-xxl` |
 
-## Icon Colors
+## Icon colors
 
 The color of the `Icon` component is handled through the `color` prop. Icons in
 NYPL projects should always be rendered with one color.
@@ -133,18 +137,19 @@ NYPL projects should always be rendered with one color.
 | `section.whats-on.primary`            | `--nypl-colors-section-whats-on-primary`            |
 | `section.whats-on.secondary`          | `--nypl-colors-section-whats-on-secondary`          |
 
-## Development Notes
+## Development notes
 
-Icons have been added to the Icon component as they have been needed within NYPL
+Icons have been added to the `Icon` component as they have been needed within NYPL
 development project, so not all of the [NYPL icons](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/?node-id=10734%3A3945)
 and [NYPL Brand](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=15454%3A47007)
 and [NYPL UI](https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=14989%3A37)
-colors are currently available through the DS Icon component. If your project
-requires an icon or color that is not currently available in the Icon component,
-please inform your project manager or reach out directly to the NYPL Design
-System team.
+colors are currently available through the DS `Icon` component.
 
-## Figma Reference
+If your project requires an icon or color that is not currently available
+in the `Icon` component, please inform your project manager or reach out
+directly to the NYPL Design System team.
+
+## Figma reference
 
 For additional spacing information, please refer to the Figma Main file.
 

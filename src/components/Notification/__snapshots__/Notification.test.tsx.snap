@@ -3,7 +3,8 @@
 exports[`Notification renders the UI snapshot correctly 1`] = `
 <aside
   className="css-1xdhyk6"
-  data-type="standard"
+  data-testid="ds-notification"
+  data-variant="standard"
   id="notificationID1"
 >
   <div
@@ -11,10 +12,11 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-1nreziu"
+        className="chakra-icon css-1nreziu"
         data-file-name="SvgAlertNotificationImportant"
         focusable={false}
         id="notificationID1-notification-icon"
@@ -23,6 +25,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
       />
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="notificationID1-heading"
       >
         Notification Heading
@@ -30,6 +33,7 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -44,7 +48,8 @@ exports[`Notification renders the UI snapshot correctly 1`] = `
 exports[`Notification renders the UI snapshot correctly 2`] = `
 <aside
   className="css-1xdhyk6"
-  data-type="announcement"
+  data-testid="ds-notification"
+  data-variant="announcement"
   id="notificationID2"
 >
   <div
@@ -52,10 +57,11 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-f7lbg8"
+        className="chakra-icon css-f7lbg8"
         data-file-name="SvgSpeakerNotes"
         focusable={false}
         id="notificationID2-notification-icon"
@@ -64,6 +70,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
       />
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="notificationID2-heading"
       >
         Notification Heading
@@ -71,6 +78,7 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -85,7 +93,8 @@ exports[`Notification renders the UI snapshot correctly 2`] = `
 exports[`Notification renders the UI snapshot correctly 3`] = `
 <aside
   className="css-1xdhyk6"
-  data-type="warning"
+  data-testid="ds-notification"
+  data-variant="warning"
   id="notificationID3"
 >
   <div
@@ -93,10 +102,11 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-3u73el"
+        className="chakra-icon css-3u73el"
         data-file-name="SvgErrorFilled"
         focusable={false}
         id="notificationID3-notification-icon"
@@ -105,6 +115,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
       />
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="notificationID3-heading"
       >
         Notification Heading
@@ -112,6 +123,7 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -126,7 +138,8 @@ exports[`Notification renders the UI snapshot correctly 3`] = `
 exports[`Notification renders the UI snapshot correctly 4`] = `
 <aside
   className="css-1xdhyk6"
-  data-type="standard"
+  data-testid="ds-notification"
+  data-variant="standard"
   id="notificationID4"
 >
   <div
@@ -134,10 +147,11 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-1nreziu"
+        className="chakra-icon css-1nreziu"
         data-file-name="SvgAlertNotificationImportant"
         focusable={false}
         id="notificationID4-notification-icon"
@@ -147,6 +161,7 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -161,7 +176,8 @@ exports[`Notification renders the UI snapshot correctly 4`] = `
 exports[`Notification renders the UI snapshot correctly 5`] = `
 <aside
   className="css-1xdhyk6"
-  data-type="standard"
+  data-testid="ds-notification"
+  data-variant="standard"
   id="notificationID5"
 >
   <div
@@ -169,9 +185,11 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="notificationID5-heading"
       >
         Notification Heading
@@ -179,6 +197,7 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -193,7 +212,8 @@ exports[`Notification renders the UI snapshot correctly 5`] = `
 exports[`Notification renders the UI snapshot correctly 6`] = `
 <aside
   className="css-1xdhyk6"
-  data-type="standard"
+  data-testid="ds-notification"
+  data-variant="standard"
   id="notificationID6"
 >
   <div
@@ -201,6 +221,7 @@ exports[`Notification renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -215,7 +236,8 @@ exports[`Notification renders the UI snapshot correctly 6`] = `
 exports[`Notification renders the UI snapshot correctly 7`] = `
 <aside
   className="css-1xdhyk6"
-  data-type="standard"
+  data-testid="ds-notification"
+  data-variant="standard"
   id="notificationID7"
 >
   <div
@@ -223,10 +245,11 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-1nreziu"
+        className="chakra-icon css-1nreziu"
         data-file-name="SvgAlertNotificationImportant"
         focusable={false}
         id="notificationID7-notification-icon"
@@ -236,6 +259,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -246,7 +270,8 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
   </div>
   <button
     aria-label="Close the notification"
-    className="chakra-button css-8bx9xp"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-button"
     id="notificationID7-notification-dismissible-button"
     onClick={[Function]}
     type="button"
@@ -256,7 +281,7 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
       className="chakra-icon css-vj9769"
       data-file-name="SvgClose"
       focusable={false}
-      id="notificationID7-dismissible-notification-icon"
+      id="notificationID7-dismissible-icon"
       role="img"
       title="Notification close icon"
     />
@@ -267,7 +292,8 @@ exports[`Notification renders the UI snapshot correctly 7`] = `
 exports[`Notification renders the UI snapshot correctly 8`] = `
 <aside
   className="css-kle7zy"
-  data-type="standard"
+  data-testid="ds-notification"
+  data-variant="standard"
   id="chakra"
 >
   <div
@@ -275,10 +301,11 @@ exports[`Notification renders the UI snapshot correctly 8`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-1nreziu"
+        className="chakra-icon css-1nreziu"
         data-file-name="SvgAlertNotificationImportant"
         focusable={false}
         id="chakra-notification-icon"
@@ -287,6 +314,7 @@ exports[`Notification renders the UI snapshot correctly 8`] = `
       />
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="chakra-heading"
       >
         Notification Heading
@@ -294,6 +322,7 @@ exports[`Notification renders the UI snapshot correctly 8`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"
@@ -309,7 +338,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
 <aside
   className="css-1xdhyk6"
   data-testid="props"
-  data-type="standard"
+  data-variant="standard"
   id="props"
 >
   <div
@@ -317,10 +346,11 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
   >
     <header
       className="css-1xdhyk6"
+      data-testid="ds-notificationHeading"
     >
       <svg
         aria-hidden={true}
-        className="chakra-icon notification-icon css-1nreziu"
+        className="chakra-icon css-1nreziu"
         data-file-name="SvgAlertNotificationImportant"
         focusable={false}
         id="props-notification-icon"
@@ -329,6 +359,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
       />
       <h4
         className="chakra-heading css-1xdhyk6"
+        data-testid="ds-heading"
         id="props-heading"
       >
         Notification Heading
@@ -336,6 +367,7 @@ exports[`Notification renders the UI snapshot correctly 9`] = `
     </header>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-notificationContent"
     >
       <div
         className="css-0"

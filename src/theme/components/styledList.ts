@@ -6,9 +6,7 @@ import { baseListStyles, unorderedStyles } from "./list";
 const StyledList = defineStyleConfig({
   baseStyle: defineStyle(({ textSize = "default" }) => ({
     fontSize:
-      textSize === "tag" || textSize === "mini"
-        ? `text.${textSize}`
-        : textSize === "caption" || textSize === "default"
+      textSize === "caption" || textSize === "default"
         ? `desktop.${textSize}`
         : `desktop.body.${textSize}`,
     ...baseListStyles({ inline: false, noStyling: true }),

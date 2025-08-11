@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Logo from "./Logo";
@@ -11,10 +12,7 @@ const meta: Meta<typeof Logo> = {
   title: "Components/Media & Icons/Logo",
   component: Logo,
   argTypes: {
-    children: { table: { disable: true } },
-    className: { control: false },
     decorative: argsBooleanType(),
-    id: { control: false },
     name: {
       control: { type: "select" },
       options: logoNamesArray,
@@ -45,9 +43,7 @@ type Story = StoryObj<typeof Logo>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     decorative: true,
-    id: "logo-id",
     name: "nyplFullBlack",
     size: "large",
     sizeBasedOn: "width",
@@ -87,7 +83,7 @@ const logoRow = (logo, opts: any = {}) => {
   let key = logo;
 
   if (logo.indexOf("White") !== -1 || logo.indexOf("Negative") !== -1) {
-    styles.backgroundColor = "var(--nypl-colors-ui-gray-xx-dark)";
+    styles.backgroundColor = "var(--nypl-colors-dark-ui-bg-default)";
     styles.color = "var(--nypl-colors-ui-white)";
     styles.paddingBottom = "var(--nypl-space-l)";
     styles.paddingTop = "var(--nypl-space-l)";
@@ -97,12 +93,12 @@ const logoRow = (logo, opts: any = {}) => {
   }
 
   return (
-    <div style={styles} key={key}>
-      <Heading level="h4" size="heading6">
+    <Box style={styles} key={key}>
+      <Heading color={styles.color} level="h4" mb="s" size="heading6">
         {displayValue}
       </Heading>
       <Logo name={logo} size={size} sizeBasedOn={sizeBasedOn} />
-    </div>
+    </Box>
   );
 };
 const logos = [];

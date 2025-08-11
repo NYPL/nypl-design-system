@@ -3,15 +3,19 @@ import { Meta, Source } from "@storybook/addon-docs/blocks";
 import { Banner } from "../Banner/Banner";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
-
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import progressiveEnhancementExample from "/static/progressive-enhancement.png";
 import { exampleWrapperStyles } from "../../utils/utils.ts";
 
 <Meta title="Accessibility Guide/Progressive Enhancement" />
 
-# Progressive Enhancement
+<ComponentDocsHeader
+  category="Accessibility Guide"
+  componentName="Progressive Enhancement"
+  summary="Guide to building basic web functionality and user experience first, then layering features incrementally"
+/>
 
-## Table of Contents
+## Table of contents
 
 - {<Link href="#general-information" target="_self">General Information</Link>}
 - {<Link href="#nypl-and-ds-problem" target="_self">NYPL and DS Problem</Link>}
@@ -210,7 +214,7 @@ both the Pages and App Router.
       for other approaches.
     </>
   }
-  type="informative"
+  variant="informative"
 />
 
 <Source

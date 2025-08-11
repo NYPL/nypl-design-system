@@ -3,10 +3,12 @@
 exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 <div
   className="css-1u8qly9"
-  id="myTextarea-wrapper"
+  data-testid="ds-textInput"
+  id="myTextarea-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="myTextarea"
     id="myTextarea-label"
   >
@@ -34,10 +36,12 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  data-testid="ds-textInput"
+  id="myTextInput-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -70,10 +74,12 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  data-testid="ds-textInput"
+  id="myTextInput-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -106,10 +112,12 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  data-testid="ds-textInput"
+  id="myTextInput-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -138,7 +146,8 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  data-testid="ds-textInput"
+  id="myTextInput-componentWrapper"
 >
   <div
     className="css-79elbk"
@@ -165,10 +174,12 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  data-testid="ds-textInput"
+  id="myTextInput-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -181,7 +192,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     className="css-79elbk"
   >
     <input
-      aria-describedby="myTextInput-helperText"
+      aria-describedby="myTextInput-helperErrorText"
       aria-required={true}
       autoComplete={null}
       className="chakra-input css-0"
@@ -201,7 +212,8 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="myTextInput-helperText"
+    data-testid="ds-helperErrorText"
+    id="myTextInput-helperErrorText"
   >
     <div
       className="css-0"
@@ -218,10 +230,12 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  data-testid="ds-textInput"
+  id="myTextInput-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -234,7 +248,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
     className="css-79elbk"
   >
     <input
-      aria-describedby="myTextInput-helperText"
+      aria-describedby="myTextInput-helperErrorText"
       aria-invalid={true}
       aria-required={true}
       autoComplete={null}
@@ -255,7 +269,8 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    id="myTextInput-helperText"
+    data-testid="ds-helperErrorText"
+    id="myTextInput-helperErrorText"
   >
     <div
       className="css-0"
@@ -272,10 +287,12 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  data-testid="ds-textInput"
+  id="myTextInput-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -308,10 +325,12 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
 <div
   className="css-1u8qly9"
-  id="myTextInput-wrapper"
+  data-testid="ds-textInput"
+  id="myTextInput-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="myTextInput"
     id="myTextInput-label"
   >
@@ -340,10 +359,12 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
 <div
   className="css-1y4kn3e"
-  id="chakra-wrapper"
+  data-testid="ds-textInput"
+  id="chakra-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="chakra"
     id="chakra-label"
   >
@@ -373,10 +394,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
 <div
   className="css-1u8qly9"
   data-testid="props"
-  id="props-wrapper"
+  id="props-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="props"
     id="props-label"
   >
@@ -388,7 +410,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
     <input
       autoComplete={null}
       className="chakra-input css-0"
-      data-testid="props"
       disabled={false}
       id="props"
       onBlur={[Function]}
@@ -406,10 +427,12 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
 exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
 <div
   className="css-1u8qly9"
-  id="autocomplete-wrapper"
+  data-testid="ds-textInput"
+  id="autocomplete-componentWrapper"
 >
   <label
     className="css-1xdhyk6"
+    data-testid="ds-label"
     htmlFor="autocomplete"
     id="autocomplete-label"
   >

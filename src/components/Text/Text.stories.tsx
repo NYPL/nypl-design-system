@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Text, { textSizesArray } from "./Text";
+import { VStack } from "@chakra-ui/react";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 import formatNumber from "../../hooks/useFormatNumber";
 
@@ -7,14 +8,11 @@ const meta: Meta<typeof Text> = {
   title: "Components/Typography & Styles/Text",
   component: Text,
   argTypes: {
-    children: { table: { disable: true } },
-    className: { control: false },
     isBold: argsBooleanType(),
     isItalic: argsBooleanType(),
     isCapitalized: argsBooleanType(),
     isUppercase: argsBooleanType(),
     isLowercase: argsBooleanType(),
-    noSpace: argsBooleanType(),
     role: { control: false },
     size: {
       control: {
@@ -38,13 +36,11 @@ type Story = StoryObj<typeof Text>;
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     isBold: false,
     isItalic: false,
     isCapitalized: false,
     isUppercase: false,
     isLowercase: false,
-    noSpace: false,
     role: undefined,
     size: "default",
   },
@@ -56,7 +52,7 @@ export const WithControls: Story = {
     jest: "Text.test.tsx",
   },
   render: (args) => (
-    <>
+    <VStack gap="s">
       <Text {...args}>
         Animal Crossing[a] is a <b>social</b> simulation video game series
         developed and published by Nintendo. The series was conceptualized and
@@ -81,14 +77,14 @@ export const WithControls: Story = {
         As of June 2024, the Animal Crossing franchise has sold over $
         {copiesSold} copies worldwide. Suggested retail price: ${suggestedPrice}
       </Text>
-    </>
+    </VStack>
   ),
 };
 
 // The following are additional Heading example Stories.
 export const RecommendedOptions: Story = {
   render: () => (
-    <>
+    <VStack spacing="s" alignItems="start">
       <Text size="body1">Body 1</Text>
       <Text size="body2">Body 2</Text>
       <Text size="caption">Caption</Text>
@@ -96,14 +92,6 @@ export const RecommendedOptions: Story = {
       <Text size="subtitle2">Subtitle 2</Text>
       <Text size="overline1">Overline 1</Text>
       <Text size="overline2">Overline 2</Text>
-    </>
-  ),
-};
-export const DeprecatedOptions: Story = {
-  render: () => (
-    <>
-      <Text size="tag">Tag text (deprecated)</Text>
-      <Text size="mini">Mini text (deprecated)</Text>
-    </>
+    </VStack>
   ),
 };

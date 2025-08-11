@@ -1,0 +1,317 @@
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+import { Box, Flex } from "@chakra-ui/react";
+import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Heading from "../Heading/Heading";
+import Link from "../Link/Link";
+
+<Meta title="Development Guide/v4 Migration Guide" />
+
+<ComponentDocsHeader
+  category="Development Guide"
+  componentName="Reservoir v4 Migration Guide"
+/>
+
+## Table of contents
+
+- [A Focus on Foundations](#a-focus-on-foundations)
+- [Getting Started](#getting-started)
+- [Breaking Changes](#breaking-changes)
+- [Non-Breaking Changes](#non-breaking-changes)
+- [v3 Support](#v3-support)
+
+## A Focus on Foundations
+
+Reservoir v4 includes everything from simple style updates to breaking changes. It represents a focus on
+the fundamentals, specifically the foundational layers of HTML, CSS, and JavaScript, to make our
+components more accessible, intuitive, and maintainable.
+
+By aligning with web standards, we aim to:
+
+- Simplify the developer's mental model, leading to fewer abstractions and more predictable naming conventions
+  and behaviors.
+- Support accessibility by default through strict adherence to semantic HTML standards.
+- Minimize technical debt and over-engineering by embracing standard HTML and CSS principles and reducing tight
+  coupling with JavaScript logic.
+
+## Getting Started
+
+### Step 1
+
+`npm install @nypl/design-system-react-components@4.0.0`
+
+### Step 2
+
+Run `npx tsc --noEmit` or `npm run lint` to output a list of Typescript errors. This list represents the majority
+of breaking changes you'll need to address.
+
+<Banner
+  content={
+    <>
+      Don't be afraid if this list is long! We promise most of the changes will
+      be quick and easy.
+    </>
+  }
+  my="s"
+  variant="informative"
+/>
+
+### Step 3
+
+Update your code!
+
+## Breaking Changes
+
+### We anticipate the following to be the most common breaking changes.
+
+#### 1. Upgrade your `Template`.
+
+If your application uses the Reservoir `Template` components (or the `TemplateAppContainer` component), you’ll need
+to refactor your code to use our new composable [Template components](../?path=/docs/components-page-layout-template--docs#overview).
+
+<Source
+  code={`
+  <Template variant="sidebarLeft">
+    <TemplateHeader>
+      <TemplateBreakout>
+        //...
+      </TemplateBreakout>
+    </TemplateHeader>
+    <TemplateMain>
+        <TemplateFull>
+        //...
+        </TemplateFull>
+        <TemplateSidebar>
+        //...
+        </TemplateSidebar>
+        <TemplateContent>
+        //...
+        </TemplateContent>
+        <TemplateFull>
+        //...
+        </TemplateFull>
+    </TemplateMain>
+    <TemplateFooter>
+    //...
+    </TemplateFooter>
+  </Template>
+`}
+  language="jsx"
+/>
+
+<Banner
+  content={
+    <>
+      The new Template features more sophisticated responsiveness so we
+      recommend checking for visual breaking changes after updating.
+    </>
+  }
+  my="s"
+  variant="recommendation"
+/>
+
+#### 2. Rename “type” props to “variant”.
+
+We changed the following prop names to more accurately describe what they do.
+
+<Box my="l" width="100%"
+  sx={{
+  '& table': {
+      margin: 'auto', 
+      width: '75%'
+  }
+}}>
+  {/* prettier-ignore */}
+| Component        | Old prop         | Updated to       |
+| :---------------- | :--------------- | :--------------- |
+| Accordion    | accordionType    | variant          |
+| Banner       | type             | variant          |
+| Breadcrumbs  | breadcrumbsType  | variant          |
+| Button       | buttonType       | variant          |
+| Hero         | heroType         | variant          |
+| Icon         | iconType         | variant          |
+| Link         | type             | variant          |
+| List         | type             | variant          |
+| Modal        | type             | variant          |
+| Notification | notificationType | variant          |
+| Select       | selectType       | variant          |
+| StatusBadge  | type             | variant          |
+| TagSet       | type             | variant          |
+| TextInput    | textInputType    | textInputVariant |
+
+</Box>
+
+#### 3. Add spacing where defaults have been removed.
+
+We removed a lot of default spacing, as well as the `noSpace` props in `Heading` and `Text`.
+
+- If you’re using a `noSpace` prop, you'll need to remove it.
+- If you were relying on default spacing from Reservoir, you may need to add it back manually.
+
+<Box my="l" width="100%"
+  sx={{
+  '& table': {
+      margin: 'auto', 
+      width: '75%'
+  }
+}}>
+  {/* prettier-ignore */}
+  | Component | Spacing removed |
+  | :------------------------| :-------------- |
+  | Heading | `mb='s'` |
+  | HelperErrorText | `mt='xxs'` |
+  | HorizontalRule | `my='s'` |
+  | Label | `mb='xs'` |
+  | List (`ol` and `ul`) | `mb='s'` |
+  | StyledList | `mb='s'` |
+  | Text | `mb='s'` |
+
+</Box>
+
+### These are some other updates you may need to make.
+
+#### Remove deprecated props and variants.
+
+We removed deprecated props and variants, so if you're still using them, you'll need to update your code.
+You can see a list of what's been removed in [this PR](https://github.com/NYPL/nypl-design-system/pull/1783).
+
+#### Adjust aria props to HTML equivalents.
+
+Native HTML attributes have replaced explicit aria props. For example, `Accordion`'s `ariaLabel` has been
+replaced with `aria-label`. You can see a list of aria props that have been removed in [this PR](https://github.com/NYPL/nypl-design-system/pull/1797).
+
+#### Update `className` and `id` references as needed.
+
+`className`s passed by the consumer to `AlphabetFilter`, `Card`, `Menu`, and `MultiSelectGroup` will now be
+added to the top-level of these components. We've also renamed some internal `className`s for
+consistency. If you're relying on these `className`s for testing or styling, you'll need to adjust your code.
+
+We’ve adjusted `id`s within our components for clarity and consistency, so if you're using Reservoir component
+`id`s in tests, styles, or elsewhere, you may need to update them.
+
+#### Ensure responsive designs are compatible with the new breakpoints.
+
+Our [breakpoints](../?path=/docs/style-guide-breakpoints--docs) have changed! We don’t expect this to be too disruptive,
+but it’s possible a page will not look as expected on smaller screen sizes and will need to be adjusted.
+
+<Flex
+  direction={{ base: 'column', md: 'row' }} 
+  gap="m"
+  margin="0 auto"
+  width="75%" 
+  sx={{
+    '& table': {
+        margin: 'auto', 
+        width: '100%'
+    }
+  }}
+>
+  <Box width="100%">
+    <Heading level="h5" mb={4} size="heading6" textAlign="center">Old Breakpoints</Heading>
+    {/* prettier-ignore */}
+    | Name | Value |
+    | :--- | :---- |
+    | Base | 0 |
+    | Mobile | 320px |
+    | Tablet portrait | 600px |
+    | Tablet landscape | 960px |
+    | Desktop | 1280px |
+  </Box>
+
+ <Box width="100%">
+    <Heading level="h5" mb={4} size="heading6" textAlign="center">New Breakpoints</Heading>
+    {/* prettier-ignore */}
+    | Name | Value |
+    | :--- | :---- |
+    | Small mobile (base) | 0 |
+    | Large mobile | 480px |
+    | Small tablet | 768px |
+    | Large tablet | 1024px |
+    | Desktop | 1280px |
+  </Box>
+</Flex>
+
+#### If using `Table`, rename `tableTextSize` to `fontSize`.
+
+We updated the `tableTextSize` prop in `Table` to `fontSize` to align more closely with the CSS property.
+
+#### If using the `onMixedStateChange` function, update the argument to use object destructuring.
+
+We moved to object destructuring for functions with 3+ arguments. This is mostly an internal, non-breaking
+change, but if you're using the `onMixedStateChange` function from the `useMultiSelect` hook, you'll need
+to move the arguments you're passing inside an object with key-value pairs.
+
+<Source
+  code={`
+  // This no longer works.
+  onMixedStateChange(e.target.id, multiSelect.id, multiSelect.items);
+  // Args must be inside an object with key-value pairs.
+  onMixedStateChange({ parentId: e.target.id, multiSelectId: multiSelect.id, items: multiSelect.items })
+`}
+  language="jsx"
+/>
+
+## Non-Breaking Changes
+
+These updates enhance flexibility, stability, and developer experience without requiring changes to your
+existing code.
+
+#### There's a new `useResponsiveSpacing` hook.
+
+[The `useResponsiveSpacing` hook](../?path=/docs/hooks-useresponsivespacing--docs) exports spacing values to generate
+consistent layouts. We recommend its usage for custom layout and components.
+
+#### We made a guide for using the Next.js `Image` component.
+
+Next's `Image` component offers optimization and enhanced styling features over Reservoir's `Image`, but
+Reservoir's `Image` offers some additional functionality. We created [a guide](../?path=/docs/development-guide-using-next-js-image--docs)
+to execute the Reservoir `Image` features while using the Next `Image` component. Best of both worlds!
+
+#### The `id` prop is now optional for all components.
+
+For components that require `id`s to meet accessibility requirements, one will automatically be generated
+using React's `useId` hook if none is passed.
+
+#### All components now include a default `data-testid` on their top-level element.
+
+The `data-testid` value follows the pattern `ds-[componentName]` (e.g., `ds-accordion`, `ds-button`) for
+consistency and ease of testing.
+
+#### Component prop interfaces have been significantly expanded to accept a wider range of values.
+
+You'll be able to pass standard native HTML attributes (e.g., `aria-label`, `type` for inputs, `tabIndex`)
+and all Chakra UI style props (e.g., `p`, `m`, `bg`, `color`, `sx`). Refer to the dedicated note above each
+component's props table for details on how its types were extended.
+
+This update offers consumers more flexibility and reduces the number of explicit props we have to use.
+
+#### We're no longer throwing errors.
+
+Components like `Breadcrumbs`, `Heading`, and `Image` no longer throw errors (crashing your application) when
+missing required prop values.
+
+#### There are no warnings for invalid children.
+
+Components that expect specific child types (e.g., `RadioGroup` expecting `Radio` children) will no longer log
+warnings reducing console noise during development.
+
+#### We removed unused code.
+
+The `Header` component was needed for a specific problem that no longer exists and has been removed in v4.
+
+`FilterBar` was deprecated in favor of `FilterBarInline` and `FilterBarPopup`.
+
+The `Autosuggest` documentation was originally included as a guideline for using `react-autosuggest`, but is no
+longer recommended due to technical complexity and UX consistency concerns and has been removed in v4.
+
+#### Other optimizations
+
+- We've updated our Storybook version, and given the doc headers a new look and feel.
+- We've reduced `React.Children.map` usage in hopes of a performance gain in the components that were using it.
+- We've updated some of our internal naming for improved consistency.
+- We're utilizing object destructuring for functions with 3+ arguments, enhancing internal readability and
+  maintainability.
+
+## v3 Support
+
+The Reservoir team will support v3 until the end of Q2 FY26.

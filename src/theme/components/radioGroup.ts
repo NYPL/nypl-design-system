@@ -11,6 +11,7 @@ const RadioGroup = defineMultiStyleConfig({
       spanLegend: {
         ...labelLegendText,
         display: "block",
+        mb: "legend.default",
         ...(isLegendHidden ? screenreaderOnly() : {}),
       },
       ...checkboxRadioGroupStyles(isFullWidth),

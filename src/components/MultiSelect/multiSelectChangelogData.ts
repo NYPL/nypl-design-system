@@ -10,6 +10,17 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Extends prop definition to include Chakra's `BoxProps`",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-multiSelect` to the parent element.",
+    ],
+  },
+  {
     date: "2025-07-17",
     version: "3.6.4",
     type: "Bug Fix",

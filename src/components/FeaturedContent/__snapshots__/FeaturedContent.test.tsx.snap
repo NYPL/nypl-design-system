@@ -3,7 +3,7 @@
 exports[`Renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  data-testid="featuredcontent"
+  data-testid="ds-featuredContent"
 >
   <div
     className="css-0"
@@ -12,15 +12,15 @@ exports[`Renders the UI snapshot correctly 1`] = `
     <div
       className="css-1xwqty0"
       data-imagewrapper={true}
-      data-testid="featuredcontent-bg-image"
+      data-testid="ds-featuredContent-bgImage"
     >
       <div
         className="css-0"
+        data-testid="ds-image"
       >
         <img
           alt="Image example"
-          className="css-0"
-          id={null}
+          className="css-1xdhyk6"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -33,18 +33,21 @@ exports[`Renders the UI snapshot correctly 1`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
+          data-testid="ds-heading-group"
           role="group"
         >
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
+            data-testid="ds-text"
             role="paragraph"
           >
             Featured
           </p>
           <h1
             className="chakra-heading css-1xdhyk6"
+            data-testid="ds-heading"
           >
             Spotlight on the Public Domain
           </h1>
@@ -54,6 +57,7 @@ exports[`Renders the UI snapshot correctly 1`] = `
         </p>
         <button
           className="chakra-button css-1xdhyk6"
+          data-testid="ds-button"
           id="test"
           type="button"
         >
@@ -68,7 +72,7 @@ exports[`Renders the UI snapshot correctly 1`] = `
 exports[`Renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  data-testid="featuredcontent"
+  data-testid="ds-featuredContent"
 >
   <div
     className="css-0"
@@ -77,15 +81,15 @@ exports[`Renders the UI snapshot correctly 2`] = `
     <div
       className="css-1xwqty0"
       data-imagewrapper={true}
-      data-testid="featuredcontent-bg-image"
+      data-testid="ds-featuredContent-bgImage"
     >
       <div
         className="css-0"
+        data-testid="ds-image"
       >
         <img
           alt="Image example"
-          className="css-0"
-          id={null}
+          className="css-1xdhyk6"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -98,18 +102,21 @@ exports[`Renders the UI snapshot correctly 2`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
+          data-testid="ds-heading-group"
           role="group"
         >
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
+            data-testid="ds-text"
             role="paragraph"
           >
             Featured
           </p>
           <h1
             className="chakra-heading css-1xdhyk6"
+            data-testid="ds-heading"
           >
             Spotlight on the Public Domain
           </h1>
@@ -119,6 +126,7 @@ exports[`Renders the UI snapshot correctly 2`] = `
         </p>
         <button
           className="chakra-button css-1xdhyk6"
+          data-testid="ds-button"
           id="test"
           type="button"
         >
@@ -133,7 +141,7 @@ exports[`Renders the UI snapshot correctly 2`] = `
 exports[`Renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  data-testid="featuredcontent"
+  data-testid="ds-featuredContent"
 >
   <div
     className="css-0"
@@ -142,15 +150,15 @@ exports[`Renders the UI snapshot correctly 3`] = `
     <div
       className="css-1xwqty0"
       data-imagewrapper={true}
-      data-testid="featuredcontent-bg-image"
+      data-testid="ds-featuredContent-bgImage"
     >
       <div
         className="css-0"
+        data-testid="ds-image"
       >
         <img
           alt="Image example"
-          className="css-0"
-          id={null}
+          className="css-1xdhyk6"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -163,18 +171,21 @@ exports[`Renders the UI snapshot correctly 3`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
+          data-testid="ds-heading-group"
           role="group"
         >
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
+            data-testid="ds-text"
             role="paragraph"
           >
             Featured
           </p>
           <h1
             className="chakra-heading css-1xdhyk6"
+            data-testid="ds-heading"
           >
             Spotlight on the Public Domain
           </h1>
@@ -184,6 +195,7 @@ exports[`Renders the UI snapshot correctly 3`] = `
         </p>
         <button
           className="chakra-button css-1xdhyk6"
+          data-testid="ds-button"
           id="test"
           type="button"
         >
@@ -198,7 +210,7 @@ exports[`Renders the UI snapshot correctly 3`] = `
 exports[`Renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
-  data-testid="featuredcontent"
+  data-testid="ds-featuredContent"
 >
   <div
     className="css-0"
@@ -207,15 +219,15 @@ exports[`Renders the UI snapshot correctly 4`] = `
     <div
       className="css-1xwqty0"
       data-imagewrapper={true}
-      data-testid="featuredcontent-bg-image"
+      data-testid="ds-featuredContent-bgImage"
     >
       <div
         className="css-0"
+        data-testid="ds-image"
       >
         <img
           alt="Image example"
-          className="css-0"
-          id={null}
+          className="css-1xdhyk6"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -228,18 +240,21 @@ exports[`Renders the UI snapshot correctly 4`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
+          data-testid="ds-heading-group"
           role="group"
         >
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
+            data-testid="ds-text"
             role="paragraph"
           >
             Featured
           </p>
           <h1
             className="chakra-heading css-1xdhyk6"
+            data-testid="ds-heading"
           >
             Spotlight on the Public Domain
           </h1>
@@ -249,6 +264,7 @@ exports[`Renders the UI snapshot correctly 4`] = `
         </p>
         <button
           className="chakra-button css-1xdhyk6"
+          data-testid="ds-button"
           id="test"
           type="button"
         >
@@ -263,7 +279,7 @@ exports[`Renders the UI snapshot correctly 4`] = `
 exports[`Renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
-  data-testid="featuredcontent"
+  data-testid="ds-featuredContent"
 >
   <div
     className="css-0"
@@ -272,15 +288,15 @@ exports[`Renders the UI snapshot correctly 5`] = `
     <div
       className="css-1xwqty0"
       data-imagewrapper={true}
-      data-testid="featuredcontent-bg-image"
+      data-testid="ds-featuredContent-bgImage"
     >
       <div
         className="css-0"
+        data-testid="ds-image"
       >
         <img
           alt="Image example"
-          className="css-0"
-          id={null}
+          className="css-1xdhyk6"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -293,18 +309,21 @@ exports[`Renders the UI snapshot correctly 5`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
+          data-testid="ds-heading-group"
           role="group"
         >
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
+            data-testid="ds-text"
             role="paragraph"
           >
             Featured
           </p>
           <h1
             className="chakra-heading css-1xdhyk6"
+            data-testid="ds-heading"
           >
             Spotlight on the Public Domain
           </h1>
@@ -314,6 +333,7 @@ exports[`Renders the UI snapshot correctly 5`] = `
         </p>
         <button
           className="chakra-button css-1xdhyk6"
+          data-testid="ds-button"
           id="test"
           type="button"
         >
@@ -328,7 +348,7 @@ exports[`Renders the UI snapshot correctly 5`] = `
 exports[`Renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
-  data-testid="featuredcontent"
+  data-testid="ds-featuredContent"
 >
   <div
     className="css-0"
@@ -337,15 +357,15 @@ exports[`Renders the UI snapshot correctly 6`] = `
     <div
       className="css-1xwqty0"
       data-imagewrapper={true}
-      data-testid="featuredcontent-bg-image"
+      data-testid="ds-featuredContent-bgImage"
     >
       <div
         className="css-0"
+        data-testid="ds-image"
       >
         <img
           alt="Image example"
-          className="css-0"
-          id={null}
+          className="css-1xdhyk6"
           src="https://images.nypl.org/index.php?id=swope_243048&t=r"
         />
       </div>
@@ -358,18 +378,21 @@ exports[`Renders the UI snapshot correctly 6`] = `
         <br />
         <hgroup
           aria-roledescription="Heading group"
-          className="css-0"
+          className="css-1xdhyk6"
+          data-testid="ds-heading-group"
           role="group"
         >
           <p
             aria-roledescription="Subtitle"
             className="chakra-text css-e3ddnr"
+            data-testid="ds-text"
             role="paragraph"
           >
             Featured
           </p>
           <h1
             className="chakra-heading css-1xdhyk6"
+            data-testid="ds-heading"
           >
             Spotlight on the Public Domain
           </h1>
@@ -379,6 +402,7 @@ exports[`Renders the UI snapshot correctly 6`] = `
         </p>
         <button
           className="chakra-button css-1xdhyk6"
+          data-testid="ds-button"
           id="test"
           type="button"
         >

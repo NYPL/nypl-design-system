@@ -1,10 +1,10 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   Heading as ChakraHeading,
   useMultiStyleConfig,
-  HeadingProps as ChakraHeadingProps,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
@@ -21,35 +21,13 @@ export const headingSizesArray = [
   "heading6",
   "heading7",
   "heading8",
-  "primary",
-  "secondary",
-  "tertiary",
-  "callout",
 ] as const;
-export const headingLevelsArray = [
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-] as const;
+export const headingLevelsArray = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
 
 export type HeadingSizes = typeof headingSizesArray[number];
 export type HeadingLevels = typeof headingLevelsArray[number];
 
-export interface HeadingProps extends ChakraHeadingProps {
-  /** Optional className that appears in addition to `heading` */
-  className?: string;
-  /** Optional ID that other components can cross reference for accessibility
-   * purposes */
-  id?: string;
+export interface HeadingProps extends BoxProps {
   /** Optional prop used to show capitalized text */
   isCapitalized?: boolean;
   /** Optional prop used to show upper case text */
@@ -59,8 +37,6 @@ export interface HeadingProps extends ChakraHeadingProps {
   /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
    * `Heading` will default to `<h2>` */
   level?: HeadingLevels;
-  /** Optional prop used to remove default spacing */
-  noSpace?: boolean;
   /** String to populate the overline element */
   overline?: string;
   /** Optional size used to override the default styles of the native HTML `<h>`
@@ -107,13 +83,11 @@ export const Heading: ChakraComponent<
   forwardRef<HTMLHeadingElement, React.PropsWithChildren<HeadingProps>>(
     (props, ref?) => {
       const {
-        className,
         id,
         isCapitalized,
         isUppercase,
         isLowercase,
         level = "h2",
-        noSpace,
         overline,
         size,
         subtitle,
@@ -129,7 +103,6 @@ export const Heading: ChakraComponent<
         isCapitalized,
         isUppercase,
         isLowercase,
-        noSpace,
         url,
       });
 
@@ -138,15 +111,8 @@ export const Heading: ChakraComponent<
       const asHeading: any = finalLevel;
 
       if (!props.children && !text) {
-        throw new Error(
+        console.warn(
           "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
-        );
-      }
-
-      if (React.Children.count(props.children) > 1) {
-        // Catching the error because React's error isn't as helpful.
-        throw new Error(
-          "NYPL Reservoir Heading: Only pass one child into Heading."
         );
       }
 
@@ -170,7 +136,7 @@ export const Heading: ChakraComponent<
 
       const contentToRender = props.children ? props.children : text;
       const content = url ? (
-        <Link className={urlClass} href={url} id={`${id}-link`}>
+        <Link className={urlClass} href={url}>
           {contentToRender}
         </Link>
       ) : (
@@ -198,22 +164,20 @@ export const Heading: ChakraComponent<
         ? "subtitle1"
         : "subtitle2";
 
-      /** The styles that should be applied to the outer-most wrapper of the
-       * Heading component. */
-      const wrapperStyles = styles.headingWrapper;
+      /** `colorStyle` defines the default color for the heading. Any custom
+       * color passed as a prop will override this default, following standard
+       * CSS precedence rules. */
+      const defaultColorStyle = styles.defaultColorStyle;
 
-      /** The styles for the actual native heading element. If the native
-       * element is going to sit by itself, without the overline or subtitle
-       * elements, then the wrapper styles can be applied directly to the native
-       * element. Otherwise, the wrapper styles will be used later. */
-      const headingStyles =
-        overline || subtitle
-          ? {
-              ...styles.base,
-            }
+      /** If there is an `overline` or a `subtitle`, `...rest` and
+       * `...defaultColorStyle` will be passed to the `<hgroup>`, otherwise,
+       * they will be passed directly to the `<h>`. */
+      const aggregatedProps =
+        overline && subtitle
+          ? { sx: { ...styles.base } }
           : {
-              ...styles.base,
-              ...wrapperStyles,
+              ...rest,
+              sx: { ...styles.base, ...defaultColorStyle },
             };
 
       /** The final text elements that will make up the rendered component. */
@@ -231,13 +195,10 @@ export const Heading: ChakraComponent<
           )}
           <ChakraHeading
             as={asHeading}
-            className={className}
+            data-testid="ds-heading"
             id={id}
             ref={ref}
-            sx={{
-              ...headingStyles,
-            }}
-            {...rest}
+            {...aggregatedProps}
           >
             {content}
           </ChakraHeading>
@@ -245,7 +206,6 @@ export const Heading: ChakraComponent<
             <Text
               aria-roledescription="Subtitle"
               mt="xs"
-              noSpace
               role="paragraph"
               size={subtitleSize}
             >
@@ -261,9 +221,10 @@ export const Heading: ChakraComponent<
       return overline || subtitle ? (
         <Box
           as="hgroup"
-          role="group"
           aria-roledescription="Heading group"
-          sx={{ ...wrapperStyles }}
+          data-testid="ds-heading-group"
+          role="group"
+          sx={{ ...defaultColorStyle }}
           {...rest}
         >
           {finalContent}

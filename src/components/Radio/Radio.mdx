@@ -1,48 +1,58 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+} from "@storybook/addon-docs/blocks";
 
-import * as RadioStories from "./Radio.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as RadioStories from "./Radio.stories";
 import { changelogData } from "./radioChangelogData";
 
 <Meta of={RadioStories} />
 
-# Radio
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Radio"
+  summary="Input element that allows a user to select a single item from a list of related options"
+  versionAdded="0.22.0"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.22.0`   |
-| Latest            | `3.6.0`    |
+<Canvas of={RadioStories.Controls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#browser-states" target="_self">Browser States</Link>}
-- {<Link href="#helper-and-error-text" target="_self">Helper and Error Text</Link>}
-- {<Link href="#label-using-jsx-elements" target="_self">Label Using JSX Elements</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Browser states](#browser-states)
+- [Helper and error text](#helper-and-error-text)
+- [Label using JSX elements](#label-using-jsx-elements)
+- [Changelog](#changelog)
 
 ## Overview
 
-<Description of={RadioStories} />
+`Radio` renders a radio button form element.
 
-This component renders a radio button form element. Note that all these examples
-show the `Radio` button in isolation. We recommend to always use the `Radio`
-component inside the Design System `RadioGroup` component. The `RadioGroup`
-component will handle all the states and data management.
+Note that all the examples below show the `Radio` button in isolation. It is
+recommended to always use the `Radio` component inside a Design System
+`RadioGroup` component. The `RadioGroup` component will handle all the states
+and data management.
 
-## Component Props
+## Component props
 
-<Canvas of={RadioStories.Controls} />
+`Radio` composes an HTML `input` element, so you may pass any HTML `input`
+attributes, as any Chakra style props and the props below.
 
 <ArgTypes of={RadioStories.Controls} />
 
 ## Accessibility
 
-The `Radio` component renders an `input` element with the `type="radio"` attribute.
-This HTML element is accessible by default.
+`Radio` renders an `input` element with the `type="radio"` attribute. This HTML
+element is accessible by default.
 
 When `showLabel` is set to false, the `labelText` value will be set to the
 `<input>`'s `aria-label` attribute.
@@ -55,19 +65,19 @@ Resources:
 - [Deque University Radio and Radio Group](https://dequeuniversity.com/library/aria/radio-and-radio-group)
 - [Chakra UI Radio](https://chakra-ui.com/docs/components/form/radio)
 
-## Browser States
+## Browser states
 
 <Canvas of={RadioStories.BrowserStates} />
 
-## Helper and Error Text
+## Helper and error text
 
 <Canvas of={RadioStories.HelperAndErrorText} />
 
-## JSX Element Labels
+## JSX element labels
 
-This is useful when you want to add dynamic content to the label or add
-a layout to the label. View the `RadioGroup` documentation for this
-usage.
+If you need to add dynamic content or a layout to the label, you can pass a JSX
+element. Another example may be found in the
+[`RadioGroup` documentation](./?path=/docs/components-form-elements-radiogroup--docs#labels-using-jsx-elements).
 
 <Canvas of={RadioStories.LabelUsingJSXElements} />
 

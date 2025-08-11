@@ -1,10 +1,12 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+
 import Image, { ImageProps } from "../Image/Image";
 
 export const featuredContentWidthArray = [
@@ -20,18 +22,15 @@ export const featuredContentPositionArray = ["start", "end"] as const;
 export type FeaturedContentPositionType =
   typeof featuredContentPositionArray[number];
 
-export interface FeaturedContentImageProps extends ImageProps {
+export interface FeaturedContentImageProps
+  extends Omit<ImageProps, "position"> {
   /** String value that specifies the width of the image rendered within the component. */
   width?: FeaturedContentWidthType;
   /** String value that specifies the position of the image rendered within the component. */
   position?: FeaturedContentPositionType;
 }
 
-export interface FeaturedContentProps {
-  /** Optional CSS class name to add. */
-  className?: string;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+export interface FeaturedContentProps extends BoxProps {
   /** The text content rendered in the component.  DS components and native HTML can be passed in this prop. */
   textContent: string | JSX.Element;
   /** Whether component will fill the full width of the browser window, instead of just its parent element.
@@ -62,6 +61,7 @@ export const FeaturedContent: ChakraComponent<
     (props, ref?) => {
       const {
         textContent,
+        id,
         isFullWidth,
         imageProps = {
           alt: "",
@@ -90,26 +90,27 @@ export const FeaturedContent: ChakraComponent<
 
       return (
         <Box
-          data-testid="featuredcontent"
-          __css={styles.base}
+          data-testid="ds-featuredContent"
+          id={id}
           ref={ref}
+          __css={styles.base}
           {...rest}
         >
           <Box __css={styles.wrapper} data-wrapper>
             <Box
-              data-testid="featuredcontent-bg-image"
+              data-testid="ds-featuredContent-bgImage"
+              data-imagewrapper
               __css={{
                 ...styles.imgWrapper,
                 backgroundImage: `/**/url(${imageProps.src})`,
               }}
-              data-imagewrapper
             >
               <FeaturedContentImage
                 alt={imageProps.alt}
                 src={imageProps.src ? imageProps.src : undefined}
               />
             </Box>
-            <Box __css={styles.text} data-text>
+            <Box data-text __css={styles.text}>
               {textContent}
             </Box>
           </Box>

@@ -13,20 +13,17 @@ describe("Text Accessibility", () => {
 });
 
 describe("Text", () => {
+  it("should not render an id if none is passed", () => {
+    render(<Text>Animal Crossing is all that!</Text>);
+    const text = screen.getByTestId("ds-text");
+    expect(text).not.toHaveAttribute("id");
+  });
+
   it("renders a <p> tag and text", () => {
     render(<Text>Animal Crossing is all that!</Text>);
     expect(
       screen.getByText("Animal Crossing is all that!")
     ).toBeInTheDocument();
-  });
-
-  it("throws a warning when no children are passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(<Text></Text>);
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Text: No children were passed and the `Text` component " +
-        "will not render correctly."
-    );
   });
 
   it("throws a warning when isBold is used with size caption", () => {

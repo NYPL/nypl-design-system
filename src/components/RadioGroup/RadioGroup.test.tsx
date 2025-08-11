@@ -8,7 +8,7 @@ import renderer from "react-test-renderer";
 import Radio from "../Radio/Radio";
 import RadioGroup from "./RadioGroup";
 
-describe("Radio Accessibility", () => {
+describe("RadioGroup Accessibility", () => {
   it("passes axe accessibility with string labels", async () => {
     const { container } = render(
       <RadioGroup
@@ -75,9 +75,36 @@ describe("Radio Accessibility", () => {
     );
     expect(await axe(container)).toHaveNoViolations();
   });
+  it("passes axe accessibility with no id", async () => {
+    const { container } = render(
+      <RadioGroup
+        labelText="Test Label"
+        name="test4"
+        helperText="This is the helper text for the full group."
+        invalidText="This is the error text :("
+      >
+        <Radio value="2" labelText="Radio 2" />
+        <Radio value="3" labelText="Radio 3" />
+        <Radio value="4" labelText="Radio 4" />
+      </RadioGroup>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
 });
 
-describe("Radio Button", () => {
+describe("RadioGroup", () => {
+  it("should not render an id if none is passed", () => {
+    render(
+      <RadioGroup labelText="Test Label" name="test1">
+        <Radio id="radio2" value="2" labelText="Radio 2" />
+        <Radio id="radio3" value="3" labelText="Radio 3" />
+        <Radio id="radio4" value="4" labelText="Radio 4" />
+      </RadioGroup>
+    );
+    const radioInput = screen.getByTestId("ds-radioGroup");
+    expect(radioInput).not.toHaveAttribute("id");
+  });
+
   it("renders with radio inputs and a label", () => {
     render(
       <RadioGroup id="radioGroup" labelText="Test Label" name="test1">
@@ -280,33 +307,6 @@ describe("Radio Button", () => {
       </RadioGroup>
     );
     expect(screen.queryByText("There is an error :(")).not.toBeInTheDocument();
-  });
-
-  it("should throw warning when a non-Radio component is used as a child", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      <RadioGroup labelText="wrong child!" name="wrong" id="wrong-child">
-        <p>This is wrong!</p>
-      </RadioGroup>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir RadioGroup: Only `Radio` components are allowed inside " +
-        "the `RadioGroup` component."
-    );
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <RadioGroup labelText="RadioGroup example" name="a11y-test">
-        <Radio id="radio1" value="1" labelText="Radio 1" />
-      </RadioGroup>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir RadioGroup: This component's required `id` prop was not passed."
-    );
   });
 
   it("passes a ref to the input element", () => {

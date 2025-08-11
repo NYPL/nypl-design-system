@@ -3,36 +3,42 @@
 exports[`HorizontalRule renders the UI snapshot correctly 1`] = `
 <hr
   className="css-mvtkpx"
+  data-testid="ds-horizontalRule"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 2`] = `
 <hr
   className="css-j99tgf"
+  data-testid="ds-horizontalRule"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 3`] = `
 <hr
   className="css-21sffo"
+  data-testid="ds-horizontalRule"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 4`] = `
 <hr
   className="css-mvtkpx"
+  data-testid="ds-horizontalRule"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 5`] = `
 <hr
   className="css-mvtkpx"
+  data-testid="ds-horizontalRule"
 />
 `;
 
 exports[`HorizontalRule renders the UI snapshot correctly 6`] = `
 <hr
   className="css-1pg2j4r"
+  data-testid="ds-horizontalRule"
 />
 `;
 

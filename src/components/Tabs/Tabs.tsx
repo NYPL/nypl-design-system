@@ -1,5 +1,6 @@
 import {
   Box,
+  BoxProps,
   chakra,
   Tab,
   TabList,
@@ -14,6 +15,7 @@ import React, { forwardRef, useState } from "react";
 import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import useScrollTabIntoView from "../../hooks/useScrollTabIntoView";
+import { useSafeId } from "../../hooks/useSafeId";
 
 // Internal interface used for rendering `Tabs` tab and panel
 // elements, either from data or from children.
@@ -26,11 +28,9 @@ export interface TabsDataProps {
   label: string;
   content: string | React.ReactNode;
 }
-export interface TabsProps {
+export interface TabsProps extends Omit<BoxProps, "onChange"> {
   /** The index of the tab to display on the initial render. */
   defaultIndex?: number;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** The callback function invoked after every tab change event. The argument passed to the callback is the index of the tab just selected. */
   onChange?: (index: number) => any;
   /** Array of data to display */
@@ -118,7 +118,7 @@ const getElementsFromChildren = (children): TabPanelProps => {
   }
 
   children.forEach((child: JSX.Element) => {
-    if (child.type === TabList || child.props.mdxType === "TabList") {
+    if (child.type === TabList) {
       tabs.push(child);
 
       const childTabs = React.Children.count(child.props.children);
@@ -130,7 +130,7 @@ const getElementsFromChildren = (children): TabPanelProps => {
       }
     }
 
-    if (child.type === TabPanels || child.props.mdxType === "TabPanels") {
+    if (child.type === TabPanels) {
       panels.push(child);
     }
   });
@@ -161,7 +161,7 @@ export const Tabs: ChakraComponent<
       } = props;
       const [tabIndex, setTabIndex] = useState(defaultIndex);
       const styles = useMultiStyleConfig("Tabs", {});
-
+      const mainId = useSafeId(id);
       const { tabs, panels }: any = tabsData
         ? getElementsFromData(tabsData, useHash)
         : getElementsFromChildren(children);
@@ -192,7 +192,7 @@ export const Tabs: ChakraComponent<
       const previousButton = (
         <Button
           aria-label="Scroll tabs left"
-          id={`tabs-previous-${id}`}
+          id={`${mainId}-tabs-previous`}
           onClick={prevTab}
           __css={{
             ...styles.buttonArrows,
@@ -201,7 +201,7 @@ export const Tabs: ChakraComponent<
         >
           <Icon
             iconRotation="rotate90"
-            id={`tabs-previous-icon-${id}`}
+            id={`${mainId}-tabs-previous-icon`}
             name="arrow"
             size="small"
             title="previous arrow"
@@ -211,7 +211,7 @@ export const Tabs: ChakraComponent<
       const nextButton = (
         <Button
           aria-label="Scroll tabs right"
-          id={`tabs-next-${id}`}
+          id={`${mainId}-tabs-next`}
           onClick={nextTab}
           __css={{
             ...styles.buttonArrows,
@@ -220,7 +220,7 @@ export const Tabs: ChakraComponent<
         >
           <Icon
             iconRotation="rotate270"
-            id={`tabs-next-icon-${id}`}
+            id={`${mainId}-tabs-next-icon`}
             name="arrow"
             size="small"
             title="next arrow"
@@ -239,8 +239,9 @@ export const Tabs: ChakraComponent<
 
       return (
         <ChakraTabs
+          data-testid="ds-tabs"
           defaultIndex={defaultIndex}
-          id={id}
+          id={mainId}
           // The following lazy loads each panel whenever it is needed.
           isLazy
           index={tabIndex}

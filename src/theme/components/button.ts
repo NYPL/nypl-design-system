@@ -21,6 +21,9 @@ export const baseButtonStyle = {
   textDecoration: "none",
   transitionDuration: "var(--nypl-transition-duration-normal)",
   wordWrap: "normal",
+  "&:has(svg)": {
+    gap: "xxs",
+  },
   svg: {
     fill: "currentColor",
   },
@@ -128,32 +131,6 @@ export const secondary = definePartsStyle(({ buttonSize = "medium" }: any) => ({
     },
     _dark: {
       ...ghostDarkStyles,
-    },
-  },
-}));
-// The "link" type is deprecated but we still want to style
-// it correctly for backwards compatibility.
-const link = definePartsStyle(({ buttonSize = "medium" }: any) => ({
-  base: {
-    bg: "transparent",
-    color: "ui.link.primary",
-    textDecoration: "underline",
-    ...generalSizeValues(buttonSize),
-    _disabled: {
-      bg: "transparent",
-    },
-    _hover: {
-      bg: "transparent",
-      color: "ui.link.secondary",
-    },
-    _dark: {
-      color: "dark.ui.link.primary",
-      _disabled: {
-        bg: "transparent",
-      },
-      _hover: {
-        color: "dark.ui.link.secondary",
-      },
     },
   },
 }));
@@ -273,8 +250,6 @@ const Button = defineMultiStyleConfig({
     primary,
     secondary,
     text,
-    // Deprecated type. Use "text" instead.
-    link,
     pill,
     iconOnly,
     callout,

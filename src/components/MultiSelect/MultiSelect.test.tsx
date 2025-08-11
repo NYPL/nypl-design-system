@@ -6,6 +6,11 @@ import { useEffect } from "react";
 import MultiSelect from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 const items = [
   { id: "dogs", name: "Dogs", isDisabled: false },
   { id: "cats", name: "Cats", isDisabled: false },
@@ -89,7 +94,11 @@ const MultiSelectTestComponent = ({
       selectedItems={selectedItems}
       onChange={(e) => onChange(e.target.id, multiSelectId)}
       onMixedStateChange={(e) => {
-        onMixedStateChange(e.target.id, multiSelectId, items);
+        onMixedStateChange({
+          parentId: e.target.id,
+          multiSelectId: multiSelectId,
+          items,
+        });
       }}
       onClear={() => onClear(multiSelectId)}
     />
@@ -103,7 +112,6 @@ describe("MultiSelect Accessibility", () => {
   it("should have no axe violations for the 'multi-select' component", async () => {
     const { container } = render(
       <MultiSelect
-        id="multiselect-test-id"
         buttonText="Multiselect button text"
         isDefaultOpen={false}
         isSearchable={false}
@@ -133,6 +141,26 @@ describe("MultiSelect", () => {
 
   let selectedTestItems;
   beforeEach(() => (selectedTestItems = {}));
+
+  it("should add an id to the component even if none is passed", () => {
+    render(
+      <MultiSelect
+        buttonText="Multiselect button text"
+        isDefaultOpen={false}
+        isSearchable={false}
+        isBlockElement={false}
+        defaultItemsVisible={defaultItemsVisible}
+        items={items}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    expect(screen.getByTestId("ds-multiSelect")).toHaveAttribute(
+      "id",
+      "test-id"
+    );
+  });
 
   it("should initially render with provided id", () => {
     const { container } = render(
@@ -303,7 +331,7 @@ describe("MultiSelect", () => {
     expect(screen.getByLabelText("Red")).toBeChecked();
     expect(screen.getByLabelText("Blue")).toBeChecked();
     expect(
-      screen.getByTestId("multi-select-close-button-testid")
+      screen.getByTestId("ds-multiSelectItemsCountButton")
     ).toBeInTheDocument();
   });
 
@@ -324,7 +352,7 @@ describe("MultiSelect", () => {
     );
     expect(screen.getAllByRole("checkbox")).toHaveLength(8);
     expect(
-      screen.queryByTestId("multi-select-close-button-testid")
+      screen.queryByTestId("ds-multiSelectItemsCountButton")
     ).not.toBeInTheDocument();
   });
 
@@ -612,7 +640,7 @@ describe("MultiSelect", () => {
       <MultiSelectTestComponent multiSelectId="multiselect-test-id" />
     );
     expect(
-      screen.queryByTestId("multi-select-close-button-testid")
+      screen.queryByTestId("ds-multiSelectItemsCountButton")
     ).not.toBeInTheDocument();
 
     // Open menu
@@ -621,9 +649,7 @@ describe("MultiSelect", () => {
     rerender(<MultiSelectTestComponent multiSelectId="multiselect-test-id" />);
     // Check on item
     userEvent.click(screen.queryByRole("checkbox", { name: /dogs/i }));
-    const countButton = screen.queryByTestId(
-      "multi-select-close-button-testid"
-    );
+    const countButton = screen.queryByTestId("ds-multiSelectItemsCountButton");
 
     // Check for the selectedItems count button to be present and reflect the count of selectedItems
     expect(countButton).toBeInTheDocument();
@@ -635,7 +661,7 @@ describe("MultiSelect", () => {
     expect(countButton).toHaveTextContent("3");
 
     // Close menu
-    userEvent.click(screen.queryByTestId("multi-select-close-button-testid"));
+    userEvent.click(screen.queryByTestId("ds-multiSelectItemsCountButton"));
     // Count button is still present
     expect(countButton).toHaveTextContent("3");
     // Click count button

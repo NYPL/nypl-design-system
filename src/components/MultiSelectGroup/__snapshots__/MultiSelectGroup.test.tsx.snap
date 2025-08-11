@@ -2,37 +2,40 @@
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] = `
 <fieldset
-  className="css-1xdhyk6"
-  id="multiselect-group-MultiSelectGroup"
+  className="css-1u8qly9"
+  data-testid="ds-multiSelectGroup"
+  id="MultiSelectGroup-fieldset"
 >
   <legend>
     MultiSelectGroup example
   </legend>
   <div
-    className="chakra-stack css-4odavm"
-    data-testid="multiselect-group-MultiSelectGroup"
+    className="chakra-stack css-5sy232"
+    data-testid="MultiSelectGroup-multiselectGroup-stack"
     id="MultiSelectGroup"
   >
     <div
       className="css-1xdhyk6"
+      data-testid="ds-multiSelect"
       id="colors"
       onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-colors"
+        data-testid="ds-accordion"
+        id="colors-accordion"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
+            aria-controls="accordion-panel-colors-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-colors-item-0"
+            id="accordion-button-colors-accordion-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -52,10 +55,10 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-colors-icon-0"
+              id="colors-accordion-icon-0"
               role="img"
               title="plus icon"
             />
@@ -72,9 +75,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-colors-item-0"
+              aria-labelledby="accordion-button-colors-accordion-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-colors-item-0"
+              id="accordion-panel-colors-accordion-item-0"
               role="region"
             >
               <div
@@ -85,7 +88,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-colors-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="colors-checkboxGroup"
                   >
                     <legend>
                       MultiSelect
@@ -93,14 +97,15 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-colors"
+                      id="colors-checkboxGroup-stack"
                     >
                       <div
-                        className="css-1xdhyk6"
-                        id="red-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="red-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -110,7 +115,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="red"
-                            name="Red"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -149,11 +154,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="blue-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="blue-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -163,7 +169,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="blue"
-                            name="Blue"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -202,11 +208,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="yellow-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="yellow-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -216,7 +223,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="yellow"
-                            name="Yellow"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -260,7 +267,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
-                      id="multi-select-checkbox-group-colors-helperErrorText"
+                      data-testid="ds-helperErrorText"
+                      id="colors-checkboxGroup-helperErrorText"
                     >
                       <div
                         className="css-0"
@@ -276,24 +284,26 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     </div>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-multiSelect"
       id="pets"
       onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-pets"
+        data-testid="ds-accordion"
+        id="pets-accordion"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
+            aria-controls="accordion-panel-pets-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-pets-item-0"
+            id="accordion-button-pets-accordion-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -313,10 +323,10 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-pets-icon-0"
+              id="pets-accordion-icon-0"
               role="img"
               title="plus icon"
             />
@@ -333,9 +343,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-pets-item-0"
+              aria-labelledby="accordion-button-pets-accordion-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-pets-item-0"
+              id="accordion-panel-pets-accordion-item-0"
               role="region"
             >
               <div
@@ -346,7 +356,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-pets-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="pets-checkboxGroup"
                   >
                     <legend>
                       MultiSelect
@@ -354,14 +365,15 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-pets"
+                      id="pets-checkboxGroup-stack"
                     >
                       <div
-                        className="css-1xdhyk6"
-                        id="cat-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="cat-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -371,7 +383,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="cat"
-                            name="Cat"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -410,11 +422,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="dog-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="dog-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -424,7 +437,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="dog"
-                            name="Dog"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -463,11 +476,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="corgy-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="corgy-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -477,7 +491,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="corgy"
-                            name="Corgy"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -516,11 +530,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="german-sheperd-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="german-sheperd-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -530,7 +545,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="german-sheperd"
-                            name="German Sheperd"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -569,11 +584,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="afghan-hound-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="afghan-hound-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -583,7 +599,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="afghan-hound"
-                            name="Afghan Hound"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -622,11 +638,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="rat-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="rat-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -636,7 +653,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="rat"
-                            name="Rat"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -680,7 +697,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
-                      id="multi-select-checkbox-group-pets-helperErrorText"
+                      data-testid="ds-helperErrorText"
+                      id="pets-checkboxGroup-helperErrorText"
                     >
                       <div
                         className="css-0"
@@ -696,24 +714,26 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     </div>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-multiSelect"
       id="tools"
       onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-tools"
+        data-testid="ds-accordion"
+        id="tools-accordion"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
+            aria-controls="accordion-panel-tools-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-tools-item-0"
+            id="accordion-button-tools-accordion-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -733,10 +753,10 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-tools-icon-0"
+              id="tools-accordion-icon-0"
               role="img"
               title="plus icon"
             />
@@ -753,9 +773,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-tools-item-0"
+              aria-labelledby="accordion-button-tools-accordion-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-tools-item-0"
+              id="accordion-panel-tools-accordion-item-0"
               role="region"
             >
               <div
@@ -766,7 +786,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-tools-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="tools-checkboxGroup"
                   >
                     <legend>
                       MultiSelect
@@ -774,14 +795,15 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-tools"
+                      id="tools-checkboxGroup-stack"
                     >
                       <div
-                        className="css-1xdhyk6"
-                        id="hammer-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="hammer-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -791,7 +813,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="hammer"
-                            name="Hammer"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -830,11 +852,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="skrewdriver-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="skrewdriver-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -844,7 +867,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="skrewdriver"
-                            name="Skrewdriver"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -883,11 +906,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="slottet-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="slottet-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -897,7 +921,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="slottet"
-                            name="Slotted Skrewdriver"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -936,11 +960,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="phillips-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="phillips-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -950,7 +975,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="phillips"
-                            name="Phillips Skrewdriver"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -989,11 +1014,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="allen-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="allen-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1003,7 +1029,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="allen"
-                            name="Allen Skrewdriver"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1042,11 +1068,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="whisk-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="whisk-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1056,7 +1083,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="whisk"
-                            name="Whisk"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1100,7 +1127,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
-                      id="multi-select-checkbox-group-tools-helperErrorText"
+                      data-testid="ds-helperErrorText"
+                      id="tools-checkboxGroup-helperErrorText"
                     >
                       <div
                         className="css-0"
@@ -1120,37 +1148,40 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] = `
 <fieldset
-  className="css-1xdhyk6"
-  id="multiselect-group-MultiSelectGroup"
+  className="css-1u8qly9"
+  data-testid="ds-multiSelectGroup"
+  id="MultiSelectGroup-fieldset"
 >
   <legend>
     MultiSelectGroup example
   </legend>
   <div
-    className="chakra-stack css-4odavm"
-    data-testid="multiselect-group-MultiSelectGroup"
+    className="chakra-stack css-5sy232"
+    data-testid="MultiSelectGroup-multiselectGroup-stack"
     id="MultiSelectGroup"
   >
     <div
       className="css-1xdhyk6"
+      data-testid="ds-multiSelect"
       id="colors"
       onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-colors"
+        data-testid="ds-accordion"
+        id="colors-accordion"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-colors-item-0"
+            aria-controls="accordion-panel-colors-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-colors-item-0"
+            id="accordion-button-colors-accordion-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1170,10 +1201,10 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-colors-icon-0"
+              id="colors-accordion-icon-0"
               role="img"
               title="plus icon"
             />
@@ -1190,9 +1221,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-colors-item-0"
+              aria-labelledby="accordion-button-colors-accordion-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-colors-item-0"
+              id="accordion-panel-colors-accordion-item-0"
               role="region"
             >
               <div
@@ -1203,7 +1234,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-colors-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="colors-checkboxGroup"
                   >
                     <legend>
                       MultiSelect
@@ -1211,14 +1243,15 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-colors"
+                      id="colors-checkboxGroup-stack"
                     >
                       <div
-                        className="css-1xdhyk6"
-                        id="red-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="red-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1228,7 +1261,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="red"
-                            name="Red"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1267,11 +1300,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="blue-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="blue-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1281,7 +1315,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="blue"
-                            name="Blue"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1320,11 +1354,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="yellow-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="yellow-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1334,7 +1369,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="yellow"
-                            name="Yellow"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1378,7 +1413,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
-                      id="multi-select-checkbox-group-colors-helperErrorText"
+                      data-testid="ds-helperErrorText"
+                      id="colors-checkboxGroup-helperErrorText"
                     >
                       <div
                         className="css-0"
@@ -1394,24 +1430,26 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     </div>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-multiSelect"
       id="pets"
       onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-pets"
+        data-testid="ds-accordion"
+        id="pets-accordion"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-pets-item-0"
+            aria-controls="accordion-panel-pets-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-pets-item-0"
+            id="accordion-button-pets-accordion-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1431,10 +1469,10 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-pets-icon-0"
+              id="pets-accordion-icon-0"
               role="img"
               title="plus icon"
             />
@@ -1451,9 +1489,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-pets-item-0"
+              aria-labelledby="accordion-button-pets-accordion-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-pets-item-0"
+              id="accordion-panel-pets-accordion-item-0"
               role="region"
             >
               <div
@@ -1464,7 +1502,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-pets-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="pets-checkboxGroup"
                   >
                     <legend>
                       MultiSelect
@@ -1472,14 +1511,15 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-pets"
+                      id="pets-checkboxGroup-stack"
                     >
                       <div
-                        className="css-1xdhyk6"
-                        id="cat-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="cat-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1489,7 +1529,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="cat"
-                            name="Cat"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1528,11 +1568,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="dog-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="dog-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1542,7 +1583,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="dog"
-                            name="Dog"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1581,11 +1622,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="corgy-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="corgy-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1595,7 +1637,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="corgy"
-                            name="Corgy"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1634,11 +1676,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="german-sheperd-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="german-sheperd-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1648,7 +1691,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="german-sheperd"
-                            name="German Sheperd"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1687,11 +1730,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="afghan-hound-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="afghan-hound-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1701,7 +1745,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="afghan-hound"
-                            name="Afghan Hound"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1740,11 +1784,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="rat-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="rat-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1754,7 +1799,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="rat"
-                            name="Rat"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1798,7 +1843,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
-                      id="multi-select-checkbox-group-pets-helperErrorText"
+                      data-testid="ds-helperErrorText"
+                      id="pets-checkboxGroup-helperErrorText"
                     >
                       <div
                         className="css-0"
@@ -1814,24 +1860,26 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     </div>
     <div
       className="css-1xdhyk6"
+      data-testid="ds-multiSelect"
       id="tools"
       onClick={[Function]}
     >
       <div
         className="chakra-accordion css-1xdhyk6"
-        id="multi-select-accordion-tools"
+        data-testid="ds-accordion"
+        id="tools-accordion"
         onKeyDown={[Function]}
       >
         <div
           className="chakra-accordion__item css-1fsnuue"
         >
           <button
-            aria-controls="accordion-panel-multi-select-accordion-tools-item-0"
+            aria-controls="accordion-panel-tools-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
             className="chakra-accordion__button css-1rvudez"
             disabled={false}
-            id="accordion-button-multi-select-accordion-tools-item-0"
+            id="accordion-button-tools-accordion-item-0"
             onClick={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
@@ -1851,10 +1899,10 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             </span>
             <svg
               aria-hidden={true}
-              className="chakra-icon css-1nreziu"
+              className="chakra-icon css-1b9sovw"
               data-file-name="SvgPlus"
               focusable={false}
-              id="accordion-multi-select-accordion-tools-icon-0"
+              id="tools-accordion-icon-0"
               role="img"
               title="plus icon"
             />
@@ -1871,9 +1919,9 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             }
           >
             <div
-              aria-labelledby="accordion-button-multi-select-accordion-tools-item-0"
+              aria-labelledby="accordion-button-tools-accordion-item-0"
               className="chakra-accordion__panel css-e7ng5h"
-              id="accordion-panel-multi-select-accordion-tools-item-0"
+              id="accordion-panel-tools-accordion-item-0"
               role="region"
             >
               <div
@@ -1884,7 +1932,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                 >
                   <fieldset
                     className="css-1u8qly9"
-                    id="multi-select-checkbox-group-tools-checkbox-group"
+                    data-testid="ds-checkboxGroup"
+                    id="tools-checkboxGroup"
                   >
                     <legend>
                       MultiSelect
@@ -1892,14 +1941,15 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                     <div
                       className="chakra-stack css-19s3t1h"
                       data-testid="checkbox-group"
-                      id="multi-select-checkbox-group-tools"
+                      id="tools-checkboxGroup-stack"
                     >
                       <div
-                        className="css-1xdhyk6"
-                        id="hammer-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="hammer-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1909,7 +1959,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="hammer"
-                            name="Hammer"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -1948,11 +1998,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="skrewdriver-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="skrewdriver-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -1962,7 +2013,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="skrewdriver"
-                            name="Skrewdriver"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -2001,11 +2052,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="slottet-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="slottet-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -2015,7 +2067,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="slottet"
-                            name="Slotted Skrewdriver"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -2054,11 +2106,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="phillips-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="phillips-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -2068,7 +2121,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="phillips"
-                            name="Phillips Skrewdriver"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -2107,11 +2160,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="allen-wrapper"
+                        className="css-ybiit3"
+                        data-testid="ds-checkbox"
+                        id="allen-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-vbxw2k"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -2121,7 +2175,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="allen"
-                            name="Allen Skrewdriver"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -2160,11 +2214,12 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                         </label>
                       </div>
                       <div
-                        className="css-1xdhyk6"
-                        id="whisk-wrapper"
+                        className="css-1u8qly9"
+                        data-testid="ds-checkbox"
+                        id="whisk-componentWrapper"
                       >
                         <label
-                          className="chakra-checkbox css-1xdhyk6"
+                          className="chakra-checkbox css-0"
                           onClick={[Function]}
                         >
                           <input
@@ -2174,7 +2229,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__input"
                             disabled={false}
                             id="whisk"
-                            name="Whisk"
+                            name="multi-select-checkbox-group"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onFocus={[Function]}
@@ -2218,7 +2273,8 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
-                      id="multi-select-checkbox-group-tools-helperErrorText"
+                      data-testid="ds-helperErrorText"
+                      id="tools-checkboxGroup-helperErrorText"
                     >
                       <div
                         className="css-0"

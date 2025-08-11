@@ -1,45 +1,48 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./tooltipChangelogData";
+import { ArgTypes, Canvas, Meta } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as TooltipStories from "./Tooltip.stories";
-import Link from "../Link/Link";
+import { changelogData } from "./tooltipChangelogData";
 
 <Meta of={TooltipStories} />
 
-# Tooltip
+<ComponentDocsHeader
+  category="Overlays & Switchers component"
+  componentName="Tooltip"
+  summary="Displays contextual information when a user interacts with an element"
+  versionAdded="1.1.0"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.1.0`    |
-| Latest            | `3.6.1`    |
+<Canvas of={TooltipStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#best-practices" target="_self">Best Practices</Link>}
-- {<Link href="#examples" target="_self">Examples</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Best practices](#best-practices)
+- [Examples](#examples)
+- [Changelog](#changelog)
 
 ## Overview
-
-<Description of={TooltipStories} />
 
 A brief, informative message that appears when a user hovers or focuses on an
 element.
 
 ## Component Props
 
-<Canvas of={TooltipStories.WithControls} />
+You may pass any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={TooltipStories.WithControls} />
 
 ## Accessibility
 
 The DS `Tooltip` component is implemented with Chakra UI and Chakra handles the
-appropriate aria-describedby attribute for the element that the tooltip is associated with.
+appropriate `aria-describedby` attribute for the element that the tooltip is
+associated with.
 
 The `Tooltip` component is accessible via keyboard. The color contrast between
 foreground color and background color is 4.5:1. If text size is 200%, the
@@ -54,7 +57,7 @@ Resources:
 - [MDN ARIA: tooltip role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role)
 - [Chakra UI Tooltip](https://chakra-ui.com/docs/components/overlay/tooltip)
 
-## Best Practices
+## Best practices
 
 Tooltips are often misunderstood and therefore not used correctly. To implement
 a tooltip correctly, start by following the recommendations below.
@@ -82,8 +85,8 @@ Resources:
   tooltip to the `Checkbox`, `Radio`, and `Toggle` components.
 - The underlying `ref` of the `Checkbox`, `Radio`, and `Toggle` components point
   to a visually hidden input element.
-- Using `shouldWrapChildren` ensures that the size of the visually hidden element is
-  in sync with the rendered visual control.
+- Using `shouldWrapChildren` ensures that the size of the visually hidden
+  element is in sync with the rendered visual control.
 
 <Canvas of={TooltipStories.OnFormElements} />
 
@@ -96,26 +99,27 @@ Resources:
 
 <Canvas of={TooltipStories.OnImageComponents} />
 
-### Tooltip on Linked Icon
+### Tooltip on linked Icon
 
 <Canvas of={TooltipStories.OnLinkedIcons} />
 
-### Icon and Image Content
+### Icon and Image content
 
-- It is not recommended to use icons and images in tooltip content.
+It is not recommended to use icons and images in tooltip content.
 
 <Canvas of={TooltipStories.IconAndImageContent} />
 
 ### Disabling Tooltip
 
-- A tooltip can be disabled by passing the `isDisabled` prop.
+A tooltip can be disabled by passing the `isDisabled` prop.
 
 <Canvas of={TooltipStories.DisablingTooltip} />
 
-### Disabled Buttons
+### Disabled buttons
 
 - By default, the `Tooltip` is not shown for a disabled `Button`.
-- To show the `Tooltip` on a disabled `Button`, pass the `shouldWrapChildren` prop.
+- To show the `Tooltip` on a disabled `Button`, set the `shouldWrapChildren`
+  prop to `true`.
 
 <Canvas of={TooltipStories.DisablingTooltipButton} />
 

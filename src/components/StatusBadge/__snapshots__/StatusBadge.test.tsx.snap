@@ -3,121 +3,104 @@
 exports[`StatusBadge renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="low"
->
-  Registration Required
-</div>
-`;
-
-exports[`StatusBadge renders the UI snapshot correctly 2`] = `
-<div
-  className="css-1xdhyk6"
-  id="medium"
->
-  Registration Required
-</div>
-`;
-
-exports[`StatusBadge renders the UI snapshot correctly 3`] = `
-<div
-  className="css-1xdhyk6"
-  id="high"
->
-  Registration Required
-</div>
-`;
-
-exports[`StatusBadge renders the UI snapshot correctly 4`] = `
-<div
-  className="css-1xdhyk6"
+  data-testid="ds-statusBadge"
   id="neutral"
 >
   Neutral type
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 5`] = `
+exports[`StatusBadge renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-statusBadge"
   id="informative"
 >
   Informative type
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 6`] = `
+exports[`StatusBadge renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-statusBadge"
   id="positive"
 >
   Positive type
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 7`] = `
+exports[`StatusBadge renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-statusBadge"
   id="negative"
 >
   Negative type
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 8`] = `
+exports[`StatusBadge renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-statusBadge"
   id="warning"
 >
   Warning type
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 9`] = `
+exports[`StatusBadge renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-statusBadge"
   id="recommendation"
 >
   Recommendation type
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 10`] = `
+exports[`StatusBadge renders the UI snapshot correctly 7`] = `
 <div
   className="css-8tjen4"
+  data-testid="ds-statusBadge"
   id="body1"
 >
   Font size body1
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 11`] = `
+exports[`StatusBadge renders the UI snapshot correctly 8`] = `
 <div
   className="css-1lkzcz8"
+  data-testid="ds-statusBadge"
   id="body2"
 >
   Font size body2
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 12`] = `
+exports[`StatusBadge renders the UI snapshot correctly 9`] = `
 <div
   className="css-1jsj0zc"
+  data-testid="ds-statusBadge"
   id="caption"
 >
   Font size caption
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 13`] = `
+exports[`StatusBadge renders the UI snapshot correctly 10`] = `
 <div
   className="css-kle7zy"
+  data-testid="ds-statusBadge"
   id="chakra"
 >
   Registration Required
 </div>
 `;
 
-exports[`StatusBadge renders the UI snapshot correctly 14`] = `
+exports[`StatusBadge renders the UI snapshot correctly 11`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"

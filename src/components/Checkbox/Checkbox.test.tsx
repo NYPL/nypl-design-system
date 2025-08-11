@@ -7,10 +7,22 @@ import renderer from "react-test-renderer";
 
 import Checkbox from "./Checkbox";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Checkbox Accessibility", () => {
   it("passes axe accessibility test with string label", async () => {
     const { container } = render(
       <Checkbox id="inputID" onChange={jest.fn()} labelText="Test Label" />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <Checkbox onChange={jest.fn()} labelText="Test Label" />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -46,6 +58,14 @@ describe("Checkbox Accessibility", () => {
 });
 
 describe("Checkbox", () => {
+  it("should add an id to the component even if none is passed", () => {
+    render(<Checkbox labelText="Test Label" />);
+    expect(screen.getByTestId("ds-checkbox")).toHaveAttribute(
+      "id",
+      "test-id-componentWrapper"
+    );
+  });
+
   it("Renders with a checkbox input and label", () => {
     render(<Checkbox id="inputID" labelText="Test Label" />);
     expect(screen.getByLabelText("Test Label")).toBeInTheDocument();
@@ -248,16 +268,6 @@ describe("Checkbox", () => {
 
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Checkbox: `labelText` must be a string when `showLabel` is false."
-    );
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    // @ts-ignore: Typescript complains when a required prop is not passed, but
-    // here we don't want to pass the required prop to make sure the warning appears.
-    render(<Checkbox labelText="checkbox" />);
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Checkbox: This component's required `id` prop was not passed."
     );
   });
 

@@ -9,8 +9,6 @@ const meta: Meta<typeof StructuredContent> = {
   title: "Components/Page Layout/StructuredContent",
   component: StructuredContent,
   argTypes: {
-    className: { control: false },
-    id: { control: false },
     "imageProps.aspectRatio": {
       table: {
         defaultValue: { summary: "square" },
@@ -64,9 +62,7 @@ export const Controls: Story = {
       "praesent. Tortor at risus viverra adipiscing at. Eu augue ut lectus " +
       "arcu bibendum at varius vel pharetra.",
     calloutText: "This is the callout text",
-    className: undefined,
     headingText: "Heading text",
-    id: "structured-content",
     "imageProps.alt": "Image alt text",
     "imageProps.aspectRatio": "square",
     "imageProps.caption": "Image caption",
@@ -80,7 +76,6 @@ export const Controls: Story = {
     <StructuredContent
       bodyContent={args.bodyContent}
       calloutText={args.calloutText}
-      className={args.className}
       headingText={args.headingText}
       id={args.id}
       imageProps={{
@@ -125,17 +120,17 @@ export const WithHTMLStringTextContent: Story = {
         "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
         "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
         "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
-        "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+        "Faucibus in ornare quam viverra orci sagittis.</p><p style='margin-top: 1rem'>Nisl vel pretium " +
         "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
         "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
         "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi. " +
-        "</b></p><p>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
+        "</b></p><p style='margin-top: 1rem'>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
         "cursus in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. " +
         "Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. " +
         "Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiat" +
         "nisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin " +
-        "tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li>" +
-        "<li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipit" +
+        "tempor id eu nisl nunc.</p><ul style='margin-top: 1rem'><li>one</li><li>two</li>" +
+        "<li>three</li><li>four</li></ul><p style='margin-top: 1rem'><i>Mauris nunc congue nisi vitae suscipit" +
         "tellus mauris a diam. Purus gravida quis blandit turpis cursus in hac." +
         "Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam ut" +
         "venenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamus" +
@@ -175,7 +170,7 @@ export const WithHTMLElementTextContent: Story = {
             tincidunt. <a href="#">Porttitor eget dolor</a> morbi non arcu risus
             quis varius. Faucibus in ornare quam viverra orci sagittis.
           </p>
-          <p>
+          <p style={{ marginTop: "1rem" }}>
             Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis
             enim lobortis scelerisque fermentum. Diam maecenas sed enim ut sem
             viverra.{" "}
@@ -184,7 +179,7 @@ export const WithHTMLElementTextContent: Story = {
               eu mi.
             </b>
           </p>
-          <p>
+          <p style={{ marginTop: "1rem" }}>
             Ornare lectus sit amet est placerat in. Quis blandit turpis cursus
             in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu.
             Pellentesque eu tincidunt tortor aliquam nulla facilisi cras
@@ -192,8 +187,10 @@ export const WithHTMLElementTextContent: Story = {
             Feugiat nisl pretium fusce id velit ut tortor. Porttitor leo a diam
             sollicitudin tempor id eu nisl nunc.
           </p>
-          <h3 id="dates-times">Dates and Times</h3>
-          <table role="table" id="times-table">
+          <h3 id="dates-times" style={{ marginTop: "1rem" }}>
+            Dates and Times
+          </h3>
+          <table role="table" id="times-table" style={{ marginTop: "1rem" }}>
             <thead>
               <tr role="row">
                 <th scope="col">Day</th>
@@ -247,15 +244,17 @@ export const WithHTMLElementTextContent: Story = {
               </tr>
             </tbody>
           </table>
-          <h3 id="parting-thoughts">Parting Thoughts</h3>
-          <ol id="thoughts-list">
+          <h3 id="parting-thoughts" style={{ marginTop: "1rem" }}>
+            Parting Thoughts
+          </h3>
+          <ol id="thoughts-list" style={{ marginTop: "1rem" }}>
             <li>All text was read</li>
             <li>The two videos were watched</li>
             <li>All images were reviewed</li>
             <li>Notes were taken on a small notepad</li>
             <li>You enjoyed yourself</li>
           </ol>
-          <p>
+          <p style={{ marginTop: "1rem" }}>
             <i>
               Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
               gravida quis blandit turpis cursus in hac. Morbi tempus iaculis
@@ -272,8 +271,10 @@ export const WithHTMLElementTextContent: Story = {
             </i>
           </p>
           <section id="definition-doc-list">
-            <h2>Episode Forty-Two: Readings and Resources</h2>
-            <dl>
+            <h2 style={{ borderBottom: "0", marginTop: "1rem" }}>
+              Episode Forty-Two: Readings and Resources
+            </h2>
+            <dl style={{ marginTop: ".5rem" }}>
               <dt>Hillary Ballon and Kenneth T. Jackson, eds.</dt>
               <dd>
                 <em>
@@ -335,7 +336,11 @@ export const WithHTMLElementTextContent: Story = {
 export const WithCustomHeadingsLevels: Story = {
   render: () => (
     <StructuredContent
-      calloutText={<Heading level="h4">Custom H4 callout Text</Heading>}
+      calloutText={
+        <Heading level="h4" mb="s">
+          Custom H4 callout Text
+        </Heading>
+      }
       headingText={<Heading level="h3">Custom H3 Heading Text</Heading>}
       imageProps={{
         alt: "Image alt text",
@@ -374,17 +379,17 @@ export const ExampleWithTwoComponents: Story = {
           "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
           "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
           "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
-          "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+          "Faucibus in ornare quam viverra orci sagittis.</p><p style='margin-top: 1rem'>Nisl vel pretium " +
           "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
           "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
           "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi. " +
-          "</b></p><p>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
+          "</b></p><p style='margin-top: 1rem'>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
           "cursus in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. " +
           "Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. " +
           "Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiat" +
           "nisl pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin " +
-          "tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li>" +
-          "<li>three</li><li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipit" +
+          "tempor id eu nisl nunc.</p><ul style='margin-top: 1rem'><li>one</li><li>two</li>" +
+          "<li>three</li><li>four</li></ul><p style='margin-top: 1rem'><i>Mauris nunc congue nisi vitae suscipit" +
           "tellus mauris a diam. Purus gravida quis blandit turpis cursus in hac." +
           "Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam ut" +
           "venenatis. Donec ac odio tempor orci dapibus ultrices in iaculis. Dui vivamus" +
@@ -405,11 +410,12 @@ export const ExampleWithTwoComponents: Story = {
           "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
           "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
           "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
-          "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+          "Faucibus in ornare quam viverra orci sagittis.</p><p style='margin-top: 1rem'>Nisl vel pretium " +
           "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
           "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
           "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.</b></p>"
         }
+        mt="s"
       />
     </>
   ),
@@ -438,15 +444,15 @@ export const ExampleWithThreeComponents: Story = {
           "eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
           "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
           "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
-          "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+          "Faucibus in ornare quam viverra orci sagittis.</p><p style='margin-top: 1rem'>Nisl vel pretium " +
           "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
           "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
           "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi. " +
-          "</b></p><p>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
+          "</b></p><p style='margin-top: 1rem'>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
           "cursus in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. " +
           "Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. " +
           "Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl " +
-          "pretium fusce id velit ut tortor. </p><p><i>Mauris nunc congue nisi " +
+          "pretium fusce id velit ut tortor. </p><p style='margin-top: 1rem'><i>Mauris nunc congue nisi " +
           "vitae suscipit tellus mauris a diam. Purus gravida quis blandit turpis " +
           "cursus in hac. Morbi tempus iaculis urna id volutpat. Lectus nulla at " +
           "volutpat diam ut venenatis. Donec ac odio tempor orci dapibus ultrices " +
@@ -459,6 +465,7 @@ export const ExampleWithThreeComponents: Story = {
           "sadipiscing at. Eu augue ut lectus arcu bibendum at varius vel" +
           "pharetra.</i></p>"
         }
+        mt="s"
       />
       <StructuredContent
         calloutText="This is the callout text"
@@ -468,11 +475,12 @@ export const ExampleWithThreeComponents: Story = {
           "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
           "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
           "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
-          "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+          "Faucibus in ornare quam viverra orci sagittis.</p><p style='margin-top: 1rem'>Nisl vel pretium " +
           "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
           "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
           "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.</b></p>"
         }
+        mt="s"
       />
     </>
   ),
@@ -486,7 +494,7 @@ export const ExampleWithMixedContent: Story = {
           "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
           "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
           "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
-          "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+          "Faucibus in ornare quam viverra orci sagittis.</p><p style='margin-top: 1rem'>Nisl vel pretium " +
           "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
           "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
           "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.</b></p>"
@@ -507,16 +515,16 @@ export const ExampleWithMixedContent: Story = {
           "eiusmod tempor incididunt ut labore et dolore magna aliqua." +
           "Pellentesque massa placerat duis ultricies lacus sed turpis tincidunt. " +
           "<a href='#'>Porttitor eget dolor</a> morbi non arcu risus quis varius. " +
-          "Faucibus in ornare quam viverra orci sagittis.</p><p>Nisl vel pretium " +
+          "Faucibus in ornare quam viverra orci sagittis.</p><p style='margin-top: 1rem'>Nisl vel pretium " +
           "lectus quam id leo in. Etiam dignissim diam quis enim lobortis " +
           "scelerisque fermentum. Diam maecenas sed enim ut sem viverra. <b>Diam " +
           "quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi. " +
-          "</b></p><p>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
+          "</b></p><p style='margin-top: 1rem'>Ornare lectus sit amet est placerat in. Quis blandit turpis " +
           "cursus in. Aliquam ut porttitor leo a diam sollicitudin tempor id eu. " +
           "Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. " +
           "Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl " +
           "pretium fusce id velit ut tortor. Porttitor leo a diam sollicitudin " +
-          "tempor id eu nisl nunc.</p><ul><li>one</li><li>two</li><li>three</li>" +
+          "tempor id eu nisl nunc.</p><ul style='margin-top: 1rem'><li>one</li><li>two</li><li>three</li>" +
           "<li>four</li></ul><p><i>Mauris nunc congue nisi vitae suscipit" +
           "tellus mauris a diam. Purus gravida quis blandit turpis cursus in hac." +
           "Morbi tempus iaculis urna id volutpat. Lectus nulla at volutpat diam ut" +
@@ -529,6 +537,7 @@ export const ExampleWithMixedContent: Story = {
           "integer eget aliquet nibh praesent. Tortor at risus viverra adipiscing " +
           "at. Eu augue ut lectus arcu bibendum at varius vel pharetra.</i></p>"
         }
+        mt="s"
       />
     </>
   ),

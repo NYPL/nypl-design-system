@@ -12,7 +12,13 @@ describe("SkipNavigation Accessibility", () => {
   });
 });
 
-describe("Label", () => {
+describe("SkipNavigation", () => {
+  it("should not render an id if none is passed", () => {
+    render(<SkipNavigation />);
+    const nav = screen.getByTestId("ds-skipNavigation");
+    expect(nav).not.toHaveAttribute("id");
+  });
+
   it("renders a nav element with an unordered list", () => {
     render(<SkipNavigation />);
     const nav = screen.getByRole("navigation");

@@ -1,38 +1,60 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./skipNavigationChangelogData";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as SkipNavigationStories from "./SkipNavigation.stories";
-import Link from "../Link/Link";
+import { changelogData } from "./skipNavigationChangelogData";
 
 <Meta of={SkipNavigationStories} />
 
-# SkipNavigation
+<ComponentDocsHeader
+  category="Navigation component"
+  componentName="SkipNavigation"
+  summary="Provides an accessible method to jump to the main page content"
+  versionAdded="0.28.0"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.28.0`   |
-| Latest            | `3.2.0`    |
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> In order to see the links in the{" "}
+      <code>SkipNavigation</code> component, start by focusing on the button
+      below by tabbing or clicking on it. Then press "tab" to see the first link
+      and press "tab" again to see the second link. The links are intentionally
+      hidden until they are focused or tabbed to, as this is a common practice
+      for skip navigation links.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
-## Table of Contents
+<Canvas of={SkipNavigationStories.WithControls} />
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+## Table of contents
+
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={SkipNavigationStories} />
 
-**NOTE: In order to see the links in the `SkipNavigation` component, start by focusing
-on the button below by tabbing or clicking on it. Then press "tab" to see the
-first link and press "tab" again to see the second link. Hiding the links
-intentional as the links should initially be visually hidden.**
+## Component props
 
-## Component Props
-
-<Canvas of={SkipNavigationStories.WithControls} />
+`SkipNavigation` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={SkipNavigationStories.WithControls} />
 
@@ -46,9 +68,10 @@ element, an unordered list is rendered.
 
 The reason this is a navigation list of links is because the first main link
 points to the anchor of the main content, in this case `"#mainContent"`. The
-second link points to accessibility information on [NYPL.org/accessibility](https://nypl.org/accessibility).
+second link points to accessibility information on
+[NYPL.org/accessibility](https://nypl.org/accessibility).
 
-See the [Skip Navigation accessibility guide](../?path=/docs/accessibility-guide-skip-navigation--docs)
+See the [Skip Navigation accessibility guide](./?path=/docs/accessibility-guide-skip-navigation--docs)
 for more information on how to use this component with other DS components.
 
 Resources:

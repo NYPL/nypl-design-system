@@ -10,6 +10,20 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Changes theme name from `CustomSlider` to `ReservoirSlider` for consistency.",
+      "Removes `isDarkMode` in favor of Chakra's `_dark` conditional key.",
+      "Removes `name` prop (as HTML equivalent may be used) and updates docs.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-slider` to the parent element.",
+    ],
+  },
+  {
     date: "2024-09-19",
     version: "3.3.2",
     type: "Update",

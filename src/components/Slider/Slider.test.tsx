@@ -5,12 +5,28 @@ import renderer from "react-test-renderer";
 
 import Slider from "./Slider";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Slider Accessibility", () => {
   describe("Single Slider", () => {
     it("passes axe accessibility test", async () => {
       const { container } = render(
         <Slider
           id="slider"
+          defaultValue={50}
+          helperText="Component helper text."
+          invalidText="Component error text :("
+          labelText="Label"
+        />
+      );
+      expect(await axe(container)).toHaveNoViolations();
+    });
+    it("passes axe accessibility test with no id", async () => {
+      const { container } = render(
+        <Slider
           defaultValue={50}
           helperText="Component helper text."
           invalidText="Component error text :("
@@ -62,6 +78,18 @@ describe("Slider Accessibility", () => {
       );
       expect(await axe(container)).toHaveNoViolations();
     });
+    it("passes axe accessibility test with no id", async () => {
+      const { container } = render(
+        <Slider
+          defaultValue={[25, 75]}
+          helperText="Component helper text."
+          invalidText="Component error text :("
+          labelText="Label"
+          isRangeSlider
+        />
+      );
+      expect(await axe(container)).toHaveNoViolations();
+    });
     it("passes axe accessibility test without a label", async () => {
       const { container } = render(
         <Slider
@@ -96,6 +124,18 @@ describe("Slider Accessibility", () => {
 
 describe("Slider", () => {
   describe("Single Slider", () => {
+    it("should add an id to the component even if none is passed", () => {
+      render(
+        <Slider
+          defaultValue={50}
+          helperText="Component helper text."
+          invalidText="Component error text :("
+          labelText="Label"
+        />
+      );
+      const sliderInput = screen.getByTestId("ds-slider");
+      expect(sliderInput).toHaveAttribute("id", "test-id-componentWrapper");
+    });
     it("renders a label, two static values, text input, and helper text", () => {
       render(
         <Slider
@@ -596,6 +636,20 @@ describe("Slider", () => {
   });
 
   describe("Range Slider", () => {
+    it("should add an id to the component even if none is passed", () => {
+      render(
+        <Slider
+          defaultValue={[25, 75]}
+          helperText="Component helper text."
+          invalidText="Component error text :("
+          labelText="Label"
+          isRangeSlider
+        />
+      );
+      const sliderInput = screen.getByTestId("ds-slider");
+      expect(sliderInput).toHaveAttribute("id", "test-id-componentWrapper");
+    });
+
     it("renders everything from the single but also two text input fields", () => {
       render(
         <Slider
@@ -774,18 +828,6 @@ describe("Slider", () => {
 
       expect(startingInput).toHaveValue(42);
       expect(endingInput).toHaveValue(79);
-    });
-
-    it("logs a warning when there is no `id` passed", () => {
-      const warn = jest.spyOn(console, "warn");
-      render(
-        // @ts-ignore: Typescript complains when a required prop is not passed, but
-        // here we don't want to pass the required prop to make sure the warning appears.
-        <Slider labelText="Label" />
-      );
-      expect(warn).toHaveBeenCalledWith(
-        "NYPL Reservoir Slider: This component's required `id` prop was not passed."
-      );
     });
 
     it("updates the value programmatically through the `value` prop", () => {

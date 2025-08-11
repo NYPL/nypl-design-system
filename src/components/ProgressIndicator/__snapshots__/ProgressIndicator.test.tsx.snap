@@ -3,10 +3,13 @@
 exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-progressIndicator"
+  id="linearBasic"
 >
   <label
     className="css-e3ddnr"
-    htmlFor="linearBasic"
+    data-testid="ds-label"
+    htmlFor="linearBasic-progress"
     id="linearBasic-label"
   >
     Linear
@@ -16,7 +19,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-kdwx3d"
-      id="linearBasic"
+      id="linearBasic-progress"
     >
       <div
         aria-labelledby="linearBasic-label"
@@ -45,6 +48,8 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 1`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-progressIndicator"
+  id="circularBasic"
 >
   <div
     className="css-0"
@@ -55,7 +60,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
       aria-valuemin={0}
       aria-valuenow={50}
       className="chakra-progress css-120wkjd"
-      id="circularBasic"
+      id="circularBasic-progress"
       role="progressbar"
     >
       <svg
@@ -88,7 +93,8 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
     </div>
     <label
       className="css-1xdhyk6"
-      htmlFor="circularBasic"
+      data-testid="ds-label"
+      htmlFor="circularBasic-progress"
       id="circularBasic-label"
     >
       Circular
@@ -100,13 +106,15 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 2`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-progressIndicator"
+  id="linearNoLabel"
 >
   <div
     className="css-0"
   >
     <div
       className="css-kdwx3d"
-      id="linearNoLabel"
+      id="linearNoLabel-progress"
     >
       <div
         aria-label="Linear"
@@ -129,6 +137,8 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 3`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 4`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-progressIndicator"
+  id="circularNoLabel"
 >
   <div
     className="css-0"
@@ -139,7 +149,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 4`] = `
       aria-valuemin={0}
       aria-valuenow={50}
       className="chakra-progress css-120wkjd"
-      id="circularNoLabel"
+      id="circularNoLabel-progress"
       role="progressbar"
     >
       <svg
@@ -171,10 +181,13 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 4`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-progressIndicator"
+  id="linearIndeterminate"
 >
   <label
     className="css-e3ddnr"
-    htmlFor="linearIndeterminate"
+    data-testid="ds-label"
+    htmlFor="linearIndeterminate-progress"
     id="linearIndeterminate-label"
   >
     Linear
@@ -184,7 +197,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
   >
     <div
       className="css-kdwx3d"
-      id="linearIndeterminate"
+      id="linearIndeterminate-progress"
     >
       <div
         aria-labelledby="linearIndeterminate-label"
@@ -207,6 +220,8 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 5`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-progressIndicator"
+  id="circularIndeterminate"
 >
   <div
     className="css-0"
@@ -217,7 +232,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
       aria-valuemin={0}
       className="chakra-progress css-120wkjd"
       data-indeterminate=""
-      id="circularIndeterminate"
+      id="circularIndeterminate-progress"
       role="progressbar"
     >
       <svg
@@ -242,7 +257,8 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
     </div>
     <label
       className="css-1xdhyk6"
-      htmlFor="circularIndeterminate"
+      data-testid="ds-label"
+      htmlFor="circularIndeterminate-progress"
       id="circularIndeterminate-label"
     >
       Circular
@@ -254,10 +270,13 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 6`] = `
 exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
 <div
   className="css-10g9ftz"
+  data-testid="ds-progressIndicator"
+  id="chakra"
 >
   <label
     className="css-e3ddnr"
-    htmlFor="chakra"
+    data-testid="ds-label"
+    htmlFor="chakra-progress"
     id="chakra-label"
   >
     Linear
@@ -267,7 +286,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 7`] = `
   >
     <div
       className="css-kdwx3d"
-      id="chakra"
+      id="chakra-progress"
     >
       <div
         aria-labelledby="chakra-label"
@@ -297,10 +316,12 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"
+  id="props"
 >
   <label
     className="css-e3ddnr"
-    htmlFor="props"
+    data-testid="ds-label"
+    htmlFor="props-progress"
     id="props-label"
   >
     Linear
@@ -310,7 +331,7 @@ exports[`ProgressIndicator Renders the UI snapshot correctly 8`] = `
   >
     <div
       className="css-kdwx3d"
-      id="props"
+      id="props-progress"
     >
       <div
         aria-labelledby="props-label"

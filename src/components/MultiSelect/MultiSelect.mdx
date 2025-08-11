@@ -8,39 +8,42 @@ import {
 
 import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as MultiSelectStories from "./MultiSelect.stories";
-import Link from "../Link/Link";
 import { changelogData } from "./multiSelectChangelogData";
 
 <Meta of={MultiSelectStories} />
 
-# MultiSelect
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="MultiSelect"
+  summary="Grouping of related checkboxes rendered in a menu format that allows a user to select one or more options"
+  versionAdded="1.4.0"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.4.0`    |
-| Latest            | `3.6.4`    |
+<Canvas of={MultiSelectStories.withControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#populating-the-list-items" target="_self">Populating the List Items</Link>}
-- {<Link href="#visible-list-items" target="_self">Visible List Items</Link>}
-- {<Link href="#nested-list-items" target="_self">Nested List Items</Link>}
-- {<Link href="#disabled-list-items" target="_self">Disabled List Items</Link>}
-- {<Link href="#search-input-field" target="_self">Search Input Field</Link>}
-- {<Link href="#item-count" target="_self">Item Count</Link>}
-- {<Link href="#block-element-or-float" target="_self">Block Element or Float</Link>}
-- {<Link href="#width" target="_self">Width</Link>}
-- {<Link href="#default-open-state" target="_self">Default Open State</Link>}
-- {<Link href="#close-on-blur-state" target="_self">Close on Blur State</Link>}
-- {<Link href="#multiselect-in-a-group" target="_self">MultiSelect in a Group</Link>}
-- {<Link href="#controlling-state-using-selecteditems-and-onchange-prop" target="_self">Controlling state using selectedItems and onChange prop</Link>}
-- {<Link href="#multiselect-nextjs-routing-implementation" target="_self">MultiSelect NextJS routing implementation</Link>}
-- {<Link href="#usemultiselect-hook" target="_self">useMultiSelect hook</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Populating the List Items](#populating-the-list-items)
+- [Visible List Items](#visible-list-items)
+- [Nested List Items](#nested-list-items)
+- [Disabled List Items](#disabled-list-items)
+- [Search Input Field](#search-input-field)
+- [Item Count](#item-count)
+- [Block Element or Float](#block-element-or-float)
+- [Width](#width)
+- [Default Open State](#default-open-state)
+- [Close on Blur State](#close-on-blur-state)
+- [MultiSelect in a Group](#multiselect-in-a-group)
+- [Controlling state using selectedItems and onChange props](#controlling-state-using-selecteditems-and-onchange-props)
+- [MultiSelect NextJS routing implementation](#multiselect-nextjs-routing-implementation)
+- [useMultiSelect hook](#usemultiselect-hook)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -50,45 +53,59 @@ import { changelogData } from "./multiSelectChangelogData";
 
 The `MultiSelect` renders a non-hierarchical list of items to select from.
 
-<Canvas of={MultiSelectStories.withControls} />
-
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect",
-  id="multi-select-id"
-  isBlockElement
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-    },
-    {
-      id: "art_history",
-      name: "Art History",
-    },
-    {
-      id: 'design',
-      name: 'Design'
-    },
-    {
-      id: 'business',
-      name: 'Business'
-    },
-    ...
-  ]}
-/>
+  <MultiSelect
+    buttonText="MultiSelect",
+    id="multi-select-id"
+    isBlockElement
+    items={[
+      {
+        id: "art",
+        name: "Art",
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+      },
+      {
+        id: "art_history",
+        name: "Art History",
+      },
+      {
+        id: 'design',
+        name: 'Design'
+      },
+      {
+        id: 'business',
+        name: 'Business'
+      },
+      ...
+    ]}
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
+
+`MultiSelect` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={MultiSelectStories.withControls} />
 
 ## Accessibility
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> It's recommended to pass an <code>id</code> value
+      for accessibility requirements. If no <code>id</code> is passed, a random{" "}
+      <code>id</code> will be generated.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="recommendation"
+/>
 
 The `MultiSelect` component is composed using the DS `Accordion` and `Checkbox`
 components and its accessibility compliance is derived from what is already
@@ -104,17 +121,17 @@ Accordion:
   - Use the `aria-controls` attribute to associate the control with the panel.
 - The open and close icons are decorative (`aria-hidden` is `true`).
 - Visible focus goes around full button and full button is clickable.
-- Because the `MultiSelect` utilizes the `Accordion`, the same functionality applies when
-  the user presses the 'esc' key and focus is on an open panel: that panel will close and
-  focus will return to the panel's button.
+- Because the `MultiSelect` utilizes the `Accordion`, the same functionality
+  applies when the user presses the 'esc' key and focus is on an open panel:
+  that panel will close and focus will return to the panel's button.
 
 Checkbox:
 
 The Checkbox component renders `<label>` and `<input type="checkbox" />`
-elements that are associated with each other; the label has a `for` attribute with
-the value of the `input`'s `id` element. If there is helper or invalid text, the
-`<input>` element will have a `aria-describedby` attribute with the value of the
-helper or invalid text.
+elements that are associated with each other; the label has a `for` attribute
+with the value of the `input`'s `id` element. If there is helper or invalid
+text, the `<input>` element will have a `aria-describedby` attribute with the
+value of the helper or invalid text.
 
 Resources:
 
@@ -133,53 +150,53 @@ count. The format is as follows:
 
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect"
-  id="multi-select-id"
-  isBlockElement
-  items={[
-    {
-      id: "art",
-      name: "Art",
-      itemCount: 5
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-      isDisabled: true,
-      itemCount: 7
-    },
-    {
-      id: 'design',
-      name: 'Design',
-      children: [
-        {
-          id: 'fashion',
-          isDisabled: true,
-          name: 'Fashion'
-        },
-        {
-          id: 'ux',
-          isDisabled: true,
-          name: 'User Experience'
-        },
-        {
-          id: 'architecture',
-          isDisabled: false,
-          name: 'Architecture'
-        },
-        {
-          id: 'home',
-          isDisabled: false,
-          name: 'Home'
-        },
-      ],
-    },
-    ...
-  ]}
-/>
+  <MultiSelect
+    buttonText="MultiSelect"
+    id="multi-select-id"
+    isBlockElement
+    items={[
+      {
+        id: "art",
+        name: "Art",
+        itemCount: 5
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+        isDisabled: true,
+        itemCount: 7
+      },
+      {
+        id: 'design',
+        name: 'Design',
+        children: [
+          {
+            id: 'fashion',
+            isDisabled: true,
+            name: 'Fashion'
+          },
+          {
+            id: 'ux',
+            isDisabled: true,
+            name: 'User Experience'
+          },
+          {
+            id: 'architecture',
+            isDisabled: false,
+            name: 'Architecture'
+          },
+          {
+            id: 'home',
+            isDisabled: false,
+            name: 'Home'
+          },
+        ],
+      },
+      ...
+    ]}
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Visible List Items
@@ -197,87 +214,90 @@ counting the items to display.
       <code>listOverflow="expand"</code>.
     </>
   }
-  type="informative"
+  variant="informative"
 />
 
 <Canvas of={MultiSelectStories.visibleListItems} />
 
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect"
-  defaultItemsVisible={8}
-  id="multi-select-id"
-  isBlockElement
-  listOverlow="expand"
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-    },
-    {
-      id: "art_history",
-      name: "Art History",
-    },
-    ...
-  ]}
-/>
+  <MultiSelect
+    buttonText="MultiSelect"
+    defaultItemsVisible={8}
+    id="multi-select-id"
+    isBlockElement
+    listOverlow="expand"
+    items={[
+      {
+        id: "art",
+        name: "Art",
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+      },
+      {
+        id: "art_history",
+        name: "Art History",
+      },
+      ...
+    ]}
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Nested List Items
 
-The MultiSelect component allows for an optional set of child checkboxes to be passed, providing a hierarchical structure.
-The "parent" checkbox functions as a check/uncheck all toggle for its children.
+The `MultiSelect` component allows for an optional set of child checkboxes to be
+passed, providing a hierarchical structure. The "parent" checkbox functions as
+a check/uncheck all toggle for its children.
 
-- If all of the children checkboxes are checked, the parent's `isChecked` prop will be set to true.
-- If only some of the child checkboxes are checked, the parent checkbox will have an `isIndeterminate` state.
+- If all of the children checkboxes are checked, the parent's `isChecked` prop
+  will be set to true.
+- If only some of the child checkboxes are checked, the parent checkbox will
+  have an `isIndeterminate` state.
 
 <Canvas of={MultiSelectStories.nestedListItems} />
 
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect"
-  id="multi-select-id"
-  isBlockElement
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-    },
-    {
-      id: "art_history",
-      name: "Art History",
-    },
-    {
-      id: 'design',
-      name: 'Design',
-      children: [
-        {
-          id: 'fashion',
-          name: 'Fashion'
-        },
-        {
-          id: 'ux',
-          name: 'User Experience'
-        },
-        ...
-      ],
-    },
-  ]}
-/>
+  <MultiSelect
+    buttonText="MultiSelect"
+    id="multi-select-id"
+    isBlockElement
+    items={[
+      {
+        id: "art",
+        name: "Art",
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+      },
+      {
+        id: "art_history",
+        name: "Art History",
+      },
+      {
+        id: 'design',
+        name: 'Design',
+        children: [
+          {
+            id: 'fashion',
+            name: 'Fashion'
+          },
+          {
+            id: 'ux',
+            name: 'User Experience'
+          },
+          ...
+        ],
+      },
+    ]}
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Disabled List Items
@@ -315,51 +335,51 @@ child checkbox will not be clickable and its state will not change.
 
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect"
-  id="multi-select-id"
-  isBlockElement
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-      isDisabled: true,
-    },
-    {
-      id: 'design',
-      name: 'Design',
-      children: [
-        {
-          id: 'fashion',
-          isDisabled: true,
-          name: 'Fashion'
-        },
-        {
-          id: 'ux',
-          isDisabled: true,
-          name: 'User Experience'
-        },
-        {
-          id: 'architecture_design',
-          isDisabled: false,
-          name: 'Architecture'
-        },
-        {
-          id: 'home',
-          isDisabled: false,
-          name: 'Home'
-        },
-        ...
-      ],
-    },
-  ]}
-/>
+  <MultiSelect
+    buttonText="MultiSelect"
+    id="multi-select-id"
+    isBlockElement
+    items={[
+      {
+        id: "art",
+        name: "Art",
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+        isDisabled: true,
+      },
+      {
+        id: 'design',
+        name: 'Design',
+        children: [
+          {
+            id: 'fashion',
+            isDisabled: true,
+            name: 'Fashion'
+          },
+          {
+            id: 'ux',
+            isDisabled: true,
+            name: 'User Experience'
+          },
+          {
+            id: 'architecture_design',
+            isDisabled: false,
+            name: 'Architecture'
+          },
+          {
+            id: 'home',
+            isDisabled: false,
+            name: 'Home'
+          },
+          ...
+        ],
+      },
+    ]}
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ### Disabled Parent Checkbox
@@ -412,7 +432,7 @@ child checkbox will not be clickable and its state will not change.
   ]}
 />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Search Input Field
@@ -427,46 +447,46 @@ the component to allow users to search the available checkbox items.
       greater, enable the search functionality and use scroll for the overflow.
     </>
   }
-  type="recommendation"
+  variant="recommendation"
 />
 
 <Canvas of={MultiSelectStories.searchInputField} />
 
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect"
-  id="multi-select-id"
-  isBlockElement
-  isSearchable
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-    },
-    {
-      id: 'design',
-      name: 'Design',
-      children: [
-        {
-          id: 'fashion',
-          name: 'Fashion',
-        },
-        {
-          id: 'ux',
-          name: 'User Experience'
-        },
-        ...
-      ],
-    },
-  ]}
-/>
+  <MultiSelect
+    buttonText="MultiSelect"
+    id="multi-select-id"
+    isBlockElement
+    isSearchable
+    items={[
+      {
+        id: "art",
+        name: "Art",
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+      },
+      {
+        id: 'design',
+        name: 'Design',
+        children: [
+          {
+            id: 'fashion',
+            name: 'Fashion',
+          },
+          {
+            id: 'ux',
+            name: 'User Experience'
+          },
+          ...
+        ],
+      },
+    ]}
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Item Count
@@ -483,65 +503,63 @@ by passing the `itemCount` data property to the `items` prop.
       used to disable the option.
     </>
   }
-  type="recommendation"
+  variant="recommendation"
 />
 
 <Canvas of={MultiSelectStories.itemCountListItems} />
 
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect"
-  id="multi-select-id"
-  isBlockElement
-  items={[
-        {
-          id: "art",
-          name: "Art",
-          itemCount: 7,
-        },
-        {
-          id: "architecture",
-          name: "Architecture",
-          itemCount: 20,
-        },
-        {
-          id: "creativity",
-          name: "Creativity",
-          isDisabled: true,
-          itemCount: 0,
-        },
-        {
-          id: "design",
-          name: "Design",
-          children: [
-            {
-              id: "bauhaus",
-              name: "Bauhaus",
-              isDisabled: true,
-              itemCount: 0,
-            },
-            {
-              id: "fashion",
-              name: "Fashion",
-              itemCount: 2,
-            },
-            ...
-          ],
-          itemCount: 11,
-        },
-        {
-          id: "business",
-          name: "Business",
-          itemCount: 2,
-        },
-        ...
-      ],
-    },
-  ]}
-/>
+  <MultiSelect
+    buttonText="MultiSelect"
+    id="multi-select-id"
+    isBlockElement
+    items={[
+      {
+        id: "art",
+        name: "Art",
+        itemCount: 7,
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+        itemCount: 20,
+      },
+      {
+        id: "creativity",
+        name: "Creativity",
+        isDisabled: true,
+        itemCount: 0,
+      },
+      {
+        id: "design",
+        name: "Design",
+        children: [
+          {
+            id: "bauhaus",
+            name: "Bauhaus",
+            isDisabled: true,
+            itemCount: 0,
+          },
+          {
+            id: "fashion",
+            name: "Fashion",
+            itemCount: 2,
+          },
+          ...
+        ],
+        itemCount: 11,
+      },
+      {
+        id: "business",
+        name: "Business",
+        itemCount: 2,
+      },
+      ...
+    ]}
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Block Element or Float
@@ -551,8 +569,8 @@ for the list portion of the component act as a block element when it is opened
 and closed or to float above adjacent UI elements (similar to a standard
 `<select>` input).
 
-When `isBlockElement` is `true`, the list will render as a block element and displace
-subsequent UI elements, pushing them further down the page. This is the
+When `isBlockElement` is `true`, the list will render as a block element and
+displace subsequent UI elements, pushing them further down the page. This is the
 recommended configuration for the component when it is used in a vertical filter
 bar layout.
 
@@ -565,42 +583,42 @@ is used in a horizontal filter bar layout.
 
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect"
-  id="multi-select-id"
-  isBlockElement
-  listOverlow="expand"
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-    },
-    {
-      id: "art_history",
-      name: "Art History",
-    },
-    ...
-  ]}
-/>
+  <MultiSelect
+    buttonText="MultiSelect"
+    id="multi-select-id"
+    isBlockElement
+    listOverlow="expand"
+    items={[
+      {
+        id: "art",
+        name: "Art",
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+      },
+      {
+        id: "art_history",
+        name: "Art History",
+      },
+      ...
+    ]}
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Width
 
-The width of the `MultiSelect` component can be configured to handle the width in
-two ways: `fitContent` or `full`.
+The width of the `MultiSelect` component can be configured to handle the width
+in two ways: `fitContent` or `full`.
 
 When `width` is set to `fitContent`, the button and list elements will expand
 and contract independently of each other, depending on the width of the text
 within each element, and adhere to the following rules:
 
 - The button element has a minimum width of 175px
-- The list element has a minimum width of 200px and a maximum width of 300px
+- The list element has a minimum width of 200px and a maximum width of 300px
 
 When `width` is set to `full`, the button and list elements will expand to fill
 the full width of the component's parent element and the width of the two
@@ -613,36 +631,36 @@ elements will always be identical.
       always render with <code>width</code> set to <code>full</code>.
     </>
   }
-  type="informative"
+  variant="informative"
 />
 
 <Canvas of={MultiSelectStories.width} />
 
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect"
-  id="multi-select-id"
-  isBlockElement
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-    },
-    {
-      id: "art_history",
-      name: "Art History",
-    },
-    ...
-  ]}
-  width="fitContent"
-/>
+  <MultiSelect
+    buttonText="MultiSelect"
+    id="multi-select-id"
+    isBlockElement
+    items={[
+      {
+        id: "art",
+        name: "Art",
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+      },
+      {
+        id: "art_history",
+        name: "Art History",
+      },
+      ...
+    ]}
+    width="fitContent"
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Default Open State
@@ -654,39 +672,39 @@ state by default.
 
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect"
-  id="multi-select-id"
-  isBlockElement
-  isDefaultOpen
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-    },
-    {
-      id: 'design',
-      name: 'Design',
-      children: [
-        {
-          id: 'fashion',
-          name: 'Fashion',
-        },
-        {
-          id: 'ux',
-          name: 'User Experience'
-        },
-        ...
-      ],
-    },
-  ]}
-/>
+  <MultiSelect
+    buttonText="MultiSelect"
+    id="multi-select-id"
+    isBlockElement
+    isDefaultOpen
+    items={[
+      {
+        id: "art",
+        name: "Art",
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+      },
+      {
+        id: 'design',
+        name: 'Design',
+        children: [
+          {
+            id: 'fashion',
+            name: 'Fashion',
+          },
+          {
+            id: 'ux',
+            name: 'User Experience'
+          },
+          ...
+        ],
+      },
+    ]}
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Close on Blur State
@@ -698,39 +716,39 @@ focus leaves the component (the user clicks outside or uses the keyboard to tab 
 
 <Source
   code={`
-<MultiSelect
-  buttonText="MultiSelect"
-  closeOnBlur
-  id="multi-select-id"
-  isBlockElement
-  items={[
-    {
-      id: "art",
-      name: "Art",
-    },
-    {
-      id: "architecture",
-      name: "Architecture",
-    },
-    {
-      id: 'design',
-      name: 'Design',
-      children: [
-        {
-          id: 'fashion',
-          name: 'Fashion',
-        },
-        {
-          id: 'ux',
-          name: 'User Experience'
-        },
-        ...
-      ],
-    },
-  ]}
-/>
+  <MultiSelect
+    buttonText="MultiSelect"
+    closeOnBlur
+    id="multi-select-id"
+    isBlockElement
+    items={[
+      {
+        id: "art",
+        name: "Art",
+      },
+      {
+        id: "architecture",
+        name: "Architecture",
+      },
+      {
+        id: 'design',
+        name: 'Design',
+        children: [
+          {
+            id: 'fashion',
+            name: 'Fashion',
+          },
+          {
+            id: 'ux',
+            name: 'User Experience'
+          },
+          ...
+        ],
+      },
+    ]}
+  />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## MultiSelect in a Group
@@ -747,8 +765,8 @@ The `useMultiSelect` hook also provides an `onClearAll` function that can be
 used to clear all the selected checkboxes across all `MultiSelect` components.
 The `MultiSelect` component does _NOT_ have an `onClearAll` prop. Instead, the
 `onClearAll` function should be invoked in a separate button or action.
-Alternatively, use the `MultiSelectGroup` or `FilterBar` (name TBD) components
-in future releases.
+Alternatively, use the `MultiSelectGroup`, `FilterBarInline`, or
+`FilterBarPopup` components.
 
 <Banner
   content={
@@ -757,49 +775,53 @@ in future releases.
       <code>MultiSelect</code> component a unique <code>id</code>.
     </>
   }
-  type="informative"
+  variant="informative"
 />
 
 <Canvas of={MultiSelectStories.InAGroup} />
 
 <Source
   code={`
-import { MultiSelect, useMultiSelect } from "@nypl/design-system-react-components";
-// ...
-function MultiSelectGroupExample() {
-  // Example with custom hook useMultiSelect.
-  const { onChange, onMixedStateChange, onClear, selectedItems } =
-    useMultiSelect();
-  return (
-    <HStack>
-      <MultiSelect
-        buttonText="MultiSelect"
-        id="ms-group-1"
-        items={items}
-        selectedItems={selectedItems}
-        width="fitContent"
-        onChange={(e) => {
-          onChange(e.target.id, "ms-group-1");
-          setActionName("onChange");
-        }}
-        onMixedStateChange={(e) => {
-          onMixedStateChange(e.target.id, "ms-group-1", items);
-          setActionName("onMixedStateChange");
-        }}
-        onClear={() => {
-          onClear("ms-group-1");
-          setActionName("onClear");
-        }}
-      />
-      <MultiSelect
-        id="ms-group-2"
-        // ...
-      />
-    </HStack>
-  );
-}
+  import { MultiSelect, useMultiSelect } from "@nypl/design-system-react-components";
+  // ...
+  function MultiSelectGroupExample() {
+    // Example with custom hook useMultiSelect.
+    const { onChange, onMixedStateChange, onClear, selectedItems } =
+      useMultiSelect();
+    return (
+      <HStack>
+        <MultiSelect
+          buttonText="MultiSelect"
+          id="ms-group-1"
+          items={items}
+          selectedItems={selectedItems}
+          width="fitContent"
+          onChange={(e) => {
+            onChange(e.target.id, "ms-group-1");
+            setActionName("onChange");
+          }}
+          onMixedStateChange={(e) => {
+            onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: "ms-group-1",
+              items: items,
+            });
+            setActionName("onMixedStateChange");
+          }}
+          onClear={() => {
+            onClear("ms-group-1");
+            setActionName("onClear");
+          }}
+        />
+        <MultiSelect
+          id="ms-group-2"
+          // ...
+        />
+      </HStack>
+    );
+  }
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## Controlling State Using selectedItems and onChange Props
@@ -825,25 +847,25 @@ Below is an exaple of the expected state shape of `selectedItems`:
 ## MultiSelect NextJS routing implementation
 
 This is helpful for when several `MultiSelect` components are rendered inside a
-`FilterBar` component. The `MultiSelect` component's `id` can be used to get
-items for a specific slice of the state.
+`FilterBarInline` or `FilterBarPopup` component. The `MultiSelect` component's
+`id` can be used to get items for a specific slice of the state.
 
 <Source
   code={`
-// The selectedItems structure with multiple MultiSelect components
-{
-  subjects: {
-    items:["art", "architecture"]
-    },
-    locations: {
-      items: ["sasb"]
-    }
-}
-// Getting the selectedItems for a specific MultiSelect
-const subjectsSelectedItemssOnly = selectedItems["subjects"].items;
-const locationsSelectedItemssOnly = selectedItems["locations"].items;
+  // The selectedItems structure with multiple MultiSelect components
+  {
+    subjects: {
+      items:["art", "architecture"]
+      },
+      locations: {
+        items: ["sasb"]
+      }
+  }
+  // Getting the selectedItems for a specific MultiSelect
+  const subjectsSelectedItemssOnly = selectedItems["subjects"].items;
+  const locationsSelectedItemssOnly = selectedItems["locations"].items;
 `}
-  language="jsx"
+  language="tsx"
 />
 
 It's also helpful if a consuming app is pushing state into the browser's url.
@@ -851,26 +873,26 @@ This example uses NextJS's router push method to add query parameters to url.
 
 <Source
   code={`
-const multiSelectId = "subjects";
-// This wouldn't be a const in real world code, but for display purposes here
-// to show the state object more clearly.
-const mockStateObject = {
-  subjects: {
-    items: ["art", "architecture"],
-  },
-  locations: {
-    items: ["sasb"],
-  },
-};
-// ...
-// Will push ?subjects=art,architecture into browser url.
-router.push({
-  query: {
-    [multiSelectId]: selectedItems[multiSelectId].items.join(" "),
-  },
-});
+  const multiSelectId = "subjects";
+  // This wouldn't be a const in real world code, but for display purposes here
+  // to show the state object more clearly.
+  const mockStateObject = {
+    subjects: {
+      items: ["art", "architecture"],
+    },
+    locations: {
+      items: ["sasb"],
+    },
+  };
+  // ...
+  // Will push ?subjects=art,architecture into browser url.
+  router.push({
+    query: {
+      [multiSelectId]: selectedItems[multiSelectId].items.join(" "),
+    },
+  });
 `}
-  language="jsx"
+  language="tsx"
 />
 
 This is an example with a `handleChange` function to manage the `selectedItems`
@@ -878,52 +900,52 @@ state, without mutating it.
 
 <Source
   code={`
-import React, { useState } from "react";
-import { MultiSelect } from "@nypl/design-system-react-components";
-// ...
-function MultiSelectControlledExample() {
-  const [selectedItems, setSelectedItems] = useState({});
-  function handleChange(itemId: string, multiSelectId: string) {
-    let itemIds;
-    // Check if the id already exists in the state
-    if (selectedItems[multiSelectId] !== undefined) {
-      let itemIdExists =
-        selectedItems[multiSelectId].items.indexOf(itemId) > -1;
-      // Make a copy of the existing array.
-      itemIds = selectedItems[multiSelectId].items.slice();
-      // If itemId exists, remove it from the array.
-      if (itemIdExists) {
-        itemIds = itemIds.filter((id) => id != itemId);
+  import React, { useState } from "react";
+  import { MultiSelect } from "@nypl/design-system-react-components";
+  // ...
+  function MultiSelectControlledExample() {
+    const [selectedItems, setSelectedItems] = useState({});
+    function handleChange(itemId: string, multiSelectId: string) {
+      let itemIds;
+      // Check if the id already exists in the state
+      if (selectedItems[multiSelectId] !== undefined) {
+        let itemIdExists =
+          selectedItems[multiSelectId].items.indexOf(itemId) > -1;
+        // Make a copy of the existing array.
+        itemIds = selectedItems[multiSelectId].items.slice();
+        // If itemId exists, remove it from the array.
+        if (itemIdExists) {
+          itemIds = itemIds.filter((id) => id != itemId);
+        } else {
+          // Add it to the array, but modify the copy, not the original.
+          itemIds.push(itemId);
+        }
       } else {
-        // Add it to the array, but modify the copy, not the original.
+        itemIds = [];
         itemIds.push(itemId);
       }
-    } else {
-      itemIds = [];
-      itemIds.push(itemId);
+      setSelectedItems({
+        ...selectedItems,
+        [multiSelectId]: {
+          items: itemIds,
+        },
+      });
     }
-    setSelectedItems({
-      ...selectedItems,
-      [multiSelectId]: {
-        items: itemIds,
-      },
-    });
+    return (
+      <MultiSelect
+        buttonText="MultiSelect"
+        id="multi-select-id"
+        items={items}
+        selectedItems={selectedItems}
+        onChange={(selectedItem) => {
+          handleChange(selectedItem.id, "subjects");
+        }}
+      />
+    );
   }
-  return (
-    <MultiSelect
-      buttonText="MultiSelect"
-      id="multi-select-id"
-      items={items}
-      selectedItems={selectedItems}
-      onChange={(selectedItem) => {
-        handleChange(selectedItem.id, "subjects");
-      }}
-    />
-  );
-}
-export default MultiSelectControlledExample;
+  export default MultiSelectControlledExample;
 `}
-  language="jsx"
+  language="tsx"
 />
 
 ## useMultiSelect hook

@@ -1,14 +1,18 @@
 import { Meta } from "@storybook/addon-docs/blocks";
 
+import ComponentDocsHeader from "../../../../utils/components/ComponentDocsHeader";
 import Image from "../../../Image/Image";
 import Link from "../../../Link/Link";
 
-import imageKeywordSearchField from "/static/filteringStyleGuide/keywordSearchField.png";
+import imageKeywordSearchField from "/public/filteringStyleGuide/keywordSearchField.png";
 import { exampleWrapperStyles } from "../../../../utils/utils.ts";
 
 <Meta title="Style Guide/Filtering/Page elements/Keyword search field" />
 
-# Keyword search field
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Keyword search field"
+/>
 
 The `keyword search` field provides a way for users to enter a text string to
 search and retrieve related information from a defined data set. It is not
@@ -26,9 +30,9 @@ produced with a keyword search.
 
 ## Table of contents
 
-- {<Link href="#rendering" target="_self">Rendering</Link>}
-- {<Link href="#position" target="_self">Position</Link>}
-- {<Link href="#anti-patterns" target="_self">Anti-patterns</Link>}
+- [Rendering](#rendering)
+- [Position](#position)
+- [Anti-patterns](#anti-patterns)
 
 ## Rendering
 

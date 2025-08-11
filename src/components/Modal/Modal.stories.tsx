@@ -7,6 +7,7 @@ import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
+import Text from "../Text/Text";
 import { BaseModalProps, ModalTrigger, useModal } from "./Modal";
 
 const meta: Meta<typeof ModalTrigger> = {
@@ -14,13 +15,12 @@ const meta: Meta<typeof ModalTrigger> = {
   component: ModalTrigger,
   argTypes: {
     buttonText: { control: { type: "text" } },
-    id: { control: false },
     modalProps: {
       control: { type: "object" },
       description:
         "Props to update the internal `Modal` component. This contains the" +
         "`bodyContent`, `closeButtonLabel`, `confirmButtonLabel`, `headingText`, `isOpen`," +
-        "`onClose`, or `onCancel` and `onConfirm`, and `type` props",
+        "`onClose`, or `onCancel` and `onConfirm`, and `variant` props",
     },
   },
 };
@@ -34,12 +34,11 @@ type Story = StoryObj<typeof ModalTrigger>;
  */
 export const WithControls: Story = {
   args: {
-    buttonText: "Button Text",
-    id: "modal-trigger",
+    buttonText: "Open Modal",
     modalProps: {
-      type: "default",
-      bodyContent: "body text",
-      closeButtonLabel: "Close Button",
+      bodyContent:
+        "Modal body text. Et perspiciatis ad nulla vel autem sed. Ad sequi cupiditate veritatis voluptas itaque aspernatur illo nostrum sequi eius soluta consectetur dolorem. Odit eum est officiis et natus doloribus sed in id. Voluptatum sed repellendus delectus voluptas sit omnis aut eius laboriosam corrupti.",
+      closeButtonLabel: "Close Modal",
       headingText: (
         <Heading
           level="h3"
@@ -61,6 +60,7 @@ export const WithControls: Story = {
       onClose: () => {
         console.log("custom close");
       },
+      variant: "default",
     },
   },
   render: (args) => <ModalTrigger {...args} />,
@@ -72,13 +72,12 @@ export const WithControls: Story = {
 const ModalStory = () => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
-    type: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>
           Go back
         </Button>
-        <p>This is the body content.</p>
+        <Text mb="s">This is the body content.</Text>
         <Button id="custom-close2" onClick={onClose}>
           This is a custom close button.
         </Button>
@@ -90,15 +89,16 @@ const ModalStory = () => {
       console.log("custom close");
       onClose();
     },
+    variant: "default",
   };
 
   return (
     <>
-      <ButtonGroup>
+      <ButtonGroup mb="s">
         <Button id="1" onClick={onOpen}>
           Open Modal
         </Button>
-        <Button buttonType="secondary" id="2" onClick={onOpen}>
+        <Button variant="secondary" id="2" onClick={onOpen}>
           I can open the modal, too
         </Button>
       </ButtonGroup>
@@ -114,8 +114,7 @@ const ModalStory = () => {
 const ConfirmationModalStory = () => {
   const { onClose, onOpen, Modal } = useModal();
   const confirmationModalProps = {
-    type: "confirmation",
-    bodyContent: <p>This is the body content.</p>,
+    bodyContent: <Text>This is the body content.</Text>,
     closeButtonLabel: "Cancel Button",
     confirmButtonLabel: "Confirm Button",
     headingText: "useModal with Confirmation Variant",
@@ -127,6 +126,7 @@ const ConfirmationModalStory = () => {
       console.log("custom confirm");
       onClose();
     },
+    variant: "confirmation",
   };
 
   return (
@@ -135,7 +135,7 @@ const ConfirmationModalStory = () => {
         <Button id="1" onClick={onOpen}>
           Open Confirmation Modal
         </Button>
-        <Button buttonType="secondary" id="2" onClick={onOpen}>
+        <Button variant="secondary" id="2" onClick={onOpen}>
           I can open the modal, too
         </Button>
       </ButtonGroup>
@@ -147,13 +147,6 @@ const ConfirmationModalStory = () => {
 // The following are additional Modal example Stories.
 export const useModalStory: Story = {
   argTypes: {
-    type: {
-      options: ["default", "confirmation"],
-      table: {
-        defaultValue: { summary: "default" },
-      },
-      description: "Modal variants: default or confirmation.",
-    },
     buttonText: { table: { disable: true } },
     bodyContent: {
       control: { type: "text" },
@@ -194,37 +187,44 @@ export const useModalStory: Story = {
         "Function to call when the modal action is canceled. Do not pass this prop with the default variant.",
     },
     modalProps: { table: { disable: true } },
+    variant: {
+      options: ["default", "confirmation"],
+      table: {
+        defaultValue: { summary: "default" },
+      },
+      description: "Modal variants: default or confirmation.",
+    },
   },
   render: () => <ModalStory />,
   name: "useModal Component",
 };
 
 const scrollModalProps: BaseModalProps = {
-  type: "default",
+  variant: "default",
   bodyContent: (
     <>
-      <Heading text="Content Title" />
-      <p>
+      <Heading mb="s" text="Content Title" />
+      <Text mb="s">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa
-        placerat duis ultricies lacus sed turpis tincidunt.
+        placerat duis ultricies lacus sed turpis tincidunt.{" "}
         <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non arcu
         risus quis varius. Faucibus in ornare quam viverra orci sagittis.
-      </p>
-      <p>
+      </Text>
+      <Text mb="s">
         Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis enim
         lobortis scelerisque fermentum. Diam maecenas sed enim ut sem viverra.
         Diam quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.
-      </p>
-      <p>
+      </Text>
+      <Text mb="s">
         Ornare lectus sit amet est placerat in. Quis blandit turpis cursus in.
         Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Pellentesque
         eu tincidunt tortor aliquam nulla facilisi cras fermentum. Porttitor leo
         a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl pretium fusce
         id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl
         nunc.
-      </p>
-      <p>
+      </Text>
+      <Text mb="s">
         Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
         gravida quis blandit turpis cursus in hac. Morbi tempus iaculis urna id
         volutpat. Lectus nulla at volutpat diam ut venenatis. Donec ac odio
@@ -236,29 +236,29 @@ const scrollModalProps: BaseModalProps = {
         est sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at
         risus 'viverra adipiscing at. Eu augue ut lectus arcu bibendum at varius
         vel' pharetra.
-      </p>
-      <Heading text="Another Title" />
-      <p>
+      </Text>
+      <Heading mb="s" text="Another Title" />
+      <Text mb="s">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Pellentesque massa
-        placerat duis ultricies lacus sed turpis tincidunt.
+        placerat duis ultricies lacus sed turpis tincidunt.{" "}
         <Link href="http://nypl.org">Porttitor eget dolor</Link> morbi non arcu
         risus quis varius. Faucibus in ornare quam viverra orci sagittis.
-      </p>
-      <p>
+      </Text>
+      <Text mb="s">
         Nisl vel pretium lectus quam id leo in. Etiam dignissim diam quis enim
         lobortis scelerisque fermentum. Diam maecenas sed enim ut sem viverra.
         Diam quam nulla porttitor massa id neque. Sed faucibus turpis in eu mi.
-      </p>
-      <p>
+      </Text>
+      <Text mb="s">
         Ornare lectus sit amet est placerat in. Quis blandit turpis cursus in.
         Aliquam ut porttitor leo a diam sollicitudin tempor id eu. Pellentesque
         eu tincidunt tortor aliquam nulla facilisi cras fermentum. Porttitor leo
         a diam sollicitudin tempor id eu nisl nunc. Feugiat nisl pretium fusce
         id velit ut tortor. Porttitor leo a diam sollicitudin tempor id eu nisl
         nunc.
-      </p>
-      <p>
+      </Text>
+      <Text>
         Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Purus
         gravida quis blandit turpis cursus in hac. Morbi tempus iaculis urna id
         volutpat. Lectus nulla at volutpat diam ut venenatis. Donec ac odio
@@ -270,7 +270,7 @@ const scrollModalProps: BaseModalProps = {
         est sit. Turpis egestas integer eget aliquet nibh praesent. Tortor at
         risus 'viverra adipiscing at. Eu augue ut lectus arcu bibendum at varius
         vel' pharetra.
-      </p>
+      </Text>
     </>
   ),
   closeButtonLabel: "Close Button",
@@ -278,20 +278,19 @@ const scrollModalProps: BaseModalProps = {
 };
 
 const defaultHeadingModalProps: BaseModalProps = {
-  type: "default",
   bodyContent: (
-    <p>
+    <Text>
       The heading of this modal is level "h2" and size "heading4", since no
       custom heading element has been passed in.
-    </p>
+    </Text>
   ),
   closeButtonLabel: "Close Button",
   headingText: "Default Heading",
+  variant: "default",
 };
 
 const confirmationProps: BaseModalProps = {
-  type: "confirmation",
-  bodyContent: <p>The action is happening</p>,
+  bodyContent: <Text>The action is happening</Text>,
   closeButtonLabel: "Cancel action",
   confirmButtonLabel: "Confirm action",
   onCancel: () => {
@@ -301,6 +300,7 @@ const confirmationProps: BaseModalProps = {
     console.log("confirm");
   },
   headingText: "This is an action",
+  variant: "confirmation",
 };
 
 export const ConfirmationUseModal: Story = {

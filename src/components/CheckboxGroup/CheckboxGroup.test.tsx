@@ -8,7 +8,23 @@ import renderer from "react-test-renderer";
 import CheckboxGroup from "./CheckboxGroup";
 import Checkbox from "../Checkbox/Checkbox";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("CheckboxGroup Accessibility", () => {
+  it("passes axe accessibility with no id ", async () => {
+    const { container } = render(
+      <CheckboxGroup labelText="CheckboxGroup example" name="a11y-test">
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
+        <Checkbox id="checkbox5" value="5" labelText="Checkbox 5" />
+      </CheckboxGroup>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
   it("passes axe accessibility with string labels ", async () => {
     const { container } = render(
       <CheckboxGroup
@@ -76,6 +92,20 @@ describe("CheckboxGroup Accessibility", () => {
 });
 
 describe("Checkbox", () => {
+  it("should add an id to the component even if none is passed", () => {
+    render(
+      <CheckboxGroup labelText="Test Label" name="test1">
+        <Checkbox id="checkbox2" value="2" labelText="Checkbox 2" />
+        <Checkbox id="checkbox3" value="3" labelText="Checkbox 3" />
+        <Checkbox id="checkbox4" value="4" labelText="Checkbox 4" />
+      </CheckboxGroup>
+    );
+    expect(screen.getByTestId("ds-checkboxGroup")).toHaveAttribute(
+      "id",
+      "test-id"
+    );
+  });
+
   it("renders with Checkbox inputs and a label", () => {
     render(
       <CheckboxGroup id="checkboxGroup" labelText="Test Label" name="test1">
@@ -167,10 +197,7 @@ describe("Checkbox", () => {
     );
 
     // The "group" role here is for the `fieldset` element.
-    expect(screen.getByRole("group")).toHaveAttribute(
-      "id",
-      "some-id-checkbox-group"
-    );
+    expect(screen.getByRole("group")).toHaveAttribute("id", "some-id");
   });
 
   it("sets the next value through the onChange function", () => {
@@ -288,20 +315,6 @@ describe("Checkbox", () => {
     expect(Checkboxes[0]).toHaveAttribute("aria-invalid");
     expect(Checkboxes[1]).toHaveAttribute("aria-invalid");
     expect(Checkboxes[2]).toHaveAttribute("aria-invalid");
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <CheckboxGroup labelText="column" name="column">
-        <Checkbox id="checkbox1" value="1" labelText="Checkbox 1" />
-      </CheckboxGroup>
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir CheckboxGroup: This component's required `id` prop was not passed."
-    );
   });
 
   it("updates the selected checkboxes programmatically through the `value` prop", () => {

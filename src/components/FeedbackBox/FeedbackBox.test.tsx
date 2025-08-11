@@ -6,6 +6,11 @@ import renderer from "react-test-renderer";
 
 import FeedbackBox from "./FeedbackBox";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("FeedbackBox Accessibility", () => {
   it("passes axe accessibility when closed", async () => {
     const onSubmit = jest.fn();
@@ -32,6 +37,13 @@ describe("FeedbackBox Accessibility", () => {
 
 describe("FeedbackBox", () => {
   let onSubmit = jest.fn();
+
+  it("should add an id to the component even if none is passed", () => {
+    render(<FeedbackBox onSubmit={onSubmit} title="Help and Feedback" />);
+
+    const container = screen.getByTestId("ds-feedbackBox");
+    expect(container).toHaveAttribute("id", "test-id");
+  });
 
   it("renders a button component", () => {
     render(<FeedbackBox title="Help and Feedback" onSubmit={onSubmit} />);

@@ -3,16 +3,19 @@
 exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
-  id="id-wrapper"
+  data-testid="ds-componentWrapper"
+  id="id-componentWrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
+    data-testid="ds-heading"
     id="id-heading"
   >
     heading text
   </h2>
   <p
-    className="chakra-text css-1xdhyk6"
+    className="chakra-text css-ap6r8h"
+    data-testid="ds-text"
   >
     description text
   </p>
@@ -24,7 +27,8 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
-    id="id-helperText"
+    data-testid="ds-helperErrorText"
+    id="id-helperErrorText"
   >
     <div
       className="css-0"
@@ -41,7 +45,8 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
 exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
-  id="id-wrapper"
+  data-testid="ds-componentWrapper"
+  id="id-componentWrapper"
 >
   <div>
     children elements
@@ -52,16 +57,19 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
 exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
-  id="id-wrapper"
+  data-testid="ds-componentWrapper"
+  id="id-componentWrapper"
 >
   <h2
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-1uhtpq1"
+    data-testid="ds-heading"
     id="id-heading"
   >
     heading text
   </h2>
   <p
-    className="chakra-text css-1xdhyk6"
+    className="chakra-text css-ap6r8h"
+    data-testid="ds-text"
   >
     description text
   </p>
@@ -73,7 +81,8 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
     aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
-    id="id-helperText"
+    data-testid="ds-helperErrorText"
+    id="id-helperErrorText"
   >
     <div
       className="css-0"
@@ -90,7 +99,8 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
 exports[`ComponentWrapper Renders the UI snapshot correctly 4`] = `
 <div
   className="css-kle7zy"
-  id="chakra-wrapper"
+  data-testid="ds-componentWrapper"
+  id="chakra-componentWrapper"
 >
   <div>
     children elements
@@ -102,7 +112,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 5`] = `
 <div
   className="css-1xdhyk6"
   data-testid="props"
-  id="props-wrapper"
+  id="props-componentWrapper"
 >
   <div>
     children elements

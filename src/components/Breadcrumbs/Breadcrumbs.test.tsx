@@ -59,6 +59,13 @@ describe("Breadcrumbs Accessibility", () => {
 });
 
 describe("Breadcrumbs", () => {
+  it("should not render an id if none is passed", () => {
+    render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
+
+    const container = screen.getByTestId("ds-breadcrumbs");
+    expect(container).not.toHaveAttribute("id");
+  });
+
   it("Renders a tag with custom text", () => {
     render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
 
@@ -70,14 +77,15 @@ describe("Breadcrumbs", () => {
   });
 
   it("Renders icon on mobile", () => {
-    const { container } = render(
-      <Breadcrumbs breadcrumbsData={breadcrumbsData} />
-    );
-    expect(container.querySelector(".breadcrumbs-icon")).toBeInTheDocument();
+    render(<Breadcrumbs breadcrumbsData={breadcrumbsData} />);
+    expect(screen.getByTestId("ds-breadcrumbs-backarrow")).toBeInTheDocument();
   });
 
-  it("Throws error when nothing is passed into Breadcrumb", () => {
-    expect(() => render(<Breadcrumbs breadcrumbsData={[]} />)).toThrowError(
+  it("logs a warning when nothing is passed into Breadcrumb", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Breadcrumbs breadcrumbsData={[]} />);
+
+    expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Breadcrumbs: No data was passed to the `breadcrumbsData` prop."
     );
   });
@@ -148,7 +156,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="booksAndMore"
+          variant="booksAndMore"
           id="breadcrumbs-test"
         />
       )
@@ -157,7 +165,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="blogs"
+          variant="blogs"
           id="breadcrumbs-test"
         />
       )
@@ -166,7 +174,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="locations"
+          variant="locations"
           id="breadcrumbs-test"
         />
       )
@@ -175,7 +183,7 @@ describe("Breadcrumbs Snapshot", () => {
       .create(
         <Breadcrumbs
           breadcrumbsData={breadcrumbsData}
-          breadcrumbsType="education"
+          variant="education"
           id="breadcrumbs-test"
         />
       )

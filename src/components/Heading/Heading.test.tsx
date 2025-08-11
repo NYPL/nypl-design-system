@@ -13,6 +13,11 @@ describe("Heading Accessibility", () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(<Heading level="h1" text="Heading 1" />);
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
   it("passes axe accessibility test with hgroup element", async () => {
     const { container } = render(
       <Heading
@@ -28,6 +33,10 @@ describe("Heading Accessibility", () => {
 });
 
 describe("Heading", () => {
+  it("should not render an id if none is passed", () => {
+    render(<Heading level="h1" text="Heading 1" />);
+    expect(screen.getByRole("heading")).not.toHaveAttribute("id");
+  });
   it("renders and HTML heading element with the correct level", () => {
     render(<Heading id="h1" level="h1" text="Heading 1" />);
     expect(screen.getByRole("heading", { level: 1 })).toBeInTheDocument();
@@ -95,21 +104,12 @@ describe("Heading", () => {
     );
   });
 
-  it("throws error when neither child nor text is passed", () => {
-    expect(() => render(<Heading id="h1" level="h1" />)).toThrow(
+  it("logs a warning when neither child nor text is passed", () => {
+    const warn = jest.spyOn(console, "warn");
+    render(<Heading id="h1" level="h1" />);
+    expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir Heading: No children or value was passed to the `text` prop."
     );
-  });
-
-  it("throws error when heading with many children is passed", () => {
-    expect(() =>
-      render(
-        <Heading id="h1" level="h4">
-          <span>too</span>
-          <span>many</span>
-        </Heading>
-      )
-    ).toThrow("NYPL Reservoir Heading: Only pass one child into Heading.");
   });
 
   it("uses custom display size", () => {

@@ -1,27 +1,35 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
-import { changelogData } from "./labelChangelogData";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+} from "@storybook/addon-docs/blocks";
 
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as LabelStories from "./Label.stories";
-import Link from "../Link/Link";
+import { changelogData } from "./labelChangelogData";
 
 <Meta of={LabelStories} />
 
-# Label
+<ComponentDocsHeader
+  category="Form elements"
+  componentName="Label"
+  summary="Native label element used for form elements"
+  versionAdded="0.0.10"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.10`   |
-| Latest            | `3.5.5`    |
+<Canvas of={LabelStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#isrequired-helper-text" target="_self">isRequired helper text</Link>}
-- {<Link href="#requiredlabeltext-to-customize-required-label" target="_self">requiredLabelText to customize required label</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [isRequired helper text](#isrequired-helper-text)
+- [requiredLabelText to customize required label](#requiredlabeltext-to-customize-required-label)
+- [Changelog](#changelog)
 
 ## Overview
 
@@ -29,20 +37,22 @@ import Link from "../Link/Link";
 
 ## Component Props
 
-<Canvas of={LabelStories.WithControls} />
+`Label` composes an HTML `label` element, so you may pass any HTML `label` attributes,
+as well as any of the Chakra style props and the props below.
 
 <ArgTypes of={LabelStories.WithControls} />
 
 ## Accessibility
 
-The `Label` component is an accessible HTML `<label>` element. The JSX prop
-`htmlFor` should be set to the `id` of the input element that the label is
-associated with. This is the proper way to label inputs so that screenreaders
-can read the label, without the use of the `aria-label` attribute on the input
-element.
+The `Label` component renders an HTML `<label>` element.
+
+The HTML attribute `htmlFor` must be set to the `id` of the input element
+that the label is associated with. This is the proper way to label inputs
+so that screenreaders can read the label, without the use of the `aria-label`
+attribute on the input element.
 
 Note: All form-related Reservoir components already implement this `Label`
-component so there is no need to use this component unless if you are building
+component so there is no need to use this component unless you are building
 a new form-related input component.
 
 Resources:
