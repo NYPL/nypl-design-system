@@ -1,0 +1,13 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import SubNav from "./SubNav";
+declare const meta: Meta<typeof SubNav>;
+export declare const WithControls: Story;
+export declare const SelectedItem: Story;
+export declare const OutlinedItem: Story;
+export declare const UsingIcons: Story;
+export declare const UsingIconsMobile: Story;
+export declare const CustomColors: Story;
+export declare const HorizontalScrolling: Story;
+export declare const Placement: Story;
+export default meta;
+type Story = StoryObj<typeof SubNav>;

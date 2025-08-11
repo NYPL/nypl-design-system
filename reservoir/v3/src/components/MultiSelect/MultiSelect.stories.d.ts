@@ -1,0 +1,17 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import MultiSelect from "./MultiSelect";
+declare const meta: Meta<typeof MultiSelect>;
+export default meta;
+type Story = StoryObj<typeof MultiSelect>;
+export declare const withControls: Story;
+export declare const visibleListItems: Story;
+export declare const nestedListItems: Story;
+export declare const disabledListItems: Story;
+export declare const disabledListItemsAllChildren: Story;
+export declare const searchInputField: Story;
+export declare const itemCountListItems: Story;
+export declare const isBlockElement: Story;
+export declare const width: Story;
+export declare const defaultOpenState: Story;
+export declare const closeOnBlurState: Story;
+export declare const InAGroup: Story;
