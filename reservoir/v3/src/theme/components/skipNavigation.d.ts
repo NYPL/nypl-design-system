@@ -1,39 +1,39 @@
 declare const SkipNavigation: {
-    baseStyle?: {
-        ul: {
-            margin: string;
-        };
-        a: {
-            backgroundColor: string;
-            height: string;
-            left: string;
-            overflow: string;
-            position: string;
-            top: string;
-            width: string;
-            _focus: {
-                height: string;
-                left: string;
-                paddingX: string;
-                paddingY: string;
-                top: string;
-                width: string;
-            };
-            _dark: {
-                backgroundColor: string;
-            };
-        };
+  baseStyle?: {
+    ul: {
+      margin: string;
     };
-    sizes?: {
-        [key: string]: import("@chakra-ui/styled-system").SystemStyleInterpolation;
+    a: {
+      backgroundColor: string;
+      height: string;
+      left: string;
+      overflow: string;
+      position: string;
+      top: string;
+      width: string;
+      _focus: {
+        height: string;
+        left: string;
+        paddingX: string;
+        paddingY: string;
+        top: string;
+        width: string;
+      };
+      _dark: {
+        backgroundColor: string;
+      };
     };
-    variants?: {
-        [key: string]: import("@chakra-ui/styled-system").SystemStyleInterpolation;
-    };
-    defaultProps?: {
-        size?: string | number;
-        variant?: string | number;
-        colorScheme?: string;
-    };
+  };
+  sizes?: {
+    [key: string]: import("@chakra-ui/styled-system").SystemStyleInterpolation;
+  };
+  variants?: {
+    [key: string]: import("@chakra-ui/styled-system").SystemStyleInterpolation;
+  };
+  defaultProps?: {
+    size?: string | number;
+    variant?: string | number;
+    colorScheme?: string;
+  };
 };
 export default SkipNavigation;

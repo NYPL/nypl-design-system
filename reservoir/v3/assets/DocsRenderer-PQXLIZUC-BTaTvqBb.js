@@ -1,1 +1,77 @@
-import{bS as i,bT as u,bU as m,bV as p,bl as t,bW as d,r as h,bX as E,u as _}from"./iframe-D93LbwGv.js";import{renderElement as b,unmountElement as x}from"./react-18-DN_Ii1Ht.js";const D=Object.freeze(Object.defineProperty({__proto__:null,MDXProvider:E,useMDXComponents:_},Symbol.toStringTag,{value:"Module"}));var v={code:m,a:u,...i},M=class extends h.Component{constructor(){super(...arguments),this.state={hasError:!1}}static getDerivedStateFromError(){return{hasError:!0}}componentDidCatch(r){let{showException:e}=this.props;e(r)}render(){let{hasError:r}=this.state,{children:e}=this.props;return r?null:t.createElement(t.Fragment,null,e)}},g=class{constructor(){this.render=async(r,e,n)=>{let s={...v,...e==null?void 0:e.components},a=d;return new Promise((l,c)=>{p(async()=>{const{MDXProvider:o}=await Promise.resolve().then(()=>D);return{MDXProvider:o}},void 0,import.meta.url).then(({MDXProvider:o})=>b(t.createElement(M,{showException:c,key:Math.random()},t.createElement(o,{components:s},t.createElement(a,{context:r,docsParameter:e}))),n)).then(()=>l())})},this.unmount=r=>{x(r)}}};export{g as DocsRenderer,v as defaultComponents};
+import {
+  bS as i,
+  bT as u,
+  bU as m,
+  bV as p,
+  bl as t,
+  bW as d,
+  r as h,
+  bX as E,
+  u as _,
+} from "./iframe-D93LbwGv.js";
+import {
+  renderElement as b,
+  unmountElement as x,
+} from "./react-18-DN_Ii1Ht.js";
+const D = Object.freeze(
+  Object.defineProperty(
+    { __proto__: null, MDXProvider: E, useMDXComponents: _ },
+    Symbol.toStringTag,
+    { value: "Module" }
+  )
+);
+var v = { code: m, a: u, ...i },
+  M = class extends h.Component {
+    constructor() {
+      super(...arguments), (this.state = { hasError: !1 });
+    }
+    static getDerivedStateFromError() {
+      return { hasError: !0 };
+    }
+    componentDidCatch(r) {
+      let { showException: e } = this.props;
+      e(r);
+    }
+    render() {
+      let { hasError: r } = this.state,
+        { children: e } = this.props;
+      return r ? null : t.createElement(t.Fragment, null, e);
+    }
+  },
+  g = class {
+    constructor() {
+      (this.render = async (r, e, n) => {
+        let s = { ...v, ...(e == null ? void 0 : e.components) },
+          a = d;
+        return new Promise((l, c) => {
+          p(
+            async () => {
+              const { MDXProvider: o } = await Promise.resolve().then(() => D);
+              return { MDXProvider: o };
+            },
+            void 0,
+            import.meta.url
+          )
+            .then(({ MDXProvider: o }) =>
+              b(
+                t.createElement(
+                  M,
+                  { showException: c, key: Math.random() },
+                  t.createElement(
+                    o,
+                    { components: s },
+                    t.createElement(a, { context: r, docsParameter: e })
+                  )
+                ),
+                n
+              )
+            )
+            .then(() => l());
+        });
+      }),
+        (this.unmount = (r) => {
+          x(r);
+        });
+    }
+  };
+export { g as DocsRenderer, v as defaultComponents };

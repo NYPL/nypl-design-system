@@ -1,4 +1,4 @@
 declare const shadows: {
-    outline: string;
+  outline: string;
 };
 export default shadows;

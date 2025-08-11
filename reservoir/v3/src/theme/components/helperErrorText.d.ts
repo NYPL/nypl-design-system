@@ -1,34 +1,34 @@
 import { StyleFunctionProps } from "@chakra-ui/system";
 interface HelperErrorTextBaseStyle extends StyleFunctionProps {
-    isInvalid: boolean;
+  isInvalid: boolean;
 }
 declare const helperErrorText: {
-    baseStyle?: ({ isInvalid }: HelperErrorTextBaseStyle) => {
-        fontSize: string;
-        color: string;
-        _dark: {
-            color: string;
-        };
-        innerChild: {
-            marginTop: string;
-            marginBottom: string;
-        };
+  baseStyle?: ({ isInvalid }: HelperErrorTextBaseStyle) => {
+    fontSize: string;
+    color: string;
+    _dark: {
+      color: string;
     };
-    sizes?: {
-        [key: string]: import("@chakra-ui/styled-system").PartsStyleInterpolation<{
-            keys: "innerChild"[];
-        }>;
+    innerChild: {
+      marginTop: string;
+      marginBottom: string;
     };
-    variants?: {
-        [key: string]: import("@chakra-ui/styled-system").PartsStyleInterpolation<{
-            keys: "innerChild"[];
-        }>;
-    };
-    defaultProps?: {
-        size?: string | number;
-        variant?: string | number;
-        colorScheme?: string;
-    };
-    parts: "innerChild"[];
+  };
+  sizes?: {
+    [key: string]: import("@chakra-ui/styled-system").PartsStyleInterpolation<{
+      keys: "innerChild"[];
+    }>;
+  };
+  variants?: {
+    [key: string]: import("@chakra-ui/styled-system").PartsStyleInterpolation<{
+      keys: "innerChild"[];
+    }>;
+  };
+  defaultProps?: {
+    size?: string | number;
+    variant?: string | number;
+    colorScheme?: string;
+  };
+  parts: "innerChild"[];
 };
 export default helperErrorText;

@@ -1,5 +1,2872 @@
-import{r as oe,bP as Rt,j as q,a6 as dt,a_ as Z,H as ht,F as Dt,o as Et,a as jt,f as Ht}from"./iframe-D93LbwGv.js";import{a as Re}from"./storybookUtils-BmTl87w5.js";var mt={exports:{}},Bt="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",kt=Bt,Mt=kt;function yt(){}function St(){}St.resetWarningCache=yt;var qt=function(){function h(w,R,T,H,j,y){if(y!==Mt){var O=new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");throw O.name="Invariant Violation",O}}h.isRequired=h;function c(){return h}var u={array:h,bigint:h,bool:h,func:h,number:h,object:h,string:h,symbol:h,any:h,arrayOf:c,element:h,elementType:h,instanceOf:c,node:h,objectOf:c,oneOf:c,oneOfType:c,shape:c,exact:c,checkPropTypes:St,resetWarningCache:yt};return u.PropTypes=u,u};mt.exports=qt();var be=mt.exports,vt={};function At(h,c){if(h===c)return!0;if(!h||!c)return!1;var u=h.length;if(c.length!==u)return!1;for(var w=0;w<u;w++)if(h[w]!==c[w])return!1;return!0}var Ft=At,bt={},ke=function(){function h(c,u){var w=[],R=!0,T=!1,H=void 0;try{for(var j=c[Symbol.iterator](),y;!(R=(y=j.next()).done)&&(w.push(y.value),!(u&&w.length===u));R=!0);}catch(O){T=!0,H=O}finally{try{!R&&j.return&&j.return()}finally{if(T)throw H}}return w}return function(c,u){if(Array.isArray(c))return c;if(Symbol.iterator in Object(c))return h(c,u);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),Lt=function(h){var c=h.data,u=h.multiSection;function w(y){for(y===null?y=0:y++;y<c.length&&c[y]===0;)y++;return y===c.length?null:y}function R(y){for(y===null?y=c.length-1:y--;y>=0&&c[y]===0;)y--;return y===-1?null:y}function T(y){var O=ke(y,2),C=O[0],D=O[1];return u?D===null||D===c[C]-1?(C=w(C),C===null?[null,null]:[C,0]):[C,D+1]:c===0||D===c-1?[null,null]:D===null?[null,0]:[null,D+1]}function H(y){var O=ke(y,2),C=O[0],D=O[1];return u?D===null||D===0?(C=R(C),C===null?[null,null]:[C,c[C]-1]):[C,D-1]:c===0||D===0?[null,null]:D===null?[null,c-1]:[null,D-1]}function j(y){return T(y)[1]===null}return{next:T,prev:H,isLast:j}},De={exports:{}},Nt=Object.prototype.propertyIsEnumerable;function Wt(h){if(h==null)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(h)}function Ut(h){var c=Object.getOwnPropertyNames(h);return Object.getOwnPropertySymbols&&(c=c.concat(Object.getOwnPropertySymbols(h))),c.filter(function(u){return Nt.call(h,u)})}var $t=Object.assign||function(h,c){for(var u,w,R=Wt(h),T=1;T<arguments.length;T++){u=arguments[T],w=Ut(Object(u));for(var H=0;H<w.length;H++)R[w[H]]=u[w[H]]}return R};(function(h,c){Object.defineProperty(c,"__esModule",{value:!0});var u=function(){function y(O,C){var D=[],A=!0,k=!1,L=void 0;try{for(var F=O[Symbol.iterator](),N;!(A=(N=F.next()).done)&&(D.push(N.value),!(C&&D.length===C));A=!0);}catch(E){k=!0,L=E}finally{try{!A&&F.return&&F.return()}finally{if(k)throw L}}return D}return function(O,C){if(Array.isArray(O))return O;if(Symbol.iterator in Object(O))return y(O,C);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}();function w(y){return y&&y.__esModule?y:{default:y}}function R(y){if(Array.isArray(y)){for(var O=0,C=Array(y.length);O<y.length;O++)C[O]=y[O];return C}else return Array.from(y)}var T=$t,H=w(T),j=function(O){return O};c.default=function(y){var O=Array.isArray(y)&&y.length===2?y:[y,null],C=u(O,2),D=C[0],A=C[1];return function(k){for(var L=arguments.length,F=Array(L>1?L-1:0),N=1;N<L;N++)F[N-1]=arguments[N];var E=F.map(function(W){return D[W]}).filter(j);return typeof E[0]=="string"||typeof A=="function"?{key:k,className:A?A.apply(void 0,R(E)):E.join(" ")}:{key:k,style:H.default.apply(void 0,[{}].concat(R(E)))}}},h.exports=c.default})(De,De.exports);var Vt=De.exports,xt={},_e={};(function(h){Object.defineProperty(h,"__esModule",{value:!0}),h.default=u;function c(w){"@babel/helpers - typeof";return typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?c=function(T){return typeof T}:c=function(T){return T&&typeof Symbol=="function"&&T.constructor===Symbol&&T!==Symbol.prototype?"symbol":typeof T},c(w)}function u(w,R){var T=arguments.length>2&&arguments[2]!==void 0?arguments[2]:[];if(w===R)return!1;var H=Object.keys(w),j=Object.keys(R);if(H.length!==j.length)return!0;var y={},O,C;for(O=0,C=T.length;O<C;O++)y[T[O]]=!0;for(O=0,C=H.length;O<C;O++){var D=H[O],A=w[D],k=R[D];if(A!==k){if(!y[D]||A===null||k===null||c(A)!=="object"||c(k)!=="object")return!0;var L=Object.keys(A),F=Object.keys(k);if(L.length!==F.length)return!0;for(var N=0,E=L.length;N<E;N++){var W=L[N];if(A[W]!==k[W])return!0}}}return!1}})(_e);(function(h){Object.defineProperty(h,"__esModule",{value:!0}),h.default=void 0;var c=H(oe),u=R(be),w=R(_e);function R(v){return v&&v.__esModule?v:{default:v}}function T(){if(typeof WeakMap!="function")return null;var v=new WeakMap;return T=function(){return v},v}function H(v){if(v&&v.__esModule)return v;if(v===null||j(v)!=="object"&&typeof v!="function")return{default:v};var P=T();if(P&&P.has(v))return P.get(v);var b={},B=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var s in v)if(Object.prototype.hasOwnProperty.call(v,s)){var r=B?Object.getOwnPropertyDescriptor(v,s):null;r&&(r.get||r.set)?Object.defineProperty(b,s,r):b[s]=v[s]}return b.default=v,P&&P.set(v,b),b}function j(v){"@babel/helpers - typeof";return typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?j=function(b){return typeof b}:j=function(b){return b&&typeof Symbol=="function"&&b.constructor===Symbol&&b!==Symbol.prototype?"symbol":typeof b},j(v)}function y(v,P){if(!(v instanceof P))throw new TypeError("Cannot call a class as a function")}function O(v,P){for(var b=0;b<P.length;b++){var B=P[b];B.enumerable=B.enumerable||!1,B.configurable=!0,"value"in B&&(B.writable=!0),Object.defineProperty(v,B.key,B)}}function C(v,P,b){return P&&O(v.prototype,P),v}function D(v){return function(){var P=F(v),b;if(L()){var B=F(this).constructor;b=Reflect.construct(P,arguments,B)}else b=P.apply(this,arguments);return A(this,b)}}function A(v,P){return P&&(j(P)==="object"||typeof P=="function")?P:k(v)}function k(v){if(v===void 0)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return v}function L(){if(typeof Reflect>"u"||!Reflect.construct||Reflect.construct.sham)return!1;if(typeof Proxy=="function")return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch{return!1}}function F(v){return F=Object.setPrototypeOf?Object.getPrototypeOf:function(b){return b.__proto__||Object.getPrototypeOf(b)},F(v)}function N(v,P){if(typeof P!="function"&&P!==null)throw new TypeError("Super expression must either be null or a function");v.prototype=Object.create(P&&P.prototype,{constructor:{value:v,writable:!0,configurable:!0}}),P&&E(v,P)}function E(v,P){return E=Object.setPrototypeOf||function(B,s){return B.__proto__=s,B},E(v,P)}function W(v,P,b){return P in v?Object.defineProperty(v,P,{value:b,enumerable:!0,configurable:!0,writable:!0}):v[P]=b,v}var V=function(v){N(b,v);var P=D(b);function b(){return y(this,b),P.apply(this,arguments)}return C(b,[{key:"shouldComponentUpdate",value:function(s){return(0,w.default)(s,this.props)}},{key:"render",value:function(){var s=this.props,r=s.section,a=s.renderSectionTitle,e=s.theme,n=s.sectionKeyPrefix,i=a(r);return i?c.default.createElement("div",e("".concat(n,"title"),"sectionTitle"),i):null}}]),b}(c.Component);h.default=V,W(V,"propTypes",{section:u.default.any.isRequired,renderSectionTitle:u.default.func.isRequired,theme:u.default.func.isRequired,sectionKeyPrefix:u.default.string.isRequired})})(xt);var It={},_t={};(function(h){Object.defineProperty(h,"__esModule",{value:!0}),h.default=void 0;var c=H(oe),u=R(be),w=R(_e);function R(r){return r&&r.__esModule?r:{default:r}}function T(){if(typeof WeakMap!="function")return null;var r=new WeakMap;return T=function(){return r},r}function H(r){if(r&&r.__esModule)return r;if(r===null||j(r)!=="object"&&typeof r!="function")return{default:r};var a=T();if(a&&a.has(r))return a.get(r);var e={},n=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var i in r)if(Object.prototype.hasOwnProperty.call(r,i)){var f=n?Object.getOwnPropertyDescriptor(r,i):null;f&&(f.get||f.set)?Object.defineProperty(e,i,f):e[i]=r[i]}return e.default=r,a&&a.set(r,e),e}function j(r){"@babel/helpers - typeof";return typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?j=function(e){return typeof e}:j=function(e){return e&&typeof Symbol=="function"&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},j(r)}function y(){return y=Object.assign||function(r){for(var a=1;a<arguments.length;a++){var e=arguments[a];for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(r[n]=e[n])}return r},y.apply(this,arguments)}function O(r,a){var e=Object.keys(r);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(r);a&&(n=n.filter(function(i){return Object.getOwnPropertyDescriptor(r,i).enumerable})),e.push.apply(e,n)}return e}function C(r){for(var a=1;a<arguments.length;a++){var e=arguments[a]!=null?arguments[a]:{};a%2?O(Object(e),!0).forEach(function(n){B(r,n,e[n])}):Object.getOwnPropertyDescriptors?Object.defineProperties(r,Object.getOwnPropertyDescriptors(e)):O(Object(e)).forEach(function(n){Object.defineProperty(r,n,Object.getOwnPropertyDescriptor(e,n))})}return r}function D(r,a){if(r==null)return{};var e=A(r,a),n,i;if(Object.getOwnPropertySymbols){var f=Object.getOwnPropertySymbols(r);for(i=0;i<f.length;i++)n=f[i],!(a.indexOf(n)>=0)&&Object.prototype.propertyIsEnumerable.call(r,n)&&(e[n]=r[n])}return e}function A(r,a){if(r==null)return{};var e={},n=Object.keys(r),i,f;for(f=0;f<n.length;f++)i=n[f],!(a.indexOf(i)>=0)&&(e[i]=r[i]);return e}function k(r,a){if(!(r instanceof a))throw new TypeError("Cannot call a class as a function")}function L(r,a){for(var e=0;e<a.length;e++){var n=a[e];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(r,n.key,n)}}function F(r,a,e){return a&&L(r.prototype,a),r}function N(r){return function(){var a=v(r),e;if(V()){var n=v(this).constructor;e=Reflect.construct(a,arguments,n)}else e=a.apply(this,arguments);return E(this,e)}}function E(r,a){return a&&(j(a)==="object"||typeof a=="function")?a:W(r)}function W(r){if(r===void 0)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return r}function V(){if(typeof Reflect>"u"||!Reflect.construct||Reflect.construct.sham)return!1;if(typeof Proxy=="function")return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch{return!1}}function v(r){return v=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},v(r)}function P(r,a){if(typeof a!="function"&&a!==null)throw new TypeError("Super expression must either be null or a function");r.prototype=Object.create(a&&a.prototype,{constructor:{value:r,writable:!0,configurable:!0}}),a&&b(r,a)}function b(r,a){return b=Object.setPrototypeOf||function(n,i){return n.__proto__=i,n},b(r,a)}function B(r,a,e){return a in r?Object.defineProperty(r,a,{value:e,enumerable:!0,configurable:!0,writable:!0}):r[a]=e,r}var s=function(r){P(e,r);var a=N(e);function e(){var n;k(this,e);for(var i=arguments.length,f=new Array(i),t=0;t<i;t++)f[t]=arguments[t];return n=a.call.apply(a,[this].concat(f)),B(W(n),"storeItemReference",function(m){m!==null&&(n.item=m)}),B(W(n),"onMouseEnter",function(m){var d=n.props,S=d.sectionIndex,o=d.itemIndex;n.props.onMouseEnter(m,{sectionIndex:S,itemIndex:o})}),B(W(n),"onMouseLeave",function(m){var d=n.props,S=d.sectionIndex,o=d.itemIndex;n.props.onMouseLeave(m,{sectionIndex:S,itemIndex:o})}),B(W(n),"onMouseDown",function(m){var d=n.props,S=d.sectionIndex,o=d.itemIndex;n.props.onMouseDown(m,{sectionIndex:S,itemIndex:o})}),B(W(n),"onClick",function(m){var d=n.props,S=d.sectionIndex,o=d.itemIndex;n.props.onClick(m,{sectionIndex:S,itemIndex:o})}),n}return F(e,[{key:"shouldComponentUpdate",value:function(i){return(0,w.default)(i,this.props,["renderItemData"])}},{key:"render",value:function(){var i=this.props,f=i.isHighlighted,t=i.item,m=i.renderItem,d=i.renderItemData,S=D(i,["isHighlighted","item","renderItem","renderItemData"]);return delete S.sectionIndex,delete S.itemIndex,typeof S.onMouseEnter=="function"&&(S.onMouseEnter=this.onMouseEnter),typeof S.onMouseLeave=="function"&&(S.onMouseLeave=this.onMouseLeave),typeof S.onMouseDown=="function"&&(S.onMouseDown=this.onMouseDown),typeof S.onClick=="function"&&(S.onClick=this.onClick),c.default.createElement("li",y({role:"option"},S,{ref:this.storeItemReference}),m(t,C({isHighlighted:f},d)))}}]),e}(c.Component);h.default=s,B(s,"propTypes",{sectionIndex:u.default.number,isHighlighted:u.default.bool.isRequired,itemIndex:u.default.number.isRequired,item:u.default.any.isRequired,renderItem:u.default.func.isRequired,renderItemData:u.default.object.isRequired,onMouseEnter:u.default.func,onMouseLeave:u.default.func,onMouseDown:u.default.func,onClick:u.default.func})})(_t);(function(h){Object.defineProperty(h,"__esModule",{value:!0}),h.default=void 0;var c=j(oe),u=T(be),w=T(_t),R=T(_e);function T(s){return s&&s.__esModule?s:{default:s}}function H(){if(typeof WeakMap!="function")return null;var s=new WeakMap;return H=function(){return s},s}function j(s){if(s&&s.__esModule)return s;if(s===null||y(s)!=="object"&&typeof s!="function")return{default:s};var r=H();if(r&&r.has(s))return r.get(s);var a={},e=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var n in s)if(Object.prototype.hasOwnProperty.call(s,n)){var i=e?Object.getOwnPropertyDescriptor(s,n):null;i&&(i.get||i.set)?Object.defineProperty(a,n,i):a[n]=s[n]}return a.default=s,r&&r.set(s,a),a}function y(s){"@babel/helpers - typeof";return typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?y=function(a){return typeof a}:y=function(a){return a&&typeof Symbol=="function"&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a},y(s)}function O(){return O=Object.assign||function(s){for(var r=1;r<arguments.length;r++){var a=arguments[r];for(var e in a)Object.prototype.hasOwnProperty.call(a,e)&&(s[e]=a[e])}return s},O.apply(this,arguments)}function C(s,r){var a=Object.keys(s);if(Object.getOwnPropertySymbols){var e=Object.getOwnPropertySymbols(s);r&&(e=e.filter(function(n){return Object.getOwnPropertyDescriptor(s,n).enumerable})),a.push.apply(a,e)}return a}function D(s){for(var r=1;r<arguments.length;r++){var a=arguments[r]!=null?arguments[r]:{};r%2?C(Object(a),!0).forEach(function(e){b(s,e,a[e])}):Object.getOwnPropertyDescriptors?Object.defineProperties(s,Object.getOwnPropertyDescriptors(a)):C(Object(a)).forEach(function(e){Object.defineProperty(s,e,Object.getOwnPropertyDescriptor(a,e))})}return s}function A(s,r){if(!(s instanceof r))throw new TypeError("Cannot call a class as a function")}function k(s,r){for(var a=0;a<r.length;a++){var e=r[a];e.enumerable=e.enumerable||!1,e.configurable=!0,"value"in e&&(e.writable=!0),Object.defineProperty(s,e.key,e)}}function L(s,r,a){return r&&k(s.prototype,r),s}function F(s){return function(){var r=V(s),a;if(W()){var e=V(this).constructor;a=Reflect.construct(r,arguments,e)}else a=r.apply(this,arguments);return N(this,a)}}function N(s,r){return r&&(y(r)==="object"||typeof r=="function")?r:E(s)}function E(s){if(s===void 0)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return s}function W(){if(typeof Reflect>"u"||!Reflect.construct||Reflect.construct.sham)return!1;if(typeof Proxy=="function")return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch{return!1}}function V(s){return V=Object.setPrototypeOf?Object.getPrototypeOf:function(a){return a.__proto__||Object.getPrototypeOf(a)},V(s)}function v(s,r){if(typeof r!="function"&&r!==null)throw new TypeError("Super expression must either be null or a function");s.prototype=Object.create(r&&r.prototype,{constructor:{value:s,writable:!0,configurable:!0}}),r&&P(s,r)}function P(s,r){return P=Object.setPrototypeOf||function(e,n){return e.__proto__=n,e},P(s,r)}function b(s,r,a){return r in s?Object.defineProperty(s,r,{value:a,enumerable:!0,configurable:!0,writable:!0}):s[r]=a,s}var B=function(s){v(a,s);var r=F(a);function a(){var e;A(this,a);for(var n=arguments.length,i=new Array(n),f=0;f<n;f++)i[f]=arguments[f];return e=r.call.apply(r,[this].concat(i)),b(E(e),"storeHighlightedItemReference",function(t){e.props.onHighlightedItemChange(t===null?null:t.item)}),e}return L(a,[{key:"shouldComponentUpdate",value:function(n){return(0,R.default)(n,this.props,["itemProps"])}},{key:"render",value:function(){var n=this,i=this.props,f=i.items,t=i.itemProps,m=i.renderItem,d=i.renderItemData,S=i.sectionIndex,o=i.highlightedItemIndex,l=i.getItemId,g=i.theme,I=i.keyPrefix,p=S===null?I:"".concat(I,"section-").concat(S,"-"),x=typeof t=="function";return c.default.createElement("ul",O({role:"listbox"},g("".concat(p,"items-list"),"itemsList")),f.map(function(_,M){var K=M===0,U=M===o,J="".concat(p,"item-").concat(M),z=x?t({sectionIndex:S,itemIndex:M}):t,G=D({id:l(S,M),"aria-selected":U},g(J,"item",K&&"itemFirst",U&&"itemHighlighted"),{},z);return U&&(G.ref=n.storeHighlightedItemReference),c.default.createElement(w.default,O({},G,{sectionIndex:S,isHighlighted:U,itemIndex:M,item:_,renderItem:m,renderItemData:d}))}))}}]),a}(c.Component);h.default=B,b(B,"propTypes",{items:u.default.array.isRequired,itemProps:u.default.oneOfType([u.default.object,u.default.func]),renderItem:u.default.func.isRequired,renderItemData:u.default.object.isRequired,sectionIndex:u.default.number,highlightedItemIndex:u.default.number,onHighlightedItemChange:u.default.func.isRequired,getItemId:u.default.func.isRequired,theme:u.default.func.isRequired,keyPrefix:u.default.string.isRequired}),b(B,"defaultProps",{sectionIndex:null})})(It);(function(h){Object.defineProperty(h,"__esModule",{value:!0}),h.default=void 0;var c=O(oe),u=j(be),w=j(Lt),R=j(Vt),T=j(xt),H=j(It);function j(o){return o&&o.__esModule?o:{default:o}}function y(){if(typeof WeakMap!="function")return null;var o=new WeakMap;return y=function(){return o},o}function O(o){if(o&&o.__esModule)return o;if(o===null||W(o)!=="object"&&typeof o!="function")return{default:o};var l=y();if(l&&l.has(o))return l.get(o);var g={},I=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var p in o)if(Object.prototype.hasOwnProperty.call(o,p)){var x=I?Object.getOwnPropertyDescriptor(o,p):null;x&&(x.get||x.set)?Object.defineProperty(g,p,x):g[p]=o[p]}return g.default=o,l&&l.set(o,g),g}function C(o,l){var g=Object.keys(o);if(Object.getOwnPropertySymbols){var I=Object.getOwnPropertySymbols(o);l&&(I=I.filter(function(p){return Object.getOwnPropertyDescriptor(o,p).enumerable})),g.push.apply(g,I)}return g}function D(o){for(var l=1;l<arguments.length;l++){var g=arguments[l]!=null?arguments[l]:{};l%2?C(Object(g),!0).forEach(function(I){i(o,I,g[I])}):Object.getOwnPropertyDescriptors?Object.defineProperties(o,Object.getOwnPropertyDescriptors(g)):C(Object(g)).forEach(function(I){Object.defineProperty(o,I,Object.getOwnPropertyDescriptor(g,I))})}return o}function A(o,l){return E(o)||N(o,l)||L(o,l)||k()}function k(){throw new TypeError(`Invalid attempt to destructure non-iterable instance.
-In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`)}function L(o,l){if(o){if(typeof o=="string")return F(o,l);var g=Object.prototype.toString.call(o).slice(8,-1);if(g==="Object"&&o.constructor&&(g=o.constructor.name),g==="Map"||g==="Set")return Array.from(g);if(g==="Arguments"||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(g))return F(o,l)}}function F(o,l){(l==null||l>o.length)&&(l=o.length);for(var g=0,I=new Array(l);g<l;g++)I[g]=o[g];return I}function N(o,l){if(!(typeof Symbol>"u"||!(Symbol.iterator in Object(o)))){var g=[],I=!0,p=!1,x=void 0;try{for(var _=o[Symbol.iterator](),M;!(I=(M=_.next()).done)&&(g.push(M.value),!(l&&g.length===l));I=!0);}catch(K){p=!0,x=K}finally{try{!I&&_.return!=null&&_.return()}finally{if(p)throw x}}return g}}function E(o){if(Array.isArray(o))return o}function W(o){"@babel/helpers - typeof";return typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?W=function(g){return typeof g}:W=function(g){return g&&typeof Symbol=="function"&&g.constructor===Symbol&&g!==Symbol.prototype?"symbol":typeof g},W(o)}function V(o,l){if(!(o instanceof l))throw new TypeError("Cannot call a class as a function")}function v(o,l){for(var g=0;g<l.length;g++){var I=l[g];I.enumerable=I.enumerable||!1,I.configurable=!0,"value"in I&&(I.writable=!0),Object.defineProperty(o,I.key,I)}}function P(o,l,g){return l&&v(o.prototype,l),o}function b(o){return function(){var l=a(o),g;if(r()){var I=a(this).constructor;g=Reflect.construct(l,arguments,I)}else g=l.apply(this,arguments);return B(this,g)}}function B(o,l){return l&&(W(l)==="object"||typeof l=="function")?l:s(o)}function s(o){if(o===void 0)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return o}function r(){if(typeof Reflect>"u"||!Reflect.construct||Reflect.construct.sham)return!1;if(typeof Proxy=="function")return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch{return!1}}function a(o){return a=Object.setPrototypeOf?Object.getPrototypeOf:function(g){return g.__proto__||Object.getPrototypeOf(g)},a(o)}function e(o,l){if(typeof l!="function"&&l!==null)throw new TypeError("Super expression must either be null or a function");o.prototype=Object.create(l&&l.prototype,{constructor:{value:o,writable:!0,configurable:!0}}),l&&n(o,l)}function n(o,l){return n=Object.setPrototypeOf||function(I,p){return I.__proto__=p,I},n(o,l)}function i(o,l,g){return l in o?Object.defineProperty(o,l,{value:g,enumerable:!0,configurable:!0,writable:!0}):o[l]=g,o}var f={},t=function(l){return c.default.createElement("input",l)},m=function(l){var g=l.containerProps,I=l.children;return c.default.createElement("div",g,I)},d={container:"react-autowhatever__container",containerOpen:"react-autowhatever__container--open",input:"react-autowhatever__input",inputOpen:"react-autowhatever__input--open",inputFocused:"react-autowhatever__input--focused",itemsContainer:"react-autowhatever__items-container",itemsContainerOpen:"react-autowhatever__items-container--open",itemsList:"react-autowhatever__items-list",item:"react-autowhatever__item",itemFirst:"react-autowhatever__item--first",itemHighlighted:"react-autowhatever__item--highlighted",sectionContainer:"react-autowhatever__section-container",sectionContainerFirst:"react-autowhatever__section-container--first",sectionTitle:"react-autowhatever__section-title"},S=function(o){e(g,o);var l=b(g);function g(I){var p;return V(this,g),p=l.call(this,I),i(s(p),"storeInputReference",function(x){x!==null&&(p.input=x);var _=p.props.inputProps.ref;_&&(typeof _=="function"?_(x):W(_)==="object"&&Object.prototype.hasOwnProperty.call(_,"current")&&(_.current=x))}),i(s(p),"storeItemsContainerReference",function(x){x!==null&&(p.itemsContainer=x)}),i(s(p),"onHighlightedItemChange",function(x){p.highlightedItem=x}),i(s(p),"getItemId",function(x,_){if(_===null)return null;var M=p.props.id,K=x===null?"":"section-".concat(x);return"react-autowhatever-".concat(M,"-").concat(K,"-item-").concat(_)}),i(s(p),"onFocus",function(x){var _=p.props.inputProps;p.setState({isInputFocused:!0}),_.onFocus&&_.onFocus(x)}),i(s(p),"onBlur",function(x){var _=p.props.inputProps;p.setState({isInputFocused:!1}),_.onBlur&&_.onBlur(x)}),i(s(p),"onKeyDown",function(x){var _=p.props,M=_.inputProps,K=_.highlightedSectionIndex,U=_.highlightedItemIndex;switch(x.key){case"ArrowDown":case"ArrowUp":{var J=x.key==="ArrowDown"?"next":"prev",z=p.sectionIterator[J]([K,U]),G=A(z,2),ee=G[0],Y=G[1];M.onKeyDown(x,{newHighlightedSectionIndex:ee,newHighlightedItemIndex:Y});break}default:M.onKeyDown(x,{highlightedSectionIndex:K,highlightedItemIndex:U})}}),p.highlightedItem=null,p.state={isInputFocused:!1},p.setSectionsItems(I),p.setSectionIterator(I),p.setTheme(I),p}return P(g,[{key:"componentDidMount",value:function(){this.ensureHighlightedItemIsVisible()}},{key:"UNSAFE_componentWillReceiveProps",value:function(p){p.items!==this.props.items&&this.setSectionsItems(p),(p.items!==this.props.items||p.multiSection!==this.props.multiSection)&&this.setSectionIterator(p),p.theme!==this.props.theme&&this.setTheme(p)}},{key:"componentDidUpdate",value:function(){this.ensureHighlightedItemIsVisible()}},{key:"setSectionsItems",value:function(p){p.multiSection&&(this.sectionsItems=p.items.map(function(x){return p.getSectionItems(x)}),this.sectionsLengths=this.sectionsItems.map(function(x){return x.length}),this.allSectionsAreEmpty=this.sectionsLengths.every(function(x){return x===0}))}},{key:"setSectionIterator",value:function(p){this.sectionIterator=(0,w.default)({multiSection:p.multiSection,data:p.multiSection?this.sectionsLengths:p.items.length})}},{key:"setTheme",value:function(p){this.theme=(0,R.default)(p.theme)}},{key:"renderSections",value:function(){var p=this;if(this.allSectionsAreEmpty)return null;var x=this.theme,_=this.props,M=_.id,K=_.items,U=_.renderItem,J=_.renderItemData,z=_.renderSectionTitle,G=_.highlightedSectionIndex,ee=_.highlightedItemIndex,Y=_.itemProps;return K.map(function(ie,Q){var te="react-autowhatever-".concat(M,"-"),X="".concat(te,"section-").concat(Q,"-"),ae=Q===0;return c.default.createElement("div",x("".concat(X,"container"),"sectionContainer",ae&&"sectionContainerFirst"),c.default.createElement(T.default,{section:ie,renderSectionTitle:z,theme:x,sectionKeyPrefix:X}),c.default.createElement(H.default,{items:p.sectionsItems[Q],itemProps:Y,renderItem:U,renderItemData:J,sectionIndex:Q,highlightedItemIndex:G===Q?ee:null,onHighlightedItemChange:p.onHighlightedItemChange,getItemId:p.getItemId,theme:x,keyPrefix:te,ref:p.storeItemsListReference}))})}},{key:"renderItems",value:function(){var p=this.props.items;if(p.length===0)return null;var x=this.theme,_=this.props,M=_.id,K=_.renderItem,U=_.renderItemData,J=_.highlightedSectionIndex,z=_.highlightedItemIndex,G=_.itemProps;return c.default.createElement(H.default,{items:p,itemProps:G,renderItem:K,renderItemData:U,highlightedItemIndex:J===null?z:null,onHighlightedItemChange:this.onHighlightedItemChange,getItemId:this.getItemId,theme:x,keyPrefix:"react-autowhatever-".concat(M,"-")})}},{key:"ensureHighlightedItemIsVisible",value:function(){var p=this.highlightedItem;if(p){var x=this.itemsContainer,_=p.offsetParent===x?p.offsetTop:p.offsetTop-x.offsetTop,M=x.scrollTop;_<M?M=_:_+p.offsetHeight>M+x.offsetHeight&&(M=_+p.offsetHeight-x.offsetHeight),M!==x.scrollTop&&(x.scrollTop=M)}}},{key:"render",value:function(){var p=this.theme,x=this.props,_=x.id,M=x.multiSection,K=x.renderInputComponent,U=x.renderItemsContainer,J=x.highlightedSectionIndex,z=x.highlightedItemIndex,G=this.state.isInputFocused,ee=M?this.renderSections():this.renderItems(),Y=ee!==null,ie=this.getItemId(J,z),Q="react-autowhatever-".concat(_),te=D({role:"combobox","aria-haspopup":"listbox","aria-owns":Q,"aria-expanded":Y},p("react-autowhatever-".concat(_,"-container"),"container",Y&&"containerOpen"),{},this.props.containerProps),X=K(D({type:"text",value:"",autoComplete:"off","aria-autocomplete":"list","aria-controls":Q,"aria-activedescendant":ie},p("react-autowhatever-".concat(_,"-input"),"input",Y&&"inputOpen",G&&"inputFocused"),{},this.props.inputProps,{onFocus:this.onFocus,onBlur:this.onBlur,onKeyDown:this.props.inputProps.onKeyDown&&this.onKeyDown,ref:this.storeInputReference})),ae=U({containerProps:D({id:Q,role:"listbox"},p("react-autowhatever-".concat(_,"-items-container"),"itemsContainer",Y&&"itemsContainerOpen"),{ref:this.storeItemsContainerReference}),children:ee});return c.default.createElement("div",te,X,ae)}}]),g}(c.Component);h.default=S,i(S,"propTypes",{id:u.default.string,multiSection:u.default.bool,renderInputComponent:u.default.func,renderItemsContainer:u.default.func,items:u.default.array.isRequired,renderItem:u.default.func,renderItemData:u.default.object,renderSectionTitle:u.default.func,getSectionItems:u.default.func,containerProps:u.default.object,inputProps:u.default.object,itemProps:u.default.oneOfType([u.default.object,u.default.func]),highlightedSectionIndex:u.default.number,highlightedItemIndex:u.default.number,theme:u.default.oneOfType([u.default.object,u.default.array])}),i(S,"defaultProps",{id:"1",multiSection:!1,renderInputComponent:t,renderItemsContainer:m,renderItem:function(){throw new Error("`renderItem` must be provided")},renderItemData:f,renderSectionTitle:function(){throw new Error("`renderSectionTitle` must be provided")},getSectionItems:function(){throw new Error("`getSectionItems` must be provided")},containerProps:f,inputProps:f,itemProps:f,highlightedSectionIndex:null,highlightedItemIndex:null,theme:d})})(bt);var se={};Object.defineProperty(se,"__esModule",{value:!0});se.mapToAutowhateverTheme=se.defaultTheme=void 0;var Kt={container:"react-autosuggest__container",containerOpen:"react-autosuggest__container--open",input:"react-autosuggest__input",inputOpen:"react-autosuggest__input--open",inputFocused:"react-autosuggest__input--focused",suggestionsContainer:"react-autosuggest__suggestions-container",suggestionsContainerOpen:"react-autosuggest__suggestions-container--open",suggestionsList:"react-autosuggest__suggestions-list",suggestion:"react-autosuggest__suggestion",suggestionFirst:"react-autosuggest__suggestion--first",suggestionHighlighted:"react-autosuggest__suggestion--highlighted",sectionContainer:"react-autosuggest__section-container",sectionContainerFirst:"react-autosuggest__section-container--first",sectionTitle:"react-autosuggest__section-title"};se.defaultTheme=Kt;var zt=function(c){var u={};for(var w in c)switch(w){case"suggestionsContainer":u.itemsContainer=c[w];break;case"suggestionsContainerOpen":u.itemsContainerOpen=c[w];break;case"suggestion":u.item=c[w];break;case"suggestionFirst":u.itemFirst=c[w];break;case"suggestionHighlighted":u.itemHighlighted=c[w];break;case"suggestionsList":u.itemsList=c[w];break;default:u[w]=c[w]}return u};se.mapToAutowhateverTheme=zt;(function(h){Object.defineProperty(h,"__esModule",{value:!0}),h.default=void 0;var c=y(oe),u=H(be),w=H(Ft),R=H(bt),T=se;function H(e){return e&&e.__esModule?e:{default:e}}function j(){if(typeof WeakMap!="function")return null;var e=new WeakMap;return j=function(){return e},e}function y(e){if(e&&e.__esModule)return e;if(e===null||O(e)!=="object"&&typeof e!="function")return{default:e};var n=j();if(n&&n.has(e))return n.get(e);var i={},f=Object.defineProperty&&Object.getOwnPropertyDescriptor;for(var t in e)if(Object.prototype.hasOwnProperty.call(e,t)){var m=f?Object.getOwnPropertyDescriptor(e,t):null;m&&(m.get||m.set)?Object.defineProperty(i,t,m):i[t]=e[t]}return i.default=e,n&&n.set(e,i),i}function O(e){"@babel/helpers - typeof";return typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?O=function(i){return typeof i}:O=function(i){return i&&typeof Symbol=="function"&&i.constructor===Symbol&&i!==Symbol.prototype?"symbol":typeof i},O(e)}function C(e,n){var i=Object.keys(e);if(Object.getOwnPropertySymbols){var f=Object.getOwnPropertySymbols(e);n&&(f=f.filter(function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable})),i.push.apply(i,f)}return i}function D(e){for(var n=1;n<arguments.length;n++){var i=arguments[n]!=null?arguments[n]:{};n%2?C(Object(i),!0).forEach(function(f){b(e,f,i[f])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(i)):C(Object(i)).forEach(function(f){Object.defineProperty(e,f,Object.getOwnPropertyDescriptor(i,f))})}return e}function A(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function k(e,n){for(var i=0;i<n.length;i++){var f=n[i];f.enumerable=f.enumerable||!1,f.configurable=!0,"value"in f&&(f.writable=!0),Object.defineProperty(e,f.key,f)}}function L(e,n,i){return n&&k(e.prototype,n),e}function F(e){return function(){var n=V(e),i;if(W()){var f=V(this).constructor;i=Reflect.construct(n,arguments,f)}else i=n.apply(this,arguments);return N(this,i)}}function N(e,n){return n&&(O(n)==="object"||typeof n=="function")?n:E(e)}function E(e){if(e===void 0)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function W(){if(typeof Reflect>"u"||!Reflect.construct||Reflect.construct.sham)return!1;if(typeof Proxy=="function")return!0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch{return!1}}function V(e){return V=Object.setPrototypeOf?Object.getPrototypeOf:function(i){return i.__proto__||Object.getPrototypeOf(i)},V(e)}function v(e,n){if(typeof n!="function"&&n!==null)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),n&&P(e,n)}function P(e,n){return P=Object.setPrototypeOf||function(f,t){return f.__proto__=t,f},P(e,n)}function b(e,n,i){return n in e?Object.defineProperty(e,n,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[n]=i,e}var B=function(){return!0},s=function(n){return n.trim().length>0},r=function(n){var i=n.containerProps,f=n.children;return c.default.createElement("div",i,f)},a=function(e){v(i,e);var n=F(i);function i(f){var t,m=f.alwaysRenderSuggestions;return A(this,i),t=n.call(this),b(E(t),"onDocumentMouseDown",function(d){t.justClickedOnSuggestionsContainer=!1;for(var S=d.detail&&d.detail.target||d.target;S!==null&&S!==document;){if(S.getAttribute&&S.getAttribute("data-suggestion-index")!==null)return;if(S===t.suggestionsContainer){t.justClickedOnSuggestionsContainer=!0;return}S=S.parentNode}}),b(E(t),"storeAutowhateverRef",function(d){d!==null&&(t.autowhatever=d)}),b(E(t),"onSuggestionMouseEnter",function(d,S){var o=S.sectionIndex,l=S.itemIndex;t.updateHighlightedSuggestion(o,l),d.target===t.pressedSuggestion&&(t.justSelectedSuggestion=!0),t.justMouseEntered=!0,setTimeout(function(){t.justMouseEntered=!1})}),b(E(t),"highlightFirstSuggestion",function(){t.updateHighlightedSuggestion(t.props.multiSection?0:null,0)}),b(E(t),"onDocumentMouseUp",function(){t.pressedSuggestion&&!t.justSelectedSuggestion&&t.input.focus(),t.pressedSuggestion=null}),b(E(t),"onSuggestionMouseDown",function(d){t.justSelectedSuggestion||(t.justSelectedSuggestion=!0,t.pressedSuggestion=d.target)}),b(E(t),"onSuggestionsClearRequested",function(){var d=t.props.onSuggestionsClearRequested;d&&d()}),b(E(t),"onSuggestionSelected",function(d,S){var o=t.props,l=o.alwaysRenderSuggestions,g=o.onSuggestionSelected,I=o.onSuggestionsFetchRequested;g&&g(d,S),l?I({value:S.suggestionValue,reason:"suggestion-selected"}):t.onSuggestionsClearRequested(),t.resetHighlightedSuggestion()}),b(E(t),"onSuggestionClick",function(d){var S=t.props,o=S.alwaysRenderSuggestions,l=S.focusInputOnSuggestionClick,g=t.getSuggestionIndices(t.findSuggestionElement(d.target)),I=g.sectionIndex,p=g.suggestionIndex,x=t.getSuggestion(I,p),_=t.props.getSuggestionValue(x);t.maybeCallOnChange(d,_,"click"),t.onSuggestionSelected(d,{suggestion:x,suggestionValue:_,suggestionIndex:p,sectionIndex:I,method:"click"}),o||t.closeSuggestions(),l===!0?t.input.focus():t.onBlur(),setTimeout(function(){t.justSelectedSuggestion=!1})}),b(E(t),"onBlur",function(){var d=t.props,S=d.inputProps,o=d.shouldRenderSuggestions,l=S.value,g=S.onBlur,I=t.getHighlightedSuggestion(),p=o(l);t.setState({isFocused:!1,highlightedSectionIndex:null,highlightedSuggestionIndex:null,highlightedSuggestion:null,valueBeforeUpDown:null,isCollapsed:!p}),g&&g(t.blurEvent,{highlightedSuggestion:I})}),b(E(t),"onSuggestionMouseLeave",function(d){t.resetHighlightedSuggestion(!1),t.justSelectedSuggestion&&d.target===t.pressedSuggestion&&(t.justSelectedSuggestion=!1)}),b(E(t),"onSuggestionTouchStart",function(){t.justSelectedSuggestion=!0}),b(E(t),"onSuggestionTouchMove",function(){t.justSelectedSuggestion=!1,t.pressedSuggestion=null,t.input.focus()}),b(E(t),"itemProps",function(d){var S=d.sectionIndex,o=d.itemIndex;return{"data-section-index":S,"data-suggestion-index":o,onMouseEnter:t.onSuggestionMouseEnter,onMouseLeave:t.onSuggestionMouseLeave,onMouseDown:t.onSuggestionMouseDown,onTouchStart:t.onSuggestionTouchStart,onTouchMove:t.onSuggestionTouchMove,onClick:t.onSuggestionClick}}),b(E(t),"renderSuggestionsContainer",function(d){var S=d.containerProps,o=d.children,l=t.props.renderSuggestionsContainer;return l({containerProps:S,children:o,query:t.getQuery()})}),t.state={isFocused:!1,isCollapsed:!m,highlightedSectionIndex:null,highlightedSuggestionIndex:null,highlightedSuggestion:null,valueBeforeUpDown:null},t.justPressedUpDown=!1,t.justMouseEntered=!1,t.pressedSuggestion=null,t}return L(i,[{key:"componentDidMount",value:function(){document.addEventListener("mousedown",this.onDocumentMouseDown),document.addEventListener("mouseup",this.onDocumentMouseUp),this.input=this.autowhatever.input,this.suggestionsContainer=this.autowhatever.itemsContainer}},{key:"UNSAFE_componentWillReceiveProps",value:function(t){(0,w.default)(t.suggestions,this.props.suggestions)?t.highlightFirstSuggestion&&t.suggestions.length>0&&this.justPressedUpDown===!1&&this.justMouseEntered===!1&&this.highlightFirstSuggestion():this.willRenderSuggestions(t)?this.state.isCollapsed&&!this.justSelectedSuggestion&&this.revealSuggestions():this.resetHighlightedSuggestion()}},{key:"componentDidUpdate",value:function(t,m){var d=this.props,S=d.suggestions,o=d.onSuggestionHighlighted,l=d.highlightFirstSuggestion;if(!(0,w.default)(S,t.suggestions)&&S.length>0&&l){this.highlightFirstSuggestion();return}if(o){var g=this.getHighlightedSuggestion(),I=m.highlightedSuggestion;g!=I&&o({suggestion:g})}}},{key:"componentWillUnmount",value:function(){document.removeEventListener("mousedown",this.onDocumentMouseDown),document.removeEventListener("mouseup",this.onDocumentMouseUp)}},{key:"updateHighlightedSuggestion",value:function(t,m,d){var S=this;this.setState(function(o){var l=o.valueBeforeUpDown;return m===null?l=null:l===null&&typeof d<"u"&&(l=d),{highlightedSectionIndex:t,highlightedSuggestionIndex:m,highlightedSuggestion:m===null?null:S.getSuggestion(t,m),valueBeforeUpDown:l}})}},{key:"resetHighlightedSuggestion",value:function(){var t=arguments.length>0&&arguments[0]!==void 0?arguments[0]:!0;this.setState(function(m){var d=m.valueBeforeUpDown;return{highlightedSectionIndex:null,highlightedSuggestionIndex:null,highlightedSuggestion:null,valueBeforeUpDown:t?null:d}})}},{key:"revealSuggestions",value:function(){this.setState({isCollapsed:!1})}},{key:"closeSuggestions",value:function(){this.setState({highlightedSectionIndex:null,highlightedSuggestionIndex:null,highlightedSuggestion:null,valueBeforeUpDown:null,isCollapsed:!0})}},{key:"getSuggestion",value:function(t,m){var d=this.props,S=d.suggestions,o=d.multiSection,l=d.getSectionSuggestions;return o?l(S[t])[m]:S[m]}},{key:"getHighlightedSuggestion",value:function(){var t=this.state,m=t.highlightedSectionIndex,d=t.highlightedSuggestionIndex;return d===null?null:this.getSuggestion(m,d)}},{key:"getSuggestionValueByIndex",value:function(t,m){var d=this.props.getSuggestionValue;return d(this.getSuggestion(t,m))}},{key:"getSuggestionIndices",value:function(t){var m=t.getAttribute("data-section-index"),d=t.getAttribute("data-suggestion-index");return{sectionIndex:typeof m=="string"?parseInt(m,10):null,suggestionIndex:parseInt(d,10)}}},{key:"findSuggestionElement",value:function(t){var m=t;do{if(m.getAttribute&&m.getAttribute("data-suggestion-index")!==null)return m;m=m.parentNode}while(m!==null);throw console.error("Clicked element:",t),new Error("Couldn't find suggestion element")}},{key:"maybeCallOnChange",value:function(t,m,d){var S=this.props.inputProps,o=S.value,l=S.onChange;m!==o&&l(t,{newValue:m,method:d})}},{key:"willRenderSuggestions",value:function(t){var m=t.suggestions,d=t.inputProps,S=t.shouldRenderSuggestions,o=d.value;return m.length>0&&S(o)}},{key:"getQuery",value:function(){var t=this.props.inputProps,m=t.value,d=this.state.valueBeforeUpDown;return(d===null?m:d).trim()}},{key:"render",value:function(){var t=this,m=this.props,d=m.suggestions,S=m.renderInputComponent,o=m.onSuggestionsFetchRequested,l=m.renderSuggestion,g=m.inputProps,I=m.multiSection,p=m.renderSectionTitle,x=m.id,_=m.getSectionSuggestions,M=m.theme,K=m.getSuggestionValue,U=m.alwaysRenderSuggestions,J=m.highlightFirstSuggestion,z=this.state,G=z.isFocused,ee=z.isCollapsed,Y=z.highlightedSectionIndex,ie=z.highlightedSuggestionIndex,Q=z.valueBeforeUpDown,te=U?B:this.props.shouldRenderSuggestions,X=g.value,ae=g.onFocus,Ee=g.onKeyDown,Ot=this.willRenderSuggestions(this.props),xe=U||G&&!ee&&Ot,Pt=xe?d:[],Tt=D({},g,{onFocus:function($){if(!t.justSelectedSuggestion&&!t.justClickedOnSuggestionsContainer){var ne=te(X);t.setState({isFocused:!0,isCollapsed:!ne}),ae&&ae($),ne&&o({value:X,reason:"input-focused"})}},onBlur:function($){if(t.justClickedOnSuggestionsContainer){t.input.focus();return}t.blurEvent=$,t.justSelectedSuggestion||(t.onBlur(),t.onSuggestionsClearRequested())},onChange:function($){var ne=$.target.value,le=te(ne);t.maybeCallOnChange($,ne,"type"),t.suggestionsContainer&&(t.suggestionsContainer.scrollTop=0),t.setState(D({},J?{}:{highlightedSectionIndex:null,highlightedSuggestionIndex:null,highlightedSuggestion:null},{valueBeforeUpDown:null,isCollapsed:!le})),le?o({value:ne,reason:"input-changed"}):t.onSuggestionsClearRequested()},onKeyDown:function($,ne){var le=$.keyCode;switch(le){case 40:case 38:if(ee)te(X)&&(o({value:X,reason:"suggestions-revealed"}),t.revealSuggestions());else if(d.length>0){var je=ne.newHighlightedSectionIndex,Oe=ne.newHighlightedItemIndex,Pe;Oe===null?Pe=Q===null?X:Q:Pe=t.getSuggestionValueByIndex(je,Oe),t.updateHighlightedSuggestion(je,Oe,X),t.maybeCallOnChange($,Pe,le===40?"down":"up")}$.preventDefault(),t.justPressedUpDown=!0,setTimeout(function(){t.justPressedUpDown=!1});break;case 13:{if($.keyCode===229)break;var Te=t.getHighlightedSuggestion();if(xe&&!U&&t.closeSuggestions(),Te!=null){var He=K(Te);t.maybeCallOnChange($,He,"enter"),t.onSuggestionSelected($,{suggestion:Te,suggestionValue:He,suggestionIndex:ie,sectionIndex:Y,method:"enter"}),t.justSelectedSuggestion=!0,setTimeout(function(){t.justSelectedSuggestion=!1})}break}case 27:{xe&&$.preventDefault();var Be=xe&&!U;if(Q===null){if(!Be){var Ce="";t.maybeCallOnChange($,Ce,"escape"),te(Ce)?o({value:Ce,reason:"escape-pressed"}):t.onSuggestionsClearRequested()}}else t.maybeCallOnChange($,Q,"escape");Be?(t.onSuggestionsClearRequested(),t.closeSuggestions()):t.resetHighlightedSuggestion();break}}Ee&&Ee($)}}),Ct={query:this.getQuery()};return c.default.createElement(R.default,{multiSection:I,items:Pt,renderInputComponent:S,renderItemsContainer:this.renderSuggestionsContainer,renderItem:l,renderItemData:Ct,renderSectionTitle:p,getSectionItems:_,highlightedSectionIndex:Y,highlightedItemIndex:ie,inputProps:Tt,itemProps:this.itemProps,theme:(0,T.mapToAutowhateverTheme)(M),id:x,ref:this.storeAutowhateverRef})}}]),i}(c.Component);h.default=a,b(a,"propTypes",{suggestions:u.default.array.isRequired,onSuggestionsFetchRequested:function(n,i){var f=n[i];if(typeof f!="function")throw new Error("'onSuggestionsFetchRequested' must be implemented. See: https://github.com/moroshko/react-autosuggest#onSuggestionsFetchRequestedProp")},onSuggestionsClearRequested:function(n,i){var f=n[i];if(n.alwaysRenderSuggestions===!1&&typeof f!="function")throw new Error("'onSuggestionsClearRequested' must be implemented. See: https://github.com/moroshko/react-autosuggest#onSuggestionsClearRequestedProp")},onSuggestionSelected:u.default.func,onSuggestionHighlighted:u.default.func,renderInputComponent:u.default.func,renderSuggestionsContainer:u.default.func,getSuggestionValue:u.default.func.isRequired,renderSuggestion:u.default.func.isRequired,inputProps:function(n,i){var f=n[i];if(!Object.prototype.hasOwnProperty.call(f,"value"))throw new Error("'inputProps' must have 'value'.");if(!Object.prototype.hasOwnProperty.call(f,"onChange"))throw new Error("'inputProps' must have 'onChange'.")},shouldRenderSuggestions:u.default.func,alwaysRenderSuggestions:u.default.bool,multiSection:u.default.bool,renderSectionTitle:function(n,i){var f=n[i];if(n.multiSection===!0&&typeof f!="function")throw new Error("'renderSectionTitle' must be implemented. See: https://github.com/moroshko/react-autosuggest#renderSectionTitleProp")},getSectionSuggestions:function(n,i){var f=n[i];if(n.multiSection===!0&&typeof f!="function")throw new Error("'getSectionSuggestions' must be implemented. See: https://github.com/moroshko/react-autosuggest#getSectionSuggestionsProp")},focusInputOnSuggestionClick:u.default.bool,highlightFirstSuggestion:u.default.bool,theme:u.default.object,id:u.default.string}),b(a,"defaultProps",{renderSuggestionsContainer:r,shouldRenderSuggestions:s,alwaysRenderSuggestions:!1,multiSection:!1,focusInputOnSuggestionClick:!0,highlightFirstSuggestion:!1,theme:T.defaultTheme,id:"1"})})(vt);var Qt=vt.default;const Gt=Rt(Qt),Jt=({renderInputComponent:h})=>{const[c,u]=oe.useState(""),[w,R]=oe.useState([]),T=[{label:"SimplyE"},{label:"53rd Street Branch"},{label:"Aguilar Branch"},{label:"Allerton Branch"},{label:"Battery Park City"},{label:"Baychester Branch"},{label:"Belmont Branch"},{label:"South Beach Branch"},{label:"St. Agnes"},{label:"Sedgwick Branch"},{label:"Seward Park Branch"},{label:"Soundview Branch"},{label:"St. George Library Center"}],H=(k,{newValue:L})=>u(L),j=(k,L)=>{const F=k.trim().toLowerCase(),N=F.length;return N===0?[]:L.filter(E=>E.label.toLowerCase().slice(0,N)===F)},y=({value:k})=>R(j(k,T)),O=()=>R([]),C=k=>k.label,D=k=>q.jsx("span",{children:k.label}),A={"aria-label":"Home Library",placeholder:"Type a library name",value:c,onChange:H};return q.jsx(Gt,{suggestions:w,onSuggestionsFetchRequested:y,onSuggestionsClearRequested:O,getSuggestionValue:C,renderSuggestion:D,inputProps:A,renderInputComponent:h})},Yt=h=>q.jsx(dt,{id:"autosuggest-searchBar",isRequired:!0,labelText:"home library",name:"homeLibraryName",...h}),Xt=()=>q.jsx(Jt,{renderInputComponent:Yt}),{userEvent:re,within:Ie,expect:ce}=__STORYBOOK_MODULE_TEST__,Zt={title:"Components/Form Elements/SearchBar",component:Z,argTypes:{action:{control:!1},ariaLabel:{control:!1},buttonOnClick:{control:!1,table:{defaultValue:{summary:"null"}}},className:{control:!1},id:{control:!1},isDisabled:Re(),isInvalid:Re(),isRequired:Re(),method:{control:!1},onSubmit:{control:!1},selectProps:{control:!1},showHelperText:{description:"Only used for Storybook"},showSelect:{description:"Only used for Storybook"},textInputElement:{control:!1},textInputProps:{control:!1}}},wt=[{text:"Art",value:"art"},{text:"Bushes",value:"bushes"},{text:"Clothing",value:"clothing"},{text:"Flowers",value:"flowers"},{text:"Fossils",value:"fossils"},{text:"Fruits",value:"fruits"},{text:"Furniture",value:"furniture"},{text:"Songs",value:"songs"},{text:"Tools",value:"tools"},{text:"Villagers and their beloved pets",value:"villagers"}],ue={args:{action:void 0,buttonOnClick:void 0,className:void 0,helperText:"Search for items in Animal Crossing New Horizons",id:"searchBar-id",invalidText:"Could not find the item :(",isDisabled:!1,isInvalid:!1,isRequired:!1,labelText:"SearchBar Label",method:void 0,noBrandButtonType:!1,onSubmit:()=>{},selectProps:void 0,showHelperText:!0,showSelect:!0,textInputElement:void 0,textInputProps:void 0},render:h=>{const{helperText:c,showHelperText:u,showSelect:w,...R}=h;return q.jsx(Z,{...R,onSubmit:T=>{T.preventDefault(),console.log("Submitted!")},selectProps:w&&{labelText:"Select a category",name:"selectName",optionsData:wt},textInputProps:{isClearable:!0,labelText:"Item Search",name:"textInputName",placeholder:"Item Search"},helperText:u&&c})},parameters:{design:{type:"figma",url:"https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423"},jest:["SearchBar.test.tsx"]},play:async({canvasElement:h})=>{const c=Ie(h).getByRole("textbox");await re.type(c,"Hello World"),await re.clear(c),ce(c).toHaveValue(""),await re.type(c,"Clearing this text"),ce(c).toHaveValue("Clearing this text");const u=Ie(h).getAllByRole("button")[0];await re.click(u),ce(c).toHaveValue("");const w=Ie(h).getByLabelText("Select a category");await re.selectOptions(w,"fossils"),ce(w).toHaveValue("fossils"),ce(w).not.toHaveValue("songs"),await re.type(c,"Hello World"),await re.keyboard("{Enter}");const R=Ie(h).getAllByRole("button")[1];await re.click(R)}},fe={render:()=>q.jsx(Z,{descriptionText:"Begin typing for the clear button to appear. Once clicked, the value in the text input field will be cleared.",id:"textInput-isClearable",labelText:"isClearable Example",onSubmit:()=>{},textInputProps:{isClearable:!0,isClearableCallback:()=>{console.log("Clear button clicked from the `isClearableCallback` prop.")},labelText:"Item Search",name:"textInputName",placeholder:"Item Search"}}),name:"isClearable and isClearableCallback"},pe={render:()=>q.jsxs(q.Fragment,{children:[q.jsx(Z,{descriptionText:"The helper text below contains HTML in a string.",helperText:"Search for items in <b>Animal Crossing New Horizons</b>.",id:"helper-text",labelText:"Helper text example",onSubmit:()=>{},textInputProps:{labelText:"Item Search",name:"textInputName",placeholder:"Item Search"}}),q.jsx("br",{}),q.jsx(Z,{descriptionText:"The invalid text below contains HTML in a string.",id:"invalid-text",isInvalid:!0,invalidText:"Could <b>not</b> find the item <b>:(</b>",labelText:"Invalid text example",onSubmit:()=>{},textInputProps:{labelText:"Item Search",name:"textInputName",placeholder:"Item Search"}})]}),name:"HelperErrorText Component"},ge={args:{id:"autocomplete",isDisabled:!1,isInvalid:!1,isRequired:!1},render:h=>q.jsx("div",{style:{minHeight:"150px"},children:q.jsx(Z,{onSubmit:()=>{},textInputElement:Xt(),helperText:"Select your home library. Start by typing the name of the library. Try 'ba'.",...h})})},de={render:()=>q.jsx(Z,{helperText:"This is the helper text!",id:"error-state",invalidText:"Could not find the item :(",isInvalid:!0,labelText:"Error example",onSubmit:()=>{},textInputProps:{labelText:"Item Search",name:"textInputName",placeholder:"Item Search"}})},he={render:()=>q.jsx(Z,{helperText:"Reason for disabled state.",id:"disabled-state",isDisabled:!0,labelText:"Disabled example",onSubmit:()=>{},textInputProps:{labelText:"Item Search",name:"textInputName",placeholder:"Item Search"}})},me={render:()=>q.jsxs("search",{children:[q.jsx(ht,{size:"heading6",children:" Search items "}),q.jsxs(Dt,{justifyContent:"align-content",children:[q.jsx(dt,{id:"search-input",labelText:"Search",showLabel:!1}),q.jsx(Et,{id:"search-btn",children:"Search"})]}),q.jsx(jt,{sx:{marginTop:"s"},children:q.jsx(Ht,{id:"public-domain",labelText:"Only public domain"})})]}),name:"Search Landmark Element Example"},ye={render:()=>q.jsx(Z,{headingText:q.jsx(ht,{level:"h4",children:"Custom H4 Heading"}),id:"custom-heading",labelText:"Custom Heading example",onSubmit:()=>{},textInputProps:{labelText:"Item Search",name:"textInputName",placeholder:"Item Search"}}),name:"Heading and Description Text"},Se={render:()=>q.jsx(Z,{descriptionText:"This is the description for this `SearchBar` instance.",headingText:"Heading for this `SearchBar`",id:"heading-and-description",labelText:"Heading and Description example",onSubmit:()=>{},textInputProps:{labelText:"Item Search",name:"textInputName",placeholder:"Item Search"}}),name:"Heading and Description Text"};function en(){const[h,c]=oe.useState("Tools"),u=T=>{console.log(`onChange Select value: ${T.target.value}`),c(T.target.value)},w=T=>{console.log(`onChange TextInput value: ${T.target.value}`)},R=T=>{T.preventDefault(),console.log(`onSubmit Select value: ${T.target.selectName.value}`),console.log(`onSubmit TextInput value ${T.target.textInputName.value}`)};return q.jsx(Z,{helperText:"Search for an item",invalidText:"Could not find the item :(",id:"example-1",labelText:"Logging example",onSubmit:R,selectProps:{labelText:"Select a category",name:"selectName",onChange:u,optionsData:wt,value:h},textInputProps:{labelText:"Item Search",name:"textInputName",onChange:w,placeholder:"Item Search"}})}const ve={render:()=>q.jsx(en,{}),name:"TextInput and onSubmit Values"};var Me,qe,Ae,Fe,Le;ue.parameters={...ue.parameters,docs:{...(Me=ue.parameters)==null?void 0:Me.docs,source:{originalSource:`{
+import {
+  r as oe,
+  bP as Rt,
+  j as q,
+  a6 as dt,
+  a_ as Z,
+  H as ht,
+  F as Dt,
+  o as Et,
+  a as jt,
+  f as Ht,
+} from "./iframe-D93LbwGv.js";
+import { a as Re } from "./storybookUtils-BmTl87w5.js";
+var mt = { exports: {} },
+  Bt = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED",
+  kt = Bt,
+  Mt = kt;
+function yt() {}
+function St() {}
+St.resetWarningCache = yt;
+var qt = function () {
+  function h(w, R, T, H, j, y) {
+    if (y !== Mt) {
+      var O = new Error(
+        "Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types"
+      );
+      throw ((O.name = "Invariant Violation"), O);
+    }
+  }
+  h.isRequired = h;
+  function c() {
+    return h;
+  }
+  var u = {
+    array: h,
+    bigint: h,
+    bool: h,
+    func: h,
+    number: h,
+    object: h,
+    string: h,
+    symbol: h,
+    any: h,
+    arrayOf: c,
+    element: h,
+    elementType: h,
+    instanceOf: c,
+    node: h,
+    objectOf: c,
+    oneOf: c,
+    oneOfType: c,
+    shape: c,
+    exact: c,
+    checkPropTypes: St,
+    resetWarningCache: yt,
+  };
+  return (u.PropTypes = u), u;
+};
+mt.exports = qt();
+var be = mt.exports,
+  vt = {};
+function At(h, c) {
+  if (h === c) return !0;
+  if (!h || !c) return !1;
+  var u = h.length;
+  if (c.length !== u) return !1;
+  for (var w = 0; w < u; w++) if (h[w] !== c[w]) return !1;
+  return !0;
+}
+var Ft = At,
+  bt = {},
+  ke = (function () {
+    function h(c, u) {
+      var w = [],
+        R = !0,
+        T = !1,
+        H = void 0;
+      try {
+        for (
+          var j = c[Symbol.iterator](), y;
+          !(R = (y = j.next()).done) &&
+          (w.push(y.value), !(u && w.length === u));
+          R = !0
+        );
+      } catch (O) {
+        (T = !0), (H = O);
+      } finally {
+        try {
+          !R && j.return && j.return();
+        } finally {
+          if (T) throw H;
+        }
+      }
+      return w;
+    }
+    return function (c, u) {
+      if (Array.isArray(c)) return c;
+      if (Symbol.iterator in Object(c)) return h(c, u);
+      throw new TypeError(
+        "Invalid attempt to destructure non-iterable instance"
+      );
+    };
+  })(),
+  Lt = function (h) {
+    var c = h.data,
+      u = h.multiSection;
+    function w(y) {
+      for (y === null ? (y = 0) : y++; y < c.length && c[y] === 0; ) y++;
+      return y === c.length ? null : y;
+    }
+    function R(y) {
+      for (y === null ? (y = c.length - 1) : y--; y >= 0 && c[y] === 0; ) y--;
+      return y === -1 ? null : y;
+    }
+    function T(y) {
+      var O = ke(y, 2),
+        C = O[0],
+        D = O[1];
+      return u
+        ? D === null || D === c[C] - 1
+          ? ((C = w(C)), C === null ? [null, null] : [C, 0])
+          : [C, D + 1]
+        : c === 0 || D === c - 1
+        ? [null, null]
+        : D === null
+        ? [null, 0]
+        : [null, D + 1];
+    }
+    function H(y) {
+      var O = ke(y, 2),
+        C = O[0],
+        D = O[1];
+      return u
+        ? D === null || D === 0
+          ? ((C = R(C)), C === null ? [null, null] : [C, c[C] - 1])
+          : [C, D - 1]
+        : c === 0 || D === 0
+        ? [null, null]
+        : D === null
+        ? [null, c - 1]
+        : [null, D - 1];
+    }
+    function j(y) {
+      return T(y)[1] === null;
+    }
+    return { next: T, prev: H, isLast: j };
+  },
+  De = { exports: {} },
+  Nt = Object.prototype.propertyIsEnumerable;
+function Wt(h) {
+  if (h == null)
+    throw new TypeError(
+      "Object.assign cannot be called with null or undefined"
+    );
+  return Object(h);
+}
+function Ut(h) {
+  var c = Object.getOwnPropertyNames(h);
+  return (
+    Object.getOwnPropertySymbols &&
+      (c = c.concat(Object.getOwnPropertySymbols(h))),
+    c.filter(function (u) {
+      return Nt.call(h, u);
+    })
+  );
+}
+var $t =
+  Object.assign ||
+  function (h, c) {
+    for (var u, w, R = Wt(h), T = 1; T < arguments.length; T++) {
+      (u = arguments[T]), (w = Ut(Object(u)));
+      for (var H = 0; H < w.length; H++) R[w[H]] = u[w[H]];
+    }
+    return R;
+  };
+(function (h, c) {
+  Object.defineProperty(c, "__esModule", { value: !0 });
+  var u = (function () {
+    function y(O, C) {
+      var D = [],
+        A = !0,
+        k = !1,
+        L = void 0;
+      try {
+        for (
+          var F = O[Symbol.iterator](), N;
+          !(A = (N = F.next()).done) &&
+          (D.push(N.value), !(C && D.length === C));
+          A = !0
+        );
+      } catch (E) {
+        (k = !0), (L = E);
+      } finally {
+        try {
+          !A && F.return && F.return();
+        } finally {
+          if (k) throw L;
+        }
+      }
+      return D;
+    }
+    return function (O, C) {
+      if (Array.isArray(O)) return O;
+      if (Symbol.iterator in Object(O)) return y(O, C);
+      throw new TypeError(
+        "Invalid attempt to destructure non-iterable instance"
+      );
+    };
+  })();
+  function w(y) {
+    return y && y.__esModule ? y : { default: y };
+  }
+  function R(y) {
+    if (Array.isArray(y)) {
+      for (var O = 0, C = Array(y.length); O < y.length; O++) C[O] = y[O];
+      return C;
+    } else return Array.from(y);
+  }
+  var T = $t,
+    H = w(T),
+    j = function (O) {
+      return O;
+    };
+  (c.default = function (y) {
+    var O = Array.isArray(y) && y.length === 2 ? y : [y, null],
+      C = u(O, 2),
+      D = C[0],
+      A = C[1];
+    return function (k) {
+      for (
+        var L = arguments.length, F = Array(L > 1 ? L - 1 : 0), N = 1;
+        N < L;
+        N++
+      )
+        F[N - 1] = arguments[N];
+      var E = F.map(function (W) {
+        return D[W];
+      }).filter(j);
+      return typeof E[0] == "string" || typeof A == "function"
+        ? { key: k, className: A ? A.apply(void 0, R(E)) : E.join(" ") }
+        : { key: k, style: H.default.apply(void 0, [{}].concat(R(E))) };
+    };
+  }),
+    (h.exports = c.default);
+})(De, De.exports);
+var Vt = De.exports,
+  xt = {},
+  _e = {};
+(function (h) {
+  Object.defineProperty(h, "__esModule", { value: !0 }), (h.default = u);
+  function c(w) {
+    "@babel/helpers - typeof";
+    return (
+      typeof Symbol == "function" && typeof Symbol.iterator == "symbol"
+        ? (c = function (T) {
+            return typeof T;
+          })
+        : (c = function (T) {
+            return T &&
+              typeof Symbol == "function" &&
+              T.constructor === Symbol &&
+              T !== Symbol.prototype
+              ? "symbol"
+              : typeof T;
+          }),
+      c(w)
+    );
+  }
+  function u(w, R) {
+    var T = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : [];
+    if (w === R) return !1;
+    var H = Object.keys(w),
+      j = Object.keys(R);
+    if (H.length !== j.length) return !0;
+    var y = {},
+      O,
+      C;
+    for (O = 0, C = T.length; O < C; O++) y[T[O]] = !0;
+    for (O = 0, C = H.length; O < C; O++) {
+      var D = H[O],
+        A = w[D],
+        k = R[D];
+      if (A !== k) {
+        if (
+          !y[D] ||
+          A === null ||
+          k === null ||
+          c(A) !== "object" ||
+          c(k) !== "object"
+        )
+          return !0;
+        var L = Object.keys(A),
+          F = Object.keys(k);
+        if (L.length !== F.length) return !0;
+        for (var N = 0, E = L.length; N < E; N++) {
+          var W = L[N];
+          if (A[W] !== k[W]) return !0;
+        }
+      }
+    }
+    return !1;
+  }
+})(_e);
+(function (h) {
+  Object.defineProperty(h, "__esModule", { value: !0 }), (h.default = void 0);
+  var c = H(oe),
+    u = R(be),
+    w = R(_e);
+  function R(v) {
+    return v && v.__esModule ? v : { default: v };
+  }
+  function T() {
+    if (typeof WeakMap != "function") return null;
+    var v = new WeakMap();
+    return (
+      (T = function () {
+        return v;
+      }),
+      v
+    );
+  }
+  function H(v) {
+    if (v && v.__esModule) return v;
+    if (v === null || (j(v) !== "object" && typeof v != "function"))
+      return { default: v };
+    var P = T();
+    if (P && P.has(v)) return P.get(v);
+    var b = {},
+      B = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for (var s in v)
+      if (Object.prototype.hasOwnProperty.call(v, s)) {
+        var r = B ? Object.getOwnPropertyDescriptor(v, s) : null;
+        r && (r.get || r.set) ? Object.defineProperty(b, s, r) : (b[s] = v[s]);
+      }
+    return (b.default = v), P && P.set(v, b), b;
+  }
+  function j(v) {
+    "@babel/helpers - typeof";
+    return (
+      typeof Symbol == "function" && typeof Symbol.iterator == "symbol"
+        ? (j = function (b) {
+            return typeof b;
+          })
+        : (j = function (b) {
+            return b &&
+              typeof Symbol == "function" &&
+              b.constructor === Symbol &&
+              b !== Symbol.prototype
+              ? "symbol"
+              : typeof b;
+          }),
+      j(v)
+    );
+  }
+  function y(v, P) {
+    if (!(v instanceof P))
+      throw new TypeError("Cannot call a class as a function");
+  }
+  function O(v, P) {
+    for (var b = 0; b < P.length; b++) {
+      var B = P[b];
+      (B.enumerable = B.enumerable || !1),
+        (B.configurable = !0),
+        "value" in B && (B.writable = !0),
+        Object.defineProperty(v, B.key, B);
+    }
+  }
+  function C(v, P, b) {
+    return P && O(v.prototype, P), v;
+  }
+  function D(v) {
+    return function () {
+      var P = F(v),
+        b;
+      if (L()) {
+        var B = F(this).constructor;
+        b = Reflect.construct(P, arguments, B);
+      } else b = P.apply(this, arguments);
+      return A(this, b);
+    };
+  }
+  function A(v, P) {
+    return P && (j(P) === "object" || typeof P == "function") ? P : k(v);
+  }
+  function k(v) {
+    if (v === void 0)
+      throw new ReferenceError(
+        "this hasn't been initialised - super() hasn't been called"
+      );
+    return v;
+  }
+  function L() {
+    if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
+      return !1;
+    if (typeof Proxy == "function") return !0;
+    try {
+      return (
+        Date.prototype.toString.call(
+          Reflect.construct(Date, [], function () {})
+        ),
+        !0
+      );
+    } catch {
+      return !1;
+    }
+  }
+  function F(v) {
+    return (
+      (F = Object.setPrototypeOf
+        ? Object.getPrototypeOf
+        : function (b) {
+            return b.__proto__ || Object.getPrototypeOf(b);
+          }),
+      F(v)
+    );
+  }
+  function N(v, P) {
+    if (typeof P != "function" && P !== null)
+      throw new TypeError("Super expression must either be null or a function");
+    (v.prototype = Object.create(P && P.prototype, {
+      constructor: { value: v, writable: !0, configurable: !0 },
+    })),
+      P && E(v, P);
+  }
+  function E(v, P) {
+    return (
+      (E =
+        Object.setPrototypeOf ||
+        function (B, s) {
+          return (B.__proto__ = s), B;
+        }),
+      E(v, P)
+    );
+  }
+  function W(v, P, b) {
+    return (
+      P in v
+        ? Object.defineProperty(v, P, {
+            value: b,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0,
+          })
+        : (v[P] = b),
+      v
+    );
+  }
+  var V = (function (v) {
+    N(b, v);
+    var P = D(b);
+    function b() {
+      return y(this, b), P.apply(this, arguments);
+    }
+    return (
+      C(b, [
+        {
+          key: "shouldComponentUpdate",
+          value: function (s) {
+            return (0, w.default)(s, this.props);
+          },
+        },
+        {
+          key: "render",
+          value: function () {
+            var s = this.props,
+              r = s.section,
+              a = s.renderSectionTitle,
+              e = s.theme,
+              n = s.sectionKeyPrefix,
+              i = a(r);
+            return i
+              ? c.default.createElement(
+                  "div",
+                  e("".concat(n, "title"), "sectionTitle"),
+                  i
+                )
+              : null;
+          },
+        },
+      ]),
+      b
+    );
+  })(c.Component);
+  (h.default = V),
+    W(V, "propTypes", {
+      section: u.default.any.isRequired,
+      renderSectionTitle: u.default.func.isRequired,
+      theme: u.default.func.isRequired,
+      sectionKeyPrefix: u.default.string.isRequired,
+    });
+})(xt);
+var It = {},
+  _t = {};
+(function (h) {
+  Object.defineProperty(h, "__esModule", { value: !0 }), (h.default = void 0);
+  var c = H(oe),
+    u = R(be),
+    w = R(_e);
+  function R(r) {
+    return r && r.__esModule ? r : { default: r };
+  }
+  function T() {
+    if (typeof WeakMap != "function") return null;
+    var r = new WeakMap();
+    return (
+      (T = function () {
+        return r;
+      }),
+      r
+    );
+  }
+  function H(r) {
+    if (r && r.__esModule) return r;
+    if (r === null || (j(r) !== "object" && typeof r != "function"))
+      return { default: r };
+    var a = T();
+    if (a && a.has(r)) return a.get(r);
+    var e = {},
+      n = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for (var i in r)
+      if (Object.prototype.hasOwnProperty.call(r, i)) {
+        var f = n ? Object.getOwnPropertyDescriptor(r, i) : null;
+        f && (f.get || f.set) ? Object.defineProperty(e, i, f) : (e[i] = r[i]);
+      }
+    return (e.default = r), a && a.set(r, e), e;
+  }
+  function j(r) {
+    "@babel/helpers - typeof";
+    return (
+      typeof Symbol == "function" && typeof Symbol.iterator == "symbol"
+        ? (j = function (e) {
+            return typeof e;
+          })
+        : (j = function (e) {
+            return e &&
+              typeof Symbol == "function" &&
+              e.constructor === Symbol &&
+              e !== Symbol.prototype
+              ? "symbol"
+              : typeof e;
+          }),
+      j(r)
+    );
+  }
+  function y() {
+    return (
+      (y =
+        Object.assign ||
+        function (r) {
+          for (var a = 1; a < arguments.length; a++) {
+            var e = arguments[a];
+            for (var n in e)
+              Object.prototype.hasOwnProperty.call(e, n) && (r[n] = e[n]);
+          }
+          return r;
+        }),
+      y.apply(this, arguments)
+    );
+  }
+  function O(r, a) {
+    var e = Object.keys(r);
+    if (Object.getOwnPropertySymbols) {
+      var n = Object.getOwnPropertySymbols(r);
+      a &&
+        (n = n.filter(function (i) {
+          return Object.getOwnPropertyDescriptor(r, i).enumerable;
+        })),
+        e.push.apply(e, n);
+    }
+    return e;
+  }
+  function C(r) {
+    for (var a = 1; a < arguments.length; a++) {
+      var e = arguments[a] != null ? arguments[a] : {};
+      a % 2
+        ? O(Object(e), !0).forEach(function (n) {
+            B(r, n, e[n]);
+          })
+        : Object.getOwnPropertyDescriptors
+        ? Object.defineProperties(r, Object.getOwnPropertyDescriptors(e))
+        : O(Object(e)).forEach(function (n) {
+            Object.defineProperty(r, n, Object.getOwnPropertyDescriptor(e, n));
+          });
+    }
+    return r;
+  }
+  function D(r, a) {
+    if (r == null) return {};
+    var e = A(r, a),
+      n,
+      i;
+    if (Object.getOwnPropertySymbols) {
+      var f = Object.getOwnPropertySymbols(r);
+      for (i = 0; i < f.length; i++)
+        (n = f[i]),
+          !(a.indexOf(n) >= 0) &&
+            Object.prototype.propertyIsEnumerable.call(r, n) &&
+            (e[n] = r[n]);
+    }
+    return e;
+  }
+  function A(r, a) {
+    if (r == null) return {};
+    var e = {},
+      n = Object.keys(r),
+      i,
+      f;
+    for (f = 0; f < n.length; f++)
+      (i = n[f]), !(a.indexOf(i) >= 0) && (e[i] = r[i]);
+    return e;
+  }
+  function k(r, a) {
+    if (!(r instanceof a))
+      throw new TypeError("Cannot call a class as a function");
+  }
+  function L(r, a) {
+    for (var e = 0; e < a.length; e++) {
+      var n = a[e];
+      (n.enumerable = n.enumerable || !1),
+        (n.configurable = !0),
+        "value" in n && (n.writable = !0),
+        Object.defineProperty(r, n.key, n);
+    }
+  }
+  function F(r, a, e) {
+    return a && L(r.prototype, a), r;
+  }
+  function N(r) {
+    return function () {
+      var a = v(r),
+        e;
+      if (V()) {
+        var n = v(this).constructor;
+        e = Reflect.construct(a, arguments, n);
+      } else e = a.apply(this, arguments);
+      return E(this, e);
+    };
+  }
+  function E(r, a) {
+    return a && (j(a) === "object" || typeof a == "function") ? a : W(r);
+  }
+  function W(r) {
+    if (r === void 0)
+      throw new ReferenceError(
+        "this hasn't been initialised - super() hasn't been called"
+      );
+    return r;
+  }
+  function V() {
+    if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
+      return !1;
+    if (typeof Proxy == "function") return !0;
+    try {
+      return (
+        Date.prototype.toString.call(
+          Reflect.construct(Date, [], function () {})
+        ),
+        !0
+      );
+    } catch {
+      return !1;
+    }
+  }
+  function v(r) {
+    return (
+      (v = Object.setPrototypeOf
+        ? Object.getPrototypeOf
+        : function (e) {
+            return e.__proto__ || Object.getPrototypeOf(e);
+          }),
+      v(r)
+    );
+  }
+  function P(r, a) {
+    if (typeof a != "function" && a !== null)
+      throw new TypeError("Super expression must either be null or a function");
+    (r.prototype = Object.create(a && a.prototype, {
+      constructor: { value: r, writable: !0, configurable: !0 },
+    })),
+      a && b(r, a);
+  }
+  function b(r, a) {
+    return (
+      (b =
+        Object.setPrototypeOf ||
+        function (n, i) {
+          return (n.__proto__ = i), n;
+        }),
+      b(r, a)
+    );
+  }
+  function B(r, a, e) {
+    return (
+      a in r
+        ? Object.defineProperty(r, a, {
+            value: e,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0,
+          })
+        : (r[a] = e),
+      r
+    );
+  }
+  var s = (function (r) {
+    P(e, r);
+    var a = N(e);
+    function e() {
+      var n;
+      k(this, e);
+      for (var i = arguments.length, f = new Array(i), t = 0; t < i; t++)
+        f[t] = arguments[t];
+      return (
+        (n = a.call.apply(a, [this].concat(f))),
+        B(W(n), "storeItemReference", function (m) {
+          m !== null && (n.item = m);
+        }),
+        B(W(n), "onMouseEnter", function (m) {
+          var d = n.props,
+            S = d.sectionIndex,
+            o = d.itemIndex;
+          n.props.onMouseEnter(m, { sectionIndex: S, itemIndex: o });
+        }),
+        B(W(n), "onMouseLeave", function (m) {
+          var d = n.props,
+            S = d.sectionIndex,
+            o = d.itemIndex;
+          n.props.onMouseLeave(m, { sectionIndex: S, itemIndex: o });
+        }),
+        B(W(n), "onMouseDown", function (m) {
+          var d = n.props,
+            S = d.sectionIndex,
+            o = d.itemIndex;
+          n.props.onMouseDown(m, { sectionIndex: S, itemIndex: o });
+        }),
+        B(W(n), "onClick", function (m) {
+          var d = n.props,
+            S = d.sectionIndex,
+            o = d.itemIndex;
+          n.props.onClick(m, { sectionIndex: S, itemIndex: o });
+        }),
+        n
+      );
+    }
+    return (
+      F(e, [
+        {
+          key: "shouldComponentUpdate",
+          value: function (i) {
+            return (0, w.default)(i, this.props, ["renderItemData"]);
+          },
+        },
+        {
+          key: "render",
+          value: function () {
+            var i = this.props,
+              f = i.isHighlighted,
+              t = i.item,
+              m = i.renderItem,
+              d = i.renderItemData,
+              S = D(i, [
+                "isHighlighted",
+                "item",
+                "renderItem",
+                "renderItemData",
+              ]);
+            return (
+              delete S.sectionIndex,
+              delete S.itemIndex,
+              typeof S.onMouseEnter == "function" &&
+                (S.onMouseEnter = this.onMouseEnter),
+              typeof S.onMouseLeave == "function" &&
+                (S.onMouseLeave = this.onMouseLeave),
+              typeof S.onMouseDown == "function" &&
+                (S.onMouseDown = this.onMouseDown),
+              typeof S.onClick == "function" && (S.onClick = this.onClick),
+              c.default.createElement(
+                "li",
+                y({ role: "option" }, S, { ref: this.storeItemReference }),
+                m(t, C({ isHighlighted: f }, d))
+              )
+            );
+          },
+        },
+      ]),
+      e
+    );
+  })(c.Component);
+  (h.default = s),
+    B(s, "propTypes", {
+      sectionIndex: u.default.number,
+      isHighlighted: u.default.bool.isRequired,
+      itemIndex: u.default.number.isRequired,
+      item: u.default.any.isRequired,
+      renderItem: u.default.func.isRequired,
+      renderItemData: u.default.object.isRequired,
+      onMouseEnter: u.default.func,
+      onMouseLeave: u.default.func,
+      onMouseDown: u.default.func,
+      onClick: u.default.func,
+    });
+})(_t);
+(function (h) {
+  Object.defineProperty(h, "__esModule", { value: !0 }), (h.default = void 0);
+  var c = j(oe),
+    u = T(be),
+    w = T(_t),
+    R = T(_e);
+  function T(s) {
+    return s && s.__esModule ? s : { default: s };
+  }
+  function H() {
+    if (typeof WeakMap != "function") return null;
+    var s = new WeakMap();
+    return (
+      (H = function () {
+        return s;
+      }),
+      s
+    );
+  }
+  function j(s) {
+    if (s && s.__esModule) return s;
+    if (s === null || (y(s) !== "object" && typeof s != "function"))
+      return { default: s };
+    var r = H();
+    if (r && r.has(s)) return r.get(s);
+    var a = {},
+      e = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for (var n in s)
+      if (Object.prototype.hasOwnProperty.call(s, n)) {
+        var i = e ? Object.getOwnPropertyDescriptor(s, n) : null;
+        i && (i.get || i.set) ? Object.defineProperty(a, n, i) : (a[n] = s[n]);
+      }
+    return (a.default = s), r && r.set(s, a), a;
+  }
+  function y(s) {
+    "@babel/helpers - typeof";
+    return (
+      typeof Symbol == "function" && typeof Symbol.iterator == "symbol"
+        ? (y = function (a) {
+            return typeof a;
+          })
+        : (y = function (a) {
+            return a &&
+              typeof Symbol == "function" &&
+              a.constructor === Symbol &&
+              a !== Symbol.prototype
+              ? "symbol"
+              : typeof a;
+          }),
+      y(s)
+    );
+  }
+  function O() {
+    return (
+      (O =
+        Object.assign ||
+        function (s) {
+          for (var r = 1; r < arguments.length; r++) {
+            var a = arguments[r];
+            for (var e in a)
+              Object.prototype.hasOwnProperty.call(a, e) && (s[e] = a[e]);
+          }
+          return s;
+        }),
+      O.apply(this, arguments)
+    );
+  }
+  function C(s, r) {
+    var a = Object.keys(s);
+    if (Object.getOwnPropertySymbols) {
+      var e = Object.getOwnPropertySymbols(s);
+      r &&
+        (e = e.filter(function (n) {
+          return Object.getOwnPropertyDescriptor(s, n).enumerable;
+        })),
+        a.push.apply(a, e);
+    }
+    return a;
+  }
+  function D(s) {
+    for (var r = 1; r < arguments.length; r++) {
+      var a = arguments[r] != null ? arguments[r] : {};
+      r % 2
+        ? C(Object(a), !0).forEach(function (e) {
+            b(s, e, a[e]);
+          })
+        : Object.getOwnPropertyDescriptors
+        ? Object.defineProperties(s, Object.getOwnPropertyDescriptors(a))
+        : C(Object(a)).forEach(function (e) {
+            Object.defineProperty(s, e, Object.getOwnPropertyDescriptor(a, e));
+          });
+    }
+    return s;
+  }
+  function A(s, r) {
+    if (!(s instanceof r))
+      throw new TypeError("Cannot call a class as a function");
+  }
+  function k(s, r) {
+    for (var a = 0; a < r.length; a++) {
+      var e = r[a];
+      (e.enumerable = e.enumerable || !1),
+        (e.configurable = !0),
+        "value" in e && (e.writable = !0),
+        Object.defineProperty(s, e.key, e);
+    }
+  }
+  function L(s, r, a) {
+    return r && k(s.prototype, r), s;
+  }
+  function F(s) {
+    return function () {
+      var r = V(s),
+        a;
+      if (W()) {
+        var e = V(this).constructor;
+        a = Reflect.construct(r, arguments, e);
+      } else a = r.apply(this, arguments);
+      return N(this, a);
+    };
+  }
+  function N(s, r) {
+    return r && (y(r) === "object" || typeof r == "function") ? r : E(s);
+  }
+  function E(s) {
+    if (s === void 0)
+      throw new ReferenceError(
+        "this hasn't been initialised - super() hasn't been called"
+      );
+    return s;
+  }
+  function W() {
+    if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
+      return !1;
+    if (typeof Proxy == "function") return !0;
+    try {
+      return (
+        Date.prototype.toString.call(
+          Reflect.construct(Date, [], function () {})
+        ),
+        !0
+      );
+    } catch {
+      return !1;
+    }
+  }
+  function V(s) {
+    return (
+      (V = Object.setPrototypeOf
+        ? Object.getPrototypeOf
+        : function (a) {
+            return a.__proto__ || Object.getPrototypeOf(a);
+          }),
+      V(s)
+    );
+  }
+  function v(s, r) {
+    if (typeof r != "function" && r !== null)
+      throw new TypeError("Super expression must either be null or a function");
+    (s.prototype = Object.create(r && r.prototype, {
+      constructor: { value: s, writable: !0, configurable: !0 },
+    })),
+      r && P(s, r);
+  }
+  function P(s, r) {
+    return (
+      (P =
+        Object.setPrototypeOf ||
+        function (e, n) {
+          return (e.__proto__ = n), e;
+        }),
+      P(s, r)
+    );
+  }
+  function b(s, r, a) {
+    return (
+      r in s
+        ? Object.defineProperty(s, r, {
+            value: a,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0,
+          })
+        : (s[r] = a),
+      s
+    );
+  }
+  var B = (function (s) {
+    v(a, s);
+    var r = F(a);
+    function a() {
+      var e;
+      A(this, a);
+      for (var n = arguments.length, i = new Array(n), f = 0; f < n; f++)
+        i[f] = arguments[f];
+      return (
+        (e = r.call.apply(r, [this].concat(i))),
+        b(E(e), "storeHighlightedItemReference", function (t) {
+          e.props.onHighlightedItemChange(t === null ? null : t.item);
+        }),
+        e
+      );
+    }
+    return (
+      L(a, [
+        {
+          key: "shouldComponentUpdate",
+          value: function (n) {
+            return (0, R.default)(n, this.props, ["itemProps"]);
+          },
+        },
+        {
+          key: "render",
+          value: function () {
+            var n = this,
+              i = this.props,
+              f = i.items,
+              t = i.itemProps,
+              m = i.renderItem,
+              d = i.renderItemData,
+              S = i.sectionIndex,
+              o = i.highlightedItemIndex,
+              l = i.getItemId,
+              g = i.theme,
+              I = i.keyPrefix,
+              p = S === null ? I : "".concat(I, "section-").concat(S, "-"),
+              x = typeof t == "function";
+            return c.default.createElement(
+              "ul",
+              O(
+                { role: "listbox" },
+                g("".concat(p, "items-list"), "itemsList")
+              ),
+              f.map(function (_, M) {
+                var K = M === 0,
+                  U = M === o,
+                  J = "".concat(p, "item-").concat(M),
+                  z = x ? t({ sectionIndex: S, itemIndex: M }) : t,
+                  G = D(
+                    { id: l(S, M), "aria-selected": U },
+                    g(J, "item", K && "itemFirst", U && "itemHighlighted"),
+                    {},
+                    z
+                  );
+                return (
+                  U && (G.ref = n.storeHighlightedItemReference),
+                  c.default.createElement(
+                    w.default,
+                    O({}, G, {
+                      sectionIndex: S,
+                      isHighlighted: U,
+                      itemIndex: M,
+                      item: _,
+                      renderItem: m,
+                      renderItemData: d,
+                    })
+                  )
+                );
+              })
+            );
+          },
+        },
+      ]),
+      a
+    );
+  })(c.Component);
+  (h.default = B),
+    b(B, "propTypes", {
+      items: u.default.array.isRequired,
+      itemProps: u.default.oneOfType([u.default.object, u.default.func]),
+      renderItem: u.default.func.isRequired,
+      renderItemData: u.default.object.isRequired,
+      sectionIndex: u.default.number,
+      highlightedItemIndex: u.default.number,
+      onHighlightedItemChange: u.default.func.isRequired,
+      getItemId: u.default.func.isRequired,
+      theme: u.default.func.isRequired,
+      keyPrefix: u.default.string.isRequired,
+    }),
+    b(B, "defaultProps", { sectionIndex: null });
+})(It);
+(function (h) {
+  Object.defineProperty(h, "__esModule", { value: !0 }), (h.default = void 0);
+  var c = O(oe),
+    u = j(be),
+    w = j(Lt),
+    R = j(Vt),
+    T = j(xt),
+    H = j(It);
+  function j(o) {
+    return o && o.__esModule ? o : { default: o };
+  }
+  function y() {
+    if (typeof WeakMap != "function") return null;
+    var o = new WeakMap();
+    return (
+      (y = function () {
+        return o;
+      }),
+      o
+    );
+  }
+  function O(o) {
+    if (o && o.__esModule) return o;
+    if (o === null || (W(o) !== "object" && typeof o != "function"))
+      return { default: o };
+    var l = y();
+    if (l && l.has(o)) return l.get(o);
+    var g = {},
+      I = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for (var p in o)
+      if (Object.prototype.hasOwnProperty.call(o, p)) {
+        var x = I ? Object.getOwnPropertyDescriptor(o, p) : null;
+        x && (x.get || x.set) ? Object.defineProperty(g, p, x) : (g[p] = o[p]);
+      }
+    return (g.default = o), l && l.set(o, g), g;
+  }
+  function C(o, l) {
+    var g = Object.keys(o);
+    if (Object.getOwnPropertySymbols) {
+      var I = Object.getOwnPropertySymbols(o);
+      l &&
+        (I = I.filter(function (p) {
+          return Object.getOwnPropertyDescriptor(o, p).enumerable;
+        })),
+        g.push.apply(g, I);
+    }
+    return g;
+  }
+  function D(o) {
+    for (var l = 1; l < arguments.length; l++) {
+      var g = arguments[l] != null ? arguments[l] : {};
+      l % 2
+        ? C(Object(g), !0).forEach(function (I) {
+            i(o, I, g[I]);
+          })
+        : Object.getOwnPropertyDescriptors
+        ? Object.defineProperties(o, Object.getOwnPropertyDescriptors(g))
+        : C(Object(g)).forEach(function (I) {
+            Object.defineProperty(o, I, Object.getOwnPropertyDescriptor(g, I));
+          });
+    }
+    return o;
+  }
+  function A(o, l) {
+    return E(o) || N(o, l) || L(o, l) || k();
+  }
+  function k() {
+    throw new TypeError(`Invalid attempt to destructure non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
+  }
+  function L(o, l) {
+    if (o) {
+      if (typeof o == "string") return F(o, l);
+      var g = Object.prototype.toString.call(o).slice(8, -1);
+      if (
+        (g === "Object" && o.constructor && (g = o.constructor.name),
+        g === "Map" || g === "Set")
+      )
+        return Array.from(g);
+      if (
+        g === "Arguments" ||
+        /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(g)
+      )
+        return F(o, l);
+    }
+  }
+  function F(o, l) {
+    (l == null || l > o.length) && (l = o.length);
+    for (var g = 0, I = new Array(l); g < l; g++) I[g] = o[g];
+    return I;
+  }
+  function N(o, l) {
+    if (!(typeof Symbol > "u" || !(Symbol.iterator in Object(o)))) {
+      var g = [],
+        I = !0,
+        p = !1,
+        x = void 0;
+      try {
+        for (
+          var _ = o[Symbol.iterator](), M;
+          !(I = (M = _.next()).done) &&
+          (g.push(M.value), !(l && g.length === l));
+          I = !0
+        );
+      } catch (K) {
+        (p = !0), (x = K);
+      } finally {
+        try {
+          !I && _.return != null && _.return();
+        } finally {
+          if (p) throw x;
+        }
+      }
+      return g;
+    }
+  }
+  function E(o) {
+    if (Array.isArray(o)) return o;
+  }
+  function W(o) {
+    "@babel/helpers - typeof";
+    return (
+      typeof Symbol == "function" && typeof Symbol.iterator == "symbol"
+        ? (W = function (g) {
+            return typeof g;
+          })
+        : (W = function (g) {
+            return g &&
+              typeof Symbol == "function" &&
+              g.constructor === Symbol &&
+              g !== Symbol.prototype
+              ? "symbol"
+              : typeof g;
+          }),
+      W(o)
+    );
+  }
+  function V(o, l) {
+    if (!(o instanceof l))
+      throw new TypeError("Cannot call a class as a function");
+  }
+  function v(o, l) {
+    for (var g = 0; g < l.length; g++) {
+      var I = l[g];
+      (I.enumerable = I.enumerable || !1),
+        (I.configurable = !0),
+        "value" in I && (I.writable = !0),
+        Object.defineProperty(o, I.key, I);
+    }
+  }
+  function P(o, l, g) {
+    return l && v(o.prototype, l), o;
+  }
+  function b(o) {
+    return function () {
+      var l = a(o),
+        g;
+      if (r()) {
+        var I = a(this).constructor;
+        g = Reflect.construct(l, arguments, I);
+      } else g = l.apply(this, arguments);
+      return B(this, g);
+    };
+  }
+  function B(o, l) {
+    return l && (W(l) === "object" || typeof l == "function") ? l : s(o);
+  }
+  function s(o) {
+    if (o === void 0)
+      throw new ReferenceError(
+        "this hasn't been initialised - super() hasn't been called"
+      );
+    return o;
+  }
+  function r() {
+    if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
+      return !1;
+    if (typeof Proxy == "function") return !0;
+    try {
+      return (
+        Date.prototype.toString.call(
+          Reflect.construct(Date, [], function () {})
+        ),
+        !0
+      );
+    } catch {
+      return !1;
+    }
+  }
+  function a(o) {
+    return (
+      (a = Object.setPrototypeOf
+        ? Object.getPrototypeOf
+        : function (g) {
+            return g.__proto__ || Object.getPrototypeOf(g);
+          }),
+      a(o)
+    );
+  }
+  function e(o, l) {
+    if (typeof l != "function" && l !== null)
+      throw new TypeError("Super expression must either be null or a function");
+    (o.prototype = Object.create(l && l.prototype, {
+      constructor: { value: o, writable: !0, configurable: !0 },
+    })),
+      l && n(o, l);
+  }
+  function n(o, l) {
+    return (
+      (n =
+        Object.setPrototypeOf ||
+        function (I, p) {
+          return (I.__proto__ = p), I;
+        }),
+      n(o, l)
+    );
+  }
+  function i(o, l, g) {
+    return (
+      l in o
+        ? Object.defineProperty(o, l, {
+            value: g,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0,
+          })
+        : (o[l] = g),
+      o
+    );
+  }
+  var f = {},
+    t = function (l) {
+      return c.default.createElement("input", l);
+    },
+    m = function (l) {
+      var g = l.containerProps,
+        I = l.children;
+      return c.default.createElement("div", g, I);
+    },
+    d = {
+      container: "react-autowhatever__container",
+      containerOpen: "react-autowhatever__container--open",
+      input: "react-autowhatever__input",
+      inputOpen: "react-autowhatever__input--open",
+      inputFocused: "react-autowhatever__input--focused",
+      itemsContainer: "react-autowhatever__items-container",
+      itemsContainerOpen: "react-autowhatever__items-container--open",
+      itemsList: "react-autowhatever__items-list",
+      item: "react-autowhatever__item",
+      itemFirst: "react-autowhatever__item--first",
+      itemHighlighted: "react-autowhatever__item--highlighted",
+      sectionContainer: "react-autowhatever__section-container",
+      sectionContainerFirst: "react-autowhatever__section-container--first",
+      sectionTitle: "react-autowhatever__section-title",
+    },
+    S = (function (o) {
+      e(g, o);
+      var l = b(g);
+      function g(I) {
+        var p;
+        return (
+          V(this, g),
+          (p = l.call(this, I)),
+          i(s(p), "storeInputReference", function (x) {
+            x !== null && (p.input = x);
+            var _ = p.props.inputProps.ref;
+            _ &&
+              (typeof _ == "function"
+                ? _(x)
+                : W(_) === "object" &&
+                  Object.prototype.hasOwnProperty.call(_, "current") &&
+                  (_.current = x));
+          }),
+          i(s(p), "storeItemsContainerReference", function (x) {
+            x !== null && (p.itemsContainer = x);
+          }),
+          i(s(p), "onHighlightedItemChange", function (x) {
+            p.highlightedItem = x;
+          }),
+          i(s(p), "getItemId", function (x, _) {
+            if (_ === null) return null;
+            var M = p.props.id,
+              K = x === null ? "" : "section-".concat(x);
+            return "react-autowhatever-"
+              .concat(M, "-")
+              .concat(K, "-item-")
+              .concat(_);
+          }),
+          i(s(p), "onFocus", function (x) {
+            var _ = p.props.inputProps;
+            p.setState({ isInputFocused: !0 }), _.onFocus && _.onFocus(x);
+          }),
+          i(s(p), "onBlur", function (x) {
+            var _ = p.props.inputProps;
+            p.setState({ isInputFocused: !1 }), _.onBlur && _.onBlur(x);
+          }),
+          i(s(p), "onKeyDown", function (x) {
+            var _ = p.props,
+              M = _.inputProps,
+              K = _.highlightedSectionIndex,
+              U = _.highlightedItemIndex;
+            switch (x.key) {
+              case "ArrowDown":
+              case "ArrowUp": {
+                var J = x.key === "ArrowDown" ? "next" : "prev",
+                  z = p.sectionIterator[J]([K, U]),
+                  G = A(z, 2),
+                  ee = G[0],
+                  Y = G[1];
+                M.onKeyDown(x, {
+                  newHighlightedSectionIndex: ee,
+                  newHighlightedItemIndex: Y,
+                });
+                break;
+              }
+              default:
+                M.onKeyDown(x, {
+                  highlightedSectionIndex: K,
+                  highlightedItemIndex: U,
+                });
+            }
+          }),
+          (p.highlightedItem = null),
+          (p.state = { isInputFocused: !1 }),
+          p.setSectionsItems(I),
+          p.setSectionIterator(I),
+          p.setTheme(I),
+          p
+        );
+      }
+      return (
+        P(g, [
+          {
+            key: "componentDidMount",
+            value: function () {
+              this.ensureHighlightedItemIsVisible();
+            },
+          },
+          {
+            key: "UNSAFE_componentWillReceiveProps",
+            value: function (p) {
+              p.items !== this.props.items && this.setSectionsItems(p),
+                (p.items !== this.props.items ||
+                  p.multiSection !== this.props.multiSection) &&
+                  this.setSectionIterator(p),
+                p.theme !== this.props.theme && this.setTheme(p);
+            },
+          },
+          {
+            key: "componentDidUpdate",
+            value: function () {
+              this.ensureHighlightedItemIsVisible();
+            },
+          },
+          {
+            key: "setSectionsItems",
+            value: function (p) {
+              p.multiSection &&
+                ((this.sectionsItems = p.items.map(function (x) {
+                  return p.getSectionItems(x);
+                })),
+                (this.sectionsLengths = this.sectionsItems.map(function (x) {
+                  return x.length;
+                })),
+                (this.allSectionsAreEmpty = this.sectionsLengths.every(
+                  function (x) {
+                    return x === 0;
+                  }
+                )));
+            },
+          },
+          {
+            key: "setSectionIterator",
+            value: function (p) {
+              this.sectionIterator = (0, w.default)({
+                multiSection: p.multiSection,
+                data: p.multiSection ? this.sectionsLengths : p.items.length,
+              });
+            },
+          },
+          {
+            key: "setTheme",
+            value: function (p) {
+              this.theme = (0, R.default)(p.theme);
+            },
+          },
+          {
+            key: "renderSections",
+            value: function () {
+              var p = this;
+              if (this.allSectionsAreEmpty) return null;
+              var x = this.theme,
+                _ = this.props,
+                M = _.id,
+                K = _.items,
+                U = _.renderItem,
+                J = _.renderItemData,
+                z = _.renderSectionTitle,
+                G = _.highlightedSectionIndex,
+                ee = _.highlightedItemIndex,
+                Y = _.itemProps;
+              return K.map(function (ie, Q) {
+                var te = "react-autowhatever-".concat(M, "-"),
+                  X = "".concat(te, "section-").concat(Q, "-"),
+                  ae = Q === 0;
+                return c.default.createElement(
+                  "div",
+                  x(
+                    "".concat(X, "container"),
+                    "sectionContainer",
+                    ae && "sectionContainerFirst"
+                  ),
+                  c.default.createElement(T.default, {
+                    section: ie,
+                    renderSectionTitle: z,
+                    theme: x,
+                    sectionKeyPrefix: X,
+                  }),
+                  c.default.createElement(H.default, {
+                    items: p.sectionsItems[Q],
+                    itemProps: Y,
+                    renderItem: U,
+                    renderItemData: J,
+                    sectionIndex: Q,
+                    highlightedItemIndex: G === Q ? ee : null,
+                    onHighlightedItemChange: p.onHighlightedItemChange,
+                    getItemId: p.getItemId,
+                    theme: x,
+                    keyPrefix: te,
+                    ref: p.storeItemsListReference,
+                  })
+                );
+              });
+            },
+          },
+          {
+            key: "renderItems",
+            value: function () {
+              var p = this.props.items;
+              if (p.length === 0) return null;
+              var x = this.theme,
+                _ = this.props,
+                M = _.id,
+                K = _.renderItem,
+                U = _.renderItemData,
+                J = _.highlightedSectionIndex,
+                z = _.highlightedItemIndex,
+                G = _.itemProps;
+              return c.default.createElement(H.default, {
+                items: p,
+                itemProps: G,
+                renderItem: K,
+                renderItemData: U,
+                highlightedItemIndex: J === null ? z : null,
+                onHighlightedItemChange: this.onHighlightedItemChange,
+                getItemId: this.getItemId,
+                theme: x,
+                keyPrefix: "react-autowhatever-".concat(M, "-"),
+              });
+            },
+          },
+          {
+            key: "ensureHighlightedItemIsVisible",
+            value: function () {
+              var p = this.highlightedItem;
+              if (p) {
+                var x = this.itemsContainer,
+                  _ =
+                    p.offsetParent === x
+                      ? p.offsetTop
+                      : p.offsetTop - x.offsetTop,
+                  M = x.scrollTop;
+                _ < M
+                  ? (M = _)
+                  : _ + p.offsetHeight > M + x.offsetHeight &&
+                    (M = _ + p.offsetHeight - x.offsetHeight),
+                  M !== x.scrollTop && (x.scrollTop = M);
+              }
+            },
+          },
+          {
+            key: "render",
+            value: function () {
+              var p = this.theme,
+                x = this.props,
+                _ = x.id,
+                M = x.multiSection,
+                K = x.renderInputComponent,
+                U = x.renderItemsContainer,
+                J = x.highlightedSectionIndex,
+                z = x.highlightedItemIndex,
+                G = this.state.isInputFocused,
+                ee = M ? this.renderSections() : this.renderItems(),
+                Y = ee !== null,
+                ie = this.getItemId(J, z),
+                Q = "react-autowhatever-".concat(_),
+                te = D(
+                  {
+                    role: "combobox",
+                    "aria-haspopup": "listbox",
+                    "aria-owns": Q,
+                    "aria-expanded": Y,
+                  },
+                  p(
+                    "react-autowhatever-".concat(_, "-container"),
+                    "container",
+                    Y && "containerOpen"
+                  ),
+                  {},
+                  this.props.containerProps
+                ),
+                X = K(
+                  D(
+                    {
+                      type: "text",
+                      value: "",
+                      autoComplete: "off",
+                      "aria-autocomplete": "list",
+                      "aria-controls": Q,
+                      "aria-activedescendant": ie,
+                    },
+                    p(
+                      "react-autowhatever-".concat(_, "-input"),
+                      "input",
+                      Y && "inputOpen",
+                      G && "inputFocused"
+                    ),
+                    {},
+                    this.props.inputProps,
+                    {
+                      onFocus: this.onFocus,
+                      onBlur: this.onBlur,
+                      onKeyDown:
+                        this.props.inputProps.onKeyDown && this.onKeyDown,
+                      ref: this.storeInputReference,
+                    }
+                  )
+                ),
+                ae = U({
+                  containerProps: D(
+                    { id: Q, role: "listbox" },
+                    p(
+                      "react-autowhatever-".concat(_, "-items-container"),
+                      "itemsContainer",
+                      Y && "itemsContainerOpen"
+                    ),
+                    { ref: this.storeItemsContainerReference }
+                  ),
+                  children: ee,
+                });
+              return c.default.createElement("div", te, X, ae);
+            },
+          },
+        ]),
+        g
+      );
+    })(c.Component);
+  (h.default = S),
+    i(S, "propTypes", {
+      id: u.default.string,
+      multiSection: u.default.bool,
+      renderInputComponent: u.default.func,
+      renderItemsContainer: u.default.func,
+      items: u.default.array.isRequired,
+      renderItem: u.default.func,
+      renderItemData: u.default.object,
+      renderSectionTitle: u.default.func,
+      getSectionItems: u.default.func,
+      containerProps: u.default.object,
+      inputProps: u.default.object,
+      itemProps: u.default.oneOfType([u.default.object, u.default.func]),
+      highlightedSectionIndex: u.default.number,
+      highlightedItemIndex: u.default.number,
+      theme: u.default.oneOfType([u.default.object, u.default.array]),
+    }),
+    i(S, "defaultProps", {
+      id: "1",
+      multiSection: !1,
+      renderInputComponent: t,
+      renderItemsContainer: m,
+      renderItem: function () {
+        throw new Error("`renderItem` must be provided");
+      },
+      renderItemData: f,
+      renderSectionTitle: function () {
+        throw new Error("`renderSectionTitle` must be provided");
+      },
+      getSectionItems: function () {
+        throw new Error("`getSectionItems` must be provided");
+      },
+      containerProps: f,
+      inputProps: f,
+      itemProps: f,
+      highlightedSectionIndex: null,
+      highlightedItemIndex: null,
+      theme: d,
+    });
+})(bt);
+var se = {};
+Object.defineProperty(se, "__esModule", { value: !0 });
+se.mapToAutowhateverTheme = se.defaultTheme = void 0;
+var Kt = {
+  container: "react-autosuggest__container",
+  containerOpen: "react-autosuggest__container--open",
+  input: "react-autosuggest__input",
+  inputOpen: "react-autosuggest__input--open",
+  inputFocused: "react-autosuggest__input--focused",
+  suggestionsContainer: "react-autosuggest__suggestions-container",
+  suggestionsContainerOpen: "react-autosuggest__suggestions-container--open",
+  suggestionsList: "react-autosuggest__suggestions-list",
+  suggestion: "react-autosuggest__suggestion",
+  suggestionFirst: "react-autosuggest__suggestion--first",
+  suggestionHighlighted: "react-autosuggest__suggestion--highlighted",
+  sectionContainer: "react-autosuggest__section-container",
+  sectionContainerFirst: "react-autosuggest__section-container--first",
+  sectionTitle: "react-autosuggest__section-title",
+};
+se.defaultTheme = Kt;
+var zt = function (c) {
+  var u = {};
+  for (var w in c)
+    switch (w) {
+      case "suggestionsContainer":
+        u.itemsContainer = c[w];
+        break;
+      case "suggestionsContainerOpen":
+        u.itemsContainerOpen = c[w];
+        break;
+      case "suggestion":
+        u.item = c[w];
+        break;
+      case "suggestionFirst":
+        u.itemFirst = c[w];
+        break;
+      case "suggestionHighlighted":
+        u.itemHighlighted = c[w];
+        break;
+      case "suggestionsList":
+        u.itemsList = c[w];
+        break;
+      default:
+        u[w] = c[w];
+    }
+  return u;
+};
+se.mapToAutowhateverTheme = zt;
+(function (h) {
+  Object.defineProperty(h, "__esModule", { value: !0 }), (h.default = void 0);
+  var c = y(oe),
+    u = H(be),
+    w = H(Ft),
+    R = H(bt),
+    T = se;
+  function H(e) {
+    return e && e.__esModule ? e : { default: e };
+  }
+  function j() {
+    if (typeof WeakMap != "function") return null;
+    var e = new WeakMap();
+    return (
+      (j = function () {
+        return e;
+      }),
+      e
+    );
+  }
+  function y(e) {
+    if (e && e.__esModule) return e;
+    if (e === null || (O(e) !== "object" && typeof e != "function"))
+      return { default: e };
+    var n = j();
+    if (n && n.has(e)) return n.get(e);
+    var i = {},
+      f = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for (var t in e)
+      if (Object.prototype.hasOwnProperty.call(e, t)) {
+        var m = f ? Object.getOwnPropertyDescriptor(e, t) : null;
+        m && (m.get || m.set) ? Object.defineProperty(i, t, m) : (i[t] = e[t]);
+      }
+    return (i.default = e), n && n.set(e, i), i;
+  }
+  function O(e) {
+    "@babel/helpers - typeof";
+    return (
+      typeof Symbol == "function" && typeof Symbol.iterator == "symbol"
+        ? (O = function (i) {
+            return typeof i;
+          })
+        : (O = function (i) {
+            return i &&
+              typeof Symbol == "function" &&
+              i.constructor === Symbol &&
+              i !== Symbol.prototype
+              ? "symbol"
+              : typeof i;
+          }),
+      O(e)
+    );
+  }
+  function C(e, n) {
+    var i = Object.keys(e);
+    if (Object.getOwnPropertySymbols) {
+      var f = Object.getOwnPropertySymbols(e);
+      n &&
+        (f = f.filter(function (t) {
+          return Object.getOwnPropertyDescriptor(e, t).enumerable;
+        })),
+        i.push.apply(i, f);
+    }
+    return i;
+  }
+  function D(e) {
+    for (var n = 1; n < arguments.length; n++) {
+      var i = arguments[n] != null ? arguments[n] : {};
+      n % 2
+        ? C(Object(i), !0).forEach(function (f) {
+            b(e, f, i[f]);
+          })
+        : Object.getOwnPropertyDescriptors
+        ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(i))
+        : C(Object(i)).forEach(function (f) {
+            Object.defineProperty(e, f, Object.getOwnPropertyDescriptor(i, f));
+          });
+    }
+    return e;
+  }
+  function A(e, n) {
+    if (!(e instanceof n))
+      throw new TypeError("Cannot call a class as a function");
+  }
+  function k(e, n) {
+    for (var i = 0; i < n.length; i++) {
+      var f = n[i];
+      (f.enumerable = f.enumerable || !1),
+        (f.configurable = !0),
+        "value" in f && (f.writable = !0),
+        Object.defineProperty(e, f.key, f);
+    }
+  }
+  function L(e, n, i) {
+    return n && k(e.prototype, n), e;
+  }
+  function F(e) {
+    return function () {
+      var n = V(e),
+        i;
+      if (W()) {
+        var f = V(this).constructor;
+        i = Reflect.construct(n, arguments, f);
+      } else i = n.apply(this, arguments);
+      return N(this, i);
+    };
+  }
+  function N(e, n) {
+    return n && (O(n) === "object" || typeof n == "function") ? n : E(e);
+  }
+  function E(e) {
+    if (e === void 0)
+      throw new ReferenceError(
+        "this hasn't been initialised - super() hasn't been called"
+      );
+    return e;
+  }
+  function W() {
+    if (typeof Reflect > "u" || !Reflect.construct || Reflect.construct.sham)
+      return !1;
+    if (typeof Proxy == "function") return !0;
+    try {
+      return (
+        Date.prototype.toString.call(
+          Reflect.construct(Date, [], function () {})
+        ),
+        !0
+      );
+    } catch {
+      return !1;
+    }
+  }
+  function V(e) {
+    return (
+      (V = Object.setPrototypeOf
+        ? Object.getPrototypeOf
+        : function (i) {
+            return i.__proto__ || Object.getPrototypeOf(i);
+          }),
+      V(e)
+    );
+  }
+  function v(e, n) {
+    if (typeof n != "function" && n !== null)
+      throw new TypeError("Super expression must either be null or a function");
+    (e.prototype = Object.create(n && n.prototype, {
+      constructor: { value: e, writable: !0, configurable: !0 },
+    })),
+      n && P(e, n);
+  }
+  function P(e, n) {
+    return (
+      (P =
+        Object.setPrototypeOf ||
+        function (f, t) {
+          return (f.__proto__ = t), f;
+        }),
+      P(e, n)
+    );
+  }
+  function b(e, n, i) {
+    return (
+      n in e
+        ? Object.defineProperty(e, n, {
+            value: i,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0,
+          })
+        : (e[n] = i),
+      e
+    );
+  }
+  var B = function () {
+      return !0;
+    },
+    s = function (n) {
+      return n.trim().length > 0;
+    },
+    r = function (n) {
+      var i = n.containerProps,
+        f = n.children;
+      return c.default.createElement("div", i, f);
+    },
+    a = (function (e) {
+      v(i, e);
+      var n = F(i);
+      function i(f) {
+        var t,
+          m = f.alwaysRenderSuggestions;
+        return (
+          A(this, i),
+          (t = n.call(this)),
+          b(E(t), "onDocumentMouseDown", function (d) {
+            t.justClickedOnSuggestionsContainer = !1;
+            for (
+              var S = (d.detail && d.detail.target) || d.target;
+              S !== null && S !== document;
+
+            ) {
+              if (
+                S.getAttribute &&
+                S.getAttribute("data-suggestion-index") !== null
+              )
+                return;
+              if (S === t.suggestionsContainer) {
+                t.justClickedOnSuggestionsContainer = !0;
+                return;
+              }
+              S = S.parentNode;
+            }
+          }),
+          b(E(t), "storeAutowhateverRef", function (d) {
+            d !== null && (t.autowhatever = d);
+          }),
+          b(E(t), "onSuggestionMouseEnter", function (d, S) {
+            var o = S.sectionIndex,
+              l = S.itemIndex;
+            t.updateHighlightedSuggestion(o, l),
+              d.target === t.pressedSuggestion &&
+                (t.justSelectedSuggestion = !0),
+              (t.justMouseEntered = !0),
+              setTimeout(function () {
+                t.justMouseEntered = !1;
+              });
+          }),
+          b(E(t), "highlightFirstSuggestion", function () {
+            t.updateHighlightedSuggestion(t.props.multiSection ? 0 : null, 0);
+          }),
+          b(E(t), "onDocumentMouseUp", function () {
+            t.pressedSuggestion && !t.justSelectedSuggestion && t.input.focus(),
+              (t.pressedSuggestion = null);
+          }),
+          b(E(t), "onSuggestionMouseDown", function (d) {
+            t.justSelectedSuggestion ||
+              ((t.justSelectedSuggestion = !0),
+              (t.pressedSuggestion = d.target));
+          }),
+          b(E(t), "onSuggestionsClearRequested", function () {
+            var d = t.props.onSuggestionsClearRequested;
+            d && d();
+          }),
+          b(E(t), "onSuggestionSelected", function (d, S) {
+            var o = t.props,
+              l = o.alwaysRenderSuggestions,
+              g = o.onSuggestionSelected,
+              I = o.onSuggestionsFetchRequested;
+            g && g(d, S),
+              l
+                ? I({ value: S.suggestionValue, reason: "suggestion-selected" })
+                : t.onSuggestionsClearRequested(),
+              t.resetHighlightedSuggestion();
+          }),
+          b(E(t), "onSuggestionClick", function (d) {
+            var S = t.props,
+              o = S.alwaysRenderSuggestions,
+              l = S.focusInputOnSuggestionClick,
+              g = t.getSuggestionIndices(t.findSuggestionElement(d.target)),
+              I = g.sectionIndex,
+              p = g.suggestionIndex,
+              x = t.getSuggestion(I, p),
+              _ = t.props.getSuggestionValue(x);
+            t.maybeCallOnChange(d, _, "click"),
+              t.onSuggestionSelected(d, {
+                suggestion: x,
+                suggestionValue: _,
+                suggestionIndex: p,
+                sectionIndex: I,
+                method: "click",
+              }),
+              o || t.closeSuggestions(),
+              l === !0 ? t.input.focus() : t.onBlur(),
+              setTimeout(function () {
+                t.justSelectedSuggestion = !1;
+              });
+          }),
+          b(E(t), "onBlur", function () {
+            var d = t.props,
+              S = d.inputProps,
+              o = d.shouldRenderSuggestions,
+              l = S.value,
+              g = S.onBlur,
+              I = t.getHighlightedSuggestion(),
+              p = o(l);
+            t.setState({
+              isFocused: !1,
+              highlightedSectionIndex: null,
+              highlightedSuggestionIndex: null,
+              highlightedSuggestion: null,
+              valueBeforeUpDown: null,
+              isCollapsed: !p,
+            }),
+              g && g(t.blurEvent, { highlightedSuggestion: I });
+          }),
+          b(E(t), "onSuggestionMouseLeave", function (d) {
+            t.resetHighlightedSuggestion(!1),
+              t.justSelectedSuggestion &&
+                d.target === t.pressedSuggestion &&
+                (t.justSelectedSuggestion = !1);
+          }),
+          b(E(t), "onSuggestionTouchStart", function () {
+            t.justSelectedSuggestion = !0;
+          }),
+          b(E(t), "onSuggestionTouchMove", function () {
+            (t.justSelectedSuggestion = !1),
+              (t.pressedSuggestion = null),
+              t.input.focus();
+          }),
+          b(E(t), "itemProps", function (d) {
+            var S = d.sectionIndex,
+              o = d.itemIndex;
+            return {
+              "data-section-index": S,
+              "data-suggestion-index": o,
+              onMouseEnter: t.onSuggestionMouseEnter,
+              onMouseLeave: t.onSuggestionMouseLeave,
+              onMouseDown: t.onSuggestionMouseDown,
+              onTouchStart: t.onSuggestionTouchStart,
+              onTouchMove: t.onSuggestionTouchMove,
+              onClick: t.onSuggestionClick,
+            };
+          }),
+          b(E(t), "renderSuggestionsContainer", function (d) {
+            var S = d.containerProps,
+              o = d.children,
+              l = t.props.renderSuggestionsContainer;
+            return l({ containerProps: S, children: o, query: t.getQuery() });
+          }),
+          (t.state = {
+            isFocused: !1,
+            isCollapsed: !m,
+            highlightedSectionIndex: null,
+            highlightedSuggestionIndex: null,
+            highlightedSuggestion: null,
+            valueBeforeUpDown: null,
+          }),
+          (t.justPressedUpDown = !1),
+          (t.justMouseEntered = !1),
+          (t.pressedSuggestion = null),
+          t
+        );
+      }
+      return (
+        L(i, [
+          {
+            key: "componentDidMount",
+            value: function () {
+              document.addEventListener("mousedown", this.onDocumentMouseDown),
+                document.addEventListener("mouseup", this.onDocumentMouseUp),
+                (this.input = this.autowhatever.input),
+                (this.suggestionsContainer = this.autowhatever.itemsContainer);
+            },
+          },
+          {
+            key: "UNSAFE_componentWillReceiveProps",
+            value: function (t) {
+              (0, w.default)(t.suggestions, this.props.suggestions)
+                ? t.highlightFirstSuggestion &&
+                  t.suggestions.length > 0 &&
+                  this.justPressedUpDown === !1 &&
+                  this.justMouseEntered === !1 &&
+                  this.highlightFirstSuggestion()
+                : this.willRenderSuggestions(t)
+                ? this.state.isCollapsed &&
+                  !this.justSelectedSuggestion &&
+                  this.revealSuggestions()
+                : this.resetHighlightedSuggestion();
+            },
+          },
+          {
+            key: "componentDidUpdate",
+            value: function (t, m) {
+              var d = this.props,
+                S = d.suggestions,
+                o = d.onSuggestionHighlighted,
+                l = d.highlightFirstSuggestion;
+              if (!(0, w.default)(S, t.suggestions) && S.length > 0 && l) {
+                this.highlightFirstSuggestion();
+                return;
+              }
+              if (o) {
+                var g = this.getHighlightedSuggestion(),
+                  I = m.highlightedSuggestion;
+                g != I && o({ suggestion: g });
+              }
+            },
+          },
+          {
+            key: "componentWillUnmount",
+            value: function () {
+              document.removeEventListener(
+                "mousedown",
+                this.onDocumentMouseDown
+              ),
+                document.removeEventListener("mouseup", this.onDocumentMouseUp);
+            },
+          },
+          {
+            key: "updateHighlightedSuggestion",
+            value: function (t, m, d) {
+              var S = this;
+              this.setState(function (o) {
+                var l = o.valueBeforeUpDown;
+                return (
+                  m === null
+                    ? (l = null)
+                    : l === null && typeof d < "u" && (l = d),
+                  {
+                    highlightedSectionIndex: t,
+                    highlightedSuggestionIndex: m,
+                    highlightedSuggestion:
+                      m === null ? null : S.getSuggestion(t, m),
+                    valueBeforeUpDown: l,
+                  }
+                );
+              });
+            },
+          },
+          {
+            key: "resetHighlightedSuggestion",
+            value: function () {
+              var t =
+                arguments.length > 0 && arguments[0] !== void 0
+                  ? arguments[0]
+                  : !0;
+              this.setState(function (m) {
+                var d = m.valueBeforeUpDown;
+                return {
+                  highlightedSectionIndex: null,
+                  highlightedSuggestionIndex: null,
+                  highlightedSuggestion: null,
+                  valueBeforeUpDown: t ? null : d,
+                };
+              });
+            },
+          },
+          {
+            key: "revealSuggestions",
+            value: function () {
+              this.setState({ isCollapsed: !1 });
+            },
+          },
+          {
+            key: "closeSuggestions",
+            value: function () {
+              this.setState({
+                highlightedSectionIndex: null,
+                highlightedSuggestionIndex: null,
+                highlightedSuggestion: null,
+                valueBeforeUpDown: null,
+                isCollapsed: !0,
+              });
+            },
+          },
+          {
+            key: "getSuggestion",
+            value: function (t, m) {
+              var d = this.props,
+                S = d.suggestions,
+                o = d.multiSection,
+                l = d.getSectionSuggestions;
+              return o ? l(S[t])[m] : S[m];
+            },
+          },
+          {
+            key: "getHighlightedSuggestion",
+            value: function () {
+              var t = this.state,
+                m = t.highlightedSectionIndex,
+                d = t.highlightedSuggestionIndex;
+              return d === null ? null : this.getSuggestion(m, d);
+            },
+          },
+          {
+            key: "getSuggestionValueByIndex",
+            value: function (t, m) {
+              var d = this.props.getSuggestionValue;
+              return d(this.getSuggestion(t, m));
+            },
+          },
+          {
+            key: "getSuggestionIndices",
+            value: function (t) {
+              var m = t.getAttribute("data-section-index"),
+                d = t.getAttribute("data-suggestion-index");
+              return {
+                sectionIndex: typeof m == "string" ? parseInt(m, 10) : null,
+                suggestionIndex: parseInt(d, 10),
+              };
+            },
+          },
+          {
+            key: "findSuggestionElement",
+            value: function (t) {
+              var m = t;
+              do {
+                if (
+                  m.getAttribute &&
+                  m.getAttribute("data-suggestion-index") !== null
+                )
+                  return m;
+                m = m.parentNode;
+              } while (m !== null);
+              throw (
+                (console.error("Clicked element:", t),
+                new Error("Couldn't find suggestion element"))
+              );
+            },
+          },
+          {
+            key: "maybeCallOnChange",
+            value: function (t, m, d) {
+              var S = this.props.inputProps,
+                o = S.value,
+                l = S.onChange;
+              m !== o && l(t, { newValue: m, method: d });
+            },
+          },
+          {
+            key: "willRenderSuggestions",
+            value: function (t) {
+              var m = t.suggestions,
+                d = t.inputProps,
+                S = t.shouldRenderSuggestions,
+                o = d.value;
+              return m.length > 0 && S(o);
+            },
+          },
+          {
+            key: "getQuery",
+            value: function () {
+              var t = this.props.inputProps,
+                m = t.value,
+                d = this.state.valueBeforeUpDown;
+              return (d === null ? m : d).trim();
+            },
+          },
+          {
+            key: "render",
+            value: function () {
+              var t = this,
+                m = this.props,
+                d = m.suggestions,
+                S = m.renderInputComponent,
+                o = m.onSuggestionsFetchRequested,
+                l = m.renderSuggestion,
+                g = m.inputProps,
+                I = m.multiSection,
+                p = m.renderSectionTitle,
+                x = m.id,
+                _ = m.getSectionSuggestions,
+                M = m.theme,
+                K = m.getSuggestionValue,
+                U = m.alwaysRenderSuggestions,
+                J = m.highlightFirstSuggestion,
+                z = this.state,
+                G = z.isFocused,
+                ee = z.isCollapsed,
+                Y = z.highlightedSectionIndex,
+                ie = z.highlightedSuggestionIndex,
+                Q = z.valueBeforeUpDown,
+                te = U ? B : this.props.shouldRenderSuggestions,
+                X = g.value,
+                ae = g.onFocus,
+                Ee = g.onKeyDown,
+                Ot = this.willRenderSuggestions(this.props),
+                xe = U || (G && !ee && Ot),
+                Pt = xe ? d : [],
+                Tt = D({}, g, {
+                  onFocus: function ($) {
+                    if (
+                      !t.justSelectedSuggestion &&
+                      !t.justClickedOnSuggestionsContainer
+                    ) {
+                      var ne = te(X);
+                      t.setState({ isFocused: !0, isCollapsed: !ne }),
+                        ae && ae($),
+                        ne && o({ value: X, reason: "input-focused" });
+                    }
+                  },
+                  onBlur: function ($) {
+                    if (t.justClickedOnSuggestionsContainer) {
+                      t.input.focus();
+                      return;
+                    }
+                    (t.blurEvent = $),
+                      t.justSelectedSuggestion ||
+                        (t.onBlur(), t.onSuggestionsClearRequested());
+                  },
+                  onChange: function ($) {
+                    var ne = $.target.value,
+                      le = te(ne);
+                    t.maybeCallOnChange($, ne, "type"),
+                      t.suggestionsContainer &&
+                        (t.suggestionsContainer.scrollTop = 0),
+                      t.setState(
+                        D(
+                          {},
+                          J
+                            ? {}
+                            : {
+                                highlightedSectionIndex: null,
+                                highlightedSuggestionIndex: null,
+                                highlightedSuggestion: null,
+                              },
+                          { valueBeforeUpDown: null, isCollapsed: !le }
+                        )
+                      ),
+                      le
+                        ? o({ value: ne, reason: "input-changed" })
+                        : t.onSuggestionsClearRequested();
+                  },
+                  onKeyDown: function ($, ne) {
+                    var le = $.keyCode;
+                    switch (le) {
+                      case 40:
+                      case 38:
+                        if (ee)
+                          te(X) &&
+                            (o({ value: X, reason: "suggestions-revealed" }),
+                            t.revealSuggestions());
+                        else if (d.length > 0) {
+                          var je = ne.newHighlightedSectionIndex,
+                            Oe = ne.newHighlightedItemIndex,
+                            Pe;
+                          Oe === null
+                            ? (Pe = Q === null ? X : Q)
+                            : (Pe = t.getSuggestionValueByIndex(je, Oe)),
+                            t.updateHighlightedSuggestion(je, Oe, X),
+                            t.maybeCallOnChange(
+                              $,
+                              Pe,
+                              le === 40 ? "down" : "up"
+                            );
+                        }
+                        $.preventDefault(),
+                          (t.justPressedUpDown = !0),
+                          setTimeout(function () {
+                            t.justPressedUpDown = !1;
+                          });
+                        break;
+                      case 13: {
+                        if ($.keyCode === 229) break;
+                        var Te = t.getHighlightedSuggestion();
+                        if ((xe && !U && t.closeSuggestions(), Te != null)) {
+                          var He = K(Te);
+                          t.maybeCallOnChange($, He, "enter"),
+                            t.onSuggestionSelected($, {
+                              suggestion: Te,
+                              suggestionValue: He,
+                              suggestionIndex: ie,
+                              sectionIndex: Y,
+                              method: "enter",
+                            }),
+                            (t.justSelectedSuggestion = !0),
+                            setTimeout(function () {
+                              t.justSelectedSuggestion = !1;
+                            });
+                        }
+                        break;
+                      }
+                      case 27: {
+                        xe && $.preventDefault();
+                        var Be = xe && !U;
+                        if (Q === null) {
+                          if (!Be) {
+                            var Ce = "";
+                            t.maybeCallOnChange($, Ce, "escape"),
+                              te(Ce)
+                                ? o({ value: Ce, reason: "escape-pressed" })
+                                : t.onSuggestionsClearRequested();
+                          }
+                        } else t.maybeCallOnChange($, Q, "escape");
+                        Be
+                          ? (t.onSuggestionsClearRequested(),
+                            t.closeSuggestions())
+                          : t.resetHighlightedSuggestion();
+                        break;
+                      }
+                    }
+                    Ee && Ee($);
+                  },
+                }),
+                Ct = { query: this.getQuery() };
+              return c.default.createElement(R.default, {
+                multiSection: I,
+                items: Pt,
+                renderInputComponent: S,
+                renderItemsContainer: this.renderSuggestionsContainer,
+                renderItem: l,
+                renderItemData: Ct,
+                renderSectionTitle: p,
+                getSectionItems: _,
+                highlightedSectionIndex: Y,
+                highlightedItemIndex: ie,
+                inputProps: Tt,
+                itemProps: this.itemProps,
+                theme: (0, T.mapToAutowhateverTheme)(M),
+                id: x,
+                ref: this.storeAutowhateverRef,
+              });
+            },
+          },
+        ]),
+        i
+      );
+    })(c.Component);
+  (h.default = a),
+    b(a, "propTypes", {
+      suggestions: u.default.array.isRequired,
+      onSuggestionsFetchRequested: function (n, i) {
+        var f = n[i];
+        if (typeof f != "function")
+          throw new Error(
+            "'onSuggestionsFetchRequested' must be implemented. See: https://github.com/moroshko/react-autosuggest#onSuggestionsFetchRequestedProp"
+          );
+      },
+      onSuggestionsClearRequested: function (n, i) {
+        var f = n[i];
+        if (n.alwaysRenderSuggestions === !1 && typeof f != "function")
+          throw new Error(
+            "'onSuggestionsClearRequested' must be implemented. See: https://github.com/moroshko/react-autosuggest#onSuggestionsClearRequestedProp"
+          );
+      },
+      onSuggestionSelected: u.default.func,
+      onSuggestionHighlighted: u.default.func,
+      renderInputComponent: u.default.func,
+      renderSuggestionsContainer: u.default.func,
+      getSuggestionValue: u.default.func.isRequired,
+      renderSuggestion: u.default.func.isRequired,
+      inputProps: function (n, i) {
+        var f = n[i];
+        if (!Object.prototype.hasOwnProperty.call(f, "value"))
+          throw new Error("'inputProps' must have 'value'.");
+        if (!Object.prototype.hasOwnProperty.call(f, "onChange"))
+          throw new Error("'inputProps' must have 'onChange'.");
+      },
+      shouldRenderSuggestions: u.default.func,
+      alwaysRenderSuggestions: u.default.bool,
+      multiSection: u.default.bool,
+      renderSectionTitle: function (n, i) {
+        var f = n[i];
+        if (n.multiSection === !0 && typeof f != "function")
+          throw new Error(
+            "'renderSectionTitle' must be implemented. See: https://github.com/moroshko/react-autosuggest#renderSectionTitleProp"
+          );
+      },
+      getSectionSuggestions: function (n, i) {
+        var f = n[i];
+        if (n.multiSection === !0 && typeof f != "function")
+          throw new Error(
+            "'getSectionSuggestions' must be implemented. See: https://github.com/moroshko/react-autosuggest#getSectionSuggestionsProp"
+          );
+      },
+      focusInputOnSuggestionClick: u.default.bool,
+      highlightFirstSuggestion: u.default.bool,
+      theme: u.default.object,
+      id: u.default.string,
+    }),
+    b(a, "defaultProps", {
+      renderSuggestionsContainer: r,
+      shouldRenderSuggestions: s,
+      alwaysRenderSuggestions: !1,
+      multiSection: !1,
+      focusInputOnSuggestionClick: !0,
+      highlightFirstSuggestion: !1,
+      theme: T.defaultTheme,
+      id: "1",
+    });
+})(vt);
+var Qt = vt.default;
+const Gt = Rt(Qt),
+  Jt = ({ renderInputComponent: h }) => {
+    const [c, u] = oe.useState(""),
+      [w, R] = oe.useState([]),
+      T = [
+        { label: "SimplyE" },
+        { label: "53rd Street Branch" },
+        { label: "Aguilar Branch" },
+        { label: "Allerton Branch" },
+        { label: "Battery Park City" },
+        { label: "Baychester Branch" },
+        { label: "Belmont Branch" },
+        { label: "South Beach Branch" },
+        { label: "St. Agnes" },
+        { label: "Sedgwick Branch" },
+        { label: "Seward Park Branch" },
+        { label: "Soundview Branch" },
+        { label: "St. George Library Center" },
+      ],
+      H = (k, { newValue: L }) => u(L),
+      j = (k, L) => {
+        const F = k.trim().toLowerCase(),
+          N = F.length;
+        return N === 0
+          ? []
+          : L.filter((E) => E.label.toLowerCase().slice(0, N) === F);
+      },
+      y = ({ value: k }) => R(j(k, T)),
+      O = () => R([]),
+      C = (k) => k.label,
+      D = (k) => q.jsx("span", { children: k.label }),
+      A = {
+        "aria-label": "Home Library",
+        placeholder: "Type a library name",
+        value: c,
+        onChange: H,
+      };
+    return q.jsx(Gt, {
+      suggestions: w,
+      onSuggestionsFetchRequested: y,
+      onSuggestionsClearRequested: O,
+      getSuggestionValue: C,
+      renderSuggestion: D,
+      inputProps: A,
+      renderInputComponent: h,
+    });
+  },
+  Yt = (h) =>
+    q.jsx(dt, {
+      id: "autosuggest-searchBar",
+      isRequired: !0,
+      labelText: "home library",
+      name: "homeLibraryName",
+      ...h,
+    }),
+  Xt = () => q.jsx(Jt, { renderInputComponent: Yt }),
+  { userEvent: re, within: Ie, expect: ce } = __STORYBOOK_MODULE_TEST__,
+  Zt = {
+    title: "Components/Form Elements/SearchBar",
+    component: Z,
+    argTypes: {
+      action: { control: !1 },
+      ariaLabel: { control: !1 },
+      buttonOnClick: {
+        control: !1,
+        table: { defaultValue: { summary: "null" } },
+      },
+      className: { control: !1 },
+      id: { control: !1 },
+      isDisabled: Re(),
+      isInvalid: Re(),
+      isRequired: Re(),
+      method: { control: !1 },
+      onSubmit: { control: !1 },
+      selectProps: { control: !1 },
+      showHelperText: { description: "Only used for Storybook" },
+      showSelect: { description: "Only used for Storybook" },
+      textInputElement: { control: !1 },
+      textInputProps: { control: !1 },
+    },
+  },
+  wt = [
+    { text: "Art", value: "art" },
+    { text: "Bushes", value: "bushes" },
+    { text: "Clothing", value: "clothing" },
+    { text: "Flowers", value: "flowers" },
+    { text: "Fossils", value: "fossils" },
+    { text: "Fruits", value: "fruits" },
+    { text: "Furniture", value: "furniture" },
+    { text: "Songs", value: "songs" },
+    { text: "Tools", value: "tools" },
+    { text: "Villagers and their beloved pets", value: "villagers" },
+  ],
+  ue = {
+    args: {
+      action: void 0,
+      buttonOnClick: void 0,
+      className: void 0,
+      helperText: "Search for items in Animal Crossing New Horizons",
+      id: "searchBar-id",
+      invalidText: "Could not find the item :(",
+      isDisabled: !1,
+      isInvalid: !1,
+      isRequired: !1,
+      labelText: "SearchBar Label",
+      method: void 0,
+      noBrandButtonType: !1,
+      onSubmit: () => {},
+      selectProps: void 0,
+      showHelperText: !0,
+      showSelect: !0,
+      textInputElement: void 0,
+      textInputProps: void 0,
+    },
+    render: (h) => {
+      const { helperText: c, showHelperText: u, showSelect: w, ...R } = h;
+      return q.jsx(Z, {
+        ...R,
+        onSubmit: (T) => {
+          T.preventDefault(), console.log("Submitted!");
+        },
+        selectProps: w && {
+          labelText: "Select a category",
+          name: "selectName",
+          optionsData: wt,
+        },
+        textInputProps: {
+          isClearable: !0,
+          labelText: "Item Search",
+          name: "textInputName",
+          placeholder: "Item Search",
+        },
+        helperText: u && c,
+      });
+    },
+    parameters: {
+      design: {
+        type: "figma",
+        url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Master?node-id=11689%3A423",
+      },
+      jest: ["SearchBar.test.tsx"],
+    },
+    play: async ({ canvasElement: h }) => {
+      const c = Ie(h).getByRole("textbox");
+      await re.type(c, "Hello World"),
+        await re.clear(c),
+        ce(c).toHaveValue(""),
+        await re.type(c, "Clearing this text"),
+        ce(c).toHaveValue("Clearing this text");
+      const u = Ie(h).getAllByRole("button")[0];
+      await re.click(u), ce(c).toHaveValue("");
+      const w = Ie(h).getByLabelText("Select a category");
+      await re.selectOptions(w, "fossils"),
+        ce(w).toHaveValue("fossils"),
+        ce(w).not.toHaveValue("songs"),
+        await re.type(c, "Hello World"),
+        await re.keyboard("{Enter}");
+      const R = Ie(h).getAllByRole("button")[1];
+      await re.click(R);
+    },
+  },
+  fe = {
+    render: () =>
+      q.jsx(Z, {
+        descriptionText:
+          "Begin typing for the clear button to appear. Once clicked, the value in the text input field will be cleared.",
+        id: "textInput-isClearable",
+        labelText: "isClearable Example",
+        onSubmit: () => {},
+        textInputProps: {
+          isClearable: !0,
+          isClearableCallback: () => {
+            console.log(
+              "Clear button clicked from the `isClearableCallback` prop."
+            );
+          },
+          labelText: "Item Search",
+          name: "textInputName",
+          placeholder: "Item Search",
+        },
+      }),
+    name: "isClearable and isClearableCallback",
+  },
+  pe = {
+    render: () =>
+      q.jsxs(q.Fragment, {
+        children: [
+          q.jsx(Z, {
+            descriptionText: "The helper text below contains HTML in a string.",
+            helperText:
+              "Search for items in <b>Animal Crossing New Horizons</b>.",
+            id: "helper-text",
+            labelText: "Helper text example",
+            onSubmit: () => {},
+            textInputProps: {
+              labelText: "Item Search",
+              name: "textInputName",
+              placeholder: "Item Search",
+            },
+          }),
+          q.jsx("br", {}),
+          q.jsx(Z, {
+            descriptionText:
+              "The invalid text below contains HTML in a string.",
+            id: "invalid-text",
+            isInvalid: !0,
+            invalidText: "Could <b>not</b> find the item <b>:(</b>",
+            labelText: "Invalid text example",
+            onSubmit: () => {},
+            textInputProps: {
+              labelText: "Item Search",
+              name: "textInputName",
+              placeholder: "Item Search",
+            },
+          }),
+        ],
+      }),
+    name: "HelperErrorText Component",
+  },
+  ge = {
+    args: { id: "autocomplete", isDisabled: !1, isInvalid: !1, isRequired: !1 },
+    render: (h) =>
+      q.jsx("div", {
+        style: { minHeight: "150px" },
+        children: q.jsx(Z, {
+          onSubmit: () => {},
+          textInputElement: Xt(),
+          helperText:
+            "Select your home library. Start by typing the name of the library. Try 'ba'.",
+          ...h,
+        }),
+      }),
+  },
+  de = {
+    render: () =>
+      q.jsx(Z, {
+        helperText: "This is the helper text!",
+        id: "error-state",
+        invalidText: "Could not find the item :(",
+        isInvalid: !0,
+        labelText: "Error example",
+        onSubmit: () => {},
+        textInputProps: {
+          labelText: "Item Search",
+          name: "textInputName",
+          placeholder: "Item Search",
+        },
+      }),
+  },
+  he = {
+    render: () =>
+      q.jsx(Z, {
+        helperText: "Reason for disabled state.",
+        id: "disabled-state",
+        isDisabled: !0,
+        labelText: "Disabled example",
+        onSubmit: () => {},
+        textInputProps: {
+          labelText: "Item Search",
+          name: "textInputName",
+          placeholder: "Item Search",
+        },
+      }),
+  },
+  me = {
+    render: () =>
+      q.jsxs("search", {
+        children: [
+          q.jsx(ht, { size: "heading6", children: " Search items " }),
+          q.jsxs(Dt, {
+            justifyContent: "align-content",
+            children: [
+              q.jsx(dt, {
+                id: "search-input",
+                labelText: "Search",
+                showLabel: !1,
+              }),
+              q.jsx(Et, { id: "search-btn", children: "Search" }),
+            ],
+          }),
+          q.jsx(jt, {
+            sx: { marginTop: "s" },
+            children: q.jsx(Ht, {
+              id: "public-domain",
+              labelText: "Only public domain",
+            }),
+          }),
+        ],
+      }),
+    name: "Search Landmark Element Example",
+  },
+  ye = {
+    render: () =>
+      q.jsx(Z, {
+        headingText: q.jsx(ht, { level: "h4", children: "Custom H4 Heading" }),
+        id: "custom-heading",
+        labelText: "Custom Heading example",
+        onSubmit: () => {},
+        textInputProps: {
+          labelText: "Item Search",
+          name: "textInputName",
+          placeholder: "Item Search",
+        },
+      }),
+    name: "Heading and Description Text",
+  },
+  Se = {
+    render: () =>
+      q.jsx(Z, {
+        descriptionText:
+          "This is the description for this `SearchBar` instance.",
+        headingText: "Heading for this `SearchBar`",
+        id: "heading-and-description",
+        labelText: "Heading and Description example",
+        onSubmit: () => {},
+        textInputProps: {
+          labelText: "Item Search",
+          name: "textInputName",
+          placeholder: "Item Search",
+        },
+      }),
+    name: "Heading and Description Text",
+  };
+function en() {
+  const [h, c] = oe.useState("Tools"),
+    u = (T) => {
+      console.log(`onChange Select value: ${T.target.value}`),
+        c(T.target.value);
+    },
+    w = (T) => {
+      console.log(`onChange TextInput value: ${T.target.value}`);
+    },
+    R = (T) => {
+      T.preventDefault(),
+        console.log(`onSubmit Select value: ${T.target.selectName.value}`),
+        console.log(`onSubmit TextInput value ${T.target.textInputName.value}`);
+    };
+  return q.jsx(Z, {
+    helperText: "Search for an item",
+    invalidText: "Could not find the item :(",
+    id: "example-1",
+    labelText: "Logging example",
+    onSubmit: R,
+    selectProps: {
+      labelText: "Select a category",
+      name: "selectName",
+      onChange: u,
+      optionsData: wt,
+      value: h,
+    },
+    textInputProps: {
+      labelText: "Item Search",
+      name: "textInputName",
+      onChange: w,
+      placeholder: "Item Search",
+    },
+  });
+}
+const ve = {
+  render: () => q.jsx(en, {}),
+  name: "TextInput and onSubmit Values",
+};
+var Me, qe, Ae, Fe, Le;
+ue.parameters = {
+  ...ue.parameters,
+  docs: {
+    ...((Me = ue.parameters) == null ? void 0 : Me.docs),
+    source: {
+      originalSource: `{
   args: {
     action: undefined,
     buttonOnClick: undefined,
@@ -69,7 +2936,27 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     const searchButton = within(canvasElement).getAllByRole("button")[1];
     await userEvent.click(searchButton);
   }
-}`,...(Ae=(qe=ue.parameters)==null?void 0:qe.docs)==null?void 0:Ae.source},description:{story:"Main Story for the SearchBar component. This must contains the `args`\nand `parameters` properties in this object.",...(Le=(Fe=ue.parameters)==null?void 0:Fe.docs)==null?void 0:Le.description}}};var Ne,We,Ue;fe.parameters={...fe.parameters,docs:{...(Ne=fe.parameters)==null?void 0:Ne.docs,source:{originalSource:`{
+}`,
+      ...((Ae = (qe = ue.parameters) == null ? void 0 : qe.docs) == null
+        ? void 0
+        : Ae.source),
+    },
+    description: {
+      story:
+        "Main Story for the SearchBar component. This must contains the `args`\nand `parameters` properties in this object.",
+      ...((Le = (Fe = ue.parameters) == null ? void 0 : Fe.docs) == null
+        ? void 0
+        : Le.description),
+    },
+  },
+};
+var Ne, We, Ue;
+fe.parameters = {
+  ...fe.parameters,
+  docs: {
+    ...((Ne = fe.parameters) == null ? void 0 : Ne.docs),
+    source: {
+      originalSource: `{
   render: () => <SearchBar descriptionText="Begin typing for the clear button to appear. Once clicked, the value in the text input field will be cleared." id="textInput-isClearable" labelText="isClearable Example" onSubmit={() => {}} textInputProps={{
     isClearable: true,
     isClearableCallback: () => {
@@ -80,7 +2967,20 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     placeholder: "Item Search"
   }} />,
   name: "isClearable and isClearableCallback"
-}`,...(Ue=(We=fe.parameters)==null?void 0:We.docs)==null?void 0:Ue.source}}};var $e,Ve,Ke;pe.parameters={...pe.parameters,docs:{...($e=pe.parameters)==null?void 0:$e.docs,source:{originalSource:`{
+}`,
+      ...((Ue = (We = fe.parameters) == null ? void 0 : We.docs) == null
+        ? void 0
+        : Ue.source),
+    },
+  },
+};
+var $e, Ve, Ke;
+pe.parameters = {
+  ...pe.parameters,
+  docs: {
+    ...(($e = pe.parameters) == null ? void 0 : $e.docs),
+    source: {
+      originalSource: `{
   render: () => <>
       <SearchBar descriptionText="The helper text below contains HTML in a string." helperText="Search for items in <b>Animal Crossing New Horizons</b>." id="helper-text" labelText="Helper text example" onSubmit={() => {}} textInputProps={{
       labelText: "Item Search",
@@ -95,7 +2995,20 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     }} />
     </>,
   name: "HelperErrorText Component"
-}`,...(Ke=(Ve=pe.parameters)==null?void 0:Ve.docs)==null?void 0:Ke.source}}};var ze,Qe,Ge;ge.parameters={...ge.parameters,docs:{...(ze=ge.parameters)==null?void 0:ze.docs,source:{originalSource:`{
+}`,
+      ...((Ke = (Ve = pe.parameters) == null ? void 0 : Ve.docs) == null
+        ? void 0
+        : Ke.source),
+    },
+  },
+};
+var ze, Qe, Ge;
+ge.parameters = {
+  ...ge.parameters,
+  docs: {
+    ...((ze = ge.parameters) == null ? void 0 : ze.docs),
+    source: {
+      originalSource: `{
   args: {
     id: "autocomplete",
     isDisabled: false,
@@ -107,19 +3020,58 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }}>
       <SearchBar onSubmit={() => {}} textInputElement={autoSuggestStories.SearchBarExample()} helperText="Select your home library. Start by typing the name of the library. Try 'ba'." {...args} />
     </div>
-}`,...(Ge=(Qe=ge.parameters)==null?void 0:Qe.docs)==null?void 0:Ge.source}}};var Je,Ye,Xe;de.parameters={...de.parameters,docs:{...(Je=de.parameters)==null?void 0:Je.docs,source:{originalSource:`{
+}`,
+      ...((Ge = (Qe = ge.parameters) == null ? void 0 : Qe.docs) == null
+        ? void 0
+        : Ge.source),
+    },
+  },
+};
+var Je, Ye, Xe;
+de.parameters = {
+  ...de.parameters,
+  docs: {
+    ...((Je = de.parameters) == null ? void 0 : Je.docs),
+    source: {
+      originalSource: `{
   render: () => <SearchBar helperText="This is the helper text!" id="error-state" invalidText="Could not find the item :(" isInvalid labelText="Error example" onSubmit={() => {}} textInputProps={{
     labelText: "Item Search",
     name: "textInputName",
     placeholder: "Item Search"
   }} />
-}`,...(Xe=(Ye=de.parameters)==null?void 0:Ye.docs)==null?void 0:Xe.source}}};var Ze,et,tt;he.parameters={...he.parameters,docs:{...(Ze=he.parameters)==null?void 0:Ze.docs,source:{originalSource:`{
+}`,
+      ...((Xe = (Ye = de.parameters) == null ? void 0 : Ye.docs) == null
+        ? void 0
+        : Xe.source),
+    },
+  },
+};
+var Ze, et, tt;
+he.parameters = {
+  ...he.parameters,
+  docs: {
+    ...((Ze = he.parameters) == null ? void 0 : Ze.docs),
+    source: {
+      originalSource: `{
   render: () => <SearchBar helperText="Reason for disabled state." id="disabled-state" isDisabled labelText="Disabled example" onSubmit={() => {}} textInputProps={{
     labelText: "Item Search",
     name: "textInputName",
     placeholder: "Item Search"
   }} />
-}`,...(tt=(et=he.parameters)==null?void 0:et.docs)==null?void 0:tt.source}}};var nt,rt,ot;me.parameters={...me.parameters,docs:{...(nt=me.parameters)==null?void 0:nt.docs,source:{originalSource:`{
+}`,
+      ...((tt = (et = he.parameters) == null ? void 0 : et.docs) == null
+        ? void 0
+        : tt.source),
+    },
+  },
+};
+var nt, rt, ot;
+me.parameters = {
+  ...me.parameters,
+  docs: {
+    ...((nt = me.parameters) == null ? void 0 : nt.docs),
+    source: {
+      originalSource: `{
   render: () => <search>
       {/* TODO: Replace with Searchbar component. */}
       <Heading size="heading6"> Search items </Heading>
@@ -134,21 +3086,112 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       </Box>
     </search>,
   name: "Search Landmark Element Example"
-}`,...(ot=(rt=me.parameters)==null?void 0:rt.docs)==null?void 0:ot.source}}};var it,at,ut;ye.parameters={...ye.parameters,docs:{...(it=ye.parameters)==null?void 0:it.docs,source:{originalSource:`{
+}`,
+      ...((ot = (rt = me.parameters) == null ? void 0 : rt.docs) == null
+        ? void 0
+        : ot.source),
+    },
+  },
+};
+var it, at, ut;
+ye.parameters = {
+  ...ye.parameters,
+  docs: {
+    ...((it = ye.parameters) == null ? void 0 : it.docs),
+    source: {
+      originalSource: `{
   render: () => <SearchBar headingText={<Heading level="h4">Custom H4 Heading</Heading>} id="custom-heading" labelText="Custom Heading example" onSubmit={() => {}} textInputProps={{
     labelText: "Item Search",
     name: "textInputName",
     placeholder: "Item Search"
   }} />,
   name: "Heading and Description Text"
-}`,...(ut=(at=ye.parameters)==null?void 0:at.docs)==null?void 0:ut.source}}};var st,lt,ct;Se.parameters={...Se.parameters,docs:{...(st=Se.parameters)==null?void 0:st.docs,source:{originalSource:`{
+}`,
+      ...((ut = (at = ye.parameters) == null ? void 0 : at.docs) == null
+        ? void 0
+        : ut.source),
+    },
+  },
+};
+var st, lt, ct;
+Se.parameters = {
+  ...Se.parameters,
+  docs: {
+    ...((st = Se.parameters) == null ? void 0 : st.docs),
+    source: {
+      originalSource: `{
   render: () => <SearchBar descriptionText="This is the description for this \`SearchBar\` instance." headingText="Heading for this \`SearchBar\`" id="heading-and-description" labelText="Heading and Description example" onSubmit={() => {}} textInputProps={{
     labelText: "Item Search",
     name: "textInputName",
     placeholder: "Item Search"
   }} />,
   name: "Heading and Description Text"
-}`,...(ct=(lt=Se.parameters)==null?void 0:lt.docs)==null?void 0:ct.source}}};var ft,pt,gt;ve.parameters={...ve.parameters,docs:{...(ft=ve.parameters)==null?void 0:ft.docs,source:{originalSource:`{
+}`,
+      ...((ct = (lt = Se.parameters) == null ? void 0 : lt.docs) == null
+        ? void 0
+        : ct.source),
+    },
+  },
+};
+var ft, pt, gt;
+ve.parameters = {
+  ...ve.parameters,
+  docs: {
+    ...((ft = ve.parameters) == null ? void 0 : ft.docs),
+    source: {
+      originalSource: `{
   render: () => <SearchBarValueExampleComponent />,
   name: "TextInput and onSubmit Values"
-}`,...(gt=(pt=ve.parameters)==null?void 0:pt.docs)==null?void 0:gt.source}}};const tn=["WithControls","isClearableExample","HelperErrorTextComponentExample","SearchAutocomplete","ErrorState","DisabledState","WithSearchElement","WithCustomHeading","HeadingDescriptionExample","SearchBarValueExample"],on=Object.freeze(Object.defineProperty({__proto__:null,DisabledState:he,ErrorState:de,HeadingDescriptionExample:Se,HelperErrorTextComponentExample:pe,SearchAutocomplete:ge,SearchBarValueExample:ve,WithControls:ue,WithCustomHeading:ye,WithSearchElement:me,__namedExportsOrder:tn,default:Zt,isClearableExample:fe},Symbol.toStringTag,{value:"Module"}));export{he as D,de as E,pe as H,on as S,me as W,ue as a,ye as b,ge as c,Se as d,ve as e,fe as i};
+}`,
+      ...((gt = (pt = ve.parameters) == null ? void 0 : pt.docs) == null
+        ? void 0
+        : gt.source),
+    },
+  },
+};
+const tn = [
+    "WithControls",
+    "isClearableExample",
+    "HelperErrorTextComponentExample",
+    "SearchAutocomplete",
+    "ErrorState",
+    "DisabledState",
+    "WithSearchElement",
+    "WithCustomHeading",
+    "HeadingDescriptionExample",
+    "SearchBarValueExample",
+  ],
+  on = Object.freeze(
+    Object.defineProperty(
+      {
+        __proto__: null,
+        DisabledState: he,
+        ErrorState: de,
+        HeadingDescriptionExample: Se,
+        HelperErrorTextComponentExample: pe,
+        SearchAutocomplete: ge,
+        SearchBarValueExample: ve,
+        WithControls: ue,
+        WithCustomHeading: ye,
+        WithSearchElement: me,
+        __namedExportsOrder: tn,
+        default: Zt,
+        isClearableExample: fe,
+      },
+      Symbol.toStringTag,
+      { value: "Module" }
+    )
+  );
+export {
+  he as D,
+  de as E,
+  pe as H,
+  on as S,
+  me as W,
+  ue as a,
+  ye as b,
+  ge as c,
+  Se as d,
+  ve as e,
+  fe as i,
+};

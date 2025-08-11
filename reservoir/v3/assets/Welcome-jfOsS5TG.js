@@ -1,2 +1,465 @@
-import{j as e,u as p,m as r,L as t,M as b,V as x,bj as y,a as n,H as c,Z as m,I as s,b as i,c as a,d as l,T as u}from"./iframe-D93LbwGv.js";import{C as g}from"./chunk-FAWTVNS3-BdARbYPQ.js";const f=["Version","Date","Summary","Documentation","Github"],v=[[e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"Reservoir 3.x"}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"ongoing"}),e.jsx(r,{size:"body2",children:"Reservoir is constantly undergoing improvements with a new version published ever two weeks."}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:e.jsx(t,{href:"https://nypl.github.io/nypl-design-system/reservoir/v3",rel:"nofollow noopener noreferrer",screenreaderOnlyText:"Github branch for Reservoir v1.7.3",target:"_blank",type:"default",children:"Storybook"})}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:e.jsx(t,{href:"https://github.com/NYPL/nypl-design-system/tree/release",rel:"nofollow noopener noreferrer",screenreaderOnlyText:"Github branch for Reservoir v3.x",target:"_blank",type:"default",children:"latest stable branch"})})],[e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"Reservoir 3.6.0"}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"April 2025"}),e.jsx(r,{size:"body2",children:"Reservoir v3.6.0 updated the default font weight for the base styles. All components were impacted by the update."}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"--"}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:e.jsx(t,{href:"https://github.com/NYPL/nypl-design-system/releases/tag/v3.6.0",rel:"nofollow noopener noreferrer",screenreaderOnlyText:"Github release for Reservoir v3.6.0",target:"_blank",type:"default",children:"tag"})})],[e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"Reservoir 3.0.0"}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"March 2024"}),e.jsx(r,{size:"body2",children:"Reservoir v3.0.0 updated the foundations to use React 18 and Chakra 2.8."}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"--"}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:e.jsx(t,{href:"https://github.com/NYPL/nypl-design-system/releases/tag/v3.0.0",rel:"nofollow noopener noreferrer",screenreaderOnlyText:"Github release for Reservoir v3.0",target:"_blank",type:"default",children:"tag"})})],[e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"Reservoir 2.1.6"}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"February 2024"}),e.jsx(r,{size:"body2",children:"Reservoir v2 added significant typography style changes. Reservoir v2.1.6 is the last release in the v2 series."}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:e.jsx(t,{href:"https://nypl.github.io/nypl-design-system/reservoir/v2",rel:"nofollow noopener noreferrer",screenreaderOnlyText:"Documentation for Reservoir v2.1.6",target:"_blank",type:"default",children:"Storybook"})}),e.jsxs(r,{size:"body2",whiteSpace:"nowrap",children:[e.jsx(t,{href:"https://github.com/NYPL/nypl-design-system/tree/reservoir-v2.1.6",rel:"nofollow noopener noreferrer",screenreaderOnlyText:"Github branch for Reservoir v2.1.6",target:"_blank",type:"default",children:"branch"})," ","/"," ",e.jsx(t,{href:"https://github.com/NYPL/nypl-design-system/releases/tag/v2.1.6",rel:"nofollow noopener noreferrer",screenreaderOnlyText:"Github tag for Reservoir v2.1.6",target:"_blank",type:"default",children:"tag"})]})],[e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"Reservoir 1.7.3"}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:"September 2023"}),e.jsx(r,{size:"body2",children:"Reservoir spent more than a year in beta before the first production build. Reservoir v1.7.3 is the last release in the v1 series."}),e.jsx(r,{size:"body2",whiteSpace:"nowrap",children:e.jsx(t,{href:"https://nypl.github.io/nypl-design-system/reservoir/v1",rel:"nofollow noopener noreferrer",screenreaderOnlyText:"Documentation for Reservoir v1.7.3",target:"_blank",type:"default",children:"Storybook"})}),e.jsxs(r,{size:"body2",whiteSpace:"nowrap",children:[e.jsx(t,{href:"https://github.com/NYPL/nypl-design-system/tree/reservoir-v1.7.3",rel:"nofollow noopener noreferrer",screenreaderOnlyText:"Github branch for Reservoir v1.7.3",target:"_blank",type:"default",children:"branch"})," ","/"," ",e.jsx(t,{href:"https://github.com/NYPL/nypl-design-system/releases/tag/v1.7.3",rel:"nofollow noopener noreferrer",screenreaderOnlyText:"Github tag for Reservoir v1.7.3",target:"_blank",type:"default",children:"tag"})]})]];function h(o){return e.jsxs(e.Fragment,{children:[e.jsx(b,{title:"Welcome"}),`
-`,e.jsxs(x,{spacing:"s",children:[e.jsx(y,{name:"reservoirVerticalColor",size:"small"}),e.jsxs(n,{maxWidth:"800px",children:[e.jsx(g,{children:e.jsx(c,{level:"h1",size:"heading4",children:"The React Component Library of the New York Public Library"})}),e.jsx(r,{children:"The Reservoir Design System is NYPL's open-source extensible React component library for products and experiences, with accessibility as its core. Aiming to provide design and user experience consistency, Reservoir is the foundation for all digital properties in the NYPL landscape, offering functional components that implement NYPL style standards."})]}),e.jsxs(m,{width:"100%",children:[e.jsxs(n,{style:{alignItems:"center",border:"1px solid #ccc",display:"flex",flexDirection:"column",padding:"24px"},children:[e.jsx(s,{name:"actionCheckCircle",size:"xxlarge",color:"section.education.secondary",marginBottom:"s"}),e.jsxs(i,{isCentered:!0,children:[e.jsx(a,{id:"main-heading1",level:"h3",size:"heading5",children:"Get Started"}),e.jsx(l,{children:e.jsxs(r,{size:"body2",children:["To start using Reservoir Design System, refer to Reservoir's"," ",e.jsx(t,{href:"https://github.com/NYPL/nypl-design-system/wiki",type:"external",children:"Github Wiki"})," ","and"," ",e.jsx(t,{href:"https://github.com/NYPL/nypl-design-system/blob/development/README.md",type:"external",children:"ReadMe"})," ","to setup your project. You can also learn about our component architecture and additional documentation."]})})]})]}),e.jsxs(n,{style:{alignItems:"center",border:"1px solid #ccc",display:"flex",flexDirection:"column",padding:"24px"},children:[e.jsx(s,{name:"search",size:"xxlarge",color:"section.education.secondary",marginBottom:"s"}),e.jsxs(i,{isCentered:!0,children:[e.jsx(a,{id:"main-heading1",level:"h3",size:"heading5",children:"Find Components"}),e.jsx(l,{children:e.jsxs(r,{size:"body2",children:["For your convenience, the Reservoir Design System components have been organized into logical categories based on both form and function. Please refer to the ",e.jsx("b",{children:"COMPONENTS"})," section in the Storybook sidebar."]})})]})]}),e.jsxs(n,{style:{alignItems:"center",border:"1px solid #ccc",display:"flex",flexDirection:"column",padding:"24px"},children:[e.jsx(s,{name:"fileTypeSpreadsheet",size:"xxlarge",color:"section.education.secondary",marginBottom:"s"}),e.jsxs(i,{isCentered:!0,children:[e.jsx(a,{id:"main-heading1",level:"h3",size:"heading5",children:"Install the Code"}),e.jsx(l,{children:e.jsxs(r,{size:"body2",children:["The Reservoir Design System React component library is currently published on"," ",e.jsx(t,{href:"https://www.npmjs.com/package/@nypl/design-system-react-components",type:"external",children:"npm"}),". If you're looking to contribute to this project, checkout the ",e.jsxs("b",{children:["nypl-design-system"," "]}),"repo on"," ",e.jsx(t,{href:"https://github.com/NYPL/nypl-design-system",type:"external",children:"Github"})," ","for more information."]})})]})]})]}),e.jsxs(n,{maxWidth:"800px",mt:"xl",children:[e.jsx(c,{level:"h2",border:"0",size:"heading6",children:"Reservoir Versioning"}),e.jsx(r,{children:"The Reservoir Design System was first releases in beta in 2019. It has continued to grow and improve over the years and the v1 production build was released in May 2022. As Reservoir continues to evolve, landmark versions of the code have been archived and made available to conumers. Please refer to the table below."})]}),e.jsx(u,{columnHeaders:f,showRowDividers:!0,tableData:v,useRowHeaders:!0,border:"0",sx:{tr:{bgColor:"transparent !important",borderBottom:"1px solid var(--nypl-colors-ui-border-default) !important",borderLeft:"0 !important",borderRight:"0 !important",borderTop:"0 !important"},thead:{th:{borderTop:"1px solid var(--nypl-colors-ui-border-default) !important",fontSize:"10px",textTransform:"uppercase !important"}},th:{borderBottom:"1px solid var(--nypl-colors-ui-border-default) !important",borderLeft:"0 !important",borderRight:"0 !important",borderTop:"0 !important",paddingInline:"1rem !important",textTransform:"none !important",p:{fontSize:"12px !important"}},td:{borderBottom:"1px solid var(--nypl-colors-ui-border-default) !important",borderLeft:"0 !important",borderRight:"0 !important",borderTop:"0 !important",paddingInline:"1rem !important",p:{fontSize:"12px !important"}}}})]})]})}function R(o={}){const{wrapper:d}={...p(),...o.components};return d?e.jsx(d,{...o,children:e.jsx(h,{...o})}):h()}export{R as default,v as versionsData,f as versionsHeadersData};
+import {
+  j as e,
+  u as p,
+  m as r,
+  L as t,
+  M as b,
+  V as x,
+  bj as y,
+  a as n,
+  H as c,
+  Z as m,
+  I as s,
+  b as i,
+  c as a,
+  d as l,
+  T as u,
+} from "./iframe-D93LbwGv.js";
+import { C as g } from "./chunk-FAWTVNS3-BdARbYPQ.js";
+const f = ["Version", "Date", "Summary", "Documentation", "Github"],
+  v = [
+    [
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: "Reservoir 3.x",
+      }),
+      e.jsx(r, { size: "body2", whiteSpace: "nowrap", children: "ongoing" }),
+      e.jsx(r, {
+        size: "body2",
+        children:
+          "Reservoir is constantly undergoing improvements with a new version published ever two weeks.",
+      }),
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: e.jsx(t, {
+          href: "https://nypl.github.io/nypl-design-system/reservoir/v3",
+          rel: "nofollow noopener noreferrer",
+          screenreaderOnlyText: "Github branch for Reservoir v1.7.3",
+          target: "_blank",
+          type: "default",
+          children: "Storybook",
+        }),
+      }),
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: e.jsx(t, {
+          href: "https://github.com/NYPL/nypl-design-system/tree/release",
+          rel: "nofollow noopener noreferrer",
+          screenreaderOnlyText: "Github branch for Reservoir v3.x",
+          target: "_blank",
+          type: "default",
+          children: "latest stable branch",
+        }),
+      }),
+    ],
+    [
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: "Reservoir 3.6.0",
+      }),
+      e.jsx(r, { size: "body2", whiteSpace: "nowrap", children: "April 2025" }),
+      e.jsx(r, {
+        size: "body2",
+        children:
+          "Reservoir v3.6.0 updated the default font weight for the base styles. All components were impacted by the update.",
+      }),
+      e.jsx(r, { size: "body2", whiteSpace: "nowrap", children: "--" }),
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: e.jsx(t, {
+          href: "https://github.com/NYPL/nypl-design-system/releases/tag/v3.6.0",
+          rel: "nofollow noopener noreferrer",
+          screenreaderOnlyText: "Github release for Reservoir v3.6.0",
+          target: "_blank",
+          type: "default",
+          children: "tag",
+        }),
+      }),
+    ],
+    [
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: "Reservoir 3.0.0",
+      }),
+      e.jsx(r, { size: "body2", whiteSpace: "nowrap", children: "March 2024" }),
+      e.jsx(r, {
+        size: "body2",
+        children:
+          "Reservoir v3.0.0 updated the foundations to use React 18 and Chakra 2.8.",
+      }),
+      e.jsx(r, { size: "body2", whiteSpace: "nowrap", children: "--" }),
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: e.jsx(t, {
+          href: "https://github.com/NYPL/nypl-design-system/releases/tag/v3.0.0",
+          rel: "nofollow noopener noreferrer",
+          screenreaderOnlyText: "Github release for Reservoir v3.0",
+          target: "_blank",
+          type: "default",
+          children: "tag",
+        }),
+      }),
+    ],
+    [
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: "Reservoir 2.1.6",
+      }),
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: "February 2024",
+      }),
+      e.jsx(r, {
+        size: "body2",
+        children:
+          "Reservoir v2 added significant typography style changes. Reservoir v2.1.6 is the last release in the v2 series.",
+      }),
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: e.jsx(t, {
+          href: "https://nypl.github.io/nypl-design-system/reservoir/v2",
+          rel: "nofollow noopener noreferrer",
+          screenreaderOnlyText: "Documentation for Reservoir v2.1.6",
+          target: "_blank",
+          type: "default",
+          children: "Storybook",
+        }),
+      }),
+      e.jsxs(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: [
+          e.jsx(t, {
+            href: "https://github.com/NYPL/nypl-design-system/tree/reservoir-v2.1.6",
+            rel: "nofollow noopener noreferrer",
+            screenreaderOnlyText: "Github branch for Reservoir v2.1.6",
+            target: "_blank",
+            type: "default",
+            children: "branch",
+          }),
+          " ",
+          "/",
+          " ",
+          e.jsx(t, {
+            href: "https://github.com/NYPL/nypl-design-system/releases/tag/v2.1.6",
+            rel: "nofollow noopener noreferrer",
+            screenreaderOnlyText: "Github tag for Reservoir v2.1.6",
+            target: "_blank",
+            type: "default",
+            children: "tag",
+          }),
+        ],
+      }),
+    ],
+    [
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: "Reservoir 1.7.3",
+      }),
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: "September 2023",
+      }),
+      e.jsx(r, {
+        size: "body2",
+        children:
+          "Reservoir spent more than a year in beta before the first production build. Reservoir v1.7.3 is the last release in the v1 series.",
+      }),
+      e.jsx(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: e.jsx(t, {
+          href: "https://nypl.github.io/nypl-design-system/reservoir/v1",
+          rel: "nofollow noopener noreferrer",
+          screenreaderOnlyText: "Documentation for Reservoir v1.7.3",
+          target: "_blank",
+          type: "default",
+          children: "Storybook",
+        }),
+      }),
+      e.jsxs(r, {
+        size: "body2",
+        whiteSpace: "nowrap",
+        children: [
+          e.jsx(t, {
+            href: "https://github.com/NYPL/nypl-design-system/tree/reservoir-v1.7.3",
+            rel: "nofollow noopener noreferrer",
+            screenreaderOnlyText: "Github branch for Reservoir v1.7.3",
+            target: "_blank",
+            type: "default",
+            children: "branch",
+          }),
+          " ",
+          "/",
+          " ",
+          e.jsx(t, {
+            href: "https://github.com/NYPL/nypl-design-system/releases/tag/v1.7.3",
+            rel: "nofollow noopener noreferrer",
+            screenreaderOnlyText: "Github tag for Reservoir v1.7.3",
+            target: "_blank",
+            type: "default",
+            children: "tag",
+          }),
+        ],
+      }),
+    ],
+  ];
+function h(o) {
+  return e.jsxs(e.Fragment, {
+    children: [
+      e.jsx(b, { title: "Welcome" }),
+      `
+`,
+      e.jsxs(x, {
+        spacing: "s",
+        children: [
+          e.jsx(y, { name: "reservoirVerticalColor", size: "small" }),
+          e.jsxs(n, {
+            maxWidth: "800px",
+            children: [
+              e.jsx(g, {
+                children: e.jsx(c, {
+                  level: "h1",
+                  size: "heading4",
+                  children:
+                    "The React Component Library of the New York Public Library",
+                }),
+              }),
+              e.jsx(r, {
+                children:
+                  "The Reservoir Design System is NYPL's open-source extensible React component library for products and experiences, with accessibility as its core. Aiming to provide design and user experience consistency, Reservoir is the foundation for all digital properties in the NYPL landscape, offering functional components that implement NYPL style standards.",
+              }),
+            ],
+          }),
+          e.jsxs(m, {
+            width: "100%",
+            children: [
+              e.jsxs(n, {
+                style: {
+                  alignItems: "center",
+                  border: "1px solid #ccc",
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: "24px",
+                },
+                children: [
+                  e.jsx(s, {
+                    name: "actionCheckCircle",
+                    size: "xxlarge",
+                    color: "section.education.secondary",
+                    marginBottom: "s",
+                  }),
+                  e.jsxs(i, {
+                    isCentered: !0,
+                    children: [
+                      e.jsx(a, {
+                        id: "main-heading1",
+                        level: "h3",
+                        size: "heading5",
+                        children: "Get Started",
+                      }),
+                      e.jsx(l, {
+                        children: e.jsxs(r, {
+                          size: "body2",
+                          children: [
+                            "To start using Reservoir Design System, refer to Reservoir's",
+                            " ",
+                            e.jsx(t, {
+                              href: "https://github.com/NYPL/nypl-design-system/wiki",
+                              type: "external",
+                              children: "Github Wiki",
+                            }),
+                            " ",
+                            "and",
+                            " ",
+                            e.jsx(t, {
+                              href: "https://github.com/NYPL/nypl-design-system/blob/development/README.md",
+                              type: "external",
+                              children: "ReadMe",
+                            }),
+                            " ",
+                            "to setup your project. You can also learn about our component architecture and additional documentation.",
+                          ],
+                        }),
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(n, {
+                style: {
+                  alignItems: "center",
+                  border: "1px solid #ccc",
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: "24px",
+                },
+                children: [
+                  e.jsx(s, {
+                    name: "search",
+                    size: "xxlarge",
+                    color: "section.education.secondary",
+                    marginBottom: "s",
+                  }),
+                  e.jsxs(i, {
+                    isCentered: !0,
+                    children: [
+                      e.jsx(a, {
+                        id: "main-heading1",
+                        level: "h3",
+                        size: "heading5",
+                        children: "Find Components",
+                      }),
+                      e.jsx(l, {
+                        children: e.jsxs(r, {
+                          size: "body2",
+                          children: [
+                            "For your convenience, the Reservoir Design System components have been organized into logical categories based on both form and function. Please refer to the ",
+                            e.jsx("b", { children: "COMPONENTS" }),
+                            " section in the Storybook sidebar.",
+                          ],
+                        }),
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(n, {
+                style: {
+                  alignItems: "center",
+                  border: "1px solid #ccc",
+                  display: "flex",
+                  flexDirection: "column",
+                  padding: "24px",
+                },
+                children: [
+                  e.jsx(s, {
+                    name: "fileTypeSpreadsheet",
+                    size: "xxlarge",
+                    color: "section.education.secondary",
+                    marginBottom: "s",
+                  }),
+                  e.jsxs(i, {
+                    isCentered: !0,
+                    children: [
+                      e.jsx(a, {
+                        id: "main-heading1",
+                        level: "h3",
+                        size: "heading5",
+                        children: "Install the Code",
+                      }),
+                      e.jsx(l, {
+                        children: e.jsxs(r, {
+                          size: "body2",
+                          children: [
+                            "The Reservoir Design System React component library is currently published on",
+                            " ",
+                            e.jsx(t, {
+                              href: "https://www.npmjs.com/package/@nypl/design-system-react-components",
+                              type: "external",
+                              children: "npm",
+                            }),
+                            ". If you're looking to contribute to this project, checkout the ",
+                            e.jsxs("b", {
+                              children: ["nypl-design-system", " "],
+                            }),
+                            "repo on",
+                            " ",
+                            e.jsx(t, {
+                              href: "https://github.com/NYPL/nypl-design-system",
+                              type: "external",
+                              children: "Github",
+                            }),
+                            " ",
+                            "for more information.",
+                          ],
+                        }),
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          }),
+          e.jsxs(n, {
+            maxWidth: "800px",
+            mt: "xl",
+            children: [
+              e.jsx(c, {
+                level: "h2",
+                border: "0",
+                size: "heading6",
+                children: "Reservoir Versioning",
+              }),
+              e.jsx(r, {
+                children:
+                  "The Reservoir Design System was first releases in beta in 2019. It has continued to grow and improve over the years and the v1 production build was released in May 2022. As Reservoir continues to evolve, landmark versions of the code have been archived and made available to conumers. Please refer to the table below.",
+              }),
+            ],
+          }),
+          e.jsx(u, {
+            columnHeaders: f,
+            showRowDividers: !0,
+            tableData: v,
+            useRowHeaders: !0,
+            border: "0",
+            sx: {
+              tr: {
+                bgColor: "transparent !important",
+                borderBottom:
+                  "1px solid var(--nypl-colors-ui-border-default) !important",
+                borderLeft: "0 !important",
+                borderRight: "0 !important",
+                borderTop: "0 !important",
+              },
+              thead: {
+                th: {
+                  borderTop:
+                    "1px solid var(--nypl-colors-ui-border-default) !important",
+                  fontSize: "10px",
+                  textTransform: "uppercase !important",
+                },
+              },
+              th: {
+                borderBottom:
+                  "1px solid var(--nypl-colors-ui-border-default) !important",
+                borderLeft: "0 !important",
+                borderRight: "0 !important",
+                borderTop: "0 !important",
+                paddingInline: "1rem !important",
+                textTransform: "none !important",
+                p: { fontSize: "12px !important" },
+              },
+              td: {
+                borderBottom:
+                  "1px solid var(--nypl-colors-ui-border-default) !important",
+                borderLeft: "0 !important",
+                borderRight: "0 !important",
+                borderTop: "0 !important",
+                paddingInline: "1rem !important",
+                p: { fontSize: "12px !important" },
+              },
+            },
+          }),
+        ],
+      }),
+    ],
+  });
+}
+function R(o = {}) {
+  const { wrapper: d } = { ...p(), ...o.components };
+  return d ? e.jsx(d, { ...o, children: e.jsx(h, { ...o }) }) : h();
+}
+export { R as default, v as versionsData, f as versionsHeadersData };

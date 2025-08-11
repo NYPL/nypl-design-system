@@ -1,95 +1,563 @@
-import{u as r,j as e,M as d,L as s,bv as a,C as o,bw as h,S as i}from"./iframe-D93LbwGv.js";import{C as x}from"./ComponentChangelogTable-Ck_3mwrR.js";import{I as p,W as c,R as j,C as m,S as f,A as g,a as u}from"./Icon.stories-CGi_BByM.js";import"./storybookUtils-BmTl87w5.js";import"./iconVariables-Bcc5qynd.js";const y=[{date:"2025-06-09",version:"3.6.3",type:"Update",affects:["Functionality"],notes:["Added the `actionInfo`, `actionList`, and `navigationApps` icons."]},{date:"2025-04-10",version:"3.6.0",type:"Update",affects:["Functionality"],notes:["Added the `navigationSubdirectoryArrowLeft` and `navigationSubdirectoryArrowRight` icons."]},{date:"2025-02-13",version:"3.5.4",type:"Update",affects:["Functionality"],notes:["Added the `utilityCheck` icon."]},{date:"2024-11-07",version:"3.4.2",type:"Update",affects:["Functionality"],notes:["Added the `contentFilterList` and `socialX` icons."]},{date:"2024-10-24",version:"3.4.1",type:"Update",affects:["Functionality"],notes:["Added the `decorativeBookBroken` icon.","Added the `xxxxlarge` and `xxxxxlarge` sizes.","Added the `2xlarge`, `3xlarge`, `4xlarge`, and `5xlarge` sustainable size options."]},{date:"2024-04-11",version:"3.1.0",type:"Update",affects:["Documentation","Functionality"],notes:["Added the actionLightbulb icon."]},{date:"2024-03-28",version:"3.0.1",type:"Update",affects:["Documentation","Functionality"],notes:["Added the editorMode (pencil) icon."]},{date:"2024-03-14",version:"3.0.0",type:"Update",affects:["Styles"],notes:["Chakra 2.8 update."]},{date:"2024-02-05",version:"2.1.5",type:"Update",affects:["Documentation","Functionality"],notes:["Added the navigationMoreVert (vertical ellipsis) icon."]},{date:"2024-01-24",version:"2.1.4",type:"Update",affects:["Documentation","Functionality"],notes:["Added the actionDelete, actionHome, actionLockClosed, actionPayment, communicationCall, communicationChatBubble, and communicationEmail icons."]}];function l(t){const n={a:"a",code:"code",h1:"h1",h2:"h2",li:"li",p:"p",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...r(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(d,{of:p}),`
-`,e.jsx(n.h1,{id:"icon",children:"Icon"}),`
-`,e.jsxs(n.table,{children:[e.jsx(n.thead,{children:e.jsxs(n.tr,{children:[e.jsx(n.th,{children:"Component Version"}),e.jsx(n.th,{children:"DS Version"})]})}),e.jsxs(n.tbody,{children:[e.jsxs(n.tr,{children:[e.jsx(n.td,{children:"Added"}),e.jsx(n.td,{children:e.jsx(n.code,{children:"0.0.4"})})]}),e.jsxs(n.tr,{children:[e.jsx(n.td,{children:"Latest"}),e.jsx(n.td,{children:e.jsx(n.code,{children:"3.6.3"})})]})]})]}),`
-`,e.jsx(n.h2,{id:"table-of-contents",children:"Table of Contents"}),`
-`,e.jsxs(n.ul,{children:[`
-`,e.jsxs(n.li,{children:[`
-`,e.jsx(s,{href:"#overview",target:"_self",children:"Overview"}),`
-`]}),`
-`,e.jsxs(n.li,{children:[`
-`,e.jsx(s,{href:"#component-props",target:"_self",children:"Component Props"}),`
-`]}),`
-`,e.jsxs(n.li,{children:[`
-`,e.jsx(s,{href:"#accessibility",target:"_self",children:"Accessibility"}),`
-`]}),`
-`,e.jsxs(n.li,{children:[`
-`,e.jsx(s,{href:"#rotations",target:"_self",children:"Rotations"}),`
-`]}),`
-`,e.jsxs(n.li,{children:[`
-`,e.jsx(s,{href:"#colors",target:"_self",children:"Colors"}),`
-`]}),`
-`,e.jsxs(n.li,{children:[`
-`,e.jsx(s,{href:"#sizes",target:"_self",children:"Sizes"}),`
-`]}),`
-`,e.jsxs(n.li,{children:[`
-`,e.jsx(s,{href:"#all-icons",target:"_self",children:"All Icons"}),`
-`]}),`
-`,e.jsxs(n.li,{children:[`
-`,e.jsx(s,{href:"#custom-icons",target:"_self",children:"Custom Icons"}),`
-`]}),`
-`,e.jsxs(n.li,{children:[`
-`,e.jsx(s,{href:"#changelog",target:"_self",children:"Changelog"}),`
-`]}),`
-`]}),`
-`,e.jsx(n.h2,{id:"overview",children:"Overview"}),`
-`,e.jsx(a,{of:c}),`
-`,e.jsx(n.h2,{id:"component-props",children:"Component Props"}),`
-`,e.jsx(o,{of:c}),`
-`,e.jsx(h,{of:c}),`
-`,e.jsx(n.h2,{id:"accessibility",children:"Accessibility"}),`
-`,e.jsxs(n.p,{children:["For accessibility purposes, every Reservoir Design System (DS) ",e.jsx(n.code,{children:"Icon"}),` will
-render the `,e.jsx(n.code,{children:"svg"})," element with its icon name in the ",e.jsx(n.code,{children:"title"}),` element. The default
-text in the `,e.jsx(n.code,{children:"title"}),` element is the icon's code name. Pass in better descriptive
-text in the `,e.jsx(n.code,{children:"title"})," prop when using the ",e.jsx(n.code,{children:"Icon"}),` component in your application.
-This will give screenreaders a better descriptive title for the `,e.jsx(n.code,{children:"svg"})," graphic."]}),`
-`,e.jsxs(n.p,{children:[e.jsx(n.code,{children:"Icon"}),`s are decorative by default. This means that they are presentational and
-screenreaders will not read them because the `,e.jsx(n.code,{children:"aria-hidden"}),` attribute is set to
-`,e.jsx(n.code,{children:"true"}),"."]}),`
-`,e.jsx(n.p,{children:"Resources:"}),`
-`,e.jsxs(n.ul,{children:[`
-`,e.jsx(n.li,{children:e.jsx(n.a,{href:"https://design-system.w3.org/styles/svg-icons.html",rel:"nofollow",children:"W3C Design System SVG Icons"})}),`
-`,e.jsx(n.li,{children:e.jsx(n.a,{href:"https://css-tricks.com/accessible-svg-icons/",rel:"nofollow",children:"CSS-Tricks Accessible SVG Icons"})}),`
-`,e.jsx(n.li,{children:e.jsx(n.a,{href:"https://chakra-ui.com/docs/components/media-and-icons/icon",rel:"nofollow",children:"Chakra UI Icon"})}),`
-`]}),`
-`,e.jsx(n.h2,{id:"rotations",children:"Rotations"}),`
-`,e.jsxs(n.p,{children:["Passing an ",e.jsx(n.code,{children:"iconRotation"})," prop with a value from ",e.jsx(n.code,{children:"IconRotations"}),` allows
-the icon to be rotated when it is rendered.`]}),`
-`,e.jsxs(n.p,{children:["Note: All of the examples below have been rendered with the ",e.jsx(n.code,{children:"size"}),` prop set to
-`,e.jsx(n.code,{children:"xxlarge"}),"."]}),`
-`,e.jsx(i,{code:`
+import {
+  u as r,
+  j as e,
+  M as d,
+  L as s,
+  bv as a,
+  C as o,
+  bw as h,
+  S as i,
+} from "./iframe-D93LbwGv.js";
+import { C as x } from "./ComponentChangelogTable-Ck_3mwrR.js";
+import {
+  I as p,
+  W as c,
+  R as j,
+  C as m,
+  S as f,
+  A as g,
+  a as u,
+} from "./Icon.stories-CGi_BByM.js";
+import "./storybookUtils-BmTl87w5.js";
+import "./iconVariables-Bcc5qynd.js";
+const y = [
+  {
+    date: "2025-06-09",
+    version: "3.6.3",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Added the `actionInfo`, `actionList`, and `navigationApps` icons.",
+    ],
+  },
+  {
+    date: "2025-04-10",
+    version: "3.6.0",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Added the `navigationSubdirectoryArrowLeft` and `navigationSubdirectoryArrowRight` icons.",
+    ],
+  },
+  {
+    date: "2025-02-13",
+    version: "3.5.4",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Added the `utilityCheck` icon."],
+  },
+  {
+    date: "2024-11-07",
+    version: "3.4.2",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Added the `contentFilterList` and `socialX` icons."],
+  },
+  {
+    date: "2024-10-24",
+    version: "3.4.1",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Added the `decorativeBookBroken` icon.",
+      "Added the `xxxxlarge` and `xxxxxlarge` sizes.",
+      "Added the `2xlarge`, `3xlarge`, `4xlarge`, and `5xlarge` sustainable size options.",
+    ],
+  },
+  {
+    date: "2024-04-11",
+    version: "3.1.0",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: ["Added the actionLightbulb icon."],
+  },
+  {
+    date: "2024-03-28",
+    version: "3.0.1",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: ["Added the editorMode (pencil) icon."],
+  },
+  {
+    date: "2024-03-14",
+    version: "3.0.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Chakra 2.8 update."],
+  },
+  {
+    date: "2024-02-05",
+    version: "2.1.5",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: ["Added the navigationMoreVert (vertical ellipsis) icon."],
+  },
+  {
+    date: "2024-01-24",
+    version: "2.1.4",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: [
+      "Added the actionDelete, actionHome, actionLockClosed, actionPayment, communicationCall, communicationChatBubble, and communicationEmail icons.",
+    ],
+  },
+];
+function l(t) {
+  const n = {
+    a: "a",
+    code: "code",
+    h1: "h1",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ...r(),
+    ...t.components,
+  };
+  return e.jsxs(e.Fragment, {
+    children: [
+      e.jsx(d, { of: p }),
+      `
+`,
+      e.jsx(n.h1, { id: "icon", children: "Icon" }),
+      `
+`,
+      e.jsxs(n.table, {
+        children: [
+          e.jsx(n.thead, {
+            children: e.jsxs(n.tr, {
+              children: [
+                e.jsx(n.th, { children: "Component Version" }),
+                e.jsx(n.th, { children: "DS Version" }),
+              ],
+            }),
+          }),
+          e.jsxs(n.tbody, {
+            children: [
+              e.jsxs(n.tr, {
+                children: [
+                  e.jsx(n.td, { children: "Added" }),
+                  e.jsx(n.td, {
+                    children: e.jsx(n.code, { children: "0.0.4" }),
+                  }),
+                ],
+              }),
+              e.jsxs(n.tr, {
+                children: [
+                  e.jsx(n.td, { children: "Latest" }),
+                  e.jsx(n.td, {
+                    children: e.jsx(n.code, { children: "3.6.3" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(n.h2, { id: "table-of-contents", children: "Table of Contents" }),
+      `
+`,
+      e.jsxs(n.ul, {
+        children: [
+          `
+`,
+          e.jsxs(n.li, {
+            children: [
+              `
+`,
+              e.jsx(s, {
+                href: "#overview",
+                target: "_self",
+                children: "Overview",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(n.li, {
+            children: [
+              `
+`,
+              e.jsx(s, {
+                href: "#component-props",
+                target: "_self",
+                children: "Component Props",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(n.li, {
+            children: [
+              `
+`,
+              e.jsx(s, {
+                href: "#accessibility",
+                target: "_self",
+                children: "Accessibility",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(n.li, {
+            children: [
+              `
+`,
+              e.jsx(s, {
+                href: "#rotations",
+                target: "_self",
+                children: "Rotations",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(n.li, {
+            children: [
+              `
+`,
+              e.jsx(s, {
+                href: "#colors",
+                target: "_self",
+                children: "Colors",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(n.li, {
+            children: [
+              `
+`,
+              e.jsx(s, { href: "#sizes", target: "_self", children: "Sizes" }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(n.li, {
+            children: [
+              `
+`,
+              e.jsx(s, {
+                href: "#all-icons",
+                target: "_self",
+                children: "All Icons",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(n.li, {
+            children: [
+              `
+`,
+              e.jsx(s, {
+                href: "#custom-icons",
+                target: "_self",
+                children: "Custom Icons",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(n.li, {
+            children: [
+              `
+`,
+              e.jsx(s, {
+                href: "#changelog",
+                target: "_self",
+                children: "Changelog",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+        ],
+      }),
+      `
+`,
+      e.jsx(n.h2, { id: "overview", children: "Overview" }),
+      `
+`,
+      e.jsx(a, { of: c }),
+      `
+`,
+      e.jsx(n.h2, { id: "component-props", children: "Component Props" }),
+      `
+`,
+      e.jsx(o, { of: c }),
+      `
+`,
+      e.jsx(h, { of: c }),
+      `
+`,
+      e.jsx(n.h2, { id: "accessibility", children: "Accessibility" }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          "For accessibility purposes, every Reservoir Design System (DS) ",
+          e.jsx(n.code, { children: "Icon" }),
+          ` will
+render the `,
+          e.jsx(n.code, { children: "svg" }),
+          " element with its icon name in the ",
+          e.jsx(n.code, { children: "title" }),
+          ` element. The default
+text in the `,
+          e.jsx(n.code, { children: "title" }),
+          ` element is the icon's code name. Pass in better descriptive
+text in the `,
+          e.jsx(n.code, { children: "title" }),
+          " prop when using the ",
+          e.jsx(n.code, { children: "Icon" }),
+          ` component in your application.
+This will give screenreaders a better descriptive title for the `,
+          e.jsx(n.code, { children: "svg" }),
+          " graphic.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          e.jsx(n.code, { children: "Icon" }),
+          `s are decorative by default. This means that they are presentational and
+screenreaders will not read them because the `,
+          e.jsx(n.code, { children: "aria-hidden" }),
+          ` attribute is set to
+`,
+          e.jsx(n.code, { children: "true" }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsx(n.p, { children: "Resources:" }),
+      `
+`,
+      e.jsxs(n.ul, {
+        children: [
+          `
+`,
+          e.jsx(n.li, {
+            children: e.jsx(n.a, {
+              href: "https://design-system.w3.org/styles/svg-icons.html",
+              rel: "nofollow",
+              children: "W3C Design System SVG Icons",
+            }),
+          }),
+          `
+`,
+          e.jsx(n.li, {
+            children: e.jsx(n.a, {
+              href: "https://css-tricks.com/accessible-svg-icons/",
+              rel: "nofollow",
+              children: "CSS-Tricks Accessible SVG Icons",
+            }),
+          }),
+          `
+`,
+          e.jsx(n.li, {
+            children: e.jsx(n.a, {
+              href: "https://chakra-ui.com/docs/components/media-and-icons/icon",
+              rel: "nofollow",
+              children: "Chakra UI Icon",
+            }),
+          }),
+          `
+`,
+        ],
+      }),
+      `
+`,
+      e.jsx(n.h2, { id: "rotations", children: "Rotations" }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          "Passing an ",
+          e.jsx(n.code, { children: "iconRotation" }),
+          " prop with a value from ",
+          e.jsx(n.code, { children: "IconRotations" }),
+          ` allows
+the icon to be rotated when it is rendered.`,
+        ],
+      }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          "Note: All of the examples below have been rendered with the ",
+          e.jsx(n.code, { children: "size" }),
+          ` prop set to
+`,
+          e.jsx(n.code, { children: "xxlarge" }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsx(i, {
+        code: `
 // Example
 <Icon iconRotation="rotate180" name="arrow" size="xxlarge" />
-`,language:"jsx"}),`
-`,e.jsx(o,{of:j}),`
-`,e.jsx(n.h2,{id:"colors",children:"Colors"}),`
-`,e.jsxs(n.p,{children:["Update an SVG icon by passing a ",e.jsx(n.code,{children:"color"})," prop with a value from the ",e.jsx(n.code,{children:"IconColors"}),`
-type.`]}),`
-`,e.jsxs(n.p,{children:["Note: All of the examples below have been rendered with the ",e.jsx(n.code,{children:"size"}),` prop set to
-`,e.jsx(n.code,{children:"xxlarge"}),"."]}),`
-`,e.jsx(i,{code:`
+`,
+        language: "jsx",
+      }),
+      `
+`,
+      e.jsx(o, { of: j }),
+      `
+`,
+      e.jsx(n.h2, { id: "colors", children: "Colors" }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          "Update an SVG icon by passing a ",
+          e.jsx(n.code, { children: "color" }),
+          " prop with a value from the ",
+          e.jsx(n.code, { children: "IconColors" }),
+          `
+type.`,
+        ],
+      }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          "Note: All of the examples below have been rendered with the ",
+          e.jsx(n.code, { children: "size" }),
+          ` prop set to
+`,
+          e.jsx(n.code, { children: "xxlarge" }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsx(i, {
+        code: `
 // Example
 <Icon color="brand.primary" name="errorFilled" size="xxlarge" />
-`,language:"jsx"}),`
-`,e.jsx(o,{of:m}),`
-`,e.jsx(n.h2,{id:"sizes",children:"Sizes"}),`
-`,e.jsxs(n.p,{children:["Update an SVG icon by passing a ",e.jsx(n.code,{children:"size"})," prop with a value from ",e.jsx(n.code,{children:"IconSizes"}),"."]}),`
-`,e.jsxs(n.p,{children:["Note: ",e.jsx(n.code,{children:'"default"'})," sets the width to ",e.jsx(n.code,{children:"100%"}),` and the rendered icon will expand to
-fill the full width of the parent element.`]}),`
-`,e.jsx(i,{code:`
+`,
+        language: "jsx",
+      }),
+      `
+`,
+      e.jsx(o, { of: m }),
+      `
+`,
+      e.jsx(n.h2, { id: "sizes", children: "Sizes" }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          "Update an SVG icon by passing a ",
+          e.jsx(n.code, { children: "size" }),
+          " prop with a value from ",
+          e.jsx(n.code, { children: "IconSizes" }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          "Note: ",
+          e.jsx(n.code, { children: '"default"' }),
+          " sets the width to ",
+          e.jsx(n.code, { children: "100%" }),
+          ` and the rendered icon will expand to
+fill the full width of the parent element.`,
+        ],
+      }),
+      `
+`,
+      e.jsx(i, {
+        code: `
 // Example
 <Icon name="actionCheckCircle" size="xxlarge" />
-`,language:"jsx"}),`
-`,e.jsx(o,{of:f}),`
-`,e.jsx(n.h2,{id:"all-icons",children:"All Icons"}),`
-`,e.jsxs(n.p,{children:[`The following icons are for generic purposes. All the available icon names can
-be found in the `,e.jsx(n.code,{children:"IconNames"})," type."]}),`
-`,e.jsxs(n.p,{children:["Note: All of the examples below have been rendered with the ",e.jsx(n.code,{children:"size"}),` prop set to
-`,e.jsx(n.code,{children:"xlarge"}),"."]}),`
-`,e.jsx(o,{of:g}),`
-`,e.jsx(n.h2,{id:"custom-icons",children:"Custom Icons"}),`
-`,e.jsxs(n.p,{children:[`If you'd like to pass a custom svg to your application, you can pass it a
-child to the `,e.jsx(n.code,{children:"Icon"})," component."]}),`
-`,e.jsx(i,{code:`
+`,
+        language: "jsx",
+      }),
+      `
+`,
+      e.jsx(o, { of: f }),
+      `
+`,
+      e.jsx(n.h2, { id: "all-icons", children: "All Icons" }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          `The following icons are for generic purposes. All the available icon names can
+be found in the `,
+          e.jsx(n.code, { children: "IconNames" }),
+          " type.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          "Note: All of the examples below have been rendered with the ",
+          e.jsx(n.code, { children: "size" }),
+          ` prop set to
+`,
+          e.jsx(n.code, { children: "xlarge" }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsx(o, { of: g }),
+      `
+`,
+      e.jsx(n.h2, { id: "custom-icons", children: "Custom Icons" }),
+      `
+`,
+      e.jsxs(n.p, {
+        children: [
+          `If you'd like to pass a custom svg to your application, you can pass it a
+child to the `,
+          e.jsx(n.code, { children: "Icon" }),
+          " component.",
+        ],
+      }),
+      `
+`,
+      e.jsx(i, {
+        code: `
 <Icon {...props}>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 750" fill="#6BE9D8">
   <g>
@@ -97,7 +565,23 @@ child to the `,e.jsx(n.code,{children:"Icon"})," component."]}),`
   </g>
 </svg>
 </Icon>
-`,language:"jsx"}),`
-`,e.jsx(o,{of:u}),`
-`,e.jsx(n.h2,{id:"changelog",children:"Changelog"}),`
-`,e.jsx(x,{changelogData:y})]})}function I(t={}){const{wrapper:n}={...r(),...t.components};return n?e.jsx(n,{...t,children:e.jsx(l,{...t})}):l(t)}export{I as default};
+`,
+        language: "jsx",
+      }),
+      `
+`,
+      e.jsx(o, { of: u }),
+      `
+`,
+      e.jsx(n.h2, { id: "changelog", children: "Changelog" }),
+      `
+`,
+      e.jsx(x, { changelogData: y }),
+    ],
+  });
+}
+function I(t = {}) {
+  const { wrapper: n } = { ...r(), ...t.components };
+  return n ? e.jsx(n, { ...t, children: e.jsx(l, { ...t }) }) : l(t);
+}
+export { I as default };

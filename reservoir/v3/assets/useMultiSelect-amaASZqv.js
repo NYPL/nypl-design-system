@@ -1,1 +1,46 @@
-import{r as f}from"./iframe-D93LbwGv.js";function g(c){const[s,r]=f.useState({});return{selectedItems:s,setSelectedItems:a=>r(a),onChange:(a,e)=>{let i;s.hasOwnProperty(e)?(i=s[e].items.slice(),s[e].items.indexOf(a)>-1?i=i.filter(l=>l!==a):i.push(a)):(i=[],i.push(a)),r({...s,[e]:{items:i}})},onMixedStateChange:(a,e,i)=>{const l=i.filter(t=>t.id===a)[0].children.map(t=>({id:t.id,isDisabled:t.isDisabled})),o=l.map(t=>t.id);let d;s[e]!==void 0?l.filter(n=>!n.isDisabled).map(n=>n.id).every(n=>s[e].items.includes(n))?d=s[e].items.filter(n=>!o.map(h=>h).includes(n)):d=[...l.filter(n=>!n.isDisabled&&!s[e].items.includes(n.id)).map(n=>n.id),...s[e].items]:d=l.filter(t=>!t.isDisabled).map(t=>t.id),r({...s,[e]:{items:d}})},onClear:a=>{let e={};for(let i of Object.keys(s))i!==a&&(e[i]=s[i]);r(e)},onClearAll:()=>r({})}}export{g as u};
+import { r as f } from "./iframe-D93LbwGv.js";
+function g(c) {
+  const [s, r] = f.useState({});
+  return {
+    selectedItems: s,
+    setSelectedItems: (a) => r(a),
+    onChange: (a, e) => {
+      let i;
+      s.hasOwnProperty(e)
+        ? ((i = s[e].items.slice()),
+          s[e].items.indexOf(a) > -1
+            ? (i = i.filter((l) => l !== a))
+            : i.push(a))
+        : ((i = []), i.push(a)),
+        r({ ...s, [e]: { items: i } });
+    },
+    onMixedStateChange: (a, e, i) => {
+      const l = i
+          .filter((t) => t.id === a)[0]
+          .children.map((t) => ({ id: t.id, isDisabled: t.isDisabled })),
+        o = l.map((t) => t.id);
+      let d;
+      s[e] !== void 0
+        ? l
+            .filter((n) => !n.isDisabled)
+            .map((n) => n.id)
+            .every((n) => s[e].items.includes(n))
+          ? (d = s[e].items.filter((n) => !o.map((h) => h).includes(n)))
+          : (d = [
+              ...l
+                .filter((n) => !n.isDisabled && !s[e].items.includes(n.id))
+                .map((n) => n.id),
+              ...s[e].items,
+            ])
+        : (d = l.filter((t) => !t.isDisabled).map((t) => t.id)),
+        r({ ...s, [e]: { items: d } });
+    },
+    onClear: (a) => {
+      let e = {};
+      for (let i of Object.keys(s)) i !== a && (e[i] = s[i]);
+      r(e);
+    },
+    onClearAll: () => r({}),
+  };
+}
+export { g as u };

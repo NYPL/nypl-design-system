@@ -1,58 +1,66 @@
 import { ChakraComponent } from "@chakra-ui/react";
-import React from '../../../node_modules/react';
+import React from "../../../node_modules/react";
 export interface TemplateProps {
-    /** ID that other components can cross reference for accessibility purposes. */
-    id?: string;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
 }
 export interface TemplateHeaderProps {
-    /** Flag to render an HTML header element. True by default. */
-    renderHeaderElement?: boolean;
+  /** Flag to render an HTML header element. True by default. */
+  renderHeaderElement?: boolean;
 }
 export interface TemplateFooterProps {
-    /** Flag to render an HTML footer element. True by default. */
-    renderFooterElement?: boolean;
+  /** Flag to render an HTML footer element. True by default. */
+  renderFooterElement?: boolean;
 }
 export interface TemplateSidebarProps {
-    /** Renders the `TemplateContentSidebar` component either on the left or
-     * right side of the `TemplateContentPrimary` component. */
-    sidebar?: "none" | "left" | "right";
+  /** Renders the `TemplateContentSidebar` component either on the left or
+   * right side of the `TemplateContentPrimary` component. */
+  sidebar?: "none" | "left" | "right";
 }
 export interface TemplateContentProps extends TemplateSidebarProps {
-    /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
-     * anchor for the application skip navigation. */
-    id?: string;
+  /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
+   * anchor for the application skip navigation. */
+  id?: string;
 }
-export interface TemplateAppContainerProps extends TemplateFooterProps, TemplateHeaderProps, TemplateSidebarProps {
-    /** DOM that will be rendered before the rest of the components in
-     * `TemplateAppContainer` and immediately before the `TemplateHeader` component. */
-    aboveHeader?: React.ReactElement;
-    /** DOM that will be rendered in the `TemplateBreakout` component section. */
-    breakout?: React.ReactElement;
-    /** DOM that will be rendered in the `TemplateContentBottom` component section. */
-    contentBottom?: React.ReactElement;
-    /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
-     * anchor for the application skip navigation. */
-    contentId?: string;
-    /** DOM that will be rendered in the `TemplateContentPrimary` component section. */
-    contentPrimary?: React.ReactElement;
-    /** DOM that will be rendered in the `TemplateContentSidebar` component section. */
-    contentSidebar?: React.ReactElement;
-    /** DOM that will be rendered in the `TemplateContentTop` component section. */
-    contentTop?: React.ReactElement;
-    /** DOM that will be rendered in the `TemplateFooter` component section. */
-    footer?: React.ReactElement;
-    /** DOM that will be rendered in the `TemplateHeader` component section. */
-    header?: React.ReactElement;
-    /** ID that other components can cross reference for accessibility purposes. */
-    id?: string;
-    /** Render the `SkipNavigation` component or not. False by default. */
-    renderSkipNavigation?: boolean;
+export interface TemplateAppContainerProps
+  extends TemplateFooterProps,
+    TemplateHeaderProps,
+    TemplateSidebarProps {
+  /** DOM that will be rendered before the rest of the components in
+   * `TemplateAppContainer` and immediately before the `TemplateHeader` component. */
+  aboveHeader?: React.ReactElement;
+  /** DOM that will be rendered in the `TemplateBreakout` component section. */
+  breakout?: React.ReactElement;
+  /** DOM that will be rendered in the `TemplateContentBottom` component section. */
+  contentBottom?: React.ReactElement;
+  /** ID used for the `main` HTML element. Defaults to "mainContent". Useful
+   * anchor for the application skip navigation. */
+  contentId?: string;
+  /** DOM that will be rendered in the `TemplateContentPrimary` component section. */
+  contentPrimary?: React.ReactElement;
+  /** DOM that will be rendered in the `TemplateContentSidebar` component section. */
+  contentSidebar?: React.ReactElement;
+  /** DOM that will be rendered in the `TemplateContentTop` component section. */
+  contentTop?: React.ReactElement;
+  /** DOM that will be rendered in the `TemplateFooter` component section. */
+  footer?: React.ReactElement;
+  /** DOM that will be rendered in the `TemplateHeader` component section. */
+  header?: React.ReactElement;
+  /** ID that other components can cross reference for accessibility purposes. */
+  id?: string;
+  /** Render the `SkipNavigation` component or not. False by default. */
+  renderSkipNavigation?: boolean;
 }
 /**
  * The main top-level parent component that wraps all template-related
  * components.
  */
-declare const Template: ChakraComponent<React.ForwardRefExoticComponent<React.PropsWithChildren<TemplateProps> & React.RefAttributes<HTMLDivElement>>, React.PropsWithChildren<TemplateProps>>;
+declare const Template: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TemplateProps> & React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TemplateProps>
+>;
 /**
  * This optional component renders its children from edge-to-edge and should
  * be used for alerts or notifications that are typically site-wide. This must
@@ -136,6 +144,23 @@ declare const TemplateFooter: React.FC<any>;
  * be rendered. For example, if you want to render content in the
  * `TemplateContentPrimary` section, then pass it as a prop to `contentPrimary`.
  */
-export declare const TemplateAppContainer: ChakraComponent<React.ForwardRefExoticComponent<React.PropsWithChildren<TemplateAppContainerProps> & React.RefAttributes<HTMLDivElement>>, React.PropsWithChildren<TemplateAppContainerProps>>;
-export { Template, TemplateAboveHeader, TemplateBreakout, TemplateContent, TemplateContentBottom, TemplateContentPrimary, TemplateContentSidebar, TemplateContentTop, TemplateFooter, TemplateHeader, };
+export declare const TemplateAppContainer: ChakraComponent<
+  React.ForwardRefExoticComponent<
+    React.PropsWithChildren<TemplateAppContainerProps> &
+      React.RefAttributes<HTMLDivElement>
+  >,
+  React.PropsWithChildren<TemplateAppContainerProps>
+>;
+export {
+  Template,
+  TemplateAboveHeader,
+  TemplateBreakout,
+  TemplateContent,
+  TemplateContentBottom,
+  TemplateContentPrimary,
+  TemplateContentSidebar,
+  TemplateContentTop,
+  TemplateFooter,
+  TemplateHeader,
+};
 export default TemplateAppContainer;

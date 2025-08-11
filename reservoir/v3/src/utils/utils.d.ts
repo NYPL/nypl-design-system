@@ -5,7 +5,11 @@ import { AriaAttributes } from "./interfaces";
  * Get an array of values from `start` to `stop` - 1 with an optional
  * `step` between values.
  */
-export declare const range: (start: number, stop: number, step?: number) => number[];
+export declare const range: (
+  start: number,
+  stop: number,
+  step?: number
+) => number[];
 /**
  * Given a pagination's pageCount, this will return (1) a page number,
  * derived from the current URL, and (2) a function that, when passed to
@@ -13,23 +17,31 @@ export declare const range: (start: number, stop: number, step?: number) => numb
  * @NOTE this is only used for Storybook documentation.
  */
 export declare const getStorybookHrefProps: (pageCount: number) => {
-    computedCurrentPage: number;
-    getPageHref: (selectedPage: number) => string;
+  computedCurrentPage: number;
+  getPageHref: (selectedPage: number) => string;
 };
 interface GetAriaAttrsProps {
-    additionalAriaLabel?: string;
-    footnote: HelperErrorTextType;
-    id: string;
-    labelText: HelperErrorTextType;
-    name: string;
-    additionalHelperTextIds?: string;
-    showLabel: boolean;
+  additionalAriaLabel?: string;
+  footnote: HelperErrorTextType;
+  id: string;
+  labelText: HelperErrorTextType;
+  name: string;
+  additionalHelperTextIds?: string;
+  showLabel: boolean;
 }
 /**
  * Get aria-* attributes for input components. This sets the `aria-label` and
  * `aria-describedby` attributes, based on the label and footnote values.
  */
-export declare const getAriaAttrs: ({ additionalAriaLabel, footnote, id, labelText, name, additionalHelperTextIds, showLabel, }: GetAriaAttrsProps) => AriaAttributes;
+export declare const getAriaAttrs: ({
+  additionalAriaLabel,
+  footnote,
+  id,
+  labelText,
+  name,
+  additionalHelperTextIds,
+  showLabel,
+}: GetAriaAttrsProps) => AriaAttributes;
 /** Convert a hex color value to an rgb or rgba value */
 export declare const hexToRGB: (hex: string, alpha: number) => string;
 /** Calculate color luminance */
@@ -37,22 +49,30 @@ export declare const colorLuminance: (r: any, g: any, b: any) => number;
 /** Calculate color contrast ratio */
 export declare const contrastRatio: (hex1: string, hex2: string) => string;
 /** This method will truncate text by centain length. Default length is 60. */
-export declare const truncateText: (text: string, truncateTextLength?: number) => string;
+export declare const truncateText: (
+  text: string,
+  truncateTextLength?: number
+) => string;
 /** Prepare a string for use in an ID or class attribute */
 export declare const sanitizeStringForAttribute: (str: string) => string;
 /** Provides a random image to use as a placeholder. */
 export type GetPlaceholderImageProps = "smaller" | "default";
-export declare const getPlaceholderImage: (size?: GetPlaceholderImageProps, index?: number) => string;
+export declare const getPlaceholderImage: (
+  size?: GetPlaceholderImageProps,
+  index?: number
+) => string;
 /** The default styles for images added as examples within doc pages. */
 export declare const exampleWrapperStyles: {
-    bgColor: string;
-    borderRadius: string;
-    display: string;
-    justifyContent: string;
-    mb: string;
-    overflow: string;
-    width: string;
+  bgColor: string;
+  borderRadius: string;
+  display: string;
+  justifyContent: string;
+  mb: string;
+  overflow: string;
+  width: string;
 };
 /** Return just the text from within a JSX.Element */
-export declare const getTextFromElement: (elem: React.ReactElement | string) => string;
+export declare const getTextFromElement: (
+  elem: React.ReactElement | string
+) => string;
 export {};

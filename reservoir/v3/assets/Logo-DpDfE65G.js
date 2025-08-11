@@ -1,95 +1,575 @@
-import{u as t,j as e,M as h,L as n,bv as a,C as l,bw as x,S as c}from"./iframe-D93LbwGv.js";import{C as j}from"./ComponentChangelogTable-Ck_3mwrR.js";import{L as i,W as d,S as p,a as g,A as m,C as f}from"./Logo.stories-CTEbLg5U.js";import"./storybookUtils-BmTl87w5.js";const u=[{date:"2024-03-14",version:"3.0.0",type:"Update",affects:["Styles"],notes:["Chakra 2.8 update."]},{date:"2023-12-07",version:"2.1.3",type:"Update",affects:["Styles"],notes:['Udpates the "digitalCollectionsBlack" variant to use NYPL color design tokens.']},{date:"2023-11-09",version:"2.1.2",type:"Update",affects:["Documentation","Functionality","Styles"],notes:["Adds `sizeBasedOn` prop to the `Logo` component."]}];function r(o){const s={a:"a",code:"code",h1:"h1",h2:"h2",li:"li",p:"p",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...t(),...o.components};return e.jsxs(e.Fragment,{children:[e.jsx(h,{of:i}),`
-`,e.jsx(s.h1,{id:"logo",children:"Logo"}),`
-`,e.jsxs(s.table,{children:[e.jsx(s.thead,{children:e.jsxs(s.tr,{children:[e.jsx(s.th,{children:"Component Version"}),e.jsx(s.th,{children:"DS Version"})]})}),e.jsxs(s.tbody,{children:[e.jsxs(s.tr,{children:[e.jsx(s.td,{children:"Added"}),e.jsx(s.td,{children:e.jsx(s.code,{children:"0.25.9"})})]}),e.jsxs(s.tr,{children:[e.jsx(s.td,{children:"Latest"}),e.jsx(s.td,{children:e.jsx(s.code,{children:"3.0.0"})})]})]})]}),`
-`,e.jsx(s.h2,{id:"table-of-contents",children:"Table of Contents"}),`
-`,e.jsxs(s.ul,{children:[`
-`,e.jsxs(s.li,{children:[`
-`,e.jsx(n,{href:"#overview",target:"_self",children:"Overview"}),`
-`]}),`
-`,e.jsxs(s.li,{children:[`
-`,e.jsx(n,{href:"#component-props",target:"_self",children:"Component Props"}),`
-`]}),`
-`,e.jsxs(s.li,{children:[`
-`,e.jsx(n,{href:"#accessibility",target:"_self",children:"Accessibility"}),`
-`]}),`
-`,e.jsxs(s.li,{children:[`
-`,e.jsx(n,{href:"#sizes",target:"_self",children:"Sizes"}),`
-`]}),`
-`,e.jsxs(s.li,{children:[`
-`,e.jsx(n,{href:"#all-logos",target:"_self",children:"All Logos"}),`
-`]}),`
-`,e.jsxs(s.li,{children:[`
-`,e.jsx(n,{href:"#custom-logos",target:"_self",children:"Custom Logos"}),`
-`]}),`
-`,e.jsxs(s.li,{children:[`
-`,e.jsx(n,{href:"#changelog",target:"_self",children:"Changelog"}),`
-`]}),`
-`]}),`
-`,e.jsx(s.h2,{id:"overview",children:"Overview"}),`
-`,e.jsx(a,{of:i}),`
-`,e.jsx(s.h2,{id:"component-props",children:"Component Props"}),`
-`,e.jsx(l,{of:d}),`
-`,e.jsx(x,{of:d}),`
-`,e.jsx(s.h2,{id:"accessibility",children:"Accessibility"}),`
-`,e.jsxs(s.p,{children:["For accessibility purposes, every Reservoir Design System (DS) ",e.jsx(s.code,{children:"Logo"}),` will
-render the `,e.jsx(s.code,{children:"svg"})," element with its ",e.jsx(s.code,{children:"svg"})," file name in the ",e.jsx(s.code,{children:"title"}),` element. The
-default text in the `,e.jsx(s.code,{children:"title"}),` element is the logo's code name. Pass in better
-descriptive text in the `,e.jsx(s.code,{children:"title"})," prop when using the ",e.jsx(s.code,{children:"Logo"}),` component in your
+import {
+  u as t,
+  j as e,
+  M as h,
+  L as n,
+  bv as a,
+  C as l,
+  bw as x,
+  S as c,
+} from "./iframe-D93LbwGv.js";
+import { C as j } from "./ComponentChangelogTable-Ck_3mwrR.js";
+import {
+  L as i,
+  W as d,
+  S as p,
+  a as g,
+  A as m,
+  C as f,
+} from "./Logo.stories-CTEbLg5U.js";
+import "./storybookUtils-BmTl87w5.js";
+const u = [
+  {
+    date: "2024-03-14",
+    version: "3.0.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Chakra 2.8 update."],
+  },
+  {
+    date: "2023-12-07",
+    version: "2.1.3",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      'Udpates the "digitalCollectionsBlack" variant to use NYPL color design tokens.',
+    ],
+  },
+  {
+    date: "2023-11-09",
+    version: "2.1.2",
+    type: "Update",
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: ["Adds `sizeBasedOn` prop to the `Logo` component."],
+  },
+];
+function r(o) {
+  const s = {
+    a: "a",
+    code: "code",
+    h1: "h1",
+    h2: "h2",
+    li: "li",
+    p: "p",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ...t(),
+    ...o.components,
+  };
+  return e.jsxs(e.Fragment, {
+    children: [
+      e.jsx(h, { of: i }),
+      `
+`,
+      e.jsx(s.h1, { id: "logo", children: "Logo" }),
+      `
+`,
+      e.jsxs(s.table, {
+        children: [
+          e.jsx(s.thead, {
+            children: e.jsxs(s.tr, {
+              children: [
+                e.jsx(s.th, { children: "Component Version" }),
+                e.jsx(s.th, { children: "DS Version" }),
+              ],
+            }),
+          }),
+          e.jsxs(s.tbody, {
+            children: [
+              e.jsxs(s.tr, {
+                children: [
+                  e.jsx(s.td, { children: "Added" }),
+                  e.jsx(s.td, {
+                    children: e.jsx(s.code, { children: "0.25.9" }),
+                  }),
+                ],
+              }),
+              e.jsxs(s.tr, {
+                children: [
+                  e.jsx(s.td, { children: "Latest" }),
+                  e.jsx(s.td, {
+                    children: e.jsx(s.code, { children: "3.0.0" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(s.h2, { id: "table-of-contents", children: "Table of Contents" }),
+      `
+`,
+      e.jsxs(s.ul, {
+        children: [
+          `
+`,
+          e.jsxs(s.li, {
+            children: [
+              `
+`,
+              e.jsx(n, {
+                href: "#overview",
+                target: "_self",
+                children: "Overview",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(s.li, {
+            children: [
+              `
+`,
+              e.jsx(n, {
+                href: "#component-props",
+                target: "_self",
+                children: "Component Props",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(s.li, {
+            children: [
+              `
+`,
+              e.jsx(n, {
+                href: "#accessibility",
+                target: "_self",
+                children: "Accessibility",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(s.li, {
+            children: [
+              `
+`,
+              e.jsx(n, { href: "#sizes", target: "_self", children: "Sizes" }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(s.li, {
+            children: [
+              `
+`,
+              e.jsx(n, {
+                href: "#all-logos",
+                target: "_self",
+                children: "All Logos",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(s.li, {
+            children: [
+              `
+`,
+              e.jsx(n, {
+                href: "#custom-logos",
+                target: "_self",
+                children: "Custom Logos",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(s.li, {
+            children: [
+              `
+`,
+              e.jsx(n, {
+                href: "#changelog",
+                target: "_self",
+                children: "Changelog",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+        ],
+      }),
+      `
+`,
+      e.jsx(s.h2, { id: "overview", children: "Overview" }),
+      `
+`,
+      e.jsx(a, { of: i }),
+      `
+`,
+      e.jsx(s.h2, { id: "component-props", children: "Component Props" }),
+      `
+`,
+      e.jsx(l, { of: d }),
+      `
+`,
+      e.jsx(x, { of: d }),
+      `
+`,
+      e.jsx(s.h2, { id: "accessibility", children: "Accessibility" }),
+      `
+`,
+      e.jsxs(s.p, {
+        children: [
+          "For accessibility purposes, every Reservoir Design System (DS) ",
+          e.jsx(s.code, { children: "Logo" }),
+          ` will
+render the `,
+          e.jsx(s.code, { children: "svg" }),
+          " element with its ",
+          e.jsx(s.code, { children: "svg" }),
+          " file name in the ",
+          e.jsx(s.code, { children: "title" }),
+          ` element. The
+default text in the `,
+          e.jsx(s.code, { children: "title" }),
+          ` element is the logo's code name. Pass in better
+descriptive text in the `,
+          e.jsx(s.code, { children: "title" }),
+          " prop when using the ",
+          e.jsx(s.code, { children: "Logo" }),
+          ` component in your
 application. This will give screenreaders a better descriptive title for the
-`,e.jsx(s.code,{children:"svg"})," graphic."]}),`
-`,e.jsxs(s.p,{children:[e.jsx(s.code,{children:"Logos"}),`s are decorative by default. This means that they are presentational and
-screenreaders will not read them because the `,e.jsx(s.code,{children:"aria-hidden"}),` attribute is set to
-`,e.jsx(s.code,{children:"true"}),"."]}),`
-`,e.jsx(s.p,{children:"Resources:"}),`
-`,e.jsxs(s.ul,{children:[`
-`,e.jsx(s.li,{children:e.jsx(s.a,{href:"https://design-system.w3.org/styles/svg-icons.html",rel:"nofollow",children:"W3C Design System SVG Icons"})}),`
-`,e.jsx(s.li,{children:e.jsx(s.a,{href:"https://css-tricks.com/accessible-svg-icons/",rel:"nofollow",children:"CSS-Tricks Accessible SVG Icons"})}),`
-`,e.jsx(s.li,{children:e.jsx(s.a,{href:"https://chakra-ui.com/docs/components/media-and-icons/icon",rel:"nofollow",children:"Chakra UI Icon"})}),`
-`]}),`
-`,e.jsx(s.h2,{id:"sizes",children:"Sizes"}),`
-`,e.jsxs(s.p,{children:["Update the size of the ",e.jsx(s.code,{children:"Logo"})," component by passing the ",e.jsx(s.code,{children:"size"}),` prop with a value
-from the `,e.jsx(s.code,{children:"LogoSizes"})," type. The values are ",e.jsx(s.code,{children:'"default"'}),", ",e.jsx(s.code,{children:'"xxsmall"'}),", ",e.jsx(s.code,{children:'"xsmall"'}),`,
-`,e.jsx(s.code,{children:'"small"'}),", ",e.jsx(s.code,{children:'"medium"'}),", and ",e.jsx(s.code,{children:'"large"'}),"."]}),`
-`,e.jsxs(s.p,{children:["Note: ",e.jsx(s.code,{children:'"default"'})," sets the width to ",e.jsx(s.code,{children:"100%"}),` and the rendered logo will expand to
-fill the full width of the parent element.`]}),`
-`,e.jsxs(s.p,{children:["In addition, the ",e.jsx(s.code,{children:"sizeBasedOn"}),` prop can be passed to determine whether the size
-of the `,e.jsx(s.code,{children:"Logo"})," is updated based on either the ",e.jsx(s.code,{children:'"height"'})," or ",e.jsx(s.code,{children:'"width"'}),`. By default,
-the `,e.jsx(s.code,{children:"sizeBasedOn"})," prop is set to ",e.jsx(s.code,{children:'"width"'}),"."]}),`
-`,e.jsx(c,{code:`
+`,
+          e.jsx(s.code, { children: "svg" }),
+          " graphic.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(s.p, {
+        children: [
+          e.jsx(s.code, { children: "Logos" }),
+          `s are decorative by default. This means that they are presentational and
+screenreaders will not read them because the `,
+          e.jsx(s.code, { children: "aria-hidden" }),
+          ` attribute is set to
+`,
+          e.jsx(s.code, { children: "true" }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsx(s.p, { children: "Resources:" }),
+      `
+`,
+      e.jsxs(s.ul, {
+        children: [
+          `
+`,
+          e.jsx(s.li, {
+            children: e.jsx(s.a, {
+              href: "https://design-system.w3.org/styles/svg-icons.html",
+              rel: "nofollow",
+              children: "W3C Design System SVG Icons",
+            }),
+          }),
+          `
+`,
+          e.jsx(s.li, {
+            children: e.jsx(s.a, {
+              href: "https://css-tricks.com/accessible-svg-icons/",
+              rel: "nofollow",
+              children: "CSS-Tricks Accessible SVG Icons",
+            }),
+          }),
+          `
+`,
+          e.jsx(s.li, {
+            children: e.jsx(s.a, {
+              href: "https://chakra-ui.com/docs/components/media-and-icons/icon",
+              rel: "nofollow",
+              children: "Chakra UI Icon",
+            }),
+          }),
+          `
+`,
+        ],
+      }),
+      `
+`,
+      e.jsx(s.h2, { id: "sizes", children: "Sizes" }),
+      `
+`,
+      e.jsxs(s.p, {
+        children: [
+          "Update the size of the ",
+          e.jsx(s.code, { children: "Logo" }),
+          " component by passing the ",
+          e.jsx(s.code, { children: "size" }),
+          ` prop with a value
+from the `,
+          e.jsx(s.code, { children: "LogoSizes" }),
+          " type. The values are ",
+          e.jsx(s.code, { children: '"default"' }),
+          ", ",
+          e.jsx(s.code, { children: '"xxsmall"' }),
+          ", ",
+          e.jsx(s.code, { children: '"xsmall"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"small"' }),
+          ", ",
+          e.jsx(s.code, { children: '"medium"' }),
+          ", and ",
+          e.jsx(s.code, { children: '"large"' }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsxs(s.p, {
+        children: [
+          "Note: ",
+          e.jsx(s.code, { children: '"default"' }),
+          " sets the width to ",
+          e.jsx(s.code, { children: "100%" }),
+          ` and the rendered logo will expand to
+fill the full width of the parent element.`,
+        ],
+      }),
+      `
+`,
+      e.jsxs(s.p, {
+        children: [
+          "In addition, the ",
+          e.jsx(s.code, { children: "sizeBasedOn" }),
+          ` prop can be passed to determine whether the size
+of the `,
+          e.jsx(s.code, { children: "Logo" }),
+          " is updated based on either the ",
+          e.jsx(s.code, { children: '"height"' }),
+          " or ",
+          e.jsx(s.code, { children: '"width"' }),
+          `. By default,
+the `,
+          e.jsx(s.code, { children: "sizeBasedOn" }),
+          " prop is set to ",
+          e.jsx(s.code, { children: '"width"' }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsx(c, {
+        code: `
 // Example
 <Logo name="nyplFullBlack" size="large" />
-`,language:"jsx"}),`
-`,e.jsx(l,{of:p}),`
-`,e.jsx(c,{code:`
+`,
+        language: "jsx",
+      }),
+      `
+`,
+      e.jsx(l, { of: p }),
+      `
+`,
+      e.jsx(c, {
+        code: `
 // Example
 <Logo name="nyplFullBlack" size="large" sizeBasedOn="height" />
-`,language:"jsx"}),`
-`,e.jsx(l,{of:g}),`
-`,e.jsx(s.h2,{id:"all-logos",children:"All Logos"}),`
-`,e.jsxs(s.p,{children:["Update the icon of the ",e.jsx(s.code,{children:"Logo"})," component by passing the ",e.jsx(s.code,{children:"name"}),` prop with a value
-from the `,e.jsx(s.code,{children:"LogoNames"})," type. The values are ",e.jsx(s.code,{children:'"appleAppStoreBlack"'}),`,
-`,e.jsx(s.code,{children:'"appleAppStoreWhite"'}),",",e.jsx(s.code,{children:'"bplBlack"'}),", ",e.jsx(s.code,{children:'"bplWhite"'}),", ",e.jsx(s.code,{children:'"cleverBadgeColor"'}),`,
-`,e.jsx(s.code,{children:'"cleverColor"'}),", ",e.jsx(s.code,{children:'"cleverWhite"'}),", ",e.jsx(s.code,{children:'"digitalCollectionsBlack"'}),`,
-`,e.jsx(s.code,{children:'"digitalCollectionsWhite"'}),", ",e.jsx(s.code,{children:'"firstbookColor"'}),", ",e.jsx(s.code,{children:'"firstbookColorNegative"'}),`,
-`,e.jsx(s.code,{children:'"googlePlayBlack"'}),", ",e.jsx(s.code,{children:'"lpaBlack"'}),", ",e.jsx(s.code,{children:'"lpaColor"'}),", ",e.jsx(s.code,{children:'"lpaWhite"'}),", ",e.jsx(s.code,{children:'"mlnBlack"'}),`,
-`,e.jsx(s.code,{children:'"mlnColor"'}),", ",e.jsx(s.code,{children:'"mlnWhite"'}),", ",e.jsx(s.code,{children:'"nycdoeBlack"'}),", ",e.jsx(s.code,{children:'"nycdoeColor"'}),", ",e.jsx(s.code,{children:'"nycdoeWhite"'}),`,
-`,e.jsx(s.code,{children:'"nycpsBlack"'}),", ",e.jsx(s.code,{children:'"nycpsColor"'}),", ",e.jsx(s.code,{children:'"nycpsWhite"'}),", ",e.jsx(s.code,{children:'"nyplFullBlack"'}),`,
-`,e.jsx(s.code,{children:'"nyplFullWhite"'}),", ",e.jsx(s.code,{children:'"nyplLionBlack"'}),", ",e.jsx(s.code,{children:'"nyplLionWhite"'}),", ",e.jsx(s.code,{children:'"nyplTextBlack"'}),`,
-`,e.jsx(s.code,{children:'"nyplTextWhite"'}),", ",e.jsx(s.code,{children:'"openebooksColor"'}),", ",e.jsx(s.code,{children:'"openebooksNegative"'}),`,
-`,e.jsx(s.code,{children:'"openebooksWithTextColor"'}),", ",e.jsx(s.code,{children:'"openebooksWithTextNegative"'}),", ",e.jsx(s.code,{children:'"qplAltBlack"'}),`,
-`,e.jsx(s.code,{children:'"qplAltWhite"'}),", ",e.jsx(s.code,{children:'"qplBlack"'}),", ",e.jsx(s.code,{children:'"qplColor"'}),", ",e.jsx(s.code,{children:'"qplWhite"'}),`,
-`,e.jsx(s.code,{children:'"reservoirIconColor"'}),", ",e.jsx(s.code,{children:'"reservoirVerticalColor"'}),", ",e.jsx(s.code,{children:'"schomburgBlack"'}),`,
-`,e.jsx(s.code,{children:'"schomburgCircleBlack"'}),", ",e.jsx(s.code,{children:'"schomburgCircleColor"'}),", ",e.jsx(s.code,{children:'"schomburgCircleWhite"'}),`,
-`,e.jsx(s.code,{children:'"schomburgColor"'}),", ",e.jsx(s.code,{children:'"schomburgWhite"'}),", ",e.jsx(s.code,{children:'"simplyeBlack"'}),", ",e.jsx(s.code,{children:'"simplyeWhite"'}),`,
-`,e.jsx(s.code,{children:'"simplyeColor"'}),", ",e.jsx(s.code,{children:'"snflBlack"'}),", ",e.jsx(s.code,{children:'"snflWhite"'}),", ",e.jsx(s.code,{children:'"treasuresColor"'}),`,
-`,e.jsx(s.code,{children:'"treasuresColorNegative"'}),"."]}),`
-`,e.jsxs(s.p,{children:["If you feel a necessary logo should be added to the ",e.jsx(s.code,{children:"Logo"}),` component, please
-reach out to the DS team.`]}),`
-`,e.jsx(l,{of:m}),`
-`,e.jsx(s.h2,{id:"custom-logos",children:"Custom Logos"}),`
-`,e.jsxs(s.p,{children:["If you'd like to pass a custom ",e.jsx(s.code,{children:"svg"}),` to your application, you can pass it a
-child to the `,e.jsx(s.code,{children:"Logo"})," component."]}),`
-`,e.jsx(c,{code:`
+`,
+        language: "jsx",
+      }),
+      `
+`,
+      e.jsx(l, { of: g }),
+      `
+`,
+      e.jsx(s.h2, { id: "all-logos", children: "All Logos" }),
+      `
+`,
+      e.jsxs(s.p, {
+        children: [
+          "Update the icon of the ",
+          e.jsx(s.code, { children: "Logo" }),
+          " component by passing the ",
+          e.jsx(s.code, { children: "name" }),
+          ` prop with a value
+from the `,
+          e.jsx(s.code, { children: "LogoNames" }),
+          " type. The values are ",
+          e.jsx(s.code, { children: '"appleAppStoreBlack"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"appleAppStoreWhite"' }),
+          ",",
+          e.jsx(s.code, { children: '"bplBlack"' }),
+          ", ",
+          e.jsx(s.code, { children: '"bplWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"cleverBadgeColor"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"cleverColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"cleverWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"digitalCollectionsBlack"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"digitalCollectionsWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"firstbookColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"firstbookColorNegative"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"googlePlayBlack"' }),
+          ", ",
+          e.jsx(s.code, { children: '"lpaBlack"' }),
+          ", ",
+          e.jsx(s.code, { children: '"lpaColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"lpaWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"mlnBlack"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"mlnColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"mlnWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"nycdoeBlack"' }),
+          ", ",
+          e.jsx(s.code, { children: '"nycdoeColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"nycdoeWhite"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"nycpsBlack"' }),
+          ", ",
+          e.jsx(s.code, { children: '"nycpsColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"nycpsWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"nyplFullBlack"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"nyplFullWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"nyplLionBlack"' }),
+          ", ",
+          e.jsx(s.code, { children: '"nyplLionWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"nyplTextBlack"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"nyplTextWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"openebooksColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"openebooksNegative"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"openebooksWithTextColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"openebooksWithTextNegative"' }),
+          ", ",
+          e.jsx(s.code, { children: '"qplAltBlack"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"qplAltWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"qplBlack"' }),
+          ", ",
+          e.jsx(s.code, { children: '"qplColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"qplWhite"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"reservoirIconColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"reservoirVerticalColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"schomburgBlack"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"schomburgCircleBlack"' }),
+          ", ",
+          e.jsx(s.code, { children: '"schomburgCircleColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"schomburgCircleWhite"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"schomburgColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"schomburgWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"simplyeBlack"' }),
+          ", ",
+          e.jsx(s.code, { children: '"simplyeWhite"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"simplyeColor"' }),
+          ", ",
+          e.jsx(s.code, { children: '"snflBlack"' }),
+          ", ",
+          e.jsx(s.code, { children: '"snflWhite"' }),
+          ", ",
+          e.jsx(s.code, { children: '"treasuresColor"' }),
+          `,
+`,
+          e.jsx(s.code, { children: '"treasuresColorNegative"' }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsxs(s.p, {
+        children: [
+          "If you feel a necessary logo should be added to the ",
+          e.jsx(s.code, { children: "Logo" }),
+          ` component, please
+reach out to the DS team.`,
+        ],
+      }),
+      `
+`,
+      e.jsx(l, { of: m }),
+      `
+`,
+      e.jsx(s.h2, { id: "custom-logos", children: "Custom Logos" }),
+      `
+`,
+      e.jsxs(s.p, {
+        children: [
+          "If you'd like to pass a custom ",
+          e.jsx(s.code, { children: "svg" }),
+          ` to your application, you can pass it a
+child to the `,
+          e.jsx(s.code, { children: "Logo" }),
+          " component.",
+        ],
+      }),
+      `
+`,
+      e.jsx(c, {
+        code: `
 <Logo {...props}>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.756 192.756">
   <g fillRule="evenodd" clipRule="evenodd">
@@ -102,7 +582,23 @@ child to the `,e.jsx(s.code,{children:"Logo"})," component."]}),`
   </g>
 </svg>
 </Logo>
-`,language:"tsx"}),`
-`,e.jsx(l,{of:f}),`
-`,e.jsx(s.h2,{id:"changelog",children:"Changelog"}),`
-`,e.jsx(j,{changelogData:u})]})}function k(o={}){const{wrapper:s}={...t(),...o.components};return s?e.jsx(s,{...o,children:e.jsx(r,{...o})}):r(o)}export{k as default};
+`,
+        language: "tsx",
+      }),
+      `
+`,
+      e.jsx(l, { of: f }),
+      `
+`,
+      e.jsx(s.h2, { id: "changelog", children: "Changelog" }),
+      `
+`,
+      e.jsx(j, { changelogData: u }),
+    ],
+  });
+}
+function k(o = {}) {
+  const { wrapper: s } = { ...t(), ...o.components };
+  return s ? e.jsx(s, { ...o, children: e.jsx(r, { ...o }) }) : r(o);
+}
+export { k as default };

@@ -1,360 +1,5045 @@
-import{u as o,j as e,M as c,L as d,a as l,H as n,J as s,m as i,V as x,y as a,a4 as j}from"./iframe-D93LbwGv.js";function h(r){const t={a:"a",blockquote:"blockquote",br:"br",code:"code",h1:"h1",h2:"h2",h3:"h3",h4:"h4",h5:"h5",li:"li",p:"p",strong:"strong",table:"table",tbody:"tbody",td:"td",th:"th",thead:"thead",tr:"tr",ul:"ul",...o(),...r.components};return e.jsxs(e.Fragment,{children:[e.jsx(c,{title:"Style Guide/Typography"}),`
-`,e.jsx(t.h1,{id:"typography",children:"Typography"}),`
-`,e.jsx(t.h2,{id:"table-of-contents",children:"Table of Contents"}),`
-`,e.jsxs(t.ul,{children:[`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#general-information",target:"_self",children:"General Information"}),`
-`]}),`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#heading-component",target:"_self",children:"Heading Component"}),`
-`]}),`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#text-component",target:"_self",children:"Text Component"}),`
-`]}),`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#font-family",target:"_self",children:"Font Family"}),`
-`]}),`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#font-color-and-accessibility",target:"_self",children:"Font Color and Accessibility"}),`
-`]}),`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#font-weight-and-style",target:"_self",children:"Font Weight and Style"}),`
-`]}),`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#text-case",target:"_self",children:"Text Case"}),`
-`]}),`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#line-length-and-line-height",target:"_self",children:"Line Length and Line Height"}),`
-`]}),`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#character-count",target:"_self",children:"Character Count"}),`
-`]}),`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#figma-reference",target:"_self",children:"Figma Reference"}),`
-`]}),`
-`,e.jsxs(t.li,{children:[`
-`,e.jsx(d,{href:"#format-of-text-links-disclaimer",target:"_self",children:"Format of Text Links Disclaimer"}),`
-`]}),`
-`]}),`
-`,e.jsx(t.h2,{id:"general-information",children:"General Information"}),`
-`,e.jsx(t.p,{children:`Consuming applications should utilize the Reservoir Design System (DS) standard
+import {
+  u as o,
+  j as e,
+  M as c,
+  L as d,
+  a as l,
+  H as n,
+  J as s,
+  m as i,
+  V as x,
+  y as a,
+  a4 as j,
+} from "./iframe-D93LbwGv.js";
+function h(r) {
+  const t = {
+    a: "a",
+    blockquote: "blockquote",
+    br: "br",
+    code: "code",
+    h1: "h1",
+    h2: "h2",
+    h3: "h3",
+    h4: "h4",
+    h5: "h5",
+    li: "li",
+    p: "p",
+    strong: "strong",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ...o(),
+    ...r.components,
+  };
+  return e.jsxs(e.Fragment, {
+    children: [
+      e.jsx(c, { title: "Style Guide/Typography" }),
+      `
+`,
+      e.jsx(t.h1, { id: "typography", children: "Typography" }),
+      `
+`,
+      e.jsx(t.h2, { id: "table-of-contents", children: "Table of Contents" }),
+      `
+`,
+      e.jsxs(t.ul, {
+        children: [
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#general-information",
+                target: "_self",
+                children: "General Information",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#heading-component",
+                target: "_self",
+                children: "Heading Component",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#text-component",
+                target: "_self",
+                children: "Text Component",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#font-family",
+                target: "_self",
+                children: "Font Family",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#font-color-and-accessibility",
+                target: "_self",
+                children: "Font Color and Accessibility",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#font-weight-and-style",
+                target: "_self",
+                children: "Font Weight and Style",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#text-case",
+                target: "_self",
+                children: "Text Case",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#line-length-and-line-height",
+                target: "_self",
+                children: "Line Length and Line Height",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#character-count",
+                target: "_self",
+                children: "Character Count",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#figma-reference",
+                target: "_self",
+                children: "Figma Reference",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+          e.jsxs(t.li, {
+            children: [
+              `
+`,
+              e.jsx(d, {
+                href: "#format-of-text-links-disclaimer",
+                target: "_self",
+                children: "Format of Text Links Disclaimer",
+              }),
+              `
+`,
+            ],
+          }),
+          `
+`,
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h2, {
+        id: "general-information",
+        children: "General Information",
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Consuming applications should utilize the Reservoir Design System (DS) standard
 text components as much as possible. In cases where that is not possible, the DS
-exposes design tokens to assist with formatting text elements.`}),`
-`,e.jsxs(t.p,{children:["The sizing of all text elements in the Design System is based on ",e.jsx(t.code,{children:"1rem"}),` being
-equal to `,e.jsx(t.code,{children:"16px"}),"."]}),`
-`,e.jsx(t.h2,{id:"heading-component",children:"Heading Component"}),`
-`,e.jsxs(t.p,{children:["Use the DS ",e.jsx(t.a,{href:"../?path=/docs/components-typography-styles-heading--docs",children:"Heading"}),`
-component to render a native HTML `,e.jsx(t.code,{children:"<h>"})," tag. The ",e.jsx(t.code,{children:"level"}),` prop can be used to set
-the specific `,e.jsx(t.code,{children:"<h>"})," tag that you require."]}),`
-`,e.jsx(t.h3,{id:"updated-typographic-styles",children:"Updated Typographic Styles"}),`
-`,e.jsx(t.p,{children:`New typographic styles were introduced in June 2023 and the new styles are the
+exposes design tokens to assist with formatting text elements.`,
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "The sizing of all text elements in the Design System is based on ",
+          e.jsx(t.code, { children: "1rem" }),
+          ` being
+equal to `,
+          e.jsx(t.code, { children: "16px" }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h2, { id: "heading-component", children: "Heading Component" }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "Use the DS ",
+          e.jsx(t.a, {
+            href: "../?path=/docs/components-typography-styles-heading--docs",
+            children: "Heading",
+          }),
+          `
+component to render a native HTML `,
+          e.jsx(t.code, { children: "<h>" }),
+          " tag. The ",
+          e.jsx(t.code, { children: "level" }),
+          ` prop can be used to set
+the specific `,
+          e.jsx(t.code, { children: "<h>" }),
+          " tag that you require.",
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, {
+        id: "updated-typographic-styles",
+        children: "Updated Typographic Styles",
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `New typographic styles were introduced in June 2023 and the new styles are the
 supported options. The old typographic styles are still available, but they have
-been deprecated.`}),`
-`,e.jsx(t.h3,{id:"default-styles-for-native-heading-elements",children:"Default Styles for Native Heading Elements"}),`
-`,e.jsxs(t.p,{children:["The ",e.jsx(t.code,{children:"level"})," prop can be used to set a native heading element (ex. ",e.jsx(t.code,{children:"<h1>"}),`,
-`,e.jsx(t.code,{children:"<h2>"}),", ...)."]}),`
-`,e.jsxs(t.p,{children:[`The default text styles for the native heading element levels correspond
-directly with the values of the `,e.jsx(t.code,{children:"size"})," prop. For example, the ",e.jsx(t.code,{children:"heading1"}),` size is
-the default style for the `,e.jsx(t.code,{children:"<h1>"})," element. The ",e.jsx(t.code,{children:"heading2"}),` size is the default
-style for the `,e.jsx(t.code,{children:"<h2>"})," element. And so on."]}),`
-`,e.jsxs(t.p,{children:[`Based on the June 2023 updates, the following values should be used for the
-`,e.jsx(t.code,{children:"level"})," prop."]}),`
-`,e.jsxs(t.p,{children:[e.jsx(t.code,{children:"h1"}),", ",e.jsx(t.code,{children:"h2"}),", ",e.jsx(t.code,{children:"h3"}),", ",e.jsx(t.code,{children:"h4"}),", ",e.jsx(t.code,{children:"h5"}),", ",e.jsx(t.code,{children:"h6"})]}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{color:"ui.typography.heading",level:"h1",children:"Heading Level h1"}),e.jsx(n,{color:"ui.typography.heading",level:"h2",border:"none",children:"Heading Level h2"}),e.jsx(n,{color:"ui.typography.heading",level:"h3",children:"Heading Level h3"}),e.jsx(n,{color:"ui.typography.heading",level:"h4",children:"Heading Level h4"}),e.jsx(n,{color:"ui.typography.heading",level:"h5",children:"Heading Level h5"}),e.jsx(n,{color:"ui.typography.heading",level:"h6",children:"Heading Level h6"})]}),`
-`,e.jsx(t.h4,{id:"deprecated-options",children:"Deprecated Options"}),`
-`,e.jsxs(t.p,{children:["The older ",e.jsx(t.code,{children:"level"}),` values and the associated styles are still available, but the
+been deprecated.`,
+      }),
+      `
+`,
+      e.jsx(t.h3, {
+        id: "default-styles-for-native-heading-elements",
+        children: "Default Styles for Native Heading Elements",
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "The ",
+          e.jsx(t.code, { children: "level" }),
+          " prop can be used to set a native heading element (ex. ",
+          e.jsx(t.code, { children: "<h1>" }),
+          `,
+`,
+          e.jsx(t.code, { children: "<h2>" }),
+          ", ...).",
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          `The default text styles for the native heading element levels correspond
+directly with the values of the `,
+          e.jsx(t.code, { children: "size" }),
+          " prop. For example, the ",
+          e.jsx(t.code, { children: "heading1" }),
+          ` size is
+the default style for the `,
+          e.jsx(t.code, { children: "<h1>" }),
+          " element. The ",
+          e.jsx(t.code, { children: "heading2" }),
+          ` size is the default
+style for the `,
+          e.jsx(t.code, { children: "<h2>" }),
+          " element. And so on.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          `Based on the June 2023 updates, the following values should be used for the
+`,
+          e.jsx(t.code, { children: "level" }),
+          " prop.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          e.jsx(t.code, { children: "h1" }),
+          ", ",
+          e.jsx(t.code, { children: "h2" }),
+          ", ",
+          e.jsx(t.code, { children: "h3" }),
+          ", ",
+          e.jsx(t.code, { children: "h4" }),
+          ", ",
+          e.jsx(t.code, { children: "h5" }),
+          ", ",
+          e.jsx(t.code, { children: "h6" }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "h1",
+            children: "Heading Level h1",
+          }),
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "h2",
+            border: "none",
+            children: "Heading Level h2",
+          }),
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "h3",
+            children: "Heading Level h3",
+          }),
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "h4",
+            children: "Heading Level h4",
+          }),
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "h5",
+            children: "Heading Level h5",
+          }),
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "h6",
+            children: "Heading Level h6",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "deprecated-options", children: "Deprecated Options" }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "The older ",
+          e.jsx(t.code, { children: "level" }),
+          ` values and the associated styles are still available, but the
 values have been deprecated and they should only used to fulfill older design
-requirements.`]}),`
-`,e.jsxs(t.p,{children:["For the deprecated options, the ",e.jsx(t.code,{children:"primary"}),` size is the default style for the
-`,e.jsx(t.code,{children:"<h1>"})," element. The ",e.jsx(t.code,{children:"secondary"})," size is the default style for the ",e.jsx(t.code,{children:"<h2>"}),`
-element. The `,e.jsx(t.code,{children:"tertiary"})," size is the default style for the ",e.jsx(t.code,{children:"<h3>"}),` element. And
-the `,e.jsx(t.code,{children:"callout"})," size is the default style for the ",e.jsx(t.code,{children:"<h4>"})," element. ",e.jsx(t.code,{children:"<h5>"}),` and
-`,e.jsx(t.code,{children:"<h6>"})," do not have corresponding ",e.jsx(t.code,{children:"size"})," styles."]}),`
-`,e.jsxs(t.p,{children:[e.jsx(t.code,{children:"one"}),", ",e.jsx(t.code,{children:"two"}),", ",e.jsx(t.code,{children:"three"}),", ",e.jsx(t.code,{children:"four"}),", ",e.jsx(t.code,{children:"five"}),", ",e.jsx(t.code,{children:"six"})]}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{color:"ui.typography.heading",level:"one",children:"Heading Level one (DEPRECATED)"}),e.jsx(n,{color:"ui.typography.heading",level:"two",border:"none",children:"Heading Level two (DEPRECATED)"}),e.jsx(n,{color:"ui.typography.heading",level:"three",children:"Heading Level three (DEPRECATED)"}),e.jsx(n,{color:"ui.typography.heading",level:"four",children:"Heading Level four (DEPRECATED)"}),e.jsx(n,{color:"ui.typography.heading",level:"five",children:"Heading Level five (DEPRECATED)"}),e.jsx(n,{color:"ui.typography.heading",level:"six",children:"Heading Level six (DEPRECATED)"})]}),`
-`,e.jsx(t.h4,{id:"migrating-from-old-to-new",children:"Migrating from Old to New"}),`
-`,e.jsxs(t.p,{children:["When adopting the new ",e.jsx(t.code,{children:"level"}),` values, there is a direct relationship between the
-deprecated values and the new values. For example, from a DOM persepctive, `,e.jsx(t.code,{children:"two"}),`
-should be replaced with `,e.jsx(t.code,{children:"h2"}),", as they will both render the ",e.jsx(t.code,{children:"<h2>"}),` element.
-Please note that migrating to the new `,e.jsx(t.code,{children:"level"}),` values will change the styles for
-the headings. Make sure to use the `,e.jsx(t.code,{children:"size"})," prop to make adjustments as needed."]}),`
-`,e.jsx(t.h3,{id:"size-options",children:"Size Options"}),`
-`,e.jsxs(t.p,{children:[`Each native heading level has a default style and size, but those styles can be
-overridden using the `,e.jsx(t.code,{children:"size"})," prop."]}),`
-`,e.jsxs(t.p,{children:[`The size options are not tied to specific native heading levels and may be used
+requirements.`,
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "For the deprecated options, the ",
+          e.jsx(t.code, { children: "primary" }),
+          ` size is the default style for the
+`,
+          e.jsx(t.code, { children: "<h1>" }),
+          " element. The ",
+          e.jsx(t.code, { children: "secondary" }),
+          " size is the default style for the ",
+          e.jsx(t.code, { children: "<h2>" }),
+          `
+element. The `,
+          e.jsx(t.code, { children: "tertiary" }),
+          " size is the default style for the ",
+          e.jsx(t.code, { children: "<h3>" }),
+          ` element. And
+the `,
+          e.jsx(t.code, { children: "callout" }),
+          " size is the default style for the ",
+          e.jsx(t.code, { children: "<h4>" }),
+          " element. ",
+          e.jsx(t.code, { children: "<h5>" }),
+          ` and
+`,
+          e.jsx(t.code, { children: "<h6>" }),
+          " do not have corresponding ",
+          e.jsx(t.code, { children: "size" }),
+          " styles.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          e.jsx(t.code, { children: "one" }),
+          ", ",
+          e.jsx(t.code, { children: "two" }),
+          ", ",
+          e.jsx(t.code, { children: "three" }),
+          ", ",
+          e.jsx(t.code, { children: "four" }),
+          ", ",
+          e.jsx(t.code, { children: "five" }),
+          ", ",
+          e.jsx(t.code, { children: "six" }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "one",
+            children: "Heading Level one (DEPRECATED)",
+          }),
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "two",
+            border: "none",
+            children: "Heading Level two (DEPRECATED)",
+          }),
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "three",
+            children: "Heading Level three (DEPRECATED)",
+          }),
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "four",
+            children: "Heading Level four (DEPRECATED)",
+          }),
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "five",
+            children: "Heading Level five (DEPRECATED)",
+          }),
+          e.jsx(n, {
+            color: "ui.typography.heading",
+            level: "six",
+            children: "Heading Level six (DEPRECATED)",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h4, {
+        id: "migrating-from-old-to-new",
+        children: "Migrating from Old to New",
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "When adopting the new ",
+          e.jsx(t.code, { children: "level" }),
+          ` values, there is a direct relationship between the
+deprecated values and the new values. For example, from a DOM persepctive, `,
+          e.jsx(t.code, { children: "two" }),
+          `
+should be replaced with `,
+          e.jsx(t.code, { children: "h2" }),
+          ", as they will both render the ",
+          e.jsx(t.code, { children: "<h2>" }),
+          ` element.
+Please note that migrating to the new `,
+          e.jsx(t.code, { children: "level" }),
+          ` values will change the styles for
+the headings. Make sure to use the `,
+          e.jsx(t.code, { children: "size" }),
+          " prop to make adjustments as needed.",
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "size-options", children: "Size Options" }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          `Each native heading level has a default style and size, but those styles can be
+overridden using the `,
+          e.jsx(t.code, { children: "size" }),
+          " prop.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          `The size options are not tied to specific native heading levels and may be used
 to override the default size and styling of any native HTML heading elements.
-For example, the `,e.jsx(t.code,{children:"h3"})," element has the ",e.jsx(t.code,{children:"heading3"}),` style applied by default, but
-the `,e.jsx(t.code,{children:"size"})," prop can be used to apply a smaller or larger font size style."]}),`
-`,e.jsxs(t.ul,{children:[`
-`,e.jsx(t.li,{children:e.jsx(t.a,{href:"https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137482&mode=design&t=CwNgPKtbbLMwil5V-4",rel:"nofollow",children:"Visual Design Library: Heading Text Styles"})}),`
-`]}),`
-`,e.jsx(t.h4,{id:"display-1",children:"Display 1"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"This style SHOULD be used for display headings meant to give an immediate great impact."}),e.jsx("li",{children:"This style SHOULD be used with short headlines. If headline text is more than five words, consider using a smaller heading style."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.heading.display1"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-heading-display1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"4.25rem"})," (68px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.display1"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-display1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"300"})," (light)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.05"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Letter Spacing"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1px"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"h3",size:"display1",m:"0",children:"Heading Size display1"})}),`
-`,e.jsx(t.h4,{id:"heading-1",children:"Heading 1"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"Page title and hero text."}),e.jsx("li",{children:"This style SHOULD be used with short headlines. If headline text is beyond five words, consider using a smaller heading style."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.heading.heading1"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-heading-heading1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"3.375rem"})," (54px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.heading1"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-heading1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"300"})," (light)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.15"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Letter Spacing"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1px"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"h3",size:"heading1",m:"0",children:"Heading Size heading1"})}),`
-`,e.jsx(t.h4,{id:"heading-2",children:"Heading 2"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"Page titles, hero text, and important section titles."}),e.jsx("li",{children:"This style SHOULD be used with short headlines. If headline text is beyond five words, consider using a smaller heading style."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.heading.heading2"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-heading-heading2)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"2.625rem"})," (42px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.heading2"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-heading2)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"300"})," (light)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.20"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Letter Spacing"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1px"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"h3",size:"heading2",m:"0",children:"Heading Size heading2"})}),`
-`,e.jsx(t.h4,{id:"heading-3",children:"Heading 3"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"Hero text, card title, and important section titles."}),e.jsx("li",{children:"This style MAY be used with sentence length titles."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.heading.heading3"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-heading-heading3)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"2rem"})," (32px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.heading3"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-heading3)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"400"})," (regular)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.25"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Letter Spacing"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1px"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"h3",size:"heading3",m:"0",children:"Heading Size heading3"})}),`
-`,e.jsx(t.h4,{id:"heading-4",children:"Heading 4"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"Hero titles, card title, or lesser section titles."}),e.jsx("li",{children:"This style MAY be used with sentence length titles."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.heading.heading4"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-heading-heading4)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"1.625rem"})," (26px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.heading4"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-heading4)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"500"})," (medium)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.30"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Letter Spacing"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"0"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"h3",size:"heading4",m:"0",children:"Heading Size heading4"})}),`
-`,e.jsx(t.h4,{id:"heading-5",children:"Heading 5"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"Hero titles, card title, or lesser section titles."}),e.jsx("li",{children:"This style MAY be used with sentence length titles."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.heading.heading5"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-heading-heading5)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"1.375rem"})," (22px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.heading5"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-heading5)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"600"})," (semibold)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.35"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Letter Spacing"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"0"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"h3",size:"heading5",m:"0",children:"Heading Size heading5"})}),`
-`,e.jsx(t.h4,{id:"heading-6",children:"Heading 6"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"Hero titles, card title, or lesser section titles."}),e.jsx("li",{children:"This style MAY be used with sentence length titles."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.heading.heading6"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-heading-heading6)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"1.25rem"})," (20px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.heading6"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-heading6)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"600"})," (semibold)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.40"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Letter Spacing"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"0"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"h3",size:"heading6",m:"0",children:"Heading Size heading6"})}),`
-`,e.jsx(t.h4,{id:"heading-7",children:"Heading 7"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"Card titles or lesser section titles."}),e.jsx("li",{children:"This style MAY be used with sentence length titles."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.heading.heading7"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-heading-heading7)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"1.125rem"})," (18px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.heading7"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-heading7)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"700"})," (bold)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.45"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Letter Spacing"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"0"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"h3",size:"heading7",m:"0",children:"Heading Size heading7"})}),`
-`,e.jsx(t.h4,{id:"heading-8",children:"Heading 8"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"Lesser section titles."}),e.jsx("li",{children:"This style MAY be used with sentence length titles."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.heading.heading8"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-heading-heading8)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"1rem"})," (16px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.heading8"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-heading8)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"700"})," (bold)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.50"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Letter Spacing"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"0"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"h3",size:"heading8",m:"0",children:"Heading Size heading8"})}),`
-`,e.jsx(t.h4,{id:"deprecated-options-1",children:"Deprecated Options"}),`
-`,e.jsxs(t.p,{children:["The older ",e.jsx(t.code,{children:"size"}),` values and the associated styles are still available, but the
+For example, the `,
+          e.jsx(t.code, { children: "h3" }),
+          " element has the ",
+          e.jsx(t.code, { children: "heading3" }),
+          ` style applied by default, but
+the `,
+          e.jsx(t.code, { children: "size" }),
+          " prop can be used to apply a smaller or larger font size style.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.ul, {
+        children: [
+          `
+`,
+          e.jsx(t.li, {
+            children: e.jsx(t.a, {
+              href: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137482&mode=design&t=CwNgPKtbbLMwil5V-4",
+              rel: "nofollow",
+              children: "Visual Design Library: Heading Text Styles",
+            }),
+          }),
+          `
+`,
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "display-1", children: "Display 1" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children:
+              "This style SHOULD be used for display headings meant to give an immediate great impact.",
+          }),
+          e.jsx("li", {
+            children:
+              "This style SHOULD be used with short headlines. If headline text is more than five words, consider using a smaller heading style.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.heading.display1",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-heading-display1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "4.25rem" }),
+                      " (68px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.display1" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-display1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [e.jsx(t.code, { children: "300" }), " (light)"],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.05" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Letter Spacing" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1px" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "h3",
+          size: "display1",
+          m: "0",
+          children: "Heading Size display1",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "heading-1", children: "Heading 1" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", { children: "Page title and hero text." }),
+          e.jsx("li", {
+            children:
+              "This style SHOULD be used with short headlines. If headline text is beyond five words, consider using a smaller heading style.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.heading.heading1",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-heading-heading1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "3.375rem" }),
+                      " (54px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.heading1" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-heading1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [e.jsx(t.code, { children: "300" }), " (light)"],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.15" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Letter Spacing" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1px" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "h3",
+          size: "heading1",
+          m: "0",
+          children: "Heading Size heading1",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "heading-2", children: "Heading 2" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children: "Page titles, hero text, and important section titles.",
+          }),
+          e.jsx("li", {
+            children:
+              "This style SHOULD be used with short headlines. If headline text is beyond five words, consider using a smaller heading style.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.heading.heading2",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-heading-heading2)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "2.625rem" }),
+                      " (42px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.heading2" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-heading2)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [e.jsx(t.code, { children: "300" }), " (light)"],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.20" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Letter Spacing" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1px" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "h3",
+          size: "heading2",
+          m: "0",
+          children: "Heading Size heading2",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "heading-3", children: "Heading 3" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children: "Hero text, card title, and important section titles.",
+          }),
+          e.jsx("li", {
+            children: "This style MAY be used with sentence length titles.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.heading.heading3",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-heading-heading3)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [e.jsx(t.code, { children: "2rem" }), " (32px)"],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.heading3" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-heading3)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "400" }),
+                      " (regular)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.25" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Letter Spacing" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1px" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "h3",
+          size: "heading3",
+          m: "0",
+          children: "Heading Size heading3",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "heading-4", children: "Heading 4" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children: "Hero titles, card title, or lesser section titles.",
+          }),
+          e.jsx("li", {
+            children: "This style MAY be used with sentence length titles.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.heading.heading4",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-heading-heading4)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "1.625rem" }),
+                      " (26px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.heading4" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-heading4)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [e.jsx(t.code, { children: "500" }), " (medium)"],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.30" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Letter Spacing" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "0" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "h3",
+          size: "heading4",
+          m: "0",
+          children: "Heading Size heading4",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "heading-5", children: "Heading 5" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children: "Hero titles, card title, or lesser section titles.",
+          }),
+          e.jsx("li", {
+            children: "This style MAY be used with sentence length titles.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.heading.heading5",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-heading-heading5)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "1.375rem" }),
+                      " (22px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.heading5" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-heading5)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "600" }),
+                      " (semibold)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.35" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Letter Spacing" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "0" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "h3",
+          size: "heading5",
+          m: "0",
+          children: "Heading Size heading5",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "heading-6", children: "Heading 6" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children: "Hero titles, card title, or lesser section titles.",
+          }),
+          e.jsx("li", {
+            children: "This style MAY be used with sentence length titles.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.heading.heading6",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-heading-heading6)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "1.25rem" }),
+                      " (20px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.heading6" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-heading6)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "600" }),
+                      " (semibold)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.40" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Letter Spacing" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "0" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "h3",
+          size: "heading6",
+          m: "0",
+          children: "Heading Size heading6",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "heading-7", children: "Heading 7" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", { children: "Card titles or lesser section titles." }),
+          e.jsx("li", {
+            children: "This style MAY be used with sentence length titles.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.heading.heading7",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-heading-heading7)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "1.125rem" }),
+                      " (18px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.heading7" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-heading7)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [e.jsx(t.code, { children: "700" }), " (bold)"],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.45" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Letter Spacing" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "0" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "h3",
+          size: "heading7",
+          m: "0",
+          children: "Heading Size heading7",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "heading-8", children: "Heading 8" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", { children: "Lesser section titles." }),
+          e.jsx("li", {
+            children: "This style MAY be used with sentence length titles.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.heading.heading8",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-heading-heading8)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [e.jsx(t.code, { children: "1rem" }), " (16px)"],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.heading8" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-heading8)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [e.jsx(t.code, { children: "700" }), " (bold)"],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.50" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Letter Spacing" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "0" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "h3",
+          size: "heading8",
+          m: "0",
+          children: "Heading Size heading8",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, {
+        id: "deprecated-options-1",
+        children: "Deprecated Options",
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "The older ",
+          e.jsx(t.code, { children: "size" }),
+          ` values and the associated styles are still available, but the
 values should be consdidered deprecated and they should only used to fulfill
-older design requirements.`]}),`
-`,e.jsx(t.h5,{id:"heading-primary-deprecated",children:"Heading Primary (DEPRECATED)"}),`
-`,e.jsx(s,{type:"ul",children:e.jsx("li",{children:"This style SHOULD NOT be used."})}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.primary"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-heading-primary)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"2.25rem"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.primary"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-primary)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"300"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.1"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"one",size:"primary",m:"0",children:"Heading Size primary (DEPRECATED)"})}),`
-`,e.jsx(t.h5,{id:"heading-secondary-deprecated",children:"Heading Secondary (DEPRECATED)"}),`
-`,e.jsx(s,{type:"ul",children:e.jsx("li",{children:"This style SHOULD NOT be used."})}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.secondary"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-heading-secondary)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.75rem"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.secondary"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-secondary)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"500"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.25"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"one",size:"secondary",m:"0",children:"Heading Size secondary (DEPRECATED)"})}),`
-`,e.jsx(t.h5,{id:"heading-tertiary-deprecated",children:"Heading Tertiary (DEPRECATED)"}),`
-`,e.jsx(s,{type:"ul",children:e.jsx("li",{children:"This style SHOULD NOT be used."})}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.tertiary"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-heading-tertiary)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.375rem"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.tertiary"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-tertiary)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"500"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.25"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"one",size:"tertiary",m:"0",children:"Heading Size tertiary (DEPRECATED)"})}),`
-`,e.jsx(t.h5,{id:"heading-callout-deprecated",children:"Heading Callout (DEPRECATED)"}),`
-`,e.jsx(s,{type:"ul",children:e.jsx("li",{children:"This style SHOULD NOT be used."})}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.callout"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-heading-callout)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.25rem"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading.callout"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-heading-callout)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"500"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.25"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{color:"ui.typography.heading",level:"one",size:"callout",m:"0",children:"Heading Size callout (DEPRECATED)"})}),`
-`,e.jsx(t.h2,{id:"text-component",children:"Text Component"}),`
-`,e.jsxs(t.p,{children:["Use the DS ",e.jsx(t.a,{href:"../?path=/docs/components-typography-styles-text--docs",children:"Text"}),`
-component to render a standard HTML `,e.jsx(t.code,{children:"<p>"})," tag."]}),`
-`,e.jsxs(t.p,{children:["The ",e.jsx(t.code,{children:"Text"}),` component is used for body copy and captions. However, new
-typographic styles were introduced in June 2023 and the `,e.jsx(t.code,{children:"Text"}),` component can now
-be used to render `,e.jsx(t.code,{children:"subtitle"})," and ",e.jsx(t.code,{children:"overline"})," text elements."]}),`
-`,e.jsx(t.h3,{id:"updated-typographic-styles-1",children:"Updated Typographic Styles"}),`
-`,e.jsxs(t.p,{children:["New typographic styles were introduced in June 2023, adding ",e.jsx(t.code,{children:"subtitle1"}),`,
-`,e.jsx(t.code,{children:"subtitle2"}),", ",e.jsx(t.code,{children:"overline1"})," and ",e.jsx(t.code,{children:"overline2"}),". As part of that update, the ",e.jsx(t.code,{children:"tag"}),` and
-`,e.jsx(t.code,{children:"mini"})," styles have been deprecated."]}),`
-`,e.jsx(t.h4,{id:"recommended-options",children:"Recommended Options"}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:"1rem",children:"Body 1"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:".875rem",children:"Body 2"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:".75rem",children:"Caption"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",size:"subtitle1",children:"Subtitle 1"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",size:"subtitle2",children:"Subtitle 2"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",size:"overline1",children:"Overline 1"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",size:"overline2",children:"Overline 2"})]}),`
-`,e.jsx(t.h4,{id:"deprecated-options-2",children:"Deprecated Options"}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:".75rem",children:"Tag (DEPRECATED)"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:".625rem",children:"Mini (DEPRECATED)"})]}),`
-`,e.jsx(t.h3,{id:"size-options-1",children:"Size Options"}),`
-`,e.jsxs(t.p,{children:["The ",e.jsx(t.code,{children:"size"})," prop can be used to render a specific style from the DS default text styles."]}),`
-`,e.jsxs(t.ul,{children:[`
-`,e.jsx(t.li,{children:e.jsx(t.a,{href:"https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137494&mode=design&t=CwNgPKtbbLMwil5V-4",rel:"nofollow",children:"Visual Design Library: Text Styles"})}),`
-`]}),`
-`,e.jsx(t.h4,{id:"body-1",children:"Body 1"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"This is the default size for body copy."}),e.jsx("li",{children:"This style SHOULD be used for standard body copy."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.body.body1"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-body-body1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"1rem"})," (16px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"body"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-body)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"400"})," (regular)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.5"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:"1rem",m:"0",children:"Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros."})}),`
-`,e.jsx(t.h4,{id:"body-2",children:"Body 2"}),`
-`,e.jsx(s,{type:"ul",children:e.jsx("li",{children:"This style MAY be used in tables, lists, and UI areas with limited space."})}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.body.body2"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-body-body2)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"0.875rem"})," (14px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"body2"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-body2)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"400"})," (regular)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.5"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:".875rem",m:"0",children:"Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros."})}),`
-`,e.jsx(t.h4,{id:"caption",children:"Caption"}),`
-`,e.jsx(s,{type:"ul",children:e.jsx("li",{children:"This style SHOULD be used for captions below an elements (ex. image, video player, audio player), helper text, and tag labels."})}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.caption"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-caption)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"0.75rem"})," (12px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"caption"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-caption)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"400"})," (regular)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.5"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsxs(x,{align:"left",spacing:"l",children:[e.jsxs(l,{children:[e.jsx(n,{color:"ui.typography.heading",level:"h4",size:"heading6",children:"Image Caption"}),e.jsx(l,{mb:"s",width:"fit-content",children:e.jsx(a,{caption:"This is a library",size:"medium",src:"//loremflickr.com/400/400/new+york+public+library"})})]}),e.jsxs(l,{children:[e.jsx(n,{color:"ui.typography.heading",level:"h4",size:"heading6",children:"Tags"}),e.jsx(j,{tagSetData:[{label:"Red"},{label:"Orange"},{label:"Yellow"},{label:"Green"},{label:"Blue"},{label:"Indigo"},{label:"Violet"}],type:"filter"})]})]})}),`
-`,e.jsx(t.h4,{id:"subtitle-1",children:"Subtitle 1"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"This style SHOULD be used with text set as a subtitle grouped with a heading element."}),e.jsx("li",{children:"Text set in this style MAY be sentence length."}),e.jsx("li",{children:"This style is for DS internal use only. It is used in the DS `Heading` component."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.subtitle.subtitle1"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-subtitle-subtitle1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"1.125rem"})," (18px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"subtitle.subtitle1"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-subtitle-subtitle1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"400"})," (regular)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.25"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{border:"0",color:"ui.typography.heading",mb:"xs",size:"heading2",subtitle:"Subtitle nullam id dolor id nibh ultricies vehicula ut id elit.",text:"Lorem ipsum dolor"})}),`
-`,e.jsx(t.h4,{id:"subtitle-2",children:"Subtitle 2"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"This style SHOULD be used with text set as a subtitle grouped with a heading element."}),e.jsx("li",{children:"Text set in this style MAY be sentence length."}),e.jsx("li",{children:"This style is for DS internal use only. It is used in the DS `Heading` component."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.subtitle.subtitle2"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-subtitle-subtitle2)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"1rem"})," (16px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"subtitle.subtitle2"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-subtitle-subtitle2)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"400"})," (regular)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.3"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{border:"0",color:"ui.typography.heading",mb:"xs",size:"heading5",subtitle:"Subtitle nullam id dolor id nibh ultricies vehicula ut id elit.",text:"Lorem ipsum dolor"})}),`
-`,e.jsx(t.h4,{id:"overline-1",children:"Overline 1"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"This style SHOULD be used with text set as a pre-title grouped with a heading element."}),e.jsx("li",{children:"Text set in this style SHOULD be one or two words in length."}),e.jsx("li",{children:"The overline text is styled to be all uppercase."}),e.jsx("li",{children:"This style is for DS internal use only. It is used in the DS `Heading` component."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.overline.overline1"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-overline-overline1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"0.75rem"})," (12px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"overline.overline1"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-overline-overline1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"600"})," (semibold)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.35"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{border:"0",color:"ui.typography.heading",overline:"Overline",size:"heading2",text:"Lorem ipsum dolor"})}),`
-`,e.jsx(t.h4,{id:"overline-2",children:"Overline 2"}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"This style SHOULD be used with text set as a pre-title grouped with a heading element."}),e.jsx("li",{children:"Text set in this style SHOULD be one or two words in length."}),e.jsx("li",{children:"This style is for DS internal use only. It is used in the DS `Heading` component."})]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"desktop.overline.overline2"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-desktop-overline-overline1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"0.625rem"})," (10px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"overline.overline2"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-overline-overline1)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"600"})," (semibold)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.4"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(n,{border:"0",color:"ui.typography.heading",overline:"Overline",size:"heading5",text:"Lorem ipsum dolor"})}),`
-`,e.jsx(t.h4,{id:"deprecated-options-3",children:"Deprecated Options"}),`
-`,e.jsx(t.h5,{id:"tag-deprecated",children:"Tag (DEPRECATED)"}),`
-`,e.jsx(s,{type:"ul",children:e.jsx("li",{children:"This style SHOULD NOT be used."})}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"text.tag"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-text-tag)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"0.75rem"})," (12px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"text.tag"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-text-tag)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"400"})," (regular)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.5"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(i,{color:"ui.typography.body",size:"tag",mt:"0",children:"Tag text (DEPRECATED)"})}),`
-`,e.jsx(t.h5,{id:"mini-deprecated",children:"Mini (DEPRECATED)"}),`
-`,e.jsx(s,{type:"ul",children:e.jsx("li",{children:"This style SHOULD NOT be used."})}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Size"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"text.mini"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontSizes-text-mini)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"0.625rem"})," (10px)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Font Weight"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"text.mini"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fontWeights-text-mini)"})}),e.jsxs(t.td,{style:{textAlign:"left"},children:[e.jsx(t.code,{children:"400"})," (regular)"]})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Line Height"})}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:"--"}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"1.5"})})]})]})]}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"inset.default",children:e.jsx(i,{color:"ui.typography.body",size:"mini",m:"0",children:"Mini text (DEPRECATED)"})}),`
-`,e.jsx(t.h2,{id:"font-family",children:"Font Family"}),`
-`,e.jsx(t.p,{children:`With website accessibility in mind, font choices for the DS were made with an
+older design requirements.`,
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h5, {
+        id: "heading-primary-deprecated",
+        children: "Heading Primary (DEPRECATED)",
+      }),
+      `
+`,
+      e.jsx(s, {
+        type: "ul",
+        children: e.jsx("li", { children: "This style SHOULD NOT be used." }),
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.primary" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontSizes-heading-primary)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "2.25rem" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.primary" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-primary)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "300" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.1" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "one",
+          size: "primary",
+          m: "0",
+          children: "Heading Size primary (DEPRECATED)",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h5, {
+        id: "heading-secondary-deprecated",
+        children: "Heading Secondary (DEPRECATED)",
+      }),
+      `
+`,
+      e.jsx(s, {
+        type: "ul",
+        children: e.jsx("li", { children: "This style SHOULD NOT be used." }),
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.secondary" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontSizes-heading-secondary)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.75rem" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.secondary" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-secondary)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "500" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.25" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "one",
+          size: "secondary",
+          m: "0",
+          children: "Heading Size secondary (DEPRECATED)",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h5, {
+        id: "heading-tertiary-deprecated",
+        children: "Heading Tertiary (DEPRECATED)",
+      }),
+      `
+`,
+      e.jsx(s, {
+        type: "ul",
+        children: e.jsx("li", { children: "This style SHOULD NOT be used." }),
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.tertiary" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontSizes-heading-tertiary)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.375rem" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.tertiary" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-tertiary)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "500" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.25" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "one",
+          size: "tertiary",
+          m: "0",
+          children: "Heading Size tertiary (DEPRECATED)",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h5, {
+        id: "heading-callout-deprecated",
+        children: "Heading Callout (DEPRECATED)",
+      }),
+      `
+`,
+      e.jsx(s, {
+        type: "ul",
+        children: e.jsx("li", { children: "This style SHOULD NOT be used." }),
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.callout" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontSizes-heading-callout)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.25rem" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading.callout" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-heading-callout)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "500" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.25" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "one",
+          size: "callout",
+          m: "0",
+          children: "Heading Size callout (DEPRECATED)",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h2, { id: "text-component", children: "Text Component" }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "Use the DS ",
+          e.jsx(t.a, {
+            href: "../?path=/docs/components-typography-styles-text--docs",
+            children: "Text",
+          }),
+          `
+component to render a standard HTML `,
+          e.jsx(t.code, { children: "<p>" }),
+          " tag.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "The ",
+          e.jsx(t.code, { children: "Text" }),
+          ` component is used for body copy and captions. However, new
+typographic styles were introduced in June 2023 and the `,
+          e.jsx(t.code, { children: "Text" }),
+          ` component can now
+be used to render `,
+          e.jsx(t.code, { children: "subtitle" }),
+          " and ",
+          e.jsx(t.code, { children: "overline" }),
+          " text elements.",
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, {
+        id: "updated-typographic-styles-1",
+        children: "Updated Typographic Styles",
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "New typographic styles were introduced in June 2023, adding ",
+          e.jsx(t.code, { children: "subtitle1" }),
+          `,
+`,
+          e.jsx(t.code, { children: "subtitle2" }),
+          ", ",
+          e.jsx(t.code, { children: "overline1" }),
+          " and ",
+          e.jsx(t.code, { children: "overline2" }),
+          ". As part of that update, the ",
+          e.jsx(t.code, { children: "tag" }),
+          ` and
+`,
+          e.jsx(t.code, { children: "mini" }),
+          " styles have been deprecated.",
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h4, {
+        id: "recommended-options",
+        children: "Recommended Options",
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "body",
+            fontSize: "1rem",
+            children: "Body 1",
+          }),
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "body",
+            fontSize: ".875rem",
+            children: "Body 2",
+          }),
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "body",
+            fontSize: ".75rem",
+            children: "Caption",
+          }),
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "body",
+            size: "subtitle1",
+            children: "Subtitle 1",
+          }),
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "body",
+            size: "subtitle2",
+            children: "Subtitle 2",
+          }),
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "body",
+            size: "overline1",
+            children: "Overline 1",
+          }),
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "body",
+            size: "overline2",
+            children: "Overline 2",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h4, {
+        id: "deprecated-options-2",
+        children: "Deprecated Options",
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "body",
+            fontSize: ".75rem",
+            children: "Tag (DEPRECATED)",
+          }),
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "body",
+            fontSize: ".625rem",
+            children: "Mini (DEPRECATED)",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "size-options-1", children: "Size Options" }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "The ",
+          e.jsx(t.code, { children: "size" }),
+          " prop can be used to render a specific style from the DS default text styles.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.ul, {
+        children: [
+          `
+`,
+          e.jsx(t.li, {
+            children: e.jsx(t.a, {
+              href: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137494&mode=design&t=CwNgPKtbbLMwil5V-4",
+              rel: "nofollow",
+              children: "Visual Design Library: Text Styles",
+            }),
+          }),
+          `
+`,
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "body-1", children: "Body 1" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", { children: "This is the default size for body copy." }),
+          e.jsx("li", {
+            children: "This style SHOULD be used for standard body copy.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "desktop.body.body1" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontSizes-desktop-body-body1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [e.jsx(t.code, { children: "1rem" }), " (16px)"],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "body" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-body)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "400" }),
+                      " (regular)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.5" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(i, {
+          color: "ui.typography.body",
+          fontFamily: "body",
+          fontSize: "1rem",
+          m: "0",
+          children:
+            "Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "body-2", children: "Body 2" }),
+      `
+`,
+      e.jsx(s, {
+        type: "ul",
+        children: e.jsx("li", {
+          children:
+            "This style MAY be used in tables, lists, and UI areas with limited space.",
+        }),
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "desktop.body.body2" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontSizes-desktop-body-body2)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "0.875rem" }),
+                      " (14px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "body2" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-body2)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "400" }),
+                      " (regular)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.5" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(i, {
+          color: "ui.typography.body",
+          fontFamily: "body",
+          fontSize: ".875rem",
+          m: "0",
+          children:
+            "Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "caption", children: "Caption" }),
+      `
+`,
+      e.jsx(s, {
+        type: "ul",
+        children: e.jsx("li", {
+          children:
+            "This style SHOULD be used for captions below an elements (ex. image, video player, audio player), helper text, and tag labels.",
+        }),
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "desktop.caption" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontSizes-desktop-caption)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "0.75rem" }),
+                      " (12px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "caption" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-caption)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "400" }),
+                      " (regular)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.5" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsxs(x, {
+          align: "left",
+          spacing: "l",
+          children: [
+            e.jsxs(l, {
+              children: [
+                e.jsx(n, {
+                  color: "ui.typography.heading",
+                  level: "h4",
+                  size: "heading6",
+                  children: "Image Caption",
+                }),
+                e.jsx(l, {
+                  mb: "s",
+                  width: "fit-content",
+                  children: e.jsx(a, {
+                    caption: "This is a library",
+                    size: "medium",
+                    src: "//loremflickr.com/400/400/new+york+public+library",
+                  }),
+                }),
+              ],
+            }),
+            e.jsxs(l, {
+              children: [
+                e.jsx(n, {
+                  color: "ui.typography.heading",
+                  level: "h4",
+                  size: "heading6",
+                  children: "Tags",
+                }),
+                e.jsx(j, {
+                  tagSetData: [
+                    { label: "Red" },
+                    { label: "Orange" },
+                    { label: "Yellow" },
+                    { label: "Green" },
+                    { label: "Blue" },
+                    { label: "Indigo" },
+                    { label: "Violet" },
+                  ],
+                  type: "filter",
+                }),
+              ],
+            }),
+          ],
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "subtitle-1", children: "Subtitle 1" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children:
+              "This style SHOULD be used with text set as a subtitle grouped with a heading element.",
+          }),
+          e.jsx("li", {
+            children: "Text set in this style MAY be sentence length.",
+          }),
+          e.jsx("li", {
+            children:
+              "This style is for DS internal use only. It is used in the DS `Heading` component.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.subtitle.subtitle1",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-subtitle-subtitle1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "1.125rem" }),
+                      " (18px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "subtitle.subtitle1" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-subtitle-subtitle1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "400" }),
+                      " (regular)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.25" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          border: "0",
+          color: "ui.typography.heading",
+          mb: "xs",
+          size: "heading2",
+          subtitle:
+            "Subtitle nullam id dolor id nibh ultricies vehicula ut id elit.",
+          text: "Lorem ipsum dolor",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "subtitle-2", children: "Subtitle 2" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children:
+              "This style SHOULD be used with text set as a subtitle grouped with a heading element.",
+          }),
+          e.jsx("li", {
+            children: "Text set in this style MAY be sentence length.",
+          }),
+          e.jsx("li", {
+            children:
+              "This style is for DS internal use only. It is used in the DS `Heading` component.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.subtitle.subtitle2",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-subtitle-subtitle2)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [e.jsx(t.code, { children: "1rem" }), " (16px)"],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "subtitle.subtitle2" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-subtitle-subtitle2)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "400" }),
+                      " (regular)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.3" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          border: "0",
+          color: "ui.typography.heading",
+          mb: "xs",
+          size: "heading5",
+          subtitle:
+            "Subtitle nullam id dolor id nibh ultricies vehicula ut id elit.",
+          text: "Lorem ipsum dolor",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "overline-1", children: "Overline 1" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children:
+              "This style SHOULD be used with text set as a pre-title grouped with a heading element.",
+          }),
+          e.jsx("li", {
+            children:
+              "Text set in this style SHOULD be one or two words in length.",
+          }),
+          e.jsx("li", {
+            children: "The overline text is styled to be all uppercase.",
+          }),
+          e.jsx("li", {
+            children:
+              "This style is for DS internal use only. It is used in the DS `Heading` component.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.overline.overline1",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-overline-overline1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "0.75rem" }),
+                      " (12px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "overline.overline1" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-overline-overline1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "600" }),
+                      " (semibold)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.35" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          border: "0",
+          color: "ui.typography.heading",
+          overline: "Overline",
+          size: "heading2",
+          text: "Lorem ipsum dolor",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, { id: "overline-2", children: "Overline 2" }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children:
+              "This style SHOULD be used with text set as a pre-title grouped with a heading element.",
+          }),
+          e.jsx("li", {
+            children:
+              "Text set in this style SHOULD be one or two words in length.",
+          }),
+          e.jsx("li", {
+            children:
+              "This style is for DS internal use only. It is used in the DS `Heading` component.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "desktop.overline.overline2",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children:
+                        "var(--nypl-fontSizes-desktop-overline-overline1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "0.625rem" }),
+                      " (10px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "overline.overline2" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-overline-overline1)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "600" }),
+                      " (semibold)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.4" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(n, {
+          border: "0",
+          color: "ui.typography.heading",
+          overline: "Overline",
+          size: "heading5",
+          text: "Lorem ipsum dolor",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h4, {
+        id: "deprecated-options-3",
+        children: "Deprecated Options",
+      }),
+      `
+`,
+      e.jsx(t.h5, { id: "tag-deprecated", children: "Tag (DEPRECATED)" }),
+      `
+`,
+      e.jsx(s, {
+        type: "ul",
+        children: e.jsx("li", { children: "This style SHOULD NOT be used." }),
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "text.tag" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontSizes-text-tag)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "0.75rem" }),
+                      " (12px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "text.tag" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-text-tag)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "400" }),
+                      " (regular)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.5" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(i, {
+          color: "ui.typography.body",
+          size: "tag",
+          mt: "0",
+          children: "Tag text (DEPRECATED)",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h5, { id: "mini-deprecated", children: "Mini (DEPRECATED)" }),
+      `
+`,
+      e.jsx(s, {
+        type: "ul",
+        children: e.jsx("li", { children: "This style SHOULD NOT be used." }),
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Size" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "text.mini" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontSizes-text-mini)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "0.625rem" }),
+                      " (10px)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Font Weight" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "text.mini" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-text-mini)",
+                    }),
+                  }),
+                  e.jsxs(t.td, {
+                    style: { textAlign: "left" },
+                    children: [
+                      e.jsx(t.code, { children: "400" }),
+                      " (regular)",
+                    ],
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Line Height" }),
+                  }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, { style: { textAlign: "left" }, children: "--" }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "1.5" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "inset.default",
+        children: e.jsx(i, {
+          color: "ui.typography.body",
+          size: "mini",
+          m: "0",
+          children: "Mini text (DEPRECATED)",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h2, { id: "font-family", children: "Font Family" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `With website accessibility in mind, font choices for the DS were made with an
 eye toward clarity and readability. Headings and body content use the
-following font family assignment:`}),`
-`,e.jsxs(t.p,{children:["The following ",e.jsx(t.code,{children:"font-family"})," design tokens are available through the DS."]}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Heading"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"heading"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fonts-heading)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"system-ui, sans-serif"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Body"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"body"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-fonts-body)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"system-ui, sans-serif"})})]})]})]}),`
-`,e.jsxs(t.blockquote,{children:[`
-`,e.jsxs(t.p,{children:[e.jsx(t.strong,{children:"RECOMMENDATIONS"}),e.jsx(t.br,{}),`
-`,`When making font selections for project based components outside the DS,
+following font family assignment:`,
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "The following ",
+          e.jsx(t.code, { children: "font-family" }),
+          " design tokens are available through the DS.",
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Heading" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "heading" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fonts-heading)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "system-ui, sans-serif",
+                    }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Body" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "body" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fonts-body)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "system-ui, sans-serif",
+                    }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.blockquote, {
+        children: [
+          `
+`,
+          e.jsxs(t.p, {
+            children: [
+              e.jsx(t.strong, { children: "RECOMMENDATIONS" }),
+              e.jsx(t.br, {}),
+              `
+`,
+              `When making font selections for project based components outside the DS,
 sans serif fonts display better on computers and mobile devices. Avoid
 decorative or overly stylized fonts, as they are often difficult to read even
-for users without visual impairments or reading Standard Text Default`]}),`
-`]}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(i,{color:"ui.typography.body",fontFamily:"heading",fontSize:"1rem",mt:"0",children:"Heading: system-ui, sans-serif"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:"1rem",noSpace:!0,children:"Body: system-ui, sans-serif"})]}),`
-`,e.jsx(t.h2,{id:"font-color-and-accessibility",children:"Font Color and Accessibility"}),`
-`,e.jsx(t.p,{children:`All text within a project, unless specifically noted in mockups, should use the
+for users without visual impairments or reading Standard Text Default`,
+            ],
+          }),
+          `
+`,
+        ],
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "heading",
+            fontSize: "1rem",
+            mt: "0",
+            children: "Heading: system-ui, sans-serif",
+          }),
+          e.jsx(i, {
+            color: "ui.typography.body",
+            fontFamily: "body",
+            fontSize: "1rem",
+            noSpace: !0,
+            children: "Body: system-ui, sans-serif",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h2, {
+        id: "font-color-and-accessibility",
+        children: "Font Color and Accessibility",
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `All text within a project, unless specifically noted in mockups, should use the
 applicable typography color design tokens. The DS currently denotes color design
-tokens for headings and body text.`}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Headings"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"ui.typography.heading"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-colors-ui-typography-heading)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"#000000"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Body Text"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"ui.typography.body"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-colors-ui-typography-body)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"#000000"})})]})]})]}),`
-`,e.jsx(t.p,{children:`Additionally, the DS supports dark mode and corresponding dark mode tokens have
-also been defined.`}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{style:{textAlign:"left"},children:"JS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"CSS Token"}),e.jsx(t.th,{style:{textAlign:"left"},children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Headings"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"dark.ui.typography.heading"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-colors-dark-ui-typography-heading)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"#E9E9E9"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Body Text"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"dark.ui.typography.body"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"var(--nypl-colors-dark-ui-typography-body)"})}),e.jsx(t.td,{style:{textAlign:"left"},children:e.jsx(t.code,{children:"#BDBDBD"})})]})]})]}),`
-`,e.jsxs(t.p,{children:[`Always check that the typography and background is quantified by a contrast
-ratio. All text and background color combinations must meet `,e.jsx(t.a,{href:"https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html",rel:"nofollow",children:`WCAG AA
-standards`}),"."]}),`
-`,e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"Large text (18pts or larger, or 14 pts or larger if bold) should meet a contrast ratio of 3:1."}),e.jsx("li",{children:"Standard text size (smaller than 18pts, or smaller than 14pts if bold) should meet a contrast ratio of 4:5:1"}),e.jsx("li",{children:"Exceptions: Logos, text that is part of the logo, graphic elements, disabled control states, disabled buttons."})]}),`
-`,e.jsx(t.h3,{id:"light-mode",children:"Light Mode"}),`
-`,e.jsxs(e.Fragment,{children:[e.jsxs(l,{bg:"ui.bg.page",border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{color:"ui.typography.heading",level:"three",children:"Default Heading Color on Page Background"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:"desktop.body",noSpace:!0,children:"This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."})]}),e.jsxs(l,{bg:"ui.bg.default",border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{color:"ui.typography.heading",level:"three",children:"Default Heading Color on Default Background"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:"desktop.body",noSpace:!0,children:"This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."})]}),e.jsxs(l,{bg:"ui.bg.hover",border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{color:"ui.typography.heading",level:"three",children:"Default Heading Color on Hover Background"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:"desktop.body",noSpace:!0,children:"This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."})]}),e.jsxs(l,{bg:"ui.bg.active",border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{color:"ui.typography.heading",level:"three",children:"Default Heading Color on Active Background"}),e.jsx(i,{color:"ui.typography.body",fontFamily:"body",fontSize:"desktop.body",noSpace:!0,children:"This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."})]})]}),`
-`,e.jsx(t.h3,{id:"dark-mode",children:"Dark Mode"}),`
-`,e.jsxs(e.Fragment,{children:[e.jsxs(l,{bg:"dark.ui.bg.page",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{color:"dark.ui.typography.heading",level:"three",children:"Default Heading Color on Page Background"}),e.jsx(i,{color:"dark.ui.typography.body",fontFamily:"body",fontSize:"desktop.body",noSpace:!0,children:"This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."})]}),e.jsxs(l,{bg:"dark.ui.bg.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{color:"dark.ui.typography.heading",level:"three",children:"Default Heading Color on Default Background"}),e.jsx(i,{color:"dark.ui.typography.body",fontFamily:"body",fontSize:"desktop.body",noSpace:!0,children:"This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."})]}),e.jsxs(l,{bg:"dark.ui.bg.hover",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{color:"dark.ui.typography.heading",level:"three",children:"Default Heading Color on Hover Background"}),e.jsx(i,{color:"dark.ui.typography.body",fontFamily:"body",fontSize:"desktop.body",noSpace:!0,children:"This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."})]}),e.jsxs(l,{bg:"dark.ui.bg.active",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{color:"dark.ui.typography.heading",level:"three",children:"Default Heading Color on Active Background"}),e.jsx(i,{color:"dark.ui.typography.body",fontFamily:"body",fontSize:"desktop.body",noSpace:!0,children:"This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."})]})]}),`
-`,e.jsxs(t.p,{children:[`In cases where specific colors must be applied to text elements, the DS
+tokens for headings and body text.`,
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Headings" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "ui.typography.heading",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-colors-ui-typography-heading)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "#000000" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Body Text" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "ui.typography.body" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-colors-ui-typography-body)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "#000000" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Additionally, the DS supports dark mode and corresponding dark mode tokens have
+also been defined.`,
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "JS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "CSS Token",
+                }),
+                e.jsx(t.th, {
+                  style: { textAlign: "left" },
+                  children: "Value",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Headings" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "dark.ui.typography.heading",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-colors-dark-ui-typography-heading)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "#E9E9E9" }),
+                  }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Body Text" }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "dark.ui.typography.body",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-colors-dark-ui-typography-body)",
+                    }),
+                  }),
+                  e.jsx(t.td, {
+                    style: { textAlign: "left" },
+                    children: e.jsx(t.code, { children: "#BDBDBD" }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          `Always check that the typography and background is quantified by a contrast
+ratio. All text and background color combinations must meet `,
+          e.jsx(t.a, {
+            href: "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html",
+            rel: "nofollow",
+            children: `WCAG AA
+standards`,
+          }),
+          ".",
+        ],
+      }),
+      `
+`,
+      e.jsxs(s, {
+        type: "ul",
+        children: [
+          e.jsx("li", {
+            children:
+              "Large text (18pts or larger, or 14 pts or larger if bold) should meet a contrast ratio of 3:1.",
+          }),
+          e.jsx("li", {
+            children:
+              "Standard text size (smaller than 18pts, or smaller than 14pts if bold) should meet a contrast ratio of 4:5:1",
+          }),
+          e.jsx("li", {
+            children:
+              "Exceptions: Logos, text that is part of the logo, graphic elements, disabled control states, disabled buttons.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "light-mode", children: "Light Mode" }),
+      `
+`,
+      e.jsxs(e.Fragment, {
+        children: [
+          e.jsxs(l, {
+            bg: "ui.bg.page",
+            border: "1px",
+            borderColor: "ui.border.default",
+            borderRadius: "5px",
+            mb: "m",
+            p: "s",
+            children: [
+              e.jsx(n, {
+                color: "ui.typography.heading",
+                level: "three",
+                children: "Default Heading Color on Page Background",
+              }),
+              e.jsx(i, {
+                color: "ui.typography.body",
+                fontFamily: "body",
+                fontSize: "desktop.body",
+                noSpace: !0,
+                children:
+                  "This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
+              }),
+            ],
+          }),
+          e.jsxs(l, {
+            bg: "ui.bg.default",
+            border: "1px",
+            borderColor: "ui.border.default",
+            borderRadius: "5px",
+            mb: "m",
+            p: "s",
+            children: [
+              e.jsx(n, {
+                color: "ui.typography.heading",
+                level: "three",
+                children: "Default Heading Color on Default Background",
+              }),
+              e.jsx(i, {
+                color: "ui.typography.body",
+                fontFamily: "body",
+                fontSize: "desktop.body",
+                noSpace: !0,
+                children:
+                  "This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
+              }),
+            ],
+          }),
+          e.jsxs(l, {
+            bg: "ui.bg.hover",
+            border: "1px",
+            borderColor: "ui.border.default",
+            borderRadius: "5px",
+            mb: "m",
+            p: "s",
+            children: [
+              e.jsx(n, {
+                color: "ui.typography.heading",
+                level: "three",
+                children: "Default Heading Color on Hover Background",
+              }),
+              e.jsx(i, {
+                color: "ui.typography.body",
+                fontFamily: "body",
+                fontSize: "desktop.body",
+                noSpace: !0,
+                children:
+                  "This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
+              }),
+            ],
+          }),
+          e.jsxs(l, {
+            bg: "ui.bg.active",
+            border: "1px",
+            borderColor: "ui.border.default",
+            borderRadius: "5px",
+            mb: "m",
+            p: "s",
+            children: [
+              e.jsx(n, {
+                color: "ui.typography.heading",
+                level: "three",
+                children: "Default Heading Color on Active Background",
+              }),
+              e.jsx(i, {
+                color: "ui.typography.body",
+                fontFamily: "body",
+                fontSize: "desktop.body",
+                noSpace: !0,
+                children:
+                  "This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "dark-mode", children: "Dark Mode" }),
+      `
+`,
+      e.jsxs(e.Fragment, {
+        children: [
+          e.jsxs(l, {
+            bg: "dark.ui.bg.page",
+            borderRadius: "5px",
+            mb: "m",
+            p: "s",
+            children: [
+              e.jsx(n, {
+                color: "dark.ui.typography.heading",
+                level: "three",
+                children: "Default Heading Color on Page Background",
+              }),
+              e.jsx(i, {
+                color: "dark.ui.typography.body",
+                fontFamily: "body",
+                fontSize: "desktop.body",
+                noSpace: !0,
+                children:
+                  "This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
+              }),
+            ],
+          }),
+          e.jsxs(l, {
+            bg: "dark.ui.bg.default",
+            borderRadius: "5px",
+            mb: "m",
+            p: "s",
+            children: [
+              e.jsx(n, {
+                color: "dark.ui.typography.heading",
+                level: "three",
+                children: "Default Heading Color on Default Background",
+              }),
+              e.jsx(i, {
+                color: "dark.ui.typography.body",
+                fontFamily: "body",
+                fontSize: "desktop.body",
+                noSpace: !0,
+                children:
+                  "This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
+              }),
+            ],
+          }),
+          e.jsxs(l, {
+            bg: "dark.ui.bg.hover",
+            borderRadius: "5px",
+            mb: "m",
+            p: "s",
+            children: [
+              e.jsx(n, {
+                color: "dark.ui.typography.heading",
+                level: "three",
+                children: "Default Heading Color on Hover Background",
+              }),
+              e.jsx(i, {
+                color: "dark.ui.typography.body",
+                fontFamily: "body",
+                fontSize: "desktop.body",
+                noSpace: !0,
+                children:
+                  "This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
+              }),
+            ],
+          }),
+          e.jsxs(l, {
+            bg: "dark.ui.bg.active",
+            borderRadius: "5px",
+            mb: "m",
+            p: "s",
+            children: [
+              e.jsx(n, {
+                color: "dark.ui.typography.heading",
+                level: "three",
+                children: "Default Heading Color on Active Background",
+              }),
+              e.jsx(i, {
+                color: "dark.ui.typography.body",
+                fontFamily: "body",
+                fontSize: "desktop.body",
+                noSpace: !0,
+                children:
+                  "This paragraph shows the default body text color. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          `In cases where specific colors must be applied to text elements, the DS
 provides CSS variables for the full NYPL color palette. Refer to the
-`,e.jsx(t.a,{href:"../?path=/docs/style-guide-colors--docs",children:"Colors"}),` section of the Style Guide
-for details.`]}),`
-`,e.jsx(t.h2,{id:"font-weight-and-style",children:"Font Weight and Style"}),`
-`,e.jsx(t.p,{children:`Font weight and style changes can be used to emphasize or de-emphasize words or
-phrases.`}),`
-`,e.jsx(t.h3,{id:"heading-elements",children:"Heading Elements"}),`
-`,e.jsx(t.p,{children:`It is recommended to use the default heading styles as is and to avoid applying
-style changes to heading elements.`}),`
-`,e.jsx(t.p,{children:`Font weight style changes MAY be used with a heading element, but the style
+`,
+          e.jsx(t.a, {
+            href: "../?path=/docs/style-guide-colors--docs",
+            children: "Colors",
+          }),
+          ` section of the Style Guide
+for details.`,
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h2, {
+        id: "font-weight-and-style",
+        children: "Font Weight and Style",
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Font weight and style changes can be used to emphasize or de-emphasize words or
+phrases.`,
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "heading-elements", children: "Heading Elements" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `It is recommended to use the default heading styles as is and to avoid applying
+style changes to heading elements.`,
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Font weight style changes MAY be used with a heading element, but the style
 SHOULD NOT be applied to the entire heading. Rather, the font weight style
-SHOULD be applied to select words within the full heading.`}),`
-`,e.jsx(t.p,{children:"Italic styles SHOULD NOT be applied to heading elements."}),`
-`,e.jsx(t.h3,{id:"text-elements",children:"Text Elements"}),`
-`,e.jsx(t.p,{children:`Font weight and italic styles MAY be used with standard text elements, but it is
-recommended to use the styles sparingly.`}),`
-`,e.jsx(t.h3,{id:"font-weight-options",children:"Font Weight Options"}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-thin)",fontFamily:"var(--nypl-fonts-body)"},children:"Thin / 200 (reserved for headings only)"}),e.jsx("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-light)",fontFamily:"var(--nypl-fonts-body)"},children:"Light / 300 (reserved for headings only)"}),e.jsx("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-regular)",fontFamily:"var(--nypl-fonts-body)"},children:"Regular / 400 (default)"}),e.jsx("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-medium)",fontFamily:"var(--nypl-fonts-body)"},children:"Medium / 500"}),e.jsx("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-semibold)",fontFamily:"var(--nypl-fonts-body)"},children:"Semibold / 600 (reserved for headings only)"}),e.jsx("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-bold)",fontFamily:"var(--nypl-fonts-body)"},children:"Bold / 700"})]}),`
-`,e.jsx(t.p,{children:"The following design tokens are available through the DS."}),`
-`,e.jsxs(t.table,{children:[e.jsx(t.thead,{children:e.jsxs(t.tr,{children:[e.jsx(t.th,{}),e.jsx(t.th,{children:"JS Token"}),e.jsx(t.th,{children:"CSS Token"}),e.jsx(t.th,{children:"Value"})]})}),e.jsxs(t.tbody,{children:[e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Thin"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"thin"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"var(--nypl-fontWeights-thin)"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"200"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Light"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"light"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"var(--nypl-fontWeights-light)"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"300"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Regular"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"regular"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"var(--nypl-fontWeights-regular)"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"400"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Medium"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"medium"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"var(--nypl-fontWeights-medium)"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"500"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Semibold"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"semibold"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"var(--nypl-fontWeights-semibold)"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"600"})})]}),e.jsxs(t.tr,{children:[e.jsx(t.td,{children:e.jsx(t.strong,{children:"Bold"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"bold"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"var(--nypl-fontWeights-bold)"})}),e.jsx(t.td,{children:e.jsx(t.code,{children:"700"})})]})]})]}),`
-`,e.jsx(t.h3,{id:"thin",children:"Thin"}),`
-`,e.jsx(t.p,{children:"Reserved for use only in the Heading component."}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:e.jsx(n,{level:"h2",border:"0",children:e.jsxs(e.Fragment,{children:["Lorem"," ",e.jsx(l,{as:"span",fontWeight:"thin",children:"Ipsum"})]})})}),`
-`,e.jsx(t.h3,{id:"light",children:"Light"}),`
-`,e.jsx(t.p,{children:"Reserved for use only in the Heading component."}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:e.jsx(n,{level:"h2",border:"0",children:e.jsxs(e.Fragment,{children:["Lorem"," ",e.jsx(l,{as:"span",fontWeight:"light",children:"Ipsum"})]})})}),`
-`,e.jsx(t.h3,{id:"regular",children:"Regular"}),`
-`,e.jsx(t.p,{children:"The default font weight for the Reservoir Design System typography."}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{level:"h2",border:"0",children:e.jsxs(e.Fragment,{children:["Lorem"," ",e.jsx(l,{as:"span",fontWeight:"regular",children:"Ipsum"})]})}),e.jsx("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-regular)",fontFamily:"var(--nypl-fonts-body)"},children:"Morbi leo risus, porta ac consectetur ac, vestibulum at eros."})]}),`
-`,e.jsx(t.h3,{id:"medium",children:"Medium"}),`
-`,e.jsx(t.p,{children:`Apply to selective words or parts of a sentence to convey importance instead of
-using a heavier weight.`}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{level:"h2",border:"0",children:e.jsxs(e.Fragment,{children:["Lorem"," ",e.jsx(l,{as:"span",fontWeight:"medium",children:"Ipsum"})]})}),e.jsxs("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-regular)",fontFamily:"var(--nypl-fonts-body)"},children:["Morbi leo risus, porta ac"," ",e.jsx(l,{as:"span",fontWeight:"medium",children:"consectetur"})," ","ac, vestibulum at eros."]}),e.jsx("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-medium)",fontFamily:"var(--nypl-fonts-body)"},children:"Morbi leo risus, porta ac consectetur ac, vestibulum at eros."})]}),`
-`,e.jsx(t.h3,{id:"semibold",children:"Semibold"}),`
-`,e.jsx(t.p,{children:"Reserved for use only in the Heading component."}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:e.jsx(n,{level:"h2",border:"0",children:e.jsxs(e.Fragment,{children:["Lorem"," ",e.jsx(l,{as:"span",fontWeight:"semibold",children:"Ipsum"})]})})}),`
-`,e.jsx(t.h3,{id:"bold",children:"Bold"}),`
-`,e.jsx(t.p,{children:"Add hierarchy to selective words to call attention to."}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{level:"h2",border:"0",children:e.jsxs(e.Fragment,{children:["Lorem"," ",e.jsx(l,{as:"span",fontWeight:"bold",children:"Ipsum"})]})}),e.jsxs("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-regular)",fontFamily:"var(--nypl-fonts-body)"},children:["Morbi leo risus, porta ac"," ",e.jsx(l,{as:"span",fontWeight:"bold",children:"consectetur"})," ","ac, vestibulum at eros."]}),e.jsx("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-bold)",fontFamily:"var(--nypl-fonts-body)"},children:"Morbi leo risus, porta ac consectetur ac, vestibulum at eros."})]}),`
-`,e.jsx(t.h3,{id:"italic",children:"Italic"}),`
-`,e.jsx(t.p,{children:"Add hierarchy to selective words to call attention to."}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsxs("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-regular)",fontFamily:"var(--nypl-fonts-body)"},children:["Morbi leo risus, porta ac"," ",e.jsx(l,{as:"span",fontStyle:"italic",children:"consectetur"})," ","ac, vestibulum at eros."]}),e.jsx("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontStyle:"italic",fontWeight:"var(--nypl-fontWeights-regular)",fontFamily:"var(--nypl-fonts-body)"},children:"Morbi leo risus, porta ac consectetur ac, vestibulum at eros."})]}),`
-`,e.jsx(t.h3,{id:"underline",children:"Underline"}),`
-`,e.jsx(t.p,{children:`Only used for text links. Never used on plain text. See the Text Links section
-of this file for link styles.`}),`
-`,e.jsxs(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:[e.jsx(n,{level:"h2",border:"0",children:e.jsxs(e.Fragment,{children:["Lorem"," ",e.jsx(d,{fontFamily:"heading",href:"/",children:"Ipsum"})]})}),e.jsxs("p",{style:{fontSize:"var(--nypl-fontSizes-0)",fontWeight:"var(--nypl-fontWeights-regular)",fontFamily:"var(--nypl-fonts-body)"},children:["Morbi leo risus, porta ac"," ",e.jsx(d,{fontFamily:"body",href:"https://nypl.org",type:"external",children:"consectetur"})," ","ac, vestibulum at eros."]})]}),`
-`,e.jsx(t.h2,{id:"text-case",children:"Text Case"}),`
-`,e.jsx(t.p,{children:`In general, the New York Public Library uses Title Case for titles. This means
+SHOULD be applied to select words within the full heading.`,
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: "Italic styles SHOULD NOT be applied to heading elements.",
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "text-elements", children: "Text Elements" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Font weight and italic styles MAY be used with standard text elements, but it is
+recommended to use the styles sparingly.`,
+      }),
+      `
+`,
+      e.jsx(t.h3, {
+        id: "font-weight-options",
+        children: "Font Weight Options",
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsx("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-thin)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children: "Thin / 200 (reserved for headings only)",
+          }),
+          e.jsx("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-light)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children: "Light / 300 (reserved for headings only)",
+          }),
+          e.jsx("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-regular)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children: "Regular / 400 (default)",
+          }),
+          e.jsx("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-medium)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children: "Medium / 500",
+          }),
+          e.jsx("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-semibold)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children: "Semibold / 600 (reserved for headings only)",
+          }),
+          e.jsx("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-bold)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children: "Bold / 700",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: "The following design tokens are available through the DS.",
+      }),
+      `
+`,
+      e.jsxs(t.table, {
+        children: [
+          e.jsx(t.thead, {
+            children: e.jsxs(t.tr, {
+              children: [
+                e.jsx(t.th, {}),
+                e.jsx(t.th, { children: "JS Token" }),
+                e.jsx(t.th, { children: "CSS Token" }),
+                e.jsx(t.th, { children: "Value" }),
+              ],
+            }),
+          }),
+          e.jsxs(t.tbody, {
+            children: [
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Thin" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, { children: "thin" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-thin)",
+                    }),
+                  }),
+                  e.jsx(t.td, { children: e.jsx(t.code, { children: "200" }) }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Light" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, { children: "light" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-light)",
+                    }),
+                  }),
+                  e.jsx(t.td, { children: e.jsx(t.code, { children: "300" }) }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Regular" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, { children: "regular" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-regular)",
+                    }),
+                  }),
+                  e.jsx(t.td, { children: e.jsx(t.code, { children: "400" }) }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Medium" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, { children: "medium" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-medium)",
+                    }),
+                  }),
+                  e.jsx(t.td, { children: e.jsx(t.code, { children: "500" }) }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Semibold" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, { children: "semibold" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-semibold)",
+                    }),
+                  }),
+                  e.jsx(t.td, { children: e.jsx(t.code, { children: "600" }) }),
+                ],
+              }),
+              e.jsxs(t.tr, {
+                children: [
+                  e.jsx(t.td, {
+                    children: e.jsx(t.strong, { children: "Bold" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, { children: "bold" }),
+                  }),
+                  e.jsx(t.td, {
+                    children: e.jsx(t.code, {
+                      children: "var(--nypl-fontWeights-bold)",
+                    }),
+                  }),
+                  e.jsx(t.td, { children: e.jsx(t.code, { children: "700" }) }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "thin", children: "Thin" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: "Reserved for use only in the Heading component.",
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: e.jsx(n, {
+          level: "h2",
+          border: "0",
+          children: e.jsxs(e.Fragment, {
+            children: [
+              "Lorem",
+              " ",
+              e.jsx(l, { as: "span", fontWeight: "thin", children: "Ipsum" }),
+            ],
+          }),
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "light", children: "Light" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: "Reserved for use only in the Heading component.",
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: e.jsx(n, {
+          level: "h2",
+          border: "0",
+          children: e.jsxs(e.Fragment, {
+            children: [
+              "Lorem",
+              " ",
+              e.jsx(l, { as: "span", fontWeight: "light", children: "Ipsum" }),
+            ],
+          }),
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "regular", children: "Regular" }),
+      `
+`,
+      e.jsx(t.p, {
+        children:
+          "The default font weight for the Reservoir Design System typography.",
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsx(n, {
+            level: "h2",
+            border: "0",
+            children: e.jsxs(e.Fragment, {
+              children: [
+                "Lorem",
+                " ",
+                e.jsx(l, {
+                  as: "span",
+                  fontWeight: "regular",
+                  children: "Ipsum",
+                }),
+              ],
+            }),
+          }),
+          e.jsx("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-regular)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children:
+              "Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "medium", children: "Medium" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Apply to selective words or parts of a sentence to convey importance instead of
+using a heavier weight.`,
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsx(n, {
+            level: "h2",
+            border: "0",
+            children: e.jsxs(e.Fragment, {
+              children: [
+                "Lorem",
+                " ",
+                e.jsx(l, {
+                  as: "span",
+                  fontWeight: "medium",
+                  children: "Ipsum",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-regular)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children: [
+              "Morbi leo risus, porta ac",
+              " ",
+              e.jsx(l, {
+                as: "span",
+                fontWeight: "medium",
+                children: "consectetur",
+              }),
+              " ",
+              "ac, vestibulum at eros.",
+            ],
+          }),
+          e.jsx("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-medium)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children:
+              "Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "semibold", children: "Semibold" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: "Reserved for use only in the Heading component.",
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: e.jsx(n, {
+          level: "h2",
+          border: "0",
+          children: e.jsxs(e.Fragment, {
+            children: [
+              "Lorem",
+              " ",
+              e.jsx(l, {
+                as: "span",
+                fontWeight: "semibold",
+                children: "Ipsum",
+              }),
+            ],
+          }),
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "bold", children: "Bold" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: "Add hierarchy to selective words to call attention to.",
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsx(n, {
+            level: "h2",
+            border: "0",
+            children: e.jsxs(e.Fragment, {
+              children: [
+                "Lorem",
+                " ",
+                e.jsx(l, { as: "span", fontWeight: "bold", children: "Ipsum" }),
+              ],
+            }),
+          }),
+          e.jsxs("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-regular)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children: [
+              "Morbi leo risus, porta ac",
+              " ",
+              e.jsx(l, {
+                as: "span",
+                fontWeight: "bold",
+                children: "consectetur",
+              }),
+              " ",
+              "ac, vestibulum at eros.",
+            ],
+          }),
+          e.jsx("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-bold)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children:
+              "Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "italic", children: "Italic" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: "Add hierarchy to selective words to call attention to.",
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsxs("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-regular)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children: [
+              "Morbi leo risus, porta ac",
+              " ",
+              e.jsx(l, {
+                as: "span",
+                fontStyle: "italic",
+                children: "consectetur",
+              }),
+              " ",
+              "ac, vestibulum at eros.",
+            ],
+          }),
+          e.jsx("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontStyle: "italic",
+              fontWeight: "var(--nypl-fontWeights-regular)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children:
+              "Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "underline", children: "Underline" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Only used for text links. Never used on plain text. See the Text Links section
+of this file for link styles.`,
+      }),
+      `
+`,
+      e.jsxs(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: [
+          e.jsx(n, {
+            level: "h2",
+            border: "0",
+            children: e.jsxs(e.Fragment, {
+              children: [
+                "Lorem",
+                " ",
+                e.jsx(d, {
+                  fontFamily: "heading",
+                  href: "/",
+                  children: "Ipsum",
+                }),
+              ],
+            }),
+          }),
+          e.jsxs("p", {
+            style: {
+              fontSize: "var(--nypl-fontSizes-0)",
+              fontWeight: "var(--nypl-fontWeights-regular)",
+              fontFamily: "var(--nypl-fonts-body)",
+            },
+            children: [
+              "Morbi leo risus, porta ac",
+              " ",
+              e.jsx(d, {
+                fontFamily: "body",
+                href: "https://nypl.org",
+                type: "external",
+                children: "consectetur",
+              }),
+              " ",
+              "ac, vestibulum at eros.",
+            ],
+          }),
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h2, { id: "text-case", children: "Text Case" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `In general, the New York Public Library uses Title Case for titles. This means
 only using capital letters for the principal words. Articles, conjunctions, and
-prepositions do not get capital letters unless they start the title. For example:`}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:e.jsxs(s,{type:"ul",children:[e.jsx("li",{children:"Snow White and the Seven Dwarfs"}),e.jsx("li",{children:"The Last of the Mohicans"}),e.jsx("li",{children:"Spooky Books for Kids: The Ultimate Creepy Guide"}),e.jsx("li",{children:"The Future Teen Stars of America Live on TikTok"}),e.jsx("li",{children:"How Jacqueline Woodson Captures Every Side of Brooklyn"})]})}),`
-`,e.jsx(t.h2,{id:"line-length-and-line-height",children:"Line Length and Line Height"}),`
-`,e.jsx(t.p,{children:`Wide lines of text are difficult to read and are proven to make it harder for
+prepositions do not get capital letters unless they start the title. For example:`,
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: e.jsxs(s, {
+          type: "ul",
+          children: [
+            e.jsx("li", { children: "Snow White and the Seven Dwarfs" }),
+            e.jsx("li", { children: "The Last of the Mohicans" }),
+            e.jsx("li", {
+              children: "Spooky Books for Kids: The Ultimate Creepy Guide",
+            }),
+            e.jsx("li", {
+              children: "The Future Teen Stars of America Live on TikTok",
+            }),
+            e.jsx("li", {
+              children:
+                "How Jacqueline Woodson Captures Every Side of Brooklyn",
+            }),
+          ],
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h2, {
+        id: "line-length-and-line-height",
+        children: "Line Length and Line Height",
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Wide lines of text are difficult to read and are proven to make it harder for
 people to focus, while short lines of text force the eye to travel back too
-often, breaking a reader's rhythm.`}),`
-`,e.jsx(t.p,{children:`For body text in desktop and tablet viewports, the recommended line length is
+often, breaking a reader's rhythm.`,
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `For body text in desktop and tablet viewports, the recommended line length is
 between 60 and 75 characters. In a mobile viewport, the recommendation line
-length is between 30 to 40 characters.`}),`
-`,e.jsx(t.p,{children:`The testing to determine the ideal line length is generally performed using
+length is between 30 to 40 characters.`,
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `The testing to determine the ideal line length is generally performed using
 character count as the metric, but this is not the best approach when we are
 actually building websites. Rather, it is easier to look at the width of a text
-region as we are aiming for ideal sizing and spacing.`}),`
-`,e.jsx(t.p,{children:`NOTE: Yes, the content area in Storybook is wider than the NYPL recommendations.
+region as we are aiming for ideal sizing and spacing.`,
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `NOTE: Yes, the content area in Storybook is wider than the NYPL recommendations.
 The Storybook content area is used to display anything from a single atomic
 component to a full page layout, so it is sized to accommodate the greatest
-common factor.`}),`
-`,e.jsx(t.p,{children:e.jsx(t.strong,{children:"Recommendations for Desktop"})}),`
-`,e.jsx(t.p,{children:`For desktop and tablet, when the font size is set to 16px (the default here at
-NYPL), the recommended width of text regions is 640px to 720px.`}),`
-`,e.jsx(t.p,{children:e.jsx(t.strong,{children:"Recommendations for Mobile"})}),`
-`,e.jsx(t.p,{children:`For mobile, using the default 16px font size, the recommended width of text
-regions is 300px to 380px.`}),`
-`,e.jsx(t.p,{children:e.jsx(t.strong,{children:"Line Height"})}),`
-`,e.jsx(t.p,{children:`The line height values used in the NYPL typography styles are controlled by the
+common factor.`,
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: e.jsx(t.strong, { children: "Recommendations for Desktop" }),
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `For desktop and tablet, when the font size is set to 16px (the default here at
+NYPL), the recommended width of text regions is 640px to 720px.`,
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: e.jsx(t.strong, { children: "Recommendations for Mobile" }),
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `For mobile, using the default 16px font size, the recommended width of text
+regions is 300px to 380px.`,
+      }),
+      `
+`,
+      e.jsx(t.p, { children: e.jsx(t.strong, { children: "Line Height" }) }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `The line height values used in the NYPL typography styles are controlled by the
 Reservoir Design System, so NYPL designers will not need to consider this during
 the design process. However, all NYPL designers should understand the reasoning
-behind the choices that were made for the NYPL typography styles.`}),`
-`,e.jsx(t.p,{children:`Line height (the vertical space between lines of text, also known as “leading”
+behind the choices that were made for the NYPL typography styles.`,
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Line height (the vertical space between lines of text, also known as “leading”
 or "line spacing") is also important for legibility. Much like line length and
 font size, line height also affects how people read. If it's too tight, the
 lines of text become hard to scan. Too loose and the lines of text appear to be
-unrelated to each other, which is confusing for readers.`}),`
-`,e.jsx(t.p,{children:`The perfect line height depends on the design and size of the font itself, so
+unrelated to each other, which is confusing for readers.`,
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `The perfect line height depends on the design and size of the font itself, so
 there is no magic number that works for all text. That being said, a line height
-of 1.5 times the font size is always a good rule of thumb for body text.`}),`
-`,e.jsx(t.h2,{id:"character-count",children:"Character Count"}),`
-`,e.jsx(t.p,{children:`Content creators should be mindful of the character count in the following text
-elements.`}),`
-`,e.jsx(t.h3,{id:"titles",children:"Titles"}),`
-`,e.jsx(t.p,{children:"Recommendation: maximum of 15 words (approx. 75 character)"}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:e.jsx(n,{color:"ui.typography.heading",level:"h2",border:"0",children:"This is an example to show what fourteen words looks like in a title"})}),`
-`,e.jsx(t.h3,{id:"summaries",children:"Summaries"}),`
-`,e.jsx(t.p,{children:"Recommendation: maximum of 25 words (approx. 125 characters)"}),`
-`,e.jsx(t.p,{children:`Note: Online Exhibitions, with their longer, legacy summaries are an exception
-to this.`}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:e.jsx(i,{color:"ui.typography.body",children:"This block of text shows what 25 words looks like. Integer posuere erat a ante venenatis dapibus posueret aliquet nullas non tellus egestas etiam malesuada."})}),`
-`,e.jsx(t.h3,{id:"page-intros",children:"Page Intros"}),`
-`,e.jsx(t.p,{children:"Recommendation: maximum of 40 words (approx. 200 characters)"}),`
-`,e.jsx(l,{border:"1px",borderColor:"ui.border.default",borderRadius:"5px",mb:"m",p:"s",children:e.jsx(i,{color:"ui.typography.body",children:"This block of text shows what 30 words looks like. Integer posuere erat a ante venenatis dapibus posueret aliquet nullas non. Aenean eu leo quam. Pellentesque ornare sem quam venenatis."})}),`
-`,e.jsx(t.h2,{id:"figma-reference",children:"Figma Reference"}),`
-`,e.jsx(t.p,{children:`For additional spacing information, please refer to the Reservoir Visual Design
-Library (i.e. the Figma Main file).`}),`
-`,e.jsxs(t.ul,{children:[`
-`,e.jsx(t.li,{children:e.jsx(t.a,{href:"https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137478&t=tUwb0hhJ8FmxheNC-4",rel:"nofollow",children:"Type Scale"})}),`
-`,e.jsx(t.li,{children:e.jsx(t.a,{href:"https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-138241&t=tUwb0hhJ8FmxheNC-4",rel:"nofollow",children:"Colors and Contrast"})}),`
-`,e.jsx(t.li,{children:e.jsx(t.a,{href:"https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79427-131143&t=tUwb0hhJ8FmxheNC-4",rel:"nofollow",children:"Heading Formatting"})}),`
-`,e.jsx(t.li,{children:e.jsx(t.a,{href:"https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137950&t=tUwb0hhJ8FmxheNC-4",rel:"nofollow",children:"Text Formatting"})}),`
-`]}),`
-`,e.jsx(t.h2,{id:"format-of-text-links-disclaimer",children:"Format of Text Links Disclaimer"}),`
-`,e.jsx(t.p,{children:`Due to limitations with the Figma application, there is a discrepancy between
+of 1.5 times the font size is always a good rule of thumb for body text.`,
+      }),
+      `
+`,
+      e.jsx(t.h2, { id: "character-count", children: "Character Count" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Content creators should be mindful of the character count in the following text
+elements.`,
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "titles", children: "Titles" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: "Recommendation: maximum of 15 words (approx. 75 character)",
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: e.jsx(n, {
+          color: "ui.typography.heading",
+          level: "h2",
+          border: "0",
+          children:
+            "This is an example to show what fourteen words looks like in a title",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "summaries", children: "Summaries" }),
+      `
+`,
+      e.jsx(t.p, {
+        children:
+          "Recommendation: maximum of 25 words (approx. 125 characters)",
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Note: Online Exhibitions, with their longer, legacy summaries are an exception
+to this.`,
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: e.jsx(i, {
+          color: "ui.typography.body",
+          children:
+            "This block of text shows what 25 words looks like. Integer posuere erat a ante venenatis dapibus posueret aliquet nullas non tellus egestas etiam malesuada.",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h3, { id: "page-intros", children: "Page Intros" }),
+      `
+`,
+      e.jsx(t.p, {
+        children:
+          "Recommendation: maximum of 40 words (approx. 200 characters)",
+      }),
+      `
+`,
+      e.jsx(l, {
+        border: "1px",
+        borderColor: "ui.border.default",
+        borderRadius: "5px",
+        mb: "m",
+        p: "s",
+        children: e.jsx(i, {
+          color: "ui.typography.body",
+          children:
+            "This block of text shows what 30 words looks like. Integer posuere erat a ante venenatis dapibus posueret aliquet nullas non. Aenean eu leo quam. Pellentesque ornare sem quam venenatis.",
+        }),
+      }),
+      `
+`,
+      e.jsx(t.h2, { id: "figma-reference", children: "Figma Reference" }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `For additional spacing information, please refer to the Reservoir Visual Design
+Library (i.e. the Figma Main file).`,
+      }),
+      `
+`,
+      e.jsxs(t.ul, {
+        children: [
+          `
+`,
+          e.jsx(t.li, {
+            children: e.jsx(t.a, {
+              href: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137478&t=tUwb0hhJ8FmxheNC-4",
+              rel: "nofollow",
+              children: "Type Scale",
+            }),
+          }),
+          `
+`,
+          e.jsx(t.li, {
+            children: e.jsx(t.a, {
+              href: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-138241&t=tUwb0hhJ8FmxheNC-4",
+              rel: "nofollow",
+              children: "Colors and Contrast",
+            }),
+          }),
+          `
+`,
+          e.jsx(t.li, {
+            children: e.jsx(t.a, {
+              href: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79427-131143&t=tUwb0hhJ8FmxheNC-4",
+              rel: "nofollow",
+              children: "Heading Formatting",
+            }),
+          }),
+          `
+`,
+          e.jsx(t.li, {
+            children: e.jsx(t.a, {
+              href: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-137950&t=tUwb0hhJ8FmxheNC-4",
+              rel: "nofollow",
+              children: "Text Formatting",
+            }),
+          }),
+          `
+`,
+        ],
+      }),
+      `
+`,
+      e.jsx(t.h2, {
+        id: "format-of-text-links-disclaimer",
+        children: "Format of Text Links Disclaimer",
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `Due to limitations with the Figma application, there is a discrepancy between
 how link underline styles can be set using CSS and how link underline styles can
 be set within the Figma application. The differences are related to the
-following CSS attributes used to control the styles for the link underline.`}),`
-`,e.jsxs(t.ul,{children:[`
-`,e.jsx(t.li,{children:e.jsx(t.code,{children:"text-decoration-style"})}),`
-`,e.jsx(t.li,{children:e.jsx(t.code,{children:"text-decoration-thickness"})}),`
-`,e.jsx(t.li,{children:e.jsx(t.code,{children:"text-underline-offset"})}),`
-`]}),`
-`,e.jsx(t.p,{children:`To represent text links in Figma, UI designers will rely on the standard text
+following CSS attributes used to control the styles for the link underline.`,
+      }),
+      `
+`,
+      e.jsxs(t.ul, {
+        children: [
+          `
+`,
+          e.jsx(t.li, {
+            children: e.jsx(t.code, { children: "text-decoration-style" }),
+          }),
+          `
+`,
+          e.jsx(t.li, {
+            children: e.jsx(t.code, { children: "text-decoration-thickness" }),
+          }),
+          `
+`,
+          e.jsx(t.li, {
+            children: e.jsx(t.code, { children: "text-underline-offset" }),
+          }),
+          `
+`,
+        ],
+      }),
+      `
+`,
+      e.jsx(t.p, {
+        children: `To represent text links in Figma, UI designers will rely on the standard text
 underline style (as shown in the examples below). Designers will not be
 expected to try to replicate what is possible in a browser with CSS as it can be
 a tedious and time-consuming process. Developers should be aware of and expect
 this difference and know that link styles will be rendered correctly in the
-browser when the Reservoir Link component is used for front-end development.`}),`
-`,e.jsxs(t.p,{children:["For visual examples, please refer to the ",e.jsx(t.a,{href:"https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-138172&mode=design&t=lJxbasS2VONTWt6B-4",rel:"nofollow",children:`Typography section of the Reservoir
+browser when the Reservoir Link component is used for front-end development.`,
+      }),
+      `
+`,
+      e.jsxs(t.p, {
+        children: [
+          "For visual examples, please refer to the ",
+          e.jsx(t.a, {
+            href: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=79380-138172&mode=design&t=lJxbasS2VONTWt6B-4",
+            rel: "nofollow",
+            children: `Typography section of the Reservoir
 Visual Design
-Library`}),"."]})]})}function y(r={}){const{wrapper:t}={...o(),...r.components};return t?e.jsx(t,{...r,children:e.jsx(h,{...r})}):h(r)}export{y as default};
+Library`,
+          }),
+          ".",
+        ],
+      }),
+    ],
+  });
+}
+function y(r = {}) {
+  const { wrapper: t } = { ...o(), ...r.components };
+  return t ? e.jsx(t, { ...r, children: e.jsx(h, { ...r }) }) : h(r);
+}
+export { y as default };
