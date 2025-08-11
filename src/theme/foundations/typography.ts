@@ -71,7 +71,7 @@ const fontSizeValues = {
  * font-weight attributes applied in consuming apps are not overridden by CSS
  * var values coming out of the NYPL Header and Footer app. The NYPL Header and
  * Footer app is using Reservoir v2, which has differing font weight values from
- * Reservoir v3. */
+ * Reservoir v4. */
 const fontWeightValues = {
   thin: "200 !important",
   light: "300 !important",
