@@ -71,7 +71,7 @@ const fontSizeValues = {
  * font-weight attributes applied in consuming apps are not overridden by CSS
  * var values coming out of the NYPL Header and Footer app. The NYPL Header and
  * Footer app is using Reservoir v2, which has differing font weight values from
- * Reservoir v3. */
+ * Reservoir v4. */
 const fontWeightValues = {
   thin: "200 !important",
   light: "300 !important",
@@ -187,45 +187,6 @@ const typography: Typography = {
         tab1: fontSizeValues.mobile["tab1"],
       },
     },
-    // deprecated semantic tokens
-    breadcrumbs: {
-      // The deprecated value is "caption" but we should use body2 instead
-      // for backwards compatibility
-      default: fontSizeValues.desktop["body2"],
-    },
-    button: {
-      small: {
-        base: fontSizeValues.desktop["buttonSmall"],
-        md: fontSizeValues.mobile["buttonSmall"],
-      },
-      default: {
-        base: fontSizeValues.desktop["buttonDefault"],
-        md: fontSizeValues.mobile["buttonDefault"],
-      },
-      large: {
-        base: fontSizeValues.desktop["buttonLarge"],
-        md: fontSizeValues.mobile["buttonLarge"],
-      },
-    },
-    heading: {
-      primary: fontSizeValues["4"],
-      secondary: fontSizeValues["3"],
-      tertiary: fontSizeValues["2"],
-      callout: fontSizeValues["1"],
-    },
-    helper: {
-      default: fontSizeValues["-2"],
-    },
-    label: {
-      default: fontSizeValues["-1"],
-      secondary: fontSizeValues["-2"],
-    },
-    text: {
-      default: fontSizeValues["0"],
-      caption: fontSizeValues["-1"],
-      tag: fontSizeValues["-2"],
-      mini: fontSizeValues["-3"],
-    },
   },
   fontWeights: {
     // generic tokens
@@ -259,11 +220,6 @@ const typography: Typography = {
       heading6: fontWeightValues["semibold"],
       heading7: fontWeightValues["bold"],
       heading8: fontWeightValues["bold"],
-      // deprecated tokens
-      primary: fontWeightValues["light"],
-      secondary: fontWeightValues["medium"],
-      tertiary: fontWeightValues["medium"],
-      callout: fontWeightValues["medium"],
     },
     helper: {
       default: fontWeightValues["regular"],

@@ -1,34 +1,41 @@
+import { Box } from "@chakra-ui/react";
 import { Meta } from "@storybook/addon-docs/blocks";
 
-import { Box } from "@chakra-ui/react";
+import ComponentDocsHeader from "../../../utils/components/ComponentDocsHeader";
 import Image from "../../Image/Image";
-import Link from "../../Link/Link";
 
-import imageFocusLiveFiltering from "/static/filteringStyleGuide/focusLiveFiltering.gif";
-import imageFocusKeywordSearch from "/static/filteringStyleGuide/focusKeywordSearch.gif";
-import imageFocusClearingFilters from "/static/filteringStyleGuide/focusClearingFilters.gif";
-import imageFocusPagination from "/static/filteringStyleGuide/focusPagination.gif";
-import imageFocusSorting from "/static/filteringStyleGuide/focusSorting.gif";
+import imageFocusLiveFiltering from "/public/filteringStyleGuide/focusLiveFiltering.gif";
+import imageFocusKeywordSearch from "/public/filteringStyleGuide/focusKeywordSearch.gif";
+import imageFocusClearingFilters from "/public/filteringStyleGuide/focusClearingFilters.gif";
+import imageFocusPagination from "/public/filteringStyleGuide/focusPagination.gif";
+import imageFocusSorting from "/public/filteringStyleGuide/focusSorting.gif";
 import { exampleWrapperStyles } from "../../../utils/utils.ts";
 
 <Meta title="Style Guide/Filtering/Accessibility" />
 
-# Filtering accessibility
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Filtering accessibility"
+  summary="Recommendations for implementing accessibility in filtering applications"
+/>
+
+## Table of contents
+
+- [Overview](#overview)
+- [Using aria-live](#aria-live)
+- [Focus management](#focus-management)
+  - [Applying search terms](#applying-search-terms)
+  - [Applying filters](#applying-filters)
+  - [Clearing filters](#clearing-filters)
+  - [Pagination](#pagination)
+  - [Sorting](#sorting)
+  - [Modal overlay](#modal-overlay)
+
+## Overview
 
 The following accessibility recommendations are applicable for real-time UI
 updates resulting from user actions. If UI updates will be applied after a full
 page refresh, then no additional accommodations need to be applied.
-
-## Table of contents
-
-- {<Link href="#aria-live" target="_self">Using aria-live</Link>}
-- {<Link href="#focus-management" target="_self">Focus management</Link>}
-  - {<Link href="#applying-search-terms" target="_self">Applying search terms</Link>}
-  - {<Link href="#applying-filters" target="_self">Applying filters</Link>}
-  - {<Link href="#clearing-filters" target="_self">Clearing filters</Link>}
-  - {<Link href="#pagination" target="_self">Pagination</Link>}
-  - {<Link href="#sorting" target="_self">Sorting</Link>}
-  - {<Link href="#modal-overlay" target="_self">Modal overlay</Link>}
 
 ## Using aria-live
 
@@ -164,4 +171,4 @@ default behavior of the modal overlay.
 
 When the modal overlay that is generated as part of the `FilterBarPopup`
 component is closed by clicking the "Show results" button in the UI, focus
-should be moved to the `total results` heading
+should be moved to the `total results` heading.

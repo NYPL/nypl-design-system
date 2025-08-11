@@ -1,83 +1,30 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, useState } from "react";
+import {
+  messageVariantsArray,
+  bgColorsArray,
+  highlightColorsArray,
+} from "../../theme/sharedTypes";
 
 import Button from "../Button/Button";
 import Heading, { HeadingSizes } from "../Heading/Heading";
 import Icon, { IconProps } from "../Icons/Icon";
+import { useSafeId } from "../../hooks/useSafeId";
 
-export const bannerTypesArray = [
-  "informative",
-  "negative",
-  "neutral",
-  "positive",
-  "recommendation",
-  "warning",
-] as const;
-export type BannerTypes = (typeof bannerTypesArray)[number];
-export const bannerBgColorsArray = [
-  "brand.primary-05",
-  "section.blogs.primary-05",
-  "section.books-and-more.primary-05",
-  "section.connect.primary-05",
-  "section.education.primary-05",
-  "section.locations.primary-05",
-  "section.research.primary-05",
-  "section.research-library.lpa-05",
-  "section.research-library.schomburg-05",
-  "section.research-library.schwarzman-05",
-  "section.whats-on.primary-05",
-  "dark.brand.primary-05",
-  "dark.section.blogs.primary-05",
-  "dark.section.books-and-more.primary-05",
-  "dark.section.connect.primary-05",
-  "dark.section.education.primary-05",
-  "dark.section.locations.primary-05",
-  "dark.section.research.secondary-05",
-  "dark.section.research-library.lpa-05",
-  "dark.section.research-library.schomburg-05",
-  "dark.section.research-library.schwarzman-05",
-  "dark.section.whats-on.primary-05",
-] as const;
-export type BannerBgColors = (typeof bannerBgColorsArray)[number];
-export const bannerHighlightColorsArray = [
-  "brand.primary",
-  "section.blogs.primary",
-  "section.books-and-more.primary",
-  "section.connect.primary",
-  "section.education.primary",
-  "section.locations.primary",
-  "section.research.primary",
-  "section.research-library-lpa.primary",
-  "section.research-library-schomburg.primary",
-  "section.research-library-schwarzman.primary",
-  "section.whats-on.primary",
-  "dark.brand.primary",
-  "dark.section.blogs.primary",
-  "dark.section.books-and-more.primary",
-  "dark.section.connect.primary",
-  "dark.section.education.primary",
-  "dark.section.locations.primary",
-  "dark.section.research.secondary",
-  "dark.section.research-library-lpa.primary",
-  "dark.section.research-library-schomburg.primary",
-  "dark.section.research-library-schwarzman.primary",
-  "dark.section.whats-on.primary",
-] as const;
-export type BannerHighlightColors = (typeof bannerHighlightColorsArray)[number];
+export type BannerVariants = typeof messageVariantsArray[number];
+export type BannerBgColors = typeof bgColorsArray[number];
+export type BannerHighlightColors = typeof highlightColorsArray[number];
 
-export interface BannerProps {
-  /** Label used to describe the `Banner`'s aside HTML element. */
-  ariaLabel?: string;
+export interface BannerProps extends Omit<BoxProps, "content"> {
   /** Used to set the color of the background for the full component.
    * Refer to how color values are defined and typed in the DS Icon component. */
   backgroundColor?: BannerBgColors;
-  /** Additional `className` to add. */
-  className?: string;
   /** Used to populate the body content of the component. */
   content: string | JSX.Element;
   /** Used to populate the heading element within the component.  A string
@@ -89,16 +36,14 @@ export interface BannerProps {
   highlightColor?: BannerHighlightColors;
   /** Optional custom `Icon` that will override the default `Icon`. */
   icon?: JSX.Element;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
   /** Optional prop to control whether a `Banner` can be dismissed
    * (closed) by a user. */
   isDismissible?: boolean;
   /** Used to control the component's semantic coloring and iconography. */
-  type?: BannerTypes;
+  variant?: BannerVariants;
 }
 
-const iconProps: Record<BannerTypes, IconProps> = {
+const iconProps: Record<BannerVariants, IconProps> = {
   neutral: {
     name: "errorOutline",
     title: "Banner neutral icon",
@@ -128,10 +73,9 @@ const iconProps: Record<BannerTypes, IconProps> = {
 };
 
 /**
- * The `Banner` component is a non-modal semantic dialog used to communicate a
+ * The `Banner` component is a non-modal, semantic dialog used to communicate a
  * general status event or to promote a feature, providing contextual feedback
- * messages for typical user actions. They are displayed contextually within a
- * page flow and they will often prompt a user to take action.
+ * messages for typical user actions within a page flow.
  */
 export const Banner: ChakraComponent<
   React.ForwardRefExoticComponent<
@@ -141,36 +85,34 @@ export const Banner: ChakraComponent<
 > = chakra(
   forwardRef<HTMLDivElement, BannerProps>((props, ref?) => {
     const {
-      ariaLabel,
       backgroundColor,
-      className,
       content,
       heading,
       highlightColor,
       icon,
       id,
       isDismissible = false,
-      type = "neutral",
+      variant = "neutral",
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const [isOpen, setIsOpen] = useState(true);
     const handleClose = () => setIsOpen(false);
-    const overrideType = !!(backgroundColor && highlightColor);
+    const overrideVariant = !!(backgroundColor && highlightColor);
     const styles = useMultiStyleConfig("Banner", {
       // Only set the custom `backgroundColor` and `highlightColor` values
       // if they are both set.
-      backgroundColor: overrideType ? backgroundColor : undefined,
-      highlightColor: overrideType ? highlightColor : undefined,
+      backgroundColor: overrideVariant ? backgroundColor : undefined,
+      highlightColor: overrideVariant ? highlightColor : undefined,
       // If `backgroundColor` and `highlightColor` are set, then it
-      // overrides the Banner types.
-      variant: overrideType ? undefined : type,
+      // overrides the Banner variant.
+      variant: overrideVariant ? undefined : variant,
     });
     const generalHeadingProps = {
       size: "heading6" as HeadingSizes,
-      noSpace: true,
-      color: type === "negative" ? "ui.error.primary" : null,
+      color: variant === "negative" ? "ui.error.primary" : null,
       _dark: {
-        color: type === "negative" ? "dark.ui.error.primary" : null,
+        color: variant === "negative" ? "dark.ui.error.primary" : null,
       },
       paddingBottom: "xs",
     };
@@ -186,13 +128,13 @@ export const Banner: ChakraComponent<
     const dismissibleButton = (
       <Button
         aria-label="Close the banner"
-        buttonType="text"
-        id={`${id}-dismissible-button`}
+        id={`${mainId}-dismissible-button`}
         onClick={handleClose}
+        variant="text"
         __css={styles.dismissibleButton}
       >
         <Icon
-          data-testid={`${id}-dismissible-icon`}
+          data-testid={`${mainId}-dismissible-icon`}
           name="close"
           size="large"
           title="Banner close icon"
@@ -201,11 +143,10 @@ export const Banner: ChakraComponent<
     );
     const finalIcon = icon || (
       <Icon
-        className="banner-icon"
-        data-testid={`${id}-banner-icon`}
+        data-testid={`${mainId}-banner-icon`}
         title="Banner announcement icon"
         size="large"
-        {...iconProps[type]}
+        {...iconProps[variant]}
         __css={finalHeading ? { marginTop: "xxxs" } : {}}
       />
     );
@@ -232,11 +173,10 @@ export const Banner: ChakraComponent<
 
     return (
       <Box
-        aria-label={ariaLabel}
         as="aside"
-        className={className}
-        data-type={type}
-        id={id}
+        data-testid="ds-banner"
+        data-variant={variant}
+        id={mainId}
         ref={ref}
         __css={styles.base}
         {...rest}

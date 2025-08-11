@@ -1,6 +1,7 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { setContainerStyles } from "../../utils/setContainerStyles";
 import { iconSizeStyles } from "../sharedStyles";
+import { screenreaderOnly } from "./globalMixins";
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["button", "select"]);
@@ -19,14 +20,16 @@ const SearchBar = defineMultiStyleConfig({
         },
         "[data-button]": {
           padding: "xs",
-          " > span": {
-            display: "none",
-          },
+          // Even though we only want to apply these styles on mobile, we
+          // cannot pass `isMobileOnly` to this function because the
+          // function uses media queries and this component uses container
+          // queries so styles would switch at slightly different moments.
+          " > span": screenreaderOnly(),
           "> svg": {
             ...iconSizeStyles["medium"],
           },
         },
-        ".textInput": {
+        ".ds-searchBar-textInput": {
           "div > input": {
             borderLeftRadius: hasSelectElem ? "sm" : null,
           },
@@ -34,7 +37,7 @@ const SearchBar = defineMultiStyleConfig({
       },
     }),
     ...setContainerStyles({
-      breakpoint: "md",
+      breakpoint: "mobile",
       styles: {
         "&": { marginBottom: "auto", flexFlow: "row" },
         "[data-select]": {
@@ -48,33 +51,35 @@ const SearchBar = defineMultiStyleConfig({
         },
         "[data-button]": {
           borderRightRadius: "sm",
-          maxWidth: "80px",
           paddingTop: "xs",
           paddingLeft: "s",
           paddingBottom: "xs",
           paddingRight: "s",
           " > span": {
-            display: "block",
+            height: "auto",
+            overflow: "unset",
+            position: "relative !important",
+            width: "100%",
           },
           "> svg": {
             ...iconSizeStyles["small"],
           },
         },
-        ".textInput": {
+        ".ds-searchBar-textInput": {
           "div > input": {
             borderLeftRadius: 0,
           },
         },
       },
     }),
-    ".textInput": {
+    ".ds-searchBar-textInput": {
       flexGrow: 1,
       "div > input": {
         borderRight: 0,
         borderRightRadius: 0,
       },
     },
-    ".searchButton": {
+    ".ds-searchBar-button": {
       minWidth: "44px",
       borderLeftRadius: "none",
       lineHeight: "1.70",

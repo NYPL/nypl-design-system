@@ -1,0 +1,269 @@
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+
+import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+
+<Meta title="Development Guide/Container Query Guide" />
+
+<ComponentDocsHeader
+  category="Development Guide"
+  componentName="Container Query Guide"
+  summary="Guidelines for implementing container queries in Reservoir components"
+/>
+
+## Table of contents
+
+- [General Information](#general-information)
+- [Updating a component to use container queries](#updating-a-component-to-use-container-queries)
+- [Full component example](#full-component-example)
+
+## General Information
+
+Container queries allow you to apply styles to an element based on the size of
+its container, rather than the size of the viewport. This is useful for creating
+responsive designs that adapt to the size of individual components.
+
+The `setContainerStyles` function helps you generate container query styles based
+on the provided breakpoint and styles. This function is useful for applying
+responsive styles within a container.
+
+This guide will walk you through updating a component in Reservoir to replace
+media queries with container queries.
+
+### Resources
+
+- [MDN container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
+- [CSS Tricks container queries](https://css-tricks.com/css-container-queries/)
+
+## Updating a component to use container queries
+
+### Defining the container
+
+To define an element as the container add the style prop `container-type: inline-size`
+to the top-most parent.
+
+If the component is using `ComponentWrapper`, add the following prop to the
+definition:
+
+<Source
+  code={`
+sx={{ containerType: "inline-size" }}
+`}
+/>
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> A container cannot change its own styles, so if the
+      top-most element has responsive styles applied, you will need to wrap it
+      with a <code>Box</code> to define the container.
+    </>
+  }
+  variant="warning"
+/>
+
+### Defining child elements
+
+To minimize CSS selectors, we recommend to specify child elements with data-\*
+attributes to style them.
+
+### Convert media query styles to container query styles
+
+Here is a snippet of a component's styles which includes use of Chakra's object syntax
+which applies media queries based on breakpoints:
+
+<Source
+  code={`
+{
+  wrapper: {
+    flexDirection: imageAtEnd
+      ? { base: "column-reverse", md: "row-reverse" }
+      : { base: "column", md: "row" },
+    paddingLeft: full ? { base: null, md: "s" } : null,
+    paddingRight: full ? { base: null, md: "s" } : null,
+  },
+  imgWrapper: {
+    height: { base: "320px", md: "auto" },
+    width: { base: "100%", md: wrapperWidth },
+  },
+};
+`}
+/>
+
+To update the above to use container queries each object property would need to be
+broken out into individual container queries:
+
+<Source
+  code={`
+{
+  "@container (min-width: 0px)": {
+    "[data-wrapper]": {
+      flexDirection: imageAtEnd ? "column-reverse" : "column",
+    },
+    "[data-imagewrapper]": {
+      height: "320px",
+      width: "100%",
+    },
+  },
+  "@container (min-width: 600px)": {
+    "[data-wrapper]": {
+      flexDirection: imageAtEnd ? "row-reverse" : "row",
+      paddingLeft: full ? "s" : null,
+      paddingRight: full ? "s" : null,
+    },
+    "[data-imagewrapper]": {
+      height: "auto",
+      width: wrapperWidth,
+    },
+  },
+}
+`}
+/>
+
+Instead of using hard-coded breakpoint values, the `setContainerStyles` function can
+be used to generate the container query code with existing breakpoints in the system:
+
+<Source
+  code={`
+...setContainerStyles({
+  breakpoint: "base",
+  styles: {
+    "[data-wrapper]": {
+      flexDirection: imageAtEnd ? "column-reverse" : "column",
+    },
+    "[data-imagewrapper]": {
+      height: "320px",
+      width: "100%",
+    },
+  },
+}),
+`}
+/>
+
+### setContainerStyles function
+
+The `setContainerStyles` function provides a way to generate container
+query styles based on breakpoints and styles. Use this function in the component's
+theme file to apply the appropriate container query styles.
+
+#### Function Signature
+
+<Source
+  code={`
+  setContainerStyles(props: {
+    breakpoint: "base" | keyof typeof breakpoints;
+    styles: { [selector: string]: { [property: string]: string | number | null } };
+  }): { [key: string]: { [selector: string]: { [property: string]: string | number | null } } }
+`}
+/>
+
+#### Parameters
+
+`props.breakpoint`: The breakpoint at which the container query should apply. It
+can be "base" or a key from the breakpoints object.
+
+`props.styles`: An object containing the styles to apply within the container query.
+The keys are CSS selectors, and the values are objects representing CSS properties
+and their values.
+
+#### Returns
+
+An object containing the container query styles.
+
+#### Example
+
+<Source
+  code={`
+import { setContainerStyles } from "../utils/setContainerStyles";
+const styles = setContainerStyles({
+    breakpoint: "mobile",
+    styles: {
+        "[data-body]": {
+        flexBasis: "100%",
+        },
+    },
+});
+// Result:
+// {
+//   "@container (min-width: 37.5em)": {
+//     "[data-body]": {
+//       flexBasis: "100%",
+//     },
+//   },
+// }
+`}
+/>
+
+## Full component example
+
+This is an example of an updated component with data attributes added to
+be targeted in the container query styles:
+
+<Source
+  code={`
+<Box
+    __css={styles.base}
+    ref={ref}
+    {...rest}
+>
+    <Box __css={styles.wrapper} data-wrapper>
+        <Box
+            __css={{
+            ...styles.imgWrapper,
+            }}
+            data-imagewrapper
+        >
+            <Image
+              alt={imageProps.alt}
+              src={imageProps.src ? imageProps.src : undefined}
+            />
+        </Box>
+        <Box __css={styles.text} data-text>
+            {textContent}
+        </Box>
+    </Box>
+</Box>
+`}
+/>
+
+The `setContainerStyles` function is used to generate container query styles for
+the `sm` and `md` breakpoints. The resulting styles are then spread into the
+`componentStyles` object.
+
+<Source
+  code={`
+const componentStyles = {
+  base: {
+    bgColor: "ui.bg.default",
+    ...setContainerStyles({
+      breakpoint: "smallMobile",
+      styles: {
+        "[data-body]": {
+          flexBasis: "100%",
+        },
+      },
+    }),
+    ...setContainerStyles({
+      breakpoint: "mobile",
+      styles: {
+        "[data-imagewrapper]": {
+          flexFlow: "row",
+        },
+        "[data-actions]": {
+          flexShrink: "0",
+          marginStart: "m",
+          marginTop: "0",
+          maxWidth: "180px",
+        },
+        "[data-body]": {
+          display: "block",
+          flexFlow: "row nowrap",
+          width: "auto",
+        },
+      },
+    }),
+  },
+};
+`}
+/>

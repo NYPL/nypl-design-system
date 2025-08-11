@@ -1,38 +1,47 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+} from "@storybook/addon-docs/blocks";
 
-import * as HorizontalRuleStories from "./HorizontalRule.stories";
-import Link from "../Link/Link";
-import { changelogData } from "./horizontalRuleChangelogData";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import * as HorizontalRuleStories from "./HorizontalRule.stories";
+import { changelogData } from "./horizontalRuleChangelogData";
 
 <Meta of={HorizontalRuleStories} />
 
-# HorizontalRule
+<ComponentDocsHeader
+  category="Page layout component"
+  componentName="HorizontalRule"
+  summary="Used to visually separate content for clarity"
+  versionAdded="0.23.0"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.23.0`   |
-| Latest            | `3.1.2`    |
+<Canvas of={HorizontalRuleStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={HorizontalRuleStories} />
 
-The `HorizontalRule` component renders a basic `<hr>` element. The `height`,
-`width`, and `align` props can be customized. For the `height` prop, use a whole
-number, a `px` value, a `em` value, or a `rem` value. Otherwise, the default
-value of "2px" will be used.
+The `HorizontalRule` component renders a basic `<hr>` element. While not
+explicit props, the `height` and `width` values can be customized. For the
+`height` style prop, use a whole number, a `px` value, a `em` value, or a `rem`
+value. Otherwise, the default value of `"2px"` will be used.
 
-## Component Props
+## Component props
 
-<Canvas of={HorizontalRuleStories.WithControls} />
+`HorizontalRule` composes a Chakra `Box` component, so you may pass
+any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={HorizontalRuleStories.WithControls} />
 

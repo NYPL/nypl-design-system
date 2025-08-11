@@ -10,6 +10,19 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Replaces `highlightColorTypesArray` with shared highlight colors array plus default gray, now `newsletterHighlightColorsArray`. ",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Removes the internal `newsletter-signup` classes and replaces them with data-testids.",
+      "Adds `data-testid` value of `ds-newsletterSignup` to the parent element.",
+    ],
+  },
+  {
     date: "2025-05-22",
     version: "3.6.2",
     type: "Update",

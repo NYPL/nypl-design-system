@@ -10,7 +10,6 @@ const meta: Meta<typeof Toggle> = {
   component: Toggle,
   argTypes: {
     defaultChecked: { control: false },
-    id: { control: false },
     key: { table: { disable: true } },
     name: { control: false },
     onChange: { control: false },
@@ -34,7 +33,6 @@ export const WithControls: Story = {
   args: {
     defaultChecked: false,
     helperText: "This is the helper text!",
-    id: "toggle-1",
     invalidText: "",
     isChecked: undefined,
     isDisabled: false,
@@ -79,18 +77,6 @@ export const Sizes: Story = {
         <Toggle id="default-small" size="small" labelText="Off" />
       </VStack>
     </SimpleGrid>
-  ),
-};
-export const ControlledToggle: Story = {
-  render: () => (
-    <Toggle
-      id="toggle"
-      isChecked={true}
-      labelText="Controlled Toggle"
-      onChange={(e) => {
-        console.log(e.target.value);
-      }}
-    />
   ),
 };
 

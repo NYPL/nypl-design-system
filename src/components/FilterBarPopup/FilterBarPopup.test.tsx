@@ -7,6 +7,11 @@ import MultiSelect from "../MultiSelect/MultiSelect";
 import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
 import useMultiSelect from "../../hooks/useMultiSelect";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 const multiSelectItems = [
   {
     id: "colors",
@@ -61,7 +66,7 @@ interface FilterBarTestComponentProps {
   onSubmit?: () => void;
 }
 const FilterBarTestComponent = ({
-  id = "filterbar-id",
+  id,
   onClearFilters,
   onSubmit,
 }: FilterBarTestComponentProps) => {
@@ -98,11 +103,11 @@ const FilterBarTestComponent = ({
                     onChange(e.target.id, multiSelect.id);
                   }}
                   onMixedStateChange={(e) => {
-                    onMixedStateChange(
-                      e.target.id,
-                      multiSelect.id,
-                      multiSelect.items
-                    );
+                    onMixedStateChange({
+                      parentId: e.target.id,
+                      multiSelectId: multiSelect.id,
+                      items: multiSelect.items,
+                    });
                   }}
                   onClear={() => {
                     onClear(multiSelect.id);
@@ -161,12 +166,17 @@ describe("FilterBarPopup Accessibility", () => {
 
   it("should have no axe violations on mobile", async () => {
     window.resizeTo(300, 300);
-    const { container } = render(<FilterBarTestComponent />);
+    const { container } = render(<FilterBarTestComponent id="filterbar-id" />);
     // Make sure it renders mobile components
     expect(
       screen.getByRole("button", { name: /show filters/i })
     ).toBeInTheDocument();
 
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("should have no axe violations with no id", async () => {
+    const { container } = render(<FilterBarTestComponent />);
     expect(await axe(container)).toHaveNoViolations();
   });
 });
@@ -183,6 +193,14 @@ describe("FilterBarPopup", () => {
     };
     window.resizeTo(300, 300);
   });
+  it("should add an id to the component even if none is passed", () => {
+    render(<FilterBarTestComponent />);
+    expect(screen.getByTestId("ds-filterBarPopup")).toHaveAttribute(
+      "id",
+      "test-id"
+    );
+  });
+
   it("should render the `Show filters` button when window size is mobile", () => {
     render(<FilterBarTestComponent id="filter-bar-test-5" />);
     expect(

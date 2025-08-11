@@ -7,11 +7,29 @@ import renderer from "react-test-renderer";
 
 import TextInput, { TextInputRefType } from "./TextInput";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("TextInput Accessibility", () => {
   it("passes axe accessibility test for the input element", async () => {
     const { container } = render(
       <TextInput
         id="textInput"
+        isRequired
+        labelText="Custom input label"
+        onChange={jest.fn()}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <TextInput
         isRequired
         labelText="Custom input label"
         onChange={jest.fn()}
@@ -86,6 +104,23 @@ describe("TextInput", () => {
     );
   });
 
+  it("should add an id to the component even if none is passed", () => {
+    utils.rerender(
+      <TextInput
+        isRequired
+        labelText="Custom Input Label"
+        onChange={changeHandler}
+        placeholder="Input Placeholder"
+        type="text"
+      />
+    );
+
+    expect(screen.getByTestId("ds-textInput")).toHaveAttribute(
+      "id",
+      "test-id-componentWrapper"
+    );
+  });
+
   it("renders an input element", () => {
     expect(screen.getByLabelText(/Custom Input Label/i)).toBeInTheDocument();
   });
@@ -102,7 +137,7 @@ describe("TextInput", () => {
   it("adds aria-describedby attribute", async () => {
     expect(screen.getByRole("textbox")).toHaveAttribute(
       "aria-describedby",
-      "myTextInput-helperText"
+      "myTextInput-helperErrorText"
     );
 
     utils.rerender(
@@ -120,7 +155,7 @@ describe("TextInput", () => {
     await waitFor(() =>
       expect(screen.getByRole("textbox")).toHaveAttribute(
         "aria-describedby",
-        "myEmailInput-helperText"
+        "myEmailInput-helperErrorText"
       )
     );
   });
@@ -539,18 +574,6 @@ describe("TextInput", () => {
     );
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir TextInput: The `min` prop is greater than the `max` prop."
-    );
-  });
-
-  it("logs a warning when there is no `id` passed", () => {
-    const warn = jest.spyOn(console, "warn");
-    render(
-      // @ts-ignore: Typescript complains when a required prop is not passed, but
-      // here we don't want to pass the required prop to make sure the warning appears.
-      <TextInput labelText="Custom Input Label" />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir TextInput: This component's required `id` prop was not passed."
     );
   });
 

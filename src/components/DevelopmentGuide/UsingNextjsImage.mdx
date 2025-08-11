@@ -1,0 +1,479 @@
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+import { Box } from "@chakra-ui/react";
+
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Image from "../Image/Image";
+import Link from "../Link/Link";
+
+<Meta title="Development Guide/Using Next.js Image" />
+
+<ComponentDocsHeader
+  category="Development Guide"
+  componentName="Using Next.js Image"
+  summary="Recommendations for using the Next.js Image in place of the Reservoir Image"
+/>
+
+## Table of contents
+
+- [Objectives and goals](#objectives-and-goals)
+- [Recommendations](#recommendations)
+  - [Aspect ratio](#aspect-ratio)
+  - [Cropping](#cropping)
+  - [Custom width](#custom-width)
+- [Examples](#examples)
+  - [Dynamic example](#dynamic)
+  - [Component example](#component)
+  - [Turbine implementation](#turbine-implementation)
+- [Other useful props](#other-useful-props)
+  - [onError](#onerror)
+  - [placeholder](#placeholder)
+  - [sizes](#sizes)
+
+## Objectives and goals
+
+The Next.js `Image` component provides certain advantages over the Reservoir
+`Image` component including, but not limited to:
+
+- The Next.js `Image` component is meant to optimize image performance within
+  the Next.js framework.
+- The Next.js team works with the Chrome browser team to optimize their
+  components. This means better maintenance and optimization from Next.js that
+  the Reservoir team and NYPL Digital as a whole cannot readily provide.
+- Using the Next.js `Image` component brings NYPL apps deeper into the Next.js
+  ecosystem, which could allow framework-specific optimizations in the future.
+
+However, while the Next.js `Image` component does offer optimization and some
+enhanced styling features, the Reservoir `Image` component has functionality
+that is not included in the Next.js `Image` component. Specifically, the
+Reservoir `Image` component offers functionality to set the image aspect ratio
+in conjunction with cropping and custom sizing.
+
+**Based on the benefits and advantages of the Next.js `Image` component, NYPL
+Engineering recommends utilizing the Next.js `Image` component over the
+Reservoir `Image` component.** This document will offer recommendations for
+configuring the Next.js `Image` component to implement the features available in
+the Reservoir `Image` component.
+
+**Resources**
+
+- [Next.js Image component documentation](https://nextjs.org/docs/pages/api-reference/components/image)
+
+## Recommendations
+
+The following recommendations can be used to recreate specific functionality
+found in the Reservoir `Image` component.
+
+### Aspect ratio
+
+To set the aspect ratio for the overall footprint of an image, the Next.js `Image`
+component needs to be wrapped in a parent `div` with specific position and
+`paddingBottom` CSS attributes applied. The Next.js `Image` component itself will
+then require the `objectFit` CSS attribute.
+
+To execute a specific aspect ratio, the `paddingBottom` value needs to be a
+percentage derived from the h/w (height over width) fraction. For example, to
+attain a four-by-three aspect ratio, the `bottomPadding` value should be set to
+75%, which comes from 3/4 (three over four).
+
+<Source
+  code={`
+<Box
+    background="ui.black"
+    position="relative"
+    paddingBottom="75%"
+  >
+    <Image
+      alt="Big Ben and Parliament"
+      fill={true}
+      src="/images/bigben.jpg"
+      style={{
+        objectFit: "contain",
+      }}
+    />
+</Box>
+`}
+  language="jsx"
+/>
+
+<Image
+  alt="Next.js Image - aspect ratio"
+  mb="s"
+  src="/useNextjsImage/aspectRatio.png"
+/>
+
+### Cropping
+
+In the aspect ratio examples above, the default behavior results in a
+"contained" image, where the overall footprint takes on the specified aspect
+ratio while the actual image retains its original aspect ratio and is resized to
+fit within the overall container.
+
+An image can be cropped to fill the overall footprint by setting the value of
+the `objectFit` CSS attribute to `"cover"`. In the previous examples, the
+`objectFit` CSS attribute was set to `"contain"`.
+
+<Source
+  code={`
+<Box
+    background="ui.black"
+    position="relative"
+    paddingBottom="100%"
+  >
+    <Image
+      alt="Big Ben and Parliament"
+      fill={true}
+      src="/images/bigben.jpg"
+      style={{
+        objectFit: "cover",
+      }}
+    />
+</Box>
+`}
+  language="jsx"
+/>
+
+#### Cropped examples
+
+<Image
+  alt="Next.js Image - cropped image"
+  mb="s"
+  src="/useNextjsImage/croppedImageExamples.png"
+/>
+
+#### Contained examples
+
+<Image
+  alt="Next.js Image - contained image"
+  mb="s"
+  src="/useNextjsImage/containedImageExamples.png"
+/>
+
+### Cropping with focal point
+
+When using the `objectFit` method for cropping images, by default images are
+cropped with the center of the image as the focal point. The focal point for
+cropping can be adjusted by adding the `objectPosition` attribute in conjunction
+with the `objectFit` attribute.
+
+<Source
+  code={`
+<Box
+    background="ui.black"
+    position="relative"
+    paddingBottom="100%"
+  >
+    <Image
+      alt="Big Ben and Parliament"
+      fill={true}
+      src="/images/bigben.jpg"
+      style={{
+        objectFit: "cover",
+        objectPosition: "top",
+      }}
+    />
+</Box>
+`}
+  language="jsx"
+/>
+
+<Image
+  alt="Next.js Image - cropped with focal point, example 1"
+  mb="s"
+  src="/useNextjsImage/focalPointExamples01.png"
+/>
+<Image
+  alt="Next.js Image - cropped with focal point, example 2"
+  mb="s"
+  src="/useNextjsImage/focalPointExamples02.png"
+/>
+
+### Custom width
+
+By default, these recommendations for the Next.js `Image` component will set an
+image to fill the width of its parent container. To set a specific width, an
+additional DOM layer will be necessary with an appropriate `width` CSS attribute
+applied.
+
+<Source
+  code={`
+<Box
+    width="256px"
+  >
+    <Box
+      background="ui.black"
+      position="relative"
+      paddingBottom="100%"
+    >
+      <Image
+        alt="Big Ben and Parliament"
+        fill={true}
+        src="/images/bigben.jpg"
+        style={{
+          objectFit: "cover",
+        }}
+      />
+    </Box>
+</Box>
+`}
+  language="jsx"
+/>
+
+<Image
+  alt="Next.js Image - custom width"
+  mb="s"
+  src="/useNextjsImage/customWidth.png"
+/>
+
+## Examples
+
+Below are some examples using the recommendations in context, but the extent to
+which the recommendations are used and in what capacity is up to the structure
+and patterns of consuming apps.
+
+### Dynamic
+
+<Source
+  code={`
+const customWidthValues = {
+    auto: "auto",
+    xs: "64px",
+    sm: "96px",
+    md: "128px",
+    lg: "160px",
+    xl: "256px",
+    "2xl": "320px",
+    "3xl": "640px",
+};
+const aspectRatioValues = {
+    fourByOne: "25%",
+    twoByOne: "50%",
+    sixteenByNine: "56.25%",
+    fourByThree: "75%",
+    oneByOne: "100%",
+    square: "100%",
+};
+const focalPointValues = [
+    "left",
+    "right",
+    "top",
+    "bottom",
+];
+const customWidthKey = // assign a value dynamically
+const aspectRatioKey = // assign a value dynamically
+// ...
+<Box
+    width={customWidthValues[customWidthKey]}
+  >
+    <Box
+      background="ui.black"
+      position="relative"
+      paddingBottom={aspectRatioValues[aspectRatioKey]}
+    >
+      <Image
+        alt="Big Ben and Parliament"
+        fill={true}
+        src="/images/bigben.jpg"
+        style={{
+          objectFit: "cover",
+          objectPosition: focalPointValues[focalPointIndex],
+        }}
+      />
+    </Box>
+</Box>
+`}
+  language="jsx"
+/>
+
+### Component
+
+<Source
+  code={`
+import React, { CSSProperties } from "react";
+import Image, { ImageProps } from "next/image";
+const aspectRatioValues = {
+    fourByOne: "25%",
+    twoByOne: "50%",
+    sixteenByNine: "56.25%",
+    fourByThree: "75%",
+    oneByOne: "100%",
+    square: "100%",
+    oneByTwo: "200%",
+};
+export const aspectRatioArray = [
+    "fourByOne",
+    "twoByOne",
+    "sixteenByNine",
+    "fourByThree",
+    "oneByOne",
+    "square",
+    "oneByTwo",
+] as const;
+export type AspectRatioType = (typeof aspectRatioArray)[number];
+const widthValues = {
+    auto: "auto",
+    xs: "64px",
+    sm: "96px",
+    md: "128px",
+    lg: "160px",
+    xl: "256px",
+    "2xl": "320px",
+    "3xl": "640px",
+};
+export const widthArray = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl"] as const;
+export type WidthType = (typeof widthArray)[number];
+export const focalPointArray = ["top", "bottom", "left", "right"] as const;
+export type FocalPointType = (typeof focalPointArray)[number];
+export interface CustomImageProps extends ImageProps {
+    aspectRatio?: AspectRatioType;
+    backgroundColor?: CSSProperties["color"];
+    border?: CSSProperties["border"];
+    cropFocalPoint?: FocalPointType;
+    customWidth?: WidthType;
+    isCropped?: boolean;
+}
+const CustomImage = (props: CustomImageProps) => {
+    const {
+      alt,
+      aspectRatio = "square",
+      backgroundColor = "#000000",
+      border = "1px solid #333",
+      cropFocalPoint = undefined,
+      customWidth = "auto",
+      isCropped = false,
+      src,
+      ...rest
+    } = props;
+    return (
+      <Box width={widthValues[customWidth]}>
+        <Box
+          background={backgroundColor}
+          border={border}
+          position="relative"
+          paddingBottom={aspectRatioValues[aspectRatio]}
+        >
+          <Image
+            alt={alt}
+            fill={true}
+            src={src}
+            style={{
+              objectFit: isCropped ? "cover" : "contain",
+              objectPosition: isCropped ? cropFocalPoint : undefined,
+            }}
+            {...rest}
+          />
+        </Box>
+      </Box>
+    );
+};
+export default CustomImage;
+`}
+  language="jsx"
+/>
+
+### Turbine implementation
+
+The `Component example` above has been <Link href="https://nypl-ds-test-app.vercel.app/fullPages/nextjs-custom-image-component#above-header-notification" variant="external">implemented in Turbine</Link>.
+
+## Other useful props
+
+For improved function and optimization, the NYPL Digital front-end development
+team recommends utilizing the following props on the Next.js `Image` component.
+
+### onError
+
+- Use the `onError` prop to trigger a callback if the source image fails to
+  load.
+- The callback should update the image's `src` prop to a default fallback image
+  and it should log the error.
+- The `onError` fallback image should not be the same as the `placeholder`
+  image.
+- The recommended fallback images are displayed below.
+- For more detailed information, see the [Next.js Image docs](https://nextjs.org/docs/pages/api-reference/components/image#onerror).
+
+<Source
+  code={`
+const [imageSrc, setImageSrc] = useState("/images/imageThatWouldNotLoad.jpg");
+const fallbackImage = "/images/defaultFallbackImage.png";
+const onErrorHandler = () => {
+    console.warn(
+      \`CardImage: The card image failed to load, so a fallback image was loaded instead. Original image: \${imageSrc}\`
+    );
+    setImageSrc(fallbackImage);
+}
+// ...
+<Image
+    alt="An image that would not load"
+    src={imageSrc}
+    onError={onErrorHandler}
+/>
+`}
+  language="jsx"
+/>
+
+<Box display="grid" gap="s" gridTemplateColumns={{ base: "1fr", sm: "1fr 1fr" }} mt="s">
+  <Box>
+    #### Light mode
+
+    <Image
+      alt="Recommended fallback image for light mode"
+      fill={true}
+      my="s"
+      src="/useNextjsImage/fallbackImageLight.png"
+    />
+
+  </Box>
+  <Box>
+    #### Dark mode
+
+    <Image
+      alt="Recommended fallback image for dark mode"
+      fill={true}
+      my="s"
+      src="/useNextjsImage/fallbackImageDark.png"
+    />
+
+  </Box>
+</Box>
+
+### placeholder
+
+- Use the `placeholder` prop to specify a custom image to be shown as the
+  source image loads.
+- It is recommended that the default placeholder image be flat gray.
+  - Light mode: #F5F5F5 (ui.bg.default)
+  - Dark mode: #252525 (dark.ui.bg.default)
+- The `placeholder` image should not be the same as the `onError` fallback
+  image.
+- For more detailed information, see the [Next.js Image docs](https://nextjs.org/docs/pages/api-reference/components/image#placeholder).
+
+<Source
+  code={`
+placeholder="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mN8WQ8AAlcBas53/MIAAAAASUVORK5CYII="
+`}
+  language="jsx"
+/>
+
+### sizes
+
+- Use the `sizes` prop to implement a media query method that sets the physical
+  size of an image that is loaded for specified viewports.
+- Can be used in combination with an outer styling `div` or setting `style` on the
+  image.
+- It is recommended to use this prop to optimize the loading time for
+  responsively styled images.
+- Consuming apps should generate the sizes that will work best for the app, but
+  the example below is recommended as a starting point.
+- For more detailed information, see the [Next.js Image docs](https://nextjs.org/docs/pages/api-reference/components/image#sizes).
+
+<Source
+  code={`
+sizes="(max-width: 480px) 100vw, (max-width: 1024px) 50vw, 25vw"
+`}
+  language="jsx"
+/>
+
+In the example above:
+
+- If viewport width ≤ `480px` → image uses `100%` of viewport width.
+- If viewport width ≤ `1024px` → image uses `50%` of viewport width.
+- Otherwise → image uses `25%` of viewport width.

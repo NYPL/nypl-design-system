@@ -12,40 +12,21 @@ import Accordion from "./components/accordion";
 import AlphabetFilter from "./components/alphabetFilter";
 import AudioPlayer from "./components/audioPlayer";
 import Banner from "./components/banner";
-import Breadcrumb from "./components/breadcrumb";
-import Button from "./components/button";
 import ButtonGroup from "./components/buttonGroup";
 import Checkbox from "./components/checkbox";
 import ComponentWrapper from "./components/componentWrapper";
 import CheckboxGroup from "./components/checkboxGroup";
-import CustomSelect from "./components/select";
-import CustomSlider from "./components/slider";
-import CustomTable from "./components/customTable";
 import DatePicker from "./components/datePicker";
 import FeedbackBox from "./components/feedbackBox";
 import FeaturedContent from "./components/featuredContent";
 import Fieldset from "./components/fieldset";
-import FilterBar from "./components/filterBar";
 import FilterBarPopup from "./components/filterBarPopup";
 import Heading from "./components/heading";
-import Header from "./components/header";
-import HeaderLogin from "./components/headerLogin";
-import HeaderLoginButton from "./components/headerLoginButton";
-import HeaderLowerNav from "./components/headerLowerNav";
-import HeaderMobileIconNav from "./components/headerMobileIconNav";
-import HeaderMobileNav from "./components/headerMobileNav";
-import HeaderMobileNavButton from "./components/headerMobileNavButton";
-import HeaderSearchButton from "./components/headerSearchButton";
-import HeaderSearchForm from "./components/headerSearchForm";
-import HeaderSitewideAlerts from "./components/headerSitewideAlerts";
-import HeaderUpperNav from "./components/headerUpperNav";
 import HelperErrorText from "./components/helperErrorText";
 import Hero from "./components/hero";
 import HorizontalRule from "./components/horizontalRule";
-import Icon from "./components/icon";
 import Label from "./components/label";
 import Link from "./components/link";
-import List from "./components/list";
 import Logo from "./components/logo";
 import Menu from "./components/menu";
 import Modal from "./components/modal";
@@ -59,8 +40,15 @@ import Pagination from "./components/pagination";
 import ProgressIndicator from "./components/progressIndicator";
 import Radio, { RadioWrapper } from "./components/radio";
 import RadioGroup from "./components/radioGroup";
+import ReservoirBreadcrumb from "./components/breadcrumb";
+import ReservoirButton from "./components/button";
 import ReservoirCard from "./components/card";
+import ReservoirIcon from "./components/icon";
 import { ReservoirImage, ReservoirImageWrapper } from "./components/image";
+import ReservoirList from "./components/list";
+import ReservoirSelect from "./components/select";
+import ReservoirSlider from "./components/slider";
+import ReservoirTable from "./components/table";
 import SearchBar from "./components/searchBar";
 import SkeletonLoader from "./components/skeletonLoader";
 import SkipNavigation from "./components/skipNavigation";
@@ -114,37 +102,21 @@ const theme: any = {
     AlphabetFilter,
     AudioPlayer,
     Banner,
-    CustomBreadcrumb: Breadcrumb,
-    CustomButton: Button,
     ButtonGroup,
     Checkbox,
     CheckboxGroup,
     ComponentWrapper,
-    CustomSelect,
     DatePicker,
     FeedbackBox,
     FeaturedContent,
     Fieldset,
-    FilterBar,
     FilterBarPopup,
     Heading,
-    Header,
-    HeaderLogin,
-    HeaderLoginButton,
-    HeaderLowerNav,
-    HeaderMobileIconNav,
-    HeaderMobileNav,
-    HeaderMobileNavButton,
-    HeaderSearchButton,
-    HeaderSearchForm,
-    HeaderSitewideAlerts,
-    HeaderUpperNav,
     HelperErrorText,
     Hero,
     HorizontalRule,
     Label,
     Link,
-    ReservoirList: List,
     Logo,
     Menu,
     Modal,
@@ -159,14 +131,19 @@ const theme: any = {
     Radio,
     RadioGroup,
     RadioWrapper,
+    ReservoirBreadcrumb,
+    ReservoirButton,
     ...ReservoirCard,
-    ReservoirIcon: Icon,
+    ReservoirIcon,
     ReservoirImage,
     ReservoirImageWrapper,
+    ReservoirList,
+    ReservoirSelect,
+    ReservoirSlider,
+    ReservoirTable,
     SearchBar,
     SkeletonLoader,
     SkipNavigation,
-    CustomSlider,
     StatusBadge,
     StructuredContent,
     StyledList,
@@ -174,7 +151,6 @@ const theme: any = {
     SubNav,
     SubNavChildren,
     Tabs,
-    CustomTable,
     ...TagSetStyles,
     ...TemplateStyles,
     Text,

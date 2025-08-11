@@ -29,6 +29,7 @@ describe("useMultiSelect hook", () => {
     expect(typeof result.current.setSelectedItems).toEqual("function");
     expect(result.current.selectedItems).toEqual({});
   });
+
   it("should update the selectedItems when the onChange function is called", () => {
     const { result } = renderHook(() => useMultiSelect());
     // selectedItems starts empty
@@ -46,20 +47,26 @@ describe("useMultiSelect hook", () => {
       "multiselect-hook-test-id-1": { items: ["dogs", "cats"] },
     });
   });
-  it("should update the selectedItems when the onMixedstateChange function is called", () => {
+
+  it("should update the selectedItems when the onMixedStateChange function is called", () => {
     const { result } = renderHook(() => useMultiSelect());
 
     // selectedItems starts empty
     expect(result.current.selectedItems).toEqual({});
 
     act(() =>
-      result.current.onMixedStateChange(items[3].id, multiSelectIdOne, items)
+      result.current.onMixedStateChange({
+        parentId: items[3].id,
+        multiSelectId: multiSelectIdOne,
+        items,
+      })
     );
     // Both child items should be in the selectedItems
     expect(result.current.selectedItems).toEqual({
       "multiselect-hook-test-id-1": { items: ["red", "blue"] },
     });
   });
+
   it("should be able to handle multiple MultiSelects", () => {
     const { result } = renderHook(() => useMultiSelect());
 
@@ -67,14 +74,22 @@ describe("useMultiSelect hook", () => {
     expect(result.current.selectedItems).toEqual({});
 
     act(() =>
-      result.current.onMixedStateChange(items[3].id, multiSelectIdOne, items)
+      result.current.onMixedStateChange({
+        parentId: items[3].id,
+        multiSelectId: multiSelectIdOne,
+        items,
+      })
     );
     // Both child items should be in the selectedItems
     expect(result.current.selectedItems).toEqual({
       "multiselect-hook-test-id-1": { items: ["red", "blue"] },
     });
     act(() =>
-      result.current.onMixedStateChange(items[3].id, multiSelectIdTwo, items)
+      result.current.onMixedStateChange({
+        parentId: items[3].id,
+        multiSelectId: multiSelectIdTwo,
+        items,
+      })
     );
     // Both multiSelectIds and child items should be in selectedItems
     expect(result.current.selectedItems).toEqual({
@@ -82,6 +97,7 @@ describe("useMultiSelect hook", () => {
       "multiselect-hook-test-id-2": { items: ["red", "blue"] },
     });
   });
+
   it("should remove the selectedItems of the multiSelect passed to the onClear function", () => {
     const { result } = renderHook(() => useMultiSelect());
     // selectedItems starts empty
@@ -89,7 +105,11 @@ describe("useMultiSelect hook", () => {
 
     // Select some items from a MultiSelect
     act(() =>
-      result.current.onMixedStateChange(items[3].id, multiSelectIdOne, items)
+      result.current.onMixedStateChange({
+        parentId: items[3].id,
+        multiSelectId: multiSelectIdOne,
+        items,
+      })
     );
     // Both child items should be in selectedItems
     expect(result.current.selectedItems).toEqual({
@@ -97,7 +117,11 @@ describe("useMultiSelect hook", () => {
     });
     // Add select items from different MutliSelect
     act(() =>
-      result.current.onMixedStateChange(items[3].id, multiSelectIdTwo, items)
+      result.current.onMixedStateChange({
+        parentId: items[3].id,
+        multiSelectId: multiSelectIdTwo,
+        items,
+      })
     );
     // Both multiSelectIds and child items should be in selectedItems
     expect(result.current.selectedItems).toEqual({
@@ -111,6 +135,7 @@ describe("useMultiSelect hook", () => {
       "multiselect-hook-test-id-2": { items: ["red", "blue"] },
     });
   });
+
   it("should set the selectedItems to the state passed to setSelectedItems and reset the selectedItems to an empty object when onClearAll is called", () => {
     const { result } = renderHook(() => useMultiSelect());
     // selectedItems starts empty

@@ -1,15 +1,19 @@
 import {
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Checkbox as ChakraCheckbox,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, InputHTMLAttributes } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
-import { getAriaAttrs } from "../../utils/utils";
 import Icon from "../Icons/Icon";
+import { getAriaAttrs } from "../../utils/utils";
+import { useSafeId } from "../../hooks/useSafeId";
+import { useCheckboxGroup } from "../CheckboxGroup/CheckboxGroupContext";
 
 interface CheckboxIconProps {
   /** When using the Checkbox as a "controlled" form element, you can specify
@@ -21,13 +25,12 @@ interface CheckboxIconProps {
   isIndeterminate?: boolean;
 }
 
-export interface CheckboxProps extends CheckboxIconProps {
-  /** className you can add in addition to 'input' */
-  className?: string;
+export interface CheckboxProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    CheckboxIconProps,
+    Omit<InputHTMLAttributes<HTMLInputElement>, "color" | "height" | "width"> {
   /** Optional string to populate the HelperErrorText for standard state */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the HelperErrorText for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -42,11 +45,6 @@ export interface CheckboxProps extends CheckboxIconProps {
   /** The checkbox's label. This will serve as the text content for a `<label>`
    * element if `showlabel` is true, or an "aria-label" if `showLabel` is false. */
   labelText: string | JSX.Element;
-  /** The name prop indicates into which group of checkboxes this checkbox
-   * belongs. If none is specified, 'default' will be used */
-  name?: string;
-  /** The action to perform on the `<input>`'s onChange function  */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the checkbox's label onscreen or hide it.
@@ -75,7 +73,6 @@ export const Checkbox: ChakraComponent<
 > = chakra(
   forwardRef<HTMLInputElement, CheckboxProps>((props, ref?) => {
     const {
-      className,
       helperText,
       id,
       invalidText,
@@ -85,50 +82,46 @@ export const Checkbox: ChakraComponent<
       isInvalid = false,
       isRequired = false,
       labelText,
-      name,
+      name = "default",
       onChange,
       showHelperInvalidText = true,
       showLabel = true,
       value,
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const styles = useMultiStyleConfig("Checkbox", {});
+    const groupProps = useCheckboxGroup();
     const footnote = isInvalid ? invalidText : helperText;
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
     const ariaAttributes = getAriaAttrs({
       footnote,
-      id,
+      id: mainId,
       labelText,
       name: "Checkbox",
       showLabel,
     });
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Checkbox: This component's required `id` prop was not passed."
-      );
-    }
-
     return (
       <ComponentWrapper
+        data-testid="ds-checkbox"
         helperText={helperText}
         helperTextStyles={styles.helperErrorText}
-        id={id}
+        id={mainId}
         invalidText={invalidText}
         isInvalid={isInvalid}
         showHelperInvalidText={showHelperInvalidText}
         {...rest}
       >
         <ChakraCheckbox
-          className={className}
           icon={icon}
-          id={id}
-          isDisabled={isDisabled}
+          id={mainId}
+          isDisabled={groupProps?.isDisabled || isDisabled}
           isIndeterminate={isIndeterminate}
-          isInvalid={isInvalid}
-          isRequired={isRequired}
-          name={name || "default"}
+          isInvalid={groupProps?.isInvalid || isInvalid}
+          isRequired={groupProps?.isRequired || isRequired}
+          name={groupProps?.name || name}
           ref={ref}
           value={value}
           {...(isChecked !== undefined

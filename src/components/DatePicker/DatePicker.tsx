@@ -1,4 +1,5 @@
 import {
+  BoxProps,
   chakra,
   ChakraComponent,
   useMergeRefs,
@@ -16,6 +17,7 @@ import TextInput, {
   InputProps,
   TextInputRefType,
 } from "../TextInput/TextInput";
+import { useSafeId } from "../../hooks/useSafeId";
 
 interface ReactDatePickerAttrs {
   popperClassName: string;
@@ -42,18 +44,16 @@ export interface FullDateType {
 }
 
 // Used for the input fields' parent wrapper. Internal use only.
-interface DateRangeRowProps {
-  /** ID that other components can cross reference for accessibility purposes. */
-  id: string;
+interface DateRangeRowProps extends BoxProps {
   /** Whether to render a single date input or two for a range of two dates. */
   isDateRange?: boolean;
 }
 
 // Interface used by the `div` or `fieldset` parent wrapper element.
 // Internal use only.
-interface DatePickerWrapperProps extends DateRangeRowProps {
-  /** Additional className. */
-  className?: string;
+interface DatePickerWrapperProps
+  extends Omit<BoxProps, "onChange">,
+    DateRangeRowProps {
   /** Adds the 'required' property to the input element(s). */
   isRequired?: boolean;
   /** Passed to the `TextInput` component to render a label associated with an input field. */
@@ -81,7 +81,8 @@ export interface CustomTextInputProps extends Partial<InputProps> {
 }
 
 // Main interface for the exported DS DatePicker component.
-export interface DatePickerProps extends DatePickerWrapperProps {
+export interface DatePickerProps
+  extends Omit<DatePickerWrapperProps, "onChange"> {
   /** The date format to display. Defaults to "yyyy-MM-dd".
    * Must be in ISO-8601 format. */
   dateFormat?: string;
@@ -173,7 +174,7 @@ const CustomTextInput = forwardRef<TextInputRefType, CustomTextInputProps>(
       <TextInput
         additionalAriaLabel="Press tab to access the calendar."
         helperText={helperText}
-        id={id}
+        id={`${id}-textInput`}
         invalidText={invalidText}
         isDisabled={isDisabled}
         isInvalid={isInvalid}
@@ -207,7 +208,6 @@ const DatePickerWrapper: React.FC<
 > = chakra(
   ({
     children,
-    className,
     id,
     isDateRange,
     isRequired,
@@ -218,11 +218,10 @@ const DatePickerWrapper: React.FC<
   }) => {
     const styles = useMultiStyleConfig("DatePicker", {});
     return (
-      <FormField id={`${id}-form-field`} {...rest}>
+      <FormField id={id} gap="0" {...rest}>
         {isDateRange ? (
           <Fieldset
-            className={className}
-            id={id}
+            id={`${id}-fieldset`}
             isLegendHidden={!showLabel}
             isRequired={isRequired}
             legendText={labelText}
@@ -252,7 +251,7 @@ const DateRangeRow: React.FC<DateRangeRowProps & React.PropsWithChildren> = ({
   children,
 }) =>
   isDateRange ? (
-    <FormRow id={`${id}-form-row`} gap="grid.xs">
+    <FormRow id={`${id}-formRow`} gap="grid.xs">
       {children}
     </FormRow>
   ) : (
@@ -270,7 +269,6 @@ export const DatePicker: ChakraComponent<
 > = chakra(
   forwardRef<TextInputRefType, DatePickerProps>((props, ref?) => {
     const {
-      className,
       dateFormat = "yyyy-MM-dd",
       dateType = "full",
       helperText,
@@ -298,6 +296,7 @@ export const DatePicker: ChakraComponent<
       showRequiredLabel = true,
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const styles = useMultiStyleConfig("DatePicker", {});
     const finalStyles = isDateRange ? styles : {};
     const initStartDate = initialDate
@@ -388,12 +387,6 @@ export const DatePicker: ChakraComponent<
       baseDatePickerAttrs.dateFormat = "yyyy";
     }
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir DatePicker: This component's required `id` prop was not passed."
-      );
-    }
-
     if ((ref && !nameFrom) || (refTo && !nameTo)) {
       console.warn(
         "NYPL Reservoir DatePicker: A `ref` or `refTo` prop was passed but " +
@@ -446,12 +439,12 @@ export const DatePicker: ChakraComponent<
               // and `helperText` are displayed. It tells `TextInput` to associate
               // with both helper texts using `aria-describedby`.
               {...(helperTextTo && helperText
-                ? { additionalHelperTextIds: `${id}-helper-text` }
+                ? { additionalHelperTextIds: `${mainId}-helperErrorText` }
                 : {})}
               {...endCustomTextInputAttrs}
             />
           }
-          id={`${id}-end`}
+          id={`${mainId}-datePicker-end`}
           name={nameTo}
           onChange={(date: Date) => onChangeDefault(date, "endDate")}
           placeholderText={placeholderTo}
@@ -471,12 +464,12 @@ export const DatePicker: ChakraComponent<
             // and `helperText` are displayed and tells `TextInput` to associate
             // with both helper texts using `aria-describedby`.
             {...(isDateRange && helperTextFrom && helperText
-              ? { additionalHelperTextIds: `${id}-helper-text` }
+              ? { additionalHelperTextIds: `${mainId}-helperErrorText` }
               : {})}
             {...baseCustomTextInputAttrs}
           />
         }
-        id={`${id}-start`}
+        id={`${mainId}-datePicker-start`}
         name={nameFrom}
         onChange={(date: Date) => onChangeDefault(date, "startDate")}
         placeholderText={placeholder}
@@ -487,28 +480,31 @@ export const DatePicker: ChakraComponent<
 
     return (
       <DatePickerWrapper
-        id={id}
+        data-testid="ds-datePicker"
+        id={mainId}
         isDateRange={isDateRange}
         showLabel={showLabel}
         labelText={labelText}
-        className={className}
         isRequired={isRequired}
         showRequiredLabel={showRequiredLabel}
         {...rest}
       >
-        <DateRangeRow id={id} isDateRange={isDateRange}>
-          <FormField id={`${id}-start-form`}>
+        <DateRangeRow id={mainId} isDateRange={isDateRange}>
+          <FormField id={`${mainId}-startForm`}>
             {startDatePickerElement}
           </FormField>
 
           {endDatePickerElement && (
-            <FormField id={`${id}-end-form`}>{endDatePickerElement}</FormField>
+            <FormField id={`${mainId}-endForm`}>
+              {endDatePickerElement}
+            </FormField>
           )}
         </DateRangeRow>
         <HelperErrorText
-          id={`${id}-helper-text`}
+          id={`${mainId}-helperErrorText`}
           isInvalid={false}
           isRenderedText={isDateRange && showHelperInvalidText}
+          mt="helper.default"
           text={helperText}
         />
       </DatePickerWrapper>

@@ -1,55 +1,60 @@
 import { ArgTypes, Canvas, Meta, Source } from "@storybook/addon-docs/blocks";
 
-import * as AudioPlayerStories from "./AudioPlayer.stories";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Link from "../Link/Link";
+import * as AudioPlayerStories from "./AudioPlayer.stories";
 import { changelogData } from "./audioPlayerChangelogData";
 
 <Meta of={AudioPlayerStories} />
 
-# Audio Player
+<ComponentDocsHeader
+  category="Media & icon component"
+  componentName="AudioPlayer"
+  summary="Used to embed an audio stream from a 3rd party provider"
+  versionAdded="1.2.0"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `1.2.0`    |
-| Latest            | `3.6.4`    |
+<Canvas of={AudioPlayerStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#with-custom-heading" target="_self">With Custom Heading</Link>}
-- {<Link href="#example-embed-code-snippets" target="_self">Example Embed Code Snippets</Link>}
-- {<Link href="#errored" target="_self">Errored</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [With custom heading](#with-custom-heading)
+- [Example embed code snippets](#example-embed-code-snippets)
+- [Errored](#errored)
+- [Changelog](#changelog)
 
 ## Overview
 
 The `AudioPlayer` component is used to embed a streaming audio player from 3rd
-party services such as `Libsyn`, `SoundCloud`, and `Spotify` on a page. The
-component requires the `embedCode` prop or `filePath` prop. The component will
-not function properly if you try to set both of them.
+party services such as `Libsyn`, `SoundCloud`, and `Spotify` into a page. The
+component requires the `embedCode` prop.
 
 The current version of the `AudioPlayer` component does not support the playback
 of locally hosted audio files. That functionality will be added in a future
 version of the component.
 
-## Component Props
+## Component props
 
-<Canvas of={AudioPlayerStories.WithControls} />
+The `AudioPlayer` composes a Chakra `Box` component, so you may pass any Chakra
+`Box` props, as well as the props below.
 
 <ArgTypes of={AudioPlayerStories.WithControls} />
 
 ## Accessibility
 
-The `AudioPlayer` component renders an iframe element from `Libsyn`,
-`SoundCloud`, or `Spotify`. The accessibility of the `iframe` element can be
-improved if a `title` attribute is provided and most 3rd party audio services
-will include a `title` attribute in the embed code they provide. If the `title`
-attribute is omitted from the embed code, a default `title` will be added by the
-`AudioPlayer` component, but it is recommended to include a custom `title` that
-is related to the audio file content.
+The `AudioPlayer` component renders an `iframe` element from `Libsyn`, `SoundCloud`,
+or `Spotify`.
+
+The accessibility of the `iframe` element can be improved if a `title` attribute
+is provided. Most 3rd party audio services will include this `title` in the embed
+code they provide. If they do not, it is recommended to include a custom `title`
+that is related to the audio file content. Otherwise, a default `title` will be
+added.
 
 Because these audios are hosted on a third-party platform, we cannot guarantee
 that the audio player will be accessible. Besides setting the `title` in the
@@ -58,7 +63,7 @@ embedded `iframe`, there are _some ways_ we can reduce accessibility issues.
 - The player should not be set to auto-play when the page first loads.
 - The text in the heading, description and helper text element should be
   relevant and related to the embedded audio player.
-- The iframe title should describe in a few words the content of the embedded
+- The iframe title should describe, in a few words, the content of the embedded
   audio.
 - Consider using the description or helper text to add a link to a full
   transcript of the audio file. Refer to the link below for additional
@@ -71,25 +76,25 @@ Resources:
 - [MDN iframe: The Inline Frame element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
 - [Deque University Be Sure to Provide Titles for Iframes](https://dequeuniversity.com/tips/provide-iframe-titles)
 
-## With Custom Heading
+## With custom heading
 
 By default, the `AudioPlayer` will render an `h2` element when a string is
-passed to the `headingText` component. If this is an accessibility issue, it's
-possible to pass in a custom heading element.
+passed to the `headingText` component. If this does not fit into the heading
+hierarchy of your page, pass in a custom heading element to ensure accessibility.
 
 In the following example, an `h4` is rendered through the DS `Heading` component.
 
 <Source
   code={`
-
-const customH4 = <Heading level="h4">Custom H4 Heading</Heading>;
-
-<AudioPlayer headingText={customH4} {...props} />
-`} language="tsx" />
+  const customH4 = <Heading level="h4">Custom H4 Heading</Heading>;
+  <AudioPlayer headingText={customH4} {...props} />
+`}
+  language="tsx"
+/>
 
 <Canvas of={AudioPlayerStories.WithCustomHeading} />
 
-## Example Embed Code Snippets
+## Example embed code snippets
 
 The examples below are shown with precise HTML formatting. However, often the
 embed code snippets provided by 3rd party services are delivered as one long
@@ -98,23 +103,23 @@ string.
 ### Libsyn
 
 The following is an example iframe code for Libsyn that would go into the
-embedCode prop.
+`embedCode` prop.
 
 <Source
   code={`
-<iframe
-  title="Libsyn Player"
-  style="border: none"
-  src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/"
-  height="90"
-  width="100%"
-  scrolling="no"
-  allowfullscreen
-  webkitallowfullscreen
-  mozallowfullscreen
-  oallowfullscreen
-  msallowfullscreen
-></iframe>
+  <iframe
+    title="Libsyn Player"
+    style="border: none"
+    src="//html5-player.libsyn.com/embed/episode/id/18268511/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/87A93A/"
+    height="90"
+    width="100%"
+    scrolling="no"
+    allowfullscreen
+    webkitallowfullscreen
+    mozallowfullscreen
+    oallowfullscreen
+    msallowfullscreen
+  /></iframe>
 `}
   language="html"
 />
@@ -124,36 +129,36 @@ embedCode prop.
 ### SoundCloud
 
 The following is an example iframe code for SoundCloud that would go into the
-embedCode prop.
+`embedCode` prop.
 
 <Source
   code={`
-<iframe
-  width="100%"
-  height="300"
-  scrolling="no"
-  frameborder="no"
-  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/311382449&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-></iframe>
-<div
-  style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"
->
-  <a
-    href="https://soundcloud.com/nypl"
-    title="New York Public Library"
-    target="_blank"
-    style="color: #cccccc; text-decoration: none;"
-    >New York Public Library</a
+  <iframe
+    width="100%"
+    height="300"
+    scrolling="no"
+    frameborder="no"
+    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/311382449&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+  ></iframe>
+  <div
+    style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"
   >
-  ·
-  <a
-    href="https://soundcloud.com/nypl/journalism-in-the-age-of-trump"
-    title="Journalism in the Age of Trump"
-    target="_blank"
-    style="color: #cccccc; text-decoration: none;"
-    >Journalism in the Age of Trump</a
-  >
-</div>
+    <a
+      href="https://soundcloud.com/nypl"
+      title="New York Public Library"
+      target="_blank"
+      style="color: #cccccc; text-decoration: none;"
+      >New York Public Library</a
+    >
+    ·
+    <a
+      href="https://soundcloud.com/nypl/journalism-in-the-age-of-trump"
+      title="Journalism in the Age of Trump"
+      target="_blank"
+      style="color: #cccccc; text-decoration: none;"
+      >Journalism in the Age of Trump</a
+    >
+  </div>
 `}
   language="html"
 />
@@ -163,19 +168,19 @@ embedCode prop.
 ### Spotify
 
 The following is an example iframe code for Spotify that would go into the
-embedCode prop.
+`embedCode` prop.
 
 <Source
   code={`
-<iframe
-  style="border-radius:12px"
-  src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0uqkwkR49kK?utm_source=generator"
-  width="100%"
-  height="380"
-  frameborder="0"
-  allowfullscreen=""
-  allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-></iframe>
+  <iframe
+    style="border-radius:12px"
+    src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0uqkwkR49kK?utm_source=generator"
+    width="100%"
+    height="380"
+    frameborder="0"
+    allowfullscreen=""
+    allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+  ></iframe>
 `}
   language="html"
 />
@@ -184,8 +189,8 @@ embedCode prop.
 
 ## Errored
 
-If the necessary props are not passed to the `AudioPlayer` component, the
-component UI will display an error message.
+If the necessary props are not passed to the `AudioPlayer`, the component UI
+will display an error message.
 
 <Canvas of={AudioPlayerStories.ErroredExample} />
 

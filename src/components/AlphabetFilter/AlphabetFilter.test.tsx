@@ -8,6 +8,7 @@ import AlphabetFilter from "./AlphabetFilter";
 import Heading from "../Heading/Heading";
 
 const onClick = jest.fn();
+
 describe("AlphabetFilter accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
@@ -29,6 +30,13 @@ describe("AlphabetFilter accessibility", () => {
 });
 
 describe("AlphabetFilter", () => {
+  it("should not render an id if none is passed", () => {
+    render(<AlphabetFilter onClick={onClick} />);
+
+    const container = screen.getByTestId("ds-alphabetFilter");
+    expect(container).not.toHaveAttribute("id");
+  });
+
   it("should render a nav with 28 buttons", async () => {
     render(<AlphabetFilter onClick={onClick} id="alphabet-filter-id" />);
     const nav = screen.getByRole("navigation");

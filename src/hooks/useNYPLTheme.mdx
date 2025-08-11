@@ -1,57 +1,61 @@
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 
+import ComponentDocsHeader from "../utils/components/ComponentDocsHeader";
+
 <Meta title="Hooks/useNYPLTheme" />
 
-# useNYPLTheme
+<ComponentDocsHeader
+  category="Reservoir Custom Hook"
+  componentName="useNYPLTheme"
+  summary="Provides consuming apps with NYPL-specific style values"
+  versionAdded="0.25.2"
+  versionLatest="0.25.2"
+/>
 
-| Hook Version | DS Version |
-| ------------ | ---------- |
-| Added        | `0.25.2`   |
-| Latest       | `0.25.2`   |
-
-This custom hook is based on Chakra UI's `useTheme` hook. If your application
-does not use CSS or SCSS files and you want to write CSS-in-JS styles in your
-React components, the `useNYPLTheme` hook will provide you with NYPL-specific
-style values.
+<Source
+  code={`
+  import {
+    useNYPLTheme
+  } from "@nypl/design-system-react-components";
+  // ...
+  const theme = useNYPLTheme();
+`}
+  language="tsx"
+/>
 
 ## Usage
+
+This custom hook is based on Chakra UI's `useTheme` hook. If there is a need to
+style non-DS components in an app with DS styles, the `useNYPLTheme` hook will
+provide you with NYPL-specific style values.
 
 This hook depends on the `DSProvider` component and if the function is used
 outside of this wrapper component, then the theme object will be empty. After
 importing and rendering the `DSProvider` wrapper component, your children
 components can use this hook function.
 
-<Source
-  code={`
-import { useNYPLTheme } from "@nypl/design-system-react-components";
-// ...
-const theme = useNYPLTheme();
-`}
-  language="jsx"
-/>
-
-The `theme` variable will be a JS object with design token style values.
-This will allow you to use NYPL-specific styles in your components through CSS-in-JS.
+The `theme` variable will be a JS object with design token style values. This
+will allow you to use NYPL-specific styles in your components through CSS-in-JS.
 
 <Source
   code={`
-// theme:
-{
-  breakpoints: { ... },
-  colors: {
-    brand: { ... },
-    section: { ... },
-    transparent: { ... },
-    ui: { ... },
-  },
-  fontSizes: { ... },
-  fontWeights: { ... },
-  fonts: { ... },
-  radii: { ... },
-  space: { ... },
-}
+  // theme:
+  {
+    breakpoints: { ... },
+    colors: {
+      brand: { ... },
+      section: { ... },
+      transparent: { ... },
+      ui: { ... },
+    },
+    fontSizes: { ... },
+    fontWeights: { ... },
+    fonts: { ... },
+    radii: { ... },
+    space: { ... },
+  }
 `}
-  language="jsx"
+  language="tsx"
 />
 
 1. NYPL DS Components
@@ -67,40 +71,40 @@ the following:
 
 <Source
   code={`
-const theme = useNYPLTheme();
-// ...
-return (
-  <div>
-    <Heading
-      level={2}
-      color={theme.colors.ui.success.primary}
-      fontWeight={theme.fontWeights.bold}
-    >
-      Get a Digital Library Card Today in a Few Easy Steps
-    </Heading>
-    {/* Other components */}
-  </div>
-);
+  const theme = useNYPLTheme();
+  // ...
+  return (
+    <div>
+      <Heading
+        level={2}
+        color={theme.colors.ui.success.primary}
+        fontWeight={theme.fontWeights.bold}
+      >
+        Get a Digital Library Card Today in a Few Easy Steps
+      </Heading>
+      {/* Other components */}
+    </div>
+  );
 `}
-  language="jsx"
+  language="tsx"
 />
 
 Of course, you can destructure the `theme` object to only get the object keys
-you need for your component (this is a general example). Log the object to the
-console to see all the available styles.
+you need for your component. Log the `theme` object in your app to see all
+the available styles in the console.
 
 2. HTML Components
 
-Use the `style` attribute in HTML components to add inline styles.
+Use the `style` attribute in HTML elements to add inline styles.
 
 <Source
   code={`
-<p style={{ color: theme.colors.ui.success.primary }}>
-  If you are 13 or older and live, work, attend school, or pay property taxes in
-  New York State, you can get a free digital library card right now using this
-  online form. Visitors to New York State can also use this form to apply for a
-  temporary card.
-</p>
+  <p style={{ color: theme.colors.ui.success.primary }}>
+    If you are 13 or older and live, work, attend school, or pay property taxes in
+    New York State, you can get a free digital library card right now using this
+    online form. Visitors to New York State can also use this form to apply for a
+    temporary card.
+  </p>
 `}
-  language="jsx"
+  language="tsx"
 />

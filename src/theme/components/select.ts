@@ -3,7 +3,6 @@ import { StyleFunctionProps } from "@chakra-ui/system";
 
 import {
   defaultElementSizes,
-  labelLegendTextSpecialSpacing,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
 } from "./global";
@@ -11,10 +10,11 @@ import {
 // This function creates a set of function that helps us
 // create multipart component styles.
 const { defineMultiStyleConfig, definePartsStyle } =
-  createMultiStyleConfigHelpers(["helperText", "inline", "select"]);
+  createMultiStyleConfigHelpers(["inline", "select"]);
 
 interface SelectBaseStyle extends StyleFunctionProps {
   labelPosition: string;
+  showLabel: boolean;
 }
 
 const select = (labelPosition: string) => ({
@@ -65,17 +65,23 @@ const select = (labelPosition: string) => ({
 });
 
 const Select = defineMultiStyleConfig({
-  baseStyle: definePartsStyle(({ labelPosition }: SelectBaseStyle) => {
-    return {
-      inline: {
-        display: { md: "flex" },
-        gap: { md: "xs" },
-        alignItems: { md: "center" },
-      },
-      label: labelLegendTextSpecialSpacing,
-      select: select(labelPosition),
-    };
-  }),
+  baseStyle: definePartsStyle(
+    ({ labelPosition, labelWidth, showLabel }: SelectBaseStyle) => {
+      return {
+        inline: {
+          display: { md: "flex" },
+          gap: { md: "xs" },
+          alignItems: { md: "center" },
+        },
+        label: { marginBottom: "label.default" },
+        select: select(labelPosition),
+        "div[data-testid='ds-helperErrorText']": {
+          marginLeft:
+            !showLabel && labelPosition === "inline" ? "0" : `${labelWidth}px`,
+        },
+      };
+    }
+  ),
   variants: {
     searchbar: definePartsStyle({
       select: {

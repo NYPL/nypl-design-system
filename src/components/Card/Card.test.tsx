@@ -10,11 +10,39 @@ import Image from "../Image/Image";
 import Link from "../Link/Link";
 import { getPlaceholderImage } from "../../utils/utils";
 
+jest.mock("../../hooks/useSafeId", () => ({
+  ...jest.requireActual("../../hooks/useSafeId"),
+  useSafeId: jest.fn((id) => id || "test-id"),
+}));
+
 describe("Card Accessibility", () => {
   it("passes axe accessibility test", async () => {
     const { container } = render(
       <Card
         id="cardID"
+        imageProps={{
+          alt: "Alt text",
+          id: "img-id",
+          src: getPlaceholderImage("smaller", 0),
+        }}
+      >
+        <CardHeading level="h3" id="heading1">
+          The Card Heading
+        </CardHeading>
+        <CardContent>middle column content</CardContent>
+        <CardActions>
+          <Button onClick={() => {}} id="button1" type="submit">
+            Example CTA
+          </Button>
+        </CardActions>
+      </Card>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  it("passes axe accessibility test with no id", async () => {
+    const { container } = render(
+      <Card
         imageProps={{
           alt: "Alt text",
           id: "img-id",
@@ -61,6 +89,25 @@ describe("Card Accessibility", () => {
 });
 
 describe("Card", () => {
+  const cardNoId = (
+    <Card
+      imageProps={{
+        alt: "Alt text",
+        id: "img-id-cardNoId",
+        src: getPlaceholderImage("smaller", 0),
+      }}
+    >
+      <CardHeading level="h3" id="heading1">
+        The Card Heading
+      </CardHeading>
+      <CardContent>middle column content</CardContent>
+      <CardActions>
+        <Button onClick={() => {}} id="button1" type="submit">
+          Example CTA
+        </Button>
+      </CardActions>
+    </Card>
+  );
   const regularCard = (ref?: React.RefObject<HTMLDivElement>) => (
     <Card
       id="regularCard"
@@ -104,10 +151,10 @@ describe("Card", () => {
         </div>
       </CardContent>
       <CardActions>
-        <Link id="link-online" href="online" type="button">
+        <Link id="link-online" href="online" variant="buttonPrimary">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type="action">
+        <Link id="link-icon" href="#url" variant="action">
           <Icon
             align="left"
             iconRotation="rotate0"
@@ -153,10 +200,10 @@ describe("Card", () => {
         The Card Heading
       </CardHeading>
       <CardActions>
-        <Link id="link-online" href="online" type="button">
+        <Link id="link-online" href="online" variant="buttonPrimary">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type="action">
+        <Link id="link-icon" href="#url" variant="action">
           <Icon
             align="left"
             iconRotation="rotate0"
@@ -175,10 +222,10 @@ describe("Card", () => {
       </CardHeading>
       <CardContent>middle column content</CardContent>
       <CardActions>
-        <Link id="link-online" href="online" type="button">
+        <Link id="link-online" href="online" variant="buttonPrimary">
           Read Online
         </Link>
-        <Link id="link-icon" href="#url" type="action">
+        <Link id="link-icon" href="#url" variant="action">
           <Icon
             align="left"
             iconRotation="rotate0"
@@ -297,6 +344,11 @@ describe("Card", () => {
     </Card>
   );
   let container;
+
+  it("should add an id to the component even if none is passed", () => {
+    render(cardNoId);
+    expect(screen.getByTestId("ds-card")).toHaveAttribute("id", "test-id");
+  });
 
   it("renders a Card with a header, image, content, and CTAs", () => {
     const utils = render(regularCard());

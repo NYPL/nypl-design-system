@@ -11,3 +11,4 @@ dist
 coverage
 .idea
 .jest-test-results.json
+vite.config.ts.timestamp-*

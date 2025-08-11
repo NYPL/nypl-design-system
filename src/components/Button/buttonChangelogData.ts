@@ -10,6 +10,23 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: [
+      "Removes deprecated `link` buttonType.",
+      "Changes theme name from `CustomButton` to `ReservoirButton` for consistency.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes `type` and `onClick` props (as HTML equivalents may be used) and updates docs.",
+      "Renames `buttonType` to `variant`.",
+      "Replaces `buttonSizesArray` with shared sizes array.",
+      "Removes `Children.map` logic; consuming apps must now use the `iconOnly` variant for icon-only buttons.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-button` to the parent element.",
+    ],
+  },
+  {
     date: "2025-05-22",
     version: "3.6.2",
     type: "Bug Fix",

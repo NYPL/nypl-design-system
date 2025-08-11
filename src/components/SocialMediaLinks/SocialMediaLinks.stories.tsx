@@ -5,11 +5,11 @@ import SocialMediaLinks, {
   SocialMediaLinkDataProps,
   borderTypeArray,
   colorTypeArray,
-  sizeTypeArray,
 } from "./SocialMediaLinks";
 import { layoutTypesArray } from "../../helpers/types";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
+import { sizesArray } from "../../theme/sharedTypes";
 
 const exampleAllLinkData: SocialMediaLinkDataProps[] = [
   {
@@ -122,22 +122,12 @@ const meta: Meta<typeof SocialMediaLinks> = {
         defaultValue: { summary: "none" },
       },
     },
-    className: {
-      table: {
-        disable: false,
-      },
-    },
     color: {
       control: { type: "radio" },
       options: colorTypeArray,
       table: {
         disable: false,
         defaultValue: { summary: "textDefault" },
-      },
-    },
-    id: {
-      table: {
-        disable: false,
       },
     },
     layout: {
@@ -159,7 +149,7 @@ const meta: Meta<typeof SocialMediaLinks> = {
     },
     size: {
       control: { type: "radio" },
-      options: sizeTypeArray,
+      options: sizesArray,
       table: {
         disable: false,
         defaultValue: { summary: "small" },
@@ -184,7 +174,6 @@ export const WithControls: Story = {
   args: {
     borders: "none",
     color: "textDefault",
-    className: undefined,
     id: undefined,
     layout: "row",
     linksData: exampleLinkData,
@@ -237,6 +226,7 @@ export const LayoutVariations: Story = {
         <Heading
           id="heading-row-layout"
           level="h4"
+          mb="s"
           size="heading6"
           text="Row (Default)"
         />
@@ -246,6 +236,7 @@ export const LayoutVariations: Story = {
         <Heading
           id="heading-column-layout"
           level="h4"
+          mb="s"
           size="heading6"
           text="Column"
         />
@@ -262,6 +253,7 @@ export const SizeVariations: Story = {
         <Heading
           id="heading-small-size"
           level="h4"
+          mb="s"
           size="heading6"
           text="Small (Default)"
         />
@@ -271,6 +263,7 @@ export const SizeVariations: Story = {
         <Heading
           id="heading-medium-size"
           level="h4"
+          mb="s"
           size="heading6"
           text="Medium"
         />
@@ -280,6 +273,7 @@ export const SizeVariations: Story = {
         <Heading
           id="heading-large-size"
           level="h4"
+          mb="s"
           size="heading6"
           text="Large"
         />
@@ -296,6 +290,7 @@ export const ColorVariations: Story = {
         <Heading
           id="heading-textdefault-color"
           level="h4"
+          mb="s"
           size="heading6"
           text="Site Default"
         />
@@ -305,6 +300,7 @@ export const ColorVariations: Story = {
         <Heading
           id="heading-links-color"
           level="h4"
+          mb="s"
           size="heading6"
           text="Link"
         />
@@ -314,6 +310,7 @@ export const ColorVariations: Story = {
         <Heading
           id="heading-textinverse-color"
           level="h4"
+          mb="s"
           size="heading6"
           text="textInverse"
         />
@@ -339,6 +336,7 @@ export const BorderVariations: Story = {
         <Heading
           id="heading-border-none"
           level="h4"
+          mb="s"
           size="heading6"
           text="None (Default)"
         />
@@ -348,6 +346,7 @@ export const BorderVariations: Story = {
         <Heading
           id="heading-border-straight"
           level="h4"
+          mb="s"
           size="heading6"
           text="Straight"
         />
@@ -357,12 +356,13 @@ export const BorderVariations: Story = {
         <Heading
           id="heading-border-circular"
           level="h4"
+          mb="s"
           size="heading6"
           text="Circular"
         />
         <SocialMediaLinks borders="circular" linksData={exampleLinkData} />
         <Text size={"caption"} mt="s">
-          NOTE: labels are disallowed with circular borders.
+          NOTE: labels are not recommended with circular borders.
         </Text>
       </Box>
     </VStack>
@@ -376,13 +376,20 @@ export const LabelVariations: Story = {
         <Heading
           id="heading-nolabels"
           level="h4"
+          mb="s"
           size="heading6"
           text="False (Default)"
         />
         <SocialMediaLinks showLabels={false} linksData={exampleTwoLinkData} />
       </Box>
       <Box>
-        <Heading id="heading-labels" level="h4" size="heading6" text="True" />
+        <Heading
+          id="heading-labels"
+          level="h4"
+          mb="s"
+          size="heading6"
+          text="True"
+        />
         <SocialMediaLinks showLabels={true} linksData={exampleTwoLinkData} />
       </Box>
     </VStack>

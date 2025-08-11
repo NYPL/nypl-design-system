@@ -31,7 +31,7 @@ export { default as DSProvider } from "./theme/provider";
 // Components
 export { default as Accordion } from "./components/Accordion/Accordion";
 export type {
-  AccordionTypes,
+  AccordionVariants,
   AccordionDataProps,
 } from "./components/Accordion/Accordion";
 export { default as AlphabetFilter } from "./components/AlphabetFilter/AlphabetFilter";
@@ -43,14 +43,14 @@ export type {
 } from "./components/AudioPlayer/AudioPlayer";
 export { default as Banner } from "./components/Banner/Banner";
 export type {
-  BannerTypes,
+  BannerVariants,
   BannerBgColors,
   BannerHighlightColors,
   BannerProps,
 } from "./components/Banner/Banner";
 export { default as Breadcrumbs } from "./components/Breadcrumbs/Breadcrumbs";
 export type {
-  BreadcrumbsTypes,
+  BreadcrumbsVariants,
   BreadcrumbProps,
   BreadcrumbsDataProps,
 } from "./components/Breadcrumbs/Breadcrumbs";
@@ -59,7 +59,7 @@ export type {
   ButtonElementType,
   ButtonProps,
   ButtonSizes,
-  ButtonTypes,
+  ButtonVariants,
 } from "./components/Button/Button";
 export { default as ButtonGroup } from "./components/ButtonGroup/ButtonGroup";
 export type { ButtonGroupProps } from "./components/ButtonGroup/ButtonGroup";
@@ -111,7 +111,6 @@ export {
 export type { FilterBarPopupProps } from "./components/FilterBarPopup/FilterBarPopup";
 export { default as Form, FormField, FormRow } from "./components/Form/Form";
 export type { FormProps } from "./components/Form/Form";
-export { default as Header } from "./components/Header/Header";
 export { default as Heading } from "./components/Heading/Heading";
 export type {
   HeadingLevels,
@@ -121,7 +120,7 @@ export type {
 export { default as HelperErrorText } from "./components/HelperErrorText/HelperErrorText";
 export type { HelperErrorTextProps } from "./components/HelperErrorText/HelperErrorText";
 export { default as Hero } from "./components/Hero/Hero";
-export type { HeroProps, HeroTypes } from "./components/Hero/Hero";
+export type { HeroProps, HeroVariants } from "./components/Hero/Hero";
 export { default as HorizontalRule } from "./components/HorizontalRule/HorizontalRule";
 export type { HorizontalRuleProps } from "./components/HorizontalRule/HorizontalRule";
 export { default as Icon } from "./components/Icons/Icon";
@@ -130,9 +129,8 @@ export type {
   IconColors,
   IconNames,
   IconRotations,
-  IconRotationTypes,
   IconSizes,
-  IconTypes,
+  IconVariants,
   IconProps,
 } from "./components/Icons/Icon";
 export { default as Image } from "./components/Image/Image";
@@ -151,12 +149,12 @@ export type {
   SectionTypes,
 } from "./helpers/types";
 export { default as Link } from "./components/Link/Link";
-export type { LinkProps, LinkTypes } from "./components/Link/Link";
+export type { LinkProps, LinkVariants } from "./components/Link/Link";
 export { default as List } from "./components/List/List";
 export type {
   DescriptionProps,
   ListProps,
-  ListTypes,
+  ListVariants,
 } from "./components/List/List";
 export { default as Logo } from "./components/Logo/Logo";
 export type { LogoNames, LogoProps, LogoSizes } from "./components/Logo/Logo";
@@ -196,7 +194,7 @@ export type {
 export { default as Notification } from "./components/Notification/Notification";
 export type {
   NotificationProps,
-  NotificationTypes,
+  NotificationVariants,
 } from "./components/Notification/Notification";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export type { PaginationProps } from "./components/Pagination/Pagination";
@@ -216,7 +214,7 @@ export { default as Select } from "./components/Select/Select";
 export type {
   LabelPositions,
   SelectProps,
-  SelectTypes,
+  SelectVariants,
 } from "./components/Select/Select";
 export { default as SimpleGrid } from "./components/Grid/SimpleGrid";
 export type { GridGaps, SimpleGridProps } from "./components/Grid/SimpleGrid";
@@ -233,9 +231,8 @@ export { default as SocialMediaLinks } from "./components/SocialMediaLinks/Socia
 export type { SocialMediaLinkDataProps } from "./components/SocialMediaLinks/SocialMediaLinks";
 export { default as StatusBadge } from "./components/StatusBadge/StatusBadge";
 export type {
-  StatusBadgeLevels,
   StatusBadgeProps,
-  StatusBadgeTypes,
+  StatusBadgeVariants,
 } from "./components/StatusBadge/StatusBadge";
 export { default as StructuredContent } from "./components/StructuredContent/StructuredContent";
 export type {
@@ -253,7 +250,7 @@ export {
   SubNavLink,
 } from "./components/SubNav/SubNav";
 export { default as Table } from "./components/Table/Table";
-export type { TableBodyTextSizes, TableProps } from "./components/Table/Table";
+export type { TableProps } from "./components/Table/Table";
 export {
   default as Tabs,
   TabList,
@@ -263,7 +260,7 @@ export {
 } from "./components/Tabs/Tabs";
 export type { TabsDataProps, TabsProps } from "./components/Tabs/Tabs";
 export { default as TagSet } from "./components/TagSet/TagSet";
-export type { TagSetProps, TagSetTypeProps } from "./components/TagSet/TagSet";
+export type { TagSetProps } from "./components/TagSet/TagSet";
 export type {
   TagSetExploreDataProps,
   TagSetExploreProps,
@@ -273,24 +270,14 @@ export type {
   TagSetFilterProps,
 } from "./components/TagSet/TagSetFilter";
 export {
-  TemplateAppContainer,
   Template,
-  TemplateAboveHeader,
-  TemplateHeader,
   TemplateBreakout,
   TemplateContent,
-  TemplateContentTop,
-  TemplateContentPrimary,
-  TemplateContentSidebar,
   TemplateFooter,
-} from "./components/Template/Template";
-export type {
-  TemplateAppContainerProps,
-  TemplateProps,
-  TemplateContentProps,
-  TemplateFooterProps,
-  TemplateHeaderProps,
-  TemplateSidebarProps,
+  TemplateFull,
+  TemplateHeader,
+  TemplateMain,
+  TemplateSidebar,
 } from "./components/Template/Template";
 export { default as Text } from "./components/Text/Text";
 export type { TextProps, TextSizes } from "./components/Text/Text";
@@ -311,13 +298,12 @@ export type {
   VideoPlayerTypes,
 } from "./components/VideoPlayer/VideoPlayer";
 // Hooks
-export { default as useCarouselStyles } from "./hooks/useCarouselStyles";
 export { default as useCloseDropDown } from "./hooks/useCloseDropDown";
+export { default as useFormatNumber } from "./hooks/useFormatNumber";
 export { default as useMultiSelect } from "./hooks/useMultiSelect";
 export { default as useNYPLBreakpoints } from "./hooks/useNYPLBreakpoints";
 export { default as useNYPLTheme } from "./hooks/useNYPLTheme";
-export { default as useWindowSize } from "./hooks/useWindowSize";
+export { default as useResponsiveSpacing } from "./hooks/useResponsiveSpacing";
 export { default as useScrollFadeStyles } from "./hooks/useScrollFadeStyles";
-export { default as useFormatNumber } from "./hooks/useFormatNumber";
 // Utils
 export type { AutoCompleteValues } from "./utils/constantValues";

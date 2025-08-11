@@ -6,9 +6,6 @@ import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 
 interface ProgressIndicatorBaseStyle extends StyleFunctionProps {
-  // darkMode is a deprecated prop. It remains here so as not to
-  // cause a breaking change for those apps that still use it.
-  darkMode: boolean;
   size: ProgressIndicatorSizes;
   labelPlacement: ProgressIndicatorLabelPlacements;
 }
@@ -48,12 +45,10 @@ const getCircularContainerFlexDir = (labelPlacement) => {
 
 const ProgressIndicator = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({ darkMode, size, labelPlacement }: ProgressIndicatorBaseStyle) => {
+    ({ size, labelPlacement }: ProgressIndicatorBaseStyle) => {
       const circularLabelMargin = size === "default" ? "xs" : "xxs";
       return {
-        color: darkMode
-          ? "dark.ui.typography.heading"
-          : "ui.typography.heading",
+        color: "ui.typography.heading",
         fontSize: "desktop.body.body2",
         _dark: {
           color: "dark.ui.typography.heading",
@@ -67,13 +62,13 @@ const ProgressIndicator = defineMultiStyleConfig({
             display: "block",
             circle: {
               _first: {
-                stroke: darkMode ? "ui.gray.dark" : "ui.gray.light-cool",
+                stroke: "ui.gray.light-cool",
                 _dark: {
                   stroke: "dark.ui.bg.hover",
                 },
               },
               _last: {
-                stroke: darkMode ? "ui.white" : "ui.link.primary",
+                stroke: "ui.link.primary",
                 _dark: { stroke: "dark.ui.link.primary" },
               },
             },
@@ -99,13 +94,13 @@ const ProgressIndicator = defineMultiStyleConfig({
           // Hard to target this specific element without using
           // "Progress" as the key name in index.ts
           "> div": {
-            bg: darkMode ? "ui.white" : "ui.link.primary",
+            bg: "ui.link.primary",
             _dark: {
               bg: "dark.ui.link.primary",
             },
           },
           flex: 25,
-          bg: darkMode ? "ui.gray.dark" : "ui.gray.light-cool",
+          bg: "ui.gray.light-cool",
           height: {
             base: "4px",
             md: size === "default" ? "8px" : "4px",

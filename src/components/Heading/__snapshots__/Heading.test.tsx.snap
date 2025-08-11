@@ -3,6 +3,7 @@
 exports[`Heading renders the UI snapshot correctly 1`] = `
 <h1
   className="chakra-heading css-1xdhyk6"
+  data-testid="ds-heading"
   id="basic"
 >
   Heading text
@@ -12,6 +13,7 @@ exports[`Heading renders the UI snapshot correctly 1`] = `
 exports[`Heading renders the UI snapshot correctly 2`] = `
 <h1
   className="chakra-heading css-1xdhyk6"
+  data-testid="ds-heading"
   id="basicWithChildText"
 >
   Heading text
@@ -21,6 +23,7 @@ exports[`Heading renders the UI snapshot correctly 2`] = `
 exports[`Heading renders the UI snapshot correctly 3`] = `
 <h1
   className="chakra-heading css-1xdhyk6"
+  data-testid="ds-heading"
   id="customDisplaySize"
 >
   Heading with Secondary size
@@ -30,6 +33,7 @@ exports[`Heading renders the UI snapshot correctly 3`] = `
 exports[`Heading renders the UI snapshot correctly 4`] = `
 <h6
   className="chakra-heading css-1xdhyk6"
+  data-testid="ds-heading"
   id="otherLevel"
 >
   Heading level six
@@ -39,12 +43,13 @@ exports[`Heading renders the UI snapshot correctly 4`] = `
 exports[`Heading renders the UI snapshot correctly 5`] = `
 <h1
   className="chakra-heading css-1xdhyk6"
+  data-testid="ds-heading"
   id="withLink"
 >
   <a
     className="chakra-link css-1xdhyk6"
+    data-testid="ds-link"
     href="fake-url"
-    id="withLink-link"
     rel={null}
     target={null}
   >
@@ -56,6 +61,7 @@ exports[`Heading renders the UI snapshot correctly 5`] = `
 exports[`Heading renders the UI snapshot correctly 6`] = `
 <h1
   className="chakra-heading css-1xdhyk6"
+  data-testid="ds-heading"
   id="withCustomLink"
 >
   Part of the heading text is
@@ -73,6 +79,7 @@ exports[`Heading renders the UI snapshot correctly 6`] = `
 exports[`Heading renders the UI snapshot correctly 7`] = `
 <h2
   className="chakra-heading css-10g9ftz"
+  data-testid="ds-heading"
   id="chakra"
 >
   Heading
@@ -92,18 +99,21 @@ exports[`Heading renders the UI snapshot correctly 8`] = `
 exports[`Heading renders the UI snapshot correctly 9`] = `
 <hgroup
   aria-roledescription="Heading group"
-  className="css-0"
+  className="css-1xdhyk6"
+  data-testid="ds-heading-group"
   role="group"
 >
   <p
     aria-roledescription="Subtitle"
     className="chakra-text css-e3ddnr"
+    data-testid="ds-text"
     role="paragraph"
   >
     Overline
   </p>
   <h1
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="customDisplaySize"
   >
     Heading with Secondary size
@@ -114,11 +124,13 @@ exports[`Heading renders the UI snapshot correctly 9`] = `
 exports[`Heading renders the UI snapshot correctly 10`] = `
 <hgroup
   aria-roledescription="Heading group"
-  className="css-0"
+  className="css-1xdhyk6"
+  data-testid="ds-heading-group"
   role="group"
 >
   <h1
     className="chakra-heading css-1xdhyk6"
+    data-testid="ds-heading"
     id="customDisplaySize"
   >
     Heading with Secondary size
@@ -126,6 +138,7 @@ exports[`Heading renders the UI snapshot correctly 10`] = `
   <p
     aria-roledescription="Subtitle"
     className="chakra-text css-dqoc1s"
+    data-testid="ds-text"
     role="paragraph"
   >
     This is the subtitle
@@ -136,18 +149,21 @@ exports[`Heading renders the UI snapshot correctly 10`] = `
 exports[`Heading renders the UI snapshot correctly 11`] = `
 <hgroup
   aria-roledescription="Heading group"
-  className="css-0"
+  className="css-1xdhyk6"
+  data-testid="ds-heading-group"
   role="group"
 >
   <p
     aria-roledescription="Subtitle"
     className="chakra-text css-e3ddnr"
+    data-testid="ds-text"
     role="paragraph"
   >
     Overline
   </p>
   <h1
-    className="chakra-heading css-1xdhyk6"
+    className="chakra-heading css-0"
+    data-testid="ds-heading"
     id="customDisplaySize"
   >
     Heading with Secondary size
@@ -155,6 +171,7 @@ exports[`Heading renders the UI snapshot correctly 11`] = `
   <p
     aria-roledescription="Subtitle"
     className="chakra-text css-dqoc1s"
+    data-testid="ds-text"
     role="paragraph"
   >
     This is the subtitle

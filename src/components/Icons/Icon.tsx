@@ -1,7 +1,9 @@
 import {
-  Icon as ChakraIcon,
   Box,
+  BoxProps,
   chakra,
+  ChakraProps,
+  Icon as ChakraIcon,
   useStyleConfig,
   ChakraComponent,
 } from "@chakra-ui/react";
@@ -14,23 +16,20 @@ import {
   iconNamesArray,
   iconRotationsArray,
   iconSizesArray,
-  iconTypesArray,
+  iconVariantsArray,
 } from "./iconVariables";
 
 export type IconAlign = typeof iconAlignArray[number];
 export type IconColors = typeof iconColorsArray[number];
 export type IconNames = typeof iconNamesArray[number];
 export type IconRotations = typeof iconRotationsArray[number];
-// `IconRotationTypes` is deprecated; `IconRotations` should be used instead
-export type IconRotationTypes = typeof iconRotationsArray[number];
 export type IconSizes = typeof iconSizesArray[number];
-export type IconTypes = typeof iconTypesArray[number];
+export type IconVariants = typeof iconVariantsArray[number];
 
-export interface IconProps {
+export interface IconProps
+  extends Pick<BoxProps, "className" | "id" | keyof ChakraProps> {
   /** Aligns the icon. */
   align?: IconAlign;
-  /** Optional className that will be added to the parent element */
-  className?: string;
   /** Overrides default icon color (black). */
   color?: IconColors;
   /** Icons designated as decorative will be ignored by screenreaders. True
@@ -38,8 +37,6 @@ export interface IconProps {
   decorative?: boolean;
   /** Rotates the icon clockwise in increments of 90deg */
   iconRotation?: IconRotations;
-  /** ID that other components can cross reference for accessibility purposes */
-  id?: string;
   /** The name of the icon you want to use. */
   name?: IconNames;
   /** Sets the icon size. */
@@ -49,7 +46,7 @@ export interface IconProps {
    * visible but is needed for screenreaders to describe the graphic. */
   title?: string;
   /** FOR INTERNAL DS USE ONLY: the icon variant to display. */
-  type?: IconTypes;
+  variant?: IconVariants;
 }
 
 /**
@@ -69,7 +66,6 @@ export const Icon: ChakraComponent<
     const {
       align = "none",
       children,
-      className,
       color = "ui.black",
       decorative = true,
       iconRotation = "rotate0",
@@ -77,7 +73,7 @@ export const Icon: ChakraComponent<
       name,
       size = "default",
       title = `${name} icon`,
-      type = "default",
+      variant = "default",
       ...rest
     } = props;
     const styles = useStyleConfig("ReservoirIcon", {
@@ -85,11 +81,10 @@ export const Icon: ChakraComponent<
       color,
       iconRotation,
       size,
-      variant: type,
+      variant,
     });
     const iconProps = {
       "aria-hidden": decorative,
-      className,
       id,
       role: "img",
       title,
@@ -126,8 +121,7 @@ export const Icon: ChakraComponent<
     // Apply icon props to the SVG child.
     if (
       (children as JSX.Element).type === "svg" ||
-      (children as JSX.Element).props?.type === "svg" ||
-      (children as JSX.Element).props?.mdxType === "svg"
+      (children as JSX.Element).props?.type === "svg"
     ) {
       childSVG = React.cloneElement(children as JSX.Element, {
         ...iconProps,

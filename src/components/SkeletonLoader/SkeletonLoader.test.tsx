@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import * as React from "react";
 import renderer from "react-test-renderer";
@@ -13,6 +13,11 @@ describe("SkeletonLoader Accessibility", () => {
 });
 
 describe("SkeletonLoader", () => {
+  it("should not render an id if none is passed", () => {
+    render(<SkeletonLoader />);
+    const skeletonLoader = screen.getByTestId("ds-skeletonLoader");
+    expect(skeletonLoader).not.toHaveAttribute("id");
+  });
   it("renders default layout", () => {
     const { container } = render(
       <SkeletonLoader className="skeleton-loader" id="skeleton" />
@@ -20,15 +25,6 @@ describe("SkeletonLoader", () => {
 
     expect(container.querySelector(".skeleton-loader")).toBeInTheDocument();
     expect(container.querySelector("#skeleton")).toBeInTheDocument();
-  });
-
-  it("renders in the column or row layout", () => {
-    const { container, rerender } = render(<SkeletonLoader layout="column" />);
-
-    expect(container.querySelector(".column")).toBeInTheDocument();
-
-    rerender(<SkeletonLoader layout="row" />);
-    expect(container.querySelector(".row")).toBeInTheDocument();
   });
 
   it("renders default elements", () => {

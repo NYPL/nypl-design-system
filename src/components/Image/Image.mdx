@@ -1,53 +1,76 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
 import Banner from "../Banner/Banner";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as ImageStories from "./Image.stories";
 import Link from "../Link/Link";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import { changelogData } from "./imageChangelogData";
 
 <Meta of={ImageStories} />
 
-# Image
+<ComponentDocsHeader
+  category="Media & icon component"
+  componentName="Image"
+  summary="Renders a formatted image"
+  versionAdded="0.0.6"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.0.6`    |
-| Latest            | `3.5.5`    |
+<Canvas of={ImageStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#credit-and-caption" target="_self">Credit and Caption</Link>}
-- {<Link href="#sizes" target="_self">Sizes</Link>}
-- {<Link href="#aspect-ratios" target="_self">Aspect Ratios</Link>}
-- {<Link href="#types" target="_self">Types</Link>}
-- {<Link href="#html-attributes" target="_self">HTML Attributes</Link>}
-- {<Link href="#fallback-image" target="_self">Fallback Image</Link>}
-- {<Link href="#lazy-loading" target="_self">Lazy Loading</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Credit and caption](#credit-and-caption)
+- [Sizes](#sizes)
+- [Aspect ratios](#aspect-ratios)
+- [Types](#types)
+- [HTML attributes](#html-attributes)
+- [Fallback image](#fallback-image)
+- [Lazy loading](#lazy-loading)
+- [Changelog](#changelog)
 
 ## Overview
 
-<Description of={ImageStories.WithControls} />
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> This page mostly describes the Reservoir{" "}
+      <code>Image</code> component. If you'd like to use Next.js's{" "}
+      <code>Image</code>, see the recommendations for styling it{" "}
+      <a href="./?path=/docs/development-guide-using-next-js-image--docs">
+        here
+      </a>
+      .
+    </>
+  }
+  variant="informative"
+/>
 
-If you want a simple HTML `img` element then don't pass in values for the
-`aspectRatio` or `size` props.
+`Image` renders a formatted image. If you want a simple HTML `img` element (without
+a wrapper), don't pass in an `aspectRatio` or `size`.
 
-## Component Props
+## Component props
 
-<Canvas of={ImageStories.WithControls} />
+`Image` composes an HTML `img` element, so you may pass any HTML `img` attributes,
+as well any Chakra style props and the props below.
 
 <ArgTypes of={ImageStories.WithControls} />
 
 ## Accessibility
 
-The `alt` prop should be used to concisely describe the image. If the image is purely decorative,
-the `alt` attribute should still be present, but can be set to an empty string. In this scenario,
-an `alt` prop does not need to be passed. The component will set the attribute to an empty string
-`""` by default.
+The `alt` attribute should be used to concisely describe the image. For purely
+decorative images, you do not need to explicitly pass an `alt` prop; the
+component will automatically set it to an empty string ("") by default.
 
 Resources:
 
@@ -55,32 +78,30 @@ Resources:
 - [WebAIM Accessible Images](https://webaim.org/techniques/images/)
 - [Yale Usability & Web Accessibility](https://usability.yale.edu/web-accessibility/articles/images)
 
-## Credit and Caption
+## Credit and caption
 
-By passing in `credit` or `caption`, the `Image` component will
-render an HTML `figure` element and render an `img` element inside with the
-proper props. If no `credit` or `caption` prop values are passed,
-then an `img` element will be rendered with or without wrapper style divs.
+Passing the `credit` or `caption` prop will cause the `Image` to render an HTML
+`figure` element with an `img` inside it.
 
 <Canvas of={ImageStories.FigureAndFigcaption} />
 
 ## Sizes
 
-Use the `size` prop to set the desired size with the `ImageSizes` enum.
+Use the `size` prop and an `ImageSizes` value to set the desired size.
 
-In addition, the `sizeBasedOn` prop can be passed to determine whether the size
-of the `Image` is updated based on either the `"height"` or `"width"`. By default,
-the `sizeBasedOn` prop is set to `"width"`.
+The `sizeBasedOn` prop can be passed to determine whether the size of the
+`Image` is updated based on either the `"height"` or `"width"`. By default,
+it is set to `"width"`.
 
-### Size Based On Width
+### Size based on width
 
 <Canvas of={ImageStories.Sizes} />
 
-### Size Based On Height
+### Size based on height
 
 <Canvas of={ImageStories.SizesBasedOnHeight} />
 
-## Aspect Ratios
+## Aspect ratios
 
 Use the `aspectRatio` prop to set the desired aspect ratio. Note: the
 following example has `size` set to `ImageSizes.Small`.
@@ -100,26 +121,42 @@ in an element with a fixed width value.
 
 <Canvas of={ImageStories.Types} />
 
-## HTML Attributes
+## HTML attributes
 
-The `Image` component accepts HTML image attributes. If needed, you can pass
-functions such as `onLoad` and `onError` or attributes such as `srcset`.
+The `Image` component accepts HTML image attributes, and in fact, if you are
+using the internal DS image (not passing a custom image component),
+you must pass a `src` attribute. The `alt` attribute is also required unless the
+image is purely decorative.
 
-For both examples below, open the browser's console to see the log messages. In
-the first example below, when the image is finished loading, the `onLoad`
-function callback is called. The image's dimensions are logged. In the second
-example, there is an (intentional) error with the image's URL. This will trigger
-the `onError` function callback.
+If needed, you can pass functions such as `onLoad` and `onError` or attributes
+such as `srcset`.
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> For the examples below, open the browser's console
+      to see the logged messages.
+    </>
+  }
+  variant="informative"
+/>
+
+In the first example, when the image is finished loading, the `onLoad` callback
+runs and the image's dimensions are logged.
+
+In the second, there is an (intentional) error with the image's URL. This will
+trigger the `onError` callback.
 
 <Canvas of={ImageStories.HTMLAttributes} />
 
-## Fallback Image
+## Fallback image
 
-Sometimes images don't load due to network issues or the image URL is incorrect.
-Set a fallback image source through the `fallbackSrc` prop. Internally, the
-`Image` component will call the `img` element's `onerror` attribute with a
-callback function to load the `fallbackSrc` image. Additionally, a warning will
-be logged to the console when the error occurs and the fallback image is loaded.
+Sometimes, images don't load due to network issues or other reasons. You can
+set a fallback image source through the `fallbackSrc` prop.
+
+Internally, `Image` will call the `img`'s `onerror` attribute with a callback to
+load the `fallbackSrc` image. Additionally, a warning will be logged to the
+console when the error occurs and the fallback image is loaded.
 
 If an _additional_ action needs to be performed when the fallback image is
 loaded, pass a callback function to the `onError` prop.
@@ -127,21 +164,21 @@ loaded, pass a callback function to the `onError` prop.
 <Banner
   content={
     <>
-      <strong>IMPORTANT:</strong> if no `fallbackSrc` prop is passed, the
+      <strong>IMPORTANT:</strong> If no `fallbackSrc` prop is passed, the
       `Image` component will not call the `onerror` image attribute.
     </>
   }
-  type="warning"
+  variant="warning"
 />
 
 <Source
   code={`
-<Image
-  alt="Alt text"
-  fallbackSrc="https://loremflickr.com/540/420/cat"
-  onError={(event) => console.log("Fallback image loaded"); }
-  src="https://placekitten.com/540/420"
-/>
+  <Image
+    alt="Alt text"
+    fallbackSrc="https://loremflickr.com/540/420/cat"
+    onError={(event) => console.log("Fallback image loaded"); }
+    src="https://placekitten.com/540/420"
+  />
   `}
   language="jsx"
 />
@@ -150,33 +187,31 @@ loaded, pass a callback function to the `onError` prop.
   content={
     <>
       <strong>IMPORTANT:</strong> If a custom image component, such as the
-      Next.js `Image` component, is passed to the `component` prop, then the
+      Next.js `Image` component, is passed to the `component` prop, the
       `fallbackSrc` and `onError` props won't work. It is expected that the
-      custom image component that is passed in implements the `onError`
-      attribute.
+      custom image implements the `onerror` attribute itself.
     </>
   }
-  type="warning"
+  variant="warning"
 />
 
 <Source
   code={`
-import { Image } from "@nypl/design-system-react-components";
-import Image as NextImage from "next/image";
+  import { Image } from "@nypl/design-system-react-components";
+  import Image as NextImage from "next/image";
+  // ...
 
-// ...
-
-<Image
-  component={{
-    <NextImage
-      src="https://placekitten.com/540/420"
-      onError={(event) => {
-        // Implement your own fallback event
-        event.target.src =  "https://loremflickr.com/540/420/cat"
-      }}
-    />
-  }} 
-/>
+  <Image
+    component={{
+      <NextImage
+        src="https://placekitten.com/540/420"
+        onError={(event) => {
+          // Implement your own fallback event
+          event.target.src =  "https://loremflickr.com/540/420/cat"
+        }}
+      />
+    }} 
+  />
 `}
   language="jsx"
 />
@@ -188,21 +223,22 @@ Resources:
 - [MDN Image loading errors](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#image_loading_errors)
 - [MDN HTMLElement: error event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/error_event)
 
-## Lazy Loading
+## Lazy loading
 
-The `Image` component handles lazy loading images through two npm packages:
+The `Image` component handles lazy loading through two npm packages:
 [`react-intersection-observer`](https://github.com/thebuilder/react-intersection-observer)
 and [`@charlietango/use-native-lazy-loading`](https://www.npmjs.com/package/@charlietango/use-native-lazy-loading).
+
 The first package handles using the `IntersectionObserver` API in React and the
 second package checks if the `img`'s native `loading="lazy"` attribute is
 supported by the browser.
 
 Lazy loading is disabled by default. In order to use the lazy loading feature,
-pass the `isLazy` prop or set it to `true`.
+set `isLazy` to `true`.
 
 <Source
   code={`
-<Image alt="Alt text" isLazy src="https://loremflickr.com/540/420/new+york+public+library" />
+  <Image alt="Alt text" isLazy src="https://loremflickr.com/540/420/new+york+public+library" />
 `}
   language="jsx"
 />

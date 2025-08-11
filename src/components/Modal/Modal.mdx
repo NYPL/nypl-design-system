@@ -1,89 +1,135 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
-import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
-import { changelogData } from "./modalChangelogData";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as ModalStories from "./Modal.stories";
+import { changelogData } from "./modalChangelogData";
 import { ModalTrigger, useModal } from "./Modal";
-import Link from "../Link/Link";
 
 <Meta of={ModalStories} />
 
-# Modal
+<ComponentDocsHeader
+  category="Overlays & Switchers component"
+  componentName="Modal"
+  summary="Overlay used to display important information that requires user interaction"
+  versionAdded="0.1.0"
+  versionLatest="3.6.2"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.1.0`    |
-| Latest            | `3.6.2`    |
+<Canvas of={ModalStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#nypl-patterns" target="_self">NYPL Patterns</Link>}
-- {<Link href="#best-practices" target="_self">Best Practices</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#using-the-modal-usemodal-vs-modaltrigger" target="_self">Usage</Link>}
-- {<Link href="#modaltrigger" target="_self">ModalTrigger</Link>}
-- {<Link href="#modaltrigger-component-props" target="_self">ModalTrigger Component Props</Link>}
-- {<Link href="#usemodal" target="_self">useModal</Link>}
-- {<Link href="#usemodal-component-props" target="_self">useModal Component Props</Link>}
-- {<Link href="#confirmation-variant" target="_self">Confirmation Modal Variant</Link>}
-- {<Link href="#default-heading-text" target="_self">Default Heading Text</Link>}
-- {<Link href="#custom-heading-text" target="_self">Custom Heading Text</Link>}
-- {<Link href="#content-window-scrolling" target="_self">Content Window Scrolling</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Accessibility](#accessibility)
+- [NYPL patterns](#nypl-patterns)
+- [Best practices](#best-practices)
+- [Using the Modal](#using-the-modal)
+  - [ModalTrigger](#modaltrigger)
+  - [useModal](#usemodal)
+- [Confirmation variant](#confirmation-variant)
+- [Default heading text](#default-heading-text)
+- [Custom heading text](#custom-heading-text)
+- [Content window scrolling](#content-window-scrolling)
+- [Changelog](#changelog)
 
 ## Overview
 
-The `Modal` component is used to focus a user's attention on a piece of information or a specific task via a window
-that overlays the page content. When a modal is activated, user interactions with the page are blocked until a task is
-completed or canceled.
+The `Modal` component is used to focus a user's attention on a piece of
+information or a specific task via a window that overlays the page content.
+When a modal is activated, user interactions with the page are blocked until a
+task is completed or canceled.
 
-## NYPL Patterns
+## Accessibility
 
-The `Modal` component should only be used when a user action that has destructive, or irreversible consequences needs
-to be confirmed. Use modal dialogs for important warnings, as a way to prevent or correct critical errors (e.g.
-confirm a cancellation). For example, if a user is canceling a reservation or appointment, a modal can be used to
-confirm that the user intended to cancel the item. With this pattern, modals should always present a cancel button to
+When a modal is activated, focus should be set to a significant element that
+gives context to the modal intention. When a modal closes, focus should return
+to an element relevant to the action that was selected in the modal. For
+example, if a modal was closed by clicking a cancel button, focus should be
+placed on the element that was originally clicked to activate the modal.
+Similarly, if a modal was closed by clicking a button that will add a new
+element to the page, focus should be placed on the new element that was added
+to the page.
+
+Keyboard focus should also be constrained to remain within the dialog while it
+is open. Pressing TAB should advance focus to the next interactive element in
+the dialog. If pressing tab while focused on the last element, then focus should
+wrap to the first interactive element within the dialog. Similarly when tabbing
+backward with SHIFT+TAB then focus should proceed backward until hitting the
+first interactive element and then wrap to the last interactive element.
+
+In addition to having a cancel button, users should be able to exit a modal
+by pressing the ESC key.
+
+Resources
+
+- [Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal)
+
+## NYPL patterns
+
+The `Modal` component should only be used when a user action that has
+destructive, or irreversible consequences needs to be confirmed. Use modal
+dialogs for important warnings, as a way to prevent or correct critical errors
+(e.g. confirm a cancellation). For example, if a user is canceling a reservation
+or appointment, a modal can be used to confirm that the user intended to cancel
+the item. With this pattern, modals should always present a cancel button to
 exit out of the modal and a button that will execute the selected action.
 
-When a modal is first activated, it can be very jarring for users, especially users with cognitive disabilities.
-Because of this, the `Modal` component should only be used when a user's direct action activates the modal.
-A modal should never appear out of no where without a user's explicit action to activate the modal.
-For example, a modal should not open on its own three seconds after a page loads. Conversely, a modal may be activated
-when a user clicks a "Delete item" button.
+When a modal is first activated, it can be very jarring for users, especially
+users with cognitive disabilities. Because of this, the `Modal` component should
+only be used when a user's direct action activates the modal. A modal should
+never appear out of no where without a user's explicit action to activate the
+modal. For example, a modal should not open on its own three seconds after a
+page loads. Conversely, a modal may be activated when a user clicks a
+"Delete item" button.
 
 Modal should not be used to display media like image and videos.
 
-## Best Practices
+## Best practices
 
 ### Modal titles
 
-Modals must have a title and the title should communicate the general idea of the modal intention, such as the outcome
-of an action. Titles should use the same or similar phrasing as the call-to-action that was used to activate the modal.
+Modals must have a title and the title should communicate the general idea of
+the modal intention, such as the outcome of an action. Titles should use the
+same or similar phrasing as the call-to-action that was used to activate the
+modal.
 
 ### Modal descriptions
 
-Modal descriptions should include any additional information or context that a user needs to know in order to make one
-of the decisions offered by the action buttons. Descriptions should be written in complete sentences.
+Modal descriptions should include any additional information or context that a
+user needs to know in order to make one of the decisions offered by the action
+buttons. Descriptions should be written in complete sentences.
 
 ### Action button labels
 
-Action button labels should be specific and actionable and should ultimately describe the next steps for a user.
-When possible, the main action button label should use the same language as the action mentioned in the modal title.
-If someone were to only read the word or phrase on the button, they should be able to get the general idea of the
-modal’s underlying message. For example, if a modal's title is “Delete item,” use "Delete" instead of "Yes" for the
-main action button label.
+Action button labels should be specific and actionable and should ultimately
+describe the next steps for a user. When possible, the main action button label
+should use the same language as the action mentioned in the modal title. If
+someone were to only read the word or phrase on the button, they should be able
+to get the general idea of the modal’s underlying message. For example, if a
+modal's title is “Delete item,” use "Delete" instead of "Yes" for the main
+action button label.
 
 ### Asking questions
 
-Avoid asking a question in a modal title. Questions such as “Are you sure you want to quit?” or “Do you want to cancel?”
-are redundant and can undermine a user's confidence in a decision they've already made when taking the previous action
-that activated the modal. Asking a question also leads to a yes/no set of actions, which can become confusing. Instead,
-re-frame the wording of the modal title to focus on the outcome or effect.
+Avoid asking a question in a modal title. Questions such as “Are you sure you
+want to quit?” or “Do you want to cancel?” are redundant and can undermine a
+user's confidence in a decision they've already made when taking the previous
+action that activated the modal. Asking a question also leads to a yes/no set of
+actions, which can become confusing. Instead, re-frame the wording of the modal
+title to focus on the outcome or effect.
 
-It’s OK to ask a question in a modal description to confirm if a user wants to go ahead with an action.
-However, even when a question is used in a modal description, distinct button action labels should be used to show that
-a user has control over what happens next.
+It’s OK to ask a question in a modal description to confirm if a user wants to
+go ahead with an action. However, even when a question is used in a modal
+description, distinct button action labels should be used to show that a user
+has control over what happens next.
 
 ### Example text (for a `confirmation` modal)
 
@@ -93,34 +139,18 @@ Modal description: Your upcoming reservation will be cancelled.
 
 Action button: [Cancel] [Confirm]
 
-## Accessibility
+## Using the Modal
 
-When a modal is activated, focus should be set to a significant element that gives context to the modal intention.
-When a modal closes, focus should return to an element relevant to the action that was selected in the modal.
-For example, if a modal was closed by clicking a cancel button, focus should be placed on the element that was
-originally clicked to activate the modal. Similarly, if a modal was closed by clicking a button that will add a new
-element to the page, focus should be placed on the new element that was added to the page.
+`ModalTrigger` is a component that contains both the "trigger", or the button
+that opens the modal, and the modal itself. When you use `ModalTrigger`, you
+pass only the modal props and the button text, and the `ModalTrigger` calls the
+`onClose` and `onOpen` functions internally.
 
-Keyboard focus should also be constrained to remain within the dialog while it is open. Pressing TAB should advance
-focus to the next interactive element in the dialog. If pressing tab while focused on the last element, then focus
-should wrap to the first interactive element within the dialog. Similarly when tabbing backward with SHIFT+TAB then
-focus should proceed backward until hitting the first interactive element and then wrap to the last interactive element.
-
-In addition to having a cancel button, users should be able to exit a modal by pressing the ESC key.
-
-### Resources
-
-https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
-
-## Using the modal: useModal vs. ModalTrigger
-
-`ModalTrigger` is a component that contains both the "trigger", or the button that opens the modal, and the modal itself. When you use `ModalTrigger`,
-you pass only the modal props and the button text, and the `ModalTrigger` calls the `onClose` and `onOpen` functions internally.
-
-Or, you can call `useModal()`. `useModal()` returns the Modal component, the `onClose` function, and the `onOpen` function, giving you the responsibility to
+Or, you can call `useModal()`. `useModal()` returns the Modal component, the
+`onClose` function, and the `onOpen` function, giving you the responsibility to
 pass `onOpen` and `onClose` to your custom open and close functions.
 
-## ModalTrigger
+### ModalTrigger
 
 <Description of={ModalTrigger} />
 
@@ -134,7 +164,7 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
   buttonText="Button Text"
   id="modal-trigger"
   modalProps={{
-    type: "default",
+    variant: "default",
     bodyContent: "body text",
     closeButtonLabel: "Close Button",
     headingText: (
@@ -162,13 +192,11 @@ import { ModalTrigger } from "@nypl/design-system-react-components";
 />
 `} language="jsx" />
 
-## ModalTrigger Component Props
-
-<Canvas of={ModalStories.WithControls} />
+#### ModalTrigger component props
 
 <ArgTypes of={ModalStories.WithControls} />
 
-## useModal
+### useModal
 
 <Description of={useModal} />
 
@@ -178,8 +206,17 @@ used to open the `Modal` React component. This function can be passed to any
 number of elements that use the `onClick` attribute. The `onClose` function can
 be used on any element that uses the `onClick` attribute.
 
-**NOTE: in this case, the `buttonText` prop is not necessary since you have to
-create and render your own button.**
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> in this case, the <code>buttonText</code> prop is
+      not necessary since you have to create and render your own button.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Source
   code={`
@@ -188,7 +225,7 @@ import { useModal } from "@nypl/design-system-react-components";
 export const ModalStory = (args) => {
   const { onClose, onOpen, Modal } = useModal();
   const modalProps = {
-    type: "default",
+    variant: "default",
     bodyContent: (
       <>
         <Button id="custom-close" onClick={onClose}>
@@ -213,7 +250,7 @@ export const ModalStory = (args) => {
         <Button id="1" onClick={onOpen}>
           Open Modal
         </Button>
-        <Button buttonType="secondary" id="2" onClick={onOpen}>
+        <Button variant="secondary" id="2" onClick={onOpen}>
           I can open the modal, too
         </Button>
       </ButtonGroup>
@@ -229,39 +266,44 @@ export const ModalStory = (args) => {
   language="jsx"
 />
 
-## useModal Component Props
+#### useModal component props
 
 <Canvas of={ModalStories.useModalStory} />
 <Canvas of={ModalStories.ConfirmationUseModal} />
 
 <ArgTypes of={ModalStories.useModalStory} />
 
-## Confirmation Variant
+## Confirmation variant
 
-The "confirmation" `Modal` variant is used when the modal can confirm or revoke the modal's content. Accordingly, there are two buttons
-in the footer instead of the one in the default modal. Each button has its own custom function (`onCancel`, `onConfirm`) that will close the modal.
-Additionally, the `onCancel` function will be called when using
-any of the other available methods for closing the modal,
-including clicking the "X" close button in the upper right corner
-of the modal, clicking anywhere outside the modal UI, or using
-the `ESC` button.
+The "confirmation" `Modal` variant is used when the modal can confirm or revoke
+the modal's content. Accordingly, there are two buttons in the footer instead
+of the one in the default modal. Each button has its own custom function
+(`onCancel`, `onConfirm`) that will close the modal.
+
+Additionally, the `onCancel` function will be called when using any of the
+other available methods for closing the modal, including clicking the "X" close
+button in the upper right corner of the modal, clicking anywhere outside the
+modal UI, or using the `ESC` button.
 
 Notes:
 
-- The `onConfirm`, `onCancel`, and `confirmButtonLabel` props are required for this variant.
+- The `onConfirm`, `onCancel`, and `confirmButtonLabel` props are required for
+  this variant.
 - The `onClose` modal prop should NOT be passed.
-- When using the `ModalTrigger`, `onConfirm` and `onCancel` will call the `onClose` from the `useModal` hook internally.
-- When using the `useModal` hook, as with the `onClose` prop, pass the `onClose` function from the hook to `onCancel` and `onConfirm`:
-  for example, `onCancel: () => { onClose(); }`.
+- When using the `ModalTrigger`, `onConfirm` and `onCancel` will call the
+  `onClose` from the `useModal` hook internally.
+- When using the `useModal` hook, as with the `onClose` prop, pass the `onClose`
+  function from the hook to `onCancel` and `onConfirm`: for example,
+  `onCancel: () => { onClose(); }`.
 
 <Source
   code={`
-// ModalTrigger example with confirmation props
+  // ModalTrigger example with confirmation props
   <ModalTrigger
     buttonText="Confirm"
     id="modal-confirmation"
     modalProps={{
-      type: "confirmation",
+      variant: "confirmation",
       bodyContent: "The action is happening",
       closeButtonLabel: "Cancel action",
       confirmButtonLabel: "Confirm action",
@@ -294,14 +336,14 @@ Notes:
     }}
   />
 `}
-  language="jsx"
+  language="tsx"
 />
 
 See console for "Cancel"/"Confirm" messages from their respective buttons.
 
 <Canvas of={ModalStories.ConfirmationVariant} />
 
-## Default Heading Text
+## Default heading text
 
 By default, the `Modal` component will render a DS level `h2` and size
 `heading4` `Heading` component when a string is passed to the `headingText`
@@ -309,7 +351,7 @@ prop.
 
 <Canvas of={ModalStories.DefaultHeading} />
 
-## Custom Heading Text
+## Custom heading text
 
 However, a custom heading can be
 passed to the `headingText` property. This can be useful when you want to add
@@ -321,35 +363,35 @@ additional icon.
 
 <Source
   code={`
-// Example for the ModalTrigger component.
-modalProps={{
-  type: "default",
-  bodyContent: "body text",
-  closeButtonLabel: "Close Button",
-  headingText: (
-    <Heading
-      level="h3"
-      display="flex"
-      alignItems="center"
-      gap="xs"
-      size="heading5"
-    >
-      <>
-        <Icon
-          color="ui.success.primary"
-          name="actionCheckCircleFilled"
-          size="large"
-        />
-        Modal Heading Text
-      </>
-    </Heading>
-  ),
-}}
+  // Example for the ModalTrigger component.
+  modalProps={{
+    variant: "default",
+    bodyContent: "body text",
+    closeButtonLabel: "Close Button",
+    headingText: (
+      <Heading
+        level="h3"
+        display="flex"
+        alignItems="center"
+        gap="xs"
+        size="heading5"
+      >
+        <>
+          <Icon
+            color="ui.success.primary"
+            name="actionCheckCircleFilled"
+            size="large"
+          />
+          Modal Heading Text
+        </>
+      </Heading>
+    ),
+  }}
 `}
-  language="jsx"
+  language="tsx"
 />
 
-## Content Window Scrolling
+## Content window scrolling
 
 In either `Modal` pattern, the main content inside the `Modal` component will
 scroll while the `Modal`'s header and footer still stay static. Check the

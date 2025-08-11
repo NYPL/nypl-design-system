@@ -10,6 +10,23 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Replaces the error thrown with a console.warn.",
+      "Changes theme name from `CustomBreadcrumbs` to `ReservoirBreadcrumbs` for consistency.",
+      "Replaces positional function arguments with objects for `tooltipWrapperOrText` and `getElementsFromData`.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Renames `breadcrumbsType` to `variant`.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Updates the internal `breadcrumb-label` class to `ds-breadcrumbs-link-label`.",
+      "Removes the internal `breadcrumbs-icon` class in the Icon component.",
+      "Adds `data-testid` value of `ds-breadcrumbs` to the parent element.",
+    ],
+  },
+  {
     date: "2025-01-30",
     version: "3.5.3",
     type: "Update",

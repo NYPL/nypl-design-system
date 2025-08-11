@@ -11,12 +11,10 @@ const meta: Meta<typeof AudioPlayer> = {
       control: { type: "radio" },
       options: ["file", "libsyn", "soundcloud", "spotify"],
     },
-    className: { control: false },
     descriptionText: { control: "text" },
     embedCode: { control: false },
     headingText: { control: "text" },
     helperText: { control: "text" },
-    id: { control: false },
     iframeTitle: { control: "text" },
   },
 };
@@ -34,13 +32,11 @@ const libsynPlayerEmbedCode =
 export const WithControls: Story = {
   args: {
     audioType: "libsyn",
-    className: undefined,
     descriptionText:
       "Audio description lorem ipsum dolor simet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est at lobortis.",
     embedCode: libsynPlayerEmbedCode,
     headingText: "Audio Title",
     helperText: "Audio helper text lorem ipsum dolor simet.",
-    id: "audioplayer-id",
     iframeTitle: "Libsyn Audio",
   },
   parameters: {

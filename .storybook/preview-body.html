@@ -2,39 +2,69 @@
 <!-- Used or the "Docs" page -->
 
 <style>
+  /* Set base font size */
+  .sbdocs
+    :where(p:not(hgroup .chakra-text, .sb-anchor, .sb-unstyled, .sb-unstyled
+        p), li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+    font-family: system-ui, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .sbdocs :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) code {
+    font-size: 15px;
+  }
+  .sbdocs
+    :where(p:not(hgroup .chakra-text, .sb-anchor, .sb-unstyled, .sb-unstyled
+        p)) {
+    margin-block-start: 1.25rem;
+    margin-block-end: 1.25rem;
+  }
   /* Custom heading styles */
   .sbdocs h1:not(.chakra-heading) {
+    color: var(--nypl-colors-ui-typography-heading);
     font-family: var(--nypl-fonts-heading);
-    font-size: 54px;
+    font-size: var(--nypl-fontSizes-desktop-heading-display1);
     font-weight: 200;
     letter-spacing: 1px;
-    line-height: 1.05;
+    line-height: 1.1;
     margin-bottom: 2rem;
   }
   .sbdocs h2:not(.chakra-heading) {
+    border-bottom: 2px solid;
+    border-color: var(--nypl-colors-ui-border-default);
+    color: var(--nypl-colors-ui-typography-heading);
     font-family: var(--nypl-fonts-heading);
-    font-size: 24px;
-    font-weight: 500;
+    font-size: var(--nypl-fontSizes-desktop-heading-heading3);
+    font-weight: var(--nypl-fontWeights-regular);
+    line-height: 1.2;
+    margin-top: 4rem;
   }
   .sbdocs h3:not(.chakra-heading) {
+    color: var(--nypl-colors-ui-typography-heading);
     font-family: var(--nypl-fonts-heading);
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 1.375rem;
+    font-weight: var(--nypl-fontWeights-semibold);
+    line-height: 1.3;
   }
   .sbdocs h4:not(.chakra-heading) {
+    color: var(--nypl-colors-ui-typography-heading);
     font-family: var(--nypl-fonts-heading);
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: var(--nypl-fontWeights-bold);
+    line-height: 1.4;
   }
   .sbdocs h5:not(.chakra-heading) {
+    color: var(--nypl-colors-ui-typography-heading);
     font-family: var(--nypl-fonts-heading);
     font-size: 14px;
-    font-weight: 700;
+    font-weight: var(--nypl-fontWeights-bold);
   }
   .sbdocs h6:not(.chakra-heading) {
+    color: var(--nypl-colors-ui-typography-heading);
     font-family: var(--nypl-fonts-heading);
     font-size: 12px;
     font-weight: 700;
+    font-weight: var(--nypl-fontWeights-bold);
   }
   /* Custom link styles */
   .sbdocs a:not(.innerZoomElementWrapper a) {
@@ -60,7 +90,7 @@
   }
   /* It is unclear if this style override is necessary. Until this is
   determined, the code will be left in place and simply commented out. */
-  /* 
+  /*
   .sbdocs :where(h1:not(.sb-unstyled h1)),
   .sbdocs :where(h2:not(.sb-unstyled h2)),
   .sbdocs :where(h3:not(.sb-unstyled h3)),
@@ -68,7 +98,7 @@
   .sbdocs :where(h5:not(.sb-unstyled h5)),
   .sbdocs :where(h6:not(.sb-unstyled h6)) {
     color: unset;
-  } 
+  }
   */
   .sbdocs :where(div:not(.sb-anchor, .sb-unstyled, .sb-unstyled div)) {
     font-family: inherit;

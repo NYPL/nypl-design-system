@@ -10,6 +10,20 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes `action`, `method`, and `onSubmit` props (as HTML equivalents may be used) and updates docs.",
+      "Removes children validation warning.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Removes the explicit `className` prop in favor of `rest`.",
+      "Adds `data-testid` value of `ds-form` to the parent element.",
+    ],
+  },
+  {
     date: "2025-01-16",
     version: "3.5.2",
     type: "Update",

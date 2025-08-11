@@ -10,6 +10,19 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Replaces `sizeTypeArray` with shared sizes array.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Renames the className `platLink` to `ds-socialMediaLinks-icon` to align with the new naming convention.",
+      "Adds `data-testid` value of `ds-socialMediaLinks` to the parent element.",
+    ],
+  },
+  {
     date: "2024-11-07",
     version: "3.4.2",
     type: "Update",

@@ -10,6 +10,21 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Removes deprecated `low`, `medium`, `high` values from `statusBadgeTypeArray`.",
+      "Removes deprecated `level` prop.",
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Renames `type` to `variant`.",
+      "Replaces `statusBadgeTypeArray` with shared message variants array.",
+      "Updated the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Adds `data-testid` value of `ds-statusBadge` to the parent element.",
+    ],
+  },
+  {
     date: "2025-02-13",
     version: "3.5.4",
     type: "New Feature",

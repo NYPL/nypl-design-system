@@ -10,6 +10,19 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: [
+      "Removes explicit `children` prop as its not required when React.PropsWithChildren is used.",
+      "Extends prop type by Chakra's `BoxProps` so consumers can pass Chakra style props and updates documentation.",
+      "Replaces `Children.map` logic with `CheckboxGroupContext`.",
+      "Updates the `id` prop to be optional and generates a random id if not provided.",
+      "Adds `data-testid` value of `ds-checkboxGroup` to the parent element.",
+    ],
+  },
+  {
     date: "2024-09-19",
     version: "3.3.2",
     type: "Update",

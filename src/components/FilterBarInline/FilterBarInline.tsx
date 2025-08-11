@@ -1,4 +1,4 @@
-import { chakra, ChakraComponent, Stack } from "@chakra-ui/react";
+import { BoxProps, chakra, ChakraComponent, Stack } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Button from "../Button/Button";
@@ -8,9 +8,9 @@ import {
   MultiSelectWidths,
   SelectedItems as MultiSelectItems,
 } from "../MultiSelect/MultiSelect";
-import useNYPLBreakpoints from "../../hooks/useNYPLBreakpoints";
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import Heading, { HeadingSizes } from "../Heading/Heading";
+import { useSafeId } from "../../hooks/useSafeId";
 
 export type FilterBarItemsType = (
   | boolean
@@ -21,11 +21,7 @@ export type FilterBarItemsType = (
   | MultiSelectItems
 )[];
 
-export interface FilterBarInlineProps {
-  /** The className of the FilterBarInline. */
-  className?: string;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+export interface FilterBarInlineProps extends BoxProps {
   /** Optional string value used to set the text for a `Heading` component, or
    * a DS Heading component that can be passed in.
    */
@@ -63,7 +59,6 @@ export const FilterBarInline: ChakraComponent<
     (props, ref?) => {
       const {
         children,
-        className,
         id,
         heading,
         layout = "row",
@@ -73,15 +68,9 @@ export const FilterBarInline: ChakraComponent<
         renderChildren,
         ...rest
       } = props;
-
-      const { isLargerThanMobile } = useNYPLBreakpoints();
-      const finalWidth = !isLargerThanMobile
-        ? "full"
-        : layout === "row"
-          ? "fitContent"
-          : "full";
-
+      const mainId = useSafeId(id);
       const generalHeadingProps = {
+        mb: "heading.default",
         size: "heading5" as HeadingSizes,
       };
       // If `heading is a string, then we want the default heading,
@@ -96,8 +85,8 @@ export const FilterBarInline: ChakraComponent<
 
       return (
         <ComponentWrapper
-          className={className}
-          id={`filter-bar-inline-${id}`}
+          id={mainId}
+          data-testid="ds-filterBarInline"
           headingText={finalHeading}
           ref={ref}
           {...rest}
@@ -120,7 +109,7 @@ export const FilterBarInline: ChakraComponent<
               isBlockElement: layout === "column",
               closeOnBlur: layout === "row",
               layout: layout,
-              width: finalWidth,
+              width: layout === "row" ? "fitContent" : "full",
             })}
             {(onSubmit || onClear) && (
               <ButtonGroup
@@ -129,19 +118,19 @@ export const FilterBarInline: ChakraComponent<
               >
                 {onSubmit && (
                   <Button
-                    buttonType="primary"
-                    id={`${id}-submit-all-button`}
+                    id={`${mainId}-submit-all`}
                     onClick={onSubmit}
+                    variant="primary"
                   >
                     Apply filters
                   </Button>
                 )}
                 {onClear && (
                   <Button
-                    buttonType="text"
-                    id={`${id}-clear-all-button`}
+                    id={`${mainId}-clear-all`}
                     onClick={onClear}
                     textAlign="center"
+                    variant="text"
                   >
                     Clear all filters
                   </Button>

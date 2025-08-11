@@ -3,11 +3,12 @@
 exports[`TagSet Explore renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-tagSet"
 >
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-0"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-0"
   >
     <span>
       <a
@@ -19,8 +20,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 1`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-1"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-1"
   >
     <span>
       <a
@@ -32,8 +33,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 1`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-2"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-2"
   >
     <span>
       <a
@@ -45,8 +46,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 1`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-3"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-3"
   >
     <span>
       <a
@@ -58,8 +59,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 1`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-4"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-4"
   >
     <span>
       <a
@@ -71,8 +72,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 1`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-5"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-5"
   >
     <span>
       <a
@@ -84,8 +85,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 1`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-6"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-6"
   >
     <span>
       <a
@@ -101,17 +102,18 @@ exports[`TagSet Explore renders the UI snapshot correctly 1`] = `
 exports[`TagSet Explore renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-tagSet"
 >
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-0"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-0"
   >
     <svg
       aria-hidden={true}
       className="chakra-icon css-1vgifmd"
       data-file-name="SvgAlertWarningFilled"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetExplore-icon"
       focusable={false}
       role="img"
       title="alertWarningFilled icon"
@@ -126,14 +128,14 @@ exports[`TagSet Explore renders the UI snapshot correctly 2`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-1"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-1"
   >
     <svg
       aria-hidden={true}
       className="chakra-icon css-1vgifmd"
       data-file-name="SvgCheck"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetExplore-icon"
       focusable={false}
       role="img"
       title="check icon"
@@ -148,14 +150,14 @@ exports[`TagSet Explore renders the UI snapshot correctly 2`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-2"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-2"
   >
     <svg
       aria-hidden={true}
       className="chakra-icon css-1vgifmd"
       data-file-name="SvgCheck"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetExplore-icon"
       focusable={false}
       role="img"
       title="check icon"
@@ -170,14 +172,14 @@ exports[`TagSet Explore renders the UI snapshot correctly 2`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-3"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-3"
   >
     <svg
       aria-hidden={true}
       className="chakra-icon css-1vgifmd"
       data-file-name="SvgAlertWarningFilled"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetExplore-icon"
       focusable={false}
       role="img"
       title="alertWarningFilled icon"
@@ -192,14 +194,14 @@ exports[`TagSet Explore renders the UI snapshot correctly 2`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-4"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-4"
   >
     <svg
       aria-hidden={true}
       className="chakra-icon css-1vgifmd"
       data-file-name="SvgCheck"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetExplore-icon"
       focusable={false}
       role="img"
       title="check icon"
@@ -214,14 +216,14 @@ exports[`TagSet Explore renders the UI snapshot correctly 2`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-5"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-5"
   >
     <svg
       aria-hidden={true}
       className="chakra-icon css-1vgifmd"
       data-file-name="SvgCheck"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetExplore-icon"
       focusable={false}
       role="img"
       title="check icon"
@@ -236,14 +238,14 @@ exports[`TagSet Explore renders the UI snapshot correctly 2`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-6"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-6"
   >
     <svg
       aria-hidden={true}
       className="chakra-icon css-1vgifmd"
       data-file-name="SvgCheck"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetExplore-icon"
       focusable={false}
       role="img"
       title="check icon"
@@ -262,11 +264,12 @@ exports[`TagSet Explore renders the UI snapshot correctly 2`] = `
 exports[`TagSet Explore renders the UI snapshot correctly 3`] = `
 <div
   className="css-1t0bvx9"
+  data-testid="ds-tagSet"
 >
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-0"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-0"
   >
     <span>
       <a
@@ -278,8 +281,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 3`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-1"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-1"
   >
     <span>
       <a
@@ -291,8 +294,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 3`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-2"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-2"
   >
     <span>
       <a
@@ -304,8 +307,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 3`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-3"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-3"
   >
     <span>
       <a
@@ -317,8 +320,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 3`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-4"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-4"
   >
     <span>
       <a
@@ -330,8 +333,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 3`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-5"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-5"
   >
     <span>
       <a
@@ -343,8 +346,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 3`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-6"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-6"
   >
     <span>
       <a
@@ -364,8 +367,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 4`] = `
 >
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-0"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-0"
   >
     <span>
       <a
@@ -377,8 +380,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 4`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-1"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-1"
   >
     <span>
       <a
@@ -390,8 +393,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 4`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-2"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-2"
   >
     <span>
       <a
@@ -403,8 +406,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 4`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-3"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-3"
   >
     <span>
       <a
@@ -416,8 +419,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 4`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-4"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-4"
   >
     <span>
       <a
@@ -429,8 +432,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 4`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-5"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-5"
   >
     <span>
       <a
@@ -442,8 +445,8 @@ exports[`TagSet Explore renders the UI snapshot correctly 4`] = `
   </div>
   <div
     className="css-0"
-    data-testid="explore-tags"
-    id="ts-explore-undefined-6"
+    data-testid="ds-tagSetExplore"
+    id="tagSetExplore-6"
   >
     <span>
       <a
@@ -459,12 +462,13 @@ exports[`TagSet Explore renders the UI snapshot correctly 4`] = `
 exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-tagSet"
 >
   <button
     aria-label="Red, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-red-0"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="red-tagSetFilter-0"
     onClick={[Function]}
     type="button"
   >
@@ -475,7 +479,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -483,9 +487,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
   </button>
   <button
     aria-label="Orange, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-orange-1"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="orange-tagSetFilter-1"
     onClick={[Function]}
     type="button"
   >
@@ -496,7 +500,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -504,9 +508,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
   </button>
   <button
     aria-label="Yellow, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-yellow-2"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="yellow-tagSetFilter-2"
     onClick={[Function]}
     type="button"
   >
@@ -517,7 +521,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -525,9 +529,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
   </button>
   <button
     aria-label="Green, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-green-3"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="green-tagSetFilter-3"
     onClick={[Function]}
     type="button"
   >
@@ -538,7 +542,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -546,9 +550,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
   </button>
   <button
     aria-label="Blue, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-blue-4"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="blue-tagSetFilter-4"
     onClick={[Function]}
     type="button"
   >
@@ -559,7 +563,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -567,9 +571,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
   </button>
   <button
     aria-label="Indigo, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-indigo-5"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="indigo-tagSetFilter-5"
     onClick={[Function]}
     type="button"
   >
@@ -580,7 +584,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -588,9 +592,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
   </button>
   <button
     aria-label="Violet, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-violet-6"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="violet-tagSetFilter-6"
     onClick={[Function]}
     type="button"
   >
@@ -601,7 +605,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -613,12 +617,13 @@ exports[`TagSet Filter renders the UI snapshot correctly 1`] = `
 exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-tagSet"
 >
   <button
     aria-label="Red, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-red-0"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="red-tagSetFilter-0"
     onClick={[Function]}
     type="button"
   >
@@ -626,7 +631,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-3xtznl"
       data-file-name="SvgAlertWarningFilled"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetFilter-icon"
       focusable={false}
       role="img"
       title="alertWarningFilled icon"
@@ -638,7 +643,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -646,9 +651,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   </button>
   <button
     aria-label="Orange, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-orange-1"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="orange-tagSetFilter-1"
     onClick={[Function]}
     type="button"
   >
@@ -656,7 +661,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-3xtznl"
       data-file-name="SvgCheck"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetFilter-icon"
       focusable={false}
       role="img"
       title="check icon"
@@ -668,7 +673,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -676,9 +681,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   </button>
   <button
     aria-label="Yellow, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-yellow-2"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="yellow-tagSetFilter-2"
     onClick={[Function]}
     type="button"
   >
@@ -686,7 +691,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-3xtznl"
       data-file-name="SvgCheck"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetFilter-icon"
       focusable={false}
       role="img"
       title="check icon"
@@ -698,7 +703,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -706,9 +711,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   </button>
   <button
     aria-label="Green, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-green-3"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="green-tagSetFilter-3"
     onClick={[Function]}
     type="button"
   >
@@ -716,7 +721,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-3xtznl"
       data-file-name="SvgAlertWarningFilled"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetFilter-icon"
       focusable={false}
       role="img"
       title="alertWarningFilled icon"
@@ -728,7 +733,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -736,9 +741,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   </button>
   <button
     aria-label="Blue, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-blue-4"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="blue-tagSetFilter-4"
     onClick={[Function]}
     type="button"
   >
@@ -746,7 +751,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-3xtznl"
       data-file-name="SvgCheck"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetFilter-icon"
       focusable={false}
       role="img"
       title="check icon"
@@ -758,7 +763,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -766,9 +771,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   </button>
   <button
     aria-label="Indigo, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-indigo-5"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="indigo-tagSetFilter-5"
     onClick={[Function]}
     type="button"
   >
@@ -776,7 +781,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-3xtznl"
       data-file-name="SvgCheck"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetFilter-icon"
       focusable={false}
       role="img"
       title="check icon"
@@ -788,7 +793,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -796,9 +801,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
   </button>
   <button
     aria-label="Violet, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-violet-6"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="violet-tagSetFilter-6"
     onClick={[Function]}
     type="button"
   >
@@ -806,7 +811,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-3xtznl"
       data-file-name="SvgCheck"
-      data-testid="ts-icon"
+      data-testid="ds-tagSetFilter-icon"
       focusable={false}
       role="img"
       title="check icon"
@@ -818,7 +823,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -830,12 +835,13 @@ exports[`TagSet Filter renders the UI snapshot correctly 2`] = `
 exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
 <div
   className="css-1xdhyk6"
+  data-testid="ds-tagSet"
 >
   <button
     aria-label="Red, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-red-0"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="red-tagSetFilter-0"
     onClick={[Function]}
     type="button"
   >
@@ -846,7 +852,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -854,9 +860,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
   </button>
   <button
     aria-label="Orange, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-orange-1"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="orange-tagSetFilter-1"
     onClick={[Function]}
     type="button"
   >
@@ -867,7 +873,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -875,9 +881,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
   </button>
   <button
     aria-label="Yellow, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-yellow-2"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="yellow-tagSetFilter-2"
     onClick={[Function]}
     type="button"
   >
@@ -888,7 +894,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -896,9 +902,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
   </button>
   <button
     aria-label="Green, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-green-3"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="green-tagSetFilter-3"
     onClick={[Function]}
     type="button"
   >
@@ -909,7 +915,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -917,9 +923,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
   </button>
   <button
     aria-label="Blue, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-blue-4"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="blue-tagSetFilter-4"
     onClick={[Function]}
     type="button"
   >
@@ -930,7 +936,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -938,9 +944,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
   </button>
   <button
     aria-label="Indigo, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-indigo-5"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="indigo-tagSetFilter-5"
     onClick={[Function]}
     type="button"
   >
@@ -951,7 +957,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -959,9 +965,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
   </button>
   <button
     aria-label="Violet, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-violet-6"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="violet-tagSetFilter-6"
     onClick={[Function]}
     type="button"
   >
@@ -972,7 +978,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -980,8 +986,8 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
   </button>
   <button
     className="chakra-button css-1xdhyk6"
-    data-testid="filter-clear-all"
-    id="ts-filter-clear-all-undefined"
+    data-testid="ds-tagSetFilter-clear-all"
+    id="tagSetFilter-clear-all"
     onClick={[Function]}
     type="button"
   >
@@ -993,12 +999,13 @@ exports[`TagSet Filter renders the UI snapshot correctly 3`] = `
 exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
 <div
   className="css-1t0bvx9"
+  data-testid="ds-tagSet"
 >
   <button
     aria-label="Red, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-red-0"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="red-tagSetFilter-0"
     onClick={[Function]}
     type="button"
   >
@@ -1009,7 +1016,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1017,9 +1024,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
   </button>
   <button
     aria-label="Orange, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-orange-1"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="orange-tagSetFilter-1"
     onClick={[Function]}
     type="button"
   >
@@ -1030,7 +1037,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1038,9 +1045,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
   </button>
   <button
     aria-label="Yellow, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-yellow-2"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="yellow-tagSetFilter-2"
     onClick={[Function]}
     type="button"
   >
@@ -1051,7 +1058,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1059,9 +1066,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
   </button>
   <button
     aria-label="Green, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-green-3"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="green-tagSetFilter-3"
     onClick={[Function]}
     type="button"
   >
@@ -1072,7 +1079,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1080,9 +1087,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
   </button>
   <button
     aria-label="Blue, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-blue-4"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="blue-tagSetFilter-4"
     onClick={[Function]}
     type="button"
   >
@@ -1093,7 +1100,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1101,9 +1108,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
   </button>
   <button
     aria-label="Indigo, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-indigo-5"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="indigo-tagSetFilter-5"
     onClick={[Function]}
     type="button"
   >
@@ -1114,7 +1121,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1122,9 +1129,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
   </button>
   <button
     aria-label="Violet, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-violet-6"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="violet-tagSetFilter-6"
     onClick={[Function]}
     type="button"
   >
@@ -1135,7 +1142,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 4`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1151,9 +1158,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
 >
   <button
     aria-label="Red, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-red-0"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="red-tagSetFilter-0"
     onClick={[Function]}
     type="button"
   >
@@ -1164,7 +1171,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1172,9 +1179,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
   </button>
   <button
     aria-label="Orange, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-orange-1"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="orange-tagSetFilter-1"
     onClick={[Function]}
     type="button"
   >
@@ -1185,7 +1192,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1193,9 +1200,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
   </button>
   <button
     aria-label="Yellow, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-yellow-2"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="yellow-tagSetFilter-2"
     onClick={[Function]}
     type="button"
   >
@@ -1206,7 +1213,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1214,9 +1221,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
   </button>
   <button
     aria-label="Green, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-green-3"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="green-tagSetFilter-3"
     onClick={[Function]}
     type="button"
   >
@@ -1227,7 +1234,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1235,9 +1242,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
   </button>
   <button
     aria-label="Blue, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-blue-4"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="blue-tagSetFilter-4"
     onClick={[Function]}
     type="button"
   >
@@ -1248,7 +1255,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1256,9 +1263,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
   </button>
   <button
     aria-label="Indigo, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-indigo-5"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="indigo-tagSetFilter-5"
     onClick={[Function]}
     type="button"
   >
@@ -1269,7 +1276,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"
@@ -1277,9 +1284,9 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
   </button>
   <button
     aria-label="Violet, click to remove filter"
-    className="chakra-button css-8bx9xp"
-    data-testid="filter-tags"
-    id="ts-filter-violet-6"
+    className="chakra-button css-1xdhyk6"
+    data-testid="ds-tagSetFilter-tags"
+    id="violet-tagSetFilter-6"
     onClick={[Function]}
     type="button"
   >
@@ -1290,7 +1297,7 @@ exports[`TagSet Filter renders the UI snapshot correctly 5`] = `
       aria-hidden={true}
       className="chakra-icon css-14pq4bw"
       data-file-name="SvgClose"
-      data-testid="filter-close-icon"
+      data-testid="ds-tagSetFilter-close-icon"
       focusable={false}
       role="img"
       title="close icon"

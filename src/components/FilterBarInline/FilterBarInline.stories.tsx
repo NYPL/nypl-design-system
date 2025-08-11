@@ -69,8 +69,6 @@ const meta: Meta<typeof FilterBarInline> = {
   title: "Components/Form Elements/FilterBarInline",
   component: FilterBarInline,
   argTypes: {
-    className: { control: false },
-    id: { control: false },
     heading: { control: false },
     layout: {
       control: { type: "radio" },
@@ -98,7 +96,6 @@ type Story = StoryObj<typeof FilterBarInline>;
  */
 export const WithControls: Story = {
   args: {
-    id: "filterbar-inline-id",
     heading: "FilterBarInline",
     layout: "row",
   },
@@ -155,11 +152,11 @@ const FilterBarStory = (args) => {
           selectedItems={selectedItems}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -193,6 +190,7 @@ const FilterBarStory = (args) => {
     />
   );
 };
+FilterBarStory.displayName = "FilterBarStory";
 
 const FilterBarInlineHeadingStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear } =
@@ -215,11 +213,11 @@ const FilterBarInlineHeadingStory = () => {
           selectedItems={selectedItems}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -241,7 +239,7 @@ const FilterBarInlineHeadingStory = () => {
   };
 
   return (
-    <VStack align="left">
+    <VStack align="left" spacing="l">
       <FilterBarInline
         heading={<Heading level="h3">Custom H3 Heading</Heading>}
         renderChildren={renderFilterComponents}
@@ -254,6 +252,7 @@ const FilterBarInlineHeadingStory = () => {
     </VStack>
   );
 };
+FilterBarInlineHeadingStory.displayName = "FilterBarInlineHeadingStory";
 
 const FilterBarLayoutStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -279,11 +278,11 @@ const FilterBarLayoutStory = () => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -570,6 +569,7 @@ const FilterBarLayoutStory = () => {
     </VStack>
   );
 };
+FilterBarLayoutStory.displayName = "FilterBarLayoutStory";
 
 const FilterBarRowContainerStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -597,11 +597,11 @@ const FilterBarRowContainerStory = () => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -628,11 +628,11 @@ const FilterBarRowContainerStory = () => {
             isBlockElement={isBlockElement}
             onChange={(e) => onChange(e.target.id, multiSelect.id)}
             onMixedStateChange={(e) => {
-              return onMixedStateChange(
-                e.target.id,
-                multiSelect.id,
-                multiSelect.items
-              );
+              return onMixedStateChange({
+                parentId: e.target.id,
+                multiSelectId: multiSelect.id,
+                items: multiSelect.items,
+              });
             }}
             onClear={() => onClear(multiSelect.id)}
             width={multiSelectWidth}
@@ -700,6 +700,7 @@ const FilterBarRowContainerStory = () => {
     </VStack>
   );
 };
+FilterBarRowContainerStory.displayName = "FilterBarRowContainerStory";
 
 const FilterBarColumnContainerStory = () => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -723,11 +724,11 @@ const FilterBarColumnContainerStory = () => {
           isBlockElement={isBlockElement}
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           onClear={() => onClear(multiSelect.id)}
           width={multiSelectWidth}
@@ -797,6 +798,7 @@ const FilterBarColumnContainerStory = () => {
     </VStack>
   );
 };
+FilterBarColumnContainerStory.displayName = "FilterBarColumnContainerStory";
 
 const FilterBarChildrenStory = (args) => {
   const { onChange, onMixedStateChange, selectedItems, onClear, onClearAll } =
@@ -837,11 +839,11 @@ const FilterBarChildrenStory = (args) => {
           onChange={(e) => onChange(e.target.id, multiSelect.id)}
           onClear={() => onClear(multiSelect.id)}
           onMixedStateChange={(e) => {
-            return onMixedStateChange(
-              e.target.id,
-              multiSelect.id,
-              multiSelect.items
-            );
+            return onMixedStateChange({
+              parentId: e.target.id,
+              multiSelectId: multiSelect.id,
+              items: multiSelect.items,
+            });
           }}
           width={multiSelectWidth}
         />
@@ -897,6 +899,7 @@ const FilterBarChildrenStory = (args) => {
     />
   );
 };
+FilterBarChildrenStory.displayName = "FilterBarChildrenStory";
 
 const FilterBarTagSetStory = () => {
   const [selectedCheckbox, setSelectedCheckbox] = useState([]);
@@ -977,7 +980,7 @@ const FilterBarTagSetStory = () => {
   return (
     <>
       <FilterBarInline
-        id="filterbar-with-tagset"
+        id="filterBarInline-with-tagset"
         selectedItems={selectedFilterItems}
         renderChildren={renderFilterComponents}
       />
@@ -986,8 +989,9 @@ const FilterBarTagSetStory = () => {
         isDismissible
         onClick={handleOnClick}
         tagSetData={tagSetData}
-        type="filter"
+        variant="filter"
       />
     </>
   );
 };
+FilterBarTagSetStory.displayName = "FilterBarTagSetStory";

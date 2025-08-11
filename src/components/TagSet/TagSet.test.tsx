@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
-import React from "react";
 import renderer from "react-test-renderer";
 
 import TagSet from "./TagSet";
@@ -66,11 +65,13 @@ const filterWithMoreProperties = [
 describe("TagSet Accessibility", () => {
   it("passes axe accessibility test for the 'explore' variant", async () => {
     const { container, rerender } = render(
-      <TagSet tagSetData={exploreTagSetData.simple} type="explore" />
+      <TagSet tagSetData={exploreTagSetData.simple} variant="explore" />
     );
     expect(await axe(container)).toHaveNoViolations();
 
-    rerender(<TagSet tagSetData={exploreTagSetData.withIcon} type="explore" />);
+    rerender(
+      <TagSet tagSetData={exploreTagSetData.withIcon} variant="explore" />
+    );
     expect(await axe(container)).toHaveNoViolations();
   });
 
@@ -80,7 +81,7 @@ describe("TagSet Accessibility", () => {
       <TagSet
         onClick={onClick}
         tagSetData={filterTagSetData.simple}
-        type="filter"
+        variant="filter"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -89,7 +90,7 @@ describe("TagSet Accessibility", () => {
       <TagSet
         onClick={onClick}
         tagSetData={filterTagSetData.withIcon}
-        type="filter"
+        variant="filter"
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -97,18 +98,26 @@ describe("TagSet Accessibility", () => {
 });
 
 describe("TagSet Explore", () => {
+  it("should not render an id if none is passed", () => {
+    render(<TagSet tagSetData={exploreTagSetData.simple} variant="explore" />);
+    const tagSet = screen.getByTestId("ds-tagSet");
+    expect(tagSet).not.toHaveAttribute("id");
+  });
+
   it("renders tags", () => {
     // Seven color tags were passed as tags to display.
-    render(<TagSet tagSetData={exploreTagSetData.simple} type="explore" />);
+    render(<TagSet tagSetData={exploreTagSetData.simple} variant="explore" />);
 
     expect(screen.getAllByRole("link")).toHaveLength(7);
   });
 
   it("renders icons within the tags", () => {
     // Seven icon names were passed to display.
-    render(<TagSet tagSetData={exploreTagSetData.withIcon} type="explore" />);
+    render(
+      <TagSet tagSetData={exploreTagSetData.withIcon} variant="explore" />
+    );
 
-    expect(screen.getAllByTestId("ts-icon")).toHaveLength(7);
+    expect(screen.getAllByTestId("ds-tagSetExplore-icon")).toHaveLength(7);
   });
 
   it("logs a warning when the `isDismissible` prop is passed", () => {
@@ -120,7 +129,7 @@ describe("TagSet Explore", () => {
       <TagSet
         isDismissible
         tagSetData={exploreTagSetData.simple}
-        type="explore"
+        variant="explore"
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -137,7 +146,7 @@ describe("TagSet Explore", () => {
       <TagSet
         onClick={() => {}}
         tagSetData={exploreTagSetData.simple}
-        type="explore"
+        variant="explore"
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -150,7 +159,7 @@ describe("TagSet Explore", () => {
     // We cannot pass labels as strings when the `type` is "explore", but because
     // this is a test, we want to verify the logged message.
     // @ts-ignore
-    render(<TagSet tagSetData={filterTagSetData.simple} type="explore" />);
+    render(<TagSet tagSetData={filterTagSetData.simple} variant="explore" />);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir TagSet: Explore tags require all `label` props to be React components."
     );
@@ -158,10 +167,14 @@ describe("TagSet Explore", () => {
 
   it("renders the UI snapshot correctly", () => {
     const simple = renderer
-      .create(<TagSet tagSetData={exploreTagSetData.simple} type="explore" />)
+      .create(
+        <TagSet tagSetData={exploreTagSetData.simple} variant="explore" />
+      )
       .toJSON();
     const withIcons = renderer
-      .create(<TagSet tagSetData={exploreTagSetData.withIcon} type="explore" />)
+      .create(
+        <TagSet tagSetData={exploreTagSetData.withIcon} variant="explore" />
+      )
       .toJSON();
     const withChakraProps = renderer
       .create(
@@ -169,7 +182,7 @@ describe("TagSet Explore", () => {
           p="s"
           color="ui.error.primary"
           tagSetData={exploreTagSetData.simple}
-          type="explore"
+          variant="explore"
         />
       )
       .toJSON();
@@ -178,7 +191,7 @@ describe("TagSet Explore", () => {
         <TagSet
           data-testid="testid"
           tagSetData={exploreTagSetData.simple}
-          type="explore"
+          variant="explore"
         />
       )
       .toJSON();
@@ -200,7 +213,7 @@ describe("TagSet Filter", () => {
       <TagSet
         onClick={onClick}
         tagSetData={filterTagSetData.simple}
-        type="filter"
+        variant="filter"
       />
     );
 
@@ -214,25 +227,31 @@ describe("TagSet Filter", () => {
       <TagSet
         onClick={onClick}
         tagSetData={filterTagSetData.withIcon}
-        type="filter"
+        variant="filter"
       />
     );
 
-    expect(screen.getAllByTestId("ts-icon")).toHaveLength(7);
+    expect(screen.getAllByTestId("ds-tagSetFilter-icon")).toHaveLength(7);
   });
 
   it("renders close icons when `isDismissible` is true", () => {
     onClick = jest.fn();
+    const onClickHandler = (tagSet: TagSetFilterDataProps) => {
+      if ((tagSet as TagSetFilterDataProps).id === "clear-filters") {
+        return;
+      }
+      console.log("test");
+    };
     render(
       <TagSet
         isDismissible
-        onClick={onClick}
+        onClick={onClickHandler}
         tagSetData={filterTagSetData.withIcon}
-        type="filter"
+        variant="filter"
       />
     );
 
-    expect(screen.getAllByTestId("filter-close-icon")).toHaveLength(7);
+    expect(screen.getAllByTestId("ds-tagSetFilter-close-icon")).toHaveLength(7);
   });
 
   it("renders the correct aria-label when `isDismissible` is true", () => {
@@ -242,7 +261,7 @@ describe("TagSet Filter", () => {
         isDismissible
         onClick={onClick}
         tagSetData={filterTagSetData.simple}
-        type="filter"
+        variant="filter"
       />
     );
 
@@ -288,7 +307,7 @@ describe("TagSet Filter", () => {
         isDismissible
         onClick={onClick}
         tagSetData={filterWithMoreProperties}
-        type="filter"
+        variant="filter"
       />
     );
 
@@ -312,7 +331,7 @@ describe("TagSet Filter", () => {
         isDismissible
         onClick={onClick}
         tagSetData={tagSetData}
-        type="filter"
+        variant="filter"
       />
     );
     expect(screen.queryByText("Clear filters")).not.toBeInTheDocument();
@@ -323,7 +342,7 @@ describe("TagSet Filter", () => {
         isDismissible
         onClick={onClick}
         tagSetData={tagSetData}
-        type="filter"
+        variant="filter"
       />
     );
     expect(screen.getByText("Clear filters")).toBeInTheDocument();
@@ -332,7 +351,7 @@ describe("TagSet Filter", () => {
   it("it does not render tags as buttons when isDismissible is false", () => {
     const tagSetData = [{ id: "red", label: "Red" }];
     render(
-      <TagSet isDismissible={false} tagSetData={tagSetData} type="filter" />
+      <TagSet isDismissible={false} tagSetData={tagSetData} variant="filter" />
     );
     expect(screen.queryByRole("button")).not.toBeInTheDocument;
   });
@@ -347,7 +366,7 @@ describe("TagSet Filter", () => {
         isDismissible
         onClick={onClick}
         tagSetData={filterTagSetData.simple}
-        type="filter"
+        variant="filter"
       />
     );
 
@@ -361,7 +380,7 @@ describe("TagSet Filter", () => {
     // We cannot pass labels as JSX elements when the `type` is "filter", but
     // because this is a test, we want to verify the logged message.
     // @ts-ignore
-    render(<TagSet tagSetData={exploreTagSetData.simple} type="filter" />);
+    render(<TagSet tagSetData={exploreTagSetData.simple} variant="filter" />);
     expect(warn).toHaveBeenCalledWith(
       "NYPL Reservoir TagSet: Filter tags require all `label` props to be strings."
     );
@@ -373,7 +392,7 @@ describe("TagSet Filter", () => {
       <TagSet
         isDismissible
         tagSetData={filterTagSetData.withIcon}
-        type="filter"
+        variant="filter"
       />
     );
     expect(warn).toHaveBeenCalledWith(
@@ -388,7 +407,7 @@ describe("TagSet Filter", () => {
         <TagSet
           onClick={onClick}
           tagSetData={filterTagSetData.simple}
-          type="filter"
+          variant="filter"
         />
       )
       .toJSON();
@@ -397,7 +416,7 @@ describe("TagSet Filter", () => {
         <TagSet
           onClick={onClick}
           tagSetData={filterTagSetData.withIcon}
-          type="filter"
+          variant="filter"
         />
       )
       .toJSON();
@@ -407,7 +426,7 @@ describe("TagSet Filter", () => {
           isDismissible
           onClick={onClick}
           tagSetData={filterTagSetData.withIcon}
-          type="filter"
+          variant="filter"
         />
       )
       .toJSON();
@@ -418,7 +437,7 @@ describe("TagSet Filter", () => {
           color="ui.error.primary"
           onClick={onClick}
           tagSetData={filterTagSetData.simple}
-          type="filter"
+          variant="filter"
         />
       )
       .toJSON();
@@ -428,7 +447,7 @@ describe("TagSet Filter", () => {
           data-testid="testid"
           onClick={onClick}
           tagSetData={filterTagSetData.simple}
-          type="filter"
+          variant="filter"
         />
       )
       .toJSON();

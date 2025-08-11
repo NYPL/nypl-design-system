@@ -1,27 +1,28 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Radio as ChakraRadio,
   useMultiStyleConfig,
   useStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React, { forwardRef, InputHTMLAttributes } from "react";
 
 import ComponentWrapper from "../ComponentWrapper/ComponentWrapper";
 import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
+import { useSafeId } from "../../hooks/useSafeId";
+import { useRadioGroup } from "../RadioGroup/RadioGroupContext";
 
-export interface RadioProps {
-  /** Additional class name. */
-  className?: string;
+export interface RadioProps
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<InputHTMLAttributes<HTMLInputElement>, "color" | "height" | "width"> {
   /** Optional string to populate the HelperErrorText for the standard state. */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the HelperErrorText for the error state
-   * when `isInvalid` is true.
-   */
+   * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
   /** When using the Radio as a "controlled" form element, you can specify the
    * `Radio`'s checked state using this prop. You must also pass an onChange prop.
@@ -39,10 +40,6 @@ export interface RadioProps {
    * `<label>` element if `showlabel` is true, or an "aria-label" if `showLabel`
    * is false. */
   labelText: string | JSX.Element;
-  /** Used to reference the input element in forms. */
-  name?: string;
-  /** Should be passed along with `isChecked` for controlled components. */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the radio's label onscreen or hide it. Refer
@@ -60,7 +57,6 @@ export const Radio: ChakraComponent<
 > = chakra(
   forwardRef<HTMLInputElement, RadioProps>((props, ref?) => {
     const {
-      className,
       helperText,
       id,
       invalidText,
@@ -76,12 +72,14 @@ export const Radio: ChakraComponent<
       value,
       ...rest
     } = props;
+    const mainId = useSafeId(id);
     const styles = useMultiStyleConfig("Radio", { showLabel });
+    const groupProps = useRadioGroup();
     const wrapperStyles = useStyleConfig("RadioWrapper");
     const footnote = isInvalid ? invalidText : helperText;
     const ariaAttributes = getAriaAttrs({
       footnote,
-      id,
+      id: mainId,
       labelText,
       name: "Radio",
       showLabel,
@@ -90,17 +88,12 @@ export const Radio: ChakraComponent<
     // Radio component. Instead, we'll visually hide the label.
     delete ariaAttributes["aria-label"];
 
-    if (!id) {
-      console.warn(
-        "NYPL Reservoir Radio: This component's required `id` prop was not passed."
-      );
-    }
-
     return (
       <ComponentWrapper
+        data-testid="ds-radio"
         helperText={helperText}
         helperTextStyles={styles.helperErrorText}
-        id={id}
+        id={mainId}
         invalidText={invalidText}
         isInvalid={isInvalid}
         showHelperInvalidText={showHelperInvalidText}
@@ -108,13 +101,12 @@ export const Radio: ChakraComponent<
         {...rest}
       >
         <ChakraRadio
-          className={className}
-          id={id}
+          id={mainId}
           isChecked={isChecked}
-          isDisabled={isDisabled}
-          isInvalid={isInvalid}
-          isRequired={isRequired}
-          name={name}
+          isDisabled={groupProps?.isDisabled || isDisabled}
+          isInvalid={groupProps?.isInvalid || isInvalid}
+          isRequired={groupProps?.isRequired || isRequired}
+          name={groupProps?.name || name}
           onChange={onChange}
           ref={ref}
           value={value}

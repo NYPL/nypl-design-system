@@ -1,5 +1,6 @@
 export const iconAlignArray = ["left", "right", "none"] as const;
 export const iconColorsArray = [
+  "currentColor",
   "transparent",
   "ui.black",
   "ui.white",
@@ -214,4 +215,4 @@ export const iconSizesArray = [
   "4xlarge",
   "5xlarge",
 ] as const;
-export const iconTypesArray = ["default", "breadcrumbs"] as const;
+export const iconVariantsArray = ["default", "breadcrumbs"] as const;

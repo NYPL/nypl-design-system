@@ -14,9 +14,7 @@ const meta: Meta<typeof FeedbackBox> = {
     jest: ["FeedbackBox.test.tsx"],
   },
   argTypes: {
-    className: { control: false },
     hiddenFields: { control: false },
-    id: { control: false },
     isInvalidComment: { table: { defaultValue: { summary: "false" } } },
     isInvalidEmail: { table: { defaultValue: { summary: "false" } } },
     isOpen: { table: { disable: true } },
@@ -90,6 +88,7 @@ const FeedbackBoxWithControls = (args) => {
     </Box>
   );
 };
+FeedbackBoxWithControls.displayName = "FeedbackBoxWithControls";
 
 /**
  * Main Story for the FeedbackBox component. This must contains the `args`
@@ -97,11 +96,9 @@ const FeedbackBoxWithControls = (args) => {
  */
 export const WithControls: Story = {
   args: {
-    className: undefined,
     confirmationText: "",
     descriptionText: "Please share your question or feedback.",
     hiddenFields: undefined,
-    id: "feedbackBox-id",
     isInvalidComment: false,
     isInvalidEmail: true,
     isOpen: undefined,

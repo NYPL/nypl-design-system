@@ -2,6 +2,7 @@ import { Meta, Source } from "@storybook/addon-docs/blocks";
 import { Box, Flex, VStack } from "@chakra-ui/react";
 
 import Button from "../Button/Button";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Heading from "../Heading/Heading";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
@@ -10,15 +11,19 @@ import Text from "../Text/Text";
 
 <Meta title="Style Guide/Bidirectionality" />
 
-# Bidirectionality
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Bidirectionality"
+  summary="Details about bidirectionality support in Reservoir components"
+/>
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#terms" target="_self">Terms</Link>}
-- {<Link href="#general-information" target="_self">General Information</Link>}
-- {<Link href="#reservoir-bidirectionality-goal" target="_self">Reservoir Bidirectionality Goal</Link>}
-- {<Link href="#reservoir-component-implementation" target="_self">Reservoir Component Implementation</Link>}
-- {<Link href="#application-implementation" target="_self">Application Implementation</Link>}
+- [Terms](#terms)
+- [General Information](#general-information)
+- [Reservoir Bidirectionality Goal](#reservoir-bidirectionality-goal)
+- [Reservoir Component Implementation](#reservoir-component-implementation)
+- [Application Implementation](#application-implementation)
 
 ## Terms
 
@@ -27,12 +32,11 @@ import Text from "../Text/Text";
 
 ## General Information
 
-When building user interfaces (UIs) and page layouts, we tend to think in terms
-of left-to-right for layout direction. This is because the default language we
-build UIs for is English. At NYPL, we serve patrons who speak a variety of
-languages including languages such as Arabic or Hebrew which are right-to-left
-languages. To correctly render any language, UIs should be mirrored to accomodate
-navigation and the passage of time, for example.
+When building user interfaces (UIs), we tend to think in terms of left-to-right
+for layout direction because the default language we build UIs for is English.
+At NYPL, we serve patrons who speak a variety of languages including Arabic
+and Hebrew which are right-to-left languages. To correctly render any language,
+UIs should be mirrored to accomodate navigation and the passage of time, for example.
 
 Resources:
 
@@ -170,7 +174,7 @@ directionality should be implemented at the application level. The following are
 general guidelines on how to set up directionality but implementation will be up
 to the application and its architecture.
 
-### dir HTML attribute
+### dir HTML Attribute
 
 The `dir` HTML attribute can be added to elements to indicate its directionality.
 The default direction is `"ltr"` or left to right. For languages, such as Arabic
@@ -224,12 +228,12 @@ supported by all major browsers and can target specific elements through CSS rul
 
 <Source
   code={`
-.rightToLeft {
-  direction: rtl;
-}
-.leftToRight {
-  direction: ltr;
-}
+  .rightToLeft {
+    direction: rtl;
+  }
+  .leftToRight {
+    direction: ltr;
+  }
 `}
   language="css"
 />

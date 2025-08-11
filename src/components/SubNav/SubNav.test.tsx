@@ -86,6 +86,21 @@ describe("SubNav Accessibility", () => {
 });
 
 describe("SubNav Component", () => {
+  it("should not render an id if none is passed", () => {
+    render(
+      <SubNav
+        primaryActions={
+          <>
+            <SubNavButton id="primary-button-1">Primary Button 1</SubNavButton>
+            <SubNavButton id="primary-button-2">Primary Button 2</SubNavButton>
+          </>
+        }
+      />
+    );
+    const subNav = screen.getByTestId("ds-subNav");
+    expect(subNav).not.toHaveAttribute("id");
+  });
+
   it("renders with primary actions", () => {
     render(
       <SubNav
@@ -140,7 +155,8 @@ describe("SubNavButton", () => {
       </SubNavButton>
     );
     const button = screen.getByText("Selected Button");
-    expect(button).toHaveClass("selectedItem"); // Should have "selectedItem" class
+    // Should have "ds-subNav-selectedItem" class
+    expect(button).toHaveClass("ds-subNav-selectedItem");
   });
 });
 
@@ -163,7 +179,8 @@ describe("SubNavLink", () => {
       </SubNavLink>
     );
     const button = screen.getByText("Selected Link");
-    expect(button).toHaveClass("selectedItem"); // Should have "selectedItem" class
+    // Should have "ds-subNav-selectedItem" class
+    expect(button).toHaveClass("ds-subNav-selectedItem");
   });
 
   it("applies outlined styles when isOutlined is true", () => {

@@ -1,40 +1,49 @@
-import { ArgTypes, Canvas, Description, Meta, Source } from "@storybook/addon-docs/blocks";
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
 
-import * as TabsStories from "./Tabs.stories";
 import Banner from "../Banner/Banner";
-import Link from "../Link/Link";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import * as TabsStories from "./Tabs.stories";
 import { changelogData } from "./tabsChangelogData";
 
 <Meta of={TabsStories} />
 
-# Tabs
+<ComponentDocsHeader
+  category="Overlays & Switchers component"
+  componentName="Tabs"
+  summary="Displays related content in a tabbed interface"
+  versionAdded="0.24.0"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.24.0`   |
-| Latest            | `3.6.2`    |
+<Canvas of={TabsStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#composing-with-a-data-object" target="_self">Composing with a Data Object</Link>}
-- {<Link href="#responsive-mobile-carousel" target="_self">Responsive Mobile Carousel</Link>}
-- {<Link href="#horizontal-scrolling" target="_self">Horizontal Scrolling</Link>}
-- {<Link href="#callback-event-function" target="_self">Callback Event Function</Link>}
-- {<Link href="#url-hash-option" target="_self">URL Hash Option</Link>}
-- {<Link href="#children-components" target="_self">Children Components</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Composing with a data object](#composing-with-a-data-object)
+- [Responsive mobile carousel](#responsive-mobile-carousel)
+- [Horizontal scrolling](#horizontal-scrolling)
+- [Callback event function](#callback-event-function)
+- [URL hash option](#url-hash-option)
+- [Children components](#children-components)
+- [Changelog](#changelog)
 
 ## Overview
 
 <Description of={TabsStories} />
 
-## Component Props
+## Component props
 
-<Canvas of={TabsStories.WithControls} />
+You may pass any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={TabsStories.WithControls} />
 
@@ -74,11 +83,20 @@ Resources:
 
 ## Composing with a Data Object
 
-_Note: this is the recommended approach._
+<Banner
+  content={
+    <>
+      <strong>RECOMMENDATION:</strong> this is the recommended approach for
+      implementing the <code>Tabs</code> component.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="recommendation"
+/>
 
-- It is recommended to use the `tabsData` prop to populate the component. This
-  ensures the consumer passes well-formed data and always generate the correct
-  DOM.
+- Use the `tabsData` prop to populate the component. This ensures the consumer
+  passes well-formed data and always generate the correct DOM.
 - The `Tabs` component will map through the `tabsData` array and generate the
   appropriate components needed for the layout.
 - The `Tabs` component will add the carousel feature for the mobile view.
@@ -90,49 +108,53 @@ _Note: this is the recommended approach._
       property in each object as part of a string or as straight HTML.
     </>
   }
-  type="informative"
+  mt="s"
+  variant="informative"
 />
 
 <Source
   code={`
-import { Tabs } from "@nypl/design-system-react-components";
-const animalCrossingData = [
-  {
-    label: "Tom Nook",
-    content: (
-      <p>
-        Tom Nook, <b>known in Japan as Tanukichi</b>, is a...
-      </p>
-    ),
-  },
-  {
-    label: "Isabelle",
-    content: "Isabelle, known as Shizue in Japan, is a fictional ...",
-  },
-  {
-    label: "K.K. Slider",
-    content:
-      "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is ...",
-  },
-  {
-    label: "Mr. Resetti",
-    content:
-      "<strong>Mr. Resetti</strong>, full name Sonny Resetti, is a ...",
-  },
-  {
-    label: "Zucker",
-    content:
-      "<strong>Zucker</strong> is a lazy octopus villager who first ...",
-  },
-];
-
-<Tabs tabsData={animalCrossingData} />; `} language="tsx" />
+  import { Tabs } from "@nypl/design-system-react-components";
+  // ...
+  const animalCrossingData = [
+    {
+      label: "Tom Nook",
+      content: (
+        <p>
+          Tom Nook, <b>known in Japan as Tanukichi</b>, is a...
+        </p>
+      ),
+    },
+    {
+      label: "Isabelle",
+      content: "Isabelle, known as Shizue in Japan, is a fictional ...",
+    },
+    {
+      label: "K.K. Slider",
+      content:
+        "<p>Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is ...",
+    },
+    {
+      label: "Mr. Resetti",
+      content:
+        "<strong>Mr. Resetti</strong>, full name Sonny Resetti, is a ...",
+    },
+    {
+      label: "Zucker",
+      content:
+        "<strong>Zucker</strong> is a lazy octopus villager who first ...",
+    },
+  ];
+  // ...
+  <Tabs tabsData={animalCrossingData} />; `}
+  language="tsx"
+/>
 
 ## Responsive Mobile Carousel
 
 - For mobile viewports, the `Tabs` component will generate a carousel feature.
-- The carousel feature adds `"previous"` and `"next"` buttons that can be used to scroll through
-  all tabs while the panel stays static.
+- The carousel feature adds `"previous"` and `"next"` buttons that can be used
+  to scroll through all tabs while the panel stays static.
 
 To view and test this in Storybook, go to the "Canvas" tab and change the
 viewport in the Storybook toolbar at the top of the page.
@@ -143,22 +165,23 @@ viewport in the Storybook toolbar at the top of the page.
   space, the overflow will be hidden and horizontal scrolling will be enabled.
 - This functionality is the same for desktop, tablet, and mobile.
 - Horizontal scrolling can be accomplished by using the trackpad, the
-  `shift + scroll wheel` combination, or the keyboard to tab through the available
-  tabs.
+  `shift + scroll wheel` combination, or the keyboard to tab through the
+  available tabs.
 
 <Canvas of={TabsStories.ExtendedTabSetExample} />
 
 ## Callback Event Function
 
-- The index (0-based) of the current tab will be returned to an event handler
-  passed via the `onChange` prop.
+The index (0-based) of the current tab will be returned to an event handler
+passed via the `onChange` prop.
 
 <Source
   code={`
-export const onChange = (value) => {
-  window.alert(\`Tab index selected was \${value}\`);
-};
-<Tabs tabsData={animalCrossing} onChange={onChange} />;
+  export const onChange = (value) => {
+    window.alert(\`Tab index selected was \${value}\`);
+  };
+  // ...
+  <Tabs tabsData={animalCrossing} onChange={onChange} />;
 `}
   language="tsx"
 />
@@ -167,14 +190,25 @@ export const onChange = (value) => {
 
 ## URL Hash Option
 
-- Set the `useHash` prop to true to have selected tabs update the URL with a
-  hash value.
+Set the `useHash` prop to true to have selected tabs update the URL with a
+hash value.
 
 <Canvas of={TabsStories.URLHashOption} />
 
 ## Children Components
 
-_Note: not recommended but available._
+<Banner
+  content={
+    <>
+      <strong>RECOMMENDATION:</strong> This approach is not recommended for
+      implementing the <code>Tabs</code> component. Use the{" "}
+      <code>tabsData</code> prop instead.
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="recommendation"
+/>
 
 There are five components that make up the Design System `Tabs` component:
 
@@ -209,65 +243,67 @@ Make sure that:
       passed or else the mobile carousel will <strong>not</strong> be built.
     </>
   }
-  type="informative"
+  mt="s"
+  variant="informative"
 />
 
 <Source
   code={`
-import {
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-} from "@nypl/design-system-react-components";
-<Tabs>
-  <TabList>
-    <Tab>Tom Nook</Tab>
-    <Tab>Isabelle</Tab>
-    <Tab>K.K. Slider</Tab>
-    <Tab>Mr. Resetti</Tab>
-    <Tab>Zucker</Tab>
-  </TabList>
-  <TabPanels>
-    <TabPanel>
-      <p>
-        Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional
-        character in the Animal Crossing series who operates the village
-        store.
-      </p>
-    </TabPanel>
-    <TabPanel>
-      Isabelle, known as Shizue in Japan, is a fictional character from the
-      Animal Crossing series of video games. She is a kindly Shih Tzu that
-      debuted in the 2012 release Animal Crossing: New Leaf, where she
-      serves as the secretary to the player character.
-    </TabPanel>
-    <TabPanel>
-      <p>
-        Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a
-        fictional character within the Animal Crossing franchise. One of the
-        franchise's most popular characters, he debuted in the title Animal
-        Crossing, and has appeared in every installment since.
-      </p>
-    </TabPanel>
-    <TabPanel>
-      <strong>Mr. Resetti</strong>, full name Sonny Resetti, is a fictional
-      character from the Animal Crossing series of video games by Nintendo.
-      His first appearance was in the Nintendo 64 game Dōbutsu no Mori,
-      released in Europe and North America on the GameCube as Animal
-      Crossing.
-    </TabPanel>
-    <TabPanel>
-      <strong>Zucker</strong> is a lazy octopus villager who first appeared
-      in New Leaf. His Japanese name and general appearance refers to the
-      Japanese snack takoyaki, which is a fried ball of dough commonly
-      filled with minced octopus. His catchphrase is a reference to how he
-      is an underwater animal. He has the same initial phrase as Bertha. He
-      has the nature hobby.
-    </TabPanel>
-  </TabPanels>
-</Tabs>
+  import {
+    Tabs,
+    TabList,
+    Tab,
+    TabPanels,
+    TabPanel,
+  } from "@nypl/design-system-react-components";
+  // ...
+  <Tabs>
+    <TabList>
+      <Tab>Tom Nook</Tab>
+      <Tab>Isabelle</Tab>
+      <Tab>K.K. Slider</Tab>
+      <Tab>Mr. Resetti</Tab>
+      <Tab>Zucker</Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel>
+        <p>
+          Tom Nook, <b>known in Japan as Tanukichi</b>, is a fictional
+          character in the Animal Crossing series who operates the village
+          store.
+        </p>
+      </TabPanel>
+      <TabPanel>
+        Isabelle, known as Shizue in Japan, is a fictional character from the
+        Animal Crossing series of video games. She is a kindly Shih Tzu that
+        debuted in the 2012 release Animal Crossing: New Leaf, where she
+        serves as the secretary to the player character.
+      </TabPanel>
+      <TabPanel>
+        <p>
+          Totakeke, more commonly known as <b>K.K. Slider or K.K.</b>, is a
+          fictional character within the Animal Crossing franchise. One of the
+          franchise's most popular characters, he debuted in the title Animal
+          Crossing, and has appeared in every installment since.
+        </p>
+      </TabPanel>
+      <TabPanel>
+        <strong>Mr. Resetti</strong>, full name Sonny Resetti, is a fictional
+        character from the Animal Crossing series of video games by Nintendo.
+        His first appearance was in the Nintendo 64 game Dōbutsu no Mori,
+        released in Europe and North America on the GameCube as Animal
+        Crossing.
+      </TabPanel>
+      <TabPanel>
+        <strong>Zucker</strong> is a lazy octopus villager who first appeared
+        in New Leaf. His Japanese name and general appearance refers to the
+        Japanese snack takoyaki, which is a fried ball of dough commonly
+        filled with minced octopus. His catchphrase is a reference to how he
+        is an underwater animal. He has the same initial phrase as Bertha. He
+        has the nature hobby.
+      </TabPanel>
+    </TabPanels>
+  </Tabs>
 `}
   language="tsx"
 />

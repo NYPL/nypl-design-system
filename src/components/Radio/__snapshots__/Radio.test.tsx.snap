@@ -2,8 +2,9 @@
 
 exports[`Radio Button renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1xdhyk6"
-  id="inputID-wrapper"
+  className="css-1u8qly9"
+  data-testid="ds-radio"
+  id="inputID-componentWrapper"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -36,7 +37,7 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
     />
     <span
       aria-hidden={true}
-      className="css-14wybg9"
+      className="chakra-radio__control css-ssalds"
       onMouseDown={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -58,8 +59,9 @@ exports[`Radio Button renders the UI snapshot correctly 1`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 2`] = `
 <div
-  className="css-1xdhyk6"
-  id="radio-checked-wrapper"
+  className="css-1u8qly9"
+  data-testid="ds-radio"
+  id="radio-checked-componentWrapper"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -93,7 +95,7 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
     />
     <span
       aria-hidden={true}
-      className="css-14wybg9"
+      className="chakra-radio__control css-ssalds"
       data-checked=""
       onMouseDown={[Function]}
       onMouseEnter={[Function]}
@@ -117,8 +119,9 @@ exports[`Radio Button renders the UI snapshot correctly 2`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 3`] = `
 <div
-  className="css-1xdhyk6"
-  id="radio-required-wrapper"
+  className="css-1u8qly9"
+  data-testid="ds-radio"
+  id="radio-required-componentWrapper"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -152,7 +155,7 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
     />
     <span
       aria-hidden={true}
-      className="css-14wybg9"
+      className="chakra-radio__control css-ssalds"
       onMouseDown={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -174,8 +177,9 @@ exports[`Radio Button renders the UI snapshot correctly 3`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 4`] = `
 <div
-  className="css-1xdhyk6"
-  id="radio-invalid-wrapper"
+  className="css-1u8qly9"
+  data-testid="ds-radio"
+  id="radio-invalid-componentWrapper"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -210,7 +214,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     />
     <span
       aria-hidden={true}
-      className="css-14wybg9"
+      className="chakra-radio__control css-ssalds"
       data-invalid=""
       onMouseDown={[Function]}
       onMouseEnter={[Function]}
@@ -234,8 +238,9 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 5`] = `
 <div
-  className="css-1xdhyk6"
-  id="radio-disabled-wrapper"
+  className="css-1u8qly9"
+  data-testid="ds-radio"
+  id="radio-disabled-componentWrapper"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -270,7 +275,7 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
     />
     <span
       aria-hidden={true}
-      className="css-14wybg9"
+      className="chakra-radio__control css-ssalds"
       data-disabled=""
       onMouseDown={[Function]}
       onMouseEnter={[Function]}
@@ -294,8 +299,9 @@ exports[`Radio Button renders the UI snapshot correctly 5`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 6`] = `
 <div
-  className="css-1xdhyk6"
-  id="jsxLabel-wrapper"
+  className="css-1u8qly9"
+  data-testid="ds-radio"
+  id="jsxLabel-componentWrapper"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -329,7 +335,7 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
     />
     <span
       aria-hidden={true}
-      className="css-14wybg9"
+      className="chakra-radio__control css-ssalds"
       onMouseDown={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -363,8 +369,9 @@ exports[`Radio Button renders the UI snapshot correctly 6`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 7`] = `
 <div
-  className="css-1xdhyk6"
-  id="chakra-wrapper"
+  className="css-1y4kn3e"
+  data-testid="ds-radio"
+  id="chakra-componentWrapper"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -397,7 +404,7 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
     />
     <span
       aria-hidden={true}
-      className="css-1dwi2jm"
+      className="chakra-radio__control css-ssalds"
       onMouseDown={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
@@ -419,9 +426,9 @@ exports[`Radio Button renders the UI snapshot correctly 7`] = `
 
 exports[`Radio Button renders the UI snapshot correctly 8`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-1u8qly9"
   data-testid="props"
-  id="props-wrapper"
+  id="props-componentWrapper"
 >
   <label
     className="chakra-radio css-rfs4w5"
@@ -454,7 +461,7 @@ exports[`Radio Button renders the UI snapshot correctly 8`] = `
     />
     <span
       aria-hidden={true}
-      className="css-14wybg9"
+      className="chakra-radio__control css-ssalds"
       onMouseDown={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}

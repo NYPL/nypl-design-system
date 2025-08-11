@@ -60,11 +60,15 @@ export default function useMultiSelect(initialState?: SelectedItems) {
    * MultiSelect. `disabled` state of items are not included in the
    * selectedItems array.
    */
-  const handleMixedStateChange = (
-    parentId: string,
-    multiSelectId: string,
-    items: MultiSelectItem[]
-  ) => {
+  const handleMixedStateChange = ({
+    parentId,
+    multiSelectId,
+    items,
+  }: {
+    parentId: string;
+    multiSelectId: string;
+    items: MultiSelectItem[];
+  }) => {
     // Build an array of child items.
     const childItems = items
       .filter((item: MultiSelectItem) => item.id === parentId)[0]

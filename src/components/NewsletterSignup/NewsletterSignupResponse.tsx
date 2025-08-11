@@ -40,9 +40,7 @@ export const NewsletterSignupResponse = ({
       </Box>
       {text ? (
         typeof text === "string" ? (
-          <Text noSpace size="body2">
-            {text}
-          </Text>
+          <Text size="body2">{text}</Text>
         ) : (
           text
         )

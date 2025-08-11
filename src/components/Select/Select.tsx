@@ -1,7 +1,9 @@
 import {
   Box,
+  BoxProps,
   chakra,
   ChakraComponent,
+  ChakraProps,
   Select as ChakraSelect,
   useColorModeValue,
   useMultiStyleConfig,
@@ -13,22 +15,20 @@ import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import Icon from "../Icons/Icon";
 import Label from "../Label/Label";
 import { getAriaAttrs } from "../../utils/utils";
+import { useSafeId } from "../../hooks/useSafeId";
 
-export const selectTypesArray = ["default", "searchbar"];
-export const labelPositionsArray = ["default", "inline"];
-export type SelectTypes = (typeof selectTypesArray)[number];
-export type LabelPositions = (typeof labelPositionsArray)[number];
+export const selectVariantsArray = ["default", "searchbar"] as const;
+export const labelPositionsArray = ["default", "inline"] as const;
+export type SelectVariants = typeof selectVariantsArray[number];
+export type LabelPositions = typeof labelPositionsArray[number];
 
 export interface SelectProps
-  extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  /** A class name for the `div` parent element. */
-  className?: string;
+  extends Pick<BoxProps, keyof ChakraProps>,
+    Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "color"> {
   /** The initial value of an uncontrolled component */
   defaultValue?: string;
   /** Optional string to populate the `HelperErrorText` for the standard state. */
   helperText?: HelperErrorTextType;
-  /** ID that other components can cross reference for accessibility purposes */
-  id: string;
   /** Optional string to populate the `HelperErrorText` for the error state
    * when `isInvalid` is true. */
   invalidText?: HelperErrorTextType;
@@ -46,18 +46,13 @@ export interface SelectProps
    * populates an `aria-label` attribute on the select input if `showLabel` is
    * set to `false`. */
   labelText: string;
-  /** Used to reference the select element in forms. */
-  name: string;
-  /** The callback function to get the selected value.
-   * Should be passed along with `value` for controlled components. */
-  onChange?: (event: React.FormEvent) => void;
   /** Placeholder text in the select element. */
   placeholder?: string;
   /** Allows the '(required)' text to be changed for language purposes
    * Note: Parenthesis will be added automatically by the component */
   requiredLabelText?: string;
   /** The variant to display. */
-  selectType?: SelectTypes;
+  variant?: SelectVariants;
   /** Offers the ability to hide the helper/invalid text. */
   showHelperInvalidText?: boolean;
   /** Offers the ability to show the select's label onscreen or hide it. Refer
@@ -66,9 +61,6 @@ export interface SelectProps
   /** Whether or not to display the "(required)" text in the label text.
    * True by default. */
   showRequiredLabel?: boolean;
-  /** The value of the selected option.
-   * Should be passed along with `onChange` for controlled components. */
-  value?: string;
 }
 
 /**
@@ -87,7 +79,6 @@ export const Select: ChakraComponent<
       const {
         autoComplete,
         children,
-        className,
         defaultValue,
         helperText,
         id,
@@ -100,7 +91,7 @@ export const Select: ChakraComponent<
         name,
         onChange,
         placeholder,
-        selectType = "default",
+        variant = "default",
         showHelperInvalidText = true,
         showLabel = true,
         showRequiredLabel = true,
@@ -108,11 +99,14 @@ export const Select: ChakraComponent<
         value = "",
         ...rest
       } = props;
+      const mainId = useSafeId(id);
       const [labelWidth, setLabelWidth] = useState<number>(0);
       const labelRef = useRef<HTMLDivElement>(null);
-      const styles = useMultiStyleConfig("CustomSelect", {
-        variant: selectType,
+      const styles = useMultiStyleConfig("ReservoirSelect", {
+        variant,
         labelPosition,
+        labelWidth,
+        showLabel,
       });
       const finalInvalidText = invalidText
         ? invalidText
@@ -120,7 +114,7 @@ export const Select: ChakraComponent<
       const footnote = isInvalid ? finalInvalidText : helperText;
       const ariaAttributes = getAriaAttrs({
         footnote,
-        id,
+        id: mainId,
         labelText,
         name: "Select",
         showLabel,
@@ -130,8 +124,8 @@ export const Select: ChakraComponent<
       const controlledOrUncontrolledProps = onChange
         ? { onChange, value }
         : defaultValue
-          ? { defaultValue }
-          : {};
+        ? { defaultValue }
+        : {};
 
       // The number of pixels between the label and select elements
       // when the labelPosition is inline (equivalent to --nypl-space-xs).
@@ -149,12 +143,6 @@ export const Select: ChakraComponent<
         );
       }
 
-      if (!id) {
-        console.warn(
-          "NYPL Reservoir Select: This component's required `id` prop was not passed."
-        );
-      }
-
       useEffect(() => {
         if (labelPosition === "inline") {
           if (labelRef.current) {
@@ -168,12 +156,12 @@ export const Select: ChakraComponent<
 
       return (
         <ComponentWrapper
-          className={className}
+          data-testid="ds-select"
           helperText={helperText}
           helperTextStyles={{
             marginStart: { sm: "auto", md: `${labelWidth}px` },
           }}
-          id={id}
+          id={mainId}
           invalidText={finalInvalidText}
           isInvalid={isInvalid}
           showHelperInvalidText={showHelperInvalidText}
@@ -184,8 +172,8 @@ export const Select: ChakraComponent<
             {showLabel && (
               <Box ref={labelRef}>
                 <Label
-                  htmlFor={id}
-                  id={`${id}-label`}
+                  htmlFor={mainId}
+                  id={`${mainId}-label`}
                   isInlined
                   isRequired={showRequiredLabel && isRequired}
                   requiredLabelText={requiredLabelText}
@@ -196,7 +184,7 @@ export const Select: ChakraComponent<
             )}
             <ChakraSelect
               autoComplete={autoComplete}
-              id={id}
+              id={mainId}
               isRequired={isRequired}
               isDisabled={isDisabled}
               isInvalid={isInvalid}
@@ -207,7 +195,7 @@ export const Select: ChakraComponent<
               icon={
                 <Icon
                   color={arrowColor}
-                  id={`${id}-icon`}
+                  id={`${mainId}-select-icon`}
                   name="arrow"
                   size="medium"
                 />

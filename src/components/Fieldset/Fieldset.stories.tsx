@@ -16,8 +16,6 @@ const meta: Meta<typeof Fieldset> = {
   title: "Components/Form Elements/Fieldset",
   component: Fieldset,
   argTypes: {
-    id: { control: false },
-    className: { control: false },
     isLegendHidden: { table: { defaultValue: { summary: "false" } } },
     isRequired: { table: { defaultValue: { summary: "false" } } },
     legendText: { control: { type: "text" } },
@@ -36,7 +34,6 @@ type Story = StoryObj<typeof Fieldset>;
 export const WithControls: Story = {
   ...FieldsetTemplate,
   args: {
-    id: "fieldset-id",
     isLegendHidden: false,
     isRequired: false,
     legendText: "This is the legend text",

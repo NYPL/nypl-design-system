@@ -10,6 +10,21 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Removes explicit `className` prop as interface can be extended to include Chakra prop or HTML attribute types.",
+      "Removes `role` prop (as Chakra equivalent may be used) and updates docs.",
+      "Remove children validation warning.",
+      'Removes the `noSpace` prop and sets all margins to "0" by default.',
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Removes the explicit `className` prop in favor of `rest`.",
+      "Adds `data-testid` value of `ds-text` to the parent element.",
+    ],
+  },
+  {
     date: "2024-05-09",
     version: "3.1.2",
     type: "Update",

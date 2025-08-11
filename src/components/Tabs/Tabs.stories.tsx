@@ -74,11 +74,9 @@ const meta: Meta<typeof Tabs> = {
   title: "Components/Overlays & Switchers/Tabs",
   component: Tabs,
   argTypes: {
-    children: { table: { disable: true } },
     defaultIndex: {
       table: { defaultValue: { summary: "0" } },
     },
-    id: { control: false },
     onChange: { control: false },
     tabsData: { control: false },
     useHash: argsBooleanType(),
@@ -94,10 +92,9 @@ type Story = StoryObj<typeof Tabs>;
  */
 export const WithControls: Story = {
   args: {
-    tabsData: animalCrossingData,
     defaultIndex: 0,
-    id: "tabs-id",
     onChange: undefined,
+    tabsData: animalCrossingData,
     useHash: false,
   },
   parameters: {

@@ -1,36 +1,38 @@
-import { ArgTypes, Canvas, Description, Meta } from "@storybook/addon-docs/blocks";
+import { ArgTypes, Canvas, Meta } from "@storybook/addon-docs/blocks";
 
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import * as TextStories from "./Text.stories";
-import Link from "../Link/Link";
 import { changelogData } from "./textChangelogData";
 
 <Meta of={TextStories} />
 
-# Text
+<ComponentDocsHeader
+  category="Typography & styles component"
+  componentName="Text"
+  summary="Text container used for paragraph text elements"
+  versionAdded="0.25.1"
+  versionLatest="4.0.0"
+/>
 
-| Component Version | DS Version |
-| ----------------- | ---------- |
-| Added             | `0.25.1`   |
-| Latest            | `3.1.2`    |
+<Canvas of={TextStories.WithControls} />
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#component-props" target="_self">Component Props</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#changelog" target="_self">Changelog</Link>}
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Accessibility](#accessibility)
+- [Typographic styles](#typographic-styles)
+- [Changelog](#changelog)
 
 ## Overview
-
-<Description of={TextStories} />
 
 The `Text` component renders a basic `<p>` element and can be used to render
 text for differing content types, including multiple subtitle variants.
 
-## Component Props
+## Component props
 
-<Canvas of={TextStories.WithControls} />
+You may pass any Chakra `Box` props, as well as the props below.
 
 <ArgTypes of={TextStories.WithControls} />
 
@@ -39,31 +41,24 @@ text for differing content types, including multiple subtitle variants.
 The `Text` component renders paragraph `p` HTML elements which are inherently
 accessible and will be read by screen readers.
 
+You may pass an HTML `role` attribute if you need to explicitly set the ARIA
+role.
+
 Resources:
 
 - [Chakra UI Text](https://chakra-ui.com/docs/components/typography/text)
 
-## Updated Typographic Styles
-
-New typographic styles were introduced in June 2023, adding `subtitle1`,
-`subtitle2`, `overline1` and `overline2`. As part of that update, the `tag` and
-`mini` styles have been deprecated.
+## Typographic styles
 
 For usage recommendations of each of the `size` options, please refer to the
 [Typography Style
-Guide](../?path=/docs/style-guide-typography--docs#text-display-sizes).
+Guide](./?path=/docs/style-guide-typography--docs#text-display-sizes).
 
-### Recommended Options
+### Recommended options
 
 `body1`, `body2`, `caption`, `subtitle1`, `subtitle2`, `overline1`, `overline2`
 
 <Canvas of={TextStories.RecommendedOptions} />
-
-### Deprecated Options
-
-`tag`, `mini`
-
-<Canvas of={TextStories.DeprecatedOptions} />
 
 ## Changelog
 

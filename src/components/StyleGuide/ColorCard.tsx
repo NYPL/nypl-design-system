@@ -1044,7 +1044,7 @@ export const DataTable = (props: PropsWithChildren<DataTableProps>) => {
       marginStart="xxs"
       name="check"
       size="medium"
-      type="default"
+      variant="default"
       verticalAlign="text-bottom"
     />
   );
@@ -1434,22 +1434,14 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
     >
       <HStack alignItems="top">
         <Box width="80%">
-          <Heading
-            noSpace
-            size="heading5"
-            border="none"
-            color={textColor}
-            pb="0"
-          >
+          <Heading size="heading5" border="none" color={textColor} pb="0">
             {backgroundColor}
           </Heading>
           <Text
-            fontWeight="medium"
-            lineHeight="20px"
-            noSpace
-            size="tag"
-            m="0"
             color={textColor}
+            fontSize="var(--nypl-fontSizes-desktop-caption) !important"
+            fontWeight="medium"
+            m="0 !important"
           >
             <span style={{ fontWeight: "bold" }}>CSS:</span>{" "}
             {`var(${cssVarName})`}
@@ -1457,11 +1449,9 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
           {colorSource && (
             <Text
               color={textColor}
+              fontSize="var(--nypl-fontSizes-desktop-caption) !important"
               fontWeight="medium"
-              lineHeight="20px"
-              m="0"
-              noSpace
-              size="tag"
+              m="0 !important"
             >
               <span style={{ fontWeight: "bold" }}>Source:</span> {colorSource}
             </Text>
@@ -1471,7 +1461,6 @@ export const ColorCard = (props: PropsWithChildren<ColorCardProps>) => {
               color={textColor}
               fontWeight="medium"
               lineHeight="20px"
-              noSpace
               size="tag"
             >
               <span style={{ fontWeight: "bold" }}>Notes:</span> {notes}

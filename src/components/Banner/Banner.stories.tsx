@@ -1,11 +1,8 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import Banner, {
-  bannerBgColorsArray,
-  bannerHighlightColorsArray,
-  bannerTypesArray,
-} from "./Banner";
+import Banner from "./Banner";
+
 import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Heading from "../Heading/Heading";
@@ -13,29 +10,31 @@ import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 import Table from "../Table/Table";
 import Text from "../Text/Text";
+import {
+  bgColorsArray,
+  highlightColorsArray,
+  messageVariantsArray,
+} from "../../theme/sharedTypes";
 
 const meta: Meta<typeof Banner> = {
   title: "Components/Feedback/Banner",
   component: Banner,
   argTypes: {
-    ariaLabel: { control: { type: "text" } },
     backgroundColor: {
       control: { type: "select" },
-      options: bannerBgColorsArray,
+      options: bgColorsArray,
     },
-    className: { control: false },
     content: { control: false },
     heading: { control: false },
     highlightColor: {
       control: { type: "select" },
-      options: bannerHighlightColorsArray,
+      options: highlightColorsArray,
     },
     icon: { control: false },
-    id: { control: false },
     isDismissible: { control: { type: "boolean" } },
-    type: {
+    variant: {
       control: { type: "select" },
-      options: bannerTypesArray,
+      options: messageVariantsArray,
       table: { defaultValue: { summary: "neutral" } },
     },
   },
@@ -50,9 +49,7 @@ type Story = StoryObj<typeof Banner>;
  */
 export const WithControls: Story = {
   args: {
-    ariaLabel: "Banner label",
     backgroundColor: undefined,
-    className: undefined,
     content: `Cras mattis consectetur purus sit amet fermentum. Maecenas
       faucibus mollis interdum. Morbileo risus, porta ac consectetur ac,
       vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient
@@ -61,9 +58,8 @@ export const WithControls: Story = {
     heading: "Heading text",
     highlightColor: undefined,
     icon: undefined,
-    id: undefined,
     isDismissible: false,
-    type: "neutral",
+    variant: "neutral",
   },
   parameters: {
     design: {
@@ -112,7 +108,7 @@ export const TypeVariants: Story = {
               faucibus dolor auctor.
               `}
               heading="Informative Banner"
-              type="informative"
+              variant="informative"
             />
           </>,
           "Communicates helpful information or an important attribute.",
@@ -129,7 +125,7 @@ export const TypeVariants: Story = {
               faucibus dolor auctor.
               `}
               heading="Positive Banner"
-              type="positive"
+              variant="positive"
             />
           </>,
           "Indicates a constructive or successful state.",
@@ -149,7 +145,7 @@ export const TypeVariants: Story = {
                 </>
               }
               heading="Negative Banner"
-              type="negative"
+              variant="negative"
             />
           </>,
           "Informs users of problems or errors that require potential action to correct.",
@@ -166,7 +162,7 @@ export const TypeVariants: Story = {
               faucibus dolor auctor.
               `}
               heading="Warning Banner"
-              type="warning"
+              variant="warning"
             />
           </>,
           "Communicates cautionary or time-sensitive information.",
@@ -183,7 +179,7 @@ export const TypeVariants: Story = {
               faucibus dolor auctor.
               `}
               heading="Recommendation Banner"
-              type="recommendation"
+              variant="recommendation"
             />
           </>,
           "Highlights a suggestion that will improve the experience and achieve better results.",
@@ -219,7 +215,7 @@ export const BannerHeading: Story = {
           </>
         }
         heading={<Heading level="h5">Custom H5 Heading</Heading>}
-        type="positive"
+        variant="positive"
       />
       <Banner
         content={
@@ -231,7 +227,7 @@ export const BannerHeading: Story = {
             sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
           </>
         }
-        type="warning"
+        variant="warning"
       />
     </VStack>
   ),
@@ -258,7 +254,7 @@ export const CustomBannerIcon: Story = {
             marginTop="xxxs"
           />
         }
-        type="informative"
+        variant="informative"
       />
       <Banner
         content={
@@ -278,7 +274,7 @@ export const CustomBannerIcon: Story = {
             marginTop="xxxs"
           />
         }
-        type="positive"
+        variant="positive"
       />
       <Banner
         content={
@@ -298,7 +294,7 @@ export const CustomBannerIcon: Story = {
             marginTop="xxxs"
           />
         }
-        type="negative"
+        variant="negative"
       />
       <Banner
         content={
@@ -329,11 +325,11 @@ export const HTMLContent: Story = {
         heading="Standard Banner with HTML content"
         content={
           <>
-            <Text>
+            <Text mb="s">
               Cras mattis consectetur purus sit amet fermentum. Maecenas
               faucibus mollis interdum.
             </Text>
-            <Text noSpace>
+            <Text>
               Morbi leo risus, porta ac consectetur ac, vestibulum at eros.{" "}
               <b>
                 Cum sociis natoque penatibus et magnis dis parturient montes,
@@ -348,12 +344,12 @@ export const HTMLContent: Story = {
         heading="Standard Banner with Buttons"
         content={
           <>
-            <Text>
+            <Text mb="s">
               Cras mattis consectetur purus sit amet fermentum. Maecenas
               faucibus mollis interdum.
             </Text>
             <ButtonGroup>
-              <Button buttonType="secondary" id="group-1">
+              <Button variant="secondary" id="group-1">
                 Button
               </Button>
               <Button id="group-2">Submit</Button>
@@ -392,7 +388,7 @@ export const Dismissible: Story = {
       }
       heading="Dismissible Banner"
       isDismissible
-      type="neutral"
+      variant="neutral"
     />
   ),
 };
@@ -400,10 +396,10 @@ export const StringContentWithHTML: Story = {
   render: () => (
     <Banner
       content={
-        "<p>Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</p><p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. <b>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</b>. <a href='#'>This is a link</a>.</p>"
+        "<p style='margin-bottom: 1rem'>Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum.</p><p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. <b>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</b>. <a href='#'>This is a link</a>.</p>"
       }
       heading="String content with HTML"
-      type="neutral"
+      variant="neutral"
     />
   ),
 };

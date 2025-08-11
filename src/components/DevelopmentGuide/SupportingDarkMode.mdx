@@ -1,36 +1,34 @@
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Link from "../Link/Link";
 
 <Meta title="Development Guide/Supporting Dark Mode" />
 
-# Supporting Dark Mode
+<ComponentDocsHeader
+  category="Development Guide"
+  componentName="Supporting Dark Mode"
+  summary="Recommendations for using Reservoir dark mode styles"
+/>
 
-## Table of Contents
+## Table of contents
 
-- {<Link href="#overview" target="_self">Overview</Link>}
-- {<Link href="#accessibility" target="_self">Accessibility</Link>}
-- {<Link href="#reservoir-default-configuration" target="_self">Reservoir Default Configuration</Link>}
-- {<Link href="#consuming-app-configuration" target="_self">Consuming App Configuration</Link>}
-- {<Link href="#hooks" target="_self">Hooks</Link>}
-- {<Link href="#using-custom-dark-mode-styles" target="_self">Using Custom Dark Mode Styles</Link>}
-- {<Link href="#color-mapping" target="_self">Color Mapping</Link>}
+- [Overview](#overview)
+- [Accessibility](#accessibility)
+- [Reservoir Default Configuration](#reservoir-default-configuration)
+- [Consuming App Configuration](#consuming-app-configuration)
+- [Hooks](#hooks)
+- [Using Custom Dark Mode Styles](#using-custom-dark-mode-styles)
+- [Color Mapping](#color-mapping)
 
 ## Overview
 
 Offering dark mode color styles on a website might be considered a hip feature
-or a sign of the times, but it is also a way to improve accessibility. Dark
-mode can be beneficial for all users, making text easier to read for longer
-periods of time and reducing the likelihood of eye strain or fatigue, but it
-can be especially beneficial for users with low vision and light sensitivity.
-
-With these accessibility benefits in mind, NYPL is aiming to implement dark
-mode on its websites over the coming months and years. To get this migration
-started, the Reservoir Design System has added dark color mode support to all
-components in the React Component Library. As NYPL projects adopt the Reservoir
-Design System, and when portfolio groups are fully prepared and time allows,
-engineers should utilize this documentation to configure React web apps to
-enable and implement dark color mode styles.
+or a sign of the times, but it is also a way to improve accessibility. Dark mode
+can make text easier to read for longer periods of time, reducing the likelihood
+of eye strain or fatigue, and it can be especially beneficial for users with low
+vision or light sensitivity. With these benefits in mind, the Reservoir Design
+System has added dark color mode support to all components.
 
 ## Accessibility
 
@@ -56,16 +54,13 @@ This configuration is controlled with the `useSystemColorMode` and
 (lines 161 - 166) in the Reservoir repo. They are set to `false` and `"light"`
 respectively.
 
-If desired, the `initialColorMode` can be overridden by the consuming
-application. To do this, please refer to the <Link href="#consuming-app-configuration" target="_self">Consuming App
-Configuration</Link> section.
+If desired, the `initialColorMode` can be overridden by the consuming application.
+To do this, please refer to the next section.
 
 ## Consuming App Configuration
 
-To enable and control the color mode styles of the Reservoir Design System (DS)
-components and to control the color mode for the entire app, consuming
-applications must add the `ColorModeScript` component, which helps keep track of
-and set the current color mode.
+To enable and control the color mode styles, consuming applications must add the
+`ColorModeScript` component, which helps keep track of and set the current color mode.
 
 For proper configuration, the `initialColorMode` prop must be passed to the
 `ColorModeScript` component. With this prop, consuming apps can set the value for
@@ -98,22 +93,22 @@ docs](https://github.com/NYPL/nypl-design-system#using-the-design-system-in-your
 
 <Source
   code={`
-import {
-  ColorModeScript,
-  DSProvider
-} from "@nypl/design-system-react-components";
-import * as ReactDOM from "react-dom/client";
-import App from "./App";
-// ...
-const rootElement = document.getElementById("root");
-ReactDOM.createRoot(rootElement).render(
-  <>
-    <ColorModeScript initialColorMode={"light" | "dark" | "system"} />
-    <DSProvider>
-      <App />
-    <DSProvider>
-  </>,
-);
+  import {
+    ColorModeScript,
+    DSProvider
+  } from "@nypl/design-system-react-components";
+  import * as ReactDOM from "react-dom/client";
+  import App from "./App";
+  // ...
+  const rootElement = document.getElementById("root");
+  ReactDOM.createRoot(rootElement).render(
+    <>
+      <ColorModeScript initialColorMode={"light" | "dark" | "system"} />
+      <DSProvider>
+        <App />
+      <DSProvider>
+    </>,
+  );
 `}
   language="tsx"
 />
@@ -138,40 +133,40 @@ the cookie is never undefined.
 
 <Source
   code={`
-// pages/_app.tsx
-import {
-  cookieStorageManager,
-  DSProvider,
-  localStorageManager,
-  useColorModeValue,
-} from "@nypl/design-system-react-components";
-import type { AppProps } from "next/app";
-function MyApp({ Component, pageProps }: AppProps) {
-  // Decides where the chakra-ui-color-mode value should be stored in the browser.
-  const colorModeManager =
-  typeof pageProps.cookies === "string"
-  ? cookieStorageManager(pageProps.cookies)
-  : localStorageManager;
+  // pages/_app.tsx
+  import {
+    cookieStorageManager,
+    DSProvider,
+    localStorageManager,
+    useColorModeValue,
+  } from "@nypl/design-system-react-components";
+  import type { AppProps } from "next/app";
+  function MyApp({ Component, pageProps }: AppProps) {
+    // Decides where the chakra-ui-color-mode value should be stored in the browser.
+    const colorModeManager =
+    typeof pageProps.cookies === "string"
+    ? cookieStorageManager(pageProps.cookies)
+    : localStorageManager;
+    // ...
+    return (
+      <>
+        <ColorModeScript initialColorMode="system" />
+        <DSProvider colorModeManager={colorModeManager}>
+          <Component {...pageProps} />
+        </DSProvider>
+      </>
+    );
+  }
   // ...
-  return (
-    <>
-      <ColorModeScript initialColorMode="system" />
-      <DSProvider colorModeManager={colorModeManager}>
-        <Component {...pageProps} />
-      </DSProvider>
-    </>
-  );
-}
-// ...
-export function getServerSideProps({ req }: any) {
-  return {
-    props: {
-      // First time users will not have any cookies and you may not return
-      // undefined here, hence \`??\` is necessary.
-      cookies: req.headers.cookie ?? "",
-    },
-  };
-}
+  export function getServerSideProps({ req }: any) {
+    return {
+      props: {
+        // First time users will not have any cookies and you may not return
+        // undefined here, hence \`??\` is necessary.
+        cookies: req.headers.cookie ?? "",
+      },
+    };
+  }
 `}
   language="tsx"
 />
@@ -214,33 +209,33 @@ dark mode.
 
 <Source
   code={`
-import {
-  Box,
-  Button,
-  useColorMode,
-  useColorModeValue,
-} from "@nypl/design-system-react-components";
-// ...
-function StyleColorMode() {
-  const { toggleColorMode } = useColorMode();
-  // if color mode is light, \`bg\` is set to "ui.bg.default"
-  // if color mode is dark, \`bg\` is set to "dark.ui.bg.default"
-  const bg = useColorModeValue("ui.bg.default", "dark.ui.bg.default");
-  // if color mode is light, \`color\` is set to "ui.typography.heading"
-  // if color mode is dark, \`color\` is set to "dark.ui.typography.heading"
-  const color = useColorModeValue(
-    "ui.typography.heading",
-    "dark.ui.typography.heading"
-  );
-  return (
-    <>
-      <Box mb="s" bg={bg} color={color}>
-        This box's style will change based on the color mode.
-      </Box>
-      <Button onClick={toggleColorMode}>Toggle Color Mode</Button>
-    </>
-  );
-}
+  import {
+    Box,
+    Button,
+    useColorMode,
+    useColorModeValue,
+  } from "@nypl/design-system-react-components";
+  // ...
+  function StyleColorMode() {
+    const { toggleColorMode } = useColorMode();
+    // if color mode is light, \`bg\` is set to "ui.bg.default"
+    // if color mode is dark, \`bg\` is set to "dark.ui.bg.default"
+    const bg = useColorModeValue("ui.bg.default", "dark.ui.bg.default");
+    // if color mode is light, \`color\` is set to "ui.typography.heading"
+    // if color mode is dark, \`color\` is set to "dark.ui.typography.heading"
+    const color = useColorModeValue(
+      "ui.typography.heading",
+      "dark.ui.typography.heading"
+    );
+    return (
+      <>
+        <Box mb="s" bg={bg} color={color}>
+          This box's style will change based on the color mode.
+        </Box>
+        <Button onClick={toggleColorMode}>Toggle Color Mode</Button>
+      </>
+    );
+  }
 `}
   language="tsx"
 />
@@ -253,167 +248,99 @@ within a React function component or a custom React Hook function.
 
 ## Using Custom Dark Mode Styles
 
-If all NYPL consuming apps were composed using only Reservoir Design System (DS)
-components, this section of the documentation would not be necessary - all
-elements would support dark color mode styles out of the box and no further
-configuration would be needed. Nevertheless, this generally will not be the
-case. Therefore, in situations where custom components or custom UI elements
-are necessary, dark mode styles will need to be added for these elements in the
-consuming app in addition to the default "light mode" styles.
+In situations where custom components or custom UI elements are necessary, dark
+mode styles will need to be added for these elements in the consuming app in
+addition to the default "light mode" styles.
 
-### Setting Styles with Javascript (recommended)
+### Using Structural UI Components
 
-As an organization, NYPL is trending away from using traditional CSS and CSS
-preprocessors like SCSS in React applications. In their place, CSS-in-JS is
-being used to leverage the style patterns and <Link href="#design-tokens" target="_self">design tokens</Link>
-available in the DS and Chakra UI.
+If not available in Reservoir, consuming apps should try to build components using
+the basic structural elements available in the DS. Two of the most important components
+to note are `Box` ([see the docs](../?path=/docs/components-chakra-exports-layout-box--docs))
+and `Stack` ([see the
+docs](../?path=/docs/components-chakra-exports-layout-stack-hstack-vstack--docs)).
 
-#### Benefits
-
-Outside of simply consolidating code into one location, using CSS-in-JS opens
-the door to many ease-of-use benefits when it comes to applying styles to UI
-elements, such as <Link href="#chakra-style-props" target="_self">Chakra style props</Link>, <Link href="#design-tokens" target="_self">design tokens</Link>,
-and <Link href="#responsive-styles" target="_self">responsive styles</Link>.
-
-##### Chakra Style Props
-
-The [style props](https://chakra-ui.com/docs/styled-system/style-props)
-established by Charka have been exposed and made available through the DS. These
-style props, along with a wide array of [pseudo
-selectors](https://chakra-ui.com/docs/styled-system/style-props#pseudo), provide
-helpful and time-saving shorthand to style components. Examples include the `bg`
-prop in place of the `background` CSS attribute and the `px` prop to add both
-the `padding-left` and `padding-right` CSS attributes to an element.
-
-##### Design Tokens
-
-Design tokens are available for many style attribute values, including, but not
-limited to, colors, font sizes, and spacing. These semantically-named design
-tokens allow you to logically apply styles without having to know the actual
-style values. For example, in the code snippets found later in this section, the
-color values `ui.bg.default` and `dark.ui.bg.default` are color design tokens
-and `inset.default` is a spacing design token. For a full reference chart
-showing all available design tokens, refer to the [Design
-Tokens](../?path=/docs/development-guide-design-tokens--docs) page in Reservoir
-Storybook.
-
-##### Responsive Styles
-
-Instead of manually adding `@media` queries and nested styles, CSS-in-JS allows
-you to access Chakra style patterns which provide object and array values to add
-mobile-first [responsive
-styles](https://chakra-ui.com/docs/styled-system/responsive-styles).
-
-#### Preparing Your Components
-
-To use CSS-in-JS effectively, custom components and custom UI elements should be
-composed using <Link href="#using-ds-components" target="_self">DS components</Link> or Chakra <Link href="#using-structural-ui-components" target="_self">Structural UI components</Link>.
-
-##### Using DS Components
-
-If a DS component can be used to take the place of a custom components or custom
-UI elements, developers should aim to make the necessary changes to do so. Out
-of the box, the DS components will not require any additional configuration for
-dark color mode support.
-
-##### Using Structural UI Components
-
-If an app-specific component cannot be directly replaced with a DS component,
-consuming apps should try to rebuild it using basic structural components
-available in the DS. If using this approach, two of the most important
-components to note are `Box` ([see the docs](../?path=/docs/components-chakra-exports-layout-box--docs)),
-the component on top of which many DS and all other Chakra UI components are
-built, and
-`Stack` ([see the
-docs](../?path=/docs/components-chakra-exports-layout-stack-hstack-vstack--docs)),
-a layout component used to group elements together and apply a space between
-them.
-
-#### Applying Styles
+### Applying Styles
 
 For app-specific components, dark mode styles should be applied using CSS-in-JS.
 There are two methods to do this.
 
-##### Method 1 (recommended)
+#### Method 1 (recommended)
 
-To add styles to DS and Chakra UI components, pass a style object to the `sx`
-prop. Within the style object, use the `_dark` pseudo selector to add the styles
-that should be used when dark mode is active.
+Pass a style object to the `sx` prop. Within the style object, use the `_dark` pseudo
+selector to add the styles that should be used when dark mode is active.
 
 <Source
   code={`
-const customStyles = {
-  bg: "ui.bg.default",
-  color: "ui.typography.heading",
-  fontWeight: "medium",
-  p: "inset.default",
-  _hover: {
-    bg: "ui.bg.hover",
-  },
-  _dark: {
-    bg: "dark.ui.bg.default",
-    color: "dark.ui.typography.heading",
+  const customStyles = {
+    bg: "ui.bg.default",
+    color: "ui.typography.heading",
+    fontWeight: "medium",
+    p: "inset.default",
     _hover: {
-      bg: "dark.ui.bg.hover",
+      bg: "ui.bg.hover",
     },
-  },
-};
-// ...
-<Box sx={customStyles}>Click Me</Button>
+    _dark: {
+      bg: "dark.ui.bg.default",
+      color: "dark.ui.typography.heading",
+      _hover: {
+        bg: "dark.ui.bg.hover",
+      },
+    },
+  };
+  // ...
+  <Box sx={customStyles}>Click Me</Button>
 `}
   language="tsx"
 />
 
-##### Method 2
+#### Method 2
 
-To add styles to app-specific components and native HTML elements, you may use
-the `useColorModeValue` hook (<Link href="#usecolormode" target="_self">see the docs</Link>)
-to specify light and dark mode style values for specific style attributes.
+You may also use the [`useColorModeValue` hook](#usecolormode) to specify light and dark
+mode style values for specific style attributes.
 
-Please note that when passing style attributes to custom components or native
-HTML elements, you must use the React `style` prop rather than the Chakra `sx`
-prop or the <Link href="#chakra-style-props" target="_self">Chakra style props</Link>.
-Additionally, javascript <Link href="#design-tokens" target="_self">design tokens</Link>
-cannot be used as they are not compatible with the React style prop, so CSS
-design tokens or native CSS attribute values must be used.
+Please note that when passing style attributes to custom components or native HTML elements,
+you must use the React `style` prop rather than the Chakra `sx` prop or the Chakra style
+props. Additionally, JavaScript design tokens cannot be used as they are not compatible
+with the React style prop, so CSS design tokens or native CSS attribute values must be used.
 
 <Source
   code={`
-import { useColorModeValue } from "@nypl/design-system-react-components";
-// Style values assigned to variables using CSS design tokens
-const bg = useColorModeValue(
-  "var(--nypl-colors-ui-bg-default)",
-  "var(--nypl-colors-dark-ui-bg-default)"
-);
-const color = useColorModeValue(
-  "var(--nypl-colors-ui-typography-heading)",
-  "var(--nypl-colors-dark-ui-typography-heading)"
-);
-const fontWeight = "var(--nypl-fontWeights-medium)";
-const padding = "var(--nypl-space-inset-default)";
-const stylesUsingVariables = {
-  backgroundColor: bg,
-  color: color,
-  fontWeight: fontWeight,
-  padding: padding,
-};
-// ...
-<div style={stylesUsingVariables} />;
+  import { useColorModeValue } from "@nypl/design-system-react-components";
+  // Style values assigned to variables using CSS design tokens
+  const bg = useColorModeValue(
+    "var(--nypl-colors-ui-bg-default)",
+    "var(--nypl-colors-dark-ui-bg-default)"
+  );
+  const color = useColorModeValue(
+    "var(--nypl-colors-ui-typography-heading)",
+    "var(--nypl-colors-dark-ui-typography-heading)"
+  );
+  const fontWeight = "var(--nypl-fontWeights-medium)";
+  const padding = "var(--nypl-space-inset-default)";
+  const stylesUsingVariables = {
+    backgroundColor: bg,
+    color: color,
+    fontWeight: fontWeight,
+    padding: padding,
+  };
+  // ...
+  <div style={stylesUsingVariables} />;
 `}
   language="tsx"
 />
 
 <Source
   code={`
-// Style values assigned directly using native CSS attribute values
-const stylesDirectlyAssigned = {
-  backgroundColor: useColorModeValue("#5F5F5F", "#252525"),
-  color: useColorModeValue("#000000", "#E9E9E9"),
-  fontWeight: 500,
-  padding: "1rem",
-};
-// ...
-<div style={stylesDirectlyAssigned} />;
+  // Style values assigned directly using native CSS attribute values
+  const stylesDirectlyAssigned = {
+    backgroundColor: useColorModeValue("#5F5F5F", "#252525"),
+    color: useColorModeValue("#000000", "#E9E9E9"),
+    fontWeight: 500,
+    padding: "1rem",
+  };
+  // ...
+  <div style={stylesDirectlyAssigned} />;
 `}
   language="tsx"
 />
@@ -424,15 +351,15 @@ components.
 
 <Source
   code={`
-// Styles for a custom component
-const stylesForCustomComponent = {
-  backgroundColor: useColorModeValue("#F5F5F5", "#252525"),
-  color: useColorModeValue("#000000", "#BDBDBD"),
-  fontWeight: 500,
-  padding: "1rem",
-};
-// ...
-<CustomComponent style={stylesForCustomComponent} />;
+  // Styles for a custom component
+  const stylesForCustomComponent = {
+    backgroundColor: useColorModeValue("#F5F5F5", "#252525"),
+    color: useColorModeValue("#000000", "#BDBDBD"),
+    fontWeight: 500,
+    padding: "1rem",
+  };
+  // ...
+  <CustomComponent style={stylesForCustomComponent} />;
 `}
   language="tsx"
 />
@@ -453,21 +380,21 @@ default styles should be written first and the dark mode style in the
 
 <Source
   code={`
-// styles.scss
-// DEFAULT STYLES (the shared and light mode color styles)
-.container {
-  background: var(--nypl-colors-ui-bg-default);
-  border: 1px solid var(--nypl-colors-ui-border-default);
-  color: var(--nypl-colors-ui-typography-body);
-  padding: 1rem;
-}
-// DARK MODE STYLES (to override the light mode color styles)
-@media (prefers-color-scheme: dark) {
+  // styles.scss
+  // DEFAULT STYLES (the shared and light mode color styles)
   .container {
-    background: var(--nypl-colors-dark-ui-bg-default);
-    color: var(--nypl-colors-dark-ui-typography-body);
+    background: var(--nypl-colors-ui-bg-default);
+    border: 1px solid var(--nypl-colors-ui-border-default);
+    color: var(--nypl-colors-ui-typography-body);
+    padding: 1rem;
   }
-}
+  // DARK MODE STYLES (to override the light mode color styles)
+  @media (prefers-color-scheme: dark) {
+    .container {
+      background: var(--nypl-colors-dark-ui-bg-default);
+      color: var(--nypl-colors-dark-ui-typography-body);
+    }
+  }
 `}
   language="scss"
 />
@@ -487,18 +414,18 @@ const { colorMode } = useColorMode(); // returns "light" or "dark"
 
 <Source
   code={`
-// styles.scss
-.container {
-  // shared styles
-}
-.dark.container {
-  background: var(--nypl-colors-dark-ui-bg-default);
-  color: var(--nypl-colors-dark-ui-typography-body);
-}
-.light.container {
-  background: var(--nypl-colors-ui-bg-default);
-  color: var(--nypl-colors-ui-typography-body);
-}
+  // styles.scss
+  .container {
+    // shared styles
+  }
+  .dark.container {
+    background: var(--nypl-colors-dark-ui-bg-default);
+    color: var(--nypl-colors-dark-ui-typography-body);
+  }
+  .light.container {
+    background: var(--nypl-colors-ui-bg-default);
+    color: var(--nypl-colors-ui-typography-body);
+  }
 `}
   language="css"
 />

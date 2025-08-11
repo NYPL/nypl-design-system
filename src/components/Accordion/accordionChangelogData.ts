@@ -10,6 +10,22 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-08-11",
+    version: "4.0.0",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: [
+      "Removes `ariaLabel` prop and instructs developers to use the native HTML attribute instead.",
+      "Removes `isDarkMode` in favor of Chakra's `_dark` conditional key.",
+      "Replaces positional function arguments with objects for `getIcon` and `getElementsFromData`.",
+      "Extends prop definition to include Chakra's `BoxProps`",
+      "Renames `accordionType` to `variant`.",
+      "Updates the internal use of ids to reduce `undefined` ids in the DOM.",
+      "Removes the internal `accordion-icon` class in the Icon component.",
+      "Adds `data-testid` value of `ds-accordion` to the parent element.",
+    ],
+  },
+  {
     date: "2025-02-21",
     version: "3.5.4",
     type: "Update",

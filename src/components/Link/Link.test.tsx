@@ -23,9 +23,14 @@ describe("Link Accessibility", () => {
 });
 
 describe("Link", () => {
+  it("should not render an id if none is passed", () => {
+    render(<Link href="#test">Test</Link>);
+    expect(screen.getByRole("link")).not.toHaveAttribute("id");
+  });
+
   it("can pass in an icon and text as children and url as prop", () => {
     const utils = render(
-      <Link href="#passed-in-link" type="action">
+      <Link href="#passed-in-link" variant="action">
         <Icon name="download" align="left" iconRotation="rotate0" />
         Download
       </Link>
@@ -36,7 +41,7 @@ describe("Link", () => {
 
   it("generates a back link has icon", () => {
     const utils = render(
-      <Link href="#passed-in-link" type="backwards">
+      <Link href="#passed-in-link" variant="backwards">
         link text
       </Link>
     );
@@ -48,7 +53,7 @@ describe("Link", () => {
 
   it("generates a forwards link has icon", () => {
     const utils = render(
-      <Link href="#passed-in-link" type="forwards">
+      <Link href="#passed-in-link" variant="forwards">
         link text
       </Link>
     );
@@ -60,7 +65,7 @@ describe("Link", () => {
 
   it("generates an external link has icon", () => {
     const utils = render(
-      <Link href="https://nypl.org" type="external">
+      <Link href="https://nypl.org" variant="external">
         link text
       </Link>
     );
@@ -72,7 +77,7 @@ describe("Link", () => {
 
   it("generates a standalone link has icon", () => {
     const utils = render(
-      <Link href="#passed-in-link" type="standalone">
+      <Link href="#passed-in-link" variant="standalone">
         link text
       </Link>
     );
@@ -98,7 +103,7 @@ describe("Link", () => {
     );
     expect(screen.getByRole("link")).toHaveAttribute("target", "_blank");
     rerender(
-      <Link href="#test" type="external">
+      <Link href="#test" variant="external">
         Test
       </Link>
     );
@@ -123,101 +128,87 @@ describe("Link", () => {
     expect(screen.getByRole("link")).toHaveAttribute("target", "_self");
   });
 
-  /** This deprecation warning is temporarily being removed, but it will be
-   * reinstated once teams are able to update their `Link`s appropriately. */
-  // it("logs a deprecated warning if 'button' `type` passed", () => {
-  //   const warn = jest.spyOn(console, "warn");
-  //   render(
-  //     <Link href="#test" type="button">
-  //       Test
-  //     </Link>
-  //   );
-  //   expect(warn).toHaveBeenCalledWith(
-  //     `NYPL Reservoir Link: The "button" type is deprecated. Instead, use either "buttonPrimary", "buttonSecondary", "buttonPill", "buttonCallout", "buttonNoBrand", or "buttonDisabled".`
-  //   );
-  // });
-
   it("renders the UI snapshot correctly", () => {
     const standard = renderer
       .create(
-        <Link href="#passed-in-link" id="standard-link" type="action">
+        <Link href="#passed-in-link" id="standard-link" variant="action">
           Standard
         </Link>
       )
       .toJSON();
     const typeForwards = renderer
       .create(
-        <Link href="#passed-in-link" id="forwards-link" type="forwards">
+        <Link href="#passed-in-link" id="forwards-link" variant="forwards">
           Forwards
         </Link>
       )
       .toJSON();
     const typeBackwards = renderer
       .create(
-        <Link href="#passed-in-link" id="backwards-link" type="backwards">
+        <Link href="#passed-in-link" id="backwards-link" variant="backwards">
           Backwards
         </Link>
       )
       .toJSON();
     const typeExternal = renderer
       .create(
-        <Link href="#passed-in-link" id="external-link" type="external">
+        <Link href="#passed-in-link" id="external-link" variant="external">
           External
         </Link>
       )
       .toJSON();
     const typeStandalone = renderer
       .create(
-        <Link href="#passed-in-link" id="standalone-link" type="standalone">
+        <Link href="#passed-in-link" id="standalone-link" variant="standalone">
           Standalone
         </Link>
       )
       .toJSON();
     const typeButtonPrimary = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" variant="buttonPrimary">
           Button Primary
         </Link>
       )
       .toJSON();
     const typeButtonSecondary = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" variant="buttonSecondary">
           Button Secondary
         </Link>
       )
       .toJSON();
     const typeButtonPill = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" variant="buttonPill">
           Button Pill
         </Link>
       )
       .toJSON();
     const typeButtonCallout = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" variant="buttonCallout">
           Button Callout
         </Link>
       )
       .toJSON();
     const typeButtonNoBrand = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" variant="buttonNoBrand">
           Button No Brand
         </Link>
       )
       .toJSON();
     const typeButtonDisabled = renderer
       .create(
-        <Link href="#passed-in-link" id="button-link" type="button">
+        <Link href="#passed-in-link" id="button-link" variant="buttonDisabled">
           Button Disabled
         </Link>
       )
       .toJSON();
     const withIconChild = renderer
       .create(
-        <Link href="#passed-in-link" id="icon-link" type="action">
+        <Link href="#passed-in-link" id="icon-link" variant="action">
           <Icon
             align="left"
             iconRotation="rotate0"
@@ -230,14 +221,14 @@ describe("Link", () => {
       .toJSON();
     const withAchorChild = renderer
       .create(
-        <Link id="anchor-link" type="action">
+        <Link id="anchor-link" variant="action">
           <a href="#existing-anchor-tag">check link</a>
         </Link>
       )
       .toJSON();
     const withAchorChildAndIcon = renderer
       .create(
-        <Link id="anchor-icon-link" type="action">
+        <Link id="anchor-icon-link" variant="action">
           <>
             <Icon align="left" id="link-icon" name="check" size="small" />
             <a href="#existing-anchor-tag">check link</a>
