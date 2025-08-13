@@ -29,6 +29,7 @@ export default {
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
     "/node_modules/",
+    "/reservoir/",
     "/lib",
     "/dist",
     "<rootDir>/src/__tests__/setup.ts",
