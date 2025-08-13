@@ -1,6 +1,6 @@
 export declare const headerBreakpoints: {
-  mh: string;
-  lh: string;
+    mh: string;
+    lh: string;
 };
 /**
  * Breakpoints from "src/styles/base/_01-breakpoints.scss"
@@ -18,12 +18,12 @@ export declare const headerBreakpoints: {
  * recommend using this value until further notice.
  */
 declare const _default: {
-  sm: string;
-  md: string;
-  mh: string;
-  lg: string;
-  lh: string;
-  xl: string;
-  "2xl": string;
+    sm: string;
+    md: string;
+    mh: string;
+    lg: string;
+    lh: string;
+    xl: string;
+    "2xl": string;
 };
 export default _default;

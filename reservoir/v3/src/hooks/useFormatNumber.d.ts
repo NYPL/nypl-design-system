@@ -16,8 +16,5 @@
  *  - (100, 102) -> "100–102"
  *  - (10, 100) -> "10–100"
  */
-declare const useFormatNumber: (
-  num1: string | number,
-  num2?: string | number
-) => string | null;
+declare const useFormatNumber: (num1: string | number, num2?: string | number) => string | null;
 export default useFormatNumber;

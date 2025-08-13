@@ -9,32 +9,32 @@
  * screen size.
  */
 declare const screenreaderOnly: (isMobileOnly?: boolean) => {
-  clip: string;
-  height: {
-    base: string;
-    md: string;
-  };
-  overflow: string;
-  position: {
-    base: string;
-    md: string;
-  };
-  width: {
-    base: string;
-    md: string;
-  };
-  wordWrap: string;
+    clip: string;
+    height: {
+        base: string;
+        md: string;
+    };
+    overflow: string;
+    position: {
+        base: string;
+        md: string;
+    };
+    width: {
+        base: string;
+        md: string;
+    };
+    wordWrap: string;
 };
 declare const displayScreenreaderOnly: {
-  position: string;
-  height: string;
-  width: string;
+    position: string;
+    height: string;
+    width: string;
 };
 declare const wrapperStyles: {
-  marginY: string;
-  marginX: string;
-  maxWidth: string;
-  padding: string;
-  width: string;
+    marginY: string;
+    marginX: string;
+    maxWidth: string;
+    padding: string;
+    width: string;
 };
 export { displayScreenreaderOnly, screenreaderOnly, wrapperStyles };

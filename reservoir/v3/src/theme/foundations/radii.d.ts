@@ -1,11 +1,11 @@
 declare const radii: {
-  button: {
-    default: string;
+    button: {
+        default: string;
+        pill: string;
+    };
+    checkbox: string;
+    headerDonate: string;
     pill: string;
-  };
-  checkbox: string;
-  headerDonate: string;
-  pill: string;
-  round: string;
+    round: string;
 };
 export default radii;

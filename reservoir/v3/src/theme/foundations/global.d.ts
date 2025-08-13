@@ -3,78 +3,78 @@
  * page when the `DSProvider` component is used.
  */
 declare const global: {
-  body: {
-    boxSizing: string;
-    bg: string;
-    color: string;
-    fontFamily: string;
-    fontSize: string;
-    fontWeight: string;
-    lineHeight: string;
-    overflowX: string;
-    _dark: {
-      bg: string;
-      color: string;
-    };
-  };
-  a: {
-    color: string;
-  };
-  b: {
-    fontWeight: string;
-  };
-  strong: {
-    fontWeight: string;
-  };
-  svg: {
-    display: string;
-  };
-  "button, select, input, textarea": {
-    "&:not([disabled])": {
-      _focus: {
-        boxShadow: string;
-        outline: string;
-        outlineOffset: string;
-        outlineColor: string;
-        zIndex: string;
+    body: {
+        boxSizing: string;
+        bg: string;
+        color: string;
+        fontFamily: string;
+        fontSize: string;
+        fontWeight: string;
+        lineHeight: string;
+        overflowX: string;
         _dark: {
-          outlineColor: string;
+            bg: string;
+            color: string;
         };
-      };
     };
-  };
-  "iframe, [href], [tabindex], [contentEditable='true']": {
-    _focus: {
-      boxShadow: string;
-      outline: string;
-      outlineOffset: string;
-      outlineColor: string;
-      zIndex: string;
-      _dark: {
-        outlineColor: string;
-      };
+    a: {
+        color: string;
     };
-  };
-  p: {
-    margin: string;
-    marginBottom: string;
-  };
-  ul: {
-    margin: string;
-    marginBottom: string;
-  };
-  ol: {
-    margin: string;
-    marginBottom: string;
-  };
-  "*, *::before, &::after": {
-    boxSizing: string;
-  };
-  ".chakra-modal__content-container": {
-    zIndex: string;
-  };
-  ".chakra-modal__overlay": {
-    zIndex: string;
-  };
+    b: {
+        fontWeight: string;
+    };
+    strong: {
+        fontWeight: string;
+    };
+    svg: {
+        display: string;
+    };
+    "button, select, input, textarea": {
+        "&:not([disabled])": {
+            _focus: {
+                boxShadow: string;
+                outline: string;
+                outlineOffset: string;
+                outlineColor: string;
+                zIndex: string;
+                _dark: {
+                    outlineColor: string;
+                };
+            };
+        };
+    };
+    "iframe, [href], [tabindex], [contentEditable='true']": {
+        _focus: {
+            boxShadow: string;
+            outline: string;
+            outlineOffset: string;
+            outlineColor: string;
+            zIndex: string;
+            _dark: {
+                outlineColor: string;
+            };
+        };
+    };
+    p: {
+        margin: string;
+        marginBottom: string;
+    };
+    ul: {
+        margin: string;
+        marginBottom: string;
+    };
+    ol: {
+        margin: string;
+        marginBottom: string;
+    };
+    "*, *::before, &::after": {
+        boxSizing: string;
+    };
+    ".chakra-modal__content-container": {
+        zIndex: string;
+    };
+    ".chakra-modal__overlay": {
+        zIndex: string;
+    };
 };
 export default global;

@@ -1,6 +1,6 @@
 interface WindowSize {
-  width: number;
-  height: number;
+    width: number;
+    height: number;
 }
 /**
  * React hook used to get the window size on device resizing.

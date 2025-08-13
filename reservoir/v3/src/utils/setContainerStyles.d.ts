@@ -6,6 +6,6 @@
  * @returns {object} An object containing the container query styles.
  */
 export declare const setContainerStyles: (props: {
-  breakpoint: string;
-  styles: object;
+    breakpoint: string;
+    styles: object;
 }) => object;

@@ -1,18 +1,16 @@
 import { ChakraComponent } from "@chakra-ui/react";
-import React from "../../../node_modules/react";
+import React from '../../../node_modules/react';
 import { TagSetExploreProps } from "./TagSetExplore";
 import { TagSetFilterProps } from "./TagSetFilter";
 export interface BaseTagSetProps {
-  /** Additional class for the component. */
-  className?: string;
-  /** ID that other components can cross reference for accessibility purposes. */
-  id?: string;
+    /** Additional class for the component. */
+    className?: string;
+    /** ID that other components can cross reference for accessibility purposes. */
+    id?: string;
 }
 export type TagSetTypeProps = TagSetFilterProps | TagSetExploreProps;
 export type TagSetProps = BaseTagSetProps & TagSetTypeProps;
-export declare function isFilterType(
-  type: TagSetProps["type"]
-): type is "filter";
+export declare function isFilterType(type: TagSetProps["type"]): type is "filter";
 /**
  * The `TagSet` component renders a group of individual tags which have two
  * variants: "explore" and "filter". The "explore" tags are meant to be used for
@@ -25,10 +23,5 @@ export declare function isFilterType(
  * The full label text will be automatically revealed when the tag is hovered
  * with a DS `Tooltip` component.
  */
-export declare const TagSet: ChakraComponent<
-  React.ForwardRefExoticComponent<
-    TagSetProps & React.RefAttributes<HTMLDivElement>
-  >,
-  TagSetProps
->;
+export declare const TagSet: ChakraComponent<React.ForwardRefExoticComponent<TagSetProps & React.RefAttributes<HTMLDivElement>>, TagSetProps>;
 export default TagSet;

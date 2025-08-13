@@ -1,7 +1,4 @@
-import {
-  MultiSelectItem,
-  SelectedItems,
-} from "../components/MultiSelect/MultiSelect";
+import { MultiSelectItem, SelectedItems } from "../components/MultiSelect/MultiSelect";
 /**
  * The useMultiSelect hook returns an object containing all the functions and
  * state needed to handle the selectedItems of a `MultiSelect` component. It can
@@ -12,14 +9,10 @@ import {
  * selection: selectedItems.
  */
 export default function useMultiSelect(initialState?: SelectedItems): {
-  selectedItems: {} | SelectedItems;
-  setSelectedItems: (newState: SelectedItems) => void;
-  onChange: (itemId: string, multiSelectId: string) => void;
-  onMixedStateChange: (
-    parentId: string,
-    multiSelectId: string,
-    items: MultiSelectItem[]
-  ) => void;
-  onClear: (multiSelectId: string) => void;
-  onClearAll: () => void;
+    selectedItems: {} | SelectedItems;
+    setSelectedItems: (newState: SelectedItems) => void;
+    onChange: (itemId: string, multiSelectId: string) => void;
+    onMixedStateChange: (parentId: string, multiSelectId: string, items: MultiSelectItem[]) => void;
+    onClear: (multiSelectId: string) => void;
+    onClearAll: () => void;
 };

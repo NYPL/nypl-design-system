@@ -1,45 +1,41 @@
 export interface Alert {
-  id: string;
-  link: string;
-  description: string;
-  startDate: string;
-  endDate: string;
+    id: string;
+    link: string;
+    description: string;
+    startDate: string;
+    endDate: string;
 }
-export declare const alertsApiUrl =
-  "https://refinery.nypl.org/api/nypl/ndo/v0.1/content/alerts?filter%5Bscope%5D=all";
-export declare const getLoginLinks: (
-  patronName?: string,
-  isProduction?: boolean
-) => {
-  catalogLink: string;
-  researchLink: string;
-  logOutLink: string;
+export declare const alertsApiUrl = "https://refinery.nypl.org/api/nypl/ndo/v0.1/content/alerts?filter%5Bscope%5D=all";
+export declare const getLoginLinks: (patronName?: string, isProduction?: boolean) => {
+    catalogLink: string;
+    researchLink: string;
+    logOutLink: string;
 };
 export declare const upperNavLinks: {
-  locations: {
-    href: string;
-    text: string;
-  };
-  libraryCard: {
-    href: string;
-    text: string;
-  };
-  emailUpdates: {
-    href: string;
-    text: string;
-  };
-  donate: {
-    href: string;
-    text: string;
-  };
-  shop: {
-    href: string;
-    text: string;
-  };
+    locations: {
+        href: string;
+        text: string;
+    };
+    libraryCard: {
+        href: string;
+        text: string;
+    };
+    emailUpdates: {
+        href: string;
+        text: string;
+    };
+    donate: {
+        href: string;
+        text: string;
+    };
+    shop: {
+        href: string;
+        text: string;
+    };
 };
 export declare const siteNavLinks: {
-  href: string;
-  text: string;
+    href: string;
+    text: string;
 }[];
 /**
  * Returns the final URL for the NYPL Catalog search.
@@ -68,7 +64,7 @@ export declare const parseAlertsData: (data: any) => Alert[];
  * the cookie's `access_token`.
  */
 export declare const getCookieValue: () => {
-  cookieValue: any;
-  accessToken: any;
+    cookieValue: any;
+    accessToken: any;
 };
 export declare const deleteCookieValue: () => void;

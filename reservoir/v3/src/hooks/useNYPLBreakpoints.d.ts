@@ -4,10 +4,10 @@
  * boolean values for each breakpoint.
  */
 declare const useNYPLBreakpoints: () => {
-  isLargerThanSmall: any;
-  isLargerThanMedium: any;
-  isLargerThanMobile: any;
-  isLargerThanLarge: any;
-  isLargerThanXLarge: any;
+    isLargerThanSmall: any;
+    isLargerThanMedium: any;
+    isLargerThanMobile: any;
+    isLargerThanLarge: any;
+    isLargerThanXLarge: any;
 };
 export default useNYPLBreakpoints;

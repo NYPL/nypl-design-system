@@ -1,284 +1,272 @@
 import { StyleFunctionProps } from "@chakra-ui/system";
 declare const imageSizes: {
-  default: {
-    maxWidth: string;
-  };
-  xxxsmall: {
-    maxWidth: string;
-    marginStart: string;
-    marginEnd: string;
-  };
-  xxsmall: {
-    maxWidth: string;
-    marginStart: string;
-    marginEnd: string;
-  };
-  xsmall: {
-    maxWidth: string;
-    marginStart: string;
-    marginEnd: string;
-  };
-  small: {
-    maxWidth: string;
-    marginStart: string;
-    marginEnd: string;
-  };
-  medium: {
-    maxWidth: string;
-    marginStart: string;
-    marginEnd: string;
-  };
-  large: {
-    maxWidth: string;
-    marginStart: string;
-    marginEnd: string;
-  };
+    default: {
+        maxWidth: string;
+    };
+    xxxsmall: {
+        maxWidth: string;
+        marginStart: string;
+        marginEnd: string;
+    };
+    xxsmall: {
+        maxWidth: string;
+        marginStart: string;
+        marginEnd: string;
+    };
+    xsmall: {
+        maxWidth: string;
+        marginStart: string;
+        marginEnd: string;
+    };
+    small: {
+        maxWidth: string;
+        marginStart: string;
+        marginEnd: string;
+    };
+    medium: {
+        maxWidth: string;
+        marginStart: string;
+        marginEnd: string;
+    };
+    large: {
+        maxWidth: string;
+        marginStart: string;
+        marginEnd: string;
+    };
 };
 declare const imageSizesBasedOnHeight: {
-  default: {
-    maxHeight: string;
-    maxWidth: string;
-    width: string;
-  };
-  xxxsmall: {
-    maxHeight: string;
-    marginStart: string;
-    marginEnd: string;
-  };
-  xxsmall: {
-    maxHeight: string;
-    marginStart: string;
-    marginEnd: string;
-  };
-  xsmall: {
-    maxHeight: string;
-    marginStart: string;
-    marginEnd: string;
-  };
-  small: {
-    maxHeight: string;
-    marginStart: string;
-    marginEnd: string;
-  };
-  medium: {
-    maxHeight: string;
-    marginStart: string;
-    marginEnd: string;
-  };
-  large: {
-    maxHeight: string;
-    marginStart: string;
-    marginEnd: string;
-  };
+    default: {
+        maxHeight: string;
+        maxWidth: string;
+        width: string;
+    };
+    xxxsmall: {
+        maxHeight: string;
+        marginStart: string;
+        marginEnd: string;
+    };
+    xxsmall: {
+        maxHeight: string;
+        marginStart: string;
+        marginEnd: string;
+    };
+    xsmall: {
+        maxHeight: string;
+        marginStart: string;
+        marginEnd: string;
+    };
+    small: {
+        maxHeight: string;
+        marginStart: string;
+        marginEnd: string;
+    };
+    medium: {
+        maxHeight: string;
+        marginStart: string;
+        marginEnd: string;
+    };
+    large: {
+        maxHeight: string;
+        marginStart: string;
+        marginEnd: string;
+    };
 };
 declare const imageRatios: {
-  fourByThree: {
-    paddingBottom: string;
-  };
-  fourByOne: {
-    paddingBottom: string;
-  };
-  twoByThree: {
-    paddingBottom: string;
-  };
-  oneByTwo: {
-    paddingBottom: string;
-  };
-  original: {};
-  sixteenByNine: {
-    paddingBottom: string;
-  };
-  square: {
-    paddingBottom: string;
-  };
-  threeByFour: {
-    paddingBottom: string;
-  };
-  threeByTwo: {
-    paddingBottom: string;
-  };
-  twoByOne: {
-    paddingBottom: string;
-  };
+    fourByThree: {
+        paddingBottom: string;
+    };
+    fourByOne: {
+        paddingBottom: string;
+    };
+    twoByThree: {
+        paddingBottom: string;
+    };
+    oneByTwo: {
+        paddingBottom: string;
+    };
+    original: {};
+    sixteenByNine: {
+        paddingBottom: string;
+    };
+    square: {
+        paddingBottom: string;
+    };
+    threeByFour: {
+        paddingBottom: string;
+    };
+    threeByTwo: {
+        paddingBottom: string;
+    };
+    twoByOne: {
+        paddingBottom: string;
+    };
 };
 interface ReservoirImageBaseStyle extends StyleFunctionProps {
-  ratio: keyof typeof imageRatios;
-  size: keyof typeof imageSizes | keyof typeof imageSizesBasedOnHeight;
-  sizeBasedOn: "height" | "width";
+    ratio: keyof typeof imageRatios;
+    size: keyof typeof imageSizes | keyof typeof imageSizesBasedOnHeight;
+    sizeBasedOn: "height" | "width";
 }
 declare const ReservoirImage: {
-  baseStyle?: ({ ratio, size, sizeBasedOn }: ReservoirImageBaseStyle) => {
-    figure:
-      | {
-          img: {
-            backgroundColor: string;
-            marginBottom: string;
-            _dark: {
-              backgroundColor: string;
+    baseStyle?: ({ ratio, size, sizeBasedOn, }: ReservoirImageBaseStyle) => {
+        figure: {
+            img: {
+                backgroundColor: string;
+                marginBottom: string;
+                _dark: {
+                    backgroundColor: string;
+                };
             };
-          };
-          width: string;
-          maxWidth: string;
-          margin: string;
-        }
-      | {
-          img: {
-            backgroundColor: string;
-            marginBottom: string;
-            _dark: {
-              backgroundColor: string;
+            width: string;
+            maxWidth: string;
+            margin: string;
+        } | {
+            img: {
+                backgroundColor: string;
+                marginBottom: string;
+                _dark: {
+                    backgroundColor: string;
+                };
             };
-          };
-          width: string;
-          maxWidth: string;
-          marginStart: string;
-          marginEnd: string;
-          margin: string;
-        }
-      | {
-          img: {
-            backgroundColor: string;
-            marginBottom: string;
-            _dark: {
-              backgroundColor: string;
+            width: string;
+            maxWidth: string;
+            marginStart: string;
+            marginEnd: string;
+            margin: string;
+        } | {
+            img: {
+                backgroundColor: string;
+                marginBottom: string;
+                _dark: {
+                    backgroundColor: string;
+                };
             };
-          };
-          height: string;
-          width: string;
-          maxWidth: string;
-          maxHeight: string;
-          margin: string;
-        }
-      | {
-          img: {
-            backgroundColor: string;
-            marginBottom: string;
-            _dark: {
-              backgroundColor: string;
+            height: string;
+            width: string;
+            maxWidth: string;
+            maxHeight: string;
+            margin: string;
+        } | {
+            img: {
+                backgroundColor: string;
+                marginBottom: string;
+                _dark: {
+                    backgroundColor: string;
+                };
             };
-          };
-          height: string;
-          width: string;
-          maxWidth: string;
-          maxHeight: string;
-          marginStart: string;
-          marginEnd: string;
-          margin: string;
-        }
-      | {
-          img: {
-            backgroundColor: string;
-            marginBottom: string;
-            _dark: {
-              backgroundColor: string;
+            height: string;
+            width: string;
+            maxWidth: string;
+            maxHeight: string;
+            marginStart: string;
+            marginEnd: string;
+            margin: string;
+        } | {
+            img: {
+                backgroundColor: string;
+                marginBottom: string;
+                _dark: {
+                    backgroundColor: string;
+                };
             };
-          };
-          height: string;
-          width: string;
-          maxHeight: string;
-          marginStart: string;
-          marginEnd: string;
-          margin: string;
+            height: string;
+            width: string;
+            maxHeight: string;
+            marginStart: string;
+            marginEnd: string;
+            margin: string;
         };
-    figcaption: {
-      fontStyle: string;
-    };
-    img:
-      | {
-          _dark: {
-            backgroundColor: string;
-          };
-          width: string;
-          maxWidth: string;
-          display: string;
-          backgroundColor: string;
-          boxSizing: string;
-          objectFit: string;
-          position: string;
-        }
-      | {
-          _dark: {
-            backgroundColor: string;
-          };
-          width: string;
-          maxWidth: string;
-          marginStart: string;
-          marginEnd: string;
-          display: string;
-          backgroundColor: string;
-          boxSizing: string;
-          objectFit: string;
-          position: string;
-        }
-      | {
-          _dark: {
-            backgroundColor: string;
-          };
-          height: string;
-          maxWidth: string;
-          maxHeight: string;
-          width: string;
-          display: string;
-          backgroundColor: string;
-          boxSizing: string;
-          objectFit: string;
-          position: string;
-        }
-      | {
-          _dark: {
-            backgroundColor: string;
-          };
-          height: string;
-          maxWidth: string;
-          maxHeight: string;
-          marginStart: string;
-          marginEnd: string;
-          display: string;
-          backgroundColor: string;
-          boxSizing: string;
-          objectFit: string;
-          position: string;
-        }
-      | {
-          _dark: {
-            backgroundColor: string;
-          };
-          height: string;
-          maxHeight: string;
-          marginStart: string;
-          marginEnd: string;
-          display: string;
-          backgroundColor: string;
-          boxSizing: string;
-          objectFit: string;
-          position: string;
+        figcaption: {
+            fontStyle: string;
         };
-  };
-  sizes?: {
-    [key: string]: import("@chakra-ui/styled-system").PartsStyleInterpolation<{
-      keys: ("base" | "figcaption" | "figure" | "img")[];
-    }>;
-  };
-  variants?: {
-    circle: {
-      img: {
-        borderRadius: string;
-      };
+        img: {
+            _dark: {
+                backgroundColor: string;
+            };
+            width: string;
+            maxWidth: string;
+            display: string;
+            backgroundColor: string;
+            boxSizing: string;
+            objectFit: string;
+            position: string;
+        } | {
+            _dark: {
+                backgroundColor: string;
+            };
+            width: string;
+            maxWidth: string;
+            marginStart: string;
+            marginEnd: string;
+            display: string;
+            backgroundColor: string;
+            boxSizing: string;
+            objectFit: string;
+            position: string;
+        } | {
+            _dark: {
+                backgroundColor: string;
+            };
+            height: string;
+            maxWidth: string;
+            maxHeight: string;
+            width: string;
+            display: string;
+            backgroundColor: string;
+            boxSizing: string;
+            objectFit: string;
+            position: string;
+        } | {
+            _dark: {
+                backgroundColor: string;
+            };
+            height: string;
+            maxWidth: string;
+            maxHeight: string;
+            marginStart: string;
+            marginEnd: string;
+            display: string;
+            backgroundColor: string;
+            boxSizing: string;
+            objectFit: string;
+            position: string;
+        } | {
+            _dark: {
+                backgroundColor: string;
+            };
+            height: string;
+            maxHeight: string;
+            marginStart: string;
+            marginEnd: string;
+            display: string;
+            backgroundColor: string;
+            boxSizing: string;
+            objectFit: string;
+            position: string;
+        };
     };
-  };
-  defaultProps?: {
-    size?: string | number;
-    variant?: "circle";
-    colorScheme?: string;
-  };
-  parts: ("base" | "figcaption" | "figure" | "img")[];
+    sizes?: {
+        [key: string]: import("@chakra-ui/styled-system").PartsStyleInterpolation<{
+            keys: ("base" | "figcaption" | "figure" | "img")[];
+        }>;
+    };
+    variants?: {
+        circle: {
+            img: {
+                borderRadius: string;
+            };
+        };
+    };
+    defaultProps?: {
+        size?: string | number;
+        variant?: "circle";
+        colorScheme?: string;
+    };
+    parts: ("base" | "figcaption" | "figure" | "img")[];
 };
 declare const ReservoirImageWrapper: {
-  baseStyle?: ({ ratio, size, sizeBasedOn }: ReservoirImageBaseStyle) => {
-    base:
-      | {
-          img:
-            | {
+    baseStyle?: ({ ratio, size, sizeBasedOn, }: ReservoirImageBaseStyle) => {
+        base: {
+            img: {
                 backgroundColor: string;
                 height: string;
                 left: string;
@@ -286,11 +274,10 @@ declare const ReservoirImageWrapper: {
                 position: string;
                 top: string;
                 _dark: {
-                  backgroundColor: string;
+                    backgroundColor: string;
                 };
                 maxWidth: string;
-              }
-            | {
+            } | {
                 backgroundColor: string;
                 height: string;
                 left: string;
@@ -298,18 +285,16 @@ declare const ReservoirImageWrapper: {
                 position: string;
                 top: string;
                 _dark: {
-                  backgroundColor: string;
+                    backgroundColor: string;
                 };
                 maxHeight: string;
-              };
-          width: string;
-          maxWidth: string;
-          marginStart: string;
-          marginEnd: string;
-        }
-      | {
-          img:
-            | {
+            };
+            width: string;
+            maxWidth: string;
+            marginStart: string;
+            marginEnd: string;
+        } | {
+            img: {
                 backgroundColor: string;
                 height: string;
                 left: string;
@@ -317,11 +302,10 @@ declare const ReservoirImageWrapper: {
                 position: string;
                 top: string;
                 _dark: {
-                  backgroundColor: string;
+                    backgroundColor: string;
                 };
                 maxWidth: string;
-              }
-            | {
+            } | {
                 backgroundColor: string;
                 height: string;
                 left: string;
@@ -329,18 +313,16 @@ declare const ReservoirImageWrapper: {
                 position: string;
                 top: string;
                 _dark: {
-                  backgroundColor: string;
+                    backgroundColor: string;
                 };
                 maxHeight: string;
-              };
-          width: string;
-          maxWidth: string;
-          marginStart: string;
-          marginEnd: string;
-        }
-      | {
-          img:
-            | {
+            };
+            width: string;
+            maxWidth: string;
+            marginStart: string;
+            marginEnd: string;
+        } | {
+            img: {
                 backgroundColor: string;
                 height: string;
                 left: string;
@@ -348,11 +330,10 @@ declare const ReservoirImageWrapper: {
                 position: string;
                 top: string;
                 _dark: {
-                  backgroundColor: string;
+                    backgroundColor: string;
                 };
                 maxWidth: string;
-              }
-            | {
+            } | {
                 backgroundColor: string;
                 height: string;
                 left: string;
@@ -360,20 +341,18 @@ declare const ReservoirImageWrapper: {
                 position: string;
                 top: string;
                 _dark: {
-                  backgroundColor: string;
+                    backgroundColor: string;
                 };
                 maxHeight: string;
-              };
-          height: string;
-          maxWidth: string;
-          maxHeight: string;
-          width: string;
-          marginStart: string;
-          marginEnd: string;
-        }
-      | {
-          img:
-            | {
+            };
+            height: string;
+            maxWidth: string;
+            maxHeight: string;
+            width: string;
+            marginStart: string;
+            marginEnd: string;
+        } | {
+            img: {
                 backgroundColor: string;
                 height: string;
                 left: string;
@@ -381,11 +360,10 @@ declare const ReservoirImageWrapper: {
                 position: string;
                 top: string;
                 _dark: {
-                  backgroundColor: string;
+                    backgroundColor: string;
                 };
                 maxWidth: string;
-              }
-            | {
+            } | {
                 backgroundColor: string;
                 height: string;
                 left: string;
@@ -393,19 +371,17 @@ declare const ReservoirImageWrapper: {
                 position: string;
                 top: string;
                 _dark: {
-                  backgroundColor: string;
+                    backgroundColor: string;
                 };
                 maxHeight: string;
-              };
-          height: string;
-          maxWidth: string;
-          maxHeight: string;
-          marginStart: string;
-          marginEnd: string;
-        }
-      | {
-          img:
-            | {
+            };
+            height: string;
+            maxWidth: string;
+            maxHeight: string;
+            marginStart: string;
+            marginEnd: string;
+        } | {
+            img: {
                 backgroundColor: string;
                 height: string;
                 left: string;
@@ -413,11 +389,10 @@ declare const ReservoirImageWrapper: {
                 position: string;
                 top: string;
                 _dark: {
-                  backgroundColor: string;
+                    backgroundColor: string;
                 };
                 maxWidth: string;
-              }
-            | {
+            } | {
                 backgroundColor: string;
                 height: string;
                 left: string;
@@ -425,812 +400,712 @@ declare const ReservoirImageWrapper: {
                 position: string;
                 top: string;
                 _dark: {
-                  backgroundColor: string;
+                    backgroundColor: string;
                 };
                 maxHeight: string;
-              };
-          height: string;
-          maxHeight: string;
-          marginStart: string;
-          marginEnd: string;
+            };
+            height: string;
+            maxHeight: string;
+            marginStart: string;
+            marginEnd: string;
         };
-    crop:
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
-        }
-      | {
-          maxWidth: string;
-          paddingBottom: string;
-          position: string;
-          width: string;
-          height: string;
-          overflow: string;
+        crop: {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
+        } | {
+            maxWidth: string;
+            paddingBottom: string;
+            position: string;
+            width: string;
+            height: string;
+            overflow: string;
         };
-  };
-  sizes?: {
-    [key: string]: import("@chakra-ui/styled-system").PartsStyleInterpolation<{
-      keys: ("base" | "crop")[];
-    }>;
-  };
-  variants?: {
-    [key: string]: import("@chakra-ui/styled-system").PartsStyleInterpolation<{
-      keys: ("base" | "crop")[];
-    }>;
-  };
-  defaultProps?: {
-    size?: string | number;
-    variant?: string | number;
-    colorScheme?: string;
-  };
-  parts: ("base" | "crop")[];
+    };
+    sizes?: {
+        [key: string]: import("@chakra-ui/styled-system").PartsStyleInterpolation<{
+            keys: ("base" | "crop")[];
+        }>;
+    };
+    variants?: {
+        [key: string]: import("@chakra-ui/styled-system").PartsStyleInterpolation<{
+            keys: ("base" | "crop")[];
+        }>;
+    };
+    defaultProps?: {
+        size?: string | number;
+        variant?: string | number;
+        colorScheme?: string;
+    };
+    parts: ("base" | "crop")[];
 };
 export { ReservoirImage, ReservoirImageWrapper };

@@ -6,7 +6,5 @@
  * for a given prop from a consuming app. The hook updates the DS component
  * with useEffect().
  */
-declare function useStateWithDependencies(
-  initialValue: any
-): typeof initialValue;
+declare function useStateWithDependencies(initialValue: any): typeof initialValue;
 export default useStateWithDependencies;
