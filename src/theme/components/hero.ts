@@ -212,40 +212,22 @@ const secondaryResearch = definePartsStyle(
 const secondaryWhatsOn = definePartsStyle(
   getSecondaryVariantStyles("section.whats-on.primary")
 );
-const tertiary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
-  base: {
-    // Is this needed?
-    p: {
-      marginBottom: "0",
-    },
-  },
-  content: {
-    ...wrapperStyles,
-    color: getTextColor("body", "light", foregroundColor, isDarkText),
-    display: "flex",
-    flexFlow: "column nowrap",
-    px: "inset.default",
-    py: { base: "inset.default", xl: "inset.wide" },
-    a: {
-      color: getLinkColor("default", foregroundColor, isDarkText),
-      _hover: {
-        color: getLinkColor("hover", foregroundColor, isDarkText),
-      },
-      _visited: {
-        color: getLinkColor("visited", foregroundColor, isDarkText),
-        svg: {
-          fill: getLinkColor("visited", foregroundColor, isDarkText),
-        },
+const tertiary = definePartsStyle(({ foregroundColor, isDarkText }) => {
+  const { responsivePadding } = useResponsiveSpacing();
+  return {
+    base: {
+      // Is this needed?
+      p: {
+        marginBottom: "0",
       },
     },
-    p: {
-      marginBottom: "0",
-      marginTop: { base: "xxs", xl: "xs" },
-    },
-    ".chakra-heading": {
-      color: getTextColor("heading", "light", foregroundColor, isDarkText),
-    },
-    _dark: {
+    content: {
+      ...wrapperStyles,
+      color: getTextColor("body", "light", foregroundColor, isDarkText),
+      display: "flex",
+      flexFlow: "column nowrap",
+      px: responsivePadding,
+      py: { base: "inset.default", xl: "inset.wide" },
       a: {
         color: getLinkColor("default", foregroundColor, isDarkText),
         _hover: {
@@ -258,20 +240,41 @@ const tertiary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
           },
         },
       },
-      p: { color: getTextColor("body", "dark", foregroundColor, isDarkText) },
+      p: {
+        marginBottom: "0",
+        marginTop: { base: "xxs", xl: "xs" },
+      },
       ".chakra-heading": {
-        color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+        color: getTextColor("heading", "light", foregroundColor, isDarkText),
+      },
+      _dark: {
+        a: {
+          color: getLinkColor("default", foregroundColor, isDarkText),
+          _hover: {
+            color: getLinkColor("hover", foregroundColor, isDarkText),
+          },
+          _visited: {
+            color: getLinkColor("visited", foregroundColor, isDarkText),
+            svg: {
+              fill: getLinkColor("visited", foregroundColor, isDarkText),
+            },
+          },
+        },
+        p: { color: getTextColor("body", "dark", foregroundColor, isDarkText) },
+        ".chakra-heading": {
+          color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+        },
       },
     },
-  },
-  heading: {
-    color: "ui.typography.inverse.heading",
-    marginBottom: "0",
-    _lastChild: {
+    heading: {
+      color: "ui.typography.inverse.heading",
       marginBottom: "0",
+      _lastChild: {
+        marginBottom: "0",
+      },
     },
-  },
-}));
+  };
+});
 const campaign = definePartsStyle(({ foregroundColor, isDarkText }) => ({
   base: {
     alignItems: "center",
