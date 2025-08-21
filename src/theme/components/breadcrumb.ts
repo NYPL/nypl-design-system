@@ -1,6 +1,7 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
 import { customFocusColor, screenreaderOnly } from "./global";
+import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
 
 // Variant styling
 const blogs = defineStyle({
@@ -111,72 +112,79 @@ const whatsOn = defineStyle({
   },
 });
 
+// const primary = definePartsStyle(({ foregroundColor, isDarkText }) => {
 const Breadcrumb = defineStyleConfig({
-  baseStyle: defineStyle({
-    bg: "ui.black",
-    color: "ui.white",
-    fontSize: "desktop.breadcrumbs.default",
-    fontWeight: "breadcrumbs.default",
-    paddingBottom: "xs",
-    paddingTop: "xs",
-    _dark: {
-      bg: "dark.ui.bg.hover",
-      color: "dark.ui.typography.heading",
-    },
-    ol: {
-      alignItems: { base: "center", md: "unset" },
-      display: { base: "flex", md: "block" },
-      margin: "auto",
-      maxWidth: "1280px",
-      paddingStart: "s",
-      paddingEnd: "s",
-    },
-    a: {
-      _visited: { color: "unset" },
-      _hover: {
-        color: "ui.gray.light-cool",
-        textDecoration: "none",
+  baseStyle: defineStyle(() => {
+    const { responsivePadding } = useResponsiveSpacing();
+    return {
+      bg: "ui.black",
+      color: "ui.white",
+      fontSize: "desktop.breadcrumbs.default",
+      fontWeight: "breadcrumbs.default",
+      paddingBottom: "xs",
+      paddingTop: "xs",
+      _dark: {
+        bg: "dark.ui.bg.hover",
+        color: "dark.ui.typography.heading",
       },
-      _focus: customFocusColor("ui.white", "dark.ui.typography.heading"),
-    },
-    "li:last-child": {
-      fontWeight: { base: "breadcrumbs.default", md: "breadcrumbs.lastChild" },
-      ".chakra-breadcrumb__link": {
+      ol: {
+        alignItems: { base: "center", md: "unset" },
+        display: { base: "flex", md: "block" },
+        margin: "auto",
+        maxWidth: "1280px",
+        paddingStart: responsivePadding,
+        paddingEnd: responsivePadding,
+      },
+      a: {
+        _visited: { color: "unset" },
         _hover: {
-          // Override the default hover color.
-          color: "ui.white",
-          cursor: "default",
+          color: "ui.gray.light-cool",
           textDecoration: "none",
         },
-        _dark: {
+        _focus: customFocusColor("ui.white", "dark.ui.typography.heading"),
+      },
+      "li:last-child": {
+        fontWeight: {
+          base: "breadcrumbs.default",
+          md: "breadcrumbs.lastChild",
+        },
+        ".chakra-breadcrumb__link": {
           _hover: {
-            color: "dark.ui.typography.heading",
+            // Override the default hover color.
+            color: "ui.white",
+            cursor: "default",
+            textDecoration: "none",
+          },
+          _dark: {
+            _hover: {
+              color: "dark.ui.typography.heading",
+            },
           },
         },
+        ".icon": {
+          display: "none",
+        },
       },
-      ".icon": {
-        display: "none",
+      "li:not(:last-child)": {
+        display: { base: "none", md: "inline-block" },
+        a: {
+          marginEnd: { base: "xs", md: "0" },
+          display: { base: "flex", md: "unset" },
+        },
+        ".icon": {
+          display: { base: "inline", md: "none" },
+        },
+        "span:not(.ds-breadcrumbs-link-label)": {
+          marginInlineEnd: "xxs",
+          marginInlineStart: "xxs",
+          ...screenreaderOnly(true),
+        },
       },
-    },
-    "li:not(:last-child)": {
-      display: { base: "none", md: "inline-block" },
-      a: {
-        marginEnd: { base: "xs", md: "0" },
-        display: { base: "flex", md: "unset" },
+      "li:nth-last-of-type(2)": {
+        display: "inline-block",
+        span: screenreaderOnly(true),
       },
-      ".icon": {
-        display: { base: "inline", md: "none" },
-      },
-      "span:not(.ds-breadcrumbs-link-label)": {
-        marginInlineEnd: "xxs",
-        marginInlineStart: "xxs",
-        ...screenreaderOnly(true),
-      },
-    },
-    "li:nth-last-of-type(2)": {
-      display: "inline-block",
-      span: screenreaderOnly(true),
-    },
+    };
   }),
   // Available variants:
   variants: {
