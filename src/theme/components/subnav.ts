@@ -172,7 +172,7 @@ const SubNav = subNavDefineMultiStyleConfig({
         },
         container: {
           maxWidth: "1280px",
-          px: { base: "0", md: "xs" },
+          px: { base: "0", md: "s", xl: "xs" },
           width: "100%",
         },
         scrollableList: {

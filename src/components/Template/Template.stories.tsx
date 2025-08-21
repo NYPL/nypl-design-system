@@ -586,7 +586,7 @@ export const ComplexExample = () => {
               id="complex-example-subnav"
               primaryActions={
                 <>
-                  <SubNavLink href="#" id="link-1">
+                  <SubNavLink href="#" id="link-1" isSelected>
                     One
                   </SubNavLink>
                   <SubNavLink href="#" id="link-2">
