@@ -2,9 +2,11 @@ import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
 import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
 
+const responsivePadding = { base: "s", md: "m", xl: "s" };
+
 const Template = defineStyleConfig({
   baseStyle: defineStyle(() => {
-    const { responsiveGap, responsiveMargin } = useResponsiveSpacing();
+    const { responsiveGap } = useResponsiveSpacing();
     return {
       boxSizing: "border-box",
       color: "ui.typography.body",
@@ -13,7 +15,6 @@ const Template = defineStyleConfig({
       // 320px screen width - 32px padding = 288px
       minWidth: "288px",
       m: "0 auto",
-      px: responsiveMargin,
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "auto",
       columnGap: responsiveGap,
@@ -54,6 +55,7 @@ const Template = defineStyleConfig({
           md: "5 / -1",
           lg: "4 / -1",
         },
+        pr: { ...responsivePadding },
       },
       "& .ds-template-sidebar": {
         gridColumn: {
@@ -62,6 +64,7 @@ const Template = defineStyleConfig({
           md: "1 / 5",
           lg: "1 / 4",
         },
+        pl: { ...responsivePadding },
       },
     },
     sidebarRight: {
@@ -71,6 +74,7 @@ const Template = defineStyleConfig({
           md: "1 / 9",
           lg: "1 / 10",
         },
+        pl: { ...responsivePadding },
       },
       "& .ds-template-sidebar": {
         gridColumn: {
@@ -79,6 +83,7 @@ const Template = defineStyleConfig({
           md: "9 / -1",
           lg: "10 / -1",
         },
+        pr: { ...responsivePadding },
       },
     },
     narrow: {
@@ -121,6 +126,7 @@ const TemplateFull = defineStyleConfig({
   baseStyle: defineStyle(() => {
     return {
       gridColumn: "1 / -1",
+      px: { ...responsivePadding },
     };
   }),
 });

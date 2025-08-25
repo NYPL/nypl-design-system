@@ -530,7 +530,7 @@ export const FeaturedContentExample = {
 };
 
 export const ComplexExample = () => {
-  const { responsiveGap } = useResponsiveSpacing();
+  const { responsiveGap, responsivePadding } = useResponsiveSpacing();
   return (
     <>
       <SkipNavigation target="#skip-to" />
@@ -653,28 +653,29 @@ export const ComplexExample = () => {
           </TemplateFull>
           <TemplateContent id="skip-to">
             <Heading
+              mb="s"
               overline="Example"
               subtitle="Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
               text="Content with sidebar"
             />
-            <Text>
+            <Text mb="s">
               Maecenas faucibus mollis interdum. Integer posuere erat a ante
               venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh
               ultricies vehicula ut id elit. Cras mattis consectetur purus sit
               amet fermentum.
             </Text>
-            <Link href="https://nypl.org" mb="s" type="standalone">
+            <Link href="https://nypl.org" mb="s" variant="standalone">
               Link to show focus
             </Link>
-            <Heading level="h3" size="heading4" text="Subsection" />
-            <Text>
+            <Heading level="h3" mb="s" size="heading4" text="Subsection" />
+            <Text mb="s">
               Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor
               sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non
               metus auctor fringilla. Praesent commodo cursus magna, vel
               scelerisque nisl consectetur et. Maecenas faucibus mollis
               interdum.
             </Text>
-            <Text>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
               tellus ac cursus commodo, tortor mauris condimentum nibh, ut
               fermentum massa justo sit amet risus. Praesent commodo cursus
@@ -683,7 +684,7 @@ export const ComplexExample = () => {
               mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum
               faucibus dolor auctor.
             </Text>
-            <Link href="https://nypl.org" mb="s" type="standalone">
+            <Link href="https://nypl.org" variant="standalone">
               Link to show focus
             </Link>
           </TemplateContent>
@@ -696,12 +697,12 @@ export const ComplexExample = () => {
               />
             </Box>
           </TemplateSidebar>
-
           <TemplateBreakout>
             <Box bgColor="ui.bg.default" py={{ base: "s", md: "m", xl: "l" }}>
-              <Box margin="auto" maxWidth="1280px" px="s">
+              <Box margin="auto" maxWidth="1280px" px={responsivePadding}>
                 <Heading
                   size="heading6"
+                  mb="s"
                   subtitle="Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
                   text="Example photos"
                 />
@@ -761,24 +762,25 @@ export const ComplexExample = () => {
           <TemplateContent id="mainContentTwo">
             <Heading
               level="h3"
+              mb="s"
               size="heading4"
               text="Heading after a breakout"
             />
-            <Text>
+            <Text mb="s">
               Maecenas faucibus mollis interdum. Integer posuere erat a ante
               venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh
               ultricies vehicula ut id elit. Cras mattis consectetur purus sit
               amet fermentum.
             </Text>
-            <Heading level="h4" size="heading6" text="Subsection" />
-            <Text>
+            <Heading level="h4" mb="s" size="heading6" text="Subsection" />
+            <Text mb="s">
               Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor
               sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non
               metus auctor fringilla. Praesent commodo cursus magna, vel
               scelerisque nisl consectetur et. Maecenas faucibus mollis
               interdum.
             </Text>
-            <Text>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
               tellus ac cursus commodo, tortor mauris condimentum nibh, ut
               fermentum massa justo sit amet risus. Praesent commodo cursus
@@ -824,7 +826,9 @@ export const ComplexExample = () => {
               my="l"
               textContent={
                 <>
-                  <Heading size="heading5">Sit Dapibus Elit</Heading>
+                  <Heading mb="s" size="heading5">
+                    Sit Dapibus Elit
+                  </Heading>
                   Donec id elit non mi porta gravida at eget metus. Nulla vitae
                   elit libero, a pharetra augue. Cum sociis natoque penatibus et
                   magnis dis parturient montes, nascetur ridiculus mus. Cras
@@ -838,6 +842,27 @@ export const ComplexExample = () => {
               content="This is a full area!"
               heading="Full"
               variant="informative"
+            />
+            <FeaturedContent
+              imageProps={{
+                alt: "",
+                src: getPlaceholderImage("smaller"),
+                position: "end",
+                width: "",
+              }}
+              isFullWidth={false}
+              my="l"
+              textContent={
+                <>
+                  <Heading mb="s" size="heading5">
+                    Sit Dapibus Elit
+                  </Heading>
+                  Donec id elit non mi porta gravida at eget metus. Nulla vitae
+                  elit libero, a pharetra augue. Cum sociis natoque penatibus et
+                  magnis dis parturient montes, nascetur ridiculus mus. Cras
+                  mattis consectetur purus sit amet fermentum.
+                </>
+              }
             />
           </TemplateFull>
           <TemplateFull>
