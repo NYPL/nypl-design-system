@@ -151,6 +151,12 @@ const textMargin = {
   margin: "0",
   marginBottom: "s",
 };
+// Used for responsive spacing values
+const responsiveSpacing = {
+  gridGap: { base: "s", md: "m", xl: "l" },
+  margin: { base: "s", md: "m", xl: "s" },
+  padding: { base: "s", md: "m", xl: "s" },
+};
 
 export {
   activeFocus,
@@ -162,6 +168,7 @@ export {
   customFocusColor,
   defaultElementSizes,
   labelLegendText,
+  responsiveSpacing,
   selectTextInputDisabledStyles,
   selectTextInputFocusStyles,
   textMargin,

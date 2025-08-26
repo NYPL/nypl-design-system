@@ -31,7 +31,7 @@ import {
   templateVariantArray,
 } from "./Template";
 import { getPlaceholderImage, sidebarLabel } from "../../utils/utils";
-import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
+import { responsiveSpacing } from "../../theme/components/global";
 
 const meta: Meta<typeof Template> = {
   title: "Components/Page Layout/Template",
@@ -530,7 +530,6 @@ export const FeaturedContentExample = {
 };
 
 export const ComplexExample = () => {
-  const { responsiveGap, responsivePadding } = useResponsiveSpacing();
   return (
     <>
       <SkipNavigation target="#skip-to" />
@@ -699,7 +698,11 @@ export const ComplexExample = () => {
           </TemplateSidebar>
           <TemplateBreakout>
             <Box bgColor="ui.bg.default" py={{ base: "s", md: "m", xl: "l" }}>
-              <Box margin="auto" maxWidth="1280px" px={responsivePadding}>
+              <Box
+                margin="auto"
+                maxWidth="1280px"
+                px={responsiveSpacing.padding}
+              >
                 <Heading
                   size="heading6"
                   mb="s"
@@ -708,7 +711,7 @@ export const ComplexExample = () => {
                 />
                 <Box
                   display="grid"
-                  gap={responsiveGap}
+                  gap={responsiveSpacing.gridGap}
                   gridTemplateColumns="repeat(2, 1fr)"
                   mb={{ base: "s", md: "m", xl: "l" }}
                 >
@@ -725,7 +728,7 @@ export const ComplexExample = () => {
                 </Box>
                 <Box
                   display="grid"
-                  gap={responsiveGap}
+                  gap={responsiveSpacing.gridGap}
                   gridTemplateColumns="repeat(4, 1fr)"
                 >
                   <Image

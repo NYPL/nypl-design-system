@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `responsiveSpacing` object to `globals` to be used for implementing responsive spacing styles in components.
+
 ### Fixes
 
 - Fixes a spacing issue seen in the `TemplateBreakout` component by changing how internal padding is applied to the `TemplateContent`, `TemplateFull`, `TemplateMain`, and `TemplateSidebar` components.

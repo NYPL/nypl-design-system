@@ -1,12 +1,9 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
-import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
-
-const responsivePadding = { base: "s", md: "m", xl: "s" };
+import { responsiveSpacing } from "./global";
 
 const Template = defineStyleConfig({
   baseStyle: defineStyle(() => {
-    const { responsiveGap } = useResponsiveSpacing();
     return {
       boxSizing: "border-box",
       color: "ui.typography.body",
@@ -17,8 +14,8 @@ const Template = defineStyleConfig({
       m: "0 auto",
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "auto",
-      columnGap: responsiveGap,
-      "& > *:not(:last-child)": { mb: responsiveGap },
+      columnGap: responsiveSpacing.gridGap,
+      "& > *:not(:last-child)": { mb: responsiveSpacing.gridGap },
 
       /** The "content" area should span the full width of the content area from
        * a mobile-first viewpoint. Using -1 for the "last column" value ensures
@@ -55,7 +52,7 @@ const Template = defineStyleConfig({
           md: "5 / -1",
           lg: "4 / -1",
         },
-        pr: { ...responsivePadding },
+        pr: responsiveSpacing.padding,
       },
       "& .ds-template-sidebar": {
         gridColumn: {
@@ -64,7 +61,7 @@ const Template = defineStyleConfig({
           md: "1 / 5",
           lg: "1 / 4",
         },
-        pl: { ...responsivePadding },
+        pl: responsiveSpacing.padding,
       },
     },
     sidebarRight: {
@@ -74,7 +71,7 @@ const Template = defineStyleConfig({
           md: "1 / 9",
           lg: "1 / 10",
         },
-        pl: { ...responsivePadding },
+        pl: responsiveSpacing.padding,
       },
       "& .ds-template-sidebar": {
         gridColumn: {
@@ -83,7 +80,7 @@ const Template = defineStyleConfig({
           md: "9 / -1",
           lg: "10 / -1",
         },
-        pr: { ...responsivePadding },
+        pr: responsiveSpacing.padding,
       },
     },
     narrow: {
@@ -100,14 +97,13 @@ const Template = defineStyleConfig({
 
 const TemplateMain = defineStyleConfig({
   baseStyle: defineStyle(() => {
-    const { responsiveGap } = useResponsiveSpacing();
     return {
       display: "grid",
-      columnGap: responsiveGap,
+      columnGap: responsiveSpacing.gridGap,
       gridColumn: "1 / -1",
       gridTemplateColumns: "subgrid",
       gridTemplateRows: "auto",
-      "& > *:not(:last-child)": { mb: responsiveGap },
+      "& > *:not(:last-child)": { mb: responsiveSpacing.gridGap },
     };
   }),
 });
@@ -126,7 +122,7 @@ const TemplateFull = defineStyleConfig({
   baseStyle: defineStyle(() => {
     return {
       gridColumn: "1 / -1",
-      px: { ...responsivePadding },
+      px: responsiveSpacing.padding,
     };
   }),
 });
