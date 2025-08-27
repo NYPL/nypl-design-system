@@ -39,6 +39,9 @@ export interface MenuProps extends BoxProps {
   /** Optional boolean value used to toggle the visibility of the label text for the button element.
    * If false, this value will be used to set an aria-label attribute on the button element.  */
   showLabel?: boolean;
+  /** Optional boolean value used to pass the labelText as the button element's aria-label.
+   * If false, the aria-label will be built from the labelText and the selected item. */
+  labelAsAriaLabel?: boolean;
 }
 
 /**Type for the icons/images displayed inline with menu items. */
@@ -91,6 +94,7 @@ export const Menu: ChakraComponent<
         showBorder = true,
         showLabel = true,
         listItemsData,
+        labelAsAriaLabel = false,
         ...rest
       },
       ref?
@@ -215,7 +219,13 @@ export const Menu: ChakraComponent<
       const getButton = (isOpen) => (
         <MenuButton
           sx={styles.menuButton}
-          aria-label={selected ? `${labelText}: ${selected.label}` : labelText}
+          aria-label={
+            labelAsAriaLabel
+              ? labelText
+              : selected
+              ? `${labelText}: ${selected.label}`
+              : labelText
+          }
           backgroundColor={isOpen ? "ui.link.primary-05 !important" : "unset"}
         >
           {showLabel && (
