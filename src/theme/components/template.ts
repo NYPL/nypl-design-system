@@ -25,6 +25,7 @@ const Template = defineStyleConfig({
        * */
       "& .ds-template-content": {
         gridColumn: { base: "1 / -1" },
+        px: responsiveSpacing.padding,
       },
     };
   }),
