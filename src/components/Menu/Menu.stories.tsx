@@ -15,6 +15,10 @@ const meta: Meta<typeof Menu> = {
       options: sectionTypeArray,
       defaultValue: { summary: "blogs" },
     },
+    labelAsAriaLabel: {
+      control: { type: "boolean" },
+      defaultValue: { summary: "false" },
+    },
     labelText: { description: "Set menu button text." },
     listAlignment: {
       options: ["left", "right"],
@@ -33,10 +37,6 @@ const meta: Meta<typeof Menu> = {
     showLabel: {
       control: { type: "boolean" },
       defaultValue: { summary: "true" },
-    },
-    labelAsAriaLabel: {
-      control: { type: "boolean" },
-      defaultValue: { summary: "false" },
     },
   },
 };

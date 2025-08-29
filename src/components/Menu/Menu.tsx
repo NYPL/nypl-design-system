@@ -25,6 +25,9 @@ export interface MenuProps extends BoxProps {
   showSelectionAsLabel?: boolean;
   /** Used to set the highlight color for the current item.  The values correspond with the NYPL section colors */
   highlightColor?: SectionTypes;
+  /** Optional boolean value used to pass the labelText as the button element's aria-label.
+   * If false, the aria-label will be built from the labelText and the selected item. */
+  labelAsAriaLabel?: boolean;
   /** Required string used to set the label text for the button element. If showLabel is false,
    * this value is instead used to set an aria-label attribute on the button.  The labelText prop is
    * required for accessibility compliance. */
@@ -39,9 +42,6 @@ export interface MenuProps extends BoxProps {
   /** Optional boolean value used to toggle the visibility of the label text for the button element.
    * If false, this value will be used to set an aria-label attribute on the button element.  */
   showLabel?: boolean;
-  /** Optional boolean value used to pass the labelText as the button element's aria-label.
-   * If false, the aria-label will be built from the labelText and the selected item. */
-  labelAsAriaLabel?: boolean;
 }
 
 /**Type for the icons/images displayed inline with menu items. */
