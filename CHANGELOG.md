@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds `responsiveSpacing` object to `globals` to be used for implementing responsive spacing styles in components.
+- Adds `responsiveSpacing` object to `globals` to be used for implementing responsive spacing styles within DS components.
 
 ### Fixes
 
