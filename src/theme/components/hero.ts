@@ -1,8 +1,6 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
-// import { StyleFunctionProps } from "@chakra-ui/system";
-import { wrapperStyles } from "./global";
+import { responsiveSpacing, wrapperStyles } from "./global";
 import { screenreaderOnly } from "./globalMixins";
-import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
 
 // This function creates a set of functions that help us
 // create multipart component styles.
@@ -153,7 +151,6 @@ export const getLinkColor = (state, foregroundColor, isDarkText) => {
 };
 // Variant styling
 const primary = definePartsStyle(({ foregroundColor, isDarkText }) => {
-  const { responsiveGap } = useResponsiveSpacing();
   return {
     base: {
       alignItems: "center",
@@ -166,7 +163,7 @@ const primary = definePartsStyle(({ foregroundColor, isDarkText }) => {
     grid: {
       display: "grid",
       gridTemplateColumns: "repeat(12, 1fr)",
-      gap: responsiveGap,
+      gap: responsiveSpacing.gridGap,
       margin: "auto",
       maxWidth: "1280px",
       px: { base: "l", md: "s" },
@@ -213,7 +210,6 @@ const secondaryWhatsOn = definePartsStyle(
   getSecondaryVariantStyles("section.whats-on.primary")
 );
 const tertiary = definePartsStyle(({ foregroundColor, isDarkText }) => {
-  const { responsivePadding } = useResponsiveSpacing();
   return {
     base: {
       // Is this needed?
@@ -226,7 +222,7 @@ const tertiary = definePartsStyle(({ foregroundColor, isDarkText }) => {
       color: getTextColor("body", "light", foregroundColor, isDarkText),
       display: "flex",
       flexFlow: "column nowrap",
-      px: responsivePadding,
+      px: responsiveSpacing.padding,
       py: { base: "inset.default", xl: "inset.wide" },
       a: {
         color: getLinkColor("default", foregroundColor, isDarkText),

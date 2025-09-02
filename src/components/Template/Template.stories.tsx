@@ -31,7 +31,7 @@ import {
   templateVariantArray,
 } from "./Template";
 import { getPlaceholderImage, sidebarLabel } from "../../utils/utils";
-import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
+import { responsiveSpacing } from "../../theme/components/global";
 
 const meta: Meta<typeof Template> = {
   title: "Components/Page Layout/Template",
@@ -530,7 +530,6 @@ export const FeaturedContentExample = {
 };
 
 export const ComplexExample = () => {
-  const { responsiveGap } = useResponsiveSpacing();
   return (
     <>
       <SkipNavigation target="#skip-to" />
@@ -707,7 +706,7 @@ export const ComplexExample = () => {
                 />
                 <Box
                   display="grid"
-                  gap={responsiveGap}
+                  gap={responsiveSpacing.gridGap}
                   gridTemplateColumns="repeat(2, 1fr)"
                   mb={{ base: "s", md: "m", xl: "l" }}
                 >
@@ -724,7 +723,7 @@ export const ComplexExample = () => {
                 </Box>
                 <Box
                   display="grid"
-                  gap={responsiveGap}
+                  gap={responsiveSpacing.gridGap}
                   gridTemplateColumns="repeat(4, 1fr)"
                 >
                   <Image
@@ -838,6 +837,25 @@ export const ComplexExample = () => {
               content="This is a full area!"
               heading="Full"
               variant="informative"
+            />
+            <FeaturedContent
+              imageProps={{
+                alt: "",
+                src: getPlaceholderImage("smaller"),
+                position: "end",
+                width: "",
+              }}
+              isFullWidth={false}
+              mt={responsiveSpacing.gridGap}
+              textContent={
+                <>
+                  <Heading size="heading5">Sit Dapibus Elit</Heading>
+                  Donec id elit non mi porta gravida at eget metus. Nulla vitae
+                  elit libero, a pharetra augue. Cum sociis natoque penatibus et
+                  magnis dis parturient montes, nascetur ridiculus mus. Cras
+                  mattis consectetur purus sit amet fermentum.
+                </>
+              }
             />
           </TemplateFull>
           <TemplateFull>

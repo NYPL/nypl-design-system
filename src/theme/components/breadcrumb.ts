@@ -1,7 +1,10 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
-import { customFocusColor, screenreaderOnly } from "./global";
-import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
+import {
+  customFocusColor,
+  responsiveSpacing,
+  screenreaderOnly,
+} from "./global";
 
 // Variant styling
 const blogs = defineStyle({
@@ -115,7 +118,6 @@ const whatsOn = defineStyle({
 // const primary = definePartsStyle(({ foregroundColor, isDarkText }) => {
 const Breadcrumb = defineStyleConfig({
   baseStyle: defineStyle(() => {
-    const { responsivePadding } = useResponsiveSpacing();
     return {
       bg: "ui.black",
       color: "ui.white",
@@ -132,8 +134,8 @@ const Breadcrumb = defineStyleConfig({
         display: { base: "flex", md: "block" },
         margin: "auto",
         maxWidth: "1280px",
-        paddingStart: responsivePadding,
-        paddingEnd: responsivePadding,
+        paddingStart: responsiveSpacing.padding,
+        paddingEnd: responsiveSpacing.padding,
       },
       a: {
         _visited: { color: "unset" },
