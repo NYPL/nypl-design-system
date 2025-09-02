@@ -25,6 +25,9 @@ export interface MenuProps extends BoxProps {
   showSelectionAsLabel?: boolean;
   /** Used to set the highlight color for the current item.  The values correspond with the NYPL section colors */
   highlightColor?: SectionTypes;
+  /** Optional boolean value used to pass the labelText as the button element's aria-label.
+   * If false, the aria-label will be built from the labelText and the selected item. */
+  labelAsAriaLabel?: boolean;
   /** Required string used to set the label text for the button element. If showLabel is false,
    * this value is instead used to set an aria-label attribute on the button.  The labelText prop is
    * required for accessibility compliance. */
@@ -91,6 +94,7 @@ export const Menu: ChakraComponent<
         showBorder = true,
         showLabel = true,
         listItemsData,
+        labelAsAriaLabel = false,
         ...rest
       },
       ref?
@@ -215,7 +219,13 @@ export const Menu: ChakraComponent<
       const getButton = (isOpen) => (
         <MenuButton
           sx={styles.menuButton}
-          aria-label={selected ? `${labelText}: ${selected.label}` : labelText}
+          aria-label={
+            labelAsAriaLabel
+              ? labelText
+              : selected
+              ? `${labelText}: ${selected.label}`
+              : labelText
+          }
           backgroundColor={isOpen ? "ui.link.primary-05 !important" : "unset"}
         >
           {showLabel && (

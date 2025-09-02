@@ -1,9 +1,10 @@
 import { HStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import Menu, { ListItemsData } from "./Menu";
+import Menu, { ActionItem, ListItemsData } from "./Menu";
 import { sectionTypeArray } from "../../helpers/types";
 import { getPlaceholderImage } from "../../utils/utils";
+import { useState } from "react";
 
 const meta: Meta<typeof Menu> = {
   title: "Components/Navigation/Menu",
@@ -13,6 +14,10 @@ const meta: Meta<typeof Menu> = {
       control: "select",
       options: sectionTypeArray,
       defaultValue: { summary: "blogs" },
+    },
+    labelAsAriaLabel: {
+      control: { type: "boolean" },
+      defaultValue: { summary: "false" },
     },
     labelText: { description: "Set menu button text." },
     listAlignment: {
@@ -434,22 +439,53 @@ export const MenuTypes: Story = {
 };
 
 export const MenuLabel: Story = {
-  render: () => (
-    <HStack>
-      <Menu labelText={"Sort By"} listItemsData={labelListItems} />
-      <Menu
-        showSelectionAsLabel
-        labelText={"Sort By"}
-        listItemsData={labelListItems}
-      />
-      <Menu
-        showSelectionAsLabel
-        selectedItem="ascending"
-        labelText={"Sort By"}
-        listItemsData={labelListItems}
-      />
-    </HStack>
-  ),
+  render: () => {
+    const MenuLabelExample = () => {
+      const [selectedSort, setSelectedSort] = useState("ascending");
+      const stateListItems = [
+        { type: "action" as const, id: "ascending", label: "Ascending" },
+        { type: "action" as const, id: "descending", label: "Descending" },
+        { type: "action" as const, id: "alphabetical", label: "Alphabetical" },
+      ];
+
+      const items: ActionItem[] = stateListItems.map((item) => ({
+        ...item,
+        onClick: () => {
+          console.log(`${item.label} clicked`);
+          setSelectedSort(item.id);
+        },
+      }));
+
+      const selectedItemLabel =
+        stateListItems.find((i) => i.id === selectedSort)?.label ?? "";
+
+      return (
+        <HStack>
+          <Menu labelText={"Sort By"} listItemsData={labelListItems} />
+          <Menu
+            showSelectionAsLabel
+            labelText={"Sort By"}
+            listItemsData={labelListItems}
+          />
+          <Menu
+            showSelectionAsLabel
+            selectedItem="ascending"
+            labelText={"Sort By"}
+            listItemsData={labelListItems}
+          />
+          <Menu
+            showLabel
+            selectedItem={selectedSort}
+            labelText={`Sort by: ${selectedItemLabel}`}
+            listItemsData={items}
+            labelAsAriaLabel
+          />
+        </HStack>
+      );
+    };
+
+    return <MenuLabelExample />;
+  },
   parameters: {
     docs: {
       story: { height: "200px" },
