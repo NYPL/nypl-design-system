@@ -1,6 +1,14 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
 
+/**
+ * NOTE: The SubNav component does implement responsive spacing, but it does not
+ * use the values included in the global responsiveSpacing object due to how the
+ * padding has been executed within the component. Because of the differences in
+ * how the padding has been implement, the default values included in the
+ * responsiveSpacing object can not be utilized.
+ */
+
 // This function creates a set of function that helps us
 // create multipart component styles.
 const {

@@ -1,7 +1,10 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
-import { customFocusColor, screenreaderOnly } from "./global";
-import { responsiveSpacing } from "../../theme/components/global";
+import {
+  customFocusColor,
+  responsiveSpacing,
+  screenreaderOnly,
+} from "./global";
 
 // Variant styling
 const blogs = defineStyle({

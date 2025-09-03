@@ -1,8 +1,6 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
-// import { StyleFunctionProps } from "@chakra-ui/system";
-import { wrapperStyles } from "./global";
+import { responsiveSpacing, wrapperStyles } from "./global";
 import { screenreaderOnly } from "./globalMixins";
-import { responsiveSpacing } from "../../theme/components/global";
 
 // This function creates a set of functions that help us
 // create multipart component styles.

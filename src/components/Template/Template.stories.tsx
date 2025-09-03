@@ -854,12 +854,10 @@ export const ComplexExample = () => {
                 width: "",
               }}
               isFullWidth={false}
-              my="l"
+              mt={responsiveSpacing.gridGap}
               textContent={
                 <>
-                  <Heading mb="s" size="heading5">
-                    Sit Dapibus Elit
-                  </Heading>
+                  <Heading size="heading5">Sit Dapibus Elit</Heading>
                   Donec id elit non mi porta gravida at eget metus. Nulla vitae
                   elit libero, a pharetra augue. Cum sociis natoque penatibus et
                   magnis dis parturient montes, nascetur ridiculus mus. Cras
