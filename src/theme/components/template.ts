@@ -12,6 +12,7 @@ const Template = defineStyleConfig({
       // 320px screen width - 32px padding = 288px
       minWidth: "288px",
       m: "0 auto",
+      px: responsiveSpacing.padding,
       gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "auto",
       columnGap: responsiveSpacing.gridGap,
@@ -25,7 +26,6 @@ const Template = defineStyleConfig({
        * */
       "& .ds-template-content": {
         gridColumn: { base: "1 / -1" },
-        px: responsiveSpacing.padding,
       },
     };
   }),
@@ -53,7 +53,6 @@ const Template = defineStyleConfig({
           md: "5 / -1",
           lg: "4 / -1",
         },
-        pr: responsiveSpacing.padding,
       },
       "& .ds-template-sidebar": {
         gridColumn: {
@@ -62,7 +61,6 @@ const Template = defineStyleConfig({
           md: "1 / 5",
           lg: "1 / 4",
         },
-        pl: responsiveSpacing.padding,
       },
     },
     sidebarRight: {
@@ -72,7 +70,6 @@ const Template = defineStyleConfig({
           md: "1 / 9",
           lg: "1 / 10",
         },
-        pl: responsiveSpacing.padding,
       },
       "& .ds-template-sidebar": {
         gridColumn: {
@@ -81,7 +78,6 @@ const Template = defineStyleConfig({
           md: "9 / -1",
           lg: "10 / -1",
         },
-        pr: responsiveSpacing.padding,
       },
     },
     narrow: {
@@ -123,7 +119,6 @@ const TemplateFull = defineStyleConfig({
   baseStyle: defineStyle(() => {
     return {
       gridColumn: "1 / -1",
-      px: responsiveSpacing.padding,
     };
   }),
 });
