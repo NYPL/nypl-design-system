@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Adds padding so clearable X button doesn't ovverlap with text input.",
+      "Adds padding so clearable X button doesn't overlap with text input.",
     ],
   },
   {
