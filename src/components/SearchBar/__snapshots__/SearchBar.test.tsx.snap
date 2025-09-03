@@ -21,7 +21,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
         id="basic-textInput-componentWrapper"
       >
         <div
-          className="css-79elbk"
+          className="css-16ncb7g"
         >
           <input
             aria-describedby="basic-helperErrorText"
@@ -202,7 +202,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
         id="withSelect-textInput-componentWrapper"
       >
         <div
-          className="css-79elbk"
+          className="css-16ncb7g"
         >
           <input
             aria-describedby="withSelect-helperErrorText"
@@ -285,7 +285,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
         id="withoutHelperText-textInput-componentWrapper"
       >
         <div
-          className="css-79elbk"
+          className="css-16ncb7g"
         >
           <input
             aria-label="Item Search"
@@ -350,7 +350,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
         id="withClearButton-textInput-componentWrapper"
       >
         <div
-          className="css-79elbk"
+          className="css-daq86u"
         >
           <input
             aria-describedby="withClearButton-helperErrorText"
@@ -433,7 +433,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
         id="invalidState-textInput-componentWrapper"
       >
         <div
-          className="css-79elbk"
+          className="css-16ncb7g"
         >
           <input
             aria-describedby="invalidState-textInput-helperErrorText"
@@ -508,7 +508,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
         id="disabledState-textInput-componentWrapper"
       >
         <div
-          className="css-79elbk"
+          className="css-16ncb7g"
         >
           <input
             aria-label="Item Search"
@@ -574,7 +574,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
         id="requiredState-textInput-componentWrapper"
       >
         <div
-          className="css-79elbk"
+          className="css-16ncb7g"
         >
           <input
             aria-label="Item Search"
@@ -641,7 +641,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
         id="noBrandButtonType-textInput-componentWrapper"
       >
         <div
-          className="css-79elbk"
+          className="css-16ncb7g"
         >
           <input
             aria-label="Item Search"
@@ -854,7 +854,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
         id="chakra-textInput-componentWrapper"
       >
         <div
-          className="css-79elbk"
+          className="css-16ncb7g"
         >
           <input
             aria-describedby="chakra-helperErrorText"
@@ -937,7 +937,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
         id="props-textInput-componentWrapper"
       >
         <div
-          className="css-79elbk"
+          className="css-16ncb7g"
         >
           <input
             aria-describedby="props-helperErrorText"

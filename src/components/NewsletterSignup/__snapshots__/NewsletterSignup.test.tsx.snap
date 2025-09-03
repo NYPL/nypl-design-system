@@ -77,7 +77,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
               </span>
             </label>
             <div
-              className="css-79elbk"
+              className="css-16ncb7g"
             >
               <input
                 aria-describedby="test-id-textInput-helperErrorText"
@@ -441,7 +441,7 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               </span>
             </label>
             <div
-              className="css-79elbk"
+              className="css-16ncb7g"
             >
               <input
                 aria-describedby="test-id-textInput-helperErrorText"
@@ -582,7 +582,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               </span>
             </label>
             <div
-              className="css-79elbk"
+              className="css-16ncb7g"
             >
               <input
                 aria-describedby="test-id-textInput-helperErrorText"
@@ -717,7 +717,7 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               </span>
             </label>
             <div
-              className="css-79elbk"
+              className="css-16ncb7g"
             >
               <input
                 aria-describedby="test-id-textInput-helperErrorText"
@@ -853,7 +853,7 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               </span>
             </label>
             <div
-              className="css-79elbk"
+              className="css-16ncb7g"
             >
               <input
                 aria-describedby="test-id-textInput-helperErrorText"
