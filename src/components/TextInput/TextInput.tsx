@@ -321,7 +321,12 @@ export const TextInput: ChakraComponent<
               {labelText}
             </Label>
           )}
-          <Box position="relative">
+          <Box
+            position="relative"
+            sx={{
+              input: { pr: clearButtonOutput ? "inset.wide" : "inset.default" },
+            }}
+          >
             {fieldOutput}
             {!isHidden && finalValue?.length > 0 && clearButtonOutput}
           </Box>
