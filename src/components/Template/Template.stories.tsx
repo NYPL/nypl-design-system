@@ -906,7 +906,10 @@ export const ComplexExample = () => {
           </Box>
         </TemplateFull>
 
-        <TemplateFooter bg="ui.bg.default" borderTop="1px solid var(--nypl-colors-ui-border-default)">
+        <TemplateFooter
+          bg="ui.bg.default"
+          borderTop="1px solid var(--nypl-colors-ui-border-default)"
+        >
           <Box
             margin="auto"
             maxWidth="1280px"
