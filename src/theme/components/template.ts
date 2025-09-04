@@ -98,6 +98,7 @@ const TemplateMain = defineStyleConfig({
       m: "0 auto",
       maxWidth: "1280px",
       px: responsiveSpacing.padding,
+      width: "100%",
       "& > *:not(:last-child)": { mb: responsiveSpacing.gridGap },
     };
   }),
