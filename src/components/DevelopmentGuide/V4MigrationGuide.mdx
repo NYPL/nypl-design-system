@@ -333,7 +333,11 @@ It may look like this:
 
 <Source
   code={`
-  window.HTMLElement.prototype.scrollIntoView = jest.fn()
+  describe("Page with Tabs", () => {
+    beforeAll(() => {
+      window.HTMLElement.prototype.scrollIntoView = jest.fn()
+    })
+  })
 `}
   language="jsx"
 />
