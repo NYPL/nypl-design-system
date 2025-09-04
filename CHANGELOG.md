@@ -12,6 +12,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `labelAsAriaLabel` prop to `Menu` to fix incorrect ARIA label on button.
 
+### Updates
+
+- Updates the `MultiSelect` view for options that have an item count number.
+
 ## 4.0.0 (August 11, 2025)
 
 ### Adds
