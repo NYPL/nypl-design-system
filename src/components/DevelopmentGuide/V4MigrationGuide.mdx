@@ -312,6 +312,8 @@ requiring changes to your existing code.
 We removed `matchMedia`, `scrollIntoView`, and `ResizeObserver` functions from
 all components for performance reasons. The added benefit of this update is that
 you can remove the mocked versions of these functions from your Jest set up.
+Thet're usually located in the `beforeEach` or `beforeAll` statements or in the
+set up file that runs before the test suite.
 
 If you're using `ButtonGroup`, `FeedbackBox`, `Modal`, `MultiSelectGroup`, or
 `NewsletterSignup`, you can remove the `matchMedia` mock.
