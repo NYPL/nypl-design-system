@@ -1197,3 +1197,39 @@ export const WithoutImages: Story = {
     </>
   ),
 };
+
+export const AudioGuideExample: Story = {
+  render: () => {
+    const isAudioGuide = true;
+    return (
+      <>
+        <SimpleGrid columns={3}>
+          <Card isBordered>
+            {!isAudioGuide && (
+              <CardHeading level="h3">Card Heading</CardHeading>
+            )}
+            {isAudioGuide && <CardContent>Card Heading in Content</CardContent>}
+          </Card>
+          <Card isBordered>
+            {!isAudioGuide && (
+              <CardHeading level="h3">Card Heading</CardHeading>
+            )}
+            {isAudioGuide && <CardContent>Card Heading in Content</CardContent>}
+          </Card>
+          <Card isBordered>
+            {!isAudioGuide && (
+              <CardHeading level="h3">Card Heading</CardHeading>
+            )}
+            {isAudioGuide && <CardContent>Card Heading in Content</CardContent>}
+          </Card>
+          <Card isBordered>
+            {!isAudioGuide && (
+              <CardHeading level="h3">Card Heading</CardHeading>
+            )}
+            {isAudioGuide && <CardContent>Card Heading in Content</CardContent>}
+          </Card>
+        </SimpleGrid>
+      </>
+    );
+  },
+};
