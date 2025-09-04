@@ -7,16 +7,12 @@ const Template = defineStyleConfig({
     return {
       boxSizing: "border-box",
       color: "ui.typography.body",
-      display: "grid",
-      maxWidth: "1280px",
+      display: "flex",
+      gap: responsiveSpacing.gridGap,
+      flexDirection: "column",
+
       // 320px screen width - 32px padding = 288px
       minWidth: "288px",
-      m: "0 auto",
-      px: responsiveSpacing.padding,
-      gridTemplateColumns: "repeat(12, 1fr)",
-      gridTemplateRows: "auto",
-      columnGap: responsiveSpacing.gridGap,
-      "& > *:not(:last-child)": { mb: responsiveSpacing.gridGap },
 
       /** The "content" area should span the full width of the content area from
        * a mobile-first viewpoint. Using -1 for the "last column" value ensures
@@ -95,11 +91,13 @@ const Template = defineStyleConfig({
 const TemplateMain = defineStyleConfig({
   baseStyle: defineStyle(() => {
     return {
-      display: "grid",
       columnGap: responsiveSpacing.gridGap,
-      gridColumn: "1 / -1",
-      gridTemplateColumns: "subgrid",
+      display: "grid",
+      gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "auto",
+      m: "0 auto",
+      maxWidth: "1280px",
+      px: responsiveSpacing.padding,
       "& > *:not(:last-child)": { mb: responsiveSpacing.gridGap },
     };
   }),
