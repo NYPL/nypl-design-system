@@ -195,11 +195,9 @@ export const WithControls: Story = {
     const { variant } = args;
     return (
       <Template id="template-with-controls" {...args}>
-        <TemplateHeader>
-          <TemplateBreakout>
-            <Placeholder variant="short">Breakout</Placeholder>
-          </TemplateBreakout>
-        </TemplateHeader>
+        <TemplateFull>
+          <Placeholder variant="short">Full (header)</Placeholder>
+        </TemplateFull>
         <TemplateMain border="4px dashed" borderColor="ui.border.hover" p="s">
           <TemplateFull>
             <Placeholder variant="short">Full (top)</Placeholder>
@@ -221,6 +219,9 @@ export const WithControls: Story = {
             <Placeholder variant="short">Full (bottom)</Placeholder>
           </TemplateFull>
         </TemplateMain>
+        <TemplateFull>
+          <Placeholder variant="short">Full (footer)</Placeholder>
+        </TemplateFull>
       </Template>
     );
   },
