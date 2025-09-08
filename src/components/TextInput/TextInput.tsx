@@ -168,6 +168,7 @@ export const TextInput: ChakraComponent<
       const finalRef = ref ? mergedRefs : closedRef;
       const styles = useMultiStyleConfig("TextInput", {
         showLabel,
+        isClearable,
         variant: textInputVariant,
       });
       const isTextArea = type === "textarea";
@@ -321,12 +322,7 @@ export const TextInput: ChakraComponent<
               {labelText}
             </Label>
           )}
-          <Box
-            position="relative"
-            sx={{
-              input: { pr: clearButtonOutput ? "inset.wide" : "inset.default" },
-            }}
-          >
+          <Box position="relative">
             {fieldOutput}
             {!isHidden && finalValue?.length > 0 && clearButtonOutput}
           </Box>
