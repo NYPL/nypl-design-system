@@ -15,7 +15,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
     Custom textarea Label
   </label>
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <textarea
       autoComplete={null}
@@ -51,7 +51,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
     </span>
   </label>
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <input
       aria-required={true}
@@ -89,7 +89,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
     </span>
   </label>
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <input
       aria-required={true}
@@ -124,7 +124,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
     Custom Input Label
   </label>
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <input
       autoComplete={null}
@@ -150,7 +150,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
   id="myTextInput-componentWrapper"
 >
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <input
       aria-label="Custom Input Label"
@@ -189,7 +189,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     </span>
   </label>
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <input
       aria-describedby="myTextInput-helperErrorText"
@@ -245,7 +245,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
     </span>
   </label>
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <input
       aria-describedby="myTextInput-helperErrorText"
@@ -302,7 +302,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
     </span>
   </label>
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <input
       aria-required={true}
@@ -337,7 +337,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
     Custom Input Label
   </label>
   <div
-    className="css-daq86u"
+    className="css-79elbk"
   >
     <input
       autoComplete={null}
@@ -371,7 +371,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
     Custom Input Label
   </label>
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <input
       autoComplete={null}
@@ -405,7 +405,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
     Custom Input Label
   </label>
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <input
       autoComplete={null}
@@ -439,7 +439,7 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
     Custom Input Label
   </label>
   <div
-    className="css-16ncb7g"
+    className="css-79elbk"
   >
     <input
       autoComplete="name"
