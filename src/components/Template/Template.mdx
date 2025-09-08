@@ -173,9 +173,12 @@ The structural child components are used to define the main regions on a page.
         or page title in apps that do not use the NYPL universal header
       </li>
       <li>
+        Should <strong>not</strong> be used to implement the NYPL universal
+        header
+      </li>
+      <li>
         Positioned above any other <code>Template</code> child components
       </li>
-      <li>Should not be used to implement the NYPL universal header</li>
     </List>
   }
   imageProps={{
@@ -199,11 +202,11 @@ The structural child components are used to define the main regions on a page.
       <li>
         For proper rendering, the <code>TemplateContent</code> and{" "}
         <code>TemplateSidebar</code> child components must be nested within the{" "}
-        <code>TemplateMain</code> component.
+        <code>TemplateMain</code> component
       </li>
       <li>
         The <code>TemplateFull</code> and <code>TemplateBreakout</code> child
-        components may be nested within the <code>TemplateMain</code> component.
+        components may be nested within the <code>TemplateMain</code> component
       </li>
       <li>
         Positioned directly below the NYPL universal header or the{" "}
@@ -235,13 +238,16 @@ The structural child components are used to define the main regions on a page.
         NYPL universal footer
       </li>
       <li>
+        Should <strong>not</strong> be used to implement the NYPL universal
+        footer
+      </li>
+      <li>
         Positioned below all other <code>Template</code> child components
       </li>
       <li>
         It is recommended to use the <code>TemplateBreakout</code> child
         component inside the <code>TemplateFooter</code> component
       </li>
-      <li>Should not be used to implement the NYPL universal footer</li>
     </List>
   }
   imageProps={{
@@ -265,8 +271,7 @@ a page.
   docs={
     <List variant="ul">
       <li>
-        Ideal for implementing the NYPL universal header and the NYPL universal
-        footer, as well as the <code>Breadcrumbs</code>,{" "}
+        Ideal for implementing the <code>Breadcrumbs</code>,{" "}
         <code>FilterBarInline</code>, <code>Hero</code>, and <code>SubNav</code>{" "}
         components
       </li>
@@ -304,6 +309,10 @@ a page.
         components
       </li>
       <li>Also recommended for custom "announcement" elements</li>
+      <li>
+        Should <strong>not</strong> be used to implement the NYPL universal
+        header
+      </li>
       <li>
         Often positioned directly above or below <code>TemplateSidebar</code>{" "}
         and <code>TemplateContent</code>
