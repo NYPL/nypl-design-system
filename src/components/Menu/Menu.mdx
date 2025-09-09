@@ -13,7 +13,7 @@ import { changelogData } from "./menuChangelogData";
   componentName="Menu"
   summary="List of interactive elements rendered in a dropdown format and used for executing actions or navigating"
   versionAdded="3.0.0"
-  versionLatest="4.0.0"
+  versionLatest="Prerelease"
 />
 
 <Canvas of={MenuStories.WithControls} />
@@ -77,10 +77,11 @@ type when there is limited space such as a table or on mobile.
 
 ## Menu label
 
-The default label of the menu will be `labelText`. With `showSelectionAsLabel`
+The default label of the menu will be `labelText`.
+
+With `showSelectionAsLabel`
 enabled, the selected item will then display as the menu's label. This is useful
-when the choice
-should be displayed after selection, like choosing sort/filter criteria, or if
+when the choice should be displayed after selection, like choosing sort/filter criteria, or if
 an option needs to be selected and displayed when the page first loads.
 
 `labelText` is still required even if `showSelectionAsLabel` is true, because it
@@ -99,6 +100,10 @@ is used for the `aria-label`.
   mb="s"
   variant="recommendation"
 />
+
+`labelAsAriaLabel` uses the `labelText` as the button's `aria-label`, regardless of the selected item.
+This is recommended when the `labelText` already includes the selected item,
+as in the fourth example below.
 
 <Canvas of={MenuStories.MenuLabel} />
 

@@ -148,6 +148,34 @@ describe("Menu allows selection", () => {
   });
 });
 
+describe("Menu sets correct aria label given props", () => {
+  it("uses labelText as aria label when labelAsAriaLabel is passed", () => {
+    render(
+      <Menu
+        showLabel
+        labelAsAriaLabel
+        selectedItem="item-title-1"
+        labelText={"Menu label: item 1"}
+        listItemsData={defaultListItems}
+      />
+    );
+    const openButton = screen.getByText("Menu label: item 1").closest("button");
+    expect(openButton).toHaveAttribute("aria-label", "Menu label: item 1");
+  });
+  it("default builds aria label from labelText and selected item", () => {
+    render(
+      <Menu
+        showLabel
+        selectedItem="item-title-1"
+        labelText={"Menu label"}
+        listItemsData={defaultListItems}
+      />
+    );
+    const openButton = screen.getByText("Menu label").closest("button");
+    expect(openButton).toHaveAttribute("aria-label", "Menu label: I'm item 1");
+  });
+});
+
 describe("Menu logs errors when props are incorrect or missing", () => {
   it("logs an error if Menu is missing listItemsData", () => {
     const warn = jest.spyOn(console, "warn");
