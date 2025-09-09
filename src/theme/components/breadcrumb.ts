@@ -115,78 +115,75 @@ const whatsOn = defineStyle({
   },
 });
 
-// const primary = definePartsStyle(({ foregroundColor, isDarkText }) => {
 const Breadcrumb = defineStyleConfig({
-  baseStyle: defineStyle(() => {
-    return {
-      bg: "ui.black",
-      color: "ui.white",
-      fontSize: "desktop.breadcrumbs.default",
-      fontWeight: "breadcrumbs.default",
-      paddingBottom: "xs",
-      paddingTop: "xs",
-      _dark: {
-        bg: "dark.ui.bg.hover",
-        color: "dark.ui.typography.heading",
+  baseStyle: defineStyle({
+    bg: "ui.black",
+    color: "ui.white",
+    fontSize: "desktop.breadcrumbs.default",
+    fontWeight: "breadcrumbs.default",
+    paddingBottom: "xs",
+    paddingTop: "xs",
+    _dark: {
+      bg: "dark.ui.bg.hover",
+      color: "dark.ui.typography.heading",
+    },
+    ol: {
+      alignItems: { base: "center", md: "unset" },
+      display: { base: "flex", md: "block" },
+      margin: "auto",
+      maxWidth: "1280px",
+      paddingStart: responsiveSpacing.padding,
+      paddingEnd: responsiveSpacing.padding,
+    },
+    a: {
+      _visited: { color: "unset" },
+      _hover: {
+        color: "ui.gray.light-cool",
+        textDecoration: "none",
       },
-      ol: {
-        alignItems: { base: "center", md: "unset" },
-        display: { base: "flex", md: "block" },
-        margin: "auto",
-        maxWidth: "1280px",
-        paddingStart: responsiveSpacing.padding,
-        paddingEnd: responsiveSpacing.padding,
+      _focus: customFocusColor("ui.white", "dark.ui.typography.heading"),
+    },
+    "li:last-child": {
+      fontWeight: {
+        base: "breadcrumbs.default",
+        md: "breadcrumbs.lastChild",
       },
-      a: {
-        _visited: { color: "unset" },
+      ".chakra-breadcrumb__link": {
         _hover: {
-          color: "ui.gray.light-cool",
+          // Override the default hover color.
+          color: "ui.white",
+          cursor: "default",
           textDecoration: "none",
         },
-        _focus: customFocusColor("ui.white", "dark.ui.typography.heading"),
-      },
-      "li:last-child": {
-        fontWeight: {
-          base: "breadcrumbs.default",
-          md: "breadcrumbs.lastChild",
-        },
-        ".chakra-breadcrumb__link": {
+        _dark: {
           _hover: {
-            // Override the default hover color.
-            color: "ui.white",
-            cursor: "default",
-            textDecoration: "none",
-          },
-          _dark: {
-            _hover: {
-              color: "dark.ui.typography.heading",
-            },
+            color: "dark.ui.typography.heading",
           },
         },
-        ".icon": {
-          display: "none",
-        },
       },
-      "li:not(:last-child)": {
-        display: { base: "none", md: "inline-block" },
-        a: {
-          marginEnd: { base: "xs", md: "0" },
-          display: { base: "flex", md: "unset" },
-        },
-        ".icon": {
-          display: { base: "inline", md: "none" },
-        },
-        "span:not(.ds-breadcrumbs-link-label)": {
-          marginInlineEnd: "xxs",
-          marginInlineStart: "xxs",
-          ...screenreaderOnly(true),
-        },
+      ".icon": {
+        display: "none",
       },
-      "li:nth-last-of-type(2)": {
-        display: "inline-block",
-        span: screenreaderOnly(true),
+    },
+    "li:not(:last-child)": {
+      display: { base: "none", md: "inline-block" },
+      a: {
+        marginEnd: { base: "xs", md: "0" },
+        display: { base: "flex", md: "unset" },
       },
-    };
+      ".icon": {
+        display: { base: "inline", md: "none" },
+      },
+      "span:not(.ds-breadcrumbs-link-label)": {
+        marginInlineEnd: "xxs",
+        marginInlineStart: "xxs",
+        ...screenreaderOnly(true),
+      },
+    },
+    "li:nth-last-of-type(2)": {
+      display: "inline-block",
+      span: screenreaderOnly(true),
+    },
   }),
   // Available variants:
   variants: {
