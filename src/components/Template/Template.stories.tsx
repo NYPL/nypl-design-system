@@ -195,11 +195,9 @@ export const WithControls: Story = {
     const { variant } = args;
     return (
       <Template id="template-with-controls" {...args}>
-        <TemplateHeader>
-          <TemplateBreakout>
-            <Placeholder variant="short">Breakout</Placeholder>
-          </TemplateBreakout>
-        </TemplateHeader>
+        <TemplateFull>
+          <Placeholder variant="short">Full (header)</Placeholder>
+        </TemplateFull>
         <TemplateMain border="4px dashed" borderColor="ui.border.hover" p="s">
           <TemplateFull>
             <Placeholder variant="short">Full (top)</Placeholder>
@@ -221,6 +219,9 @@ export const WithControls: Story = {
             <Placeholder variant="short">Full (bottom)</Placeholder>
           </TemplateFull>
         </TemplateMain>
+        <TemplateFull>
+          <Placeholder variant="short">Full (footer)</Placeholder>
+        </TemplateFull>
       </Template>
     );
   },
@@ -535,84 +536,95 @@ export const ComplexExample = () => {
       <SkipNavigation target="#skip-to" />
       <Template variant="sidebarRight">
         <TemplateHeader>
-          <TemplateBreakout>
-            <Breadcrumbs
-              breadcrumbsData={[
-                { url: "#", text: "Home" },
-                { url: "#", text: "Research" },
-                {
-                  url: "#",
-                  text: "Catalog",
-                },
-              ]}
-            />
-            <Hero
-              backgroundImageSrc={getPlaceholderImage()}
-              heading={
-                <Heading level="h1" id="1" text="Complex template example" />
-              }
-              variant="tertiary"
-            />
-          </TemplateBreakout>
-          <TemplateBreakout>
-            <Box
-              display="flex"
-              height="180px"
-              overflow="hidden"
-              position="relative"
+          <Breadcrumbs
+            breadcrumbsData={[
+              { url: "#", text: "Home" },
+              { url: "#", text: "Research" },
+              {
+                url: "#",
+                text: "Catalog",
+              },
+            ]}
+          />
+          <Hero
+            backgroundImageSrc={getPlaceholderImage()}
+            heading={
+              <Heading level="h1" id="1" text="Complex template example" />
+            }
+            variant="tertiary"
+          />
+          <Box
+            display="flex"
+            height="180px"
+            overflow="hidden"
+            position="relative"
+            width="100%"
+            background={`url(${getPlaceholderImage()})`}
+            backgroundSize="cover"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Heading
+              bgColor="rgba(255, 255, 255, 0.1)"
+              color="ui.white"
+              id="hero-overlay"
+              level="h2"
+              maxWidth="800px"
+              mx="xl"
+              p="2rem"
+              size="display1"
+              text="Overlay heading"
+              textAlign="center"
+              textShadow="0px 0px 8px #000"
               width="100%"
-              background={`url(${getPlaceholderImage()})`}
-              backgroundSize="cover"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Heading
-                bgColor="rgba(255, 255, 255, 0.1)"
-                color="ui.white"
-                id="hero-overlay"
-                level="h2"
-                maxWidth="800px"
-                mx="xl"
-                p="2rem"
-                size="display1"
-                text="Overlay heading"
-                textAlign="center"
-                textShadow="0px 0px 8px #000"
-                width="100%"
-              />
-            </Box>
-            <SubNav
-              id="complex-example-subnav"
-              primaryActions={
-                <>
-                  <SubNavLink href="#" id="link-1" isSelected>
-                    One
-                  </SubNavLink>
-                  <SubNavLink href="#" id="link-2">
-                    Two
-                  </SubNavLink>
-                  <SubNavLink href="#" id="link-3">
-                    Three
-                  </SubNavLink>
-                </>
-              }
-              secondaryActions={
-                <>
-                  <SubNavButton id="subnav-button-1" onClick={() => {}}>
-                    Four
-                  </SubNavButton>
-                  <SubNavButton
-                    id="subnav-button-2"
-                    onClick={() => {}}
-                    isOutlined
-                  >
-                    Five
-                  </SubNavButton>
-                </>
-              }
             />
-          </TemplateBreakout>
+          </Box>
+          <SubNav
+            id="complex-example-subnav"
+            primaryActions={
+              <>
+                <SubNavLink href="#" id="link-1" isSelected>
+                  One
+                </SubNavLink>
+                <SubNavLink href="#" id="link-2">
+                  Two
+                </SubNavLink>
+                <SubNavLink href="#" id="link-3">
+                  Three
+                </SubNavLink>
+              </>
+            }
+            secondaryActions={
+              <>
+                <SubNavButton id="subnav-button-1" onClick={() => {}}>
+                  Four
+                </SubNavButton>
+                <SubNavButton
+                  id="subnav-button-2"
+                  onClick={() => {}}
+                  isOutlined
+                >
+                  Five
+                </SubNavButton>
+              </>
+            }
+          />
         </TemplateHeader>
+
+        <TemplateFull bg="ui.bg.default">
+          <Box
+            margin="auto"
+            maxWidth="1280px"
+            p={responsiveSpacing.padding}
+            width="100%"
+          >
+            <Text>
+              This is <code>TemplateFull</code> used outside{" "}
+              <code>TemplateMain</code>.
+            </Text>
+          </Box>
+        </TemplateFull>
+
         <TemplateMain>
           <TemplateFull>
             <Box
@@ -645,35 +657,36 @@ export const ComplexExample = () => {
           </TemplateFull>
           <TemplateFull>
             <Banner
-              content="This is a full area!"
+              content="This is <code>TemplateFull</code> used inside <code>TemplateMain</code>."
               heading="Full"
               variant="informative"
             />
           </TemplateFull>
           <TemplateContent id="skip-to">
             <Heading
+              mb="s"
               overline="Example"
               subtitle="Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
               text="Content with sidebar"
             />
-            <Text>
+            <Text mb="s">
               Maecenas faucibus mollis interdum. Integer posuere erat a ante
               venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh
               ultricies vehicula ut id elit. Cras mattis consectetur purus sit
               amet fermentum.
             </Text>
-            <Link href="https://nypl.org" mb="s" type="standalone">
+            <Link href="https://nypl.org" mb="s" variant="standalone">
               Link to show focus
             </Link>
-            <Heading level="h3" size="heading4" text="Subsection" />
-            <Text>
+            <Heading level="h3" mb="s" size="heading4" text="Subsection" />
+            <Text mb="s">
               Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor
               sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non
               metus auctor fringilla. Praesent commodo cursus magna, vel
               scelerisque nisl consectetur et. Maecenas faucibus mollis
               interdum.
             </Text>
-            <Text>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
               tellus ac cursus commodo, tortor mauris condimentum nibh, ut
               fermentum massa justo sit amet risus. Praesent commodo cursus
@@ -682,7 +695,7 @@ export const ComplexExample = () => {
               mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum
               faucibus dolor auctor.
             </Text>
-            <Link href="https://nypl.org" mb="s" type="standalone">
+            <Link href="https://nypl.org" variant="standalone">
               Link to show focus
             </Link>
           </TemplateContent>
@@ -697,10 +710,20 @@ export const ComplexExample = () => {
           </TemplateSidebar>
 
           <TemplateBreakout>
-            <Box bgColor="ui.bg.default" py={{ base: "s", md: "m", xl: "l" }}>
-              <Box margin="auto" maxWidth="1280px" px="s">
+            <Box
+              bgColor="ui.bg.default"
+              py={responsiveSpacing.padding}
+              width="100%"
+            >
+              <Box
+                margin="auto"
+                maxWidth="1280px"
+                px={responsiveSpacing.padding}
+                width="100%"
+              >
                 <Heading
                   size="heading6"
+                  mb="s"
                   subtitle="Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
                   text="Example photos"
                 />
@@ -708,7 +731,7 @@ export const ComplexExample = () => {
                   display="grid"
                   gap={responsiveSpacing.gridGap}
                   gridTemplateColumns="repeat(2, 1fr)"
-                  mb={{ base: "s", md: "m", xl: "l" }}
+                  mb={responsiveSpacing.gridGap}
                 >
                   <Image
                     alt="Alt text"
@@ -750,9 +773,10 @@ export const ComplexExample = () => {
               </Box>
             </Box>
           </TemplateBreakout>
+
           <TemplateFull>
             <Banner
-              content="This is a full area!"
+              content="This is <code>TemplateFull</code> used inside <code>TemplateMain</code>."
               heading="Full"
               variant="informative"
             />
@@ -760,24 +784,25 @@ export const ComplexExample = () => {
           <TemplateContent id="mainContentTwo">
             <Heading
               level="h3"
+              mb="s"
               size="heading4"
               text="Heading after a breakout"
             />
-            <Text>
+            <Text mb="s">
               Maecenas faucibus mollis interdum. Integer posuere erat a ante
               venenatis dapibus posuere velit aliquet. Nullam id dolor id nibh
               ultricies vehicula ut id elit. Cras mattis consectetur purus sit
               amet fermentum.
             </Text>
-            <Heading level="h4" size="heading6" text="Subsection" />
-            <Text>
+            <Heading level="h4" mb="s" size="heading6" text="Subsection" />
+            <Text mb="s">
               Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor
               sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non
               metus auctor fringilla. Praesent commodo cursus magna, vel
               scelerisque nisl consectetur et. Maecenas faucibus mollis
               interdum.
             </Text>
-            <Text>
+            <Text mb="s">
               Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
               tellus ac cursus commodo, tortor mauris condimentum nibh, ut
               fermentum massa justo sit amet risus. Praesent commodo cursus
@@ -820,10 +845,11 @@ export const ComplexExample = () => {
                 width: "",
               }}
               isFullWidth
-              my="l"
               textContent={
                 <>
-                  <Heading size="heading5">Sit Dapibus Elit</Heading>
+                  <Heading mb="s" size="heading5">
+                    Sit Dapibus Elit
+                  </Heading>
                   Donec id elit non mi porta gravida at eget metus. Nulla vitae
                   elit libero, a pharetra augue. Cum sociis natoque penatibus et
                   magnis dis parturient montes, nascetur ridiculus mus. Cras
@@ -834,7 +860,7 @@ export const ComplexExample = () => {
           </TemplateBreakout>
           <TemplateFull>
             <Banner
-              content="This is a full area!"
+              content="This is <code>TemplateFull</code> used inside <code>TemplateMain</code>."
               heading="Full"
               variant="informative"
             />
@@ -860,18 +886,44 @@ export const ComplexExample = () => {
           </TemplateFull>
           <TemplateFull>
             <Banner
-              content="This is a full area!"
+              content="This is <code>TemplateFull</code> used inside <code>TemplateMain</code>."
               heading="Full"
               variant="informative"
             />
           </TemplateFull>
         </TemplateMain>
-        <TemplateFooter>
-          <Banner
-            content="This is a footer area!"
-            heading="Footer region"
-            variant="warning"
-          />
+
+        <TemplateFull bg="ui.bg.default">
+          <Box
+            margin="auto"
+            maxWidth="1280px"
+            p={responsiveSpacing.padding}
+            width="100%"
+          >
+            <Text>
+              This is <code>TemplateFull</code> used outside{" "}
+              <code>TemplateMain</code>.
+            </Text>
+          </Box>
+        </TemplateFull>
+
+        <TemplateFooter
+          bg="ui.bg.default"
+          borderTop="1px solid var(--nypl-colors-ui-border-default)"
+        >
+          <Box
+            margin="auto"
+            maxWidth="1280px"
+            px={responsiveSpacing.padding}
+            py="l"
+            width="100%"
+          >
+            <Banner
+              content="This is a footer area!"
+              heading="Footer region"
+              variant="informative"
+            />
+          </Box>
         </TemplateFooter>
       </Template>
     </>
