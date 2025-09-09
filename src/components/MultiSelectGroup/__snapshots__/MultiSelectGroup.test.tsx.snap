@@ -2,7 +2,7 @@
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-17kb4cl"
   data-testid="ds-multiSelectGroup"
   id="MultiSelectGroup-fieldset"
 >
@@ -1148,7 +1148,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-17kb4cl"
   data-testid="ds-multiSelectGroup"
   id="MultiSelectGroup-fieldset"
 >

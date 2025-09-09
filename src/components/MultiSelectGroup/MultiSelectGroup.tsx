@@ -57,6 +57,7 @@ export const MultiSelectGroup: ChakraComponent<
         legendText={labelText}
         isLegendHidden={!showLabel}
         {...rest}
+        __css={{ legend: { mb: "legend.asLabel" } }}
       >
         <Stack
           columnGap="xs"
