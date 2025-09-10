@@ -6,7 +6,6 @@ import { responsiveSpacing } from "../theme/components/global";
  * adjust based on the width of the viewport.
  */
 function useResponsiveSpacing() {
-
   return {
     responsiveGap: responsiveSpacing.gridGap,
     responsiveMargin: responsiveSpacing.margin,
