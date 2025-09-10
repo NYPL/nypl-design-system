@@ -16,7 +16,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-1u8qly9"
+      className="css-17kb4cl"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -1178,7 +1178,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-1u8qly9"
+      className="css-17kb4cl"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -2354,7 +2354,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-1u8qly9"
+      className="css-17kb4cl"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -3530,7 +3530,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-1u8qly9"
+      className="css-17kb4cl"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
