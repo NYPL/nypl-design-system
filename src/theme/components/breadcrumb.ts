@@ -1,6 +1,10 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
-import { customFocusColor, screenreaderOnly } from "./global";
+import {
+  customFocusColor,
+  responsiveSpacing,
+  screenreaderOnly,
+} from "./global";
 
 // Variant styling
 const blogs = defineStyle({
@@ -128,8 +132,8 @@ const Breadcrumb = defineStyleConfig({
       display: { base: "flex", md: "block" },
       margin: "auto",
       maxWidth: "1280px",
-      paddingStart: "s",
-      paddingEnd: "s",
+      paddingStart: responsiveSpacing.padding,
+      paddingEnd: responsiveSpacing.padding,
     },
     a: {
       _visited: { color: "unset" },
@@ -140,7 +144,10 @@ const Breadcrumb = defineStyleConfig({
       _focus: customFocusColor("ui.white", "dark.ui.typography.heading"),
     },
     "li:last-child": {
-      fontWeight: { base: "breadcrumbs.default", md: "breadcrumbs.lastChild" },
+      fontWeight: {
+        base: "breadcrumbs.default",
+        md: "breadcrumbs.lastChild",
+      },
       ".chakra-breadcrumb__link": {
         _hover: {
           // Override the default hover color.
