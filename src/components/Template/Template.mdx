@@ -34,7 +34,7 @@ import { exampleWrapperStyles } from "../../utils/utils.ts";
   componentName="Template"
   summary="Structural skeleton for composing a standard page layout"
   versionAdded="0.3.6"
-  versionLatest="4.0.0"
+  versionLatest="4.0.1"
 />
 
 <Canvas of={TemplateStories.WithControls} />
@@ -72,11 +72,15 @@ import { exampleWrapperStyles } from "../../utils/utils.ts";
   } from "@nypl/design-system-react-components";
   //...
   <Template variant="...">
-    <TemplateBreakout>...</TemplateBreakout>
     <TemplateHeader>...</TemplateHeader>
     <TemplateFull>...</TemplateFull>
-    <TemplateSidebar>...</TemplateSidebar>
-    <TemplateContent>...</TemplateContent>
+    <TemplateMain>
+      <TemplateFull>...</TemplateFull>
+      <TemplateSidebar>...</TemplateSidebar>
+      <TemplateContent>...</TemplateContent>
+      <TemplateBreakout>...</TemplateBreakout>
+      <TemplateFull>...</TemplateFull>
+    </TemplateMain>
     <TemplateFull>...</TemplateFull>
     <TemplateFooter>...</TemplateFooter>
   </Template>
@@ -124,12 +128,12 @@ Resources
 In addition to the root `Template` component, the following child components are
 offered:
 
-- `TemplateHeader`
-- `TemplateMain`
-- `TemplateFooter`
 - `TemplateBreakout`
 - `TemplateContent`
+- `TemplateFooter`
 - `TemplateFull`
+- `TemplateHeader`
+- `TemplateMain`
 - `TemplateSidebar`
 
 <Banner
@@ -137,7 +141,7 @@ offered:
     <>
       <strong>IMPORTANT:</strong> The DOM order of the child components should
       match the structure of the rendered page in the browser.
-      <Text>
+      <Text size="body1">
         If the sidebar is to be rendered on the left side of the page,{" "}
         <code>TemplateSidebar</code> should come before{" "}
         <code>TemplateMain</code> in the DOM. If the sidebar is to be rendered
@@ -169,12 +173,11 @@ The structural child components are used to define the main regions on a page.
         or page title in apps that do not use the NYPL universal header
       </li>
       <li>
-        Positioned above any other <code>Template</code> child components
+        Should <strong>not</strong> be used to implement the NYPL universal
+        header
       </li>
       <li>
-        To help align with NYPL design patterns, it is recommended to use the{" "}
-        <code>TemplateBreakout</code> child component inside the{" "}
-        <code>TemplateHeader</code> component
+        Positioned above any other <code>Template</code> child components
       </li>
     </List>
   }
@@ -197,10 +200,13 @@ The structural child components are used to define the main regions on a page.
         Renders a native HTML <code>&lt;main&gt;</code> element
       </li>
       <li>
-        For proper rendering, the <code>TemplateFull</code>,{" "}
-        <code>TemplateContent</code>, and <code>TemplateSidebar</code> child
-        components must be nested within the <code>TemplateMain</code>{" "}
-        component.
+        For proper rendering, the <code>TemplateContent</code> and{" "}
+        <code>TemplateSidebar</code> child components must be nested within the{" "}
+        <code>TemplateMain</code> component
+      </li>
+      <li>
+        The <code>TemplateFull</code> and <code>TemplateBreakout</code> child
+        components may be nested within the <code>TemplateMain</code> component
       </li>
       <li>
         Positioned directly below the NYPL universal header or the{" "}
@@ -232,6 +238,10 @@ The structural child components are used to define the main regions on a page.
         NYPL universal footer
       </li>
       <li>
+        Should <strong>not</strong> be used to implement the NYPL universal
+        footer
+      </li>
+      <li>
         Positioned below all other <code>Template</code> child components
       </li>
       <li>
@@ -253,7 +263,7 @@ The structural child components are used to define the main regions on a page.
 The organizational child components are used to define the internal structure of
 a page.
 
-### TemplateBreakout
+#### TemplateFull (when used outside TemplateMain)
 
 {
 
@@ -261,35 +271,32 @@ a page.
   docs={
     <List variant="ul">
       <li>
-        Ideal for <code>Breadcrumbs</code>, <code>FilterbarInline</code>,{" "}
-        <code>Hero</code>, and <code>SubNav</code> components
+        Ideal for implementing the <code>Breadcrumbs</code>,{" "}
+        <code>FilterBarInline</code>, <code>Hero</code>, and <code>SubNav</code>{" "}
+        components
       </li>
       <li>
         Also recommended for custom UI that spans the full width of the viewport
       </li>
       <li>
-        Often positioned directly below the NYPL universal header and above the{" "}
-        <code>TemplateMain</code> child component
+        May be used outside the <code>TemplateMain</code> child component
       </li>
       <li>
-        May be used within the <code>TemplateMain</code> child component for
-        appropriate content
+        Positioned directly above or below the <code>TemplateMain</code> child
+        component
       </li>
-      <li>
-        Not contained by the main content area and spans the full width of the
-        viewport
-      </li>
+      <li>Always spans the full width of the viewport</li>
     </List>
   }
   imageProps={{
-    alt: "Template breakout section",
-    caption: "Breakout section",
-    src: "/template/templateSectionBreakout.png",
+    alt: "Template full child component",
+    caption: "Full child component",
+    src: "/template/templateChildFullOutside.png",
   }}
 />
 }
 
-### TemplateFull
+#### TemplateFull (when used inside TemplateMain)
 
 {
 
@@ -297,31 +304,35 @@ a page.
   docs={
     <List variant="ul">
       <li>
-        Ideal for <code>Banner</code>, <code>FilterbarInline</code>,{" "}
-        <code>FeaturedContent</code>, and <code>NewsletterSignup</code> (bottom
-        content) components
+        Ideal for <code>Banner</code>, <code>FilterBarInline</code>,{" "}
+        <code>FeaturedContent</code>, and <code>NewsletterSignup</code>
+        components
       </li>
       <li>Also recommended for custom "announcement" elements</li>
+      <li>
+        Should <strong>not</strong> be used to implement the NYPL universal
+        header
+      </li>
       <li>
         Often positioned directly above or below <code>TemplateSidebar</code>{" "}
         and <code>TemplateContent</code>
       </li>
       <li>
-        Should be used within the <code>TemplateMain</code> child component
+        May be used within the <code>TemplateMain</code> child component
       </li>
       <li>Contained by the main content area</li>
       <li>Always spans the full width of the main content area</li>
     </List>
   }
   imageProps={{
-    alt: "Template full section",
-    caption: "Full section",
-    src: "/template/templateSectionFull.png",
+    alt: "Template full child component",
+    caption: "Full child component",
+    src: "/template/templateChildFullInside.png",
   }}
 />
 }
 
-### TemplateSidebar
+#### TemplateSidebar
 
 {
 
@@ -337,6 +348,10 @@ a page.
         Must be used within the <code>TemplateMain</code> child component
       </li>
       <li>
+        Should be used in conjunction with the <code>TemplateMain</code> child
+        component
+      </li>
+      <li>
         Not recommended for use with the <code>narrow</code> variant
       </li>
       <li>
@@ -350,14 +365,14 @@ a page.
     </List>
   }
   imageProps={{
-    alt: "Template sidebar section",
-    caption: "Sidebar section",
-    src: "/template/templateSectionSidebar.png",
+    alt: "Template sidebar child component",
+    caption: "Sidebar child component",
+    src: "/template/templateChildSidebar.png",
   }}
 />
 }
 
-### TemplateContent
+#### TemplateContent
 
 {
 
@@ -374,7 +389,8 @@ a page.
         Must be used within the <code>TemplateMain</code> child component
       </li>
       <li>
-        May be used in conjunction with <code>TemplateSidebar</code>
+        May be used in conjunction with the <code>TemplateSidebar</code> child
+        component
       </li>
       <li>
         Spans a percentage of the main content area when the sidebar is rendered
@@ -394,9 +410,37 @@ a page.
     </List>
   }
   imageProps={{
-    alt: "Template content section",
-    caption: "Content section",
-    src: "/template/templateSectionContent.png",
+    alt: "Template content child component",
+    caption: "Content child component",
+    src: "/template/templateChildContent.png",
+  }}
+/>
+}
+
+#### TemplateBreakout
+
+{
+
+<DocsWithImage
+  docs={
+    <List variant="ul">
+      <li>
+        Recommended for custom UI that spans the full width of the viewport
+      </li>
+      <li>
+        Should be used within the <code>TemplateMain</code> child component for
+        appropriate content
+      </li>
+      <li>
+        Not contained by the main content area and spans the full width of the
+        viewport
+      </li>
+    </List>
+  }
+  imageProps={{
+    alt: "Template breakout child component",
+    caption: "Breakout child component",
+    src: "/template/templateChildBreakout.png",
   }}
 />
 }
@@ -655,7 +699,6 @@ Use the `variant` prop to set the template layout
   code={`
   import {
     Template,
-    TemplateBreakout,
     TemplateContent,
     TemplateFull,
     TemplateMain,
@@ -683,13 +726,14 @@ Use the `variant` prop to set the template layout
   </div>
   <DSProvider>
     <Template variant="...">
-      <TemplateBreakout>...</TemplateBreakout>
+      <TemplateFull>...</TemplateFull>
       <TemplateMain id="mainContent">
         <TemplateFull>...</TemplateFull>
         <TemplateSidebar>...</TemplateSidebar>
         <TemplateContent>...</TemplateContent>
         <TemplateFull>...</TemplateFull>
       </TemplateMain>
+      <TemplateFull>...</TemplateFull>
     </Template>
   </DSProvider>
   <div id="nypl-footer"></div>

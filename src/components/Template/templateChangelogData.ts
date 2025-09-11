@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-09-11",
+    version: "4.0.1",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Fixes a spacing issue seen in the `TemplateBreakout` component by changing how internal padding is applied to the `TemplateContent`, `TemplateFull`, `TemplateMain`, and `TemplateSidebar` components.",
+    ],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",
