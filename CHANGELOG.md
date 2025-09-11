@@ -8,14 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.0.1 (September 11, 2025)
+
 ### Adds
 
 - Adds `labelAsAriaLabel` prop to `Menu` to fix incorrect ARIA label on button.
 - Adds `responsiveSpacing` object to `globals` to be used for implementing responsive spacing styles within DS components.
-
-### Fixes
-
-- Fixes a spacing issue seen in the `TemplateBreakout` component by changing how internal padding is applied to the `TemplateContent`, `TemplateFull`, `TemplateMain`, and `TemplateSidebar` components.
 
 ### Updates
 
@@ -24,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes the spacing for the label in the `MultiSelectGroup` component.
+- Fixes a spacing issue seen in the `TemplateBreakout` component by changing how internal padding is applied to the `TemplateContent`, `TemplateFull`, `TemplateMain`, and `TemplateSidebar` components.
 
 ## 4.0.0 (August 11, 2025)
 
