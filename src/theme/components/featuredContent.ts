@@ -1,6 +1,6 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
-import { wrapperStyles } from "./global";
+import { responsiveSpacing, wrapperStyles } from "./global";
 import { screenreaderOnly } from "./globalMixins";
 import { setContainerStyles } from "../../utils/setContainerStyles";
 
@@ -65,8 +65,8 @@ const FeaturedContent = defineMultiStyleConfig({
             styles: {
               "[data-wrapper]": {
                 flexDirection: imageAtEnd ? "row-reverse" : "row",
-                paddingLeft: full ? "s" : null,
-                paddingRight: full ? "s" : null,
+                paddingLeft: full ? responsiveSpacing.padding : null,
+                paddingRight: full ? responsiveSpacing.padding : null,
               },
               "[data-imagewrapper]": {
                 height: "auto",

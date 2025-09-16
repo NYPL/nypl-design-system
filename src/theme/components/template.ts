@@ -1,23 +1,18 @@
 import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
-import useResponsiveSpacing from "../../hooks/useResponsiveSpacing";
+import { responsiveSpacing } from "./global";
 
 const Template = defineStyleConfig({
   baseStyle: defineStyle(() => {
-    const { responsiveGap, responsiveMargin } = useResponsiveSpacing();
     return {
       boxSizing: "border-box",
       color: "ui.typography.body",
-      display: "grid",
-      maxWidth: "1280px",
+      display: "flex",
+      gap: responsiveSpacing.gridGap,
+      flexDirection: "column",
+
       // 320px screen width - 32px padding = 288px
       minWidth: "288px",
-      m: "0 auto",
-      px: responsiveMargin,
-      gridTemplateColumns: "repeat(12, 1fr)",
-      gridTemplateRows: "auto",
-      columnGap: responsiveGap,
-      "& > *:not(:last-child)": { mb: responsiveGap },
 
       /** The "content" area should span the full width of the content area from
        * a mobile-first viewpoint. Using -1 for the "last column" value ensures
@@ -95,14 +90,16 @@ const Template = defineStyleConfig({
 
 const TemplateMain = defineStyleConfig({
   baseStyle: defineStyle(() => {
-    const { responsiveGap } = useResponsiveSpacing();
     return {
+      columnGap: responsiveSpacing.gridGap,
       display: "grid",
-      columnGap: responsiveGap,
-      gridColumn: "1 / -1",
-      gridTemplateColumns: "subgrid",
+      gridTemplateColumns: "repeat(12, 1fr)",
       gridTemplateRows: "auto",
-      "& > *:not(:last-child)": { mb: responsiveGap },
+      m: "0 auto",
+      maxWidth: "1280px",
+      px: responsiveSpacing.padding,
+      width: "100%",
+      "& > *:not(:last-child)": { mb: responsiveSpacing.gridGap },
     };
   }),
 });
