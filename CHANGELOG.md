@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `"contentCopy"` option to the `Icon` component.
+
 ## 4.0.1 (September 11, 2025)
 
 ### Adds
