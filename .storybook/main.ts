@@ -40,6 +40,8 @@ const config: StorybookConfig = {
     "../src/hooks/*.mdx",
   ],
 
+  staticDirs: ["../public", "../static"],
+
   typescript: {
     // Type-check stories during Storybook build.
     check: true,

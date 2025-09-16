@@ -5,15 +5,6 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Image from "../Image/Image";
 import Link from "../Link/Link";
 
-import nextImageAspectRatio from "/public/useNextjsImage/aspectRatio.png";
-import nextImageCroppedExamples from "/public/useNextjsImage/croppedImageExamples.png";
-import nextImageContainedExamples from "/public/useNextjsImage/containedImageExamples.png";
-import nextImageFocalPoint01 from "/public/useNextjsImage/focalPointExamples01.png";
-import nextImageFocalPoint02 from "/public/useNextjsImage/focalPointExamples02.png";
-import nextImageCustomWidth from "/public/useNextjsImage/customWidth.png";
-import nextImageFallbackLight from "/public/useNextjsImage/fallbackImageLight.png";
-import nextImageFallbackDark from "/public/useNextjsImage/fallbackImageDark.png";
-
 <Meta title="Development Guide/Using Next.js Image" />
 
 <ComponentDocsHeader
@@ -104,7 +95,11 @@ attain a four-by-three aspect ratio, the `bottomPadding` value should be set to
   language="jsx"
 />
 
-<Image alt="Next.js Image - aspect ratio" mb="s" src={nextImageAspectRatio} />
+<Image
+  alt="Next.js Image - aspect ratio"
+  mb="s"
+  src="/useNextjsImage/aspectRatio.png"
+/>
 
 ### Cropping
 
@@ -142,7 +137,7 @@ the `objectFit` CSS attribute to `"cover"`. In the previous examples, the
 <Image
   alt="Next.js Image - cropped image"
   mb="s"
-  src={nextImageCroppedExamples}
+  src="/useNextjsImage/croppedImageExamples.png"
 />
 
 #### Contained examples
@@ -150,7 +145,7 @@ the `objectFit` CSS attribute to `"cover"`. In the previous examples, the
 <Image
   alt="Next.js Image - contained image"
   mb="s"
-  src={nextImageContainedExamples}
+  src="/useNextjsImage/containedImageExamples.png"
 />
 
 ### Cropping with focal point
@@ -184,12 +179,12 @@ with the `objectFit` attribute.
 <Image
   alt="Next.js Image - cropped with focal point, example 1"
   mb="s"
-  src={nextImageFocalPoint01}
+  src="/useNextjsImage/focalPointExamples01.png"
 />
 <Image
   alt="Next.js Image - cropped with focal point, example 2"
   mb="s"
-  src={nextImageFocalPoint02}
+  src="/useNextjsImage/focalPointExamples02.png"
 />
 
 ### Custom width
@@ -223,7 +218,11 @@ applied.
   language="jsx"
 />
 
-<Image alt="Next.js Image - custom width" mb="s" src={nextImageCustomWidth} />
+<Image
+  alt="Next.js Image - custom width"
+  mb="s"
+  src="/useNextjsImage/customWidth.png"
+/>
 
 ## Examples
 
@@ -419,7 +418,7 @@ const onErrorHandler = () => {
       alt="Recommended fallback image for light mode"
       fill={true}
       my="s"
-      src={nextImageFallbackLight}
+      src="/useNextjsImage/fallbackImageLight.png"
     />
 
   </Box>
@@ -430,7 +429,7 @@ const onErrorHandler = () => {
       alt="Recommended fallback image for dark mode"
       fill={true}
       my="s"
-      src={nextImageFallbackDark}
+      src="/useNextjsImage/fallbackImageDark.png"
     />
 
   </Box>
