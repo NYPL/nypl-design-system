@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates padding around clearable X button to avoid overlap in `TextInput`.
+
 ## 4.0.1 (September 11, 2025)
 
 ### Adds
@@ -23,10 +27,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Fixes the spacing for the label in the `MultiSelectGroup` component.
 - Fixes a spacing issue seen in the `TemplateBreakout` component by changing how internal padding is applied to the `TemplateContent`, `TemplateFull`, `TemplateMain`, and `TemplateSidebar` components.
-
-### Updates
-
-- Updates padding around clearable X button to avoid overlap in `TextInput`.
 
 ## 4.0.0 (August 11, 2025)
 
