@@ -168,6 +168,7 @@ export const TextInput: ChakraComponent<
       const finalRef = ref ? mergedRefs : closedRef;
       const styles = useMultiStyleConfig("TextInput", {
         showLabel,
+        isClearable,
         variant: textInputVariant,
       });
       const isTextArea = type === "textarea";
