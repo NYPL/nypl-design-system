@@ -32,6 +32,8 @@ const config: StorybookConfig = {
     "@chakra-ui/react": { disable: true },
   },
 
+  staticDirs: ["../public", "../static"],
+
   stories: [
     "../src/docs/Welcome.mdx",
     "../src/docs/Chakra.mdx",
