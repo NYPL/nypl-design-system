@@ -32,6 +32,8 @@ const config: StorybookConfig = {
     "@chakra-ui/react": { disable: true },
   },
 
+  staticDirs: ["../public", "../static"],
+
   stories: [
     "../src/docs/Welcome.mdx",
     "../src/docs/Chakra.mdx",
@@ -39,8 +41,6 @@ const config: StorybookConfig = {
     "../src/components/**/*.stories.tsx",
     "../src/hooks/*.mdx",
   ],
-
-  staticDirs: ["../public", "../static"],
 
   typescript: {
     // Type-check stories during Storybook build.
