@@ -136,7 +136,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Dogs
+                        <div
+                          className="css-0"
+                        >
+                          Dogs
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -190,7 +194,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Cats
+                        <div
+                          className="css-0"
+                        >
+                          Cats
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -247,7 +255,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         data-disabled=""
                         onMouseDown={[Function]}
                       >
-                        Cars
+                        <div
+                          className="css-0"
+                        >
+                          Cars
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -301,7 +313,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Colors
+                        <div
+                          className="css-0"
+                        >
+                          Colors
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -355,7 +371,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Red
+                        <div
+                          className="css-0"
+                        >
+                          Red
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -409,7 +429,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Blue
+                        <div
+                          className="css-0"
+                        >
+                          Blue
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -463,7 +487,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Plants
+                        <div
+                          className="css-0"
+                        >
+                          Plants
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -517,7 +545,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Furniture
+                        <div
+                          className="css-0"
+                        >
+                          Furniture
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -680,7 +712,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Dogs
+                        <div
+                          className="css-0"
+                        >
+                          Dogs
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -734,7 +770,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Cats
+                        <div
+                          className="css-0"
+                        >
+                          Cats
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -791,7 +831,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         data-disabled=""
                         onMouseDown={[Function]}
                       >
-                        Cars
+                        <div
+                          className="css-0"
+                        >
+                          Cars
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -845,7 +889,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Colors
+                        <div
+                          className="css-0"
+                        >
+                          Colors
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -899,7 +947,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Red
+                        <div
+                          className="css-0"
+                        >
+                          Red
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -953,7 +1005,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Blue
+                        <div
+                          className="css-0"
+                        >
+                          Blue
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1007,7 +1063,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Plants
+                        <div
+                          className="css-0"
+                        >
+                          Plants
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1061,7 +1121,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Furniture
+                        <div
+                          className="css-0"
+                        >
+                          Furniture
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1224,7 +1288,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Dogs
+                        <div
+                          className="css-0"
+                        >
+                          Dogs
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1278,7 +1346,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Cats
+                        <div
+                          className="css-0"
+                        >
+                          Cats
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1335,7 +1407,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         data-disabled=""
                         onMouseDown={[Function]}
                       >
-                        Cars
+                        <div
+                          className="css-0"
+                        >
+                          Cars
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1420,7 +1496,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Colors
+                        <div
+                          className="css-0"
+                        >
+                          Colors
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1486,7 +1566,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         data-checked=""
                         onMouseDown={[Function]}
                       >
-                        Red
+                        <div
+                          className="css-0"
+                        >
+                          Red
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1540,7 +1624,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Blue
+                        <div
+                          className="css-0"
+                        >
+                          Blue
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1594,7 +1682,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Plants
+                        <div
+                          className="css-0"
+                        >
+                          Plants
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1648,7 +1740,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Furniture
+                        <div
+                          className="css-0"
+                        >
+                          Furniture
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1830,7 +1926,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Dogs
+                        <div
+                          className="css-0"
+                        >
+                          Dogs
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1884,7 +1984,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Cats
+                        <div
+                          className="css-0"
+                        >
+                          Cats
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -1941,7 +2045,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         data-disabled=""
                         onMouseDown={[Function]}
                       >
-                        Cars
+                        <div
+                          className="css-0"
+                        >
+                          Cars
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -2007,7 +2115,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         data-checked=""
                         onMouseDown={[Function]}
                       >
-                        Colors
+                        <div
+                          className="css-0"
+                        >
+                          Colors
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -2073,7 +2185,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         data-checked=""
                         onMouseDown={[Function]}
                       >
-                        Red
+                        <div
+                          className="css-0"
+                        >
+                          Red
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -2139,7 +2255,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         data-checked=""
                         onMouseDown={[Function]}
                       >
-                        Blue
+                        <div
+                          className="css-0"
+                        >
+                          Blue
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -2193,7 +2313,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Plants
+                        <div
+                          className="css-0"
+                        >
+                          Plants
+                        </div>
                       </span>
                     </label>
                   </div>
@@ -2247,7 +2371,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         className="chakra-checkbox__label css-1oeb2oe"
                         onMouseDown={[Function]}
                       >
-                        Furniture
+                        <div
+                          className="css-0"
+                        >
+                          Furniture
+                        </div>
                       </span>
                     </label>
                   </div>
