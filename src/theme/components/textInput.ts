@@ -12,7 +12,7 @@ import {
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(["clearButton", "input", "textarea"]);
 
-const input = {
+const getInputStyles = (isClearable) => ({
   bgColor: "ui.white",
   border: "1px solid",
   borderColor: "ui.border.default",
@@ -20,7 +20,8 @@ const input = {
   fontSize: "desktop.body.body2",
   minHeight: { base: defaultElementSizes.mobileFieldHeight, md: "auto" },
   py: "inset.narrow",
-  px: "inset.default",
+  pr: isClearable ? "inset.extrawide" : "inset.default",
+  pl: "inset.default",
   _hover: {
     borderColor: "ui.border.hover",
   },
@@ -68,23 +69,19 @@ const input = {
       color: "dark.ui.error.primary",
     },
   },
-};
+});
 
 const TextInput = defineMultiStyleConfig({
-  baseStyle: definePartsStyle(({ showLabel }) => ({
+  baseStyle: definePartsStyle(({ showLabel, isClearable }) => ({
     position: "relative",
     clearButton: {
       borderRadius: "1px",
       minHeight: { base: "42px", md: "auto" },
       height: "38px",
       position: "absolute",
-      // When `showLabel` is false, the input field is at the top
-      // which means the clear button should float higher.
       top: showLabel ? ".75px" : "1px",
       px: "xs",
       right: "0.5px",
-      // Don't visually show the text. This also helps
-      // use the "text" `Button` type.
       span: screenreaderOnly(),
       zIndex: "9999",
       _dark: {
@@ -93,11 +90,11 @@ const TextInput = defineMultiStyleConfig({
         },
       },
     },
-    input,
+    input: getInputStyles(isClearable),
     label: { marginBottom: "label.default" },
     textarea: {
-      ...input,
-      lineheight: "1.5",
+      ...getInputStyles(isClearable),
+      lineHeight: "1.5",
       minHeight: "xxl",
     },
   })),

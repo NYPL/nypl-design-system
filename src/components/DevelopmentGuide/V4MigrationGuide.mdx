@@ -22,17 +22,19 @@ import Link from "../Link/Link";
 
 ## A Focus on Foundations
 
-Reservoir v4 includes everything from simple style updates to breaking changes. It represents a focus on
-the fundamentals, specifically the foundational layers of HTML, CSS, and JavaScript, to make our
-components more accessible, intuitive, and maintainable.
+Reservoir v4 includes everything from simple style updates to breaking changes.
+It represents a focus on the fundamentals – specifically the foundational layers
+of HTML, CSS, and JavaScript – to make our components more accessible, intuitive,
+and maintainable.
 
 By aligning with web standards, we aim to:
 
-- Simplify the developer's mental model, leading to fewer abstractions and more predictable naming conventions
-  and behaviors.
-- Support accessibility by default through strict adherence to semantic HTML standards.
-- Minimize technical debt and over-engineering by embracing standard HTML and CSS principles and reducing tight
-  coupling with JavaScript logic.
+- Simplify the developer's mental model by using fewer abstractions and more
+  predictable naming conventions and behaviors
+- Support accessibility by default through strict adherence to semantic HTML
+  standards
+- Minimize technical debt and over-engineering by embracing standard HTML and
+  CSS principles and reducing tight coupling with JavaScript logic
 
 ## Getting Started
 
@@ -42,14 +44,14 @@ By aligning with web standards, we aim to:
 
 ### Step 2
 
-Run `npx tsc --noEmit` or `npm run lint` to output a list of Typescript errors. This list represents the majority
-of breaking changes you'll need to address.
+Run `npx tsc --noEmit` or `npm run lint` to output a list of Typescript errors.
+This list represents the majority of breaking changes you'll need to address.
 
 <Banner
   content={
     <>
-      Don't be afraid if this list is long! We promise most of the changes will
-      be quick and easy.
+      <strong>Good to know:</strong> Don't be afraid if this list is long! We
+      promise most of the changes will be quick and easy.
     </>
   }
   my="s"
@@ -58,7 +60,20 @@ of breaking changes you'll need to address.
 
 ### Step 3
 
-Update your code!
+Update your code! (Keep reading to find out how.)
+
+<Banner
+  content={
+    <>
+      <strong>Pro tip!</strong> Updating your Reservoir version will necessitate
+      QA and VQA on most (or all) of your app. Make sure to separate
+      migration-related issues from anything else that comes up to mitigate
+      scope creep.
+    </>
+  }
+  my="s"
+  variant="recommendation"
+/>
 
 ## Breaking Changes
 
@@ -66,8 +81,9 @@ Update your code!
 
 #### 1. Upgrade your `Template`.
 
-If your application uses the Reservoir `Template` components (or the `TemplateAppContainer` component), you’ll need
-to refactor your code to use our new composable [Template components](../?path=/docs/components-page-layout-template--docs#overview).
+If your application uses the Reservoir `Template` components (or the
+`TemplateAppContainer` component), you’ll need to refactor your code to use our
+new composable [Template components](../?path=/docs/components-page-layout-template--docs#overview).
 
 <Source
   code={`
@@ -102,8 +118,9 @@ to refactor your code to use our new composable [Template components](../?path=/
 <Banner
   content={
     <>
-      The new Template features more sophisticated responsiveness so we
-      recommend checking for visual breaking changes after updating.
+      <strong>Pro tip!</strong> The new Template features more sophisticated
+      responsiveness so we recommend checking for visual breaking changes after
+      updating.
     </>
   }
   my="s"
@@ -113,6 +130,20 @@ to refactor your code to use our new composable [Template components](../?path=/
 #### 2. Rename “type” props to “variant”.
 
 We changed the following prop names to more accurately describe what they do.
+
+<Banner
+  content={
+    <>
+      <strong>Heads up!</strong> While most of these components will throw a
+      Typescript error to let you know they need updating, <code>Link</code>{" "}
+      will not because <code>type</code> is still a valid HTML attribute of an{" "}
+      <code>a</code> tag. You'll still need to update it for it to render
+      correctly.
+    </>
+  }
+  my="s"
+  variant="warning"
+/>
 
 <Box my="l" width="100%"
   sx={{
@@ -143,10 +174,25 @@ We changed the following prop names to more accurately describe what they do.
 
 #### 3. Add spacing where defaults have been removed.
 
-We removed a lot of default spacing, as well as the `noSpace` props in `Heading` and `Text`.
+We removed a lot of default spacing, as well as the `noSpace` props in `Heading`
+and `Text`.
 
 - If you’re using a `noSpace` prop, you'll need to remove it.
-- If you were relying on default spacing from Reservoir, you may need to add it back manually.
+- If you were relying on default spacing from Reservoir, you may need to add it
+  back manually.
+
+<Banner
+  content={
+    <>
+      <strong>Heads up!</strong> Expect this update to be the most
+      time-consuming because it won't cause any Typescript errors. You'll need
+      to carefully check for any visual breaking changes it's caused throughout
+      your application.
+    </>
+  }
+  my="s"
+  variant="warning"
+/>
 
 <Box my="l" width="100%"
   sx={{
@@ -156,15 +202,15 @@ We removed a lot of default spacing, as well as the `noSpace` props in `Heading`
   }
 }}>
   {/* prettier-ignore */}
-  | Component | Spacing removed |
+  | Component or HTML element  | Spacing removed |
   | :------------------------| :-------------- |
   | Heading | `mb='s'` |
   | HelperErrorText | `mt='xxs'` |
   | HorizontalRule | `my='s'` |
   | Label | `mb='xs'` |
-  | List (`ol` and `ul`) | `mb='s'` |
+  | List (and any `ol` and `ul`) | `mb='s'` |
   | StyledList | `mb='s'` |
-  | Text | `mb='s'` |
+  | Text (and any `p`) | `mb='s'` |
 
 </Box>
 
@@ -172,27 +218,33 @@ We removed a lot of default spacing, as well as the `noSpace` props in `Heading`
 
 #### Remove deprecated props and variants.
 
-We removed deprecated props and variants, so if you're still using them, you'll need to update your code.
-You can see a list of what's been removed in [this PR](https://github.com/NYPL/nypl-design-system/pull/1783).
+We removed deprecated props and variants, so if you're still using them, you'll
+need to update your code. You can see a list of what's been removed in
+[this PR](https://github.com/NYPL/nypl-design-system/pull/1783).
 
 #### Adjust aria props to HTML equivalents.
 
-Native HTML attributes have replaced explicit aria props. For example, `Accordion`'s `ariaLabel` has been
-replaced with `aria-label`. You can see a list of aria props that have been removed in [this PR](https://github.com/NYPL/nypl-design-system/pull/1797).
+Native HTML attributes have replaced explicit aria props. For example,
+`Accordion`'s `ariaLabel` has been replaced with `aria-label`. You can see a
+list of aria props that have been removed in
+[this PR](https://github.com/NYPL/nypl-design-system/pull/1797).
 
 #### Update `className` and `id` references as needed.
 
-`className`s passed by the consumer to `AlphabetFilter`, `Card`, `Menu`, and `MultiSelectGroup` will now be
-added to the top-level of these components. We've also renamed some internal `className`s for
-consistency. If you're relying on these `className`s for testing or styling, you'll need to adjust your code.
+`className`s passed by the consumer to `AlphabetFilter`, `Card`, `Menu`, and
+`MultiSelectGroup` will now be added to the top-level of these components. We've
+also renamed some internal `className`s for consistency. If you're relying on
+these `className`s for testing or styling, you'll need to adjust your code.
 
-We’ve adjusted `id`s within our components for clarity and consistency, so if you're using Reservoir component
-`id`s in tests, styles, or elsewhere, you may need to update them.
+We’ve adjusted `id`s within our components for clarity and consistency, so if
+you're using Reservoir component `id`s in tests, styles, or elsewhere, you may
+need to update them.
 
 #### Ensure responsive designs are compatible with the new breakpoints.
 
-Our [breakpoints](../?path=/docs/style-guide-breakpoints--docs) have changed! We don’t expect this to be too disruptive,
-but it’s possible a page will not look as expected on smaller screen sizes and will need to be adjusted.
+Our [breakpoints](../?path=/docs/style-guide-breakpoints--docs) have changed! We
+don’t expect this to be too disruptive, but it’s possible a page will not look
+as expected on smaller screen sizes and will need to be adjusted.
 
 <Flex
   direction={{ base: 'column', md: 'row' }} 
@@ -233,13 +285,15 @@ but it’s possible a page will not look as expected on smaller screen sizes and
 
 #### If using `Table`, rename `tableTextSize` to `fontSize`.
 
-We updated the `tableTextSize` prop in `Table` to `fontSize` to align more closely with the CSS property.
+We updated the `tableTextSize` prop in `Table` to `fontSize` to align more
+closely with the CSS property.
 
 #### If using the `onMixedStateChange` function, update the argument to use object destructuring.
 
-We moved to object destructuring for functions with 3+ arguments. This is mostly an internal, non-breaking
-change, but if you're using the `onMixedStateChange` function from the `useMultiSelect` hook, you'll need
-to move the arguments you're passing inside an object with key-value pairs.
+We moved to object destructuring for functions with 3+ arguments. This is mostly
+an internal, non-breaking change, but if you're using the `onMixedStateChange`
+function from the `useMultiSelect` hook, you'll need to move the arguments you're
+passing inside an object with key-value pairs.
 
 <Source
   code={`
@@ -253,64 +307,124 @@ to move the arguments you're passing inside an object with key-value pairs.
 
 ## Non-Breaking Changes
 
-These updates enhance flexibility, stability, and developer experience without requiring changes to your
-existing code.
+These updates enhance flexibility, stability, and developer experience without
+requiring changes to your existing code.
+
+#### You can remove previously required mocks from your tests.
+
+We removed `matchMedia`, `scrollIntoView`, and `ResizeObserver` functions from
+all components for performance reasons. The added benefit of this update is that
+you can remove the mocked versions of these functions from your Jest set up.
+
+These mocks are usually located in the `beforeEach` or `beforeAll` statements of
+your tests or in the set up file that runs before your test suite.
+
+If you're using `ButtonGroup`, `FeedbackBox`, `Modal`, `MultiSelectGroup`, or
+`NewsletterSignup`, you can remove the `matchMedia` mock. It may look like this:
+
+<Source
+  code={`
+  import { MatchMedia } from "@nypl/design-system-react-components";
+  
+  new MatchMedia();
+`}
+  language="jsx"
+/>
+
+If you're using the `Tabs` component, you can remove the `scrollIntoView` mock.
+It may look like this:
+
+<Source
+  code={`
+  describe("Page with Tabs", () => {
+    beforeAll(() => {
+      window.HTMLElement.prototype.scrollIntoView = jest.fn()
+    })
+  })
+`}
+  language="jsx"
+/>
+
+If you're using the `Slider` component, you can remove the `ResizeObserver` mock.
+It may look like this:
+
+<Source
+  code={`
+  class ResizeObserver {
+    observe() {}
+    unobserve() {}
+    disconnect() {
+  }
+  
+  window.ResizeObserver = ResizeObserver;
+`}
+  language="jsx"
+/>
 
 #### There's a new `useResponsiveSpacing` hook.
 
-[The `useResponsiveSpacing` hook](../?path=/docs/hooks-useresponsivespacing--docs) exports spacing values to generate
-consistent layouts. We recommend its usage for custom layout and components.
+[The `useResponsiveSpacing` hook](../?path=/docs/hooks-useresponsivespacing--docs)
+exports spacing values to generate consistent layouts. We recommend its usage for
+custom layout and components.
 
 #### We made a guide for using the Next.js `Image` component.
 
-Next's `Image` component offers optimization and enhanced styling features over Reservoir's `Image`, but
-Reservoir's `Image` offers some additional functionality. We created [a guide](../?path=/docs/development-guide-using-next-js-image--docs)
-to execute the Reservoir `Image` features while using the Next `Image` component. Best of both worlds!
+Next's `Image` component offers optimization and enhanced styling features over
+Reservoir's `Image`, but Reservoir's `Image` offers some additional functionality.
+We created [a guide](../?path=/docs/development-guide-using-next-js-image--docs)
+to execute the Reservoir `Image` features while using the Next `Image` component.
+Best of both worlds!
 
 #### The `id` prop is now optional for all components.
 
-For components that require `id`s to meet accessibility requirements, one will automatically be generated
-using React's `useId` hook if none is passed.
+For components that require `id`s to meet accessibility requirements, one will
+automatically be generated using React's `useId` hook if none is passed.
 
 #### All components now include a default `data-testid` on their top-level element.
 
-The `data-testid` value follows the pattern `ds-[componentName]` (e.g., `ds-accordion`, `ds-button`) for
-consistency and ease of testing.
+The `data-testid` value follows the pattern `ds-[componentName]` (e.g.,
+`ds-accordion`, `ds-button`) for consistency and ease of testing.
 
 #### Component prop interfaces have been significantly expanded to accept a wider range of values.
 
-You'll be able to pass standard native HTML attributes (e.g., `aria-label`, `type` for inputs, `tabIndex`)
-and all Chakra UI style props (e.g., `p`, `m`, `bg`, `color`, `sx`). Refer to the dedicated note above each
-component's props table for details on how its types were extended.
+You'll be able to pass standard native HTML attributes (e.g., `aria-label`, `type`
+for inputs, `tabIndex`) and all Chakra UI style props (e.g., `p`, `m`, `bg`,
+`color`, `sx`). Refer to the dedicated note above each component's props table
+for details on how its types were extended.
 
-This update offers consumers more flexibility and reduces the number of explicit props we have to use.
+This update offers consumers more flexibility and reduces the number of explicit
+props we have to use.
 
 #### We're no longer throwing errors.
 
-Components like `Breadcrumbs`, `Heading`, and `Image` no longer throw errors (crashing your application) when
-missing required prop values.
+Components like `Breadcrumbs`, `Heading`, and `Image` no longer throw errors
+(crashing your application) when missing required prop values.
 
 #### There are no warnings for invalid children.
 
-Components that expect specific child types (e.g., `RadioGroup` expecting `Radio` children) will no longer log
-warnings reducing console noise during development.
+Components that expect specific child types (e.g., `RadioGroup` expecting `Radio`
+children) will no longer log warnings reducing console noise during development.
 
 #### We removed unused code.
 
-The `Header` component was needed for a specific problem that no longer exists and has been removed in v4.
+The `Header` component was needed for a specific problem that no longer exists
+and has been removed in v4.
 
 `FilterBar` was deprecated in favor of `FilterBarInline` and `FilterBarPopup`.
 
-The `Autosuggest` documentation was originally included as a guideline for using `react-autosuggest`, but is no
-longer recommended due to technical complexity and UX consistency concerns and has been removed in v4.
+The `Autosuggest` documentation was originally included as a guideline for using
+`react-autosuggest`, but is no longer recommended due to technical complexity
+and UX consistency concerns and has been removed in v4.
 
 #### Other optimizations
 
-- We've updated our Storybook version, and given the doc headers a new look and feel.
-- We've reduced `React.Children.map` usage in hopes of a performance gain in the components that were using it.
+- We've updated our Storybook version, and given the doc headers a new look and
+  feel.
+- We've reduced `React.Children.map` usage in hopes of a performance gain in the
+  components that were using it.
 - We've updated some of our internal naming for improved consistency.
-- We're utilizing object destructuring for functions with 3+ arguments, enhancing internal readability and
-  maintainability.
+- We're utilizing object destructuring for functions with 3+ arguments, enhancing
+  internal readability and maintainability.
 
 ## v3 Support
 
