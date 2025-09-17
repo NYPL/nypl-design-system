@@ -283,11 +283,11 @@ describe("MultiSelect", () => {
       "true"
     );
     expect(screen.getAllByRole("checkbox")).toHaveLength(9);
-    expect(screen.getByLabelText("Dogs5")).toBeInTheDocument();
-    expect(screen.getByLabelText("Cats11")).toBeInTheDocument();
-    expect(screen.getByLabelText("Cars7")).toBeInTheDocument();
-    expect(screen.getByLabelText("Red8")).toBeInTheDocument();
-    expect(screen.getByLabelText("Home0")).toBeInTheDocument();
+    expect(screen.getByLabelText("Dogs (5)")).toBeInTheDocument();
+    expect(screen.getByLabelText("Cats (11)")).toBeInTheDocument();
+    expect(screen.getByLabelText("Cars (7)")).toBeInTheDocument();
+    expect(screen.getByLabelText("Red (8)")).toBeInTheDocument();
+    expect(screen.getByLabelText("Home (0)")).toBeInTheDocument();
   });
 
   it("should initially render with open menu if isDefaultOpen prop is true", () => {
