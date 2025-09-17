@@ -22,6 +22,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Makes small updates to v4 Migration Guide for clarity.
+- Updates the image references in the `Using Next.js Image` Development Guide and the `Responsive Grid` Style Guide.
 
 ### Fixes
 
