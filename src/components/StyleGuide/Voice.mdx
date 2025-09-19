@@ -1,13 +1,8 @@
 import { Meta, Source } from "@storybook/addon-docs/blocks";
-import { Box, Flex, VStack } from "@chakra-ui/react";
 
-import Button from "../Button/Button";
+import Banner from "../Banner/Banner";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
-import Heading from "../Heading/Heading";
-import Image from "../Image/Image";
 import Link from "../Link/Link";
-import SearchBar from "../SearchBar/SearchBar";
-import Text from "../Text/Text";
 
 <Meta title="Style Guide/Voice for written materials" />
 
@@ -43,6 +38,18 @@ it is helpful to think of the Library's voice as encompassing the "three I's":
 `informative`, `inviting`, and `inspiring`. In all written materials, from the
 shortest promotional copy to our homepage, e-newsletters, and lengthy
 publications, we aim to embody these three principles.
+
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> If there are questions around the writing
+      style used for written content or the language used within a UI element,
+      the final decisions should be made by a Product Manager or Product
+      Designer.
+    </>
+  }
+  variant="informative"
+/>
 
 ## Informative
 
@@ -83,6 +90,6 @@ creativeservices@nypl.org.
 
 ## Resources
 
-The NYPL Voice guidelines were pulled directly from NYPL's<Link
+The NYPL Voice guidelines were pulled directly from NYPL's <Link
 href="https://docs.google.com/document/d/1xV9D5QFpRHjwMA-lFFwkhZdhy0uo5UfF_UIYT8ecrcg/edit?pli=1&tab=t.0#heading=h.sfosyf7d2lh"
 variant="external"> Writing Style Guide</Link>.
