@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `"contentCopy"` option to the `Icon` component.
 - Adds the `Voice` section to the `Style Guide`.
 
 ### Updates
@@ -26,11 +27,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Makes small updates to v4 Migration Guide for clarity.
+- Updates the image references in the `Using Next.js Image` Development Guide and the `Responsive Grid` Style Guide.
 
 ### Fixes
 
 - Fixes the spacing for the label in the `MultiSelectGroup` component.
 - Fixes a spacing issue seen in the `TemplateBreakout` component by changing how internal padding is applied to the `TemplateContent`, `TemplateFull`, `TemplateMain`, and `TemplateSidebar` components.
+
+### Updates
+
+- Updates the `MultiSelect` view for options that have an item count number.
 
 ## 4.0.0 (August 11, 2025)
 

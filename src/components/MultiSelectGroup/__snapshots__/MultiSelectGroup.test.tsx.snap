@@ -149,7 +149,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Red
+                            <div
+                              className="css-0"
+                            >
+                              Red
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -203,7 +207,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Blue
+                            <div
+                              className="css-0"
+                            >
+                              Blue
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -257,7 +265,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Yellow
+                            <div
+                              className="css-0"
+                            >
+                              Yellow
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -417,7 +429,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Cat
+                            <div
+                              className="css-0"
+                            >
+                              Cat
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -471,7 +487,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Dog
+                            <div
+                              className="css-0"
+                            >
+                              Dog
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -525,7 +545,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Corgy
+                            <div
+                              className="css-0"
+                            >
+                              Corgy
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -579,7 +603,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            German Sheperd
+                            <div
+                              className="css-0"
+                            >
+                              German Sheperd
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -633,7 +661,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Afghan Hound
+                            <div
+                              className="css-0"
+                            >
+                              Afghan Hound
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -687,7 +719,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Rat
+                            <div
+                              className="css-0"
+                            >
+                              Rat
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -847,7 +883,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Hammer
+                            <div
+                              className="css-0"
+                            >
+                              Hammer
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -901,7 +941,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Skrewdriver
+                            <div
+                              className="css-0"
+                            >
+                              Skrewdriver
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -955,7 +999,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Slotted Skrewdriver
+                            <div
+                              className="css-0"
+                            >
+                              Slotted Skrewdriver
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1009,7 +1057,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Phillips Skrewdriver
+                            <div
+                              className="css-0"
+                            >
+                              Phillips Skrewdriver
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1063,7 +1115,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Allen Skrewdriver
+                            <div
+                              className="css-0"
+                            >
+                              Allen Skrewdriver
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1117,7 +1173,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Whisk
+                            <div
+                              className="css-0"
+                            >
+                              Whisk
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1295,7 +1355,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Red
+                            <div
+                              className="css-0"
+                            >
+                              Red
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1349,7 +1413,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Blue
+                            <div
+                              className="css-0"
+                            >
+                              Blue
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1403,7 +1471,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Yellow
+                            <div
+                              className="css-0"
+                            >
+                              Yellow
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1563,7 +1635,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Cat
+                            <div
+                              className="css-0"
+                            >
+                              Cat
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1617,7 +1693,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Dog
+                            <div
+                              className="css-0"
+                            >
+                              Dog
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1671,7 +1751,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Corgy
+                            <div
+                              className="css-0"
+                            >
+                              Corgy
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1725,7 +1809,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            German Sheperd
+                            <div
+                              className="css-0"
+                            >
+                              German Sheperd
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1779,7 +1867,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Afghan Hound
+                            <div
+                              className="css-0"
+                            >
+                              Afghan Hound
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1833,7 +1925,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Rat
+                            <div
+                              className="css-0"
+                            >
+                              Rat
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -1993,7 +2089,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Hammer
+                            <div
+                              className="css-0"
+                            >
+                              Hammer
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -2047,7 +2147,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Skrewdriver
+                            <div
+                              className="css-0"
+                            >
+                              Skrewdriver
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -2101,7 +2205,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Slotted Skrewdriver
+                            <div
+                              className="css-0"
+                            >
+                              Slotted Skrewdriver
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -2155,7 +2263,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Phillips Skrewdriver
+                            <div
+                              className="css-0"
+                            >
+                              Phillips Skrewdriver
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -2209,7 +2321,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Allen Skrewdriver
+                            <div
+                              className="css-0"
+                            >
+                              Allen Skrewdriver
+                            </div>
                           </span>
                         </label>
                       </div>
@@ -2263,7 +2379,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                             className="chakra-checkbox__label css-1oeb2oe"
                             onMouseDown={[Function]}
                           >
-                            Whisk
+                            <div
+                              className="css-0"
+                            >
+                              Whisk
+                            </div>
                           </span>
                         </label>
                       </div>
