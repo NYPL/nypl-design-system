@@ -35,7 +35,7 @@ export interface HeroProps extends BoxProps {
    * Note: not all `Hero` variants utilize this prop. */
   backgroundImageSrc?: string;
   /** Optional hex color value used to override the default text color for a
-   * given `Hero` variation.
+   * given `Hero` variant.
    * Note: not all `Hero` variants utilize this prop. */
   foregroundColor?: string;
   /** Optional heading element. */
@@ -56,6 +56,9 @@ export interface HeroProps extends BoxProps {
   /** Optional string used for the subheader that displays
    * underneath the heading element. */
   subHeaderText?: string | JSX.Element;
+  /** Optional hex color value used to override the default background color for
+   * a text content area in a given `Hero` variant. */
+  textBackgroundColor?: string;
   /** Used to control how the `Hero` component will be rendered. */
   variant?: HeroVariants;
 }
@@ -84,6 +87,7 @@ export const Hero: ChakraComponent<
         isDarkText,
         isDarkBackgroundImage = false,
         subHeaderText,
+        textBackgroundColor,
         ...rest
       } = props;
       const styles = useMultiStyleConfig("Hero", {
@@ -243,11 +247,17 @@ export const Hero: ChakraComponent<
           : { bgColor: tertiaryBgColor };
       }
 
+      /** The "tertiary" variant doesn't have an apparent content box, so that
+       * element will default to a transparent background in the "teriary"
+       * variant. */
       contentBoxStyling = {
         ...(foregroundColor && { color: foregroundColor }),
-        ...(backgroundColor
-          ? { backgroundColor }
-          : { bgColor: defaultBackgroundColor }),
+        ...(textBackgroundColor
+          ? { backgroundColor: textBackgroundColor }
+          : {
+              bgColor:
+                variant !== "tertiary" ? defaultBackgroundColor : undefined,
+            }),
       };
 
       if (foregroundColor && isDarkText) {

@@ -36,6 +36,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `MultiSelect` view for options that have an item count number.
+- Updates the `Hero` component to add the `textBackgroundColor` prop to be used in lieu of the `backgroundColor` prop,
 
 ## 4.0.0 (August 11, 2025)
 

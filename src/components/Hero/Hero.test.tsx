@@ -150,7 +150,7 @@ describe("Hero", () => {
         }
         backgroundImageSrc={getPlaceholderImage("smaller", 0)}
         foregroundColor="#123456"
-        backgroundColor="#654321"
+        textBackgroundColor="#654321"
       />
     );
 
