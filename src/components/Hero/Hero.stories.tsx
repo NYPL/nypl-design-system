@@ -428,7 +428,7 @@ export const TextColorStyles: Story = {
           id="campaign-hero-long-text"
           mb="s"
           size="heading6"
-          text='Custom Background Color and "Dark" Text'
+          text='Custom Background Color and Default "dark" Text'
         />
         <Hero
           backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"

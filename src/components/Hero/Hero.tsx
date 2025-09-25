@@ -26,16 +26,16 @@ export interface HeroProps extends BoxProps {
    * the `backgroundImageSrc` will take precedence.
    */
   backdropBackgroundColor?: string;
-  /** Optional hex color value used to override the default background
-   * color for a given `Hero` variant.
+  /** Optional color value used to override the default background color for a
+   * given `Hero` variant.
    * Note: not all `Hero` variants utilize this prop. */
   backgroundColor?: string;
   /** Optional path to an image that will be used as a background image for the
    * `Hero` component.
    * Note: not all `Hero` variants utilize this prop. */
   backgroundImageSrc?: string;
-  /** Optional hex color value used to override the default text color for a
-   * given `Hero` variant.
+  /** Optional color value used to override the default text color for a given
+   * `Hero` variant.
    * Note: not all `Hero` variants utilize this prop. */
   foregroundColor?: string;
   /** Optional heading element. */
@@ -53,11 +53,11 @@ export interface HeroProps extends BoxProps {
    * the "campaign" variant. If true, the background image will be converted to
    * black & white and darkened to 60% black. */
   isDarkBackgroundImage?: boolean;
-  /** Optional string used for the subheader that displays
-   * underneath the heading element. */
+  /** Optional string used for the subheader that displays underneath the
+   * heading element. */
   subHeaderText?: string | JSX.Element;
-  /** Optional hex color value used to override the default background color for
-   * a text content area in a given `Hero` variant. */
+  /** Optional color value used to override the default background color for a
+   * text content area in a given `Hero` variant. */
   textBackgroundColor?: string;
   /** Used to control how the `Hero` component will be rendered. */
   variant?: HeroVariants;
@@ -253,7 +253,7 @@ export const Hero: ChakraComponent<
       contentBoxStyling = {
         ...(foregroundColor && { color: foregroundColor }),
         ...(textBackgroundColor
-          ? { backgroundColor: textBackgroundColor }
+          ? { bgColor: textBackgroundColor }
           : {
               bgColor:
                 variant !== "tertiary" ? defaultBackgroundColor : undefined,

@@ -456,8 +456,9 @@ By default, the `Hero` component renders a dark background color with light
 text. This color treatment can be overridden using a combination of the
 `foregroundColor`, `textBackgroundColor`, and `isDarkText` props.
 
-The examples below only show the `"campaign"` variant, but this same treatment
-applies to all variants.
+- `foregroundColor`: custom color value for the text
+- `textBackgroundColor`: custom color value for the text background
+- `isDarkText`: used to render default dark color value for the text
 
 <Banner
   content={
@@ -471,6 +472,9 @@ applies to all variants.
   mb="s"
   variant="warning"
 />
+
+The examples below only show the `"campaign"` variant, but this same treatment
+applies to all variants.
 
 <Story of={HeroStories.TextColorStyles} />
 
