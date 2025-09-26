@@ -11,10 +11,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds the `"contentCopy"` option to the `Icon` component.
+- Adds the `textColor` prop to the `Hero` component.
 
 ### Updates
 
 - Updates padding around clearable X button to avoid overlap in `TextInput`.
+
+### Deprecates
+
+- Deprecates the `foregroundColor` prop in the `Hero` component.
 
 ## 4.0.1 (September 11, 2025)
 
