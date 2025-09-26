@@ -100,7 +100,7 @@ Each `Hero` variation can be rendered through the `variant` prop.
 ### Primary
 
 The `"primary"` hero variant should be used with a `backgroundImageSrc` and a
-`heading`. `backgroundColor`, `foregroundColor`, and `subHeaderText` props may
+`heading`. `subHeaderText`, `textBackgroundColor`, and `textColor` props may
 also be used.
 
 <Story of={HeroStories.Primary} />
@@ -127,7 +127,7 @@ also be used.
 ### Tertiary
 
 The `"tertiary"` hero variant should be used with a `heading` prop.
-`backgroundColor`, `foregroundColor`, and `subHeaderText` props may also be used.
+`subHeaderText`, `textBackgroundColor`, and `textColor` props may also be used.
 
 <Story of={HeroStories.Tertiary} />
 
@@ -201,16 +201,16 @@ The `"tertiary"` hero variant should be used with a `heading` prop.
 
 ### Campaign
 
-The `"campaign"` hero variant should be used with `backgroundImageSrc`, `heading`,
-and `imageProps` props. `backdropBackgroundColor`, `backgroundColor`, `foregroundColor`,
-and `subHeaderText` props may also be used.
+The `"campaign"` hero variant should be used with `backgroundImageSrc`,
+`heading`, and `imageProps` props. `backdropBackgroundColor`, `subHeaderText`,
+`textBackgroundColor`, and `textColor` props may also be used.
 
 The `"campaign"` variant is special in that it has both a background and foreground.
 We understand that this naming can be confusing, but it helps to think of this
 variant having two layers.
 
-To modify the foreground, the `backgroundColor`, `foregroundColor`, `imageProps`
-props should be used.
+To modify the foreground, the `textBackgroundColor`, `textColor`, and
+`imageProps` props should be used.
 
 <Story of={HeroStories.Campaign} />
 
@@ -387,7 +387,6 @@ content.
   code={`
   <Hero
     backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
-    foregroundColor="ui.white"
     heading={
       <Heading
         id="primary-hero"
@@ -397,6 +396,7 @@ content.
         text="Hero Primary"
       />
     }
+    textColor="ui.white"
     textBackgroundColor="brand.primary"
     variant="primary"
   />
@@ -407,7 +407,6 @@ content.
 <Source
   code={`
   <Hero
-    foregroundColor="ui.white"
     heading={
       <Heading
         level="h1"
@@ -418,6 +417,7 @@ content.
       />
     }
     subHeaderText={otherSubHeaderText}
+    textColor="ui.white"
     textBackgroundColor="brand.primary"
     variant="tertiary"
   />
@@ -429,7 +429,6 @@ content.
   code={`
   <Hero
     backgroundImageSrc={getPlaceholderImage()}
-    foregroundColor="ui.white"
     heading={
       <Heading
         level="h1"
@@ -443,6 +442,7 @@ content.
       src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
     }}
     subHeaderText={otherSubHeaderText}
+    textColor="ui.white"
     textBackgroundColor="brand.primary"
     variant="campaign"
   />
@@ -454,18 +454,18 @@ content.
 
 By default, the `Hero` component renders a dark background color with light
 text. This color treatment can be overridden using a combination of the
-`foregroundColor`, `textBackgroundColor`, and `isDarkText` props.
+`textBackgroundColor`, `textColor`, and `isDarkText` props.
 
-- `foregroundColor`: custom color value for the text
 - `textBackgroundColor`: custom color value for the text background
+- `textColor`: custom color value for the text
 - `isDarkText`: used to render default dark color value for the text
 
 <Banner
   content={
     <>
-      <strong>IMPORTANT:</strong> The <code>foregroundColor</code> prop will
-      override the <code>isDarkText</code> prop, so they should not be used at
-      the same time.
+      <strong>IMPORTANT:</strong> The <code>textColor</code> prop will override
+      the <code>isDarkText</code> prop, so they should not be used at the same
+      time.
     </>
   }
   mt="s"
@@ -501,7 +501,6 @@ applies to all variants.
   code={`
   <Hero
     backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-    foregroundColor="ui.error.secondary"
     heading={
       <Heading
         level="h1"
@@ -512,6 +511,7 @@ applies to all variants.
     imageProps={imageProps}
     isDarkBackgroundImage
     subHeaderText={otherSubHeaderText}
+    textColor="ui.error.secondary"
     textBackgroundColor="ui.status.primary"
     variant="campaign"
   />

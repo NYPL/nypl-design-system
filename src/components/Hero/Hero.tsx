@@ -28,14 +28,19 @@ export interface HeroProps extends BoxProps {
   backdropBackgroundColor?: string;
   /** Optional color value used to override the default background color for a
    * given `Hero` variant.
+   *
    * Note: not all `Hero` variants utilize this prop. */
   backgroundColor?: string;
   /** Optional path to an image that will be used as a background image for the
    * `Hero` component.
+   *
    * Note: not all `Hero` variants utilize this prop. */
   backgroundImageSrc?: string;
-  /** Optional color value used to override the default text color for a given
+  /** **This prop has been deprecated in favor of the `textColor` prop.**
+   *
+   * Optional color value used to override the default text color for a given
    * `Hero` variant.
+   *
    * Note: not all `Hero` variants utilize this prop. */
   foregroundColor?: string;
   /** Optional heading element. */
@@ -47,7 +52,8 @@ export interface HeroProps extends BoxProps {
    * `imageProps.src`, it will only work for the "campaign" `Hero` type. */
   imageProps?: HeroImageProps;
   /** Optional boolean used to toggle the default text color from light to dark.
-   * Set isDarkText to `true` if the backgroundColor is set to a light color. */
+   * Set `isDarkText` to `true` if the `textBackgroundColor` is set to a light
+   * color. */
   isDarkText?: boolean;
   /** Optional boolean used to toggle the treatment of the background image in
    * the "campaign" variant. If true, the background image will be converted to
@@ -59,6 +65,12 @@ export interface HeroProps extends BoxProps {
   /** Optional color value used to override the default background color for a
    * text content area in a given `Hero` variant. */
   textBackgroundColor?: string;
+  /** Optional color value used to override the default text color for a given
+   * `Hero` variant. This prop should be used in lieu of the deprecated
+   * `foregroundColor` prop.
+   *
+   * Note: not all `Hero` variants utilize this prop. */
+  textColor?: string;
   /** Used to control how the `Hero` component will be rendered. */
   variant?: HeroVariants;
 }
@@ -88,11 +100,13 @@ export const Hero: ChakraComponent<
         isDarkBackgroundImage = false,
         subHeaderText,
         textBackgroundColor,
+        textColor,
         ...rest
       } = props;
       const styles = useMultiStyleConfig("Hero", {
         foregroundColor,
         isDarkText,
+        textColor,
         variant,
       });
       const headingStyles = styles.heading;
@@ -239,19 +253,19 @@ export const Hero: ChakraComponent<
               },
             };
       } else if (variant === "tertiary") {
-        const tertiaryBgColor = backgroundColor
-          ? backgroundColor
-          : defaultBackgroundColor;
-        backgroundImageStyle = backgroundColor
-          ? { bgColor: backgroundColor }
-          : { bgColor: tertiaryBgColor };
+        backgroundImageStyle =
+          backgroundColor || textBackgroundColor
+            ? { bgColor: backgroundColor || textBackgroundColor }
+            : { bgColor: defaultBackgroundColor };
       }
 
       /** The "tertiary" variant doesn't have an apparent content box, so that
        * element will default to a transparent background in the "teriary"
        * variant. */
       contentBoxStyling = {
-        ...(foregroundColor && { color: foregroundColor }),
+        ...((foregroundColor || textColor) && {
+          color: foregroundColor || textColor,
+        }),
         ...(textBackgroundColor
           ? { bgColor: textBackgroundColor }
           : {
@@ -265,6 +279,14 @@ export const Hero: ChakraComponent<
           "NYPL Reservoir Hero: The `foregroundColor` and `isDarkText` props " +
             "have both been passed. Thse props can not be used at the same time, " +
             "so the `foregroundColor` prop will override the `isDarkText` prop."
+        );
+      }
+
+      if (textColor && isDarkText) {
+        console.warn(
+          "NYPL Reservoir Hero: The `textColor` and `isDarkText` props " +
+            "have both been passed. Thse props can not be used at the same time, " +
+            "so the `textColor` prop will override the `isDarkText` prop."
         );
       }
 

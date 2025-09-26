@@ -75,6 +75,8 @@ const meta: Meta<typeof Hero> = {
     },
     isDarkText: { control: false },
     subHeaderText: { control: false },
+    textBackgroundColor: { control: false },
+    textColor: { control: false },
     variant: {
       control: { type: "select" },
       options: heroVariantsArray,
@@ -103,6 +105,8 @@ export const WithControls: Story = {
     isDarkBackgroundImage: undefined,
     isDarkText: undefined,
     subHeaderText: undefined,
+    textBackgroundColor: undefined,
+    textColor: undefined,
     variant: "primary",
   },
   render: (args) =>
@@ -317,7 +321,6 @@ export const TextBackgroundColor: Story = {
       <div>
         <Hero
           backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
-          foregroundColor="ui.white"
           heading={
             <Heading
               id="primary-hero"
@@ -328,12 +331,12 @@ export const TextBackgroundColor: Story = {
             />
           }
           textBackgroundColor="brand.primary"
+          textColor="ui.white"
           variant="primary"
         />
       </div>
       <div>
         <Hero
-          foregroundColor="ui.white"
           heading={
             <Heading
               level="h1"
@@ -345,13 +348,13 @@ export const TextBackgroundColor: Story = {
           }
           subHeaderText={otherSubHeaderText}
           textBackgroundColor="brand.primary"
+          textColor="ui.white"
           variant="tertiary"
         />
       </div>
       <div>
         <Hero
           backgroundImageSrc={getPlaceholderImage()}
-          foregroundColor="ui.white"
           heading={
             <Heading
               level="h1"
@@ -366,6 +369,7 @@ export const TextBackgroundColor: Story = {
           }}
           subHeaderText={otherSubHeaderText}
           textBackgroundColor="brand.primary"
+          textColor="ui.white"
           variant="campaign"
         />
       </div>
@@ -407,7 +411,6 @@ export const TextColorStyles: Story = {
         />
         <Hero
           backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-          foregroundColor="ui.error.secondary"
           heading={
             <Heading
               level="h1"
@@ -420,6 +423,7 @@ export const TextColorStyles: Story = {
           isDarkBackgroundImage
           subHeaderText={otherSubHeaderText}
           textBackgroundColor="ui.status.primary"
+          textColor="ui.error.secondary"
           variant="campaign"
         />
       </div>
