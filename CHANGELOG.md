@@ -18,6 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates padding around clearable X button to avoid overlap in `TextInput`.
 - Updates the `Hero` component to use the `textBackgroundColor` prop in lieu of the `backgroundColor` prop.
+- Updates the `Hero` component to use the `textColor` prop in lieu of the `foregroundColor` prop.
 
 ### Deprecates
 

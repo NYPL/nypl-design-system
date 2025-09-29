@@ -13,9 +13,12 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Documentation", "Functionality", "Styles"],
     notes: [
-      "Adds the `textBackgroundColor` prop to be used in lieu of the `backgroundColor` prop",
+      "Adds the `textBackgroundColor` and `textColor` props.",
+      "Updates to use the `textBackgroundColor` prop in lieu of the `backgroundColor` prop.",
+      "Updates to use the `textColor` prop in lieu of the `foregroundColor` prop.",
+      "Deprecates the `foregroundColor` prop.",
     ],
   },
   {
