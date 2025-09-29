@@ -10,6 +10,18 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: [
+      "Adds the `textBackgroundColor` and `textColor` props.",
+      "Updates to use the `textBackgroundColor` prop in lieu of the `backgroundColor` prop.",
+      "Updates to use the `textColor` prop in lieu of the `foregroundColor` prop.",
+      "Deprecates the `foregroundColor` prop.",
+    ],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",

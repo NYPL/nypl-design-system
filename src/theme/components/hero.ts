@@ -105,35 +105,39 @@ const getSecondaryVariantStyles = (bgColor: string = "") => {
     },
   };
 };
-export const getTextColor = (type, mode, foregroundColor, isDarkText) => {
+export const getTextColor = (props) => {
+  const { type, mode, foregroundColor, isDarkText, textColor } = props;
   const prefix = mode === "dark" ? "dark.ui." : "ui.";
-  const colorLight = foregroundColor
-    ? foregroundColor
+  const finalTextColor = textColor || foregroundColor;
+  const colorLight = finalTextColor
+    ? finalTextColor
     : isDarkText
     ? `${prefix}typography.${type}`
     : `${prefix}typography.inverse.${type}`;
-  const colorDark = foregroundColor
-    ? foregroundColor
+  const colorDark = finalTextColor
+    ? finalTextColor
     : isDarkText
     ? `${prefix}typography.inverse.${type}`
     : `${prefix}typography.${type}`;
   const finalColor = mode === "dark" ? colorDark : colorLight;
   return finalColor;
 };
-export const getLinkColor = (state, foregroundColor, isDarkText) => {
+export const getLinkColor = (props) => {
+  const { state, foregroundColor, isDarkText, textColor } = props;
+  const finalTextColor = textColor || foregroundColor;
   let finalColor;
   switch (state) {
     case "hover": {
-      finalColor = foregroundColor
-        ? foregroundColor
+      finalColor = finalTextColor
+        ? finalTextColor
         : isDarkText
         ? `var(--nypl-colors-ui-link-secondary) !important`
         : `dark.ui.link.secondary`; // light mode and dark mode should use the same value, so there is no need to differentiate based on color mode
       break;
     }
     case "visited": {
-      finalColor = foregroundColor
-        ? foregroundColor
+      finalColor = finalTextColor
+        ? finalTextColor
         : isDarkText
         ? `var(--nypl-colors-ui-link-tertiary) !important`
         : `dark.ui.link.tertiary`; // light mode and dark mode should use the same value, so there is no need to differentiate based on color mode
@@ -141,8 +145,8 @@ export const getLinkColor = (state, foregroundColor, isDarkText) => {
     }
     case "default":
     default:
-      finalColor = foregroundColor
-        ? foregroundColor
+      finalColor = finalTextColor
+        ? finalTextColor
         : isDarkText
         ? `var(--nypl-colors-ui-link-primary) !important`
         : `dark.ui.link.primary`; // light mode and dark mode should use the same value, so there is no need to differentiate based on color mode
@@ -150,52 +154,84 @@ export const getLinkColor = (state, foregroundColor, isDarkText) => {
   return finalColor;
 };
 // Variant styling
-const primary = definePartsStyle(({ foregroundColor, isDarkText }) => {
-  return {
-    base: {
-      alignItems: "center",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      display: "flex",
-      minHeight: "352px",
-      py: "l",
-    },
-    grid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(12, 1fr)",
-      gap: responsiveSpacing.gridGap,
-      margin: "auto",
-      maxWidth: "1280px",
-      px: { base: "l", md: "s" },
-    },
-    content: {
-      bg: "ui.black",
-      color: getTextColor("body", "light", foregroundColor, isDarkText),
-      gridColumn: { base: "1 / -1", md: "2 / 12", lg: "3 / 11" },
-      p: "l",
-      a: {
-        color: "inherit",
-        display: "inline-block",
+const primary = definePartsStyle(
+  ({ foregroundColor, isDarkText, textColor }) => {
+    return {
+      base: {
+        alignItems: "center",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "flex",
+        minHeight: "352px",
+        py: "l",
       },
-      bodyText: {
-        marginBottom: "0",
+      grid: {
+        display: "grid",
+        gridTemplateColumns: "repeat(12, 1fr)",
+        gap: responsiveSpacing.gridGap,
+        margin: "auto",
+        maxWidth: "1280px",
+        px: { base: "l", md: "s" },
       },
-      ".chakra-heading": {
-        color: getTextColor("heading", "light", foregroundColor, isDarkText),
-      },
-      _dark: {
-        bgColor: "dark.ui.bg.default",
-        color: getTextColor("body", "dark", foregroundColor, isDarkText),
+      content: {
+        bg: "ui.black",
+        color: getTextColor({
+          type: "body",
+          mode: "light",
+          foregroundColor,
+          isDarkText,
+          textColor,
+        }),
+        gridColumn: { base: "1 / -1", md: "2 / 12", lg: "3 / 11" },
+        p: "l",
+        a: {
+          color: "inherit",
+          display: "inline-block",
+        },
+        bodyText: {
+          marginBottom: "0",
+        },
         ".chakra-heading": {
-          color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+          color: getTextColor({
+            type: "heading",
+            mode: "light",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
+        },
+        _dark: {
+          bgColor: "dark.ui.bg.default",
+          color: getTextColor({
+            type: "body",
+            mode: "dark",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
+          ".chakra-heading": {
+            color: getTextColor({
+              type: "heading",
+              mode: "dark",
+              foregroundColor,
+              isDarkText,
+              textColor,
+            }),
+          },
         },
       },
-    },
-    heading: {
-      color: getTextColor("heading", "dark", foregroundColor, isDarkText),
-    },
-  };
-});
+      heading: {
+        color: getTextColor({
+          type: "heading",
+          mode: "dark",
+          foregroundColor,
+          isDarkText,
+          textColor,
+        }),
+      },
+    };
+  }
+);
 const secondary = getSecondaryVariantStyles();
 const secondaryBooksAndMore = getSecondaryVariantStyles(
   "section.books-and-more.primary"
@@ -209,152 +245,286 @@ const secondaryResearch = definePartsStyle(
 const secondaryWhatsOn = definePartsStyle(
   getSecondaryVariantStyles("section.whats-on.primary")
 );
-const tertiary = definePartsStyle(({ foregroundColor, isDarkText }) => ({
-  base: {
-    // Is this needed?
-    p: {
-      marginBottom: "0",
-    },
-  },
-  content: {
-    ...wrapperStyles,
-    color: getTextColor("body", "light", foregroundColor, isDarkText),
-    display: "flex",
-    flexFlow: "column nowrap",
-    px: responsiveSpacing.padding,
-    py: { base: "inset.default", xl: "inset.wide" },
-    a: {
-      color: getLinkColor("default", foregroundColor, isDarkText),
-      _hover: {
-        color: getLinkColor("hover", foregroundColor, isDarkText),
-      },
-      _visited: {
-        color: getLinkColor("visited", foregroundColor, isDarkText),
-        svg: {
-          fill: getLinkColor("visited", foregroundColor, isDarkText),
-        },
+const tertiary = definePartsStyle(
+  ({ foregroundColor, isDarkText, textColor }) => ({
+    base: {
+      // Is this needed?
+      p: {
+        marginBottom: "0",
       },
     },
-    p: {
-      marginBottom: "0",
-      marginTop: { base: "xxs", xl: "xs" },
-    },
-    ".chakra-heading": {
-      color: getTextColor("heading", "light", foregroundColor, isDarkText),
-    },
-    _dark: {
+    content: {
+      ...wrapperStyles,
+      color: getTextColor({
+        type: "body",
+        mode: "light",
+        foregroundColor,
+        isDarkText,
+        textColor,
+      }),
+      display: "flex",
+      flexFlow: "column nowrap",
+      px: responsiveSpacing.padding,
+      py: { base: "inset.default", xl: "inset.wide" },
       a: {
-        color: getLinkColor("default", foregroundColor, isDarkText),
+        color: getLinkColor({
+          stage: "default",
+          foregroundColor,
+          isDarkText,
+          textColor,
+        }),
         _hover: {
-          color: getLinkColor("hover", foregroundColor, isDarkText),
+          color: getLinkColor({
+            state: "hover",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
         },
         _visited: {
-          color: getLinkColor("visited", foregroundColor, isDarkText),
+          color: getLinkColor({
+            stage: "visited",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
           svg: {
-            fill: getLinkColor("visited", foregroundColor, isDarkText),
+            fill: getLinkColor({
+              state: "visited",
+              foregroundColor,
+              isDarkText,
+              textColor,
+            }),
           },
         },
       },
-      p: { color: getTextColor("body", "dark", foregroundColor, isDarkText) },
+      p: {
+        marginBottom: "0",
+        marginTop: { base: "xxs", xl: "xs" },
+      },
       ".chakra-heading": {
-        color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+        color: getTextColor({
+          type: "heading",
+          mode: "light",
+          foregroundColor,
+          isDarkText,
+          textColor,
+        }),
       },
-    },
-  },
-  heading: {
-    color: "ui.typography.inverse.heading",
-    marginBottom: "0",
-    _lastChild: {
-      marginBottom: "0",
-    },
-  },
-}));
-const campaign = definePartsStyle(({ foregroundColor, isDarkText }) => ({
-  base: {
-    alignItems: "center",
-    display: "flex",
-    justifyContent: "center",
-    padding: {
-      base: "inset.wide",
-      md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s)) var(--nypl-space-s) 0",
-    },
-    position: "relative",
-    a: {
-      color: "inherit",
-      display: "inline-block",
-    },
-    img: screenreaderOnly(),
-  },
-  content: {
-    alignItems: "stretch",
-    bg: "ui.black",
-    color: getTextColor("body", "light", foregroundColor, isDarkText),
-    display: "flex",
-    flexFlow: {
-      base: "column nowrap",
-      lg: "row nowrap",
-    },
-    minHeight: "320px",
-    flex: { md: "0 100%" },
-    maxWidth: { md: "1248px" },
-    position: { md: "relative" },
-    zIndex: 2,
-    a: {
-      color: getLinkColor("default", foregroundColor, isDarkText),
-      _hover: {
-        color: getLinkColor("hover", foregroundColor, isDarkText),
-      },
-      _visited: {
-        color: getLinkColor("visited", foregroundColor, isDarkText),
-        svg: {
-          fill: getLinkColor("visited", foregroundColor, isDarkText),
+      _dark: {
+        a: {
+          color: getLinkColor({
+            state: "default",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
+          _hover: {
+            color: getLinkColor({
+              state: "hover",
+              foregroundColor,
+              isDarkText,
+              textColor,
+            }),
+          },
+          _visited: {
+            color: getLinkColor({
+              state: "visited",
+              foregroundColor,
+              isDarkText,
+              textColor,
+            }),
+            svg: {
+              fill: getLinkColor({
+                state: "visited",
+                foregroundColor,
+                isDarkText,
+                textColor,
+              }),
+            },
+          },
+        },
+        p: {
+          color: getTextColor({
+            type: "body",
+            mode: "dark",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
+        },
+        ".chakra-heading": {
+          color: getTextColor({
+            type: "heading",
+            mode: "dark",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
         },
       },
     },
-    ".chakra-heading": {
-      color: getTextColor("heading", "light", foregroundColor, isDarkText),
+    heading: {
+      color: "ui.typography.inverse.heading",
+      marginBottom: "0",
+      _lastChild: {
+        marginBottom: "0",
+      },
     },
-    _dark: {
-      color: getTextColor("body", "dark", foregroundColor, isDarkText),
+  })
+);
+const campaign = definePartsStyle(
+  ({ foregroundColor, isDarkText, textColor }) => ({
+    base: {
+      alignItems: "center",
+      display: "flex",
+      justifyContent: "center",
+      padding: {
+        base: "inset.wide",
+        md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s)) var(--nypl-space-s) 0",
+      },
+      position: "relative",
       a: {
-        color: getLinkColor("default", foregroundColor, isDarkText),
+        color: "inherit",
+        display: "inline-block",
+      },
+      img: screenreaderOnly(),
+    },
+    content: {
+      alignItems: "stretch",
+      bg: "ui.black",
+      color: getTextColor({
+        type: "body",
+        mode: "light",
+        foregroundColor,
+        isDarkText,
+        textColor,
+      }),
+      display: "flex",
+      flexFlow: {
+        base: "column nowrap",
+        lg: "row nowrap",
+      },
+      minHeight: "320px",
+      flex: { md: "0 100%" },
+      maxWidth: { md: "1248px" },
+      position: { md: "relative" },
+      zIndex: 2,
+      a: {
+        color: getLinkColor({
+          state: "default",
+          foregroundColor,
+          isDarkText,
+          textColor,
+        }),
         _hover: {
-          color: getLinkColor("hover", foregroundColor, isDarkText),
+          color: getLinkColor({
+            state: "hover",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
         },
         _visited: {
-          color: getLinkColor("visited", foregroundColor, isDarkText),
+          color: getLinkColor({
+            state: "visited",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
           svg: {
-            fill: getLinkColor("visited", foregroundColor, isDarkText),
+            fill: getLinkColor({
+              state: "visited",
+              foregroundColor,
+              isDarkText,
+              textColor,
+            }),
           },
         },
       },
       ".chakra-heading": {
-        color: getTextColor("heading", "dark", foregroundColor, isDarkText),
+        color: getTextColor({
+          type: "heading",
+          mode: "light",
+          foregroundColor,
+          isDarkText,
+          textColor,
+        }),
+      },
+      _dark: {
+        color: getTextColor({
+          ype: "body",
+          mode: "dark",
+          foregroundColor,
+          isDarkText,
+          textColor,
+        }),
+        a: {
+          color: getLinkColor({
+            state: "default",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
+          _hover: {
+            color: getLinkColor({
+              state: "hover",
+              foregroundColor,
+              isDarkText,
+              textColor,
+            }),
+          },
+          _visited: {
+            color: getLinkColor({
+              state: "visited",
+              foregroundColor,
+              isDarkText,
+              textColor,
+            }),
+            svg: {
+              fill: getLinkColor({
+                state: "visited",
+                foregroundColor,
+                isDarkText,
+                textColor,
+              }),
+            },
+          },
+        },
+        ".chakra-heading": {
+          color: getTextColor({
+            type: "heading",
+            mode: "dark",
+            foregroundColor,
+            isDarkText,
+            textColor,
+          }),
+        },
       },
     },
-  },
-  heading: {
-    color: "ui.typography.inverse.heading",
-  },
-  imgWrapper: {
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    minHeight: "230px",
-    width: {
-      base: "100%",
-      lg: "50%",
+    heading: {
+      color: "ui.typography.inverse.heading",
     },
-  },
-  interior: {
-    alignSelf: "center",
-    maxWidth: { md: "960px" },
-    padding: "inset.wide",
-    width: {
-      base: "100%",
-      lg: "50%",
+    imgWrapper: {
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      minHeight: "230px",
+      width: {
+        base: "100%",
+        lg: "50%",
+      },
     },
-  },
-}));
+    interior: {
+      alignSelf: "center",
+      maxWidth: { md: "960px" },
+      padding: "inset.wide",
+      width: {
+        base: "100%",
+        lg: "50%",
+      },
+    },
+  })
+);
 const fiftyFifty = definePartsStyle({
   base: {
     img: screenreaderOnly(),
