@@ -12,11 +12,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `"contentCopy"` option to the `Icon` component.
 - Adds the `Voice` section to the `Style Guide`.
-- Adds the `textColor` prop to the `Hero` component.
+- Adds the `textBackgroundColor` and `textColor` props to the `Hero` component.
 
 ### Updates
 
 - Updates padding around clearable X button to avoid overlap in `TextInput`.
+- Updates the `Hero` component to use the `textBackgroundColor` prop in lieu of the `backgroundColor` prop.
 
 ### Deprecates
 
@@ -42,7 +43,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `MultiSelect` view for options that have an item count number.
-- Updates the `Hero` component to add the `textBackgroundColor` prop to be used in lieu of the `backgroundColor` prop,
 
 ## 4.0.0 (August 11, 2025)
 
