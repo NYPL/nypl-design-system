@@ -263,8 +263,8 @@ export const Hero: ChakraComponent<
        * element will default to a transparent background in the "teriary"
        * variant. */
       contentBoxStyling = {
-        ...((foregroundColor || textColor) && {
-          color: foregroundColor || textColor,
+        ...((textColor || foregroundColor) && {
+          color: textColor || foregroundColor,
         }),
         ...(textBackgroundColor
           ? { bgColor: textBackgroundColor }
