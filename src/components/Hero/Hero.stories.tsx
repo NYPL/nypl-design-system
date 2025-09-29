@@ -64,9 +64,9 @@ const meta: Meta<typeof Hero> = {
   title: "Components/Basic Elements/Hero",
   component: Hero,
   argTypes: {
-    backdropBackgroundColor: { control: false },
-    backgroundColor: { control: false },
-    foregroundColor: { control: false },
+    backdropBackgroundColor: { control: { type: "color" } },
+    backgroundColor: { control: { type: "color" } },
+    foregroundColor: { control: { type: "color" } },
     heading: { control: false },
     imageProps: { control: false },
     isDarkBackgroundImage: {
@@ -75,8 +75,8 @@ const meta: Meta<typeof Hero> = {
     },
     isDarkText: { control: false },
     subHeaderText: { control: false },
-    textBackgroundColor: { control: false },
-    textColor: { control: false },
+    textBackgroundColor: { control: { type: "color" } },
+    textColor: { control: { type: "color" } },
     variant: {
       control: { type: "select" },
       options: heroVariantsArray,

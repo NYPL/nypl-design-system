@@ -254,8 +254,8 @@ export const Hero: ChakraComponent<
             };
       } else if (variant === "tertiary") {
         backgroundImageStyle =
-          backgroundColor || textBackgroundColor
-            ? { bgColor: backgroundColor || textBackgroundColor }
+          textBackgroundColor || backgroundColor
+            ? { bgColor: textBackgroundColor || backgroundColor }
             : { bgColor: defaultBackgroundColor };
       }
 
