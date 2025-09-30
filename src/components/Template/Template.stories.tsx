@@ -408,7 +408,7 @@ export const NarrowExample = {
           />
           <Hero
             backgroundColor="section.research.primary"
-            foregroundColor="ui.white"
+            textColor="ui.white"
             variant="tertiary"
             heading={<Heading level="h1" id="1" text="Narrow content" />}
           />

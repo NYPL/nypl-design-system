@@ -64,17 +64,22 @@ const meta: Meta<typeof Hero> = {
   title: "Components/Basic Elements/Hero",
   component: Hero,
   argTypes: {
-    backdropBackgroundColor: { control: false },
-    backgroundColor: { control: false },
-    foregroundColor: { control: false },
+    backdropBackgroundColor: { control: { type: "color" } },
+    backgroundColor: { control: { type: "color" } },
+    foregroundColor: { control: { type: "color" } },
     heading: { control: false },
     imageProps: { control: false },
     isDarkBackgroundImage: {
       control: { type: "boolean" },
       table: { defaultValue: { summary: "false" } },
     },
-    isDarkText: { control: false },
+    isDarkText: {
+      control: { type: "boolean" },
+      table: { defaultValue: { summary: "false" } },
+    },
     subHeaderText: { control: false },
+    textBackgroundColor: { control: { type: "color" } },
+    textColor: { control: { type: "color" } },
     variant: {
       control: { type: "select" },
       options: heroVariantsArray,
@@ -103,6 +108,8 @@ export const WithControls: Story = {
     isDarkBackgroundImage: undefined,
     isDarkText: undefined,
     subHeaderText: undefined,
+    textBackgroundColor: undefined,
+    textColor: undefined,
     variant: "primary",
   },
   render: (args) =>
@@ -274,7 +281,6 @@ export const Campaign: Story = {
     </Stack>
   ),
 };
-
 export const CampaignDarkBackgroundImage: Story = {
   render: () => (
     <Hero
@@ -296,52 +302,78 @@ export const CampaignDarkBackgroundImage: Story = {
 };
 export const CampaignBackgroundColors: Story = {
   render: () => (
+    <Hero
+      backdropBackgroundColor="section.research.primary"
+      variant="campaign"
+      heading={
+        <Heading
+          level="h1"
+          id="campaign-hero-long-text-heading"
+          mb="s"
+          text="Hero Campaign"
+        />
+      }
+      imageProps={imageProps}
+      subHeaderText={otherSubHeaderTextLong}
+    />
+  ),
+};
+export const TextBackgroundColor: Story = {
+  render: () => (
     <Stack spacing="l">
       <div>
-        <Heading
-          id="campaign-hero-custom-background-color"
-          level="h4"
-          mb="s"
-          size="heading6"
-          text="Campaign Hero with backdrop background color"
-        />
         <Hero
-          backdropBackgroundColor="section.research.primary"
-          variant="campaign"
+          backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
           heading={
             <Heading
+              id="primary-hero"
               level="h1"
-              id="campaign-hero-long-text-heading"
-              mb="s"
-              text="Hero Campaign"
+              overline="Hero Example"
+              subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
+              text="Hero Primary"
             />
           }
-          imageProps={imageProps}
-          subHeaderText={otherSubHeaderTextLong}
+          textBackgroundColor="brand.primary"
+          textColor="ui.white"
+          variant="primary"
         />
       </div>
       <div>
-        <Heading
-          id="campaign-hero-custom-background-and-foreground-colors"
-          mb="s"
-          size="heading6"
-          text="Campaign Hero with separate backdrop and foreground background design token color"
-        />
         <Hero
-          backdropBackgroundColor="section.education.primary"
-          backgroundColor="ui.warning.primary"
-          foregroundColor="ui.typography.heading"
-          variant="campaign"
           heading={
             <Heading
               level="h1"
-              id="campaign-hero-long-text-heading"
-              mb="s"
-              text="Hero Campaign"
+              id="tertiary-hero-subtitle-subheading"
+              size="heading2"
+              subtitle="This is the subtitle"
+              text="Hero Tertiary with Subtitle & Sub-Heading"
             />
           }
-          imageProps={imageProps}
-          subHeaderText={otherSubHeaderTextLong}
+          subHeaderText={otherSubHeaderText}
+          textBackgroundColor="brand.primary"
+          textColor="ui.white"
+          variant="tertiary"
+        />
+      </div>
+      <div>
+        <Hero
+          backgroundImageSrc={getPlaceholderImage()}
+          heading={
+            <Heading
+              level="h1"
+              id="campaign-hero-default-heading"
+              text="Hero Campaign"
+              mb="s"
+            />
+          }
+          imageProps={{
+            alt: "",
+            src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
+          }}
+          subHeaderText={otherSubHeaderText}
+          textBackgroundColor="brand.primary"
+          textColor="ui.white"
+          variant="campaign"
         />
       </div>
     </Stack>
@@ -355,11 +387,10 @@ export const TextColorStyles: Story = {
           id="campaign-hero-default"
           mb="s"
           size="heading6"
-          text="Campaign Hero with Default Colors"
+          text="Default Colors"
         />
         <Hero
           backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-          variant="campaign"
           heading={
             <Heading
               level="h1"
@@ -371,6 +402,7 @@ export const TextColorStyles: Story = {
           imageProps={imageProps}
           isDarkBackgroundImage
           subHeaderText={otherSubHeaderText}
+          variant="campaign"
         />
       </div>
       <div>
@@ -378,13 +410,10 @@ export const TextColorStyles: Story = {
           id="campaign-hero-default"
           mb="s"
           size="heading6"
-          text="Campaign Hero with Custom Background and Text Colors"
+          text="Custom Background and Text Colors"
         />
         <Hero
-          backgroundColor="ui.status.primary"
           backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-          foregroundColor="ui.error.secondary"
-          variant="campaign"
           heading={
             <Heading
               level="h1"
@@ -396,6 +425,9 @@ export const TextColorStyles: Story = {
           imageProps={imageProps}
           isDarkBackgroundImage
           subHeaderText={otherSubHeaderText}
+          textBackgroundColor="ui.status.primary"
+          textColor="ui.error.secondary"
+          variant="campaign"
         />
       </div>
       <div>
@@ -403,12 +435,10 @@ export const TextColorStyles: Story = {
           id="campaign-hero-long-text"
           mb="s"
           size="heading6"
-          text='Campaign Hero with Custom Background Color and "Dark" Text'
+          text='Custom Background Color and Default "dark" Text'
         />
         <Hero
-          backgroundColor="ui.status.primary"
           backgroundImageSrc="https://images.nypl.org/index.php?id=swope_244712&t=w"
-          variant="campaign"
           heading={
             <Heading
               level="h1"
@@ -421,12 +451,13 @@ export const TextColorStyles: Story = {
           isDarkBackgroundImage
           isDarkText
           subHeaderText={otherSubHeaderTextLong}
+          textBackgroundColor="ui.status.primary"
+          variant="campaign"
         />
       </div>
     </Stack>
   ),
 };
-
 const CampaignFallBackExample = () => {
   const [imageSrc, setImageSrc] = useState("foobar.jpg");
   const fallbackImageSrc =

@@ -38,7 +38,7 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
   data-testid="ds-hero"
 >
   <div
-    className="css-14tngpx"
+    className="css-0"
     data-testid="ds-hero-content"
   >
     <h1

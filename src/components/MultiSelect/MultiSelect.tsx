@@ -3,7 +3,6 @@ import {
   BoxProps,
   chakra,
   ChakraComponent,
-  Flex,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, useEffect, useRef, useState } from "react";
@@ -310,13 +309,12 @@ export const MultiSelect: ChakraComponent<
       const getItemLabelText = (
         item: MultiSelectItem
       ): string | JSX.Element => {
-        return item.itemCount >= 0 ? (
-          <Flex gap="s" justify="space-between">
-            <Box>{item.name}</Box>
-            <Box>{item.itemCount}</Box>
-          </Flex>
-        ) : (
-          item.name
+        const displayItemCount = !!(item.itemCount >= 0);
+        return (
+          <Box>
+            {item.name}
+            {displayItemCount && ` (${item.itemCount})`}
+          </Box>
         );
       };
 

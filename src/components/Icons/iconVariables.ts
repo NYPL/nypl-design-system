@@ -141,6 +141,7 @@ export const iconNamesArray = [
   "communicationCall",
   "communicationChatBubble",
   "communicationEmail",
+  "contentCopy",
   "contentFilterList",
   "decorativeBookBroken",
   "decorativeEnvelope",
