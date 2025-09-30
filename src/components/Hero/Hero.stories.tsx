@@ -73,7 +73,10 @@ const meta: Meta<typeof Hero> = {
       control: { type: "boolean" },
       table: { defaultValue: { summary: "false" } },
     },
-    isDarkText: { control: false },
+    isDarkText: {
+      control: { type: "boolean" },
+      table: { defaultValue: { summary: "false" } },
+    },
     subHeaderText: { control: false },
     textBackgroundColor: { control: { type: "color" } },
     textColor: { control: { type: "color" } },
