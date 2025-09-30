@@ -28,6 +28,7 @@ import building from "../../../icons/svg/building.svg";
 import communicationCall from "../../../icons/svg/communication-call.svg";
 import communicationChatBubble from "../../../icons/svg/communication-chat-bubble.svg";
 import communicationEmail from "../../../icons/svg/communication-email.svg";
+import contentCopy from "../../../icons/svg/content-copy.svg";
 import contentFilterList from "../../../icons/svg/content-filter-list.svg";
 import check from "../../../icons/svg/check.svg";
 import clock from "../../../icons/svg/clock.svg";
@@ -116,6 +117,7 @@ export default {
   communicationCall,
   communicationChatBubble,
   communicationEmail,
+  contentCopy,
   contentFilterList,
   decorativeBookBroken,
   decorativeEnvelope,

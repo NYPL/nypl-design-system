@@ -8,6 +8,24 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.0.2 (September 30, 2025)
+
+### Adds
+
+- Adds the `"contentCopy"` option to the `Icon` component.
+- Adds the `Voice` section to the `Style Guide`.
+- Adds the `textBackgroundColor` and `textColor` props to the `Hero` component.
+
+### Updates
+
+- Updates padding around clearable X button to avoid overlap in `TextInput`.
+- Updates the `Hero` component to use the `textBackgroundColor` prop in lieu of the `backgroundColor` prop.
+- Updates the `Hero` component to use the `textColor` prop in lieu of the `foregroundColor` prop.
+
+### Deprecates
+
+- Deprecates the `foregroundColor` prop in the `Hero` component.
+
 ## 4.0.1 (September 11, 2025)
 
 ### Adds
@@ -18,11 +36,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Makes small updates to v4 Migration Guide for clarity.
+- Updates the image references in the `Using Next.js Image` Development Guide and the `Responsive Grid` Style Guide.
 
 ### Fixes
 
 - Fixes the spacing for the label in the `MultiSelectGroup` component.
 - Fixes a spacing issue seen in the `TemplateBreakout` component by changing how internal padding is applied to the `TemplateContent`, `TemplateFull`, `TemplateMain`, and `TemplateSidebar` components.
+
+### Updates
+
+- Updates the `MultiSelect` view for options that have an item count number.
 
 ## 4.0.0 (August 11, 2025)
 

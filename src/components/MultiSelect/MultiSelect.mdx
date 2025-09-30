@@ -19,7 +19,7 @@ import { changelogData } from "./multiSelectChangelogData";
   componentName="MultiSelect"
   summary="Grouping of related checkboxes rendered in a menu format that allows a user to select one or more options"
   versionAdded="1.4.0"
-  versionLatest="4.0.0"
+  versionLatest="4.0.2"
 />
 
 <Canvas of={MultiSelectStories.withControls} />
@@ -500,7 +500,7 @@ by passing the `itemCount` data property to the `items` prop.
     <>
       <strong>RECOMMENDATION:</strong> When the <code>itemCount</code> data
       property is set as 0, the <code>isDisabled</code> data property should be
-      used to disable the option.
+      set to <code>true</code> to disable the option.
     </>
   }
   variant="recommendation"
