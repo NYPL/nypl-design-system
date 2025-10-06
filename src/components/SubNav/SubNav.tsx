@@ -6,6 +6,7 @@ import {
   useMultiStyleConfig,
   Flex,
   BoxProps,
+  As,
 } from "@chakra-ui/react";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
@@ -50,6 +51,7 @@ interface SubNavItemProps {
 
 interface SubNavLinkProps extends SubNavItemProps {
   href: string;
+  as?: As;
 }
 
 interface SubNavButtonProps extends SubNavItemProps {
@@ -88,6 +90,7 @@ export const SubNavButton: React.FC<
 };
 
 export const SubNavLink: React.FC<React.PropsWithChildren<SubNavLinkProps>> = ({
+  as = "a",
   id,
   children,
   isOutlined,
@@ -111,6 +114,7 @@ export const SubNavLink: React.FC<React.PropsWithChildren<SubNavLinkProps>> = ({
         screenreaderOnlyText={screenreaderOnlyText}
         type="action"
         sx={childrenStyles.outLine}
+        as={as}
       >
         {children}
       </Link>
