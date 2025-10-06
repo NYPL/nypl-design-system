@@ -6,8 +6,8 @@ import {
   useMultiStyleConfig,
   Flex,
   BoxProps,
-  As,
 } from "@chakra-ui/react";
+import type { As } from "@chakra-ui/react";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
 import List from "../List/List";
