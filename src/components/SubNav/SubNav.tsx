@@ -7,7 +7,6 @@ import {
   Flex,
   BoxProps,
 } from "@chakra-ui/react";
-import type { As } from "@chakra-ui/react";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
 import List from "../List/List";
@@ -49,9 +48,8 @@ interface SubNavItemProps {
   screenreaderOnlyText?: string;
 }
 
-interface SubNavLinkProps extends SubNavItemProps {
+interface SubNavLinkProps extends SubNavItemProps, Pick<BoxProps, "as"> {
   href: string;
-  as?: As;
 }
 
 interface SubNavButtonProps extends SubNavItemProps {
