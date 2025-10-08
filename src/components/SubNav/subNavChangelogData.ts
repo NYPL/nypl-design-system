@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-10-08",
+    version: "4.0.3",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: ["Adds `as` prop to `SubNavLink`."],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",
