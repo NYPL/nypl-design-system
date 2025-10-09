@@ -48,7 +48,7 @@ interface SubNavItemProps {
   screenreaderOnlyText?: string;
 }
 
-interface SubNavLinkProps extends SubNavItemProps {
+interface SubNavLinkProps extends SubNavItemProps, Pick<BoxProps, "as"> {
   href: string;
 }
 
@@ -88,6 +88,7 @@ export const SubNavButton: React.FC<
 };
 
 export const SubNavLink: React.FC<React.PropsWithChildren<SubNavLinkProps>> = ({
+  as = "a",
   id,
   children,
   isOutlined,
@@ -111,6 +112,7 @@ export const SubNavLink: React.FC<React.PropsWithChildren<SubNavLinkProps>> = ({
         screenreaderOnlyText={screenreaderOnlyText}
         type="action"
         sx={childrenStyles.outLine}
+        as={as}
       >
         {children}
       </Link>

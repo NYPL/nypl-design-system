@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.0.3 (October 8, 2025)
+
+### Adds
+
+- Adds `as` prop to `SubNavLink`.
+
 ## 4.0.2 (September 30, 2025)
 
 ### Adds

@@ -21,7 +21,7 @@ import { changelogData } from "./subNavChangelogData";
   componentName="SubNav"
   summary="Renders a group of secondary navigation and action items"
   versionAdded="3.5.0"
-  versionLatest="4.0.0"
+  versionLatest="4.0.3"
 />
 
 <Canvas of={SubNavStories.WithControls} />
@@ -100,6 +100,22 @@ the DS `Button` and `Link` components, respectively, with the addition of the
 />
 
 ### SubNavLink
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> <code>SubNavLink</code>s can also use a custom link
+      component passed in the <code>as</code> prop– see{" "}
+      <a href="./?path=/docs/components-navigation-link--docs#link-with-routers">
+        Link with routers
+      </a>
+      .
+    </>
+  }
+  mt="s"
+  mb="s"
+  variant="informative"
+/>
 
 <Source
   code={`
