@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `Images in Cards` section to the `Style Guide`.
+
 ## 4.0.3 (October 8, 2025)
 
 ### Adds
