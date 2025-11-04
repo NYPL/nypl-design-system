@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Remove New Arrivals as part of its deprecation.
+- Removes New Arrivals as part of its deprecation.
 
 ## 4.0.3 (October 8, 2025)
 
