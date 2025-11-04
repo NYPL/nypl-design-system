@@ -38,7 +38,7 @@ const global = {
       _focus: activeFocus(),
     },
   },
-  "[href], [contentEditable='true']": {
+  "iframe, [href], [tabindex], [contentEditable='true']": {
     _focus: activeFocus(),
   },
   // p: textMargin,
