@@ -532,7 +532,7 @@ const colors: Colors = {
     blogs: blogsObj.light,
 
     /** Books and More is used for the Catalog, Staff Picks, Recommendations,
-     * New Arrivals, and E-Book Central. */
+     * and E-Book Central. */
     "books-and-more": booksAndMoreObj.light,
 
     /** Connect is used for the Connect and Get Help section fronts. */
