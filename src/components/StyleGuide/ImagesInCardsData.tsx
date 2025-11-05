@@ -5,7 +5,7 @@ import { getPlaceholderImage } from "../../utils/utils";
 export const ImageExample = (props) => {
   const {
     aspectRatio = "square",
-    backgroundColor = "#121212",
+    backgroundColor = "var(--nypl-colors-ui-bg-default)",
     border = "1px solid #333",
     src = getPlaceholderImage(),
     isCropped = false,
