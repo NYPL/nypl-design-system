@@ -8,7 +8,7 @@ const customFocusColor = (focusColor, focusColorDark) => ({
   outline: "2px solid",
   outlineOffset: "2px",
   outlineColor: focusColor,
-  // zIndex: "9999",
+  zIndex: "9999",
   _dark: {
     outlineColor: focusColorDark,
   },
@@ -19,6 +19,7 @@ const activeFocus = (darkMode = false) => ({
   outline: "2px solid",
   outlineOffset: "2px",
   outlineColor: darkMode ? "dark.ui.focus" : "ui.focus",
+  zIndex: "9999",
   _dark: {
     outlineColor: "dark.ui.focus",
   },
