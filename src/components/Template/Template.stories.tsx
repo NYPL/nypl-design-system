@@ -393,10 +393,8 @@ export const FullExample: Story = {
 export const NarrowExample = () => {
   const modeResponsiveHeroColors = {
     bgColor: "section.research.primary",
-    // borderColor: "ui.border.default",
     _dark: {
       bgColor: "dark.section.research.primary",
-      // borderColor: "dark.ui.border.default",
     },
   };
   return (
