@@ -299,11 +299,11 @@ export const FullExample: Story = {
             </TemplateSidebar>
           )}
           <TemplateContent>
-            <p>This is the content area!</p>
+            <Text mb="s">This is the content area!</Text>
             <Accordion accordionData={faqContentData} />
-            <HorizontalRule />
-            <p>Fill out the form!</p>
-            <Form action="/end/point" id="form1">
+            <HorizontalRule my="l" />
+            <Text mb="s">Fill out the form!</Text>
+            <Form action="/end/point" id="form1" mb="l">
               <FormField>
                 <TextInput
                   helperText="Make sure to complete this field."
@@ -390,8 +390,16 @@ export const FullExample: Story = {
   },
 };
 
-export const NarrowExample = {
-  render: () => (
+export const NarrowExample = () => {
+  const modeResponsiveHeroColors = {
+    bgColor: "section.research.primary",
+    // borderColor: "ui.border.default",
+    _dark: {
+      bgColor: "dark.section.research.primary",
+      // borderColor: "dark.ui.border.default",
+    },
+  };
+  return (
     <>
       <Template variant="narrow">
         <TemplateBreakout>
@@ -407,10 +415,10 @@ export const NarrowExample = {
             variant="research"
           />
           <Hero
-            backgroundColor="section.research.primary"
             textColor="ui.white"
             variant="tertiary"
             heading={<Heading level="h1" id="1" text="Narrow content" />}
+            {...modeResponsiveHeroColors}
           />
         </TemplateBreakout>
         <TemplateMain>
@@ -423,12 +431,13 @@ export const NarrowExample = {
           </TemplateFull>
           <TemplateContent>
             <Heading
-              level="h2"
-              size="heading3"
               id="main-heading"
+              level="h2"
+              mb="s"
+              size="heading3"
               text="Content narrow"
             />
-            <p>
+            <Text mb="l">
               Discover millions of items from The New York Public Library's
               Stephen A. Schwarzman Building, Schomburg Center for Research in
               Black Culture, and The New York Public Library for the Performing
@@ -441,7 +450,7 @@ export const NarrowExample = {
               all of our Scan & Deliver options or the Columbia University,
               Harvard University, and Princeton University material from the
               Shared Collection.
-            </p>
+            </Text>
             <Accordion accordionData={faqContentData} />
           </TemplateContent>
           <TemplateFull>
@@ -454,7 +463,7 @@ export const NarrowExample = {
         </TemplateMain>
       </Template>
     </>
-  ),
+  );
 };
 
 export const FeaturedContentExample = {
@@ -531,6 +540,14 @@ export const FeaturedContentExample = {
 };
 
 export const ComplexExample = () => {
+  const modeResponsiveColors = {
+    bgColor: "ui.bg.default",
+    borderColor: "ui.border.default",
+    _dark: {
+      bgColor: "dark.ui.bg.default",
+      borderColor: "dark.ui.border.default",
+    },
+  };
   return (
     <>
       <SkipNavigation target="#skip-to" />
@@ -611,7 +628,7 @@ export const ComplexExample = () => {
           />
         </TemplateHeader>
 
-        <TemplateFull bg="ui.bg.default">
+        <TemplateFull {...modeResponsiveColors}>
           <Box
             margin="auto"
             maxWidth="1280px"
@@ -711,9 +728,9 @@ export const ComplexExample = () => {
 
           <TemplateBreakout>
             <Box
-              bgColor="ui.bg.default"
               py={responsiveSpacing.padding}
               width="100%"
+              {...modeResponsiveColors}
             >
               <Box
                 margin="auto"
@@ -893,7 +910,7 @@ export const ComplexExample = () => {
           </TemplateFull>
         </TemplateMain>
 
-        <TemplateFull bg="ui.bg.default">
+        <TemplateFull {...modeResponsiveColors}>
           <Box
             margin="auto"
             maxWidth="1280px"
@@ -907,10 +924,7 @@ export const ComplexExample = () => {
           </Box>
         </TemplateFull>
 
-        <TemplateFooter
-          bg="ui.bg.default"
-          borderTop="1px solid var(--nypl-colors-ui-border-default)"
-        >
+        <TemplateFooter borderTop="1px solid" {...modeResponsiveColors}>
           <Box
             margin="auto"
             maxWidth="1280px"
