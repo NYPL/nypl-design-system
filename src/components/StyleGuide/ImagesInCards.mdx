@@ -10,6 +10,8 @@ import {
   cardThreeByFour,
   cardTwoByOne,
   CardExample,
+  cardsIllustrative,
+  cardsInformational,
 } from "./ImagesInCardsData";
 
 <Meta title="Style Guide/Images in Cards" />
@@ -89,44 +91,7 @@ Staff Picks, Accessibility at NYPL, or Babies &amp; Toddlers reading programs.
 An illustrative image rendered in a UI card should be cropped so the image fills
 the card's entire image footprint.
 
-<SimpleGrid columns="4" mt="s">
-  <CardExample
-    description="Voluptatibus non explicabo enim  est similique aspernatur."
-    imageProps={{
-      aspectRatio: "twoByOne",
-      border: "0",
-      isCropped: true,
-    }}
-    title="Baby books"
-  />
-  <CardExample
-    description="Distinctio impedit est velit quos blanditiis voluptatem molestias."
-    imageProps={{
-      aspectRatio: "twoByOne",
-      border: "0",
-      isCropped: true,
-    }}
-    title="Kid books"
-  />
-  <CardExample
-    description="Magnam qui doloribus officiis et neque quia nihil voluptate sed quia iusto."
-    imageProps={{
-      aspectRatio: "twoByOne",
-      border: "0",
-      isCropped: true,
-    }}
-    title="Teen books"
-  />
-  <CardExample
-    description="Vel illum nihil maxime et atque odio nobis iusto."
-    imageProps={{
-      aspectRatio: "twoByOne",
-      border: "0",
-      isCropped: true,
-    }}
-    title="Adult books"
-  />
-</SimpleGrid>
+{cardsIllustrative}
 
 For additional examples, please see the <Link href="https://nypl-ds-test-app.vercel.app/fullPages/nextjs-custom-image-component" variant="external">"Cropped" image examples on the Turbine test site</Link>.
 
@@ -155,39 +120,6 @@ content.
   variant="recommendation"
 />
 
-<SimpleGrid columns="4" mt="s">
-  <CardExample
-    description="Commodi voluptas consequuntur vitae sint ut sint."
-    imageProps={{
-      border: "0",
-      src: "https://secure.syndetics.com/index.aspx?isbn=9780399558184/lc.gif&client=nyplvega&type=unbound",
-    }}
-    title="Look! I Wrote a Book!"
-  />
-  <CardExample
-    description="Non rerum at aspernatur ut magnam ab suscipit delectus."
-    imageProps={{
-      border: "0",
-      src: "https://secure.syndetics.com/index.aspx?isbn=9780525579649/lc.gif&client=nyplvega&type=unbound",
-    }}
-    title="All Are Welcome"
-  />
-  <CardExample
-    description="Minus rerum aliquam fugiat quos ratione maiores ipsa et omnis."
-    imageProps={{
-      border: "0",
-      src: "https://secure.syndetics.com/index.aspx?isbn=9781524719371/lc.gif&client=nyplvega&type=unbound",
-    }}
-    title="The Cardboard Kingdom"
-  />
-  <CardExample
-    description="Nihil impedit qui tempora cumque illo porro voluptate quidem voluptas et."
-    imageProps={{
-      border: "0",
-      src: "https://secure.syndetics.com/index.aspx?isbn=9780670479580/lc.gif&client=nyplvega&type=unbound",
-    }}
-    title="Miss Rumphius"
-  />
-</SimpleGrid>
+{cardsInformational}
 
 For additional examples, please see the <Link href="https://nypl-ds-test-app.vercel.app/fullPages/nextjs-custom-image-component" variant="external">"Contained" image examples on the Turbine test site</Link>.

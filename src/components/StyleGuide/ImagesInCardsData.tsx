@@ -1,54 +1,7 @@
 import Card, { CardHeading, CardContent } from "../Card/Card";
-import { Box } from "@chakra-ui/react";
+import ImageExample from "../../utils/ImageExample";
+import SimpleGrid from "../Grid/SimpleGrid";
 import { getPlaceholderImage } from "../../utils/utils";
-
-export const ImageExample = (props) => {
-  const {
-    aspectRatio = "square",
-    backgroundColor = "var(--nypl-colors-ui-bg-default)",
-    border = "1px solid #333",
-    src = getPlaceholderImage(),
-    isCropped = false,
-  } = props;
-  const aspectRatioValues = {
-    fourByOne: "25%",
-    twoByOne: "50%",
-    sixteenByNine: "56.25%",
-    fourByThree: "75%",
-    oneByOne: "100%",
-    square: "100%",
-    oneByTwo: "200%",
-  };
-  return (
-    <Box>
-      <Box
-        style={{
-          background: backgroundColor,
-          border: border,
-          position: "relative",
-          paddingBottom: aspectRatioValues[aspectRatio],
-        }}
-      >
-        <Box
-          as="img"
-          alt=""
-          src={src}
-          style={{
-            position: "absolute",
-            height: "100%",
-            width: "100%",
-            left: "0",
-            top: "0",
-            right: "0",
-            bottom: "0",
-            objectFit: isCropped ? "cover" : "contain",
-            color: "transparent",
-          }}
-        />
-      </Box>
-    </Box>
-  );
-};
 
 export const CardExample = (props) => {
   const {
@@ -144,4 +97,86 @@ export const cardThreeByFour = (
       aliquam.
     </CardContent>
   </Card>
+);
+
+export const cardsIllustrative = (
+  <SimpleGrid columns={4} mt="s">
+    <CardExample
+      description="Voluptatibus non explicabo enim  est similique aspernatur."
+      imageProps={{
+        aspectRatio: "twoByOne",
+        border: "0",
+        isCropped: true,
+        src: getPlaceholderImage(),
+      }}
+      title="Baby books"
+    />
+    <CardExample
+      description="Distinctio impedit est velit quos blanditiis voluptatem molestias."
+      imageProps={{
+        aspectRatio: "twoByOne",
+        border: "0",
+        isCropped: true,
+        src: getPlaceholderImage(),
+      }}
+      title="Kid books"
+    />
+    <CardExample
+      description="Magnam qui doloribus officiis et neque quia nihil voluptate sed quia iusto."
+      imageProps={{
+        aspectRatio: "twoByOne",
+        border: "0",
+        isCropped: true,
+        src: getPlaceholderImage(),
+      }}
+      title="Teen books"
+    />
+    <CardExample
+      description="Vel illum nihil maxime et atque odio nobis iusto."
+      imageProps={{
+        aspectRatio: "twoByOne",
+        border: "0",
+        isCropped: true,
+        src: getPlaceholderImage(),
+      }}
+      title="Adult books"
+    />
+  </SimpleGrid>
+);
+
+export const cardsInformational = (
+  <SimpleGrid columns={4} mt="s">
+    <CardExample
+      description="Commodi voluptas consequuntur vitae sint ut sint."
+      imageProps={{
+        border: "0",
+        src: "https://secure.syndetics.com/index.aspx?isbn=9780399558184/lc.gif&client=nyplvega&type=unbound",
+      }}
+      title="Look! I Wrote a Book!"
+    />
+    <CardExample
+      description="Non rerum at aspernatur ut magnam ab suscipit delectus."
+      imageProps={{
+        border: "0",
+        src: "https://secure.syndetics.com/index.aspx?isbn=9780525579649/lc.gif&client=nyplvega&type=unbound",
+      }}
+      title="All Are Welcome"
+    />
+    <CardExample
+      description="Minus rerum aliquam fugiat quos ratione maiores ipsa et omnis."
+      imageProps={{
+        border: "0",
+        src: "https://secure.syndetics.com/index.aspx?isbn=9781524719371/lc.gif&client=nyplvega&type=unbound",
+      }}
+      title="The Cardboard Kingdom"
+    />
+    <CardExample
+      description="Nihil impedit qui tempora cumque illo porro voluptate quidem voluptas et."
+      imageProps={{
+        border: "0",
+        src: "https://secure.syndetics.com/index.aspx?isbn=9780670479580/lc.gif&client=nyplvega&type=unbound",
+      }}
+      title="Miss Rumphius"
+    />
+  </SimpleGrid>
 );
