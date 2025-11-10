@@ -1,4 +1,4 @@
-import { Canvas, Meta, Unstyled } from "@storybook/addon-docs/blocks";
+import { Canvas, Meta, Source, Unstyled } from "@storybook/addon-docs/blocks";
 
 import Banner from "../Banner/Banner";
 import Card, { CardActions, CardContent, CardHeading } from "../Card/Card";
@@ -48,6 +48,8 @@ frequently applied to both the heading and image within the card. This results
 in a scenario where two distinct elements direct to the same destination.
 Implementing full-click functionality will alleviate this redundancy.
 
+### Examples of full-click cards
+
 <Unstyled>
   <SimpleGrid columns="4" mt="s">
     {fullClickCard}
@@ -56,6 +58,58 @@ Implementing full-click functionality will alleviate this redundancy.
     {fullClickCard}
   </SimpleGrid>
 </Unstyled>
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> To enable the full-click functionality in the{" "}
+      <code>
+        <strong>Card</strong>
+      </code>{" "}
+      component, pass a URL in the{" "}
+      <code>
+        <strong>mainActionLink</strong>
+      </code>{" "}
+      prop.
+    </>
+  }
+  mt="xl"
+  mb="s"
+  variant="informative"
+/>
+
+<Source
+  code={`
+  import { 
+    Card, 
+    CardContent,
+    CardHeading,
+    Image,
+  } from "@nypl/design-system-react-components";
+  
+  <Card
+    imageProps={{
+      component: (
+        <Image 
+          aspectRatio="twoByOne" 
+          border="0" 
+          src="/placeholder-photo.png" 
+        />
+      ),
+    }}
+    layout="column"
+    mainActionLink="https://nypl.org"
+  >
+    <CardHeading level="h4" size="heading7">
+      Etiam venenatis justo
+    </CardHeading>
+    <CardContent>
+      Sequi id nihil eum nemo nemo ut enim unde dolor harum rerum et accusantium.
+    </CardContent>
+  </Card>
+`}
+  language="tsx"
+/>
 
 ## Distinct links
 
@@ -68,6 +122,8 @@ regardless of card content, NYPL patterns do not recommend this approach.
 Instead, the expectation is that each clickable element should be distinct and
 full-click functionality should not be used.
 
+### Examples of cards with distinct-links
+
 <Unstyled>
   <SimpleGrid columns="4" mt="s">
     {distinctLinksCard}
@@ -76,5 +132,68 @@ full-click functionality should not be used.
     {distinctLinksCard}
   </SimpleGrid>
 </Unstyled>
+
+<Banner
+  content={
+    <>
+      <strong>NOTE:</strong> To allow links in the{" "}
+      <code>
+        <strong>Card</strong>
+      </code>{" "}
+      component to act as distinct elements, DO NOT pass the{" "}
+      <code>
+        <strong>mainActionLink</strong>
+      </code>{" "}
+      prop.
+    </>
+  }
+  mt="xl"
+  mb="s"
+  variant="informative"
+/>
+
+<Source
+  code={`
+  import { 
+    Card, 
+    CardContent,
+    CardHeading,
+    Image,
+    Link,
+  } from "@nypl/design-system-react-components";
+  
+  <Card
+    imageProps={{
+      component: (
+        <Image 
+          aspectRatio="twoByOne" 
+          border="0" 
+          src="/placeholder-photo.png" />
+      ),
+    }}
+    layout="column"
+  >
+    <CardHeading level="h4" size="heading7" url="https://nypl.org">
+      Etiam venenatis justo!
+    </CardHeading>
+    <CardContent>
+      Sequi id at{" "}
+      <Link variant="action" href="https://nypl.org">
+        NYPL
+      </Link>{" "}
+      nihil eum nemo nemo ut enim unde dolor harum rerum accusantium.
+      <Link
+        variant="buttonSecondary"
+        href="https://nypl.org"
+        mt="xs"
+        width="100%"
+      >
+        Read more
+      </Link>
+    </CardContent>
+  </Card>
+`}
+  language="tsx"
+/>
 
 For additional examples, please see the <Link href="https://nypl-ds-test-app.vercel.app/fullPages/nextjs-custom-image-component" variant="external">"Contained" image examples on the Turbine test site</Link>.
