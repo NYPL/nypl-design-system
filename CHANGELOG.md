@@ -14,7 +14,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
-- Removes `New Arrivals` from the deprecation of the `Books and More` colors.
+- Removes `New Arrivals` from the description of the `Books and More` colors.
+- Removes `iframe` and `[tabIndex]` selector from the global set focus styles
 
 ### Fixes
 
