@@ -1,4 +1,4 @@
-import { activeFocus } from "../components/global";
+import { activeFocus, globalActiveFocus } from "../components/global";
 
 /**
  * These rules affect all the global elements on the `body` element of the
@@ -38,8 +38,8 @@ const global = {
       _focus: activeFocus(),
     },
   },
-  "[href], [contentEditable='true']": {
-    _focus: activeFocus(),
+  "[tabindex], [href], [contentEditable='true']": {
+    _focus: globalActiveFocus(),
   },
   // p: textMargin,
   // ul: textMargin,
