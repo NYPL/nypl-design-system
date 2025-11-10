@@ -6,7 +6,6 @@ const Template = defineStyleConfig({
   baseStyle: defineStyle(() => {
     return {
       boxSizing: "border-box",
-      color: "ui.typography.body",
       display: "flex",
       gap: responsiveSpacing.gridGap,
       flexDirection: "column",
