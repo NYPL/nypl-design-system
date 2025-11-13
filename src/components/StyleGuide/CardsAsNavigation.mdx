@@ -8,14 +8,14 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import ImageRevamp from "../../utils/ImageExample";
 import { getPlaceholderImage } from "../../utils/utils";
 
-import { distinctLinksCard, fullClickCard } from "./CardsAsNavigationData";
+import { distinctLinksCard, fullClickCard } from "./CardsAsNavigation";
 
 <Meta title="Development Guide/Cards as Navigation Links" />
 
 <ComponentDocsHeader
   category="Style Guide"
   componentName="Cards as Navigation Links"
-  summary="Guidelines for for using cards as navigation elements"
+  summary="Guidelines for using cards as navigation elements"
 />
 
 ## Table of contents
@@ -38,15 +38,16 @@ configured with [full-click
 functionality](/docs/components-basic-elements-card--docs#card-with-full-click-functionality),
 rendering the entire card as a clickable element.
 
-It is recommended for NYPL web apps to utilize the DS Card component, as it
-provides a hover state for the full-click functionality, thereby indicating that
-the complete card is a clickable element. To review the DS Card styling, please
-consult the <Link href="https://nypl.github.io/design-team-prototypes/full-click-card-styles/#background-image-fade" variant="external">Default background color & image fade</Link> POC.
+It is recommended for NYPL web apps to utilize the DS `Card` component, as it
+provides the full-click functionality (via the `mainActionLink` prop), and will
+eventually include a hover state (thereby indicating that the complete card is a
+clickable element). To review the future DS `Card` styling, please consult
+the <Link href="https://nypl.github.io/design-team-prototypes/full-click-card-styles/#background-image-fade" variant="external">Default background color & image fade</Link> POC.
 
-Currently, for cards not utilizing the DS Card component, identical links are
-frequently applied to both the heading and image within the card. This results
-in a scenario where two distinct elements direct to the same destination.
-Implementing full-click functionality will alleviate this redundancy.
+Non-DS cards frequently apply identical links to both the heading and image
+within the card, resulting in a scenario where two distinct elements direct to
+the same destination. Using the DS `Card` component to implement full-click
+functionality will alleviate this redundancy.
 
 ### Examples of full-click cards
 
@@ -113,14 +114,13 @@ Implementing full-click functionality will alleviate this redundancy.
 
 ## Distinct links
 
-Navigational cards that present links to multiple destinations or a single
-button element—excluding links that look like buttons—should not utilize
-full-click functionality.
+Navigational cards that present links to multiple destinations or include
+`<button>` elements should not utilize full-click functionality.
 
-While the DS Card component permits the application of full-click functionality
-regardless of card content, NYPL patterns do not recommend this approach.
-Instead, the expectation is that each clickable element should be distinct and
-full-click functionality should not be used.
+While the DS `Card` component permits the application of full-click
+functionality regardless of the card content, NYPL patterns do not recommend
+this approach. Instead, the expectation is that each clickable element should be
+distinct and full-click functionality should not be used.
 
 ### Examples of cards with distinct-links
 
@@ -195,5 +195,3 @@ full-click functionality should not be used.
 `}
   language="tsx"
 />
-
-For additional examples, please see the <Link href="https://nypl-ds-test-app.vercel.app/fullPages/nextjs-custom-image-component" variant="external">"Contained" image examples on the Turbine test site</Link>.
