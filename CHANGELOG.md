@@ -10,7 +10,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `Images in Cards` section to the `Style Guide`.
+- Adds `Images in Cards` to the `Style Guide`.
+- Adds `Cards as Navigation Links` to the `Development Guide`.
 
 ### Updates
 
