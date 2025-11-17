@@ -12,8 +12,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds `Images in Cards` to the `Style Guide`.
 - Adds `Cards as Navigation Links` to the `Development Guide`.
+- Adds hover state styles for "full-click" functionality in the `Card` component.
 
-### Updates
+### Removes
 
 - Removes `New Arrivals` from the description of the `Books and More` colors.
 - Removes `iframe` and `[tabIndex]` selector from the global set focus styles
