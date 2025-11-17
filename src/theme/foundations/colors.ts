@@ -407,6 +407,9 @@ const colors: Colors = {
       default: grayxLightCool,
       hover: grayLightCool,
       active: grayMedium,
+      defaultAsAlpha: hexToRGB(black, 0.04),
+      hoverAsAlpha: hexToRGB(black, 0.09),
+      activeAsAlpha: hexToRGB(black, 0.26),
     },
     border: {
       default: grayMedium,
@@ -507,6 +510,9 @@ const colors: Colors = {
         default: grayxxxDark,
         hover: grayxxDark,
         active: grayxDark,
+        defaultAsAlpha: hexToRGB(white, 0.04),
+        hoverAsAlpha: hexToRGB(white, 0.09),
+        activeAsAlpha: hexToRGB(white, 0.26),
       },
       border: {
         default: graySemiDark,
