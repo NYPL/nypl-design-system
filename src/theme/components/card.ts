@@ -136,7 +136,7 @@ const ReservoirCard = defineMultiStyleConfig({
             outline: "0 solid",
             outlineColor: "ui.bg.defaultAsAlpha",
             transition:
-              "background-color ease-out outline ease-out transform ease-out",
+              "background-color ease-out, outline ease-out, transform ease-out",
             transitionDuration: "normal",
             ".chakra-heading a": {
               textDecorationColor: "transparent !important",
