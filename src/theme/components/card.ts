@@ -129,17 +129,14 @@ const ReservoirCard = defineMultiStyleConfig({
           bodyMargin = "0";
         }
       }
-      // Hover state styles to be used with full-click functionality (mainActionLink)
+      // Hover state styles to be used with full-click functionality
       const hoverState = () => {
         if (mainActionLink) {
           return {
             outline: "0 solid",
             outlineColor: "ui.bg.defaultAsAlpha",
-            transition: [
-              "background-color ease-out",
-              "outline ease-out",
-              "transform ease-out",
-            ].join(", "),
+            transition:
+              "background-color ease-out outline ease-out transform ease-out",
             transitionDuration: "normal",
             ".chakra-heading a": {
               textDecorationColor: "transparent !important",
