@@ -4,6 +4,7 @@ import {
   Description,
   Meta,
   Source,
+  Unstyled,
 } from "@storybook/addon-docs/blocks";
 import Banner from "../Banner/Banner";
 import * as CardStories from "./Card.stories";
@@ -19,7 +20,7 @@ import Link from "../Link/Link";
   componentName="Card"
   summary="A flexible container used to group single-subject content in a self-contained format"
   versionAdded="0.24.0"
-  versionLatest="4.0.0"
+  versionLatest="Prerelease"
 />
 
 <Canvas of={CardStories.WithControls} />
@@ -33,13 +34,13 @@ import Link from "../Link/Link";
 - [Image size](#image-size)
 - [Custom image component](#custom-image-component)
 - [Fallback image](#fallback-image)
-- [Card with link heading](#card-with-link-heading)
-- [Card with full-click functionality](#card-with-full-click-functionality)
-- [Card with full-click functionality and tooltip](#card-with-full-click-functionality-and-tooltip)
-- [Card with right side CardActions](#card-with-right-side-cardactions)
-- [Cards in a grid](#cards-in-a-grid)
-- [Cards in a stack](#cards-in-a-stack)
-- [Cards without images](#cards-without-images)
+- [Linked heading](#linked-heading)
+- [Full-click functionality](#full-click-functionality)
+- [Full-click functionality and tooltip](#full-click-functionality-and-tooltip)
+- [Right side CardActions](#right-side-cardactions)
+- [Grid layout](#grid-layout)
+- [Stacked layout](#stacked-layout)
+- [Without image](#without-image)
 - [Changelog](#changelog)
 
 ## Overview
@@ -144,7 +145,7 @@ When adding `CardHeading` components, make sure to do the same.
   language="jsx"
 />
 
-### Full-click functionality
+### Full-click
 
 Passing a URL to the `mainActionLink` prop will make the entire `Card` clickable.
 Other links in the `CardActions` component can still be accessed by tabbing
@@ -157,17 +158,19 @@ a column layout and on the left in a row layout). However, you can use the
 `imageProps.isAtEnd` boolean prop to override the default placement and move the
 image to the last element within a `Card`.
 
-<Banner
-  content={
-    <>
-      <strong>NOTE:</strong> <code>Card</code> always displays as a column at
-      smaller container widths.
-    </>
-  }
-  mt="s"
-  mb="s"
-  variant="informative"
-/>
+<Unstyled>
+  <Banner
+    content={
+      <>
+        <strong>NOTE:</strong> <code>Card</code> always displays as a column at
+        smaller container widths.
+      </>
+    }
+    mt="s"
+    mb="s"
+    variant="informative"
+  />
+</Unstyled>
 
 ### Column cards
 
@@ -214,23 +217,23 @@ a general example.
 
 <Source
   code={`
-<Card
-  imageProps={{
-    alt: "Alt text",
-    fallbackSrc="https://loremflickr.com/540/420/cat"
-    onError: (_event) => console.log("Card fallback image loaded"),
-    src: "some-broken-image-url",
-  }}
->
-  // ...
-</Card>
+  <Card
+    imageProps={{
+      alt: "Alt text",
+      fallbackSrc="https://loremflickr.com/540/420/cat"
+      onError: (_event) => console.log("Card fallback image loaded"),
+      src: "some-broken-image-url",
+    }}
+  >
+    // ...
+  </Card>
   `}
   language="jsx"
 />
 
 <Canvas of={CardStories.FallbackImage} />
 
-## Card with link heading
+## Linked heading
 
 Making a `CardHeading` a link works just like the DS `Heading` component. This
 means that a URL can be passed in the `url` prop for `CardHeading` or a `Link`
@@ -238,7 +241,7 @@ component can be used as a child.
 
 <Canvas of={CardStories.HeadingAsLink} />
 
-## Card with full-click functionality
+## Full-click functionality
 
 To enable the full-click functionality in the `Card` component, pass a URL in
 the `mainActionLink` prop. This will make the entire `Card` component clickable.
@@ -249,13 +252,36 @@ Internally, if multiple `CardHeading` components are passed, only the first one
 will have the full-click link. This, however, does not affect the `Card` itself
 from being having the full-click functionality.
 
+See the [Cards as Navigation Links](/docs/development-guide-cards-as-navigation-links--docs)
+Development Guide for best practices when using cards as navigation elements.
+
+<Unstyled>
+  <Banner
+    content={
+      <>
+        <strong>IMPORTANT:</strong> Using full-click functionality will add
+        hover state styles to the <code>Card</code> component.
+      </>
+    }
+    mt="s"
+    mb="s"
+    variant="informative"
+  />
+</Unstyled>
+
 <Canvas of={CardStories.FullClick} />
+
+### Additional full-click examples
+
+<Canvas of={CardStories.FullClickGridLayout} />
+
+<Canvas of={CardStories.FullClickStackedLayout} />
 
 This example can be found in the [Turbine homepage](https://nypl-ds-test-app.vercel.app/).
 
 <Canvas of={CardStories.CardFullClickTurbineExample} />
 
-## Card with full-click functionality and tooltip
+## Full-click functionality and tooltip
 
 When the `Card` is fully clickable, an internal component wraps everything in a
 link, which in turn overrides the pointer events that trigger a tooltip.
@@ -302,7 +328,7 @@ accordingly– see below example.
 
 <Canvas of={CardStories.FullClickWithTooltip} />
 
-## Card with right side CardActions
+## Right side CardActions
 
 It's possible to set only the `CardActions` component on the right side of the
 main content area of the `Card`. This is possible only in the `layout="row"`
@@ -311,15 +337,15 @@ must be set to `true`.
 
 <Canvas of={CardStories.CardWithRightSideCardActions} />
 
-## Cards in a `Grid`
+## Grid layout
 
-<Canvas of={CardStories.GridExample} />
+<Canvas of={CardStories.GridLayout} />
 
-## Cards in a `Stack`
+## Stacked layout
 
-<Canvas of={CardStories.StackExample} />
+<Canvas of={CardStories.StackedLayout} />
 
-## Cards without images
+## Without image
 
 <Canvas of={CardStories.WithoutImages} />
 
