@@ -41,7 +41,7 @@ export const distinctLinksCard = (
     layout="column"
   >
     <CardHeading level="h4" size="heading7" url="https://nypl.org">
-      Etiam venenatis justo!
+      Etiam venenatis justo
     </CardHeading>
     <CardContent>
       Sequi id at{" "}
