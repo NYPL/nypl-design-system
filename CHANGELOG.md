@@ -8,6 +8,24 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.1.0 (November 20, 2025)
+
+### Adds
+
+- Adds `Images in Cards` to the `Style Guide`.
+- Adds `Cards as Navigation Links` to the `Development Guide`.
+- Adds hover state styles for "full-click" functionality in the `Card` component.
+- Adds `bg` color palette options that are defined using alpha transparency (rgba).
+
+### Removes
+
+- Removes `New Arrivals` from the description of the `Books and More` colors.
+- Removes `iframe` and `[tabIndex]` selector from the global set focus styles
+
+### Fixes
+
+- Fixes a color style bug in the `Template` component by removing an explicit color style that was overriding the global color styles.
+
 ## 4.0.3 (October 8, 2025)
 
 ### Adds

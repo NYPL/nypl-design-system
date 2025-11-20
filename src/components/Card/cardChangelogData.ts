@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-11-20",
+    version: "4.1.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ['Adds hover state styles for "full-click" functionality.'],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",

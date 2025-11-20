@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2025-11-20",
+    version: "4.1.0",
+    type: "Bug Fix",
+    affects: ["Styles"],
+    notes: [
+      "Removes an explicit color style assignment that was mistakenly overriding the global color styles.",
+    ],
+  },
+  {
     date: "2025-09-11",
     version: "4.0.1",
     type: "Update",

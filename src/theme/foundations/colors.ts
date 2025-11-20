@@ -407,6 +407,9 @@ const colors: Colors = {
       default: grayxLightCool,
       hover: grayLightCool,
       active: grayMedium,
+      defaultAsAlpha: hexToRGB(black, 0.04),
+      hoverAsAlpha: hexToRGB(black, 0.09),
+      activeAsAlpha: hexToRGB(black, 0.26),
     },
     border: {
       default: grayMedium,
@@ -507,6 +510,9 @@ const colors: Colors = {
         default: grayxxxDark,
         hover: grayxxDark,
         active: grayxDark,
+        defaultAsAlpha: hexToRGB(white, 0.04),
+        hoverAsAlpha: hexToRGB(white, 0.09),
+        activeAsAlpha: hexToRGB(white, 0.26),
       },
       border: {
         default: graySemiDark,
@@ -532,7 +538,7 @@ const colors: Colors = {
     blogs: blogsObj.light,
 
     /** Books and More is used for the Catalog, Staff Picks, Recommendations,
-     * New Arrivals, and E-Book Central. */
+     * and E-Book Central. */
     "books-and-more": booksAndMoreObj.light,
 
     /** Connect is used for the Connect and Get Help section fronts. */
