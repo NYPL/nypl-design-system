@@ -1,0 +1,125 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import Banner from "../Banner/Banner";
+import Link from "../Link/Link";
+import SimpleGrid from "../Grid/SimpleGrid";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+
+import {
+  cardSquare,
+  cardThreeByFour,
+  cardTwoByOne,
+  CardExample,
+  cardsIllustrative,
+  cardsInformational,
+} from "./ImagesInCards";
+
+<Meta title="Style Guide/Images in Cards" />
+
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Images in Cards"
+  summary="Guidelines for formatting an image in UI card components"
+/>
+
+## Table of contents
+
+- [General information](#general-information)
+- [Aspect ratio](#aspect-ratio)
+- [Cropping](#cropping)
+
+## General information
+
+How an image is treated in a UI card should be predicated upon specific use
+cases, considering both the intrinsic content of the image and the intended
+purpose of the card.
+
+## Aspect ratio
+
+The aspect ratio of an image footprint within a UI card warrants consideration
+from both an aesthetic and functional perspective. With that in mind, Product
+Managers and Product Designers will make the final decision regarding the
+appropriate aspect ratio, while simultaneously accounting for the aspect ratio
+of the original image slated for rendering within the UI card.
+
+For example, if the image in a card is used to display a book cover, it may be
+best to use a "portrait" aspect ratio like 3:4 or 1:2. Similarly, if the image
+in a card is used to display a photograph of a classroom setting, a "landscape"
+aspect ratio like 2:1 would be more fitting.
+
+### Landscape aspect ratio examples (2:1)
+
+<SimpleGrid columns="4" mt="s">
+  {cardTwoByOne}
+  {cardTwoByOne}
+  {cardTwoByOne}
+  {cardTwoByOne}
+</SimpleGrid>
+
+### Square aspect ratio examples (1:1)
+
+<SimpleGrid columns="4" mt="s">
+  {cardSquare}
+  {cardSquare}
+  {cardSquare}
+  {cardSquare}
+</SimpleGrid>
+
+### Portrait aspect ratio examples (3:4)
+
+<SimpleGrid columns="4" mt="s">
+  {cardThreeByFour}
+  {cardThreeByFour}
+  {cardThreeByFour}
+  {cardThreeByFour}
+</SimpleGrid>
+
+## Cropping
+
+The cropping treatment of an image in a UI card should be determined by the
+intent of the image. The determining factor is whether the image is
+`illustrative` or `informational`.
+
+### Illustrative
+
+Illustrative images are used to help explain or clarify concepts or ideas. For
+example, the images displayed in navigational UI cards that are used heavily
+throughout nypl.org would be considered illustrative. The images don't show
+specific objects, but instead represent the content or intent of pages like
+Staff Picks, Accessibility at NYPL, or Babies &amp; Toddlers reading programs.
+
+An illustrative image rendered in a UI card should be cropped so the image fills
+the card's entire image footprint.
+
+{cardsIllustrative}
+
+For additional examples, please see the <Link href="https://nypl-ds-test-app.vercel.app/fullPages/nextjs-custom-image-component" variant="external">"Cropped" image examples on the Turbine test site</Link>.
+
+### Informational
+
+Informational images are direct representations of real objects—often
+photographs, diagrams, or graphs. Examples of informational images are book
+covers and digitized materials like prints, photographs, maps, and manuscripts
+from NYPL Digital Collections.
+
+When displaying informational images within a card, apply letterboxing to ensure
+the entire image is visible. Avoid cropping, as this can obscure critical
+content.
+
+<Banner
+  content={
+    <>
+      <strong>RECOMMENDATION:</strong> To reduce visual cognitive load, it is
+      recommended to use the default background colors from the DS color palette
+      for the letterbox background color. For example, use{" "}
+      <code>ui.bg.default</code> for light mode and{" "}
+      <code>dark.ui.bg.default</code> for dark mode.
+    </>
+  }
+  mb="l"
+  variant="recommendation"
+/>
+
+{cardsInformational}
+
+For additional examples, please see the <Link href="https://nypl-ds-test-app.vercel.app/fullPages/nextjs-custom-image-component" variant="external">"Contained" image examples on the Turbine test site</Link>.

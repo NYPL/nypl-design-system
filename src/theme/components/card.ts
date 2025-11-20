@@ -129,10 +129,52 @@ const ReservoirCard = defineMultiStyleConfig({
           bodyMargin = "0";
         }
       }
+      // Hover state styles to be used with full-click functionality
+      const hoverState = () => {
+        if (mainActionLink) {
+          return {
+            outline: "0 solid",
+            outlineColor: "ui.bg.defaultAsAlpha",
+            transition:
+              "background-color ease-out, outline ease-out, transform ease-out",
+            transitionDuration: "normal",
+            ".chakra-heading a": {
+              textDecorationColor: "transparent !important",
+              transition: "text-decoration-color ease-out",
+              transitionDuration: "normal",
+            },
+            img: {
+              transition: "opacity ease-out, filter ease-out",
+              transitionDuration: "normal",
+            },
+            _hover: {
+              backgroundColor: "ui.bg.defaultAsAlpha",
+              outline: "8px solid",
+              outlineColor: "ui.bg.defaultAsAlpha",
+              ".chakra-heading a": {
+                textDecorationColor:
+                  "var(--nypl-color-ui-link-secondary) !important",
+                _dark: {
+                  textDecorationColor:
+                    "var(--nypl-color-dark-ui-link-secondary) !important",
+                },
+              },
+              _dark: {
+                backgroundColor: "dark.ui.bg.defaultAsAlpha",
+                outlineColor: "dark.ui.bg.defaultAsAlpha",
+              },
+              img: {
+                filter: "brightness(75%)",
+              },
+            },
+          };
+        }
+      };
       // These sizes are only for the "row" layout.
       return {
         base: {
           containerType: "inline-size",
+          ...hoverState(),
           ...setContainerStyles({
             breakpoint: "base",
             styles: {

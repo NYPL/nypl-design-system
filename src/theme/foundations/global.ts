@@ -35,10 +35,10 @@ const global = {
   },
   "button, select, input, textarea": {
     "&:not([disabled])": {
-      _focus: activeFocus(),
+      _focus: { ...activeFocus(), zIndex: 9999 },
     },
   },
-  "iframe, [href], [tabindex], [contentEditable='true']": {
+  "iframe, [tabindex], [href], [contentEditable='true']": {
     _focus: activeFocus(),
   },
   // p: textMargin,
