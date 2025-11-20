@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.1.0 (November 20, 2025)
+
 ### Adds
 
 - Adds `Images in Cards` to the `Style Guide`.
@@ -22,7 +24,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Fixes
 
-- Removes an explicit color style assignment in the `Template` component that was mistakenly overriding the global color styles.
+- Fixes a color style bug in the `Template` component by removing an explicit color style that was overriding the global color styles.
 
 ## 4.0.3 (October 8, 2025)
 
