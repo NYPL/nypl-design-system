@@ -191,6 +191,7 @@ export const iconNamesArray = [
   "utilityAccountFilled",
   "utilityAccountUnfilled",
   "utilityCheck",
+  "utilityGridView",
   "utilityHamburger",
   "utilitySearch",
 ] as const;
