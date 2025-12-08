@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Icon from "../Icons/Icon";
@@ -134,14 +134,17 @@ export const FontSize: Story = {
           </>,
           <>
             <StatusBadge fontSize="desktop.caption" variant="informative">
-              Informative
+              Informative Nesciunt voluptates in quis molestias officia eum
+              tempora vero ut. Amet assumenda aliquid id voluptas provident est
+              dicta. Aut qui sequi quibusdam incidunt vel consequatur quia
+              voluptas consectetur distinctio occaecati consequatur.
             </StatusBadge>
           </>,
         ],
         [
           <>
             <StatusBadge fontSize="desktop.body.body1" variant="positive">
-              Positive
+              PositiveNesciuntvoluptates in quis.
             </StatusBadge>
           </>,
           <>
@@ -160,7 +163,12 @@ export const FontSize: Story = {
             </StatusBadge>
           </>,
           <>
-            <StatusBadge variant="negative">Negative</StatusBadge>
+            <StatusBadge variant="negative">
+              Negative Nesciunt voluptates in quis molestias officia eum tempora
+              vero ut. Amet assumenda aliquid id voluptas provident est dicta.
+              Aut qui sequi quibusdam incidunt vel consequatur quia voluptas
+              consectetur distinctio occaecati consequatur.
+            </StatusBadge>
           </>,
           <>
             <StatusBadge fontSize="desktop.caption" variant="negative">
@@ -202,62 +210,110 @@ export const FontSize: Story = {
     />
   ),
 };
-
+/* 
+<Box>
+</Box>
+*/
 export const Labeling: Story = {
   render: () => (
-    <Table
-      columnHeaders={["Standard", "All Caps"]}
-      tableData={[
-        [
-          <>
-            <StatusBadge variant="neutral">Request pending</StatusBadge>
-          </>,
-          <>
-            <StatusBadge variant="neutral">REQUEST PENDING</StatusBadge>
-          </>,
-        ],
-        [
-          <>
-            <StatusBadge variant="informative">In progress</StatusBadge>
-          </>,
-          <>
-            <StatusBadge variant="informative">IN PROGRESS</StatusBadge>
-          </>,
-        ],
-        [
-          <>
-            <StatusBadge variant="positive">Ready for pickup</StatusBadge>
-          </>,
-          <>
-            <StatusBadge variant="positive">READY FOR PICKUP</StatusBadge>
-          </>,
-        ],
-        [
-          <>
-            <StatusBadge variant="negative">Closed</StatusBadge>
-          </>,
-          <>
-            <StatusBadge variant="negative">CLOSED</StatusBadge>
-          </>,
-        ],
-        [
-          <>
-            <StatusBadge variant="warning">Cancelled</StatusBadge>
-          </>,
-          <>
-            <StatusBadge variant="warning">CANCELLED</StatusBadge>
-          </>,
-        ],
-        [
-          <>
-            <StatusBadge variant="recommendation">Related</StatusBadge>
-          </>,
-          <>
-            <StatusBadge variant="recommendation">RELATED</StatusBadge>
-          </>,
-        ],
-      ]}
-    />
+    // <Table
+    //   columnHeaders={["Standard", "All Caps"]}
+    //   tableData={[
+    //     [
+    //       <>
+    //         <StatusBadge variant="neutral">Request pending</StatusBadge>
+    //       </>,
+    //       <>
+    //         <StatusBadge variant="neutral">REQUEST PENDING</StatusBadge>
+    //       </>,
+    //     ],
+    //     [
+    //       <>
+    //         <StatusBadge variant="informative">In progress</StatusBadge>
+    //       </>,
+    //       <>
+    //         <StatusBadge variant="informative">IN PROGRESS</StatusBadge>
+    //       </>,
+    //     ],
+    //     [
+    //       <>
+    //         <StatusBadge variant="positive">Ready for pickup</StatusBadge>
+    //       </>,
+    //       <>
+    //         <StatusBadge variant="positive">READY FOR PICKUP</StatusBadge>
+    //       </>,
+    //     ],
+    //     [
+    //       <>
+    //         <StatusBadge variant="negative">Closed</StatusBadge>
+    //       </>,
+    //       <>
+    //         <StatusBadge variant="negative">CLOSED</StatusBadge>
+    //       </>,
+    //     ],
+    //     [
+    //       <>
+    //         <StatusBadge variant="warning">Cancelled</StatusBadge>
+    //       </>,
+    //       <>
+    //         <StatusBadge variant="warning">CANCELLED</StatusBadge>
+    //       </>,
+    //     ],
+    //     [
+    //       <>
+    //         <StatusBadge variant="recommendation">Related</StatusBadge>
+    //       </>,
+    //       <>
+    //         <StatusBadge variant="recommendation">RELATED</StatusBadge>
+    //       </>,
+    //     ],
+    //   ]}
+    // />
+    // <div>Test</div>
+    <Box display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="l">
+      <Box>
+        <StatusBadge fontSize="desktop.body.body2" variant="informative">
+          Sapiente voluptatem velit enim maxime commodi doloribus.
+        </StatusBadge>
+      </Box>
+      <Box>
+        <StatusBadge fontSize="desktop.body.body2" variant="warning">
+          Available on-site only
+        </StatusBadge>
+      </Box>
+      <Box>
+        <StatusBadge fontSize="desktop.body.body2" variant="informative">
+          Contains on-site only materials
+        </StatusBadge>
+      </Box>
+      <Box>
+        <StatusBadge fontSize="desktop.body.body2" variant="informative">
+          Contains on-site materials
+        </StatusBadge>
+      </Box>
+      <Box>
+        <StatusBadge fontSize="desktop.body.body2" variant="positive">
+          Available
+        </StatusBadge>
+      </Box>
+      <Box>
+        <StatusBadge fontSize="desktop.body.body2" variant="negative">
+          This was never intended to be available!
+        </StatusBadge>
+      </Box>
+      <Box>
+        <StatusBadge fontSize="desktop.body.body2">Meh</StatusBadge>
+      </Box>
+      <Box>
+        <StatusBadge fontSize="desktop.body.body2" variant="recommendation">
+          This is out of hand and this is NOT recommended. Alias molestiae
+          exercitationem vero incidunt ab cumque at et. Voluptas necessitatibus
+          et quo numquam aperiam recusandae facere veniam sint. Sit ut
+          laboriosam distinctio delectus et sed illo debitis iusto omnis.
+          Voluptatem dolorem quis sint dicta.
+        </StatusBadge>
+      </Box>
+    </Box>
   ),
 };
 
@@ -266,7 +322,10 @@ export const Icons: Story = {
     <VStack spacing="s" align="stretch">
       <StatusBadge variant="negative">
         <Icon color="brand.primary" mr="xs" name="errorFilled" size="medium" />
-        On-site access only
+        On-site access only Nesciunt voluptates in quis molestias officia eum
+        tempora vero ut. Amet assumenda aliquid id voluptas provident est dicta.
+        Aut qui sequi quibusdam incidunt vel consequatur quia voluptas
+        consectetur distinctio occaecati consequatur.
       </StatusBadge>
       <StatusBadge fontSize="desktop.caption" variant="warning">
         <Icon
@@ -278,7 +337,10 @@ export const Icons: Story = {
         Mising information
       </StatusBadge>
       <StatusBadge variant="neutral">
-        Registration required
+        Registration required Nesciunt voluptates in quis molestias officia eum
+        tempora vero ut. Amet assumenda aliquid id voluptas provident est dicta.
+        Aut qui sequi quibusdam incidunt vel consequatur quia voluptas
+        consectetur distinctio occaecati consequatur.
         <Icon
           color="ui.black"
           ml="xs"
