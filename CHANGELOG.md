@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `"utilityGridView"` option to the `Icon` component.
+- Adds the `"utilityGridView"` and `"utilityListView"` options to the `Icon` component.
 
 ## 4.1.0 (November 20, 2025)
 

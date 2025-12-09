@@ -14,7 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Added the `utilityGridView` icon."],
+    notes: ["Added the `utilityGridView` and `utilityListView` icons."],
   },
   {
     date: "2025-09-30",
