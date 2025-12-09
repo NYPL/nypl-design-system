@@ -193,6 +193,7 @@ export const iconNamesArray = [
   "utilityCheck",
   "utilityGridView",
   "utilityHamburger",
+  "utilityListView",
   "utilitySearch",
 ] as const;
 export const iconRotationsArray = [

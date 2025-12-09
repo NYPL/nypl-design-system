@@ -83,6 +83,7 @@ import utilityAccountUnfilled from "../../../icons/svg/utility-account-unfilled.
 import utilityCheck from "../../../icons/svg/utility-check.svg";
 import utilityGridView from "../../../icons/svg/utility-grid-view.svg";
 import utilityHamburger from "../../../icons/svg/utility-hamburger.svg";
+import utilityListView from "../../../icons/svg/utility-list-view.svg";
 import utilitySearch from "../../../icons/svg/search.svg";
 
 export default {
@@ -170,5 +171,6 @@ export default {
   utilityCheck,
   utilityGridView,
   utilityHamburger,
+  utilityListView,
   utilitySearch,
 };
