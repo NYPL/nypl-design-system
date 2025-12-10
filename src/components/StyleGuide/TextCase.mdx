@@ -1,0 +1,151 @@
+import { Meta, Source, Unstyled } from "@storybook/addon-docs/blocks";
+
+import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Icon from "../Icons/Icon";
+import Link from "../Link/Link";
+import Table from "../Table/Table";
+
+<Meta title="Style Guide/Text Case" />
+
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Text case"
+  summary="Guidelines for applying capitalization to text elements"
+/>
+
+## Table of contents
+
+- [General guidance](#general-guidance)
+- [Title case](#title-case)
+- [All uppercase](#all-uppercase)
+
+## General guidance
+
+All text elements&mdash;including, but not limited to, page titles, headings,
+labels, menu items, navigation components, and buttons&mdash;should use sentence
+case where only the first letter of the first word in a phrase is capitalized.
+
+<Unstyled>
+  <Table
+    columnHeaders={["Element", "Correct format", "Incorrect format"]}
+    fontSize="desktop.body.body2"
+    borderTop="1px solid"
+    borderTopColor="ui.gray.semi-medium"
+    tableData={[
+      [
+        "Heading",
+        <>
+          Prints and drawings{" "}
+          <Icon
+            align="right"
+            color="ui.success.primary"
+            name="check"
+            size="medium"
+          />
+        </>,
+        <>
+          Prints and Drawings
+          <Icon
+            align="right"
+            color="ui.error.primary"
+            name="close"
+            size="medium"
+          />
+        </>,
+      ],
+      [
+        "Menu item",
+        <>
+          Get help
+          <Icon
+            align="right"
+            color="ui.success.primary"
+            name="check"
+            size="medium"
+          />
+        </>,
+        <>
+          Get Help
+          <Icon
+            align="right"
+            color="ui.error.primary"
+            name="close"
+            size="medium"
+          />
+        </>,
+      ],
+      [
+        "Menu item",
+        <>
+          See all results
+          <Icon
+            align="right"
+            color="ui.success.primary"
+            name="check"
+            size="medium"
+          />
+        </>,
+        <>
+          See All Results
+          <Icon
+            align="right"
+            color="ui.error.primary"
+            name="close"
+            size="medium"
+          />
+        </>,
+      ],
+    ]}
+    useRowHeaders
+    showRowDividers
+  />
+</Unstyled>
+
+When using sentence case, don't put a period at the end of a title or heading.
+
+This guidance for sentence case applies to all text unless otherwise specified.
+
+<Unstyled>
+  <Banner
+    content={
+      <>
+        <strong>NOTE:</strong> Writing in sentence case has been proven to be
+        easier for users to read and comprehend, it sounds more friendly and
+        less formal, and it helps better identify proper nouns and branded terms
+        that need to be capitalized.
+      </>
+    }
+    my="s"
+    variant="informative"
+  />
+</Unstyled>
+
+## Title case
+
+Use title case only when writing about an official entity (such as a title or
+name). Often, products, branded terms, and book titles will use title case. This
+also apples to proper nouns or other terms that are always capitalized using
+title case.
+
+<Unstyled>
+  <Banner
+    content={
+      <>
+        <strong>NOTE:</strong> Title case is often a marker of formality in
+        English, and overuse can cause users stress by implying formality or
+        officialness where it doesn't exist.
+      </>
+    }
+    my="s"
+    variant="informative"
+  />
+</Unstyled>
+
+## All uppercase
+
+Don't use all-uppercase, except in the following contexts:
+
+- in official names
+- in abbreviations that are always written in all-caps
+- when referring to code that uses all-caps
