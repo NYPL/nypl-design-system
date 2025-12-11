@@ -65,7 +65,7 @@ const meta: Meta<typeof Hero> = {
   component: Hero,
   argTypes: {
     backdropBackgroundColor: { control: { type: "color" } },
-    backgroundColor: { control: { type: "color" } },
+    backgroundColor: { table: { disable: true } },
     foregroundColor: { control: { type: "color" } },
     heading: { control: false },
     imageProps: { control: false },
@@ -98,7 +98,6 @@ type Story = StoryObj<typeof Hero>;
 export const WithControls: Story = {
   args: {
     backdropBackgroundColor: undefined,
-    backgroundColor: undefined,
     backgroundImageSrc: undefined,
     foregroundColor: undefined,
     heading: undefined,
@@ -326,7 +325,7 @@ export const TextBackgroundColor: Story = {
           backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
           heading={
             <Heading
-              id="primary-hero"
+              id="primary-hero-textbackgroundcolor"
               level="h1"
               overline="Hero Example"
               subtitle="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
@@ -343,13 +342,12 @@ export const TextBackgroundColor: Story = {
           heading={
             <Heading
               level="h1"
-              id="tertiary-hero-subtitle-subheading"
-              size="heading2"
-              subtitle="This is the subtitle"
-              text="Hero Tertiary with Subtitle & Sub-Heading"
+              id="tertiary-hero-textbackgroundcolor"
+              overline="Hero Example"
+              text="Hero Tertiary"
             />
           }
-          subHeaderText={otherSubHeaderText}
+          subHeaderText="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
           textBackgroundColor="brand.primary"
           textColor="ui.white"
           variant="tertiary"
@@ -357,11 +355,12 @@ export const TextBackgroundColor: Story = {
       </div>
       <div>
         <Hero
-          backgroundImageSrc={getPlaceholderImage()}
+          backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
           heading={
             <Heading
               level="h1"
-              id="campaign-hero-default-heading"
+              id="campaign-hero-textbackgroundcolor"
+              overline="Hero Example"
               text="Hero Campaign"
               mb="s"
             />
@@ -370,7 +369,8 @@ export const TextBackgroundColor: Story = {
             alt: "",
             src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
           }}
-          subHeaderText={otherSubHeaderText}
+          isDarkBackgroundImage
+          subHeaderText="Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam."
           textBackgroundColor="brand.primary"
           textColor="ui.white"
           variant="campaign"
