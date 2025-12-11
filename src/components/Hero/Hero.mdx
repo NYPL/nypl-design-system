@@ -381,6 +381,20 @@ the `backgroundImageSrc` will take precedence.
 Use the `textBackgroundColor` prop to set a custom background color for the text
 content.
 
+<Banner
+  content={
+    <>
+      <strong>IMPORTANT:</strong> The <code>textBackgroundColor</code> prop
+      should be used where the <code>backgroundColor</code> prop was used
+      previously to set the color behind the text in the <code>Hero</code>{" "}
+      component.
+    </>
+  }
+  mt="l"
+  mb="l"
+  variant="informative"
+/>
+
 <Story of={HeroStories.TextBackgroundColor} />
 
 <Source
