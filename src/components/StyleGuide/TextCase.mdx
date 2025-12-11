@@ -1,0 +1,165 @@
+import { Meta, Source, Unstyled } from "@storybook/addon-docs/blocks";
+import { Box } from "@chakra-ui/react";
+
+import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Icon from "../Icons/Icon";
+import Link from "../Link/Link";
+import Table from "../Table/Table";
+
+<Meta title="Style Guide/Text Case" />
+
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Text case"
+  summary="Guidelines for applying capitalization to text elements"
+/>
+
+## Table of contents
+
+- [General guidance](#general-guidance)
+- [Title case](#title-case)
+- [All uppercase](#all-uppercase)
+
+## General guidance
+
+All text elements, unless otherwise specified, should use sentence case where
+only the first letter of the first word in a phrase is capitalized. This
+includes, but is not limited to, page titles, headings, labels, menu items,
+navigation components, and button labels.
+
+When using sentence case, don't put a period at the end of a title or heading.
+
+<Unstyled>
+  <Table
+    borderTop="1px solid"
+    borderTopColor="ui.gray.semi-medium"
+    columnHeaders={["Element", "Correct format", "Incorrect format"]}
+    columnStyles={[{ minWidth: "160px", width: "15%" }, {}, {}]}
+    fontSize="desktop.body.body2"
+    tableData={[
+      [
+        "Heading",
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.success.primary" name="check" size="medium" />
+          Prints and drawings
+        </Box>,
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.error.primary" name="close" size="medium" />
+          Prints and Drawings
+        </Box>,
+      ],
+      [
+        "Menu item",
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.success.primary" name="check" size="medium" />
+          Get help
+        </Box>,
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.error.primary" name="close" size="medium" />
+          Get Help
+        </Box>,
+      ],
+      [
+        "Button label",
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.success.primary" name="check" size="medium" />
+          See all results
+        </Box>,
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.error.primary" name="close" size="medium" />
+          See All Results
+        </Box>,
+      ],
+    ]}
+    useRowHeaders
+    showRowDividers
+  />
+</Unstyled>
+
+<Unstyled>
+  <Banner
+    content={
+      <>
+        <strong>NOTE:</strong> Writing in sentence case has been proven to be
+        easier for users to read and comprehend. It sounds friendlier, less
+        formal, and makes it obvious which words are proper names or special
+        terms.
+      </>
+    }
+    my="s"
+    variant="informative"
+  />
+</Unstyled>
+
+## Title case
+
+Title case should only be used for official names and proper nouns. This usually
+includes product names, brands, and titles of books. This also applies to
+special terms that are always formatted using title case.
+
+<Unstyled>
+  <Table
+    columnHeaders={["Type", "Format"]}
+    columnStyles={[{ minWidth: "160px", width: "15%" }, {}]}
+    borderTop="1px solid"
+    borderTopColor="ui.gray.semi-medium"
+    fontSize="desktop.body.body2"
+    tableData={[
+      [
+        "Product name",
+        <>
+          Digital Collections
+          <br />
+          Research Catalog
+          <br />
+          Digital Research Books
+        </>,
+      ],
+      [
+        "Book title",
+        <>
+          The Lord of the Rings
+          <br />
+          Pride and Prejudice
+          <br />
+          The Book Thief
+        </>,
+      ],
+      [
+        "Special term",
+        <>
+          Privacy Policy
+          <br />
+          Terms of Service
+          <br />
+          Terms &amp; Conditions
+        </>,
+      ],
+    ]}
+    useRowHeaders
+    showRowDividers
+  />
+</Unstyled>
+
+<Unstyled>
+  <Banner
+    content={
+      <>
+        <strong>NOTE:</strong> Title case is often a marker of formality in
+        English. Using it everywhere creates a rigid feeling that can make
+        simple tasks feel heavier and more serious than they need to be.
+      </>
+    }
+    my="s"
+    variant="informative"
+  />
+</Unstyled>
+
+## All uppercase
+
+Don't use all-uppercase, except in the following contexts:
+
+- in official names
+- in abbreviations that are always written in all-caps
+- when referring to code that uses all-caps
