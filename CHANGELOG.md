@@ -10,7 +10,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds `Text case` to the `Style Guide`.
 - Adds the `"utilityGridView"` and `"utilityListView"` options to the `Icon` component.
+
+### Updates
+
+- Updates to `Reservoir v4 Migration Guide` to include details about the `Hero` component.
 
 ## 4.1.0 (November 20, 2025)
 
