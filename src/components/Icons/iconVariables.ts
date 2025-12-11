@@ -191,7 +191,9 @@ export const iconNamesArray = [
   "utilityAccountFilled",
   "utilityAccountUnfilled",
   "utilityCheck",
+  "utilityGridView",
   "utilityHamburger",
+  "utilityListView",
   "utilitySearch",
 ] as const;
 export const iconRotationsArray = [
