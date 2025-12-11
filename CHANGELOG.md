@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds `Text case` to the `Style Guide`.
+
 ### Updates
 
 - Updates to `Reservoir v4 Migration Guide` to include details about the `Hero` component.
