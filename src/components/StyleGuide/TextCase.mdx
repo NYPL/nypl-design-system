@@ -1,4 +1,5 @@
 import { Meta, Source, Unstyled } from "@storybook/addon-docs/blocks";
+import { Box } from "@chakra-ui/react";
 
 import Banner from "../Banner/Banner";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
@@ -22,89 +23,59 @@ import Table from "../Table/Table";
 
 ## General guidance
 
-All text elements&mdash;including, but not limited to, page titles, headings,
-labels, menu items, navigation components, and buttons&mdash;should use sentence
-case where only the first letter of the first word in a phrase is capitalized.
+All text elements, unless otherwise specified, should use sentence case where
+only the first letter of the first word in a phrase is capitalized. This
+includes, but is not limited to, page titles, headings, labels, menu items,
+navigation components, and button labels.
+
+When using sentence case, don't put a period at the end of a title or heading.
 
 <Unstyled>
   <Table
-    columnHeaders={["Element", "Correct format", "Incorrect format"]}
-    fontSize="desktop.body.body2"
     borderTop="1px solid"
     borderTopColor="ui.gray.semi-medium"
+    columnHeaders={["Element", "Correct format", "Incorrect format"]}
+    columnStyles={[{ minWidth: "160px", width: "15%" }, {}, {}]}
+    fontSize="desktop.body.body2"
     tableData={[
       [
         "Heading",
-        <>
-          Prints and drawings{" "}
-          <Icon
-            align="right"
-            color="ui.success.primary"
-            name="check"
-            size="medium"
-          />
-        </>,
-        <>
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.success.primary" name="check" size="medium" />
+          Prints and drawings
+        </Box>,
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.error.primary" name="close" size="medium" />
           Prints and Drawings
-          <Icon
-            align="right"
-            color="ui.error.primary"
-            name="close"
-            size="medium"
-          />
-        </>,
+        </Box>,
       ],
       [
         "Menu item",
-        <>
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.success.primary" name="check" size="medium" />
           Get help
-          <Icon
-            align="right"
-            color="ui.success.primary"
-            name="check"
-            size="medium"
-          />
-        </>,
-        <>
+        </Box>,
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.error.primary" name="close" size="medium" />
           Get Help
-          <Icon
-            align="right"
-            color="ui.error.primary"
-            name="close"
-            size="medium"
-          />
-        </>,
+        </Box>,
       ],
       [
-        "Menu item",
-        <>
+        "Button label",
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.success.primary" name="check" size="medium" />
           See all results
-          <Icon
-            align="right"
-            color="ui.success.primary"
-            name="check"
-            size="medium"
-          />
-        </>,
-        <>
+        </Box>,
+        <Box alignItems="center" display="flex" gap="xxs">
+          <Icon color="ui.error.primary" name="close" size="medium" />
           See All Results
-          <Icon
-            align="right"
-            color="ui.error.primary"
-            name="close"
-            size="medium"
-          />
-        </>,
+        </Box>,
       ],
     ]}
     useRowHeaders
     showRowDividers
   />
 </Unstyled>
-
-When using sentence case, don't put a period at the end of a title or heading.
-
-This guidance for sentence case applies to all text unless otherwise specified.
 
 <Unstyled>
   <Banner
@@ -124,8 +95,52 @@ This guidance for sentence case applies to all text unless otherwise specified.
 ## Title case
 
 Title case should only be used for official names and proper nouns. This usually
-includes product names, brands, and titles of books. This can also apple to
+includes product names, brands, and titles of books. This also applies to
 special terms that are always formatted using title case.
+
+<Unstyled>
+  <Table
+    columnHeaders={["Type", "Format"]}
+    columnStyles={[{ minWidth: "160px", width: "15%" }, {}]}
+    borderTop="1px solid"
+    borderTopColor="ui.gray.semi-medium"
+    fontSize="desktop.body.body2"
+    tableData={[
+      [
+        "Product name",
+        <>
+          Digital Collections
+          <br />
+          Research Catalog
+          <br />
+          Digital Research Books
+        </>,
+      ],
+      [
+        "Book title",
+        <>
+          The Lord of the Rings
+          <br />
+          Pride and Prejudice
+          <br />
+          The Book Thief
+        </>,
+      ],
+      [
+        "Special term",
+        <>
+          Privacy Policy
+          <br />
+          Terms of Service
+          <br />
+          Terms &amp; Conditions
+        </>,
+      ],
+    ]}
+    useRowHeaders
+    showRowDividers
+  />
+</Unstyled>
 
 <Unstyled>
   <Banner
