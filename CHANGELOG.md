@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.1.1 (December 11, 2025)
+
 ### Adds
 
 - Adds `Text case` to the `Style Guide`.
@@ -16,6 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates to `Reservoir v4 Migration Guide` to include details about the `Hero` component.
+- Updates the docs for the `Hero` component to no longer show `backgroundColor` in the props table.
 
 ## 4.1.0 (November 20, 2025)
 
