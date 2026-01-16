@@ -10,13 +10,27 @@ import Link from "../Link/Link";
 ## Table of contents
 
 - {<Link href="#general-information" target="_self">General Information</Link>}
+- {<Link href="#nypl-patterns" target="_self">NYPL Patterns</Link>}
 - {<Link href="#making-errors-explicit-and-providing-instructions" target="_self">Making Errors Explicit and Providing Instructions</Link>}
 - {<Link href="#avoiding-reliance-on-color" target="_self">Avoiding Reliance on Color</Link>}
 - {<Link href="#programmatic-indicator-of-error" target="_self">Programmatic Indicator of Error</Link>}
 - {<Link href="#associating-inline-errors-with-their-field" target="_self">Associating Inline Errors with their Fields</Link>}
 - {<Link href="#shifting-focus-to-errors" target="_self">Shifting Focus to Errors</Link>}
-- {<Link href="#NYPL-patterns" target="_self">NYPL Patterns</Link>}
 - {<Link href="#resources" target="_self">Resources</Link>}
+
+## NYPL Patterns
+
+NYPL will use a formal, yet familiar, tone when writing error messages.
+
+### Form Inputs
+
+Error messages applied to form input fields should be prepended with "There was
+a problem." The remainder of the error message should give details about the
+problem itself.
+
+Example:
+
+- There was a problem. First name is required.
 
 ## General Information
 
@@ -33,12 +47,16 @@ Some core features of accessible errors include:
 
 ## Making Errors Explicit and Providing Instructions
 
-Avoid merely reiterating the requirement as the error, for example “First Name
-is required”. Instead, include either the word error (or another clear word or
+Avoid merely reiterating the requirement as the error, for example "First name
+is required". Instead, include either the word "error" (or another clear word or
 phrase indicating an error state) or an error icon that has a text equivalent
-(such as `alt=”error”` or off-screen text, etc.)
+(such as `alt="error"` or off-screen text, etc.)
 
-Example: “Error: First Name is required”
+Examples:
+
+- Error: First name is required.
+- There was a problem. First name is required.
+- Opps, something went wrong! First name is required.
 
 Whenever possible, provide as much instruction for resolving the error as
 feasible. For example, if the user enters a password that does not meet the
@@ -46,11 +64,15 @@ minimum requirements, have the error message include details about which
 requirements were not met. (Such requirements should also always be explicitly
 provided on the page so users can avoid making errors in the first place.)
 
+Example:
+
+- There was a problem. Your password must be at least 8 characters long.
+
 ## Avoiding Reliance on Color
 
 Ensure errors are not solely indicated through color, such as outlining a text
 field in red. This does not mean that color cannot be used, but that there must
-also be a secondary visual indication, such as an icon or the word “error” such
+also be a secondary visual indication, such as an icon or the word "error” such
 as described in the previous section.
 
 ## Programmatic Indicator of Error
@@ -72,9 +94,9 @@ label itself dynamically.
 
 <Source
   code={`
-<label for=”fname”>First Name (required)</label>
+<label for=”fname”>First name (required)</label>
 <input type=”text” id=”fname” aria-describedby=”fnameerror”>
-<span id=”fnameerror”>Error: Please enter your first name</span>
+<span id=”fnameerror”>There was a problem. Please enter your first name.</span>
 `}
   language="html"
 />
@@ -85,15 +107,6 @@ When a form is submitted and errors are added, focus should move either to the l
 of errors (if provided) or to the first field in error if using inline validation. If
 you submit a form, and an error message is added in its place, then focus should be
 placed on the error message. See more about [how to manage focus](https://nypl.github.io/nypl-design-system/reservoir/v4/?path=/docs/accessibility-guide-managing-focus--docs#how-to-manage-focus).
-
-## NYPL Patterns
-
-NYPL will use a formal tone when writing error messages.
-
-### Form Inputs
-
-Error messages applied to form input fields should be prepended with "There was a problem."
-The remainder of the error message should give details about the "problem."
 
 ## Resources
 

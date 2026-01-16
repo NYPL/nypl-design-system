@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Errors` docs in the `Accessibility Guide`.
+
 ## 4.1.1 (December 11, 2025)
 
 ### Adds
