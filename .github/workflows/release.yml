@@ -43,9 +43,12 @@ jobs:
           draft: false
           prerelease: false
 
-  publish_to_npm:
+ publish_to_npm:
     name: Publish to NPM
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write 
     env:
       CI: true
     steps:
@@ -58,6 +61,4 @@ jobs:
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
       - name: Publish
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --provenance
