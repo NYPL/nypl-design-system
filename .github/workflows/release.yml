@@ -3,9 +3,8 @@ name: Production Release
 
 # workflow will only run when a pull request to the release branch is closed.
 on:
-  push:
-    branches: [release]
-  pull_request:
+  push: # This will trigger every time you push to YOUR current branch
+  workflow_dispatch: # This adds a "Run workflow" button in the Actions tab
 
 jobs:
   release_master:
