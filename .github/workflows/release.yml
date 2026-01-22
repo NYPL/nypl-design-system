@@ -5,6 +5,7 @@ name: Production Release
 on:
   push:
     branches: [release]
+  pull_request:
 
 jobs:
   release_master:
@@ -61,4 +62,4 @@ jobs:
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
       - name: Publish
-        run: npm publish --access public --provenance
+        run: npm publish --access public --provenance --dry-run
