@@ -3,8 +3,8 @@ name: Production Release
 
 # workflow will only run when a pull request to the release branch is closed.
 on:
-  push: # This will trigger every time you push to YOUR current branch
-  workflow_dispatch: # This adds a "Run workflow" button in the Actions tab
+  push:
+    branches: [release]
 
 jobs:
   release_master:
@@ -61,4 +61,4 @@ jobs:
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
       - name: Publish
-        run: npm publish --access public --provenance --dry-run
+        run: npm publish --access public --provenance
