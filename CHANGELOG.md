@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `Errors` docs in the `Accessibility Guide`.
+- Updates `release` GHA workflow to work with the new npm OIDC authentication process
 
 ## 4.1.1 (December 11, 2025)
 
