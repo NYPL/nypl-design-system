@@ -15,7 +15,7 @@ import Link from "../Link/Link";
 - {<Link href="#programmatic-indicator-of-error" target="_self">Programmatic Indicator of Error</Link>}
 - {<Link href="#associating-inline-errors-with-their-field" target="_self">Associating Inline Errors with their Fields</Link>}
 - {<Link href="#shifting-focus-to-errors" target="_self">Shifting Focus to Errors</Link>}
-- {<Link href="#NYPL-patterns" target="_self">NYPL Patterns</Link>}
+- {<Link href="#nypl-patterns" target="_self">NYPL Patterns</Link>}
 - {<Link href="#resources" target="_self">Resources</Link>}
 
 ## General Information
@@ -33,12 +33,16 @@ Some core features of accessible errors include:
 
 ## Making Errors Explicit and Providing Instructions
 
-Avoid merely reiterating the requirement as the error, for example “First Name
-is required”. Instead, include either the word error (or another clear word or
+Avoid merely reiterating the requirement as the error, for example "First name
+is required". Instead, include either the word "error" (or another clear word or
 phrase indicating an error state) or an error icon that has a text equivalent
-(such as `alt=”error”` or off-screen text, etc.)
+(such as `alt="error"` or off-screen text, etc.)
 
-Example: “Error: First Name is required”
+Examples:
+
+- There was a problem. First name is required.
+- Opps, something went wrong! First name is required.
+- An error has occurred. First name is required.
 
 Whenever possible, provide as much instruction for resolving the error as
 feasible. For example, if the user enters a password that does not meet the
@@ -46,11 +50,16 @@ minimum requirements, have the error message include details about which
 requirements were not met. (Such requirements should also always be explicitly
 provided on the page so users can avoid making errors in the first place.)
 
+Examples:
+
+- There was a problem. Your password must be at least 8 characters long.
+- Opps, something went wrong! Your phone number does not have the correct format.
+
 ## Avoiding Reliance on Color
 
 Ensure errors are not solely indicated through color, such as outlining a text
 field in red. This does not mean that color cannot be used, but that there must
-also be a secondary visual indication, such as an icon or the word “error” such
+also be a secondary visual indication, such as an icon or the word "error” such
 as described in the previous section.
 
 ## Programmatic Indicator of Error
@@ -72,9 +81,9 @@ label itself dynamically.
 
 <Source
   code={`
-<label for=”fname”>First Name (required)</label>
+<label for=”fname”>First name (required)</label>
 <input type=”text” id=”fname” aria-describedby=”fnameerror”>
-<span id=”fnameerror”>Error: Please enter your first name</span>
+<span id=”fnameerror”>There was a problem. Please enter your first name.</span>
 `}
   language="html"
 />
@@ -88,12 +97,17 @@ placed on the error message. See more about [how to manage focus](https://nypl.g
 
 ## NYPL Patterns
 
-NYPL will use a formal tone when writing error messages.
+NYPL will use a formal, yet familiar, tone when writing error messages.
 
 ### Form Inputs
 
-Error messages applied to form input fields should be prepended with "There was a problem."
-The remainder of the error message should give details about the "problem."
+Error messages applied to form input fields should be prepended with "There was
+a problem." The remainder of the error message should give details about the
+problem itself.
+
+Example:
+
+- There was a problem. First name is required.
 
 ## Resources
 
