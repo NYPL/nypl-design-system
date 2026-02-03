@@ -197,7 +197,7 @@ const statusSecondaryDark = "#CB8E7C";
 const successPrimaryDark = "#52AA60";
 const successSecondaryDark = "#81C88A";
 const warningPrimaryDark = "#DC8034";
-const warningSecondaryDark = "#EC7B1F";
+const warningSecondaryDark = "#F1A66A";
 // brand
 const brandPrimary = primitives.nyplRed.DEFAULT;
 const brandSecondary = "#760000";
