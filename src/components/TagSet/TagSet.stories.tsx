@@ -372,9 +372,6 @@ export const FormattingExamples: Story = {
           variant="filter"
         />
         <TagSet
-          onClick={(tagLabel) =>
-            console.log(`Clicked from the onClick props: ${tagLabel}`)
-          }
           tagSetData={[
             { iconName: "alertWarningFilled", id: "red", label: "Red" },
             { iconName: "check", id: "orange", label: "Orange" },

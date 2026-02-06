@@ -582,11 +582,8 @@ const TagSetExplore = defineStyleConfig({
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      // bg: "ui.link.primary-05",
       border: "1px solid",
-      // borderColor: "ui.link.primary",
       borderRadius: "pill",
-      // color: "ui.link.primary",
       cursor: "pointer",
       fontSize: "desktop.caption",
       height: { base: "32px", md: "22px" },
@@ -610,41 +607,22 @@ const TagSetExplore = defineStyleConfig({
         textOverflow: "ellipsis",
         whiteSpace: "nowrap",
       },
-      // svg: {
-      //   fill: "ui.link.primary",
-      // },
       _hover: {
-        // bg: "ui.link.primary-10",
-        // borderColor: "ui.link.secondary",
         a: {
           color: "ui.link.secondary",
         },
-        // svg: {
-        //   fill: "ui.link.secondary",
-        // },
         "> span": {
           color: "ui.link.secondary",
         },
       },
       _dark: {
-        // bg: "dark.ui.link.primary-05",
-        // borderColor: "dark.ui.link.primary",
-        // color: "dark.ui.link.primary",
         a: {
           color: "dark.ui.link.primary",
         },
-        // svg: {
-        //   fill: "dark.ui.link.primary",
-        // },
         _hover: {
-          // bg: "dark.ui.link.primary-10",
-          // borderColor: "dark.ui.link.secondary",
           a: {
             color: "dark.ui.link.secondary",
           },
-          // svg: {
-          //   fill: "dark.ui.link.secondary",
-          // },
           "> span": {
             color: "dark.ui.link.secondary",
           },
