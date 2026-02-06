@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates the `TagSet` component to add semantic color variants.
+- Updates the hex color value for `ui.warning.tertiary` for better accessibility compliance.
 
 ### Fixes
 
