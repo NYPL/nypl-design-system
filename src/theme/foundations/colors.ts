@@ -186,7 +186,7 @@ const successPrimary = primitives.treeGreen.DEFAULT;
 const successSecondary = "#095212";
 const warningPrimary = primitives.carrotOrange.DEFAULT;
 const warningSecondary = "#E36D17";
-const warningTertiary = "#CD4D05";
+const warningTertiary = "#CA4900";
 const errorPrimaryDark = "#E1767B";
 const errorSecondaryDark = "#F08F93";
 const linkPrimaryDark = "#79B7EB";
@@ -197,7 +197,7 @@ const statusSecondaryDark = "#CB8E7C";
 const successPrimaryDark = "#52AA60";
 const successSecondaryDark = "#81C88A";
 const warningPrimaryDark = "#DC8034";
-const warningSecondaryDark = "#EC7B1F";
+const warningSecondaryDark = "#F1A66A";
 // brand
 const brandPrimary = primitives.nyplRed.DEFAULT;
 const brandSecondary = "#760000";

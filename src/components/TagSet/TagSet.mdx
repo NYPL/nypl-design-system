@@ -4,8 +4,10 @@ import {
   Description,
   Meta,
   Source,
+  Unstyled,
 } from "@storybook/addon-docs/blocks";
 
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import * as TagSetStories from "./TagSet.stories";
 import Link from "../Link/Link";
@@ -19,7 +21,7 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
   componentName="TagSet"
   summary="Group of tags that allow content to be explored or filtered"
   versionAdded="1.2.0"
-  versionLatest="4.0.0"
+  versionLatest="Prerelease"
 />
 
 <Canvas of={TagSetStories.ExploreVariant} />
@@ -31,6 +33,7 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 - [Accessibility](#accessibility)
 - [Explore variant](#explore-variant)
 - [Filter variant](#filter-variant)
+- [Semantic variants](#semantic-variants)
 - [Examples](#examples)
 - [Changelog](#changelog)
 
@@ -200,7 +203,7 @@ consuming application may need for logic filtering.
 <Source
   code={`
   const tagSetData = [
-    { iconName: "utilityAccountFilled", label: "Abbey Road", id: "abby-road" },
+    { iconName: "utilityAccountFilled", label: "Abbey Road", id: "abbey-road" },
     { iconName: "actionLaunch", label: "The Beatles", id: "the-beatles" },
     { iconName: "alertWarningOutline", label: "Revolver", id: "revolver" },
     { iconName: "check", label: "Sgt. Pepper's Lonely Hearts Club Band", id: "sgt-pepper" },
@@ -212,6 +215,26 @@ consuming application may need for logic filtering.
 Resources:
 
 - [W3C WAI-ARIA Button](https://www.w3.org/WAI/ARIA/apg/patterns/button/)
+
+## Semantic variants
+
+Semantic variants align with specific uses.
+
+<Unstyled>
+  <Banner
+    content={
+      <>
+        <strong>RECOMMENDATION:</strong> Avoid using the "informative" variant
+        for "filter" tags as the colors are similar to the default colors of
+        "explore" tags and imply that tags are links.
+      </>
+    }
+    my="s"
+    variant="recommendation"
+  />
+</Unstyled>
+
+<Canvas of={TagSetStories.SemanticVariants} />
 
 ## Examples
 
