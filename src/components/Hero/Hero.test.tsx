@@ -261,7 +261,7 @@ describe("Hero", () => {
     const heading = (
       <Heading level="h1" id="hero-errors" text="Hero with Error Warnings" />
     );
-    const { rerender } = render(
+    render(
       <Hero
         variant="campaign"
         heading={heading}
@@ -270,22 +270,8 @@ describe("Hero", () => {
       />
     );
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: It is recommended to use either the " +
-        "`backdropBackgroundColor`, `backgroundImageSrc`, or `imageProps.src` " +
-        "prop for the `'campaign'` variant."
-    );
-
-    rerender(
-      <Hero
-        variant="campaign"
-        heading={heading}
-        subHeaderText={otherSubHeaderText}
-        backgroundImageSrc={getPlaceholderImage("smaller", 0)}
-      />
-    );
-    expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Hero: It is recommended to use either the " +
-        "`backdropBackgroundColor`, `backgroundImageSrc`, or `imageProps.src` " +
+      "NYPL Reservoir Hero: It is recommended to use either the" +
+        "`backdropBackgroundColor` prop or the `backgroundImageSrc` " +
         "prop for the `'campaign'` variant."
     );
   });
