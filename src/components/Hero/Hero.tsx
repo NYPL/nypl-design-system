@@ -162,12 +162,13 @@ export const Hero: ChakraComponent<
       }
       if (
         variant === "campaign" &&
-        (!backdropBackgroundColor || !backgroundImageSrc || !imageProps.src)
+        !backdropBackgroundColor &&
+        !backgroundImageSrc
       ) {
         console.warn(
-          "NYPL Reservoir Hero: It is recommended to use either the " +
-            "`backdropBackgroundColor`, `backgroundImageSrc`, or " +
-            "`imageProps.src` prop for the `'campaign'` variant."
+          "NYPL Reservoir Hero: It is recommended to use either the" +
+            "`backdropBackgroundColor` prop or the `backgroundImageSrc` " +
+            "prop for the `'campaign'` variant."
         );
       }
       if (variant !== "campaign" && backdropBackgroundColor) {

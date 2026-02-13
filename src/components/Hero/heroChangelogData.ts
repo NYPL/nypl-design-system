@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2026-02-12",
+    version: "4.1.3",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      'Updates the validation of the background props in the "campaign" variant.',
+    ],
+  },
+  {
     date: "2025-09-30",
     version: "4.0.2",
     type: "Update",
