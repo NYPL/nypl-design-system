@@ -8,6 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.1.3 (February 12, 2026)
+
+### Updates
+
+- Updates the `TagSet` component to add semantic color variants.
+- Updates the hex color value for `ui.warning.tertiary` for better accessibility compliance.
+- Updates the `Hero` component to alter the validation of the background props in the `"campaign"` variant.
+
+### Fixes
+
+- Fixes the hex color value for `dark.ui.warning.secondary`.
+
 ## 4.1.2 (January 29, 2026)
 
 ### Updates

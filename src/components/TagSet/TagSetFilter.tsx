@@ -9,6 +9,9 @@ import Button from "../Button/Button";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/Icon";
 import { TooltipWrapper } from "./TooltipWrapper";
+import { messageVariantsArray } from "../../theme/sharedTypes";
+
+export type TagSemanticVariants = typeof messageVariantsArray[number];
 
 export interface TagSetFilterDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */
@@ -26,6 +29,8 @@ export interface TagSetFilterProps extends Omit<BoxProps, "onClick"> {
   isDismissible?: boolean;
   /** The function to perform when a tag is clicked when `isDismissible` is true. */
   onClick?: (tagSet: TagSetFilterDataProps) => void;
+  /** Semantic type of the tags. */
+  semanticVariant?: TagSemanticVariants | "default";
   /** The array of data to display as tags. */
   tagSetData: TagSetFilterDataProps[];
   /** The `TagSet` variant to render; "filter" by default. */
@@ -38,8 +43,17 @@ export interface TagSetFilterProps extends Omit<BoxProps, "onClick"> {
  */
 export const TagSetFilter: React.FC<TagSetFilterProps> = chakra(
   (props: TagSetFilterProps) => {
-    const { id, isDismissible = false, onClick, tagSetData = [] } = props;
-    const styles = useMultiStyleConfig("TagSetFilter", { isDismissible });
+    const {
+      id,
+      isDismissible = false,
+      onClick,
+      semanticVariant = "default",
+      tagSetData = [],
+    } = props;
+    const styles = useMultiStyleConfig("TagSetFilter", {
+      isDismissible,
+      semanticVariant,
+    });
     const finalOnClick = (tagSet: TagSetFilterDataProps) => {
       // Return the entire tagSet object to the consuming app.
       onClick && onClick(tagSet);
