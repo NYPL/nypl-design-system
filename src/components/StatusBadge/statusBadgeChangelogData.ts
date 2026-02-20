@@ -14,7 +14,9 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Updated styles to allow the label text to wrap onto multiple lines."],
+    notes: [
+      "Updated styles to allow the label text to wrap onto multiple lines.",
+    ],
   },
   {
     date: "2025-08-11",
