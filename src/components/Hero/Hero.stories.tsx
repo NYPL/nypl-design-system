@@ -235,7 +235,7 @@ export const Campaign: Story = {
           text="Campaign Hero at Default Height"
         />
         <Hero
-          backgroundImageSrc={getPlaceholderImage()}
+          backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
           variant="campaign"
           heading={
             <Heading

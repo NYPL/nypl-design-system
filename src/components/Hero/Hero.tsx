@@ -238,6 +238,11 @@ export const Hero: ChakraComponent<
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 opacity: isDarkBackgroundImage ? "0.4" : "1.0",
+                /* 3. The Visual Treatment */
+                filter: "blur(40px) brightness(0.8)",
+
+                // /* 4. Scale up to hide the "faded edge" caused by the blur */
+                transform: "scale(1.2)",
               },
             }
           : backdropBackgroundColor
