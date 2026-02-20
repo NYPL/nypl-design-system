@@ -19,7 +19,7 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
   componentName="StatusBadge"
   summary="Label to indicate status or importance"
   versionAdded="0.18.7"
-  versionLatest="4.0.0"
+  versionLatest="Prerelease"
 />
 
 <Canvas of={StatusBadgeStories.WithControls} />
@@ -33,6 +33,7 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 - [Font size](#font-size)
 - [Capitalization](#label-capitalization)
 - [Icons](#icons)
+- [Text length and wrapping](#text-length-and-wrapping)
 - [Changelog](#changelog)
 
 ## Overview
@@ -92,7 +93,7 @@ The default label font size is `desktop.body.body2`.
 
 <Canvas of={StatusBadgeStories.Labeling} />
 
-### Icons
+## Icons
 
 - An icon can be rendered within the component by passing a DS `Icon` component
   as a child.
@@ -131,6 +132,14 @@ The default label font size is `desktop.body.body2`.
 `}
   language="jsx"
 />
+
+## Text length and wrapping
+
+- Label text should be concise and ideally no more than five words.
+- When label text exceeds the width of the container, it will wrap onto
+  multiple lines.
+
+<Canvas of={StatusBadgeStories.TextWrap} />
 
 ## Changelog
 

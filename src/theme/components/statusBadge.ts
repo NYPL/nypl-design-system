@@ -22,7 +22,6 @@ const baseStyle = defineStyle(({ labelFontSize }) => {
     py: "inset.extranarrow",
     paddingInlineEnd: "inset.default",
     paddingInlineStart: ".75rem",
-    // whiteSpace: "nowrap",
     width: "fit-content",
     _dark: {
       backgroundColor: "dark.ui.bg.default",
