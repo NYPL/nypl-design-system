@@ -134,17 +134,14 @@ export const FontSize: Story = {
           </>,
           <>
             <StatusBadge fontSize="desktop.caption" variant="informative">
-              Informative Nesciunt voluptates in quis molestias officia eum
-              tempora vero ut. Amet assumenda aliquid id voluptas provident est
-              dicta. Aut qui sequi quibusdam incidunt vel consequatur quia
-              voluptas consectetur distinctio occaecati consequatur.
+              Informative
             </StatusBadge>
           </>,
         ],
         [
           <>
             <StatusBadge fontSize="desktop.body.body1" variant="positive">
-              PositiveNesciuntvoluptates in quis.
+              Positive
             </StatusBadge>
           </>,
           <>
@@ -163,12 +160,7 @@ export const FontSize: Story = {
             </StatusBadge>
           </>,
           <>
-            <StatusBadge variant="negative">
-              Negative Nesciunt voluptates in quis molestias officia eum tempora
-              vero ut. Amet assumenda aliquid id voluptas provident est dicta.
-              Aut qui sequi quibusdam incidunt vel consequatur quia voluptas
-              consectetur distinctio occaecati consequatur.
-            </StatusBadge>
+            <StatusBadge variant="negative">Negative</StatusBadge>
           </>,
           <>
             <StatusBadge fontSize="desktop.caption" variant="negative">
