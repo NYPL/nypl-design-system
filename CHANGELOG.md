@@ -12,6 +12,37 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the `StatusBadge` component to allow the label text to wrap onto multiple lines.
 
+## 4.1.3 (February 12, 2026)
+
+### Updates
+
+- Updates the `TagSet` component to add semantic color variants.
+- Updates the hex color value for `ui.warning.tertiary` for better accessibility compliance.
+- Updates the `Hero` component to alter the validation of the background props in the `"campaign"` variant.
+
+### Fixes
+
+- Fixes the hex color value for `dark.ui.warning.secondary`.
+
+## 4.1.2 (January 29, 2026)
+
+### Updates
+
+- Updates the `Errors` docs in the `Accessibility Guide`.
+- Updates `release` GHA workflow to work with the new npm OIDC authentication process
+
+## 4.1.1 (December 11, 2025)
+
+### Adds
+
+- Adds `Text case` to the `Style Guide`.
+- Adds the `"utilityGridView"` and `"utilityListView"` options to the `Icon` component.
+
+### Updates
+
+- Updates to `Reservoir v4 Migration Guide` to include details about the `Hero` component.
+- Updates the docs for the `Hero` component to no longer show `backgroundColor` in the props table.
+
 ## 4.1.0 (November 20, 2025)
 
 ### Adds

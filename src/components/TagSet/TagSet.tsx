@@ -48,6 +48,7 @@ export const TagSet: ChakraComponent<
       id,
       isDismissible = false,
       onClick,
+      semanticVariant,
       tagSetData = [],
       variant = "filter",
       ...rest
@@ -71,6 +72,7 @@ export const TagSet: ChakraComponent<
       <Flex data-testid="ds-tagSet" id={id} ref={ref} __css={styles} {...rest}>
         {!isFilterVariant(variant) && (
           <TagSetExplore
+            semanticVariant={semanticVariant}
             tagSetData={tagSetData as TagSetExploreDataProps[]}
             variant={variant}
           />
@@ -79,6 +81,7 @@ export const TagSet: ChakraComponent<
           <TagSetFilter
             isDismissible={isDismissible}
             onClick={onClick}
+            semanticVariant={semanticVariant}
             tagSetData={tagSetData as TagSetFilterDataProps[]}
             variant={variant}
           />

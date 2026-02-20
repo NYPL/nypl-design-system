@@ -4,6 +4,9 @@ import React from "react";
 import Icon from "../Icons/Icon";
 import { IconNames } from "../Icons/Icon";
 import { TooltipWrapper } from "./TooltipWrapper";
+import { messageVariantsArray } from "../../theme/sharedTypes";
+
+export type TagSemanticVariants = typeof messageVariantsArray[number];
 
 export interface TagSetExploreDataProps {
   /** The name of the SVG `Icon` to render before the tag label. */
@@ -23,6 +26,8 @@ export interface TagSetExploreProps extends BoxProps {
   /** The function to perform when a tag is clicked when `isDismissible` is
    * true.  This prop is not used in the "explore" variant. */
   onClick?: never;
+  /** Semantic type of the tags. */
+  semanticVariant?: TagSemanticVariants | "default";
   /** The array of data to display as tags. */
   tagSetData: TagSetExploreDataProps[];
   /** The `TagSet` variant to render; "filter" by default. */
@@ -36,8 +41,8 @@ export interface TagSetExploreProps extends BoxProps {
  */
 export const TagSetExplore: React.FC<TagSetExploreProps> = chakra(
   (props: TagSetExploreProps) => {
-    const { tagSetData = [] } = props;
-    const styles = useStyleConfig("TagSetExplore");
+    const { semanticVariant = "default", tagSetData = [] } = props;
+    const styles = useStyleConfig("TagSetExplore", { semanticVariant });
 
     return (
       <>
