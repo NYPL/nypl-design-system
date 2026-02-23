@@ -202,10 +202,7 @@ export const FontSize: Story = {
     />
   ),
 };
-/* 
-<Box>
-</Box>
-*/
+
 export const Labeling: Story = {
   render: () => (
     <Table
