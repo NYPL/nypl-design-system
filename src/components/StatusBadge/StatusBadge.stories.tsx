@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Icon from "../Icons/Icon";
@@ -291,5 +291,98 @@ export const Icons: Story = {
         <Icon color="ui.link.secondary" ml="xs" name="headset" size="medium" />
       </StatusBadge>
     </VStack>
+  ),
+};
+
+export const TextWrap: Story = {
+  render: () => (
+    <>
+      <Box display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="l">
+        <Box>
+          <StatusBadge fontSize="desktop.body.body2" variant="informative">
+            Sapiente voluptatem velit enim maxime commodi doloribus.
+          </StatusBadge>
+        </Box>
+        <Box>
+          <StatusBadge fontSize="desktop.body.body2" variant="warning">
+            Available on-site only
+          </StatusBadge>
+        </Box>
+        <Box>
+          <StatusBadge fontSize="desktop.body.body2" variant="informative">
+            Contains on-site only materials
+          </StatusBadge>
+        </Box>
+        <Box>
+          <StatusBadge fontSize="desktop.body.body2" variant="negative">
+            There is a problem. Please contact us for more information.
+          </StatusBadge>
+        </Box>
+        <Box>
+          <StatusBadge fontSize="desktop.body.body2" variant="positive">
+            Available
+          </StatusBadge>
+        </Box>
+        <Box>
+          <StatusBadge fontSize="desktop.body.body2" variant="negative">
+            This item is not available at this time.
+          </StatusBadge>
+        </Box>
+        <Box>
+          <StatusBadge fontSize="desktop.body.body2">Meh</StatusBadge>
+        </Box>
+        <Box>
+          <StatusBadge fontSize="desktop.body.body2" variant="recommendation">
+            This status is very long. This is NOT recommended. Alias molestiae
+            exercitationem vero incidunt ab cumque at et. Voluptas
+            necessitatibus et quo numquam aperiam recusandae facere veniam sint.
+          </StatusBadge>
+        </Box>
+      </Box>
+      <VStack align="stretch" mt="l" spacing="l">
+        <StatusBadge variant="negative">
+          <Icon
+            color="brand.primary"
+            mr="xs"
+            name="errorFilled"
+            size="medium"
+          />
+          On-site access only Nesciunt voluptates in quis molestias officia eum
+          tempora vero ut. Amet assumenda aliquid id voluptas provident est
+          dicta. Aut qui sequi quibusdam incidunt vel consequatur quia voluptas
+          consectetur distinctio occaecati consequatur.
+        </StatusBadge>
+        <StatusBadge fontSize="desktop.caption" variant="warning">
+          <Icon
+            color="ui.warning.secondary"
+            mr="xs"
+            name="actionHelpDefault"
+            size="medium"
+          />
+          Mising information
+        </StatusBadge>
+        <StatusBadge variant="neutral">
+          Registration required Nesciunt voluptates in quis molestias officia
+          eum tempora vero ut. Amet assumenda aliquid id voluptas provident est
+          dicta. Aut qui sequi quibusdam incidunt vel consequatur quia voluptas
+          consectetur distinctio occaecati consequatur.
+          <Icon
+            color="ui.black"
+            ml="xs"
+            name="actionIdentityFilled"
+            size="medium"
+          />
+        </StatusBadge>
+        <StatusBadge fontSize="desktop.body.body1" variant="informative">
+          Includes audio
+          <Icon
+            color="ui.link.secondary"
+            ml="xs"
+            name="headset"
+            size="medium"
+          />
+        </StatusBadge>
+      </VStack>
+    </>
   ),
 };
