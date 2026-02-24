@@ -55,9 +55,14 @@ export interface HeroProps extends BoxProps {
    * Set `isDarkText` to `true` if the `textBackgroundColor` is set to a light
    * color. */
   isDarkText?: boolean;
-  /** Optional boolean used to toggle the treatment of the background image in
-   * the "campaign" variant. If true, the background image will be converted to
-   * black & white and darkened to 60% black. */
+  /** Optional boolean used to toggle the blur treatment of the background image
+   * in the "campaign" variant. If true, the background image will be blurred
+   * and darkened slightly.
+   */
+  isBlurredBackgroundImage?: boolean;
+  /** Optional boolean used to toggle the color treatment of the background
+   * image in the "campaign" variant. If true, the background image will be
+   * converted to black & white and darkened moderately. */
   isDarkBackgroundImage?: boolean;
   /** Optional string used for the subheader that displays underneath the
    * heading element. */
@@ -97,6 +102,7 @@ export const Hero: ChakraComponent<
           src: "",
         },
         isDarkText,
+        isBlurredBackgroundImage = false,
         isDarkBackgroundImage = false,
         subHeaderText,
         textBackgroundColor,
@@ -105,6 +111,8 @@ export const Hero: ChakraComponent<
       } = props;
       const styles = useMultiStyleConfig("Hero", {
         foregroundColor,
+        isBlurredBackgroundImage,
+        isDarkBackgroundImage,
         isDarkText,
         textColor,
         variant,
@@ -209,7 +217,7 @@ export const Hero: ChakraComponent<
       } else if (variant === "campaign") {
         /**
          * For better control of the background image in the "campaign" variant,
-         * the image and the associated styles were moved into the `:before`
+         * the image and the associated styles were moved into the `standalone
          * element.
          */
         const campaignBgStyles = {
@@ -221,28 +229,44 @@ export const Hero: ChakraComponent<
           top: 0,
           width: "100%",
         };
+        // Style background image based on configuration
+        const finalBackgroundFilters = `
+          ${isDarkBackgroundImage ? "grayscale(100%) " : ""} // Make grayscale
+          ${isBlurredBackgroundImage ? "blur(80px)" : ""} // Blur image
+          ${
+            isDarkBackgroundImage
+              ? "brightness(0.4)" // Much darker for "dark" style
+              : isBlurredBackgroundImage
+              ? "brightness(0.8)" // Slightly darker for "blurred" style
+              : ""
+          }
+        `;
+
         backgroundImageStyle = backgroundImageSrc
           ? {
+              minHeight: "320px",
+              ".blurBackgroundImage": {
+                ...campaignBgStyles,
+                overflow: "hidden",
+                _after: {
+                  ...campaignBgStyles,
+                  backgroundImage: `/**/url("${backgroundImageSrc}")`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  filter: finalBackgroundFilters,
+                  height: "100%",
+                  overflow: "hidden",
+
+                  // Increase size to hide pixelated edges caused by the blur filter
+                  transform: isBlurredBackgroundImage
+                    ? "scale(1.4)"
+                    : undefined,
+                },
+              },
               _before: {
                 ...campaignBgStyles,
                 bgColor: "ui.black",
-              },
-              _after: {
-                ...campaignBgStyles,
-                backgroundBlendMode: isDarkBackgroundImage
-                  ? "saturation"
-                  : null,
-                backgroundImage: isDarkBackgroundImage
-                  ? `/**/linear-gradient(black, black), url("${backgroundImageSrc}")`
-                  : `/**/url("${backgroundImageSrc}")`,
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-                opacity: isDarkBackgroundImage ? "0.4" : "1.0",
-                /* 3. The Visual Treatment */
-                filter: "blur(40px) brightness(0.8)",
-
-                // /* 4. Scale up to hide the "faded edge" caused by the blur */
-                transform: "scale(1.2)",
+                overflow: "hidden",
               },
             }
           : backdropBackgroundColor
@@ -351,7 +375,12 @@ export const Hero: ChakraComponent<
             {contentPrep}
           </Box>
         ) : (
-          contentPrep
+          <>
+            {variant === "campaign" && (
+              <Box className="blurBackgroundImage"></Box>
+            )}
+            {contentPrep}
+          </>
         );
 
       return (

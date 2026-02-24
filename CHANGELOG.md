@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Hero` component to add the `isBlurredBackgroundImage` prop for applying a blur effect to the background image in the "campaign" variant.
+
 ## 4.1.3 (February 12, 2026)
 
 ### Updates

@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      'Added the `isBlurredBackgroundImage` prop for applying a blur effect to the background image in the "campaign" variant.',
+    ],
+  },
+  {
     date: "2026-02-12",
     version: "4.1.3",
     type: "Update",
