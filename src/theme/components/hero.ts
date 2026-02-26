@@ -374,7 +374,13 @@ const tertiary = definePartsStyle(
   })
 );
 const campaign = definePartsStyle(
-  ({ foregroundColor, isDarkText, textColor }) => ({
+  ({
+    foregroundColor,
+    isBlurredBackgroundImage,
+    isDarkBackgroundImage,
+    isDarkText,
+    textColor,
+  }) => ({
     base: {
       alignItems: "center",
       display: "flex",
@@ -393,6 +399,10 @@ const campaign = definePartsStyle(
     content: {
       alignItems: "stretch",
       bg: "ui.black",
+      boxShadow:
+        isBlurredBackgroundImage || isDarkBackgroundImage
+          ? "0 0 24px 0 rgba(0,0,0,0.4)"
+          : null,
       color: getTextColor({
         type: "body",
         mode: "light",
