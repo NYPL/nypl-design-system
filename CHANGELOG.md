@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.1.4 (February 26, 2026)
+
 ### Updates
 
 - Updates the `StatusBadge` component to allow the label text to wrap onto multiple lines.
