@@ -8,6 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.1.4 (February 26, 2026)
+
+### Updates
+
+- Updates the `StatusBadge` component to allow the label text to wrap onto multiple lines.
+- Updates the `Hero` component to add the `isBlurredBackgroundImage` prop for applying a blur effect to the background image in the "campaign" variant.
+
 ## 4.1.3 (February 12, 2026)
 
 ### Updates

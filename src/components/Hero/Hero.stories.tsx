@@ -59,6 +59,10 @@ const imageProps = {
   alt: "Image example",
   src: getPlaceholderImage(),
 };
+const imagePropsColorful = {
+  alt: "Colorful image example",
+  src: "https://www.nypl.org/scout/_next/image?url=https%3A%2F%2Fdrupal.nypl.org%2Fsites-drupal%2Fdefault%2Ffiles%2Fstyles%2F2_1_960%2Fpublic%2F2023-04%2F2023_04_17_030%2520%25281%2529.jpg%3Fh%3Dc9a3a702%26itok%3DZIuDnI6f&w=2048&q=90",
+};
 
 const meta: Meta<typeof Hero> = {
   title: "Components/Basic Elements/Hero",
@@ -69,6 +73,10 @@ const meta: Meta<typeof Hero> = {
     foregroundColor: { control: { type: "color" } },
     heading: { control: false },
     imageProps: { control: false },
+    isBlurredBackgroundImage: {
+      control: { type: "boolean" },
+      table: { defaultValue: { summary: "false" } },
+    },
     isDarkBackgroundImage: {
       control: { type: "boolean" },
       table: { defaultValue: { summary: "false" } },
@@ -104,6 +112,7 @@ export const WithControls: Story = {
     imageProps,
     "imageProps.alt": "",
     "imageProps.src": "",
+    isBlurredBackgroundImage: undefined,
     isDarkBackgroundImage: undefined,
     isDarkText: undefined,
     subHeaderText: undefined,
@@ -235,7 +244,7 @@ export const Campaign: Story = {
           text="Campaign Hero at Default Height"
         />
         <Hero
-          backgroundImageSrc={getPlaceholderImage()}
+          backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
           variant="campaign"
           heading={
             <Heading
@@ -280,23 +289,73 @@ export const Campaign: Story = {
     </Stack>
   ),
 };
-export const CampaignDarkBackgroundImage: Story = {
+
+export const CampaignBackgroundTreatment: Story = {
   render: () => (
-    <Hero
-      backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
-      variant="campaign"
-      heading={
-        <Heading
-          level="h1"
-          id="campaign-hero-default-heading"
-          mb="s"
-          text="Hero Campaign"
+    <Stack spacing="l">
+      <Stack spacing="s">
+        <Heading level="h3" size="heading8" text="Backdrop background color" />
+        <Hero
+          backdropBackgroundColor="ui.warning.secondary"
+          variant="campaign"
+          heading={<Heading level="h1" mb="s" text="Hero Campaign" />}
+          imageProps={imagePropsColorful}
+          subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
         />
-      }
-      imageProps={imageProps}
-      isDarkBackgroundImage
-      subHeaderText={otherSubHeaderText}
-    />
+      </Stack>
+      <Stack spacing="s">
+        <Heading level="h3" size="heading8" text="Dark background image" />
+        <Hero
+          backgroundImageSrc={imagePropsColorful.src}
+          variant="campaign"
+          heading={<Heading level="h1" mb="s" text="Hero Campaign" />}
+          imageProps={imagePropsColorful}
+          isDarkBackgroundImage
+          subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
+        />
+      </Stack>
+      <Stack spacing="s">
+        <Heading level="h3" size="heading8" text="Blurred background image" />
+        <Hero
+          backgroundImageSrc={imagePropsColorful.src}
+          variant="campaign"
+          heading={<Heading level="h1" mb="s" text="Hero Campaign" />}
+          imageProps={imagePropsColorful}
+          isBlurredBackgroundImage
+          subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
+        />
+      </Stack>
+      <Stack spacing="s">
+        <Heading
+          level="h3"
+          size="heading8"
+          text="Dark and blurred background image"
+        />
+        <Hero
+          backgroundImageSrc={imagePropsColorful.src}
+          variant="campaign"
+          heading={<Heading level="h1" mb="s" text="Hero Campaign" />}
+          imageProps={imagePropsColorful}
+          isBlurredBackgroundImage
+          isDarkBackgroundImage
+          subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
+        />
+      </Stack>
+      <Stack spacing="s">
+        <Heading
+          level="h3"
+          size="heading8"
+          text="Unstyled background image (for comparison)"
+        />
+        <Hero
+          backgroundImageSrc={imagePropsColorful.src}
+          variant="campaign"
+          heading={<Heading level="h1" mb="s" text="Hero Campaign" />}
+          imageProps={imagePropsColorful}
+          subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
+        />
+      </Stack>
+    </Stack>
   ),
 };
 export const CampaignBackgroundColors: Story = {

@@ -21,7 +21,7 @@ import { changelogData } from "./heroChangelogData";
   componentName="Hero"
   summary="A full-width banner at the top of a page"
   versionAdded="0.2.0"
-  versionLatest="4.1.3"
+  versionLatest="4.1.4"
 />
 
 <Canvas of={HeroStories.WithControls} />
@@ -205,9 +205,10 @@ The `"campaign"` hero variant should be used with `backgroundImageSrc`,
 `heading`, and `imageProps` props. `backdropBackgroundColor`, `subHeaderText`,
 `textBackgroundColor`, and `textColor` props may also be used.
 
-The `"campaign"` variant is special in that it has both a background and foreground.
-We understand that this naming can be confusing, but it helps to think of this
-variant having two layers.
+The `"campaign"` variant is special in that it has both a foreground and a
+background and it helps to think of this variant having two layers.
+
+#### Foreground
 
 To modify the foreground, the `textBackgroundColor`, `textColor`, and
 `imageProps` props should be used.
@@ -298,52 +299,40 @@ To modify the foreground, the `textBackgroundColor`, `textColor`, and
 `}
   language="jsx"
 />
-#### isDarkBackgroundImage
+#### Background
 
-The `isDarkBackgroundImage` prop can be used in the `"campaign"` hero to toggle
-the visual treatment of the background image. If true, the background image will
-be converted to black & white and darkened to 60% black.
+To modify the background, either the `backdropBackgroundColor` or
+`backgroundImageSrc` prop should be used. If both are set, the
+`backgroundImageSrc` prop will take precedence.
 
-<Story of={HeroStories.CampaignDarkBackgroundImage} />
+For clarification, the component background is sometimes referred to as the
+"backdrop."
 
-<Source
-  code={`
-  <Hero
-    backgroundImageSrc="https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg"
-    heading={
-      <Heading
-        level="h1"
-        id="campaign-hero-default-heading"
-        text="Hero Campaign"
-      />
-    }
-    imageProps={
-      alt: "Image example",
-      src: "https://iiif.nypl.org/iiif/2/5164274/full/!900,900/0/default.jpg",
-    }
-    isDarkBackgroundImage
-    subHeaderText={
-      <>
-        With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
-        <Link href="https://www.nypl.org/locations/snfl/childrens">
-          The New York Public Library
-        </Link>{" "}
-        is an essential part of neighborhoods across the city. Visit us today.
-      </>
-    }
-    variant="campaign"
-  />
-`}
-  language="jsx"
-/>
+##### backdropBackgroundColor
 
-#### backdropBackgroundColor
+The `backdropBackgroundColor` prop is used to set the background color behind
+the featured image and text content. It is recommended to use DS color design
+tokens to set this value.
 
-The "backdrop" is what we call the background and that can be set through either
-the `backdropBackgroundColor` or `backgroundImageSrc` props. When both are set,
-the `backgroundImageSrc` will take precedence.
+##### backgroundImageSrc
 
-<Story of={HeroStories.CampaignBackgroundColors} />
+The `backgroundImageSrc` prop is used to set a background image behind the
+featured image and text content.
+
+For additional configuration, the `isDarkBackgroundImage` and
+`isBlurredBackgroundImage` props can be used to control the color and blur
+treatment of the background image.
+
+If `isDarkBackgroundImage` is true, the background image will be converted to
+black &amp; white and darkened moderately.
+
+If `isBlurredBackgroundImage` is true, the background image will be blurred
+heavily and darkened slightly.
+
+These two props may be used independently or together to achieve the desired
+background treatment.
+
+<Story of={HeroStories.CampaignBackgroundTreatment} />
 
 <Source
   code={`
@@ -352,24 +341,78 @@ the `backgroundImageSrc` will take precedence.
     heading={
       <Heading
         level="h1"
-        id="campaign-hero-long-text-heading"
         text="Hero Campaign"
       />
     }
     imageProps={
       alt: "Image example",
-      src: "https://images.nypl.org/index.php?id=swope_244712&t=w",
+      src: "https://www.nypl.org/scout/_next/image?url=https%3A%2F%2Fdrupal.nypl.org%2Fsites-drupal%2Fdefault%2Ffiles%2Fstyles%2F2_1_960%2Fpublic%2F2023-04%2F2023_04_17_030%2520%25281%2529.jpg%3Fh%3Dc9a3a702%26itok%3DZIuDnI6f&w=2048&q=90",
+    }
+    subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
+    variant="campaign"
+  />
+`}
+  language="jsx"
+/>
+<Source
+  code={`
+  <Hero
+    backgroundImageSrc="https://www.nypl.org/scout/_next/image?url=https%3A%2F%2Fdrupal.nypl.org%2Fsites-drupal%2Fdefault%2Ffiles%2Fstyles%2F2_1_960%2Fpublic%2F2023-04%2F2023_04_17_030%2520%25281%2529.jpg%3Fh%3Dc9a3a702%26itok%3DZIuDnI6f&w=2048&q=90"
+    heading={
+      <Heading
+        level="h1"
+        text="Hero Campaign"
+      />
+    }
+    imageProps={
+      alt: "Image example",
+      src: "https://www.nypl.org/scout/_next/image?url=https%3A%2F%2Fdrupal.nypl.org%2Fsites-drupal%2Fdefault%2Ffiles%2Fstyles%2F2_1_960%2Fpublic%2F2023-04%2F2023_04_17_030%2520%25281%2529.jpg%3Fh%3Dc9a3a702%26itok%3DZIuDnI6f&w=2048&q=90",
     }
     isDarkBackgroundImage
-    subHeaderText={
-      <>
-        With 92 locations across the Bronx, Manhattan, and Staten Island,{" "}
-        <Link href="https://www.nypl.org/locations/snfl/childrens">
-          The New York Public Library
-        </Link>{" "}
-        is an essential part of neighborhoods across the city. Visit us today.
-      </>
+    subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
+    variant="campaign"
+  />
+`}
+  language="jsx"
+/>
+<Source
+  code={`
+  <Hero
+    backgroundImageSrc="https://www.nypl.org/scout/_next/image?url=https%3A%2F%2Fdrupal.nypl.org%2Fsites-drupal%2Fdefault%2Ffiles%2Fstyles%2F2_1_960%2Fpublic%2F2023-04%2F2023_04_17_030%2520%25281%2529.jpg%3Fh%3Dc9a3a702%26itok%3DZIuDnI6f&w=2048&q=90"
+    heading={
+      <Heading
+        level="h1"
+        text="Hero Campaign"
+      />
     }
+    imageProps={
+      alt: "Image example",
+      src: "https://www.nypl.org/scout/_next/image?url=https%3A%2F%2Fdrupal.nypl.org%2Fsites-drupal%2Fdefault%2Ffiles%2Fstyles%2F2_1_960%2Fpublic%2F2023-04%2F2023_04_17_030%2520%25281%2529.jpg%3Fh%3Dc9a3a702%26itok%3DZIuDnI6f&w=2048&q=90",
+    }
+    isBlurredBackgroundImage
+    subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
+    variant="campaign"
+  />
+`}
+  language="jsx"
+/>
+<Source
+  code={`
+  <Hero
+    backgroundImageSrc="https://www.nypl.org/scout/_next/image?url=https%3A%2F%2Fdrupal.nypl.org%2Fsites-drupal%2Fdefault%2Ffiles%2Fstyles%2F2_1_960%2Fpublic%2F2023-04%2F2023_04_17_030%2520%25281%2529.jpg%3Fh%3Dc9a3a702%26itok%3DZIuDnI6f&w=2048&q=90"
+    heading={
+      <Heading
+        level="h1"
+        text="Hero Campaign"
+      />
+    }
+    imageProps={
+      alt: "Image example",
+      src: "https://www.nypl.org/scout/_next/image?url=https%3A%2F%2Fdrupal.nypl.org%2Fsites-drupal%2Fdefault%2Ffiles%2Fstyles%2F2_1_960%2Fpublic%2F2023-04%2F2023_04_17_030%2520%25281%2529.jpg%3Fh%3Dc9a3a702%26itok%3DZIuDnI6f&w=2048&q=90",
+    }
+    isBlurredBackgroundImage
+    isDarkBackgroundImage
+    subHeaderText="Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis."
     variant="campaign"
   />
 `}
