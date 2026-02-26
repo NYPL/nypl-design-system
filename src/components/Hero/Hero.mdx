@@ -205,9 +205,10 @@ The `"campaign"` hero variant should be used with `backgroundImageSrc`,
 `heading`, and `imageProps` props. `backdropBackgroundColor`, `subHeaderText`,
 `textBackgroundColor`, and `textColor` props may also be used.
 
-The `"campaign"` variant is special in that it has both a background and foreground.
-We understand that this naming can be confusing, but it helps to think of this
-variant having two layers.
+The `"campaign"` variant is special in that it has both a foreground and a
+background and it helps to think of this variant having two layers.
+
+#### Foreground
 
 To modify the foreground, the `textBackgroundColor`, `textColor`, and
 `imageProps` props should be used.
@@ -298,18 +299,14 @@ To modify the foreground, the `textBackgroundColor`, `textColor`, and
 `}
   language="jsx"
 />
-#### Background treatment
+#### Background
 
-For the `campaign` variant, the component background can be set through the
-`backdropBackgroundColor` or `backgroundImageSrc` prop. When both are set, the
-`backgroundImageSrc` will take precedence. For clarification, the component
-background is sometimes referred to as the "backdrop."
+To modify the background, either the `backdropBackgroundColor` or
+`backgroundImageSrc` prop should be used. If both are set, the
+`backgroundImageSrc` prop will take precedence.
 
-The `campaign` variant offers additional props to configure the background.
-
-- `backdropBackgroundColor`
-- `isDarkBackgroundImage`
-- `isBlurredBackgroundImage`<br /><br />
+For clarification, the component background is sometimes referred to as the
+"backdrop."
 
 ##### backdropBackgroundColor
 
@@ -317,11 +314,14 @@ The `backdropBackgroundColor` prop is used to set the background color behind
 the featured image and text content. It is recommended to use DS color design
 tokens to set this value.
 
-##### isDarkBackgroundImage and isBlurredBackgroundImage
+##### backgroundImageSrc
 
-The `isDarkBackgroundImage` and `isBlurredBackgroundImage` props are used to
-control the color and blur treatment of the background image set using the
-`backgroundImageSrc` prop.
+The `backgroundImageSrc` prop is used to set a background image behind the
+featured image and text content.
+
+For additional configuration, the `isDarkBackgroundImage` and
+`isBlurredBackgroundImage` props can be used to control the color and blur
+treatment of the background image.
 
 If `isDarkBackgroundImage` is true, the background image will be converted to
 black &amp; white and darkened moderately.

@@ -217,8 +217,9 @@ export const Hero: ChakraComponent<
       } else if (variant === "campaign") {
         /**
          * For better control of the background image in the "campaign" variant,
-         * the image and the associated styles were moved into the `standalone
-         * element.
+         * the background image and the associated styles are handled with a
+         * separate DOM element rather that being applied to the main component
+         * container.
          */
         const campaignBgStyles = {
           content: `""`,
@@ -230,22 +231,25 @@ export const Hero: ChakraComponent<
           width: "100%",
         };
         // Style background image based on configuration
-        const finalBackgroundFilters = `
-          ${isDarkBackgroundImage ? "grayscale(100%) " : ""} // Make grayscale
-          ${isBlurredBackgroundImage ? "blur(80px)" : ""} // Blur image
-          ${
-            isDarkBackgroundImage
-              ? "brightness(0.4)" // Much darker for "dark" style
-              : isBlurredBackgroundImage
-              ? "brightness(0.8)" // Slightly darker for "blurred" style
-              : ""
-          }
-        `;
+        const finalBackgroundFilters = [
+          // Make grayscale for "dark" style
+          isDarkBackgroundImage && "grayscale(100%)",
+          // Blur image for "blurred" style
+          isBlurredBackgroundImage && "blur(80px)",
+          // Adjust brightness based on style
+          isDarkBackgroundImage
+            ? "brightness(0.4)" // Much darker for "dark" style
+            : isBlurredBackgroundImage
+            ? "brightness(0.8)" // Slightly darker for "blurred" style
+            : null,
+        ]
+          .filter(Boolean)
+          .join(" ");
 
         backgroundImageStyle = backgroundImageSrc
           ? {
               minHeight: "320px",
-              ".blurBackgroundImage": {
+              ".heroBackgroundImage": {
                 ...campaignBgStyles,
                 overflow: "hidden",
                 _after: {
@@ -377,7 +381,7 @@ export const Hero: ChakraComponent<
         ) : (
           <>
             {variant === "campaign" && (
-              <Box className="blurBackgroundImage"></Box>
+              <Box className="heroBackgroundImage"></Box>
             )}
             {contentPrep}
           </>

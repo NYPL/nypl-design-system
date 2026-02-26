@@ -57,12 +57,12 @@ exports[`Hero Renders the UI snapshot correctly 2`] = `
 
 exports[`Hero Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-skpvlp"
+  className="css-18jfxki"
   data-responsive-background-image={true}
   data-testid="ds-hero"
 >
   <div
-    className="blurBackgroundImage css-0"
+    className="heroBackgroundImage css-0"
   />
   <div
     className="css-24mlj5"
