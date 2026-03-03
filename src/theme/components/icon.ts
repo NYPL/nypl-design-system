@@ -38,6 +38,7 @@ const iconRotation: Record<string, { transform: string }> = {
 interface IconBaseStyle extends StyleFunctionProps {
   align: keyof typeof align;
   color: string;
+  hasChildSVG: boolean;
   iconRotation: keyof typeof iconRotation;
   size: keyof typeof iconSizeStyles;
 }
@@ -53,7 +54,10 @@ const Icon = defineStyleConfig({
     };
 
     return {
-      ...allStyles,
+      // Apply styles to the root element if a custom svg is not passed
+      ...(!props.hasChildSVG ? allStyles : {}),
+
+      // Apply styles to a child svg element
       svg: {
         ...allStyles,
       },
