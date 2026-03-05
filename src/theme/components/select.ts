@@ -79,6 +79,19 @@ const Select = defineMultiStyleConfig({
           marginLeft:
             !showLabel && labelPosition === "inline" ? "0" : `${labelWidth}px`,
         },
+        /**
+         * Overriding Chakra default styles with styles that are RTL-aware to
+         * properly position the dropdown icon.
+         *
+         * To work properly, the `right` attribute needs to be unset before the
+         * `inset-inline-end` attribute is set. Additionally, `insetInlineEnd`
+         * which should map to `inset-inline-end` actually maps to `right`,
+         * which does not solve the problem. Maybe these are bugs in Chakra.
+         * */
+        ".chakra-select__icon-wrapper": {
+          right: "unset",
+          "inset-inline-end": "var(--nypl-space-2)",
+        },
       };
     }
   ),

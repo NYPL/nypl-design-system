@@ -8,6 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.1.5 (March 5, 2026)
+
+### Fixes
+
+- Fixed the double application of styles when a custom svg is passed into the `Icon` component.
+- Fixes the RTL styles for the dropdown arrow in the `Select` component.
+
 ## 4.1.4 (February 26, 2026)
 
 ### Updates
