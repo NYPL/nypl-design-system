@@ -10,8 +10,8 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2026-03-05",
+    version: "4.1.5",
     type: "Update",
     affects: ["Styles"],
     notes: ["Fixes the RTL styles for the dropdown arrow."],

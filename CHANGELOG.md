@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.1.4 (March 5, 2026)
+
 ### Fixes
 
 - Fixed the double application of styles when a custom svg is passed into the `Icon` component.
