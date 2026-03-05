@@ -76,9 +76,11 @@ export const Icon: ChakraComponent<
       variant = "default",
       ...rest
     } = props;
+    const hasChildSVG = children && (children as JSX.Element).type === "svg";
     const styles = useStyleConfig("ReservoirIcon", {
       align,
       color,
+      hasChildSVG,
       iconRotation,
       size,
       variant,
@@ -90,16 +92,21 @@ export const Icon: ChakraComponent<
       title,
       ...rest,
     };
-    let childSVG: any = null;
 
     // Component prop validation
-    if (name && children) {
+    if (name && hasChildSVG) {
       console.warn(
         "NYPL Reservoir Icon: Pass in either a `name` prop or an `svg` element " +
           "child. Do not pass both."
       );
       return null;
-    } else if (!name && !children) {
+    } else if (children && !hasChildSVG) {
+      console.warn(
+        "NYPL Reservoir Icon: Only an `svg` element can be passed to the `Icon` " +
+          "component as its child."
+      );
+      return null;
+    } else if (!name && !hasChildSVG) {
       console.warn(
         "NYPL Reservoir Icon: Pass an icon `name` prop or an SVG child to " +
           "ensure an icon appears."
@@ -117,22 +124,13 @@ export const Icon: ChakraComponent<
       );
     }
 
-    // If no `name` prop was passed, we expect a child SVG element to be passed.
+    // If all prop validation passed and no `name` prop was passed, we expect a
+    // child SVG element was passed and render it accordingly.
     // Apply icon props to the SVG child.
-    if (
-      (children as JSX.Element).type === "svg" ||
-      (children as JSX.Element).props?.type === "svg"
-    ) {
-      childSVG = React.cloneElement(children as JSX.Element, {
-        ...iconProps,
-        ref,
-      });
-    } else {
-      console.warn(
-        "NYPL Reservoir Icon: An `svg` element must be passed to the `Icon` " +
-          "component as its child."
-      );
-    }
+    const childSVG = React.cloneElement(children as JSX.Element, {
+      ...iconProps,
+      ref,
+    });
 
     return (
       <Box ref={ref} __css={styles}>

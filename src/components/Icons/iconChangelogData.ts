@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2026-03-05",
+    version: "4.1.5",
+    type: "Bug Fix",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Fixed the double application of styles when a custom svg is passed.",
+    ],
+  },
+  {
     date: "2025-12-11",
     version: "4.1.1",
     type: "Update",

@@ -50,7 +50,7 @@ describe("Icon", () => {
     const warn = jest.spyOn(console, "warn");
     render(<Icon>Not an SVG</Icon>);
     expect(warn).toHaveBeenCalledWith(
-      "NYPL Reservoir Icon: An `svg` element must be passed to the `Icon` " +
+      "NYPL Reservoir Icon: Only an `svg` element can be passed to the `Icon` " +
         "component as its child."
     );
   });
