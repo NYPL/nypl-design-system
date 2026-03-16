@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updated the styles on the `Label` component to improve text alignemnt. This update also updates the styles for the label element in the `FeedbackBox`, `NewsletterSignup`, `Select`, `Slider`, and `TextInput` components.
+
 ## 4.1.5 (March 5, 2026)
 
 ### Fixes

@@ -366,6 +366,11 @@ export const WithControls: Story = {
   },
 };
 
+// The following are additional MultiSelectGroup example Stories.
+export const LayoutPatterns: Story = {
+  render: (_args) => <MultiSelectGroupLayoutStory />,
+};
+
 export const closeOnBlurState: Story = {
   render: () => (
     <MultiSelectGroupWithCloseOnBlurStory
@@ -373,9 +378,4 @@ export const closeOnBlurState: Story = {
       labelText="Label Text"
     />
   ),
-};
-
-// The following are additional MultiSelectGroup example Stories.
-export const LayoutPatterns: Story = {
-  render: (_args) => <MultiSelectGroupLayoutStory />,
 };

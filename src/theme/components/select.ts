@@ -73,7 +73,9 @@ const Select = defineMultiStyleConfig({
           gap: { md: "xs" },
           alignItems: { md: "center" },
         },
-        label: { marginBottom: "label.default" },
+        label: {
+          marginBottom: labelPosition === "inline" ? "0" : "label.default",
+        },
         select: select(labelPosition),
         "div[data-testid='ds-helperErrorText']": {
           marginLeft:

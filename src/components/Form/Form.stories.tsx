@@ -5,47 +5,50 @@ import Button from "../Button/Button";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
-import DatePicker from "../DatePicker/DatePicker";
 import Form, { FormRow, FormField } from "./Form";
 import { gridGapsArray } from "../Grid/SimpleGrid";
 import Heading from "../Heading/Heading";
 import HorizontalRule from "../HorizontalRule/HorizontalRule";
+import MultiSelect from "../MultiSelect/MultiSelect";
+import MultiSelectGroup from "../MultiSelectGroup/MultiSelectGroup";
 import Radio from "../Radio/Radio";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import Select from "../Select/Select";
 import TextInput from "../TextInput/TextInput";
+import useMultiSelect from "../../hooks/useMultiSelect";
 
-const meta: Meta<typeof Form> = {
-  title: "Components/Form Elements/Form",
-  component: Form,
-  argTypes: {
-    gap: {
-      control: { type: "select" },
-      table: { defaultValue: { summary: "grid.l" } },
-      options: gridGapsArray,
+const FormExampleStory = (args) => {
+  const { onChange, onMixedStateChange, onClear, selectedItems } =
+    useMultiSelect();
+  const multiSelectItems = [
+    {
+      id: "colors",
+      name: "Colors",
+      items: [
+        { id: "red", name: "Red" },
+        { id: "blue", name: "Blue" },
+        { id: "yellow", name: "Yellow" },
+      ],
     },
-  },
-};
-
-export default meta;
-type Story = StoryObj<typeof Form>;
-
-/**
- * Main Story for the Form component. This must contains the `args`
- * and `parameters` properties in this object.
- */
-export const WithControls: Story = {
-  args: {
-    gap: "grid.l",
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=10734-2768",
+    {
+      id: "pets",
+      name: "Pets",
+      items: [
+        { id: "cat", name: "Cat" },
+        {
+          id: "dog",
+          name: "Dog",
+          children: [
+            { id: "corgy", name: "Corgy" },
+            { id: "german-sheperd", name: "German Sheperd" },
+            { id: "afghan-hound", name: "Afghan Hound" },
+          ],
+        },
+        { id: "rat", name: "Rat" },
+      ],
     },
-    jest: "Form.test.tsx",
-  },
-  render: (args) => (
+  ];
+  return (
     <Form id="form-id" action="/end/point" method="get" {...args}>
       <FormRow>
         <FormField>
@@ -62,23 +65,6 @@ export const WithControls: Story = {
             id="last-name"
             isRequired
             labelText="Last Name"
-          />
-        </FormField>
-        <FormField>
-          <DatePicker
-            dateType="full"
-            dateFormat="yyyy-MM-dd"
-            helperTextFrom="From this date."
-            helperTextTo="To this date."
-            helperText="Select a valid date range."
-            id="date-range"
-            invalidText="Please select a valid date range."
-            isDateRange
-            labelText="Select the date range you want to visit NYPL"
-            minDate="1/1/2021"
-            maxDate="1/1/2022"
-            nameFrom="visit-dates"
-            showLabel={false}
           />
         </FormField>
       </FormRow>
@@ -179,6 +165,13 @@ export const WithControls: Story = {
           </CheckboxGroup>
         </FormField>
         <FormField>
+          <TextInput
+            helperText="This is an optional field."
+            id="text-input-example"
+            labelText="Text input"
+          />
+        </FormField>
+        <FormField>
           <RadioGroup id="radio-group" labelText="Radio Group" name="rg1">
             <Radio id="radio1" labelText="Radio 1" value="radio1" />
             <Radio id="radio2" labelText="Radio 2" value="radio2" />
@@ -204,13 +197,91 @@ export const WithControls: Story = {
       </FormRow>
       <FormRow>
         <FormField>
+          <TextInput
+            helperText="This is an optional field."
+            id="text-input-alignment-example"
+            labelText="Text input"
+          />
+        </FormField>
+        <FormField>
+          <MultiSelectGroup
+            showLabel={true}
+            id="row-full"
+            layout="row"
+            labelText="MultiSelect example"
+            multiSelectWidth="full"
+            renderMultiSelect={({ isBlockElement, multiSelectWidth }) => {
+              return multiSelectItems.map((multiSelect) => (
+                <MultiSelect
+                  buttonText="MultiSelect"
+                  defaultItemsVisible={5}
+                  id={`${multiSelect.id}-3`}
+                  isBlockElement={isBlockElement}
+                  items={multiSelect.items}
+                  key={`${multiSelect.id}-3`}
+                  onChange={(e) => {
+                    onChange(e.target.id, `${multiSelect.id}-3`);
+                  }}
+                  onMixedStateChange={(e) => {
+                    return onMixedStateChange({
+                      parentId: e.target.id,
+                      multiSelectId: `${multiSelect.id}-3`,
+                      items: multiSelect.items,
+                    });
+                  }}
+                  onClear={() => {
+                    onClear(`${multiSelect.id}-3`);
+                  }}
+                  selectedItems={selectedItems}
+                  width={multiSelectWidth}
+                />
+              ));
+            }}
+          />
+        </FormField>
+      </FormRow>
+      <FormRow>
+        <FormField>
           <ButtonGroup>
             <Button id="submit">Submit</Button>
           </ButtonGroup>
         </FormField>
       </FormRow>
     </Form>
-  ),
+  );
+};
+
+const meta: Meta<typeof Form> = {
+  title: "Components/Form Elements/Form",
+  component: Form,
+  argTypes: {
+    gap: {
+      control: { type: "select" },
+      table: { defaultValue: { summary: "grid.l" } },
+      options: gridGapsArray,
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Form>;
+
+/**
+ * Main Story for the Form component. This must contains the `args`
+ * and `parameters` properties in this object.
+ */
+export const WithControls: Story = {
+  args: {
+    gap: "grid.l",
+  },
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=10734-2768",
+    },
+    jest: "Form.test.tsx",
+  },
+  render: (args) => <FormExampleStory {...args} />,
 };
 
 // The following functions are used in the remaining Form example stories
