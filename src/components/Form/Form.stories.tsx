@@ -282,3 +282,77 @@ const getForms = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
 export const FormSpacing: Story = {
   render: () => getForms(sizes),
 };
+
+export const FormWithoutHelperText: Story = {
+  render: () => (
+    <Form id="form-id" action="/end/point" method="get">
+      <FormRow>
+        <FormField>
+          <TextInput
+            id="first-name"
+            isRequired
+            labelText="First Name"
+          />
+        </FormField>
+        <FormField>
+          <TextInput
+            id="last-name"
+            isRequired
+            labelText="Last Name"
+          />
+        </FormField>
+        <FormField>
+          <DatePicker
+            dateType="full"
+            dateFormat="yyyy-MM-dd"
+            id="date-range"
+            invalidText="Please select a valid date range."
+            isDateRange
+            labelText="Select the date range you want to visit NYPL"
+            minDate="1/1/2021"
+            maxDate="1/1/2022"
+            nameFrom="visit-dates"
+            showLabel={false}
+          />
+        </FormField>
+      </FormRow>
+      <FormField>
+        <TextInput
+          id="username"
+          isRequired
+          labelText="Username"
+        />
+      </FormField>
+      <FormField>
+        <TextInput
+          id="password"
+          isRequired
+          labelText="Password"
+        />
+      </FormField>
+      <FormRow>
+        <FormField>
+          <TextInput
+            id="phone"
+            labelText="Phone Field"
+            type="tel"
+          />
+        </FormField>
+        <FormField>
+          <TextInput
+            id="url"
+            labelText="URL Field"
+            type="url"
+          />
+        </FormField>
+        <FormField>
+          <TextInput
+            id="age"
+            labelText="Age"
+            type="number"
+          />
+        </FormField>
+      </FormRow>
+      </Form>
+  ),
+};
