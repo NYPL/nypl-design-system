@@ -19,6 +19,17 @@ exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
       The audio player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
     </div>
   </noscript>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -99,6 +110,17 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
       The audio player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
     </div>
   </noscript>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -121,6 +143,17 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
       The audio player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
     </div>
   </noscript>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -151,5 +184,16 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
       The audio player requires JavaScript to function. Please enable JavaScript in your browser settings and refresh the page.
     </div>
   </noscript>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;

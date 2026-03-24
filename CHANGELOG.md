@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `ComponentWrapper` component so it always renders the `HelperErrorText` component. This resolves aria-live announcement issues when there is invalid text but no helper text.
+
 ## 4.1.5 (March 5, 2026)
 
 ### Fixes

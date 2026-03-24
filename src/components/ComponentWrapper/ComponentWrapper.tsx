@@ -69,15 +69,13 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
             <Text mb="paragraph.default">{descriptionText}</Text>
           )}
           {children}
-          {footnote && (
-            <HelperErrorText
-              id={helperErrorTextId}
-              isInvalid={isInvalid}
-              isRenderedText={showHelperInvalidText}
-              text={footnote}
-              __css={{ ...styles.helperErrorText, ...helperTextStyles }}
-            />
-          )}
+          <HelperErrorText
+            id={helperErrorTextId}
+            isInvalid={isInvalid}
+            isRenderedText={showHelperInvalidText}
+            text={footnote}
+            __css={{ ...styles.helperErrorText, ...helperTextStyles }}
+          />
         </Box>
       );
     }
