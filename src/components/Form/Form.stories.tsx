@@ -294,14 +294,26 @@ function FormInvalidTextExample() {
   };
   return (
     <>
-      <Text>Hit the Submit button to test the layout with only invalid text.</Text>
+      <Text>
+        Hit the Submit button to test the layout with only invalid text.
+      </Text>
       <Form id="form-id" action="/end/point" method="get" onSubmit={onSubmit}>
         <FormRow>
           <FormField>
-            <TextInput id="first-name" labelText="First Name" isInvalid={isInvalid} invalidText="Oops, something is wrong." />
+            <TextInput
+              id="first-name"
+              labelText="First Name"
+              isInvalid={isInvalid}
+              invalidText="Oops, something is wrong."
+            />
           </FormField>
           <FormField>
-            <TextInput id="last-name" labelText="Last Name" isInvalid={isInvalid} invalidText="Oops, something is wrong." />
+            <TextInput
+              id="last-name"
+              labelText="Last Name"
+              isInvalid={isInvalid}
+              invalidText="Oops, something is wrong."
+            />
           </FormField>
           <FormField>
             <DatePicker
@@ -322,26 +334,56 @@ function FormInvalidTextExample() {
           </FormField>
         </FormRow>
         <FormField>
-          <TextInput id="username" labelText="Username" isInvalid={isInvalid} invalidText="Oops, something is wrong." />
+          <TextInput
+            id="username"
+            labelText="Username"
+            isInvalid={isInvalid}
+            invalidText="Oops, something is wrong."
+          />
         </FormField>
         <FormField>
-          <TextInput id="password" labelText="Password" isInvalid={isInvalid} invalidText="Oops, something is wrong." />
+          <TextInput
+            id="password"
+            labelText="Password"
+            isInvalid={isInvalid}
+            invalidText="Oops, something is wrong."
+          />
         </FormField>
         <FormRow>
           <FormField>
-            <TextInput id="phone" labelText="Phone Field" type="tel" isInvalid={isInvalid} invalidText="Oops, something is wrong." />
+            <TextInput
+              id="phone"
+              labelText="Phone Field"
+              type="tel"
+              isInvalid={isInvalid}
+              invalidText="Oops, something is wrong."
+            />
           </FormField>
           <FormField>
-            <TextInput id="url" labelText="URL Field" type="url" isInvalid={isInvalid} invalidText="Oops, something is wrong." />
+            <TextInput
+              id="url"
+              labelText="URL Field"
+              type="url"
+              isInvalid={isInvalid}
+              invalidText="Oops, something is wrong."
+            />
           </FormField>
           <FormField>
-            <TextInput id="age" labelText="Age" type="number" isInvalid={isInvalid} invalidText="Oops, something is wrong." />
+            <TextInput
+              id="age"
+              labelText="Age"
+              type="number"
+              isInvalid={isInvalid}
+              invalidText="Oops, something is wrong."
+            />
           </FormField>
         </FormRow>
         <FormRow>
           <FormField>
             <ButtonGroup>
-              <Button id="submit" type="submit">Submit</Button>
+              <Button id="submit" type="submit">
+                Submit
+              </Button>
             </ButtonGroup>
           </FormField>
         </FormRow>
