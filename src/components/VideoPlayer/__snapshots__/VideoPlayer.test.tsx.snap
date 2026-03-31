@@ -23,6 +23,18 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
         title="Vimeo video player"
       />
     </div>
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className="css-1xdhyk6"
+      data-isinvalid={false}
+      data-testid="ds-helperErrorText"
+      id="video-player-without-text-helperErrorText"
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
   <noscript>
     <div
@@ -239,6 +251,18 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
         title="Vimeo video player"
       />
     </div>
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className="css-1xdhyk6"
+      data-isinvalid={false}
+      data-testid="ds-helperErrorText"
+      id="chakra-helperErrorText"
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
   <noscript>
     <div
@@ -279,6 +303,18 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
         frameBorder="0"
         src="https://player.vimeo.com/video/474719268?autoplay=0&loop=0"
         title="Vimeo video player"
+      />
+    </div>
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      className="css-1xdhyk6"
+      data-isinvalid={false}
+      data-testid="ds-helperErrorText"
+      id="props-helperErrorText"
+    >
+      <div
+        className="css-0"
       />
     </div>
   </div>

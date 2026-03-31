@@ -40,6 +40,14 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
             type="text"
           />
         </div>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="basic-textInput-helperErrorText"
+        />
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -192,6 +200,14 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           </div>
         </div>
       </div>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-bl03f5"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="withSelect-select-helperErrorText"
+      />
     </div>
     <div
       className="css-1ik4laa"
@@ -221,6 +237,14 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
             type="text"
           />
         </div>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="withSelect-textInput-helperErrorText"
+        />
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -303,6 +327,14 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
             type="text"
           />
         </div>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="withoutHelperText-textInput-helperErrorText"
+        />
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -326,6 +358,18 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       </button>
     </div>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="withoutHelperText-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -369,6 +413,14 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
             type="text"
           />
         </div>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="withClearButton-textInput-helperErrorText"
+        />
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -484,6 +536,18 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
       </button>
     </div>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={true}
+    data-testid="ds-helperErrorText"
+    id="invalidState-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -526,6 +590,14 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
             type="text"
           />
         </div>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="disabledState-textInput-helperErrorText"
+        />
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -550,6 +622,18 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
       </button>
     </div>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="disabledState-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -593,6 +677,14 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
             type="text"
           />
         </div>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="requiredState-textInput-helperErrorText"
+        />
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -617,6 +709,18 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
       </button>
     </div>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="requiredState-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -660,6 +764,14 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
             type="text"
           />
         </div>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="noBrandButtonType-textInput-helperErrorText"
+        />
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -684,6 +796,18 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
       </button>
     </div>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="noBrandButtonType-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -731,6 +855,18 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
       </button>
     </div>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="withHeading-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -777,6 +913,18 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
       </button>
     </div>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="withDescription-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -830,6 +978,18 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
       </button>
     </div>
   </form>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="withHeadingAndDescription-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -873,6 +1033,14 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
             type="text"
           />
         </div>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="chakra-textInput-helperErrorText"
+        />
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -956,6 +1124,14 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
             type="text"
           />
         </div>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="props-textInput-helperErrorText"
+        />
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"

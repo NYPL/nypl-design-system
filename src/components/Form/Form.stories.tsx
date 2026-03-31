@@ -1,4 +1,5 @@
 import { Flex, Spacer } from "@chakra-ui/react";
+import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Button from "../Button/Button";
@@ -13,6 +14,7 @@ import HorizontalRule from "../HorizontalRule/HorizontalRule";
 import Radio from "../Radio/Radio";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import Select from "../Select/Select";
+import Text from "../Text/Text";
 import TextInput from "../TextInput/TextInput";
 
 const meta: Meta<typeof Form> = {
@@ -281,4 +283,115 @@ const getForms = (list) => <ul style={{ listStyle: "none" }}>{list}</ul>;
 // The following are additional Form example Stories.
 export const FormSpacing: Story = {
   render: () => getForms(sizes),
+};
+
+function FormInvalidTextExample() {
+  // Mock invalid form state to show updated layout.
+  const [isInvalid, setIsInvalid] = useState(false);
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsInvalid(true);
+  };
+  return (
+    <>
+      <Text>
+        Hit the Submit button to test the layout with only invalid text.
+      </Text>
+      <Form id="form-id" action="/end/point" method="get" onSubmit={onSubmit}>
+        <FormRow>
+          <FormField>
+            <TextInput
+              id="first-name"
+              labelText="First Name"
+              isInvalid={isInvalid}
+              invalidText="Oops, something is wrong."
+            />
+          </FormField>
+          <FormField>
+            <TextInput
+              id="last-name"
+              labelText="Last Name"
+              isInvalid={isInvalid}
+              invalidText="Oops, something is wrong."
+            />
+          </FormField>
+          <FormField>
+            <DatePicker
+              dateType="full"
+              dateFormat="yyyy-MM-dd"
+              helperTextFrom="From this date."
+              helperTextTo="To this date."
+              id="date-range"
+              invalidText="Invalid date range."
+              isDateRange
+              labelText="Select the date range you want to visit NYPL"
+              minDate="1/1/2021"
+              maxDate="1/1/2022"
+              nameFrom="visit-dates"
+              showLabel={false}
+              isInvalid={isInvalid}
+            />
+          </FormField>
+        </FormRow>
+        <FormField>
+          <TextInput
+            id="username"
+            labelText="Username"
+            isInvalid={isInvalid}
+            invalidText="Oops, something is wrong."
+          />
+        </FormField>
+        <FormField>
+          <TextInput
+            id="password"
+            labelText="Password"
+            isInvalid={isInvalid}
+            invalidText="Oops, something is wrong."
+          />
+        </FormField>
+        <FormRow>
+          <FormField>
+            <TextInput
+              id="phone"
+              labelText="Phone Field"
+              type="tel"
+              isInvalid={isInvalid}
+              invalidText="Oops, something is wrong."
+            />
+          </FormField>
+          <FormField>
+            <TextInput
+              id="url"
+              labelText="URL Field"
+              type="url"
+              isInvalid={isInvalid}
+              invalidText="Oops, something is wrong."
+            />
+          </FormField>
+          <FormField>
+            <TextInput
+              id="age"
+              labelText="Age"
+              type="number"
+              isInvalid={isInvalid}
+              invalidText="Oops, something is wrong."
+            />
+          </FormField>
+        </FormRow>
+        <FormRow>
+          <FormField>
+            <ButtonGroup>
+              <Button id="submit" type="submit">
+                Submit
+              </Button>
+            </ButtonGroup>
+          </FormField>
+        </FormRow>
+      </Form>
+    </>
+  );
+}
+
+export const FormWithoutHelperText: Story = {
+  render: () => FormInvalidTextExample(),
 };
