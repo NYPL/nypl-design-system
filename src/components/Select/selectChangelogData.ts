@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Updates the styles on the input label to improve text alignment."],
+    notes: [
+      "Updated to always render the helper text div for accessible aria-live announcements.",
+      "Updates the styles on the input label to improve text alignment.",
+    ],
   },
   {
     date: "2026-03-05",
