@@ -50,6 +50,7 @@
     "trailingComma": "es5"
   },
   "overrides": {
+    "@microsoft/api-extractor": "7.34.4",
     "types-ramda": "0.29.4"
   },
   "dependencies": {

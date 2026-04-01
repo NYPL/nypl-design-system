@@ -386,23 +386,6 @@ function FormInvalidTextExample() {
               invalidText="Oops, something is wrong."
             />
           </FormField>
-          <FormField>
-            <DatePicker
-              dateType="full"
-              dateFormat="yyyy-MM-dd"
-              helperTextFrom="From this date."
-              helperTextTo="To this date."
-              id="date-range"
-              invalidText="Invalid date range."
-              isDateRange
-              labelText="Select the date range you want to visit NYPL"
-              minDate="1/1/2021"
-              maxDate="1/1/2022"
-              nameFrom="visit-dates"
-              showLabel={false}
-              isInvalid={isInvalid}
-            />
-          </FormField>
         </FormRow>
         <FormField>
           <TextInput
