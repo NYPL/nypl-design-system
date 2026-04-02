@@ -143,6 +143,18 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="dogs-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -201,6 +213,18 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="cats-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -262,6 +286,18 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="cars-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -320,6 +356,18 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="colors-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-ybiit3"
@@ -378,6 +426,18 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="red-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-ybiit3"
@@ -436,6 +496,18 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="blue-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -494,6 +566,18 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="plants-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -552,6 +636,18 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="furniture-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div
@@ -719,6 +815,18 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="dogs-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -777,6 +885,18 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="cats-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -838,6 +958,18 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="cars-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -896,6 +1028,18 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="colors-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-ybiit3"
@@ -954,6 +1098,18 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="red-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-ybiit3"
@@ -1012,6 +1168,18 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="blue-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -1070,6 +1238,18 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="plants-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -1128,6 +1308,18 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="furniture-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div
@@ -1295,6 +1487,18 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="dogs-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -1353,6 +1557,18 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="cats-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -1414,6 +1630,18 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="cars-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -1503,6 +1731,18 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="colors-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-ybiit3"
@@ -1573,6 +1813,18 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="red-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-ybiit3"
@@ -1631,6 +1883,18 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="blue-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -1689,6 +1953,18 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="plants-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -1747,6 +2023,18 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="furniture-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div
@@ -1933,6 +2221,18 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="dogs-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -1991,6 +2291,18 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="cats-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -2052,6 +2364,18 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="cars-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -2122,6 +2446,18 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="colors-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-ybiit3"
@@ -2192,6 +2528,18 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="red-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-ybiit3"
@@ -2262,6 +2610,18 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="blue-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -2320,6 +2680,18 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="plants-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                   <div
                     className="css-1u8qly9"
@@ -2378,6 +2750,18 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         </div>
                       </span>
                     </label>
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="css-1xdhyk6"
+                      data-isinvalid={false}
+                      data-testid="ds-helperErrorText"
+                      id="furniture-helperErrorText"
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div

@@ -170,6 +170,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="red-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -228,6 +240,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="blue-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -286,6 +310,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="yellow-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -450,6 +486,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="cat-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -508,6 +556,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="dog-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -566,6 +626,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="corgy-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -624,6 +696,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="german-sheperd-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -682,6 +766,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="afghan-hound-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -740,6 +836,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="rat-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -904,6 +1012,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="hammer-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -962,6 +1082,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="skrewdriver-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -1020,6 +1152,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="slottet-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -1078,6 +1222,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="phillips-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -1136,6 +1292,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="allen-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -1194,6 +1362,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="whisk-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -1218,6 +1398,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
         </div>
       </div>
     </fieldset>
+  </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="defaultFilterBarNoButtons-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
   </div>
 </div>
 `;
@@ -1392,6 +1584,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="red-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -1450,6 +1654,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="blue-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -1508,6 +1724,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="yellow-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -1672,6 +1900,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="cat-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -1730,6 +1970,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="dog-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -1788,6 +2040,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="corgy-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -1846,6 +2110,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="german-sheperd-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -1904,6 +2180,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="afghan-hound-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -1962,6 +2250,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="rat-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -2126,6 +2426,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="hammer-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -2184,6 +2496,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="skrewdriver-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -2242,6 +2566,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="slottet-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -2300,6 +2636,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="phillips-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -2358,6 +2706,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="allen-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -2416,6 +2776,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="whisk-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -2454,6 +2826,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
         Clear all filters
       </button>
     </div>
+  </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="filterBarWithClearAllButton-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
   </div>
 </div>
 `;
@@ -2628,6 +3012,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="red-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -2686,6 +3082,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="blue-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -2744,6 +3152,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="yellow-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -2908,6 +3328,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="cat-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -2966,6 +3398,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="dog-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -3024,6 +3468,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="corgy-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -3082,6 +3538,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="german-sheperd-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -3140,6 +3608,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="afghan-hound-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -3198,6 +3678,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="rat-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -3362,6 +3854,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="hammer-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -3420,6 +3924,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="skrewdriver-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -3478,6 +3994,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="slottet-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -3536,6 +4064,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="phillips-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -3594,6 +4134,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="allen-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -3652,6 +4204,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="whisk-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -3690,6 +4254,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
         Apply filters
       </button>
     </div>
+  </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="filterBarWithSubmitAllButton-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
   </div>
 </div>
 `;
@@ -3864,6 +4440,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="red-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -3922,6 +4510,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="blue-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -3980,6 +4580,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="yellow-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -4144,6 +4756,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="cat-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -4202,6 +4826,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="dog-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -4260,6 +4896,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="corgy-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -4318,6 +4966,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="german-sheperd-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -4376,6 +5036,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="afghan-hound-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -4434,6 +5106,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="rat-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -4598,6 +5282,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="hammer-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -4656,6 +5352,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="skrewdriver-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -4714,6 +5422,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="slottet-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -4772,6 +5492,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="phillips-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-ybiit3"
@@ -4830,6 +5562,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="allen-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                           <div
                             className="css-1u8qly9"
@@ -4888,6 +5632,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                                 </div>
                               </span>
                             </label>
+                            <div
+                              aria-atomic={true}
+                              aria-live="polite"
+                              className="css-1xdhyk6"
+                              data-isinvalid={false}
+                              data-testid="ds-helperErrorText"
+                              id="whisk-helperErrorText"
+                            >
+                              <div
+                                className="css-0"
+                              />
+                            </div>
                           </div>
                         </div>
                         <div
@@ -4935,6 +5691,18 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
         Clear all filters
       </button>
     </div>
+  </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="filterBarWithButtons-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
   </div>
 </div>
 `;

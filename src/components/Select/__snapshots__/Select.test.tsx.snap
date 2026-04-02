@@ -71,6 +71,18 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="select-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -145,6 +157,18 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
         />
       </div>
     </div>
+  </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="select-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
   </div>
 </div>
 `;
@@ -409,6 +433,18 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="select-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -487,6 +523,18 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="select-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -563,6 +611,18 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="select-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -637,6 +697,18 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
       </div>
     </div>
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="chakra-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -710,6 +782,18 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
         />
       </div>
     </div>
+  </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-bl03f5"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="props-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
   </div>
 </div>
 `;

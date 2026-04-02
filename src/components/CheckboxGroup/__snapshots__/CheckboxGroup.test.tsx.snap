@@ -68,6 +68,18 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -123,6 +135,18 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -208,6 +232,18 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -263,6 +299,18 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -348,6 +396,18 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -403,6 +463,18 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -488,6 +560,18 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -543,6 +627,18 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -633,6 +729,18 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -688,6 +796,18 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -773,6 +893,18 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -828,6 +960,18 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -916,6 +1060,18 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -971,6 +1127,18 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -1059,6 +1227,18 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -1117,6 +1297,18 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -1205,6 +1397,18 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -1263,6 +1467,18 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="checkbox3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -1360,6 +1576,18 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
           </div>
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="arts-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -1427,6 +1655,18 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
           </div>
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="English-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -1512,6 +1752,18 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -1567,6 +1819,18 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -1652,6 +1916,18 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
           Checkbox 2
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="2-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-1u8qly9"
@@ -1707,6 +1983,18 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
           Checkbox 3
         </span>
       </label>
+      <div
+        aria-atomic={true}
+        aria-live="polite"
+        className="css-1xdhyk6"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="3-helperErrorText"
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <div

@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2026-03-31",
+    version: "4.1.6",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updated to always render the helper text div for accessible aria-live announcements.",
+    ],
+  },
+  {
     date: "2025-09-30",
     version: "4.0.2",
     type: "Update",

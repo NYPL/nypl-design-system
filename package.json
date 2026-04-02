@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "4.1.5",
+  "version": "4.1.6",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
     "trailingComma": "es5"
   },
   "overrides": {
+    "@microsoft/api-extractor": "7.34.4",
     "types-ramda": "0.29.4"
   },
   "dependencies": {
@@ -125,7 +126,7 @@
     "tslib": "2.3.0",
     "typescript": "4.9.5",
     "vite": "5.4.18",
-    "vite-plugin-dts": "2.1.0",
+    "vite-plugin-dts": "2.3.0",
     "vite-plugin-svgr": "4.3.0"
   }
 }
