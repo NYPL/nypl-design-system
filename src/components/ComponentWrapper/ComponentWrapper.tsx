@@ -46,7 +46,9 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
       const mainId = id ? `${id}-componentWrapper` : undefined;
       const helperErrorTextId = id ? `${id}-helperErrorText` : undefined;
       const footnote = isInvalid ? invalidText : helperText;
-      const styles = useMultiStyleConfig("ComponentWrapper", { hasHelperText: !!footnote });
+      const styles = useMultiStyleConfig("ComponentWrapper", {
+        hasHelperText: !!footnote,
+      });
       const finalHeadingText = useDSHeading({
         id,
         title: headingText,
