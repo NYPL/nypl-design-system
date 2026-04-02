@@ -45,9 +45,10 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
       // it is used as a wrapper component.
       const mainId = id ? `${id}-componentWrapper` : undefined;
       const helperErrorTextId = id ? `${id}-helperErrorText` : undefined;
-      const hasChildren = !!children;
-      const styles = useMultiStyleConfig("ComponentWrapper", { hasChildren });
       const footnote = isInvalid ? invalidText : helperText;
+      const styles = useMultiStyleConfig("ComponentWrapper", {
+        hasHelperText: !!footnote,
+      });
       const finalHeadingText = useDSHeading({
         id,
         title: headingText,
@@ -69,15 +70,13 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
             <Text mb="paragraph.default">{descriptionText}</Text>
           )}
           {children}
-          {footnote && (
-            <HelperErrorText
-              id={helperErrorTextId}
-              isInvalid={isInvalid}
-              isRenderedText={showHelperInvalidText}
-              text={footnote}
-              __css={{ ...styles.helperErrorText, ...helperTextStyles }}
-            />
-          )}
+          <HelperErrorText
+            id={helperErrorTextId}
+            isInvalid={isInvalid}
+            isRenderedText={showHelperInvalidText}
+            text={footnote}
+            __css={{ ...styles.helperErrorText, ...helperTextStyles }}
+          />
         </Box>
       );
     }

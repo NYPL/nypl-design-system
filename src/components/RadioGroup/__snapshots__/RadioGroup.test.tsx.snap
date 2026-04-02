@@ -75,6 +75,18 @@ exports[`RadioGroup renders the UI snapshot correctly 1`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -131,6 +143,18 @@ exports[`RadioGroup renders the UI snapshot correctly 1`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -224,6 +248,18 @@ exports[`RadioGroup renders the UI snapshot correctly 2`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -280,6 +316,18 @@ exports[`RadioGroup renders the UI snapshot correctly 2`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -373,6 +421,18 @@ exports[`RadioGroup renders the UI snapshot correctly 3`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -429,6 +489,18 @@ exports[`RadioGroup renders the UI snapshot correctly 3`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -522,6 +594,18 @@ exports[`RadioGroup renders the UI snapshot correctly 4`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -578,6 +662,18 @@ exports[`RadioGroup renders the UI snapshot correctly 4`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -676,6 +772,18 @@ exports[`RadioGroup renders the UI snapshot correctly 5`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -732,6 +840,18 @@ exports[`RadioGroup renders the UI snapshot correctly 5`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -826,6 +946,18 @@ exports[`RadioGroup renders the UI snapshot correctly 6`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -883,6 +1015,18 @@ exports[`RadioGroup renders the UI snapshot correctly 6`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -980,6 +1124,18 @@ exports[`RadioGroup renders the UI snapshot correctly 7`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1037,6 +1193,18 @@ exports[`RadioGroup renders the UI snapshot correctly 7`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1134,6 +1302,18 @@ exports[`RadioGroup renders the UI snapshot correctly 8`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1194,6 +1374,18 @@ exports[`RadioGroup renders the UI snapshot correctly 8`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1291,6 +1483,18 @@ exports[`RadioGroup renders the UI snapshot correctly 9`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1351,6 +1555,18 @@ exports[`RadioGroup renders the UI snapshot correctly 9`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1456,6 +1672,18 @@ exports[`RadioGroup renders the UI snapshot correctly 10`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="arts-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1524,6 +1752,18 @@ exports[`RadioGroup renders the UI snapshot correctly 10`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="English-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1617,6 +1857,18 @@ exports[`RadioGroup renders the UI snapshot correctly 11`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1673,6 +1925,18 @@ exports[`RadioGroup renders the UI snapshot correctly 11`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1766,6 +2030,18 @@ exports[`RadioGroup renders the UI snapshot correctly 12`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-2-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1822,6 +2098,18 @@ exports[`RadioGroup renders the UI snapshot correctly 12`] = `
             </span>
           </span>
         </label>
+        <div
+          aria-atomic={true}
+          aria-live="polite"
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="radio-3-helperErrorText"
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>

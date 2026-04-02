@@ -51,6 +51,18 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
   <div>
     children elements
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="id-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -105,6 +117,18 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 4`] = `
   <div>
     children elements
   </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="chakra-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -116,6 +140,18 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 5`] = `
 >
   <div>
     children elements
+  </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="props-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
   </div>
 </div>
 `;
