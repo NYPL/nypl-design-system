@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Added the `contentTypeAudio`, `contentTypeBook`, `contentTypeEBook`, `contentTypeImage`, `contentTypeMisc`, and `contentTypeVideo` icons.",
+    ],
+  },
+  {
     date: "2026-03-05",
     version: "4.1.5",
     type: "Bug Fix",

@@ -30,6 +30,12 @@ import communicationChatBubble from "../../../icons/svg/communication-chat-bubbl
 import communicationEmail from "../../../icons/svg/communication-email.svg";
 import contentCopy from "../../../icons/svg/content-copy.svg";
 import contentFilterList from "../../../icons/svg/content-filter-list.svg";
+import contentTypeAudio from "../../../icons/svg/content-type-audio.svg";
+import contentTypeBook from "../../../icons/svg/content-type-book.svg";
+import contentTypeEBook from "../../../icons/svg/content-type-ebook.svg";
+import contentTypeImage from "../../../icons/svg/content-type-image.svg";
+import contentTypeMisc from "../../../icons/svg/content-type-misc.svg";
+import contentTypeVideo from "../../../icons/svg/content-type-video.svg";
 import check from "../../../icons/svg/check.svg";
 import clock from "../../../icons/svg/clock.svg";
 import close from "../../../icons/svg/close.svg";
@@ -120,6 +126,12 @@ export default {
   communicationEmail,
   contentCopy,
   contentFilterList,
+  contentTypeAudio,
+  contentTypeBook,
+  contentTypeEBook,
+  contentTypeImage,
+  contentTypeMisc,
+  contentTypeVideo,
   decorativeBookBroken,
   decorativeEnvelope,
   decorativeLibraryCard,
