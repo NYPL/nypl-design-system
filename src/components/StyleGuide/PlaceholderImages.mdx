@@ -1,0 +1,170 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+import Banner from "../Banner/Banner";
+import Icon from "../Icons/Icon";
+import Link from "../Link/Link";
+import SimpleGrid from "../Grid/SimpleGrid";
+import Table from "../Table/Table";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+
+import {
+  cardSquare,
+  cardThreeByFour,
+  cardTwoByOne,
+  CardExample,
+  cardsIllustrative,
+  cardsInformational,
+} from "./PlaceholderImages";
+
+<Meta title="Style Guide/Placeholder Images" />
+
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Placeholder Images"
+  summary="Guidelines for implementing contextual placeholder images"
+/>
+
+## Table of contents
+
+- [General information](#general-information)
+- [Content types](#content-types)
+- [Sizing](#sizing)
+- [Color](#color)
+
+## General information
+
+The NYPL Digital Design Team recommends that a contextual placeholder be
+displayed whenever a viable image is not available. The placeholder should
+include an inline text message that reads "Preview not available."
+
+## Content types
+
+Image placeholders should display an icon that represents the content type of
+the unavailable image or the content type of the element with which the
+unavailable image is associated.
+
+<Table
+  border="0"
+  columnHeaders={["Category", "Examples", "Icon"]}
+  columnStyles={[{ minWidth: "200px", width: "15%" }, {}, { width: "200px" }]}
+  fontSize="desktop.body.body2"
+  tableData={[
+    [
+      "Images",
+      <>
+        - Picture
+        <br />
+        - 3D object
+        <br />
+        - Film, slide, etc.
+        <br />
+        - Microform
+        <br />- Map
+      </>,
+      <Icon name="errorFilled" size="xxxlarge" />,
+    ],
+    [
+      "Audio",
+      <>
+        - Teacher audio
+        <br />
+        - Spoken word recording
+        <br />
+        - Musical recording
+        <br />
+        - E-audiobook
+        <br />
+        - Music CD
+        <br />- Audiobook
+      </>,
+      <Icon name="errorFilled" size="xxxlarge" />,
+    ],
+    [
+      "Video & moving media",
+      <>
+        - Blu-ray
+        <br />
+        - DVD
+        <br />
+        - VHS
+        <br />
+        - E-video
+        <br />- Game
+      </>,
+      <Icon name="errorFilled" size="xxxlarge" />,
+    ],
+    [
+      "Physical books",
+      <>
+        - Book/text
+        <br />
+        - Large print
+        <br />
+        - Read-along book
+        <br />
+        - Teacher set
+        <br />- Kit
+      </>,
+      <Icon name="errorFilled" size="xxxlarge" />,
+    ],
+    [
+      "Digital books",
+      <>
+        - Tablet
+        <br />- E-book
+      </>,
+      <Icon name="errorFilled" size="xxxlarge" />,
+    ],
+    [
+      "Miscellaneous",
+      <>
+        - Computer file
+        <br />
+        - Archival mix
+        <br />
+        - Web resource
+        <br />
+        - Manuscript
+        <br />
+        - Manuscript notated music
+        <br />- Notated music
+      </>,
+      <Icon name="errorFilled" size="xxxlarge" />,
+    ],
+  ]}
+  useRowHeaders
+/>
+
+## Sizing
+
+The sizing recommendations can be reviewed in the <Link href="https://nypl.github.io/design-team-prototypes/placeholder-images/" variant="external">functional prototype</Link>.
+
+<Table
+  border="0"
+  columnHeaders={["Image width", "Icon dimensions"]}
+  columnStyles={[{ minWidth: "200px", width: "15%" }, {}]}
+  fontSize="desktop.body.body2"
+  tableData={[
+    ["< 100px (0 - 99)", "24 x 24"],
+    ["< 200px (100 - 199)", "32 x 32"],
+    ["< 768px (200 - 767)", "48 x 48"],
+    [">= 768", "64 x 64"],
+  ]}
+  useRowHeaders
+/>
+
+## Color
+
+The color recommendations can be reviewed in the <Link href="https://nypl.github.io/design-team-prototypes/placeholder-images/" variant="external">functional prototype</Link>. Make sure to use the color mode button!
+
+### Light mode
+
+- The color of the placeholder icon should be #BDBDBD (ui.gray.medium).
+- The color of the placeholder background should be #F5F5F5 (ui.bg.default).
+- The color of the text message should be #616161 (ui.gray.dark).
+
+### Dark mode
+
+- The color of the placeholder icon should be #BDBDBD (ui.gray.dark).
+- The color of the placeholder background should be #F5F5F5 (dark.ui.bg.default).
+- The color of the text message should be #616161 (ui.gray.semi-dark).
