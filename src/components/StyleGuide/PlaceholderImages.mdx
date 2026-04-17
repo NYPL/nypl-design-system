@@ -2,6 +2,7 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
+import List from "../List/List";
 import Table from "../Table/Table";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
@@ -22,7 +23,7 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 
 ## General information
 
-The NYPL Digital Design Team recommends that a contextual placeholder be
+The NYPL Product Design Team recommends that a contextual placeholder be
 displayed whenever a viable image is not available. The placeholder should
 include an inline text message that reads "Preview not available."
 
@@ -38,6 +39,17 @@ unavailable image is associated.
   columnStyles={[{ minWidth: "200px", width: "15%" }, {}, { width: "200px" }]}
   fontSize="desktop.body.body2"
   tableData={[
+    [
+      "Images",
+      <ul>
+        <li fontSize="desktop.caption">Picture</li>
+        <li fontSize="desktop.caption">3D object</li>
+        <li fontSize="desktop.caption">Film, slide, etc.</li>
+        <li fontSize="desktop.caption">Microform</li>
+        <li fontSize="10px">Map</li>
+      </ul>,
+      <Icon name="contentTypeImage" size="xxlarge" />,
+    ],
     [
       "Images",
       <>
