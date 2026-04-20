@@ -1,10 +1,14 @@
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta, Source } from "@storybook/addon-docs/blocks";
+import { VStack } from "@chakra-ui/react";
 
 import Icon from "../Icons/Icon";
 import Link from "../Link/Link";
 import List from "../List/List";
+import SimpleGrid from "../Grid/SimpleGrid";
 import Table from "../Table/Table";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import { PlaceholderImage } from "./PlaceholderImages";
+import { responsiveSpacing } from "../../theme/components/global";
 
 <Meta title="Style Guide/Placeholder Images" />
 
@@ -17,6 +21,7 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 ## Table of contents
 
 - [General information](#general-information)
+- [Accessibility](#accessibility)
 - [Content types](#content-types)
 - [Sizing](#sizing)
 - [Color](#color)
@@ -26,6 +31,11 @@ import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 The NYPL Product Design Team recommends that a contextual placeholder be
 displayed whenever a viable image is not available. The placeholder should
 include an inline text message that reads "Preview not available."
+
+## Accessibility
+
+When image placeholders are used in a repeating content (ex. a card grid),
+unique labeling should be provided to aid accessibility.
 
 ## Content types
 
@@ -39,31 +49,6 @@ unavailable image is associated.
   columnStyles={[{ minWidth: "200px", width: "15%" }, {}, { width: "200px" }]}
   fontSize="desktop.body.body2"
   tableData={[
-    [
-      "Images",
-      <ul>
-        <li fontSize="desktop.caption">Picture</li>
-        <li fontSize="desktop.caption">3D object</li>
-        <li fontSize="desktop.caption">Film, slide, etc.</li>
-        <li fontSize="desktop.caption">Microform</li>
-        <li fontSize="10px">Map</li>
-      </ul>,
-      <Icon name="contentTypeImage" size="xxlarge" />,
-    ],
-    [
-      "Images",
-      <>
-        - Picture
-        <br />
-        - 3D object
-        <br />
-        - Film, slide, etc.
-        <br />
-        - Microform
-        <br />- Map
-      </>,
-      <Icon name="contentTypeImage" size="xxlarge" />,
-    ],
     [
       "Audio",
       <>
@@ -81,21 +66,7 @@ unavailable image is associated.
       <Icon name="contentTypeAudio" size="xxlarge" />,
     ],
     [
-      "Video & moving media",
-      <>
-        - Blu-ray
-        <br />
-        - DVD
-        <br />
-        - VHS
-        <br />
-        - E-video
-        <br />- Game
-      </>,
-      <Icon name="contentTypeVideo" size="xxlarge" />,
-    ],
-    [
-      "Physical books",
+      "Books (physical books)",
       <>
         - Book/text
         <br />
@@ -109,12 +80,26 @@ unavailable image is associated.
       <Icon name="contentTypeBook" size="xxlarge" />,
     ],
     [
-      "Digital books",
+      "eBooks (digital books)",
       <>
         - Tablet
         <br />- E-book
       </>,
       <Icon name="contentTypeEBook" size="xxlarge" />,
+    ],
+    [
+      "Images",
+      <>
+        - Picture
+        <br />
+        - 3D object
+        <br />
+        - Film, slide, etc.
+        <br />
+        - Microform
+        <br />- Map
+      </>,
+      <Icon name="contentTypeImage" size="xxlarge" />,
     ],
     [
       "Miscellaneous",
@@ -131,6 +116,20 @@ unavailable image is associated.
         <br />- Notated music
       </>,
       <Icon name="contentTypeMisc" size="xxlarge" />,
+    ],
+    [
+      "Video & moving media",
+      <>
+        - Blu-ray
+        <br />
+        - DVD
+        <br />
+        - VHS
+        <br />
+        - E-video
+        <br />- Game
+      </>,
+      <Icon name="contentTypeVideo" size="xxlarge" />,
     ],
   ]}
   useRowHeaders
@@ -169,3 +168,188 @@ The color recommendations can be reviewed in the <Link href="https://nypl.github
 - The color of the placeholder icon should be #BDBDBD (ui.gray.dark).
 - The color of the placeholder background should be #F5F5F5 (dark.ui.bg.default).
 - The color of the text message should be #616161 (ui.gray.semi-dark).
+
+## Example
+
+<Source
+  code={`
+  import { Box } from "@chakra-ui/react";
+  import Icon, { IconNames } from "../Icons/Icon";
+  import { ImageRatios } from "../Image/Image";
+  export const contentTypesArray = [
+    "audio",
+    "book",
+    "ebook",
+    "image",
+    "miscellaneous",
+    "video",
+  ] as const;
+  export type ContentTypes = typeof contentTypesArray[number];
+  export interface PlaceholderImageProps {
+    aspectRatio?: ImageRatios;
+    contentTitle?: string;
+    contentType?: ContentTypes;
+  }
+  const contentIcon = (props: PlaceholderImageProps) => {
+    const { contentType = "miscellaneous" } = props;
+    const contentTypeIconNames = {
+      audio: "contentTypeAudio",
+      book: "contentTypeBook",
+      ebook: "contentTypeEBook",
+      image: "contentTypeImage",
+      miscellaneous: "contentTypeMisc",
+      video: "contentTypeVideo",
+    } as const;
+    return (
+      <Icon
+        name={contentTypeIconNames[contentType] as IconNames}
+        size="large"
+        title={\`\${contentType} content icon\`}
+      />
+    );
+  };
+  const placeholderImageStyles = {
+    // Base styles
+    alignItems: "center",
+    background: "ui.bg.default",
+    display: "flex",
+    flexDirection: "column",
+    gap: "xs",
+    justifyContent: "center",
+    overflow: "hidden",
+    // Response styles
+    span: {
+      color: "ui.gray.dark",
+      fontSize: "desktop.label.label2",
+      display: "none",
+    },
+    // Icon styles
+    svg: {
+      height: "24px",
+      width: "24px",
+      fill: "ui.gray.medium",
+    },
+    // Set up container
+    containerName: "image-placeholder-container",
+    containerType: "inline-size",
+    // Container query styles
+    "@container image-placeholder-container (min-width: 200px)": {
+      span: {
+        display: "block",
+      },
+      svg: {
+        height: "32px",
+        width: "32px",
+      },
+    },
+    "@container image-placeholder-container (min-width: 480px)": {
+      svg: {
+        height: "48px",
+        width: "48px",
+      },
+    },
+    "@container image-placeholder-container (min-width: 768px)": {
+      gap: "16px",
+      span: {
+        fontSize: "desktop.label.label1",
+      },
+      svg: {
+        height: "64px",
+        width: "64px",
+      },
+    },
+  };
+  export const PlaceholderImage = (props: PlaceholderImageProps) => {
+    const { aspectRatio = "square", contentTitle, contentType = "misc" } = props;
+    const aspectRatioStyleValue = {
+      fourByThree: "4 / 3",
+      fourByOne: "4 / 1",
+      oneByTwo: "1 / 2",
+      sixteenByNine: "16 / 9",
+      square: "1 / 1",
+      threeByFour: "3 / 4",
+      threeByTwo: "3 / 2",
+      twoByOne: "2 / 1",
+      twoByThree: "2 / 3",
+      original: "auto",
+    } as const;
+    const contentIconElement = contentIcon({ contentType });
+    const ariaLabel = contentTitle
+      ? \`Preview not available for \${contentTitle}\`
+      : \`Preview not available for this \${contentType} conten\`;
+    return (
+      <Box
+        \_\_css={{
+          ...placeholderImageStyles,
+          aspectRatio: aspectRatioStyleValue[aspectRatio],
+        }} 
+      >
+        {contentIconElement}
+        <Box aria-label={ariaLabel} as="span">
+          Preview not available
+        </Box>
+      </Box>
+    );
+  };
+`}
+  language="jsx"
+/>
+
+<SimpleGrid columns="3" gap={responsiveSpacing.gridGap} mt="l">
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Walk on the Wildside by Lou Reed"
+    contentType="audio"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Moby Dick by Herman Melville"
+    contentType="book"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Fahrenheit 451 by Ray Bradbury"
+    contentType="ebook"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="The Starry Night by Vincent Van Gogh"
+    contentType="image"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Moby Dick by Herman Melville"
+    contentType="miscellaneous"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Video Works by William Wegman"
+    contentType="video"
+  />
+</SimpleGrid>
+
+<SimpleGrid
+  columns="2"
+  gap={responsiveSpacing.gridGap}
+  mt={responsiveSpacing.gridGap}
+>
+  <PlaceholderImage aspectRatio="twoByOne" contentType="audio" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="book" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="ebook" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="miscellaneous" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="video" />
+</SimpleGrid>
+
+<SimpleGrid
+  columns="1"
+  gap={responsiveSpacing.gridGap}
+  mt={responsiveSpacing.gridGap}
+>
+  <PlaceholderImage aspectRatio="twoByOne" contentType="audio" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="book" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="ebook" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="miscellaneous" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="video" />
+</SimpleGrid>
