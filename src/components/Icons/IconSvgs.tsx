@@ -33,7 +33,6 @@ import contentFilterList from "../../../icons/svg/content-filter-list.svg";
 import contentTypeAudio from "../../../icons/svg/content-type-audio.svg";
 import contentTypeBook from "../../../icons/svg/content-type-book.svg";
 import contentTypeEBook from "../../../icons/svg/content-type-ebook.svg";
-import contentTypeEvent from "../../../icons/svg/content-type-event.svg";
 import contentTypeImage from "../../../icons/svg/content-type-image.svg";
 import contentTypeMisc from "../../../icons/svg/content-type-misc.svg";
 import contentTypeVideo from "../../../icons/svg/content-type-video.svg";
@@ -130,7 +129,6 @@ export default {
   contentTypeAudio,
   contentTypeBook,
   contentTypeEBook,
-  contentTypeEvent,
   contentTypeImage,
   contentTypeMisc,
   contentTypeVideo,

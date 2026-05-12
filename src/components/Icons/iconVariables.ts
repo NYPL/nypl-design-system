@@ -146,7 +146,6 @@ export const iconNamesArray = [
   "contentTypeAudio",
   "contentTypeBook",
   "contentTypeEBook",
-  "contentTypeEvent",
   "contentTypeImage",
   "contentTypeMisc",
   "contentTypeVideo",
