@@ -87,6 +87,16 @@ unavailable image is associated.
       <Icon name="contentTypeEBook" size="xxlarge" />,
     ],
     [
+      "Events",
+      <>
+        - Events
+        <br />
+        - Meetings
+        <br />- Time-sensitive information
+      </>,
+      <Icon name="contentTypeEvent" size="xxlarge" />,
+    ],
+    [
       "Images",
       <>
         - Picture
@@ -294,6 +304,10 @@ The color recommendations can be reviewed in the <Link href="https://nypl.github
   language="jsx"
 />
 
+## Rendered examples
+
+### Audio
+
 <SimpleGrid columns="3" gap={responsiveSpacing.gridGap} mt="l">
   <PlaceholderImage
     aspectRatio="twoByOne"
@@ -302,8 +316,43 @@ The color recommendations can be reviewed in the <Link href="https://nypl.github
   />
   <PlaceholderImage
     aspectRatio="twoByOne"
+    contentTitle="Walk on the Wildside by Lou Reed"
+    contentType="audio"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Walk on the Wildside by Lou Reed"
+    contentType="audio"
+  />
+</SimpleGrid>
+
+### Book
+
+<SimpleGrid columns="3" gap={responsiveSpacing.gridGap} mt="l">
+  <PlaceholderImage
+    aspectRatio="twoByOne"
     contentTitle="Moby Dick by Herman Melville"
     contentType="book"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Moby Dick by Herman Melville"
+    contentType="book"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Moby Dick by Herman Melville"
+    contentType="book"
+  />
+</SimpleGrid>
+
+### Ebook
+
+<SimpleGrid columns="3" gap={responsiveSpacing.gridGap} mt="l">
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Fahrenheit 451 by Ray Bradbury"
+    contentType="ebook"
   />
   <PlaceholderImage
     aspectRatio="twoByOne"
@@ -312,8 +361,58 @@ The color recommendations can be reviewed in the <Link href="https://nypl.github
   />
   <PlaceholderImage
     aspectRatio="twoByOne"
+    contentTitle="Fahrenheit 451 by Ray Bradbury"
+    contentType="ebook"
+  />
+</SimpleGrid>
+
+### Event
+
+<SimpleGrid columns="3" gap={responsiveSpacing.gridGap} mt="l">
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Fahrenheit 451 by Ray Bradbury"
+    contentType="event"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Fahrenheit 451 by Ray Bradbury"
+    contentType="event"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Fahrenheit 451 by Ray Bradbury"
+    contentType="event"
+  />
+</SimpleGrid>
+
+### Image
+
+<SimpleGrid columns="3" gap={responsiveSpacing.gridGap} mt="l">
+  <PlaceholderImage
+    aspectRatio="twoByOne"
     contentTitle="The Starry Night by Vincent Van Gogh"
     contentType="image"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="The Starry Night by Vincent Van Gogh"
+    contentType="image"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="The Starry Night by Vincent Van Gogh"
+    contentType="image"
+  />
+</SimpleGrid>
+
+### Miscellaneous
+
+<SimpleGrid columns="3" gap={responsiveSpacing.gridGap} mt="l">
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Moby Dick by Herman Melville"
+    contentType="miscellaneous"
   />
   <PlaceholderImage
     aspectRatio="twoByOne"
@@ -322,9 +421,46 @@ The color recommendations can be reviewed in the <Link href="https://nypl.github
   />
   <PlaceholderImage
     aspectRatio="twoByOne"
+    contentTitle="Moby Dick by Herman Melville"
+    contentType="miscellaneous"
+  />
+</SimpleGrid>
+
+### Video
+
+<SimpleGrid columns="3" gap={responsiveSpacing.gridGap} mt="l">
+  <PlaceholderImage
+    aspectRatio="twoByOne"
     contentTitle="Video Works by William Wegman"
     contentType="video"
   />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Video Works by William Wegman"
+    contentType="video"
+  />
+  <PlaceholderImage
+    aspectRatio="twoByOne"
+    contentTitle="Video Works by William Wegman"
+    contentType="video"
+  />
+</SimpleGrid>
+
+### Responsive sizing
+
+<SimpleGrid columns="6" gap={responsiveSpacing.gridGap} mt="l">
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
+</SimpleGrid>
+
+<SimpleGrid columns="3" gap={responsiveSpacing.gridGap} mt="l">
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
 </SimpleGrid>
 
 <SimpleGrid
@@ -332,12 +468,8 @@ The color recommendations can be reviewed in the <Link href="https://nypl.github
   gap={responsiveSpacing.gridGap}
   mt={responsiveSpacing.gridGap}
 >
-  <PlaceholderImage aspectRatio="twoByOne" contentType="audio" />
-  <PlaceholderImage aspectRatio="twoByOne" contentType="book" />
-  <PlaceholderImage aspectRatio="twoByOne" contentType="ebook" />
   <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
-  <PlaceholderImage aspectRatio="twoByOne" contentType="miscellaneous" />
-  <PlaceholderImage aspectRatio="twoByOne" contentType="video" />
+  <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
 </SimpleGrid>
 
 <SimpleGrid
@@ -345,10 +477,5 @@ The color recommendations can be reviewed in the <Link href="https://nypl.github
   gap={responsiveSpacing.gridGap}
   mt={responsiveSpacing.gridGap}
 >
-  <PlaceholderImage aspectRatio="twoByOne" contentType="audio" />
-  <PlaceholderImage aspectRatio="twoByOne" contentType="book" />
-  <PlaceholderImage aspectRatio="twoByOne" contentType="ebook" />
   <PlaceholderImage aspectRatio="twoByOne" contentType="image" />
-  <PlaceholderImage aspectRatio="twoByOne" contentType="miscellaneous" />
-  <PlaceholderImage aspectRatio="twoByOne" contentType="video" />
 </SimpleGrid>
