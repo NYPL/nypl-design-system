@@ -55,6 +55,7 @@ import fileTypeImage from "../../../icons/svg/file-type-image.svg";
 import fileTypePdf from "../../../icons/svg/file-type-pdf.svg";
 import fileTypeSpreadsheet from "../../../icons/svg/file-type-spreadsheet.svg";
 import fileTypeVideo from "../../../icons/svg/file-type-video.svg";
+import hardwareLaptop from "../../../icons/svg/hardware-laptop.svg";
 import headset from "../../../icons/svg/headset.svg";
 import legacyAccountFilled from "../../../icons/svg/legacy-account-filled.svg";
 import legacyAccountUnfilled from "../../../icons/svg/legacy-account-unfilled.svg";
@@ -149,6 +150,7 @@ export default {
   fileTypePdf,
   fileTypeSpreadsheet,
   fileTypeVideo,
+  hardwareLaptop,
   headset,
   legacyAccountFilled,
   legacyAccountUnfilled,

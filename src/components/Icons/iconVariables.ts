@@ -165,6 +165,7 @@ export const iconNamesArray = [
   "fileTypePdf",
   "fileTypeSpreadsheet",
   "fileTypeVideo",
+  "hardwareLaptop",
   "headset",
   "legacyAccountFilled",
   "legacyAccountUnfilled",
