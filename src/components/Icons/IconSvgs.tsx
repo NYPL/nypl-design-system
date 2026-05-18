@@ -20,6 +20,7 @@ import actionPower from "../../../icons/svg/action-power.svg";
 import actionRegistration from "../../../icons/svg/action-registration.svg";
 import actionSearch from "../../../icons/svg/action-search.svg";
 import actionSettings from "../../../icons/svg/action-settings.svg";
+import actionTaskAlt from "../../../icons/svg/action-task-alt.svg";
 import alertNotificationImportant from "../../../icons/svg/alert-notification-important.svg";
 import alertWarningFilled from "../../../icons/svg/alert-warning-filled.svg";
 import alertWarningOutline from "../../../icons/svg/alert-warning-outline.svg";
@@ -27,6 +28,7 @@ import arrow from "../../../icons/svg/arrow.svg";
 import building from "../../../icons/svg/building.svg";
 import communicationCall from "../../../icons/svg/communication-call.svg";
 import communicationChatBubble from "../../../icons/svg/communication-chat-bubble.svg";
+import communicationDynamicFeed from "../../../icons/svg/communication-dynamic-feed.svg";
 import communicationEmail from "../../../icons/svg/communication-email.svg";
 import contentCopy from "../../../icons/svg/content-copy.svg";
 import contentFilterList from "../../../icons/svg/content-filter-list.svg";
@@ -115,6 +117,7 @@ export default {
   actionRegistration,
   actionSearch,
   actionSettings,
+  actionTaskAlt,
   alertNotificationImportant,
   alertWarningFilled,
   alertWarningOutline,
@@ -125,6 +128,7 @@ export default {
   close,
   communicationCall,
   communicationChatBubble,
+  communicationDynamicFeed,
   communicationEmail,
   contentCopy,
   contentFilterList,
