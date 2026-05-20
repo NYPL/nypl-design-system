@@ -21,6 +21,7 @@ export const iconColorsArray = [
   "ui.test",
   "ui.warning.primary",
   "ui.warning.secondary",
+  "ui.warning.tertiary",
   "ui.bg.default",
   "ui.bg.hover",
   "ui.bg.active",

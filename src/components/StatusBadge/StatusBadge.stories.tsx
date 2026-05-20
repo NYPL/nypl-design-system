@@ -270,12 +270,12 @@ export const Icons: Story = {
       </StatusBadge>
       <StatusBadge fontSize="desktop.caption" variant="warning">
         <Icon
-          color="ui.warning.secondary"
+          color="ui.warning.tertiary"
           mr="xs"
           name="actionHelpDefault"
           size="medium"
         />
-        Mising information
+        Missing information
       </StatusBadge>
       <StatusBadge variant="neutral">
         Registration required
@@ -354,12 +354,12 @@ export const TextWrap: Story = {
         </StatusBadge>
         <StatusBadge fontSize="desktop.caption" variant="warning">
           <Icon
-            color="ui.warning.secondary"
+            color="ui.warning.tertiary"
             mr="xs"
             name="actionHelpDefault"
             size="medium"
           />
-          Mising information
+          Missing information
         </StatusBadge>
         <StatusBadge variant="neutral">
           Registration required Nesciunt voluptates in quis molestias officia

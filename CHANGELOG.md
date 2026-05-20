@@ -13,6 +13,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds the `actionTaskAlt`, `communicationDynamicFeed`, `contentTypeAudio`, `contentTypeBook`, `contentTypeEBook`, `contentTypeEvent`, `contentTypeImage`, `contentTypeMisc`, `contentTypeVideo`, and `hardwareLaptop` options to the `Icon` component.
 - Adds dependabot.yml file for security scanning.
 
+### Updates
+
+- Updates `iconColorsArray` to include `ui.warning.tertiary`.
+
 ## 4.1.6 (April 2, 2026)
 
 ### Updates
