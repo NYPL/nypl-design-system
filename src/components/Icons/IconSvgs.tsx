@@ -20,6 +20,7 @@ import actionPower from "../../../icons/svg/action-power.svg";
 import actionRegistration from "../../../icons/svg/action-registration.svg";
 import actionSearch from "../../../icons/svg/action-search.svg";
 import actionSettings from "../../../icons/svg/action-settings.svg";
+import actionTaskAlt from "../../../icons/svg/action-task-alt.svg";
 import alertNotificationImportant from "../../../icons/svg/alert-notification-important.svg";
 import alertWarningFilled from "../../../icons/svg/alert-warning-filled.svg";
 import alertWarningOutline from "../../../icons/svg/alert-warning-outline.svg";
@@ -27,12 +28,14 @@ import arrow from "../../../icons/svg/arrow.svg";
 import building from "../../../icons/svg/building.svg";
 import communicationCall from "../../../icons/svg/communication-call.svg";
 import communicationChatBubble from "../../../icons/svg/communication-chat-bubble.svg";
+import communicationDynamicFeed from "../../../icons/svg/communication-dynamic-feed.svg";
 import communicationEmail from "../../../icons/svg/communication-email.svg";
 import contentCopy from "../../../icons/svg/content-copy.svg";
 import contentFilterList from "../../../icons/svg/content-filter-list.svg";
 import contentTypeAudio from "../../../icons/svg/content-type-audio.svg";
 import contentTypeBook from "../../../icons/svg/content-type-book.svg";
 import contentTypeEBook from "../../../icons/svg/content-type-ebook.svg";
+import contentTypeEvent from "../../../icons/svg/content-type-event.svg";
 import contentTypeImage from "../../../icons/svg/content-type-image.svg";
 import contentTypeMisc from "../../../icons/svg/content-type-misc.svg";
 import contentTypeVideo from "../../../icons/svg/content-type-video.svg";
@@ -54,6 +57,7 @@ import fileTypeImage from "../../../icons/svg/file-type-image.svg";
 import fileTypePdf from "../../../icons/svg/file-type-pdf.svg";
 import fileTypeSpreadsheet from "../../../icons/svg/file-type-spreadsheet.svg";
 import fileTypeVideo from "../../../icons/svg/file-type-video.svg";
+import hardwareLaptop from "../../../icons/svg/hardware-laptop.svg";
 import headset from "../../../icons/svg/headset.svg";
 import legacyAccountFilled from "../../../icons/svg/legacy-account-filled.svg";
 import legacyAccountUnfilled from "../../../icons/svg/legacy-account-unfilled.svg";
@@ -113,6 +117,7 @@ export default {
   actionRegistration,
   actionSearch,
   actionSettings,
+  actionTaskAlt,
   alertNotificationImportant,
   alertWarningFilled,
   alertWarningOutline,
@@ -123,12 +128,14 @@ export default {
   close,
   communicationCall,
   communicationChatBubble,
+  communicationDynamicFeed,
   communicationEmail,
   contentCopy,
   contentFilterList,
   contentTypeAudio,
   contentTypeBook,
   contentTypeEBook,
+  contentTypeEvent,
   contentTypeImage,
   contentTypeMisc,
   contentTypeVideo,
@@ -147,6 +154,7 @@ export default {
   fileTypePdf,
   fileTypeSpreadsheet,
   fileTypeVideo,
+  hardwareLaptop,
   headset,
   legacyAccountFilled,
   legacyAccountUnfilled,

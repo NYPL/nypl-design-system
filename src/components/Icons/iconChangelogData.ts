@@ -15,8 +15,8 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Functionality"],
     notes: [
-      "Added the `contentTypeAudio`, `contentTypeBook`, `contentTypeEBook`, `contentTypeImage`, `contentTypeMisc`, and `contentTypeVideo` icons.",
       "Updated `iconColorsArray` to include `ui.warning.tertiary`.",
+      "Added the `actionTaskAlt`, `communicationDynamicFeed`, `contentTypeAudio`, `contentTypeBook`, `contentTypeEBook`, `contentTypeEvent`, `contentTypeImage`, `contentTypeMisc`, `contentTypeVideo`, and `hardwareLaptop` icons.",
     ],
   },
   {

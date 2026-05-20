@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `contentTypeAudio`, `contentTypeBook`, `contentTypeEBook`, `contentTypeImage`, `contentTypeMisc`, and `contentTypeVideo` options to the `Icon` component.
+- Adds the `actionTaskAlt`, `communicationDynamicFeed`, `contentTypeAudio`, `contentTypeBook`, `contentTypeEBook`, `contentTypeEvent`, `contentTypeImage`, `contentTypeMisc`, `contentTypeVideo`, and `hardwareLaptop` options to the `Icon` component.
 - Adds dependabot.yml file for security scanning.
 
 ### Updates
