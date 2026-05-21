@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2026-05-20",
+    version: "4.1.7",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Updated `iconColorsArray` to include `ui.warning.tertiary`.",
+      "Added the `actionTaskAlt`, `communicationDynamicFeed`, `contentTypeAudio`, `contentTypeBook`, `contentTypeEBook`, `contentTypeEvent`, `contentTypeImage`, `contentTypeMisc`, `contentTypeVideo`, and `hardwareLaptop` icons.",
+    ],
+  },
+  {
     date: "2026-03-05",
     version: "4.1.5",
     type: "Bug Fix",
