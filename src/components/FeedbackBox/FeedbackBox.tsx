@@ -120,6 +120,8 @@ export const FeedbackBox: ChakraComponent<
       const [viewType, setViewType] = useStateWithDependencies(view);
       const [finalIsInvalidComment, setFinalIsInvalidComment] =
         useStateWithDependencies(isInvalidComment);
+      const [finalIsInvalidEmail, setFinalIsInvalidEmail] =
+        useStateWithDependencies(isInvalidEmail);
       const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
       // Helps keep track of form field state values.
       const { state, setCategory, setComment, setEmail, clearValues } =
@@ -152,6 +154,7 @@ export const FeedbackBox: ChakraComponent<
         setViewType("form");
         clearValues();
         setFinalIsInvalidComment(false);
+        setFinalIsInvalidEmail(false);
 
         // Leave some time after closing before focusing on the open button.
         setTimeout(() => {
@@ -175,6 +178,19 @@ export const FeedbackBox: ChakraComponent<
         onSubmit && onSubmit(submittedValues);
         setFinalIsInvalidComment(false);
         setIsSubmitted(true);
+      };
+      const isValidEmailAddress = (value: string) => {
+        const trimmed = value.trim();
+        // accepts no email
+        if (!trimmed) return true;
+
+        const atIndex = trimmed.indexOf("@");
+        const lastAtIndex = trimmed.lastIndexOf("@");
+
+        if (atIndex <= 0 || atIndex !== lastAtIndex) return false;
+        const localPart = trimmed.slice(0, atIndex);
+        const domainPart = trimmed.slice(atIndex + 1);
+        return localPart.length > 0 && domainPart.length > 0;
       };
       const notificationElement =
         isFormView && notificationText ? (
@@ -400,6 +416,7 @@ export const FeedbackBox: ChakraComponent<
                             placeholder="Enter your question or feedback here"
                             ref={commentInputRef}
                             type="textarea"
+                            onBlur={() => setFinalIsInvalidComment(false)}
                           />
                         </FormField>
                         {showEmailField && (
@@ -408,13 +425,18 @@ export const FeedbackBox: ChakraComponent<
                               id={`${mainId}-email`}
                               invalidText="There was a problem. Please enter a valid email address."
                               isDisabled={isSubmitted}
-                              isInvalid={isInvalidEmail}
+                              isInvalid={finalIsInvalidEmail}
                               labelText="Email"
                               name={`${mainId}-email`}
                               onChange={(e) => setEmail(e.target.value)}
                               placeholder="Enter your email address here"
                               type="email"
                               value={state.email}
+                              onBlur={() => {
+                                setFinalIsInvalidEmail(
+                                  !isValidEmailAddress(state.email)
+                                );
+                              }}
                             />
                           </FormField>
                         )}
