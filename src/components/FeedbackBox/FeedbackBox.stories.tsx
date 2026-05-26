@@ -79,7 +79,7 @@ const FeedbackBoxWithControls = (args) => {
         hiddenFields={hiddenFields}
         notificationText={
           <span>
-            <b>Call Number:</b> JFE 95-8555
+            <b>Call number:</b> JFE 95-8555
           </span>
         }
         onSubmit={onSubmit}
@@ -108,7 +108,7 @@ export const WithControls: Story = {
     onSubmit: undefined,
     showCategoryField: true,
     showEmailField: true,
-    title: "Help and Feedback",
+    title: "Help and feedback",
     view: "form",
   },
   parameters: {
@@ -122,7 +122,7 @@ export const WithControls: Story = {
     expect(
       screen.queryByRole("textbox", { name: /comment/i })
     ).not.toBeInTheDocument();
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
     await userEvent.click(button);
     expect(screen.getByLabelText("Correction")).not.toBeChecked();
     await userEvent.click(screen.getByLabelText("Correction"));
