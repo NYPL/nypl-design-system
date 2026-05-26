@@ -201,9 +201,7 @@ describe("FeedbackBox", () => {
       screen.getByText(/thank you for submitting your feedback/i)
     ).toBeInTheDocument();
     expect(
-      screen.queryByText(
-        /if you provided an email address and require a response/i
-      )
+      screen.queryByText(/if you asked a question and provided an email/i)
     ).not.toBeInTheDocument();
   });
 
@@ -222,9 +220,7 @@ describe("FeedbackBox", () => {
     button.click();
 
     expect(
-      screen.getByText(
-        /if you provided an email address and require a response/i
-      )
+      screen.getByText(/if you asked a question and provided an email/i)
     ).toBeInTheDocument();
   });
 
