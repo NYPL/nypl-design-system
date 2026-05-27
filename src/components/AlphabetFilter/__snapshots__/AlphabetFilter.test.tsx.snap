@@ -325,17 +325,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
       </button>
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="alphabet-filter-helperErrorText"
-    >
-      <div
-        className="css-0"
-      />
-    </div>
+    />
   </div>
 </nav>
 `;
@@ -693,17 +687,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
       </button>
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="alphabet-filter-helperErrorText"
-    >
-      <div
-        className="css-0"
-      />
-    </div>
+    />
   </div>
 </nav>
 `;
@@ -1040,17 +1028,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
       </button>
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="alphabet-filter-helperErrorText"
-    >
-      <div
-        className="css-0"
-      />
-    </div>
+    />
   </div>
 </nav>
 `;
@@ -1386,17 +1368,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
       </button>
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="alphabet-filter-helperErrorText"
-    >
-      <div
-        className="css-0"
-      />
-    </div>
+    />
   </div>
 </nav>
 `;
@@ -1726,17 +1702,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
       </button>
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="alphabet-filter-helperErrorText"
-    >
-      <div
-        className="css-0"
-      />
-    </div>
+    />
   </div>
 </nav>
 `;
@@ -2066,17 +2036,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
       </button>
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="alphabet-filter-helperErrorText"
-    >
-      <div
-        className="css-0"
-      />
-    </div>
+    />
   </div>
 </nav>
 `;

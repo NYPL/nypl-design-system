@@ -37,34 +37,28 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
       >
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Image caption",
+            }
+          }
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
-        >
-          <div
-            className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image caption",
-              }
-            }
-          />
-        </div>
+        />
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Image credit",
+            }
+          }
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
-        >
-          <div
-            className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image credit",
-              }
-            }
-          />
-        </div>
+        />
       </figcaption>
     </figure>
   </div>
@@ -116,34 +110,28 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
       >
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Image caption",
+            }
+          }
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
-        >
-          <div
-            className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image caption",
-              }
-            }
-          />
-        </div>
+        />
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Image credit",
+            }
+          }
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
-        >
-          <div
-            className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image credit",
-              }
-            }
-          />
-        </div>
+        />
       </figcaption>
     </figure>
   </div>
@@ -294,34 +282,28 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
       >
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Image caption",
+            }
+          }
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
-        >
-          <div
-            className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image caption",
-              }
-            }
-          />
-        </div>
+        />
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Image credit",
+            }
+          }
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
-        >
-          <div
-            className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image credit",
-              }
-            }
-          />
-        </div>
+        />
       </figcaption>
     </figure>
   </div>
@@ -397,34 +379,28 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
       >
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Image caption",
+            }
+          }
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
-        >
-          <div
-            className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image caption",
-              }
-            }
-          />
-        </div>
+        />
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Image credit",
+            }
+          }
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
-        >
-          <div
-            className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image credit",
-              }
-            }
-          />
-        </div>
+        />
       </figcaption>
     </figure>
   </div>
@@ -476,34 +452,28 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
       >
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Image caption",
+            }
+          }
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
-        >
-          <div
-            className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image caption",
-              }
-            }
-          />
-        </div>
+        />
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Image credit",
+            }
+          }
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
-        >
-          <div
-            className="css-0"
-            dangerouslySetInnerHTML={
-              {
-                "__html": "Image credit",
-              }
-            }
-          />
-        </div>
+        />
       </figcaption>
     </figure>
   </div>

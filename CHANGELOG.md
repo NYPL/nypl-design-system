@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `HelperErrorText` component to remove the default `aria-atomic` and `aria-live` attributes.
+
 ## 4.1.7 (May 20, 2026)
 
 ### Adds

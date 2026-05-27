@@ -27,10 +27,6 @@ describe("HelperErrorText", () => {
   it("renders the text passed", () => {
     const { container } = render(<HelperErrorText text="Text" />);
     expect(container.querySelector("div")).toBeInTheDocument();
-    expect(container.querySelector("div")).toHaveAttribute(
-      "aria-live",
-      "polite"
-    );
   });
 
   it("renders the text passed as an HTML string", () => {
@@ -60,17 +56,14 @@ describe("HelperErrorText", () => {
     );
   });
 
-  it("has aria-atomic and aria-live attributes by default", () => {
-    const { container } = render(<HelperErrorText text="Text" />);
-    expect(container.querySelector("div")).toHaveAttribute("aria-atomic");
-    expect(container.querySelector("div")).toHaveAttribute(
-      "aria-live",
-      "polite"
-    );
-  });
-
-  it("sets custom aria-live attribute when aria-live prop is passed as 'polite' or 'assertive'", () => {
+  it("sets custom aria-live attribute when aria-live prop is passed", () => {
     const { container, rerender } = render(<HelperErrorText text="Text" />);
+    expect(container.querySelector("div")).not.toHaveAttribute("aria-live");
+
+    rerender(<HelperErrorText aria-live="off" text="Text" />);
+    expect(container.querySelector("div")).toHaveAttribute("aria-live", "off");
+
+    rerender(<HelperErrorText aria-live="polite" text="Text" />);
     expect(container.querySelector("div")).toHaveAttribute(
       "aria-live",
       "polite"
@@ -83,29 +76,17 @@ describe("HelperErrorText", () => {
     );
   });
 
-  it("does not have aria-live attribute when aria-live prop is set to 'off'", () => {
+  it("sets custom aria-atomic attribute when aria-atomic prop is passed", () => {
     const { container, rerender } = render(<HelperErrorText text="Text" />);
+    expect(container.querySelector("div")).not.toHaveAttribute("aria-atomic");
+
+    rerender(<HelperErrorText aria-atomic="true" text="Text" />);
     expect(container.querySelector("div")).toHaveAttribute(
-      "aria-live",
-      "polite"
+      "aria-atomic",
+      "true"
     );
 
-    rerender(<HelperErrorText aria-live="off" text="Text" />);
-    expect(container.querySelector("div")).not.toHaveAttribute("aria-live");
-  });
-
-  it("accepts an aria-atomic value of false", () => {
-    const { container, rerender } = render(
-      <HelperErrorText isInvalid text="Static Text" />
-    );
-    // The default is "true".
-    expect(container.querySelector("div")).toHaveAttribute("aria-atomic");
-
-    rerender(
-      <HelperErrorText aria-atomic={false} isInvalid text="Static Text" />
-    );
-    // But the prop accepts false in case only part of the helper text
-    // should only be read instead of the whole region.
+    rerender(<HelperErrorText aria-atomic="false" text="Text" />);
     expect(container.querySelector("div")).toHaveAttribute(
       "aria-atomic",
       "false"

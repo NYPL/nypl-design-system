@@ -99,22 +99,16 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
               />
             </div>
             <div
-              aria-atomic={true}
-              aria-live="polite"
               className="css-1xdhyk6"
+              dangerouslySetInnerHTML={
+                {
+                  "__html": "There was a problem. Please enter a valid email address.",
+                }
+              }
               data-isinvalid={true}
               data-testid="ds-helperErrorText"
               id="test-id-textInput-helperErrorText"
-            >
-              <div
-                className="css-0"
-                dangerouslySetInnerHTML={
-                  {
-                    "__html": "There was a problem. Please enter a valid email address.",
-                  }
-                }
-              />
-            </div>
+            />
           </div>
         </div>
         <div
@@ -462,20 +456,14 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               />
             </div>
             <div
-              aria-atomic={true}
-              aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
               data-testid="ds-helperErrorText"
               id="test-id-textInput-helperErrorText"
             >
-              <div
-                className="css-0"
-              >
-                Ex: 
-                jdoe@domain.com
-                <br />
-              </div>
+              Ex: 
+              jdoe@domain.com
+              <br />
             </div>
           </div>
         </div>
@@ -603,20 +591,14 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               />
             </div>
             <div
-              aria-atomic={true}
-              aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
               data-testid="ds-helperErrorText"
               id="test-id-textInput-helperErrorText"
             >
-              <div
-                className="css-0"
-              >
-                Ex: 
-                jdoe@domain.com
-                <br />
-              </div>
+              Ex: 
+              jdoe@domain.com
+              <br />
             </div>
           </div>
         </div>
@@ -738,21 +720,15 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               />
             </div>
             <div
-              aria-atomic={true}
-              aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
               data-testid="ds-helperErrorText"
               id="test-id-textInput-helperErrorText"
             >
-              <div
-                className="css-0"
-              >
-                Ex: 
-                jdoe@domain.com
-                <br />
-                You need help.
-              </div>
+              Ex: 
+              jdoe@domain.com
+              <br />
+              You need help.
             </div>
           </div>
         </div>
@@ -874,20 +850,14 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               />
             </div>
             <div
-              aria-atomic={true}
-              aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
               data-testid="ds-helperErrorText"
               id="test-id-textInput-helperErrorText"
             >
-              <div
-                className="css-0"
-              >
-                Ex: 
-                jdoe@domain.com
-                <br />
-              </div>
+              Ex: 
+              jdoe@domain.com
+              <br />
             </div>
           </div>
         </div>

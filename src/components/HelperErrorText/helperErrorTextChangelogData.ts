@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation", "Functionality"],
+    notes: ["Removed the default `aria-atomic` and `aria-live` attributes."],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",

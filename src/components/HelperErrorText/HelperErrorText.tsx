@@ -32,23 +32,10 @@ export const HelperErrorText: ChakraComponent<
   HelperErrorTextProps
 > = chakra(
   forwardRef<HTMLDivElement, HelperErrorTextProps>(
-    (
-      {
-        "aria-atomic": ariaAtomic = true,
-        "aria-live": ariaLive = "polite",
-        id,
-        isInvalid = false,
-        isRenderedText = true,
-        text,
-        ...rest
-      },
-      ref?
-    ) => {
+    ({ id, isInvalid = false, isRenderedText = true, text, ...rest }, ref?) => {
       const styles = useMultiStyleConfig("HelperErrorText", { isInvalid });
 
       const props = {
-        "aria-atomic": ariaAtomic,
-        "aria-live": ariaLive === "off" ? undefined : ariaLive,
         "data-isinvalid": isInvalid,
         "data-testid": "ds-helperErrorText",
         id,
@@ -59,15 +46,15 @@ export const HelperErrorText: ChakraComponent<
 
       // Always render the wrapper div element with the proper aria attributes.
       return (
-        <Box {...props}>
+        <>
           {isRenderedText ? (
             typeof text === "string" ? (
-              <Box dangerouslySetInnerHTML={{ __html: text }} />
+              <Box dangerouslySetInnerHTML={{ __html: text }} {...props} />
             ) : (
-              <Box>{text}</Box>
+              <Box {...props}>{text}</Box>
             )
           ) : null}
-        </Box>
+        </>
       );
     }
   )

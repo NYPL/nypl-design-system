@@ -31,19 +31,16 @@ exports[`Image Renders the UI snapshot correctly 2`] = `
     >
       <div
         aria-atomic={false}
+        aria-live="off"
         className="css-xy0wy2"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Caption",
+          }
+        }
         data-isinvalid={false}
         data-testid="ds-helperErrorText"
-      >
-        <div
-          className="css-0"
-          dangerouslySetInnerHTML={
-            {
-              "__html": "Caption",
-            }
-          }
-        />
-      </div>
+      />
     </figcaption>
   </figure>
 </div>
@@ -67,19 +64,16 @@ exports[`Image Renders the UI snapshot correctly 3`] = `
     >
       <div
         aria-atomic={false}
+        aria-live="off"
         className="css-xy0wy2"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Credit",
+          }
+        }
         data-isinvalid={false}
         data-testid="ds-helperErrorText"
-      >
-        <div
-          className="css-0"
-          dangerouslySetInnerHTML={
-            {
-              "__html": "Credit",
-            }
-          }
-        />
-      </div>
+      />
     </figcaption>
   </figure>
 </div>
@@ -103,34 +97,28 @@ exports[`Image Renders the UI snapshot correctly 4`] = `
     >
       <div
         aria-atomic={false}
+        aria-live="off"
         className="css-xy0wy2"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Caption",
+          }
+        }
         data-isinvalid={false}
         data-testid="ds-helperErrorText"
-      >
-        <div
-          className="css-0"
-          dangerouslySetInnerHTML={
-            {
-              "__html": "Caption",
-            }
-          }
-        />
-      </div>
+      />
       <div
         aria-atomic={false}
+        aria-live="off"
         className="css-xy0wy2"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Credit",
+          }
+        }
         data-isinvalid={false}
         data-testid="ds-helperErrorText"
-      >
-        <div
-          className="css-0"
-          dangerouslySetInnerHTML={
-            {
-              "__html": "Credit",
-            }
-          }
-        />
-      </div>
+      />
     </figcaption>
   </figure>
 </div>

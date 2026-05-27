@@ -61,17 +61,6 @@ export const TextInputExample: Story = {
   ),
 };
 
-export const AriaControls: Story = {
-  name: "ARIA Controls",
-  render: () => (
-    <HelperErrorText
-      aria-atomic={false}
-      aria-live="polite"
-      text="Live updates to the helper and error text can be read to screen readers with the appropriate aria-atomic and aria-live props."
-    />
-  ),
-};
-
 export const HTMLChildren: Story = {
   name: "HTML Children",
   render: () => (
