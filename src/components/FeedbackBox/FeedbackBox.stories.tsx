@@ -79,7 +79,7 @@ const FeedbackBoxWithControls = (args) => {
         hiddenFields={hiddenFields}
         notificationText={
           <span>
-            <b>Call number:</b> JFE 95-8555
+            <b>Call Number:</b> JFE 95-8555
           </span>
         }
         onSubmit={onSubmit}

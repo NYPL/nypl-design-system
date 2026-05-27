@@ -159,7 +159,7 @@ describe("FeedbackBox", () => {
   it("renders optional notification text or JSX", () => {
     const { rerender } = render(
       <FeedbackBox
-        notificationText="Call number: JFE 95-8555"
+        notificationText="Call Number: JFE 95-8555"
         title="Help and feedback"
         onSubmit={onSubmit}
       />
@@ -169,7 +169,7 @@ describe("FeedbackBox", () => {
 
     button.click();
 
-    expect(screen.getByText(/Call number: JFE 95-8555/i)).toBeInTheDocument();
+    expect(screen.getByText(/Call Number: JFE 95-8555/i)).toBeInTheDocument();
 
     rerender(
       <FeedbackBox
