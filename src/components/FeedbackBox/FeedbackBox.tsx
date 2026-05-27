@@ -468,8 +468,9 @@ export const FeedbackBox: ChakraComponent<
                         </Text>
                         {showEmailField && (
                           <Text mt="s">
-                            If you asked a question and provided an email, allow
-                            us a few days to respond.
+                            If you provided an email address and require a
+                            response, our service staff will reach out to you
+                            via email.
                           </Text>
                         )}
                         {confirmationText ? (

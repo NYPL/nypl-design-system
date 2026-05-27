@@ -201,7 +201,9 @@ describe("FeedbackBox", () => {
       screen.getByText(/thank you for submitting your feedback/i)
     ).toBeInTheDocument();
     expect(
-      screen.queryByText(/if you asked a question and provided an email/i)
+      screen.queryByText(
+        /if you provided an email address and require a response/i
+      )
     ).not.toBeInTheDocument();
   });
 
@@ -220,7 +222,9 @@ describe("FeedbackBox", () => {
     button.click();
 
     expect(
-      screen.getByText(/if you asked a question and provided an email/i)
+      screen.getByText(
+        /if you provided an email address and require a response/i
+      )
     ).toBeInTheDocument();
   });
 
@@ -323,7 +327,7 @@ describe("FeedbackBox", () => {
     // Open the dialog.
     screen.queryByRole("button", { name: "Help and feedback" }).click();
 
-    const button = screen.queryByRole("button", { name: "Try Again" });
+    const button = screen.queryByRole("button", { name: "Try again" });
     expect(
       screen.queryByText(/oops! something went wrong/i)
     ).toBeInTheDocument();
