@@ -20,9 +20,9 @@ export interface HelperErrorTextProps extends BoxProps {
 }
 
 /**
- * Component that always renders a div even if the text content is not passed.
- * This pattern guarantees accessibility guidelines are met if the text content
- * is dynamically updated by the app or component that implements it.
+ * The component will always render a div even if the text content is not
+ * passed. This pattern guarantees aria-descibedby references do not point to an
+ * element that does not exist.
  */
 
 export const HelperErrorText: ChakraComponent<

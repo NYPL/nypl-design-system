@@ -13,7 +13,7 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Documentation", "Functionality"],
+    affects: ["Accessibility", "Documentation", "Functionality"],
     notes: ["Removed the default `aria-atomic` and `aria-live` attributes."],
   },
   {
