@@ -46,15 +46,15 @@ export const HelperErrorText: ChakraComponent<
 
       // Always render the wrapper div element with the proper aria attributes.
       return (
-        <>
+        <Box {...props}>
           {isRenderedText ? (
             typeof text === "string" ? (
-              <Box dangerouslySetInnerHTML={{ __html: text }} {...props} />
+              <Box dangerouslySetInnerHTML={{ __html: text }} />
             ) : (
-              <Box {...props}>{text}</Box>
+              <Box>{text}</Box>
             )
           ) : null}
-        </>
+        </Box>
       );
     }
   )
