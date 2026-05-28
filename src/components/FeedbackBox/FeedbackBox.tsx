@@ -526,7 +526,7 @@ export const FeedbackBox: ChakraComponent<
                             onClick={closeAndResetForm}
                             variant="secondary"
                           >
-                            Return to brownsing
+                            Return to browsing
                           </Button>
                           <Button
                             id={`${mainId}-try-again`}
