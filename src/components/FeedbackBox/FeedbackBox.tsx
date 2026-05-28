@@ -441,7 +441,16 @@ export const FeedbackBox: ChakraComponent<
                               isInvalid={finalIsInvalidEmail}
                               labelText="Email"
                               name={`${mainId}-email`}
-                              onChange={(e) => setEmail(e.target.value)}
+                              onChange={(e) => {
+                                const nextValue = e.target.value;
+                                setEmail(nextValue);
+                                if (
+                                  finalIsInvalidEmail &&
+                                  isValidEmailAddress(nextValue)
+                                ) {
+                                  setFinalIsInvalidEmail(false);
+                                }
+                              }}
                               placeholder="Enter your email address here"
                               type="email"
                               value={state.email}
