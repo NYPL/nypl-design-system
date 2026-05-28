@@ -18,6 +18,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates `iconColorsArray` to include `ui.warning.tertiary`.
+- Updates the email-specific confirmation message in the `FeedbackBox` component.
 
 ## 4.1.6 (April 2, 2026)
 
