@@ -412,11 +412,24 @@ export const FeedbackBox: ChakraComponent<
                             }
                             maxLength={maxCommentCharacters}
                             name={`${mainId}-comment`}
-                            onChange={(e) => setComment(e.target.value)}
+                            onChange={(e) => {
+                              const nextValue = e.target.value;
+                              setComment(nextValue);
+                              if (
+                                finalIsInvalidComment &&
+                                nextValue.length > 0
+                              ) {
+                                setFinalIsInvalidComment(false);
+                              }
+                            }}
                             placeholder="Enter your question or feedback here"
                             ref={commentInputRef}
                             type="textarea"
-                            onBlur={() => setFinalIsInvalidComment(false)}
+                            onBlur={() =>
+                              setFinalIsInvalidComment(
+                                state.comment.length === 0
+                              )
+                            }
                           />
                         </FormField>
                         {showEmailField && (
@@ -490,8 +503,9 @@ export const FeedbackBox: ChakraComponent<
                         </Text>
                         {showEmailField && (
                           <Text mt="s">
-                            If you asked a question and provided an email, allow
-                            us a few days to respond.
+                            If you provided an email address and require a
+                            response, our service staff will reach out to you
+                            via email.
                           </Text>
                         )}
                         {confirmationText ? (
