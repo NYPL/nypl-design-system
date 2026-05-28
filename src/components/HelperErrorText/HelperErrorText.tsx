@@ -21,8 +21,8 @@ export interface HelperErrorTextProps extends BoxProps {
 
 /**
  * The component will always render a div even if the text content is not
- * passed. This pattern guarantees aria-descibedby references do not point to an
- * element that does not exist.
+ * passed. This pattern guarantees aria-describedby references do not point to
+ * an element that does not exist.
  */
 
 export const HelperErrorText: ChakraComponent<
