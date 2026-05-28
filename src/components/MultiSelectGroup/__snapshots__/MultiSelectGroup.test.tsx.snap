@@ -161,7 +161,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="red-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -225,7 +229,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="blue-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -289,7 +297,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="yellow-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                     </div>
                     <div
@@ -297,7 +309,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
                       id="colors-checkboxGroup-helperErrorText"
-                    />
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </fieldset>
                 </div>
               </div>
@@ -453,7 +469,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="cat-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -517,7 +537,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="dog-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -581,7 +605,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="corgy-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -645,7 +673,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="german-sheperd-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -709,7 +741,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="afghan-hound-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -773,7 +809,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="rat-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                     </div>
                     <div
@@ -781,7 +821,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
                       id="pets-checkboxGroup-helperErrorText"
-                    />
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </fieldset>
                 </div>
               </div>
@@ -937,7 +981,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="hammer-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -1001,7 +1049,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="skrewdriver-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -1065,7 +1117,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="slottet-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -1129,7 +1185,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="phillips-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -1193,7 +1253,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="allen-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -1257,7 +1321,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="whisk-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                     </div>
                     <div
@@ -1265,7 +1333,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
                       id="tools-checkboxGroup-helperErrorText"
-                    />
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </fieldset>
                 </div>
               </div>
@@ -1439,7 +1511,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="red-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -1503,7 +1579,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="blue-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -1567,7 +1647,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="yellow-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                     </div>
                     <div
@@ -1575,7 +1659,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
                       id="colors-checkboxGroup-helperErrorText"
-                    />
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </fieldset>
                 </div>
               </div>
@@ -1731,7 +1819,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="cat-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -1795,7 +1887,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="dog-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -1859,7 +1955,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="corgy-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -1923,7 +2023,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="german-sheperd-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -1987,7 +2091,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="afghan-hound-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -2051,7 +2159,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="rat-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                     </div>
                     <div
@@ -2059,7 +2171,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
                       id="pets-checkboxGroup-helperErrorText"
-                    />
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </fieldset>
                 </div>
               </div>
@@ -2215,7 +2331,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="hammer-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -2279,7 +2399,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="skrewdriver-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -2343,7 +2467,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="slottet-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -2407,7 +2535,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="phillips-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-ybiit3"
@@ -2471,7 +2603,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="allen-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                       <div
                         className="css-1u8qly9"
@@ -2535,7 +2671,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
                           id="whisk-helperErrorText"
-                        />
+                        >
+                          <div
+                            className="css-0"
+                          />
+                        </div>
                       </div>
                     </div>
                     <div
@@ -2543,7 +2683,11 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
                       id="tools-checkboxGroup-helperErrorText"
-                    />
+                    >
+                      <div
+                        className="css-0"
+                      />
+                    </div>
                   </fieldset>
                 </div>
               </div>

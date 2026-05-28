@@ -76,7 +76,11 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="select-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -157,7 +161,11 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="select-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -236,15 +244,19 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
   </div>
   <div
     className="css-bl03f5"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Tom doesn't count as a sibling :(.",
-      }
-    }
     data-isinvalid={true}
     data-testid="ds-helperErrorText"
     id="select-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Tom doesn't count as a sibling :(.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -322,15 +334,19 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
   </div>
   <div
     className="css-bl03f5"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Remember, Logan will judge you no matter who you pick.",
-      }
-    }
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="select-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Remember, Logan will judge you no matter who you pick.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -414,7 +430,11 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="select-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -498,7 +518,11 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="select-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -580,7 +604,11 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="select-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -660,7 +688,11 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="chakra-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -740,6 +772,10 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="props-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;

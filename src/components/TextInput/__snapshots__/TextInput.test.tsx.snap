@@ -35,7 +35,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="myTextarea-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -79,7 +83,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="myTextInput-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -123,7 +131,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="myTextInput-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -163,7 +175,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="myTextInput-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -197,7 +213,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="myTextInput-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -239,15 +259,19 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
   </div>
   <div
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Custom helper text",
-      }
-    }
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="myTextInput-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Custom helper text",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -290,15 +314,19 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
   </div>
   <div
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "There is an error related to this field.",
-      }
-    }
     data-isinvalid={true}
     data-testid="ds-helperErrorText"
     id="myTextInput-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "There is an error related to this field.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -342,7 +370,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="myTextInput-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -382,7 +414,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="myTextInput-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -422,7 +458,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="chakra-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -462,7 +502,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="props-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -502,6 +546,10 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="autocomplete-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;

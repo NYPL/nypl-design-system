@@ -80,7 +80,11 @@ exports[`RadioGroup renders the UI snapshot correctly 1`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -142,7 +146,11 @@ exports[`RadioGroup renders the UI snapshot correctly 1`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -151,7 +159,11 @@ exports[`RadioGroup renders the UI snapshot correctly 1`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="column-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -235,7 +247,11 @@ exports[`RadioGroup renders the UI snapshot correctly 2`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -297,7 +313,11 @@ exports[`RadioGroup renders the UI snapshot correctly 2`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -306,7 +326,11 @@ exports[`RadioGroup renders the UI snapshot correctly 2`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="row-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -390,7 +414,11 @@ exports[`RadioGroup renders the UI snapshot correctly 3`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -452,7 +480,11 @@ exports[`RadioGroup renders the UI snapshot correctly 3`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -461,7 +493,11 @@ exports[`RadioGroup renders the UI snapshot correctly 3`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="noLabel-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -545,7 +581,11 @@ exports[`RadioGroup renders the UI snapshot correctly 4`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -607,21 +647,29 @@ exports[`RadioGroup renders the UI snapshot correctly 4`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
   <div
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "helper text",
-      }
-    }
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="helperText-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "helper text",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -705,7 +753,11 @@ exports[`RadioGroup renders the UI snapshot correctly 5`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -767,7 +819,11 @@ exports[`RadioGroup renders the UI snapshot correctly 5`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -776,7 +832,11 @@ exports[`RadioGroup renders the UI snapshot correctly 5`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="invalidText-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -861,7 +921,11 @@ exports[`RadioGroup renders the UI snapshot correctly 6`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -924,7 +988,11 @@ exports[`RadioGroup renders the UI snapshot correctly 6`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -933,7 +1001,11 @@ exports[`RadioGroup renders the UI snapshot correctly 6`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="noRequiredLabel-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1021,7 +1093,11 @@ exports[`RadioGroup renders the UI snapshot correctly 7`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1084,7 +1160,11 @@ exports[`RadioGroup renders the UI snapshot correctly 7`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1093,7 +1173,11 @@ exports[`RadioGroup renders the UI snapshot correctly 7`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="required-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1181,7 +1265,11 @@ exports[`RadioGroup renders the UI snapshot correctly 8`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1247,7 +1335,11 @@ exports[`RadioGroup renders the UI snapshot correctly 8`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1256,7 +1348,11 @@ exports[`RadioGroup renders the UI snapshot correctly 8`] = `
     data-isinvalid={true}
     data-testid="ds-helperErrorText"
     id="invalid-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1344,7 +1440,11 @@ exports[`RadioGroup renders the UI snapshot correctly 9`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1410,7 +1510,11 @@ exports[`RadioGroup renders the UI snapshot correctly 9`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1419,7 +1523,11 @@ exports[`RadioGroup renders the UI snapshot correctly 9`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="disabled-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1515,7 +1623,11 @@ exports[`RadioGroup renders the UI snapshot correctly 10`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="arts-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1589,7 +1701,11 @@ exports[`RadioGroup renders the UI snapshot correctly 10`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="English-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1598,7 +1714,11 @@ exports[`RadioGroup renders the UI snapshot correctly 10`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="jsxLabels-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1682,7 +1802,11 @@ exports[`RadioGroup renders the UI snapshot correctly 11`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1744,7 +1868,11 @@ exports[`RadioGroup renders the UI snapshot correctly 11`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1753,7 +1881,11 @@ exports[`RadioGroup renders the UI snapshot correctly 11`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="chakra-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1837,7 +1969,11 @@ exports[`RadioGroup renders the UI snapshot correctly 12`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-2-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <div
         className="css-1u8qly9"
@@ -1899,7 +2035,11 @@ exports[`RadioGroup renders the UI snapshot correctly 12`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="radio-3-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -1908,6 +2048,10 @@ exports[`RadioGroup renders the UI snapshot correctly 12`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="props-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;

@@ -23,7 +23,11 @@ exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -60,14 +64,18 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
   </noscript>
   <div
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Audio Player helper text.",
-      }
-    }
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Audio Player helper text.",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -102,7 +110,11 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -129,7 +141,11 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -164,6 +180,10 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;

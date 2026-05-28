@@ -100,15 +100,19 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
             </div>
             <div
               className="css-1xdhyk6"
-              dangerouslySetInnerHTML={
-                {
-                  "__html": "There was a problem. Please enter a valid email address.",
-                }
-              }
               data-isinvalid={true}
               data-testid="ds-helperErrorText"
               id="test-id-textInput-helperErrorText"
-            />
+            >
+              <div
+                className="css-0"
+                dangerouslySetInnerHTML={
+                  {
+                    "__html": "There was a problem. Please enter a valid email address.",
+                  }
+                }
+              />
+            </div>
           </div>
         </div>
         <div
@@ -461,9 +465,13 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               data-testid="ds-helperErrorText"
               id="test-id-textInput-helperErrorText"
             >
-              Ex: 
-              jdoe@domain.com
-              <br />
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+              </div>
             </div>
           </div>
         </div>
@@ -596,9 +604,13 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               data-testid="ds-helperErrorText"
               id="test-id-textInput-helperErrorText"
             >
-              Ex: 
-              jdoe@domain.com
-              <br />
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+              </div>
             </div>
           </div>
         </div>
@@ -725,10 +737,14 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               data-testid="ds-helperErrorText"
               id="test-id-textInput-helperErrorText"
             >
-              Ex: 
-              jdoe@domain.com
-              <br />
-              You need help.
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+                You need help.
+              </div>
             </div>
           </div>
         </div>
@@ -855,9 +871,13 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               data-testid="ds-helperErrorText"
               id="test-id-textInput-helperErrorText"
             >
-              Ex: 
-              jdoe@domain.com
-              <br />
+              <div
+                className="css-0"
+              >
+                Ex: 
+                jdoe@domain.com
+                <br />
+              </div>
             </div>
           </div>
         </div>

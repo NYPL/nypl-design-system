@@ -67,7 +67,11 @@ exports[`Toggle Renders the UI snapshot correctly 1`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="inputID-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -142,7 +146,11 @@ exports[`Toggle Renders the UI snapshot correctly 2`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="Toggle-checked-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -217,7 +225,11 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
     data-isinvalid={true}
     data-testid="ds-helperErrorText"
     id="Toggle-invalid-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -292,7 +304,11 @@ exports[`Toggle Renders the UI snapshot correctly 4`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="Toggle-disabled-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -367,7 +383,11 @@ exports[`Toggle Renders the UI snapshot correctly 5`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="Toggle-disabled-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -438,7 +458,11 @@ exports[`Toggle Renders the UI snapshot correctly 6`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="chakra-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -509,6 +533,10 @@ exports[`Toggle Renders the UI snapshot correctly 7`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="props-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;

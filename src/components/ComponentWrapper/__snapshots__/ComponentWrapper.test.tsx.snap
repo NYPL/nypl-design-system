@@ -24,15 +24,19 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
   </div>
   <div
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "helper text",
-      }
-    }
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="id-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "helper text",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -50,7 +54,11 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="id-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -78,15 +86,19 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
   </div>
   <div
     className="css-1xdhyk6"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "invalid text",
-      }
-    }
     data-isinvalid={true}
     data-testid="ds-helperErrorText"
     id="id-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "invalid text",
+        }
+      }
+    />
+  </div>
 </div>
 `;
 
@@ -104,7 +116,11 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 4`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="chakra-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -122,6 +138,10 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 5`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="props-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;

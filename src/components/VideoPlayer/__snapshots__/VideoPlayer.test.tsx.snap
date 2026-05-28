@@ -28,7 +28,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="video-player-without-text-helperErrorText"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
   <noscript>
     <div
@@ -86,15 +90,19 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "VideoPlayer helper test.",
-        }
-      }
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="video-player-with-text-helperErrorText"
-    />
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "VideoPlayer helper test.",
+          }
+        }
+      />
+    </div>
   </div>
   <noscript>
     <div
@@ -151,15 +159,19 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     </div>
     <div
       className="css-1xdhyk6"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "VideoPlayer helper test.",
-        }
-      }
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="video-player-with-text-helperErrorText"
-    />
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "VideoPlayer helper test.",
+          }
+        }
+      />
+    </div>
   </div>
   <noscript>
     <div
@@ -238,7 +250,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="chakra-helperErrorText"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
   <noscript>
     <div
@@ -286,7 +302,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
       id="props-helperErrorText"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
   <noscript>
     <div
