@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Utilizies onBlur events to clear error state in comment and email input elements.",
+      "Utilizies onChange events to clear error state in comment and email input elements.",
     ],
   },
   {

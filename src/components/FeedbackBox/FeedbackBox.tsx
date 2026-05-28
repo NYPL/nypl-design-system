@@ -412,11 +412,6 @@ export const FeedbackBox: ChakraComponent<
                             placeholder="Enter your question or feedback here"
                             ref={commentInputRef}
                             type="textarea"
-                            onBlur={() => {
-                              if (finalIsInvalidComment) {
-                                setFinalIsInvalidComment(false);
-                              }
-                            }}
                           />
                         </FormField>
                         {showEmailField && (
@@ -437,11 +432,6 @@ export const FeedbackBox: ChakraComponent<
                               placeholder="Enter your email address here"
                               type="email"
                               value={state.email}
-                              onBlur={() => {
-                                if (finalIsInvalidEmail) {
-                                  setFinalIsInvalidEmail(false);
-                                }
-                              }}
                             />
                           </FormField>
                         )}
