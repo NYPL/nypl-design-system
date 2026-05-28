@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: ["Updated to suppress native browser validation UI."],
+  },
+  {
     date: "2026-03-31",
     version: "4.1.6",
     type: "Update",

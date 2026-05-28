@@ -218,6 +218,11 @@ export const TextInput: ChakraComponent<
         // Set focus back to the input element.
         closedRef.current?.focus();
       };
+      const onInvalid = (
+        e: React.InvalidEvent<HTMLInputElement | HTMLTextAreaElement>
+      ) => {
+        e.preventDefault();
+      };
       let finalIsInvalid = isInvalid;
       let fieldOutput;
       let clearButtonOutput;
@@ -237,6 +242,7 @@ export const TextInput: ChakraComponent<
             "aria-hidden": isHidden,
             name,
             onChange: internalOnChange,
+            onInvalid,
             ref: finalRef,
           }
         : {
@@ -263,6 +269,7 @@ export const TextInput: ChakraComponent<
             onChange: internalOnChange,
             onClick,
             onFocus,
+            onInvalid,
             pattern,
             placeholder,
             ref: finalRef,
