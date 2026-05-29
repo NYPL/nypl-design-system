@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Accessibility", "Functionality"],
+    notes: [
+      "Updated the following icon options to remove the ID attributes: `actionHome`, `actionInfo`, `actionList`, `actionPayment`, `actionSearch`, `contentCopy`, `navigationApps`, `navigationMoreVert`, `navigationSubdirectoryArrowLeft`, and `navigationSubdirectoryArrowRight`.",
+    ],
+  },
+  {
     date: "2026-05-20",
     version: "4.1.7",
     type: "Update",

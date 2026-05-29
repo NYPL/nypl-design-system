@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Accessibility", "Functionality"],
+    notes: [
+      "Updated the following logo options to remove the ID attributes: `digitalCollectionsBlack`, `digitalCollectionsWhite`, `googlePlayBlack`, `nydoeColor`, `nyplFullWhite`, `openebooksColor`, `openebooksNegative`, `openebooksWithTextColor`, `openebooksWithTextNegative`, and `qplColor`.",
+    ],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",
