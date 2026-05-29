@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Accessibility", "Functionality"],
     notes: [
-      "Updated the following logo options to remove the ID attributes: `digitalCollectionsBlack`, `digitalCollectionsWhite`, `googlePlayBlack`, `nydoeColor`, `nyplFullWhite`, `openebooksColor`, `openebooksNegative`, `openebooksWithTextColor`, `openebooksWithTextNegative`, and `qplColor`.",
+      "Updated the following logo options to remove the ID attributes: `digitalCollectionsBlack`, `nydoeColor`, `nyplFullWhite`, and `qplColor`.",
     ],
   },
   {

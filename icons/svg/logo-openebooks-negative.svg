@@ -7,14 +7,14 @@
 <path d="M8.52051 106.014C44.8578 88.8855 73.4925 106.014 73.4925 106.014V16.2659C73.4925 16.2659 44.8893 -0.857749 8.52051 16.2659V106.014Z" fill="#0B1F31"/>
 </g>
 <defs>
-<linearGradient x1="127.8" y1="121.19" x2="127.8" y2="10.218" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_54498_42323" x1="127.8" y1="121.19" x2="127.8" y2="10.218" gradientUnits="userSpaceOnUse">
 <stop stop-color="#8ABF3F"/>
 <stop offset="0.36" stop-color="#9EC856"/>
 <stop offset="0.9" stop-color="#FFFFF9"/>
 <stop offset="0.97" stop-color="white"/>
 <stop offset="1" stop-color="white"/>
 </linearGradient>
-<linearGradient x1="27.1729" y1="121.181" x2="27.1729" y2="10.2094" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint1_linear_54498_42323" x1="27.1729" y1="121.181" x2="27.1729" y2="10.2094" gradientUnits="userSpaceOnUse">
 <stop stop-color="#8ABF3F"/>
 <stop offset="0.36" stop-color="#9EC856"/>
 <stop offset="0.9" stop-color="#FFFFF9"/>
