@@ -177,7 +177,7 @@ API request.
 The "confirmation" screen will render a check icon, a basic success message that
 is always the same, an email-specific message when `showEmailField` is set to
 `true`, an additional confirmation message set through the `confirmationText`
-prop, the privacy policy link, and a "Return to Browsing" button. When rendered,
+prop, the privacy policy link, and a "Return to browsing" button. When rendered,
 focus will be set to the confirmation message.
 
 Below is an example of the "confirmation" screen rendered immediately after a
@@ -206,7 +206,7 @@ component. Using the `fetch` API is one possible approach.
     onSubmit={onSubmit}
     showCategoryField
     showEmailField
-    title="Help and Feedback"
+    title="Help and feedback"
     view={view}
   />
 `}
@@ -220,7 +220,7 @@ of `"error"`. This **should** be used if there is an error with the form
 submission API request. This is the responsibility of the consuming application.
 
 The "error" screen will render an error icon, an error message, the privacy
-policy link, and "Try Again" and "Return to Browsing" buttons. When rendered,
+policy link, and "Try again" and "Return to browsing" buttons. When rendered,
 focus will be set to the error message.
 
 Below is an example of the "error" screen rendered immediately after a failed
@@ -252,7 +252,7 @@ to update and pass the "error" value to the `FeedbackBox` component. Using the
     onSubmit={onSubmit}
     showCategoryField
     showEmailField
-    title="Help and Feedback"
+    title="Help and feedback"
     view={view}
   />
 `}
@@ -293,7 +293,7 @@ the function's argument as an object, called `values` in the example below.
     onSubmit={onSubmit}
     showCategoryField
     showEmailField
-    title="Help and Feedback"
+    title="Help and feedback"
   />
 `}
   language="tsx"
@@ -328,7 +328,7 @@ merged with the submitted form data.
     onSubmit={onSubmit}
     showCategoryField
     showEmailField
-    title="Help and Feedback"
+    title="Help and feedback"
   />
 `}
   language="tsx"
@@ -372,7 +372,7 @@ directly is the `onOpen` function. Pass `isOpen` and `onClose` to the
     isOpen={isOpen}
     onClose={onClose}
     onOpen={onOpen}
-    title="Help and Feedback"
+    title="Help and feedback"
     {...otherProps}
   />
 `}
@@ -400,7 +400,7 @@ that is rendered by the `FeedbackBox` component will still work as expected.
           isOpen={isOpen}
           onClose={onClose}
           onOpen={onOpen}
-          title="Help and Feedback"
+          title="Help and feedback"
           {...otherProps}
         />
       </>
