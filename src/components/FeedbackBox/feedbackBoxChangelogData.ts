@@ -16,6 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Styles"],
     notes: [
       "Updates component and documentation example to use sentence case.",
+      "Updates the email-specific confirmation message.",
     ],
   },
   {

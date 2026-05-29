@@ -19,6 +19,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates `iconColorsArray` to include `ui.warning.tertiary`.
 - Updates component and documentation example to use sentence case in `FeedbackBox` component.
+- Updates the email-specific confirmation message in the `FeedbackBox` component.
 
 ## 4.1.6 (April 2, 2026)
 
