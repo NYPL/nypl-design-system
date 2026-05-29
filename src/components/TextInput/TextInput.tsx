@@ -222,7 +222,6 @@ export const TextInput: ChakraComponent<
         e: React.InvalidEvent<HTMLInputElement | HTMLTextAreaElement>
       ) => {
         e.preventDefault();
-        closedRef.current?.focus();
       };
       let finalIsInvalid = isInvalid;
       let fieldOutput;
