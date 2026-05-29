@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Updates the email-specific confirmation message."],
+    notes: [
+      "Updates component and documentation example to use sentence case.",
+      "Updates the email-specific confirmation message.",
+    ],
   },
   {
     date: "2025-08-11",
