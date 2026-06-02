@@ -54,10 +54,17 @@ When used with form components, the text is associated with a related input
 field by using the `aria-describedby` attribute which ensures that the
 `HelperErrorText` is made available to screenreaders.
 
-The example below uses the `HelperErrorText` component to render the red-colored
-`"This is error text :("` below the input field. It is referenced with the
-`aria-describedby` attribute on the HTML input element. This type of association
-is handled automatically by all DS form components.
+### Example
+
+The `HelperErrorText` component is used in the following example to render the
+red-colored error text below the invalid input element where it is referenced by
+the input element using the `aria-describedby` attribute. This type of
+association is handled automatically by all DS form components. 
+
+When focus moves to the input element, because the helper text is
+programmatically tied to the input element using `aria-describedby`, the user
+hears "Email, invalid entry, There was a problem. Please include an '@' symbol
+in your email address."
 
 <Canvas of={HelperErrorTextStories.TextInputExample} />
 

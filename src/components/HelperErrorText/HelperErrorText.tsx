@@ -44,7 +44,6 @@ export const HelperErrorText: ChakraComponent<
         ...rest,
       };
 
-      // Always render the wrapper div element with the proper aria attributes.
       return (
         <Box {...props}>
           {isRenderedText ? (

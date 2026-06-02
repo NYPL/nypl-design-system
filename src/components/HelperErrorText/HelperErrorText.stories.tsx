@@ -50,13 +50,14 @@ export const TextInputExample: Story = {
   name: "TextInput Example",
   render: () => (
     <TextInput
-      helperText="Choose wisely."
-      id="textInput-id"
-      invalidText="This is error text :("
+      helperText="name@email.com"
+      id="emailInput-id"
+      invalidText="There was a problem. Please include an '@' symbol in your email address."
       isInvalid={true}
-      labelText="What is your favorite color?"
-      name="textInput-name"
-      placeholder="e.g. blue, green, etc."
+      labelText="Email"
+      name="emailInput-name"
+      placeholder="Your email address"
+      value="name2email.com"
     />
   ),
 };
