@@ -91,7 +91,6 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                onInvalid={[Function]}
                 placeholder="Enter your email address"
                 required={true}
                 step={null}
@@ -455,7 +454,6 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                onInvalid={[Function]}
                 placeholder="Enter your email address"
                 required={true}
                 step={null}
@@ -597,7 +595,6 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                onInvalid={[Function]}
                 placeholder="Enter your email address"
                 required={true}
                 step={null}
@@ -733,7 +730,6 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                onInvalid={[Function]}
                 placeholder="Enter your email address"
                 required={true}
                 step={null}
@@ -870,7 +866,6 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
-                onInvalid={[Function]}
                 placeholder="Enter your email address"
                 required={true}
                 step={null}
