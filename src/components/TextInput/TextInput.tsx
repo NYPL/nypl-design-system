@@ -218,7 +218,6 @@ export const TextInput: ChakraComponent<
         // Set focus back to the input element.
         closedRef.current?.focus();
       };
-
       let finalIsInvalid = isInvalid;
       let fieldOutput;
       let clearButtonOutput;
