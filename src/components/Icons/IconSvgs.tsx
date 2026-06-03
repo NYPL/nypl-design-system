@@ -30,6 +30,8 @@ import communicationCall from "../../../icons/svg/communication-call.svg";
 import communicationChatBubble from "../../../icons/svg/communication-chat-bubble.svg";
 import communicationDynamicFeed from "../../../icons/svg/communication-dynamic-feed.svg";
 import communicationEmail from "../../../icons/svg/communication-email.svg";
+import contentBookmark from "../../../icons/svg/content-bookmark.svg";
+import contentBookmarkOutline from "../../../icons/svg/content-bookmark-outline.svg";
 import contentCopy from "../../../icons/svg/content-copy.svg";
 import contentFilterList from "../../../icons/svg/content-filter-list.svg";
 import contentTypeAudio from "../../../icons/svg/content-type-audio.svg";
@@ -70,6 +72,7 @@ import mapsPlace from "../../../icons/svg/maps-place.svg";
 import minus from "../../../icons/svg/minus.svg";
 import moonCrescent from "../../../icons/svg/moon-crescent.svg";
 import navigationApps from "../../../icons/svg/navigation-apps.svg";
+import navigationArrowDown from "../../../icons/svg/navigation-arrow-down.svg";
 import navigationMoreVert from "../../../icons/svg/navigation-more-vert.svg";
 import navigationSubdirectoryArrowLeft from "../../../icons/svg/navigation-subdirectory-arrow-left.svg";
 import navigationSubdirectoryArrowRight from "../../../icons/svg/navigation-subdirectory-arrow-right.svg";
@@ -132,6 +135,8 @@ export default {
   communicationEmail,
   contentCopy,
   contentFilterList,
+  contentBookmark,
+  contentBookmarkOutline,
   contentTypeAudio,
   contentTypeBook,
   contentTypeEBook,
@@ -166,8 +171,9 @@ export default {
   mapsPlace,
   minus,
   moonCrescent,
-  navigationMoreVert,
+  navigationArrowDown,
   navigationApps,
+  navigationMoreVert,
   navigationSubdirectoryArrowLeft,
   navigationSubdirectoryArrowRight,
   plus,
