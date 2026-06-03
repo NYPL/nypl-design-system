@@ -14,7 +14,11 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Updated to suppress native browser validation."],
+    notes: [
+      "Updated to suppress native browser validation.",
+      "Updates component and documentation example to use sentence case.",
+      "Updates the email-specific confirmation message.",
+    ],
   },
   {
     date: "2025-08-11",

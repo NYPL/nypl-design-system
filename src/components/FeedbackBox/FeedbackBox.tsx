@@ -486,7 +486,7 @@ export const FeedbackBox: ChakraComponent<
                             variant="secondary"
                             onClick={closeAndResetForm}
                           >
-                            Return to Browsing
+                            Return to browsing
                           </Button>
                         </ButtonGroup>
                       </FormField>
@@ -527,14 +527,14 @@ export const FeedbackBox: ChakraComponent<
                             onClick={closeAndResetForm}
                             variant="secondary"
                           >
-                            Return to Browsing
+                            Return to browsing
                           </Button>
                           <Button
                             id={`${mainId}-try-again`}
                             key={`${mainId}-try-again`}
                             onClick={() => setViewType("form")}
                           >
-                            Try Again
+                            Try again
                           </Button>
                         </ButtonGroup>
                       </FormField>
