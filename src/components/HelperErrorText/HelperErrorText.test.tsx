@@ -56,43 +56,6 @@ describe("HelperErrorText", () => {
     );
   });
 
-  it("sets custom aria-live attribute when aria-live prop is passed", () => {
-    const { container, rerender } = render(<HelperErrorText text="Text" />);
-    expect(container.querySelector("div")).not.toHaveAttribute("aria-live");
-
-    rerender(<HelperErrorText aria-live="off" text="Text" />);
-    expect(container.querySelector("div")).toHaveAttribute("aria-live", "off");
-
-    rerender(<HelperErrorText aria-live="polite" text="Text" />);
-    expect(container.querySelector("div")).toHaveAttribute(
-      "aria-live",
-      "polite"
-    );
-
-    rerender(<HelperErrorText aria-live="assertive" text="Text" />);
-    expect(container.querySelector("div")).toHaveAttribute(
-      "aria-live",
-      "assertive"
-    );
-  });
-
-  it("sets custom aria-atomic attribute when aria-atomic prop is passed", () => {
-    const { container, rerender } = render(<HelperErrorText text="Text" />);
-    expect(container.querySelector("div")).not.toHaveAttribute("aria-atomic");
-
-    rerender(<HelperErrorText aria-atomic="true" text="Text" />);
-    expect(container.querySelector("div")).toHaveAttribute(
-      "aria-atomic",
-      "true"
-    );
-
-    rerender(<HelperErrorText aria-atomic="false" text="Text" />);
-    expect(container.querySelector("div")).toHaveAttribute(
-      "aria-atomic",
-      "false"
-    );
-  });
-
   it("Renders the UI snapshot correctly", () => {
     const basic = renderer
       .create(<HelperErrorText id="basic" text="Text" />)
@@ -133,7 +96,15 @@ describe("HelperErrorText", () => {
       )
       .toJSON();
     const withOtherProps = renderer
-      .create(<HelperErrorText id="props" text="Text" data-testid="props" />)
+      .create(
+        <HelperErrorText
+          aria-atomic={true}
+          aria-live="polite"
+          data-testid="props"
+          id="props"
+          text="Text"
+        />
+      )
       .toJSON();
 
     expect(basic).toMatchSnapshot();

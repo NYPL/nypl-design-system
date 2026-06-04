@@ -93,6 +93,8 @@ exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
 
 exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
 <div
+  aria-atomic={true}
+  aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={false}
   data-testid="props"
