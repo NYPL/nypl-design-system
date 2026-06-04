@@ -15,6 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
+      "Updates to suppress native browser validation.",
       "Utilizies onChange events to clear error state in comment and email input elements.",
       "Updates component and documentation example to use sentence case.",
       "Updates the email-specific confirmation message.",
