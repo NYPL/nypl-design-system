@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `navigationArrowDown`, `contentBookmarkOutline`, and `contentBookmark` options to the `Icon` component.
+
 ## 4.1.7 (May 20, 2026)
 
 ### Adds
