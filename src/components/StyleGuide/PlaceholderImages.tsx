@@ -49,8 +49,8 @@ const placeholderImageStyles = {
   justifyContent: "center",
   overflow: "hidden",
 
-  // Response styles
-  span: {
+  // Text styles
+  figcaption: {
     color: "ui.gray.dark",
     fontSize: "desktop.label.label2",
     display: "none",
@@ -69,7 +69,7 @@ const placeholderImageStyles = {
 
   // Container query styles
   "@container image-placeholder-container (min-width: 200px)": {
-    span: {
+    figcaption: {
       display: "block",
     },
     svg: {
@@ -84,10 +84,10 @@ const placeholderImageStyles = {
     },
   },
   "@container image-placeholder-container (min-width: 768px)": {
-    gap: "16px",
-    span: {
+    figcaption: {
       fontSize: "desktop.label.label1",
     },
+    gap: "16px",
     svg: {
       height: "64px",
       width: "64px",
@@ -119,13 +119,14 @@ export const PlaceholderImage = (props: PlaceholderImageProps) => {
     : `Preview not available for this ${contentType} content`;
   return (
     <Box
+      as="figure"
       __css={{
         ...placeholderImageStyles,
         aspectRatio: aspectRatioStyleValue[aspectRatio],
       }}
     >
       {contentIconElement}
-      <Box aria-label={ariaLabel} as="span">
+      <Box aria-label={ariaLabel} as="figcaption">
         Preview not available
       </Box>
     </Box>
