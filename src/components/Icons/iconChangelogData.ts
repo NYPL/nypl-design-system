@@ -13,9 +13,10 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "Update",
-    affects: ["Functionality"],
+    affects: ["Accessibility", "Functionality"],
     notes: [
       "Added the `navigationArrowDown`, `contentBookmarkOutline`, and `contentBookmark` icons.",
+      "Updated the following icon options to remove the ID attributes: `actionHome`, `actionInfo`, `actionList`, `actionPayment`, `actionSearch`, `contentCopy`, `navigationApps`, `navigationMoreVert`, `navigationSubdirectoryArrowLeft`, and `navigationSubdirectoryArrowRight`.",
     ],
   },
   {

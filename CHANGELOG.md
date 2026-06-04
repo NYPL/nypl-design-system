@@ -12,6 +12,11 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds the `navigationArrowDown`, `contentBookmarkOutline`, and `contentBookmark` options to the `Icon` component.
 
+### Updates
+
+- Updates the following icon options from the `Icon` component to remove the ID attributes: `actionHome`, `actionInfo`, `actionList`, `actionPayment`, `actionSearch`, `contentCopy`, `navigationApps`, `navigationMoreVert`, `navigationSubdirectoryArrowLeft`, and `navigationSubdirectoryArrowRight`.
+- Updates the following logo options from the `Logo` component to remove the ID attributes: `digitalCollectionsBlack`, `nycdoeColor`, `nyplFullWhite`, and `qplColor`.
+
 ## 4.1.7 (May 20, 2026)
 
 ### Adds
