@@ -27,6 +27,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates `iconColorsArray` to include `ui.warning.tertiary`.
+- Suppresses native browser validation in the `FeedbackBox` component.
+- Utilizies onChange events to clear error state in comment and email input elements in `FeedbackBox` component.
 - Updates component and documentation example to use sentence case in `FeedbackBox` component.
 - Updates the email-specific confirmation message in the `FeedbackBox` component.
 
