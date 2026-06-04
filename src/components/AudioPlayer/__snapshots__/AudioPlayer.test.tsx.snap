@@ -20,8 +20,6 @@ exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
     </div>
   </noscript>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -65,8 +63,6 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
     </div>
   </noscript>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -111,8 +107,6 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
     </div>
   </noscript>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -144,8 +138,6 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
     </div>
   </noscript>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -185,8 +177,6 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
     </div>
   </noscript>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"

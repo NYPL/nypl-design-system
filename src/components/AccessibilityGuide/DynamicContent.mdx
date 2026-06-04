@@ -241,65 +241,12 @@ the element with `id` of `results-count` only.
 
 ## NYPL Patterns
 
-### HelperErrorText
+NYPL web applications often use dynamic content and live regions to provide
+real-time feedback for the number of results returned in search and filter
+scenarios.
 
-The `HelperErrorText` component renders an empty `div` element with the
-`aria-live` attribute set to `"polite"` by default. This component should not be
-conditionally rendered on the page. Instead, the content should be dynamically
-updated.
-
-[HelperErrorText Storybook documentation](../?path=/docs/components-content-display-helpererrortext--docs)
-
-<Source
-  code={`
-// Very naive example.
-const [text, setText] = useState("");
-// ...
-useEffect(() => {
-  setText("This helper text was dynamically updated.");
-}, []);
-// ...
-// Even though "text" is empty by default, the "HelperErrorText" component
-// is still rendered. The text that is dynamically updated will be announced
-// by assistive technology.
-return <HelperErrorText text={text} />;
-`}
-  language="jsx"
-/>
-
-### Form Components
-
-The pattern described in this section is true for the `Checkbox`,
-`CheckboxGroup`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`,
-`Slider`, `TextInput`, and `Toggle` DS components. All these form components
-internally implement the `HelperErrorText` component described above.
-Implementing the `HelperErrorText` component allows the component to display
-helper or error text. This is especially useful when there is an error that
-needs to be displayed after the user has interacted with the form component.
-
-For simplicity, the `TextInput` component will be in the following example. The
-helper text "Please enter a 5-digit value." is set by default. If the user does
-not enter a 5-digit value, the error text "Error: The zip code needs to be
-5-digits." is displayed _and_ also announced by assistive technology.
-
-[TextInput Storybook documentation](../?path=/docs/components-form-elements-textinput--docs)
-
-<Source
-  code={`
-// Very naive example.
-const [inputValue, setInputValue] = useState();
-return (
-<TextInput
-  labelText="Zip code example"
-  isInvalid={inputValue.length !== 5}
-  onChange={(e) => setInputValue(e.target.value)}
-  helperText="Please enter a 5-digit value."
-  invalidText="Error: The zip code needs to be 5-digits."
-  value={inputValue}
-/>
-); `}
-  language="jsx"
-/>
+NYPL web applications may also use live regions to provide general form
+validation after a form is submitted.
 
 ## Resources
 

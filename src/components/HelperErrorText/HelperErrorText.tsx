@@ -20,9 +20,9 @@ export interface HelperErrorTextProps extends BoxProps {
 }
 
 /**
- * Component that always renders a div even if the text content is not passed.
- * This pattern guarantees accessibility guidelines are met if the text content
- * is dynamically updated by the app or component that implements it.
+ * The component will always render a div even if the text content is not
+ * passed. This pattern guarantees aria-describedby references do not point to
+ * an element that does not exist.
  */
 
 export const HelperErrorText: ChakraComponent<
@@ -32,23 +32,10 @@ export const HelperErrorText: ChakraComponent<
   HelperErrorTextProps
 > = chakra(
   forwardRef<HTMLDivElement, HelperErrorTextProps>(
-    (
-      {
-        "aria-atomic": ariaAtomic = true,
-        "aria-live": ariaLive = "polite",
-        id,
-        isInvalid = false,
-        isRenderedText = true,
-        text,
-        ...rest
-      },
-      ref?
-    ) => {
+    ({ id, isInvalid = false, isRenderedText = true, text, ...rest }, ref?) => {
       const styles = useMultiStyleConfig("HelperErrorText", { isInvalid });
 
       const props = {
-        "aria-atomic": ariaAtomic,
-        "aria-live": ariaLive === "off" ? undefined : ariaLive,
         "data-isinvalid": isInvalid,
         "data-testid": "ds-helperErrorText",
         id,
@@ -57,7 +44,6 @@ export const HelperErrorText: ChakraComponent<
         ...rest,
       };
 
-      // Always render the wrapper div element with the proper aria attributes.
       return (
         <Box {...props}>
           {isRenderedText ? (

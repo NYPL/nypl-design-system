@@ -16,6 +16,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates the following icon options from the `Icon` component to remove the ID attributes: `actionHome`, `actionInfo`, `actionList`, `actionPayment`, `actionSearch`, `contentCopy`, `navigationApps`, `navigationMoreVert`, `navigationSubdirectoryArrowLeft`, and `navigationSubdirectoryArrowRight`.
 - Updates the following logo options from the `Logo` component to remove the ID attributes: `digitalCollectionsBlack`, `nycdoeColor`, `nyplFullWhite`, and `qplColor`.
+- Updates the `HelperErrorText` component to remove the default `aria-atomic` and `aria-live` attributes.
 
 ## 4.1.7 (May 20, 2026)
 

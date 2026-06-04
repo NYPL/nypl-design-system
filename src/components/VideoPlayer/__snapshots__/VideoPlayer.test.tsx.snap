@@ -24,8 +24,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
       />
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
@@ -91,8 +89,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       />
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
@@ -162,8 +158,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       />
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
@@ -252,8 +246,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
       />
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"
@@ -306,8 +298,6 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
       />
     </div>
     <div
-      aria-atomic={true}
-      aria-live="polite"
       className="css-1xdhyk6"
       data-isinvalid={false}
       data-testid="ds-helperErrorText"

@@ -99,8 +99,6 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
               />
             </div>
             <div
-              aria-atomic={true}
-              aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={true}
               data-testid="ds-helperErrorText"
@@ -462,8 +460,6 @@ exports[`NewsletterSignup Snapshots Renders the default form UI snapshot correct
               />
             </div>
             <div
-              aria-atomic={true}
-              aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
               data-testid="ds-helperErrorText"
@@ -603,8 +599,6 @@ exports[`NewsletterSignup Snapshots Renders the form UI with description snapsho
               />
             </div>
             <div
-              aria-atomic={true}
-              aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
               data-testid="ds-helperErrorText"
@@ -738,8 +732,6 @@ exports[`NewsletterSignup Snapshots Renders the form UI with formHelperText snap
               />
             </div>
             <div
-              aria-atomic={true}
-              aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
               data-testid="ds-helperErrorText"
@@ -874,8 +866,6 @@ exports[`NewsletterSignup Snapshots Renders the submitting state snapshot correc
               />
             </div>
             <div
-              aria-atomic={true}
-              aria-live="polite"
               className="css-1xdhyk6"
               data-isinvalid={false}
               data-testid="ds-helperErrorText"
