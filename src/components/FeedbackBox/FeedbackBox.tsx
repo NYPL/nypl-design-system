@@ -120,6 +120,8 @@ export const FeedbackBox: ChakraComponent<
       const [viewType, setViewType] = useStateWithDependencies(view);
       const [finalIsInvalidComment, setFinalIsInvalidComment] =
         useStateWithDependencies(isInvalidComment);
+      const [finalIsInvalidEmail, setFinalIsInvalidEmail] =
+        useStateWithDependencies(isInvalidEmail);
       const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
       // Helps keep track of form field state values.
       const { state, setCategory, setComment, setEmail, clearValues } =
@@ -152,6 +154,7 @@ export const FeedbackBox: ChakraComponent<
         setViewType("form");
         clearValues();
         setFinalIsInvalidComment(false);
+        setFinalIsInvalidEmail(false);
 
         // Leave some time after closing before focusing on the open button.
         setTimeout(() => {
@@ -397,7 +400,16 @@ export const FeedbackBox: ChakraComponent<
                             }
                             maxLength={maxCommentCharacters}
                             name={`${mainId}-comment`}
-                            onChange={(e) => setComment(e.target.value)}
+                            onChange={(e) => {
+                              const nextValue = e.target.value;
+                              setComment(nextValue);
+                              if (
+                                finalIsInvalidComment &&
+                                nextValue.length > 0
+                              ) {
+                                setFinalIsInvalidComment(false);
+                              }
+                            }}
                             placeholder="Enter your question or feedback here"
                             ref={commentInputRef}
                             type="textarea"
@@ -409,10 +421,15 @@ export const FeedbackBox: ChakraComponent<
                               id={`${mainId}-email`}
                               invalidText="There was a problem. Please enter a valid email address."
                               isDisabled={isSubmitted}
-                              isInvalid={isInvalidEmail}
+                              isInvalid={finalIsInvalidEmail}
                               labelText="Email"
                               name={`${mainId}-email`}
-                              onChange={(e) => setEmail(e.target.value)}
+                              onChange={(e) => {
+                                setEmail(e.target.value);
+                                if (finalIsInvalidEmail) {
+                                  setFinalIsInvalidEmail(false);
+                                }
+                              }}
                               placeholder="Enter your email address here"
                               type="email"
                               value={state.email}
