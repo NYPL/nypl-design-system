@@ -468,8 +468,9 @@ export const FeedbackBox: ChakraComponent<
                         </Text>
                         {showEmailField && (
                           <Text mt="s">
-                            If you asked a question and provided an email, allow
-                            us a few days to respond.
+                            If you provided an email address and require a
+                            response, our service staff will reach out to you
+                            via email.
                           </Text>
                         )}
                         {confirmationText ? (
@@ -484,7 +485,7 @@ export const FeedbackBox: ChakraComponent<
                             variant="secondary"
                             onClick={closeAndResetForm}
                           >
-                            Return to Browsing
+                            Return to browsing
                           </Button>
                         </ButtonGroup>
                       </FormField>
@@ -525,14 +526,14 @@ export const FeedbackBox: ChakraComponent<
                             onClick={closeAndResetForm}
                             variant="secondary"
                           >
-                            Return to Browsing
+                            Return to browsing
                           </Button>
                           <Button
                             id={`${mainId}-try-again`}
                             key={`${mainId}-try-again`}
                             onClick={() => setViewType("form")}
                           >
-                            Try Again
+                            Try again
                           </Button>
                         </ButtonGroup>
                       </FormField>
