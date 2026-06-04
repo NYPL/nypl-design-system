@@ -18,7 +18,7 @@ import Link from "../Link/Link";
   componentName="HelperErrorText"
   summary="Accessible container for rendering supporting text"
   versionAdded="0.0.10"
-  versionLatest="4.0.0"
+  versionLatest="Prerelease"
 />
 
 <Canvas of={HelperErrorTextStories.WithControls} />
@@ -54,54 +54,23 @@ When used with form components, the text is associated with a related input
 field by using the `aria-describedby` attribute which ensures that the
 `HelperErrorText` is made available to screenreaders.
 
-This component will always render a `<div>` element with an `aria-live="polite"`
-attribute even if no text content is passed. This is to ensure that the
-accessibility guideline for dynamic content is met.
+### Example
 
-The example below uses the `HelperErrorText` component to render the red-colored
-`"This is error text :("` below the input field. It is referenced with the
-`aria-describedby` attribute on the HTML input element. This type of association
-is handled automatically by all DS form components.
+The `HelperErrorText` component is used in the following example to render the
+red-colored error text below the invalid input element where it is referenced by
+the input element using the `aria-describedby` attribute. This type of
+association is handled automatically by all DS form components. 
+
+When focus moves to the input element, because the helper text is
+programmatically tied to the input element using `aria-describedby`, the user
+hears "Email, invalid entry, There was a problem. Please include an '@' symbol
+in your email address."
 
 <Canvas of={HelperErrorTextStories.TextInputExample} />
-
-### ARIA live
-
-By default, `aria-live` is set to `polite` for the `HelperErrorText` component.
-`aria-live` determines when text updates should be read by assistive technologies
-and the `"polite"` value indicates that updates should be read whenever the user
-is next idle (important, but not requiring immediate attention).
-
-If desired, you can pass `aria-live="off"` or `aria-live="assertive"` instead.
-
-The `"off"` value indicates that updates should not be announced. When this
-value is passed, the `aria-live` attribute will not be added at all.
-
-The `"assertive"` value indicates that updates should be announced
-immediately. This is generally not recommended as it can interruptive
-to the user.
-
-In order to meet accessibility guidelines for dynamic content updates, this
-attribute is set in the wrapper `<div>` that is always rendered (regardless of
-whether the text is present).
-
-<Canvas of={HelperErrorTextStories.AriaControls} />
-
-### ARIA atomic
-
-When `aria-atomic` is set to `true` within an ARIA live region and something in
-that region changes, the entire DOM element is presented to assistive technologies.
-This is the default behavior of the `HelperErrorText` component. If desired,
-you can pass `aria-atomic={false}` instead so that only the change (addition or
-removal) is presented.
 
 Resources:
 
 - [MDN aria-describedby Attribute](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby)
-- [MDN ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)
-- [W3C WAI-ARIA 1.1 - aria-live (property)](https://www.w3.org/TR/wai-aria-1.1/#aria-live)
-- [W3C ARIA19: Using ARIA role=alert or Live Regions to Identify Errors](https://www.w3.org/TR/WCAG20-TECHS/ARIA19.html)
-- [DigitalA11y WAI-ARIA:aria-live (Property)](https://www.digitala11y.com/aria-live-properties/)
 
 ## HTML and JSX children
 

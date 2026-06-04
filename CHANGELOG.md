@@ -10,7 +10,14 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds the `navigationArrowDown`, `contentBookmarkOutline`, and `contentBookmark` options to the `Icon` component.
 - Adds `Placeholder Images` to the `Style Guide`.
+
+### Updates
+
+- Updates the following icon options from the `Icon` component to remove the ID attributes: `actionHome`, `actionInfo`, `actionList`, `actionPayment`, `actionSearch`, `contentCopy`, `navigationApps`, `navigationMoreVert`, `navigationSubdirectoryArrowLeft`, and `navigationSubdirectoryArrowRight`.
+- Updates the following logo options from the `Logo` component to remove the ID attributes: `digitalCollectionsBlack`, `nycdoeColor`, `nyplFullWhite`, and `qplColor`.
+- Updates the `HelperErrorText` component to remove the default `aria-atomic` and `aria-live` attributes.
 
 ## 4.1.7 (May 20, 2026)
 
@@ -22,6 +29,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates `iconColorsArray` to include `ui.warning.tertiary`.
+- Suppresses native browser validation in the `FeedbackBox` component.
+- Utilizies onChange events to clear error state in comment and email input elements in `FeedbackBox` component.
+- Updates component and documentation example to use sentence case in `FeedbackBox` component.
+- Updates the email-specific confirmation message in the `FeedbackBox` component.
 
 ## 4.1.6 (April 2, 2026)
 

@@ -39,28 +39,28 @@ describe("FeedbackBox", () => {
   let onSubmit = jest.fn();
 
   it("should add an id to the component even if none is passed", () => {
-    render(<FeedbackBox onSubmit={onSubmit} title="Help and Feedback" />);
+    render(<FeedbackBox onSubmit={onSubmit} title="Help and feedback" />);
 
     const container = screen.getByTestId("ds-feedbackBox");
     expect(container).toHaveAttribute("id", "test-id");
   });
 
   it("renders a button component", () => {
-    render(<FeedbackBox title="Help and Feedback" onSubmit={onSubmit} />);
+    render(<FeedbackBox title="Help and feedback" onSubmit={onSubmit} />);
 
     expect(
-      screen.getByRole("button", { name: "Help and Feedback" })
+      screen.getByRole("button", { name: "Help and feedback" })
     ).toBeInTheDocument();
   });
 
   it("renders the basic content when opened", () => {
-    render(<FeedbackBox title="Help and Feedback" onSubmit={onSubmit} />);
+    render(<FeedbackBox title="Help and feedback" onSubmit={onSubmit} />);
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
-    expect(screen.getByTestId("title")).toHaveTextContent("Help and Feedback");
+    expect(screen.getByTestId("title")).toHaveTextContent("Help and feedback");
     expect(
       screen.getByRole("textbox", { name: /comment/i })
     ).toBeInTheDocument();
@@ -82,11 +82,11 @@ describe("FeedbackBox", () => {
         onSubmit={onSubmit}
         showCategoryField
         showEmailField
-        title="Help and Feedback"
+        title="Help and feedback"
       />
     );
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
@@ -104,11 +104,11 @@ describe("FeedbackBox", () => {
         onSubmit={onSubmit}
         showCategoryField
         showEmailField
-        title="Help and Feedback"
+        title="Help and feedback"
       />
     );
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
@@ -124,11 +124,11 @@ describe("FeedbackBox", () => {
         onSubmit={onSubmit}
         showCategoryField
         showEmailField
-        title="Help and Feedback"
+        title="Help and feedback"
       />
     );
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
@@ -142,12 +142,12 @@ describe("FeedbackBox", () => {
     render(
       <FeedbackBox
         descriptionText="Please share your question or feedback."
-        title="Help and Feedback"
+        title="Help and feedback"
         onSubmit={onSubmit}
       />
     );
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
@@ -160,12 +160,12 @@ describe("FeedbackBox", () => {
     const { rerender } = render(
       <FeedbackBox
         notificationText="Call Number: JFE 95-8555"
-        title="Help and Feedback"
+        title="Help and feedback"
         onSubmit={onSubmit}
       />
     );
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
@@ -174,7 +174,7 @@ describe("FeedbackBox", () => {
     rerender(
       <FeedbackBox
         notificationText={<p data-testid="paragraph">JSX notification</p>}
-        title="Help and Feedback"
+        title="Help and feedback"
         onSubmit={onSubmit}
       />
     );
@@ -187,13 +187,13 @@ describe("FeedbackBox", () => {
   it("renders the `confirmation` screen through the `view` prop", () => {
     render(
       <FeedbackBox
-        title="Help and Feedback"
+        title="Help and feedback"
         onSubmit={onSubmit}
         view="confirmation"
       />
     );
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
@@ -201,9 +201,7 @@ describe("FeedbackBox", () => {
       screen.getByText(/thank you for submitting your feedback/i)
     ).toBeInTheDocument();
     expect(
-      screen.queryByText(
-        /if you provided an email address and require a response/i
-      )
+      screen.queryByText(/if you asked a question and provided an email/i)
     ).not.toBeInTheDocument();
   });
 
@@ -212,28 +210,26 @@ describe("FeedbackBox", () => {
       <FeedbackBox
         onSubmit={onSubmit}
         showEmailField
-        title="Help and Feedback"
+        title="Help and feedback"
         view="confirmation"
       />
     );
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
     expect(
-      screen.getByText(
-        /if you provided an email address and require a response/i
-      )
+      screen.getByText(/if you asked a question and provided an email/i)
     ).toBeInTheDocument();
   });
 
   it("renders the `error` screen through the `view` prop", () => {
     render(
-      <FeedbackBox title="Help and Feedback" onSubmit={onSubmit} view="error" />
+      <FeedbackBox title="Help and feedback" onSubmit={onSubmit} view="error" />
     );
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
@@ -247,14 +243,14 @@ describe("FeedbackBox", () => {
     };
     render(
       <FeedbackBox
-        title="Help and Feedback"
+        title="Help and feedback"
         showCategoryField
         showEmailField
         onSubmit={onSubmit}
       />
     );
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
@@ -288,14 +284,14 @@ describe("FeedbackBox", () => {
     render(
       <FeedbackBox
         hiddenFields={hiddenFields}
-        title="Help and Feedback"
+        title="Help and feedback"
         showCategoryField
         showEmailField
         onSubmit={onSubmit}
       />
     );
 
-    const button = screen.getByRole("button", { name: "Help and Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
 
     button.click();
 
@@ -321,13 +317,13 @@ describe("FeedbackBox", () => {
 
   it("transitions to the `form` screen from the `error` screen", () => {
     render(
-      <FeedbackBox title="Help and Feedback" onSubmit={onSubmit} view="error" />
+      <FeedbackBox title="Help and feedback" onSubmit={onSubmit} view="error" />
     );
 
     // Open the dialog.
-    screen.queryByRole("button", { name: "Help and Feedback" }).click();
+    screen.queryByRole("button", { name: "Help and feedback" }).click();
 
-    const button = screen.queryByRole("button", { name: "Try Again" });
+    const button = screen.queryByRole("button", { name: "Try again" });
     expect(
       screen.queryByText(/oops! something went wrong/i)
     ).toBeInTheDocument();

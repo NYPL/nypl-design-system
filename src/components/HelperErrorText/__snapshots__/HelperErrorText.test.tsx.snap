@@ -2,8 +2,6 @@
 
 exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
 <div
-  aria-atomic={true}
-  aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={false}
   data-testid="ds-helperErrorText"
@@ -22,8 +20,6 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
 
 exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
 <div
-  aria-atomic={true}
-  aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={true}
   data-testid="ds-helperErrorText"
@@ -42,8 +38,6 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
 
 exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
 <div
-  aria-atomic={true}
-  aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={true}
   data-testid="ds-helperErrorText"
@@ -62,8 +56,6 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
 
 exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
 <div
-  aria-atomic={true}
-  aria-live="polite"
   className="css-1xdhyk6"
   data-isinvalid={true}
   data-testid="ds-helperErrorText"
@@ -83,8 +75,6 @@ exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
 
 exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
 <div
-  aria-atomic={true}
-  aria-live="polite"
   className="css-10g9ftz"
   data-isinvalid={false}
   data-testid="ds-helperErrorText"

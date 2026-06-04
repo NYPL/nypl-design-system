@@ -157,8 +157,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -227,8 +225,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -297,8 +293,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -311,8 +305,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                     </div>
                     <div
-                      aria-atomic={true}
-                      aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
@@ -473,8 +465,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -543,8 +533,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -613,8 +601,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -683,8 +669,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -753,8 +737,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -823,8 +805,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -837,8 +817,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                     </div>
                     <div
-                      aria-atomic={true}
-                      aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
@@ -999,8 +977,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1069,8 +1045,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1139,8 +1113,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1209,8 +1181,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1279,8 +1249,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1349,8 +1317,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1363,8 +1329,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       </div>
                     </div>
                     <div
-                      aria-atomic={true}
-                      aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
@@ -1543,8 +1507,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1613,8 +1575,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1683,8 +1643,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1697,8 +1655,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                     </div>
                     <div
-                      aria-atomic={true}
-                      aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
@@ -1859,8 +1815,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1929,8 +1883,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -1999,8 +1951,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -2069,8 +2019,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -2139,8 +2087,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -2209,8 +2155,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -2223,8 +2167,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                     </div>
                     <div
-                      aria-atomic={true}
-                      aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
@@ -2385,8 +2327,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -2455,8 +2395,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -2525,8 +2463,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -2595,8 +2531,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -2665,8 +2599,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -2735,8 +2667,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                           </span>
                         </label>
                         <div
-                          aria-atomic={true}
-                          aria-live="polite"
                           className="css-1xdhyk6"
                           data-isinvalid={false}
                           data-testid="ds-helperErrorText"
@@ -2749,8 +2679,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       </div>
                     </div>
                     <div
-                      aria-atomic={true}
-                      aria-live="polite"
                       className="css-1xdhyk6"
                       data-isinvalid={false}
                       data-testid="ds-helperErrorText"
