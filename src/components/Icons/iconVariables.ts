@@ -179,6 +179,7 @@ export const iconNamesArray = [
   "legacySocialTwitter",
   "legacySocialYoutube",
   "locator",
+  "mapsLayers",
   "mapsPlace",
   "minus",
   "moonCrescent",
