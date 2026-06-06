@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "4.1.7",
+  "version": "4.2.0-rc",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -54,7 +54,7 @@
     "types-ramda": "0.29.4"
   },
   "dependencies": {
-    "@chakra-ui/react": "2.8.2",
+    "@chakra-ui/react": "2.9.5",
     "@chakra-ui/system": "2.6.2",
     "@charlietango/use-native-lazy-loading": "1.10.0",
     "@emotion/react": "11.11.1",
@@ -115,9 +115,9 @@
     "normalize.css": "8.0.1",
     "prettier": "2.4.1",
     "prop-types": "15.8.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-test-renderer": "18.2.0",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
+    "react-test-renderer": "18.3.0",
     "remark-gfm": "4.0.0",
     "rollup": "3.29.5",
     "sass": "1.60.0",
