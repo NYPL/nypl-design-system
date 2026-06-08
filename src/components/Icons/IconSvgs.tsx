@@ -68,6 +68,7 @@ import legacySocialInstagram from "../../../icons/svg/legacy-social-instagram.sv
 import legacySocialTwitter from "../../../icons/svg/legacy-social-twitter.svg";
 import legacySocialYoutube from "../../../icons/svg/legacy-social-youtube.svg";
 import locator from "../../../icons/svg/locator.svg";
+import mapsLayers from "../../../icons/svg/maps-layers.svg";
 import mapsPlace from "../../../icons/svg/maps-place.svg";
 import minus from "../../../icons/svg/minus.svg";
 import moonCrescent from "../../../icons/svg/moon-crescent.svg";
@@ -168,6 +169,7 @@ export default {
   legacySocialTwitter,
   legacySocialYoutube,
   locator,
+  mapsLayers,
   mapsPlace,
   minus,
   moonCrescent,
