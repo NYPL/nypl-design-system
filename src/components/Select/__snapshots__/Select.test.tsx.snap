@@ -72,8 +72,6 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
     </div>
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -159,8 +157,6 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
     </div>
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -247,8 +243,6 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
     </div>
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={true}
     data-testid="ds-helperErrorText"
@@ -339,8 +333,6 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     </div>
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -434,8 +426,6 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
     </div>
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -524,8 +514,6 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
     </div>
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -612,8 +600,6 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
     </div>
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -698,8 +684,6 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
     </div>
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -784,8 +768,6 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
     </div>
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-bl03f5"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"

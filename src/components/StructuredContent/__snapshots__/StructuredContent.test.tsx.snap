@@ -37,6 +37,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
       >
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
@@ -52,6 +53,7 @@ exports[`StructuredContent renders the UI snapshot 1`] = `
         </div>
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
@@ -116,6 +118,7 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
       >
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
@@ -131,6 +134,7 @@ exports[`StructuredContent renders the UI snapshot 2`] = `
         </div>
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
@@ -294,6 +298,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
       >
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
@@ -309,6 +314,7 @@ exports[`StructuredContent renders the UI snapshot 5`] = `
         </div>
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
@@ -397,6 +403,7 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
       >
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
@@ -412,6 +419,7 @@ exports[`StructuredContent renders the UI snapshot 7`] = `
         </div>
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
@@ -476,6 +484,7 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
       >
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
@@ -491,6 +500,7 @@ exports[`StructuredContent renders the UI snapshot 8`] = `
         </div>
         <div
           aria-atomic={false}
+          aria-live="off"
           className="css-xy0wy2"
           data-isinvalid={false}
           data-testid="ds-helperErrorText"

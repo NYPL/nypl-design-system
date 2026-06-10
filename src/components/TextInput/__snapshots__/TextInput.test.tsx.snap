@@ -31,8 +31,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -81,8 +79,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -131,8 +127,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -177,8 +171,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -217,8 +209,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -268,8 +258,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -325,8 +313,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={true}
     data-testid="ds-helperErrorText"
@@ -380,8 +366,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -426,8 +410,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -472,8 +454,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -518,8 +498,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
@@ -564,8 +542,6 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
     />
   </div>
   <div
-    aria-atomic={true}
-    aria-live="polite"
     className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
