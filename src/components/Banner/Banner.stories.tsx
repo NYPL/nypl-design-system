@@ -32,6 +32,7 @@ const meta: Meta<typeof Banner> = {
     },
     icon: { control: false },
     isDismissible: { control: { type: "boolean" } },
+    onClose: { control: false },
     variant: {
       control: { type: "select" },
       options: messageVariantsArray,
@@ -59,6 +60,9 @@ export const WithControls: Story = {
     highlightColor: undefined,
     icon: undefined,
     isDismissible: false,
+    onClose: () => {
+      console.log("custom close");
+    },
     variant: "neutral",
   },
   parameters: {
@@ -388,6 +392,9 @@ export const Dismissible: Story = {
       }
       heading="Dismissible Banner"
       isDismissible
+      onClose={() => {
+        console.log("custom close");
+      }}
       variant="neutral"
     />
   ),

@@ -265,6 +265,8 @@ order to override the predefined variants.
 A dismissible `Banner` component can be created by setting the `isDismissible`
 prop to `true`. Once the "X" close icon on the upper right is clicked, the
 `Banner` will be removed from the DOM. Therefore, it only renders once.
+If the `onClose` prop is set, it will be called as well. `onClose` will be
+ignored if the `isDismissible` prop is `false`.
 
 <Canvas of={BannerStories.Dismissible} />
 

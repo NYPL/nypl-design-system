@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Adds `onClose` prop to the `Banner` component.
+
 ## 4.2.0 (June 9, 2026)
 
 ### Adds

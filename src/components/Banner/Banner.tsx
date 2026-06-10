@@ -39,6 +39,8 @@ export interface BannerProps extends Omit<BoxProps, "content"> {
   /** Optional prop to control whether a `Banner` can be dismissed
    * (closed) by a user. */
   isDismissible?: boolean;
+  /* Function to call when the modal is closed. */
+  onClose?: () => void;
   /** Used to control the component's semantic coloring and iconography. */
   variant?: BannerVariants;
 }
@@ -92,12 +94,16 @@ export const Banner: ChakraComponent<
       icon,
       id,
       isDismissible = false,
+      onClose,
       variant = "neutral",
       ...rest
     } = props;
     const mainId = useSafeId(id);
     const [isOpen, setIsOpen] = useState(true);
-    const handleClose = () => setIsOpen(false);
+    const handleClose = () => {
+      onClose && onClose();
+      setIsOpen(false);
+    };
     const overrideVariant = !!(backgroundColor && highlightColor);
     const styles = useMultiStyleConfig("Banner", {
       // Only set the custom `backgroundColor` and `highlightColor` values
@@ -170,6 +176,11 @@ export const Banner: ChakraComponent<
           "this, the `highlightColor` prop will be ignored."
       );
     }
+    if (!isDismissible && onClose)
+      console.warn(
+        "NYPL Reservoir Banner: The `onClose` prop has been passed, but the " +
+          "banner is not dismissible, so `onClose` will be ignored."
+      );
 
     return (
       <Box
