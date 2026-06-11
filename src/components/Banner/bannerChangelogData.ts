@@ -14,7 +14,9 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: ["Adds `onClose` prop."],
+    notes: [
+      "Adds `onClose` prop (only used when `isDismissible` is set to true).",
+    ],
   },
   {
     date: "2025-08-11",
