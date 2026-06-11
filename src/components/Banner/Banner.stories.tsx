@@ -1,5 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { fn, expect, userEvent, screen } from "storybook/test";
 
 import Banner from "./Banner";
 
@@ -59,10 +60,8 @@ export const WithControls: Story = {
     heading: "Heading text",
     highlightColor: undefined,
     icon: undefined,
-    isDismissible: false,
-    onClose: () => {
-      console.log("custom close");
-    },
+    isDismissible: true,
+    onClose: fn(),
     variant: "neutral",
   },
   parameters: {
@@ -71,6 +70,14 @@ export const WithControls: Story = {
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?type=design&node-id=86601-97661&mode=design&t=wZy1nqVOOZ4Dzuu2-11",
     },
     jest: ["Banner.test.tsx"],
+  },
+  play: async ({ args }) => {
+    const heading = screen.getByText("Heading text");
+    expect(heading).toBeInTheDocument();
+    const button = screen.getByRole("button");
+    await userEvent.click(button);
+    expect(args.onClose).toBeCalled();
+    expect(heading).not.toBeInTheDocument();
   },
   render: (args) => <Banner {...args} />,
 };
