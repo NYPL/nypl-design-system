@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.2.0 (June 9, 2026)
+
 ### Adds
 
 - Adds the `contentBookmark`, `contentBookmarkOutline`, `mapsLayers`, and `navigationArrowDown` options to the `Icon` component.
@@ -18,6 +20,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the following icon options from the `Icon` component to remove the ID attributes: `actionHome`, `actionInfo`, `actionList`, `actionPayment`, `actionSearch`, `contentCopy`, `navigationApps`, `navigationMoreVert`, `navigationSubdirectoryArrowLeft`, and `navigationSubdirectoryArrowRight`.
 - Updates the following logo options from the `Logo` component to remove the ID attributes: `digitalCollectionsBlack`, `nycdoeColor`, `nyplFullWhite`, and `qplColor`.
 - Updates the `HelperErrorText` component to remove the default `aria-atomic` and `aria-live` attributes.
+- Updates the `AudioPlayer`, `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, and `VideoPlayer` components—consumers of the `HelperErrorText` component—to remove the default `aria-atomic` and `aria-live` attributes.
 
 ## 4.1.7 (May 20, 2026)
 
