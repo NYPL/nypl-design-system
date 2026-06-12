@@ -1,5 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { fn, expect, userEvent, screen } from "storybook/test";
 
 import Banner from "./Banner";
 
@@ -32,6 +33,7 @@ const meta: Meta<typeof Banner> = {
     },
     icon: { control: false },
     isDismissible: { control: { type: "boolean" } },
+    onClose: { control: false },
     variant: {
       control: { type: "select" },
       options: messageVariantsArray,
@@ -58,7 +60,8 @@ export const WithControls: Story = {
     heading: "Heading text",
     highlightColor: undefined,
     icon: undefined,
-    isDismissible: false,
+    isDismissible: true,
+    onClose: fn(),
     variant: "neutral",
   },
   parameters: {
@@ -68,7 +71,21 @@ export const WithControls: Story = {
     },
     jest: ["Banner.test.tsx"],
   },
-  render: (args) => <Banner {...args} />,
+  play: async ({ args, mount }) => {
+    // Mount the component initially
+    await mount(<Banner {...args} />);
+
+    const heading = screen.getByText("Heading text");
+    expect(heading).toBeInTheDocument();
+    const button = screen.getAllByRole("button")[0];
+    await userEvent.click(button);
+    expect(args.onClose).toBeCalled();
+    expect(heading).not.toBeInTheDocument();
+
+    // Re-render the banner after tests complete for manual testing
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    await mount(<Banner {...args} isDismissible onClose={fn()} />);
+  },
 };
 
 // The following are additional Banner example Stories.
@@ -388,6 +405,9 @@ export const Dismissible: Story = {
       }
       heading="Dismissible Banner"
       isDismissible
+      onClose={() => {
+        console.log("custom close");
+      }}
       variant="neutral"
     />
   ),
