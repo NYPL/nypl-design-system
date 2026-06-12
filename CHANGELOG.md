@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates the `Hero` component to use responsive padding for left/right internal spacing of the `"campaign"` variant.
+
 ## 4.2.0 (June 9, 2026)
 
 ### Adds
