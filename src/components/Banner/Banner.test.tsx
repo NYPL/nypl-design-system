@@ -44,6 +44,9 @@ describe("Banner Accessibility", () => {
         heading="Banner Heading"
         isDismissible
         id="bannerID"
+        onClose={() => {
+          console.log("custom close");
+        }}
       />
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -167,6 +170,22 @@ describe("Banner", () => {
     );
   });
 
+  it("calls onClose correctly", () => {
+    const log = jest.spyOn(console, "log");
+
+    utils.rerender(
+      <Banner
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        isDismissible
+        onClose={() => console.log("custom close")}
+      />
+    );
+    const button = screen.getByRole("button");
+    button.click();
+    expect(log).toHaveBeenCalledWith("custom close");
+  });
+
   it("renders the informative Banner type", () => {
     utils.rerender(
       <Banner
@@ -282,6 +301,22 @@ describe("Banner", () => {
     );
   });
 
+  it("logs warnings when onClose is passed to a non-dismissible banner", () => {
+    const warn = jest.spyOn(console, "warn");
+
+    utils.rerender(
+      <Banner
+        content={<>Banner content.</>}
+        heading="Banner Heading"
+        onClose={() => console.log("custom close")}
+      />
+    );
+    expect(warn).toHaveBeenCalledWith(
+      "NYPL Reservoir Banner: The `onClose` prop has been passed, but the " +
+        "banner is not dismissible, so `onClose` will be ignored."
+    );
+  });
+
   it("renders the UI snapshot correctly", () => {
     const informative = renderer
       .create(
@@ -347,7 +382,14 @@ describe("Banner", () => {
       .toJSON();
     const isDismissible = renderer
       .create(
-        <Banner isDismissible id="bannerID7" content={<>Banner content.</>} />
+        <Banner
+          isDismissible
+          id="bannerID7"
+          content={<>Banner content.</>}
+          onClose={() => {
+            console.log("custom close");
+          }}
+        />
       )
       .toJSON();
     const withChakraProps = renderer
