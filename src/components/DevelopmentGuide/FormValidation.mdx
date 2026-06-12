@@ -1,0 +1,193 @@
+import { Meta, Source, Unstyled } from "@storybook/addon-docs/blocks";
+import { Box, VStack } from "@chakra-ui/react";
+
+import Banner from "../Banner/Banner";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Icon from "../Icons/Icon";
+import Link from "../Link/Link";
+
+<Meta title="Style Guide/Form Validation" />
+
+<ComponentDocsHeader
+  category="Style Guide"
+  componentName="Form Validation"
+  summary="Guidelines for consistent and accessible form validation"
+/>
+
+## Table of contents
+
+- [Overview](#overview)
+- [Suppress native HTML5 validation](#suppress-native-html5-validation)
+- [Validating input fields](#validating-input-fields)
+- [UX when submitting a form](#ux-when-submitting-a-form)
+- [UX for screen reader users](#ux-for-screen-reader-users)
+- [Functional prototype](#functional-prototype)
+- [Resources](#resources)
+
+## Overview
+
+This document outlines recommendations for managing form validation within the
+NYPL web apps, focusing on creating accessible and consistent experiences for
+both visual and screen reader users. Guidance is provided for implementing
+app-level validation strategies, suppressing native HTML5 browser validation,
+and handling error states and notifications.
+
+## Suppress native HTML5 validation
+
+It is expected that NYPL web apps will implement app-level solutions to validate
+form values and that apps will not rely on native HTML5 browser-based
+validation. To ensure that native HTML5 browser-based validation is suppressed,
+the `noValidate` attribute should be applied to `form` elements.
+
+<Source
+  code={`
+  import {
+    Form,
+  } from "@nypl/design-system-react-components";
+  
+  <Form noValidate>
+    //...
+  </Form>
+`}
+  language="tsx"
+/>
+
+## Validating input fields
+
+When building app-level solutions to validate form values, validation for an
+input field should be executed when focus moves away from the field (i.e.
+`onBlur`).
+
+If a field fails validation, the field should be updated visually and
+programmatically to indicate an error state. The visual and programmatic error
+state will automatically be handled by DS input components when `isInvalid` is
+set to `true`.
+
+A field's error state should be immediately reset when a user revisits a field
+and makes any changes to the field. Again, the visual and programmatic error
+reset will be automatically handled by DS input components when `isInvalid` is
+set to `false`.
+
+Validation for a field will again be executed when focus moves away from the
+field.
+
+## UX when submitting a form
+
+To execute the recommended experience, the submit button should always be
+active.
+
+In addition to the `onBlur` validation method applied to each field, a blanket
+validation covering all fields in a form should be executed when the form is
+submitted (i.e. `onSubmit`).
+
+Upon submitting a form, if any input fields have failed validation, a
+notification should be displayed above the first field in the form and
+programmatic focus should be placed on the notification.
+
+The notification should be semantically configured as an error message and
+include the following, or similar, language:
+
+"There was a problem with the form. Please update the fields below and then
+submit again."
+
+The notification should be executed based on the use case. More complex forms
+may require something like the DS Banner component while simple forms may only
+need an icon with text.
+
+### Reasoning
+
+Shifting focus to an appropriately configured notification at the top of a form,
+with a well written error message, enables screen reader users to easily
+understand where they are on the page and how to proceed.
+
+### Examples
+
+<Unstyled>
+  <Banner
+    content="There was a problem with the form. Please update the fields below and then submit again."
+    heading="Form errors"
+    my="l"
+    variant="negative"
+  />
+  <Banner
+    content="There was a problem with the form. Please update the fields below and then submit again."
+    mb="l"
+    variant="negative"
+  />
+  <Box display="flex" alignItems="center" gap="xs">
+    <Icon name="errorFilled" color="ui.error.primary" size="large" />
+    <Box color="ui.error.primary" fontWeight="medium">
+      There was a problem with the form. Please update the fields below and then
+      submit again.
+    </Box>
+  </Box>
+</Unstyled>
+
+## UX for screen reader users
+
+In the new recommendations, the notable change to the screen reader experience
+when compared to the existing recommendations is that error messages should not
+be read aloud in real-time when an input field fails validation. Rather, if a
+field fails validation, error messages will only be read when a user revisits a
+field.
+
+For this method to be successful, thoughtful error message text to clearly and
+unambiguously help users recover from the error is necessary.
+
+### Related
+
+In support of the updated recommendations, DS input components have been updated
+to remove `aria-live` regions. With this change, DS input components will no
+longer announce in real-time updates to the helper text. However, DS input
+components will continue to implement the `aria-describedby` attribute to make a
+connection between the input field and the helper text. In this way, the
+associated helper text will be read by a screen reader when an input field has
+focus.
+
+### Reasoning
+
+Research into how screen readers process web applications highlights that
+dynamically pushing content to the user can cause severe usability issues. When
+a web application forces a screen reader to announce dynamic content out of a
+user's expected navigational flow, it often leads to a disjointed and
+frustrating experience, disrupting the user's mental model of where their cursor
+is currently focused.
+
+### Example screen reader experience
+
+- The user types an invalid email address in the Email field.
+- The user presses `Tab`.
+- Focus moves to the Password field.
+- The Email field fires `onBlur` validation and it fails.
+- `aria-invalid="true"` is applied to the Email field and the helper text is
+  updated with an appropriate error message.
+- Nothing is read aloud to interrupt the user's flow, so the user completes the
+  remaining fields in the form and proceeds to the submit button.
+- Upon submitting the form, `onSubmit` validation is executed and the Email field
+  is recognized as invalid.
+- A notification with an error message is rendered at the top of the form. Focus
+  moves to the notification and the error message is read by the screen reader.
+- The user tabs through the form to find errored fields.
+- When focus moves to the Email field, because the helper text is
+  programmatically tied to the Email field using `aria-describedby`, the user
+  hears "Email, invalid entry, There was a problem. Please include an '@' symbol
+  in your email address."
+- The user updates the value of the Email field and then proceeds to the Submit
+  button and submits the form again.
+- With no errored input fields, the form submits successfully.
+
+## Functional prototype
+
+Please refer to the functional prototype linked below for design and
+accessibility guidance.
+
+<Unstyled>
+  <Link href="https://twist-foam-63180272.figma.site" variant="external">
+    Functional prototype
+  </Link>
+</Unstyled>
+
+## Resources
+
+- [WCAG 2.1 Techniques: Using aria-invalid to Indicate An Error Field](https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA21)
+- [Harvard University: Form error communication](https://accessibility.huit.harvard.edu/technique-form-error-communication)
