@@ -1,5 +1,5 @@
 import { Meta, Source, Unstyled } from "@storybook/addon-docs/blocks";
-import { Box, VStack } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 import Banner from "../Banner/Banner";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
@@ -107,14 +107,43 @@ understand where they are on the page and how to proceed.
     content="There was a problem with the form. Please update the fields below and then submit again."
     heading="Form errors"
     my="l"
+    tabIndex={-1}
     variant="negative"
   />
+</Unstyled>
+<Source
+  code={`
+  <Banner
+    content="There was a problem with the form. Please update the fields below and then submit again."
+    heading="Form errors"
+    tabIndex={-1}
+    variant="negative"
+  />
+`}
+  language="tsx"
+/>
+
+<Unstyled>
   <Banner
     content="There was a problem with the form. Please update the fields below and then submit again."
     mb="l"
+    tabIndex={-1}
     variant="negative"
   />
-  <Box display="flex" alignItems="center" gap="xs">
+</Unstyled>
+<Source
+  code={`
+  <Banner
+    content="There was a problem with the form. Please update the fields below and then submit again."
+    tabIndex={-1}
+    variant="negative"
+  />
+`}
+  language="tsx"
+/>
+
+<Unstyled>
+  <Box alignItems="center" display="flex" gap="xs" tabIndex={-1}>
     <Icon name="errorFilled" color="ui.error.primary" size="large" />
     <Box color="ui.error.primary" fontWeight="medium">
       There was a problem with the form. Please update the fields below and then
@@ -122,6 +151,23 @@ understand where they are on the page and how to proceed.
     </Box>
   </Box>
 </Unstyled>
+<Source
+  code={`
+  <Box
+    alignItems="center"
+    display="flex"
+    gap="xs"
+    tabIndex={-1}
+  >
+    <Icon name="errorFilled" color="ui.error.primary" size="large" />
+    <Box color="ui.error.primary" fontWeight="medium">
+      There was a problem with the form. Please update the fields below and then
+      submit again.
+    </Box>
+  </Box>
+`}
+  language="tsx"
+/>
 
 ## UX for screen reader users
 
