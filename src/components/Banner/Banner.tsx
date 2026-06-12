@@ -39,7 +39,7 @@ export interface BannerProps extends Omit<BoxProps, "content"> {
   /** Optional prop to control whether a `Banner` can be dismissed
    * (closed) by a user. */
   isDismissible?: boolean;
-  /** Function to call when the modal is closed. */
+  /** Function to call when the banner is closed. */
   onClose?: () => void;
   /** Used to control the component's semantic coloring and iconography. */
   variant?: BannerVariants;
