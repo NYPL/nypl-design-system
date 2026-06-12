@@ -71,15 +71,21 @@ export const WithControls: Story = {
     },
     jest: ["Banner.test.tsx"],
   },
-  play: async ({ args }) => {
+  play: async ({ args, mount }) => {
+    // Mount the component initially
+    await mount(<Banner {...args} />);
+
     const heading = screen.getByText("Heading text");
     expect(heading).toBeInTheDocument();
-    const button = screen.getByRole("button");
+    const button = screen.getAllByRole("button")[0];
     await userEvent.click(button);
     expect(args.onClose).toBeCalled();
     expect(heading).not.toBeInTheDocument();
+
+    // Re-render the banner after tests complete for manual testing
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    await mount(<Banner {...args} isDismissible onClose={fn()} />);
   },
-  render: (args) => <Banner {...args} />,
 };
 
 // The following are additional Banner example Stories.
