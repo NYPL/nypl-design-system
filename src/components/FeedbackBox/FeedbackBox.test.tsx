@@ -351,4 +351,75 @@ describe("FeedbackBox", () => {
 
     expect(basic).toMatchSnapshot();
   });
+
+  it("clears the invalid comment state when user types in comment field", () => {
+    render(
+      <FeedbackBox
+        isInvalidComment
+        onSubmit={onSubmit}
+        title="Help and feedback"
+      />
+    );
+
+    const button = screen.getByText("Help and feedback");
+    button.click();
+
+    expect(screen.getByText(/please fill out this field/i)).toBeInTheDocument();
+
+    const commentField = screen.getByRole("textbox", { name: /comment/i });
+    userEvent.type(commentField, "A");
+
+    expect(
+      screen.queryByText(/please fill out this field/i)
+    ).not.toBeInTheDocument();
+  });
+
+  it("clears the invalid email state when user types in email field", () => {
+    render(
+      <FeedbackBox
+        isInvalidEmail
+        onSubmit={onSubmit}
+        showEmailField
+        title="Help and feedback"
+      />
+    );
+
+    const button = screen.getByText("Help and feedback");
+    button.click();
+
+    expect(
+      screen.getByText(/please enter a valid email address/i)
+    ).toBeInTheDocument();
+
+    const emailField = screen.getByLabelText(/email/i);
+    userEvent.type(emailField, "A");
+
+    expect(
+      screen.queryByText(/please enter a valid email address/i)
+    ).not.toBeInTheDocument();
+  });
+
+  it("suppresses native HTML validation", () => {
+    render(
+      <FeedbackBox
+        onSubmit={onSubmit}
+        showEmailField
+        title="Help and feedback"
+      />
+    );
+
+    const button = screen.getByText("Help and feedback");
+    button.click();
+
+    const commentField = screen.getByRole("textbox", { name: /comment/i });
+    const form = commentField.closest("form");
+
+    expect(form).toHaveAttribute("noValidate");
+
+    const emailField = screen.getByLabelText(/email/i);
+    userEvent.type(emailField, "invalidemail");
+
+    const submit = screen.getByRole("button", { name: "Submit" });
+    submit.click();
+  });
 });
