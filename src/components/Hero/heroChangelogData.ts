@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      'Changed `padding` of the "campaign" variant to use responsive left/right internal spacing.',
+      'Updated `padding` of the "campaign" variant to use responsive left/right internal spacing.',
     ],
   },
   {
