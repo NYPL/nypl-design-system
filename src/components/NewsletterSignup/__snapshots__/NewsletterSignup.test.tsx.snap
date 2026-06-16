@@ -267,7 +267,7 @@ exports[`NewsletterSignup Snapshots Renders the default confirmation state snaps
       >
         <svg
           aria-hidden={true}
-          className="chakra-icon css-1vgifmd"
+          className="chakra-icon css-1vdz9o0"
           data-file-name="SvgActionCheckCircleFilled"
           focusable={false}
           role="img"
