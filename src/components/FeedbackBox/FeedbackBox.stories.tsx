@@ -127,28 +127,38 @@ export const WithControls: Story = {
     expect(screen.getByLabelText("Correction")).not.toBeChecked();
     await userEvent.click(screen.getByLabelText("Correction"));
     expect(screen.getByLabelText("Correction")).toBeChecked();
+
+    const commentField = screen.getByRole("textbox", { name: /comment/i });
+    const form = commentField.closest("form");
+    expect(form).toHaveAttribute("noValidate");
+
+    expect(screen.getByRole("textbox", { name: /email/i })).toBeInTheDocument();
+    expect(
+      screen.getByText(/please enter a valid email address/i)
+    ).toBeInTheDocument();
+    await userEvent.type(
+      screen.getByRole("textbox", { name: /email/i }),
+      "valid email due to noValidate"
+    );
+    expect(
+      screen.queryByText(/please enter a valid email address/i)
+    ).not.toBeInTheDocument();
+
+    const submit = screen.getByRole("button", { name: "Submit" });
+    await userEvent.click(submit);
+
     expect(
       screen.getByRole("textbox", { name: /comment/i })
     ).toBeInTheDocument();
-    const submit = screen.getByRole("button", { name: "Submit" });
-    await userEvent.click(submit);
     expect(screen.getByText(/please fill out this field/i)).toBeInTheDocument();
     await userEvent.type(
       screen.getByRole("textbox", { name: /comment/i }),
       "Hello"
     );
-    await userEvent.type(
-      screen.getByRole("textbox", { name: /email/i }),
-      "not valid"
-    );
     expect(
-      screen.getByText(/please enter a valid email address/i)
-    ).toBeInTheDocument();
-    await userEvent.clear(screen.getByRole("textbox", { name: /email/i }));
-    await userEvent.type(
-      screen.getByRole("textbox", { name: /email/i }),
-      "a@b.com"
-    );
+      screen.queryByText(/please fill out this field/i)
+    ).not.toBeInTheDocument();
+
     await userEvent.click(submit);
     expect(
       screen.getByText(/thank you for submitting your feedback/i)

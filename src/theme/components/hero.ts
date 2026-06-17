@@ -385,10 +385,15 @@ const campaign = definePartsStyle(
       alignItems: "center",
       display: "flex",
       justifyContent: "center",
-      padding: {
+      paddingTop: {
         base: "inset.wide",
-        md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s)) var(--nypl-space-s) 0",
+        md: "calc(var(--nypl-space-xxl) + var(--nypl-space-s))",
       },
+      paddingBottom: {
+        base: "inset.wide",
+        md: 0,
+      },
+      paddingX: responsiveSpacing.padding,
       position: "relative",
       a: {
         color: "inherit",

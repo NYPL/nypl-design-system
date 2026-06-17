@@ -110,18 +110,19 @@ const getElementsFromData = ({
     // This is done to support both string and DOM element input.
     const commonProps = {
       id: `${id}-panel-${index}`,
-      key: index,
       maxHeight: panelMaxHeight,
       overflow: "auto",
     };
     const panel =
       typeof content.panel === "string" ? (
         <AccordionPanel
+          key={index}
           {...commonProps}
           dangerouslySetInnerHTML={{ __html: content.panel }}
         />
       ) : (
         <AccordionPanel
+          key={index}
           {...commonProps}
           borderBottom={!isLast ? "transparent" : undefined}
         >
