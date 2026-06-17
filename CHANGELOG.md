@@ -8,11 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.3.0 (June 18, 2026)
+
+### Adds
+
+- Adds `onClose` prop to the `Banner` component.
+- Adds `Form Validation` to the `Style Guide`.
+
 ### Updates
 
 - Updates the `Hero` component to use responsive padding for left/right internal spacing of the `"campaign"` variant.
-- Adds `onClose` prop to the `Banner` component.
-- Adds `Form Validation` to the `Style Guide`.
+- Updates `FeedbackBox` Storybook interaction tests.
+- Updates Chakra to `2.9.5` and React to `18.3.0`.
 
 ## 4.2.0 (June 9, 2026)
 
