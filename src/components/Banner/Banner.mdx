@@ -21,10 +21,10 @@ import { changelogData } from "./bannerChangelogData";
   componentName="Banner"
   summary="Provides contextual messages about page content and user actions"
   versionAdded="3.1.0"
-  versionLatest="4.0.0"
+  versionLatest="Prerelease"
 />
 
-<Canvas of={BannerStories.WithControls} />
+<Canvas of={BannerStories.WithControls} story={{ autoplay: true }} />
 
 ## Table of contents
 
@@ -265,6 +265,8 @@ order to override the predefined variants.
 A dismissible `Banner` component can be created by setting the `isDismissible`
 prop to `true`. Once the "X" close icon on the upper right is clicked, the
 `Banner` will be removed from the DOM. Therefore, it only renders once.
+If the `onClose` prop is set, it will be called as well. `onClose` will be
+ignored if the `isDismissible` prop is `false`.
 
 <Canvas of={BannerStories.Dismissible} />
 
