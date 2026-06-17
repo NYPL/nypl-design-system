@@ -34,10 +34,11 @@ and handling error states and notifications.
 
 ## Suppress native HTML5 validation
 
-It is expected that NYPL web apps will implement app-level solutions to validate
-form values and that apps will not rely on native HTML5 browser-based
-validation. To ensure that native HTML5 browser-based validation is suppressed,
-the `noValidate` attribute should be applied to `form` elements.
+NYPL web apps commonly implement app-level solutions to validate form values,
+not relying on native HTML5 browser-based validation. To ensure that native
+HTML5 browser-based validation does not interfere with app-level validation, the
+`noValidate` attribute should be applied to `form` elements to suppress the
+HTML5 validation.
 
 <Source
   code={`
@@ -71,6 +72,14 @@ set to `false`.
 Validation for a field will again be executed when focus moves away from the
 field.
 
+<Unstyled>
+  <Banner
+    content="<strong>IMPORTANT:</strong> When using DS form input components, it is the responsibility of the consuming app to manage the value passed to the <code>isInvalid</code> prop."
+    my="l"
+    variant="warning"
+  />
+</Unstyled>
+
 ## UX when submitting a form
 
 To execute the recommended experience, the submit button should always be
@@ -80,7 +89,9 @@ In addition to the `onBlur` validation method applied to each field, a blanket
 validation covering all fields in a form should be executed when the form is
 submitted (i.e. `onSubmit`).
 
-Upon submitting a form, if any input fields have failed validation, a
+Upon submitting a form, if any input fields fail validation, the input fields
+that fail validation should be, if this has not already been done, updated
+visually and programmatically to indicate an error state. Additionally, a
 notification should be displayed above the first field in the form and
 programmatic focus should be placed on the notification.
 
@@ -94,7 +105,7 @@ The notification should be executed based on the use case. More complex forms
 may require something like the DS Banner component while simple forms may only
 need an icon with text.
 
-### Reasoning
+### Our thinking
 
 Shifting focus to an appropriately configured notification at the top of a form,
 with a well-written error message, enables screen reader users to easily
@@ -180,7 +191,7 @@ field.
 For this method to be successful, it is necessary to provide thoughtful error
 message text to clearly and unambiguously help users recover from the error.
 
-### Related
+### Using DS components
 
 In support of the updated recommendations, DS input components have been updated
 to remove `aria-live` regions. With this change, DS input components will no
@@ -190,7 +201,7 @@ connection between the input field and the helper text. In this way, the
 associated helper text will be read by a screen reader when an input field has
 focus.
 
-### Reasoning
+### Our thinking
 
 Research into how screen readers process web applications highlights that
 dynamically pushing content to the user can cause severe usability issues. When
