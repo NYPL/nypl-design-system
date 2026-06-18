@@ -8,11 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.3.0 (June 18, 2026)
+
+### Adds
+
+- Adds `onClose` prop to the `Banner` component.
+- Adds `Form Validation` to the `Style Guide`.
+
 ### Updates
 
 - Updates the `Hero` component to use responsive padding for left/right internal spacing of the `"campaign"` variant.
-- Adds `onClose` prop to the `Banner` component.
-- Adds `Form Validation` to the `Style Guide`.
+- Updates `FeedbackBox` Storybook interaction tests.
+- Updates Chakra to `2.9.5` and React to `18.3.0`.
 
 ## 4.2.0 (June 9, 2026)
 
@@ -27,6 +34,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates the following logo options from the `Logo` component to remove the ID attributes: `digitalCollectionsBlack`, `nycdoeColor`, `nyplFullWhite`, and `qplColor`.
 - Updates the `HelperErrorText` component to remove the default `aria-atomic` and `aria-live` attributes.
 - Updates the `AudioPlayer`, `Checkbox`, `CheckboxGroup`, `ComponentWrapper`, `DatePicker`, `Radio`, `RadioGroup`, `SearchBar`, `Select`, `Slider`, `TextInput`, `Toggle`, and `VideoPlayer` components—consumers of the `HelperErrorText` component—to remove the default `aria-atomic` and `aria-live` attributes.
+- Suppresses native browser validation in the `FeedbackBox` component.
+- Utilizies onChange events to clear error state in comment and email input elements in `FeedbackBox` component.
+- Updates component and documentation example to use sentence case in `FeedbackBox` component.
+- Updates the email-specific confirmation message in the `FeedbackBox` component.
 
 ## 4.1.7 (May 20, 2026)
 
@@ -38,10 +49,6 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates `iconColorsArray` to include `ui.warning.tertiary`.
-- Suppresses native browser validation in the `FeedbackBox` component.
-- Utilizies onChange events to clear error state in comment and email input elements in `FeedbackBox` component.
-- Updates component and documentation example to use sentence case in `FeedbackBox` component.
-- Updates the email-specific confirmation message in the `FeedbackBox` component.
 
 ## 4.1.6 (April 2, 2026)
 
