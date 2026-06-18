@@ -20,7 +20,7 @@ exports[`Banner renders the UI snapshot correctly 1`] = `
     className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-u0977i"
+      className="chakra-heading css-1xeo88u"
       data-testid="ds-heading"
     >
       Banner Heading
@@ -80,7 +80,7 @@ exports[`Banner renders the UI snapshot correctly 3`] = `
     className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-u0977i"
+      className="chakra-heading css-1xeo88u"
       data-testid="ds-heading"
     >
       Banner Heading
@@ -110,7 +110,7 @@ exports[`Banner renders the UI snapshot correctly 4`] = `
     className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-u0977i"
+      className="chakra-heading css-1xeo88u"
       data-testid="ds-heading"
     >
       Banner Heading
@@ -140,7 +140,7 @@ exports[`Banner renders the UI snapshot correctly 5`] = `
     className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-u0977i"
+      className="chakra-heading css-1xeo88u"
       data-testid="ds-heading"
     >
       Banner Heading
@@ -170,7 +170,7 @@ exports[`Banner renders the UI snapshot correctly 6`] = `
     className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-u0977i"
+      className="chakra-heading css-1xeo88u"
       data-testid="ds-heading"
     >
       Banner Heading
@@ -266,7 +266,7 @@ exports[`Banner renders the UI snapshot correctly 9`] = `
     className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-u0977i"
+      className="chakra-heading css-1xeo88u"
       data-testid="ds-heading"
     >
       Banner Heading
@@ -296,7 +296,7 @@ exports[`Banner renders the UI snapshot correctly 10`] = `
     className="css-1bxarir"
   >
     <h2
-      className="chakra-heading css-u0977i"
+      className="chakra-heading css-1xeo88u"
       data-testid="ds-heading"
     >
       Banner Heading

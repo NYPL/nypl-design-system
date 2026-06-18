@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2026-06-18",
+    version: "4.3.0",
+    type: "Update",
+    affects: ["Functionality"],
+    notes: [
+      "Adds `onClose` prop (only used when `isDismissible` is set to true).",
+    ],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",
