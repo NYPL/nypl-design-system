@@ -20,7 +20,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
         aria-controls="accordion-panel-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
-        className="chakra-accordion__button css-1rvudez"
+        className="chakra-accordion__button css-thznbn"
         disabled={false}
         id="accordion-button-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
@@ -93,6 +93,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="dogs"
                       onClick={[Function]}
                     >
                       <input
@@ -161,6 +162,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="cats"
                       onClick={[Function]}
                     >
                       <input
@@ -230,6 +232,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     <label
                       className="chakra-checkbox css-0"
                       data-disabled=""
+                      htmlFor="cars"
                       onClick={[Function]}
                     >
                       <input
@@ -300,6 +303,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="colors"
                       onClick={[Function]}
                     >
                       <input
@@ -368,6 +372,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="red"
                       onClick={[Function]}
                     >
                       <input
@@ -436,6 +441,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="blue"
                       onClick={[Function]}
                     >
                       <input
@@ -504,6 +510,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="plants"
                       onClick={[Function]}
                     >
                       <input
@@ -572,6 +579,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="furniture"
                       onClick={[Function]}
                     >
                       <input
@@ -674,7 +682,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
         aria-controls="accordion-panel-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
-        className="chakra-accordion__button css-1rvudez"
+        className="chakra-accordion__button css-thznbn"
         disabled={false}
         id="accordion-button-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
@@ -747,6 +755,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="dogs"
                       onClick={[Function]}
                     >
                       <input
@@ -815,6 +824,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="cats"
                       onClick={[Function]}
                     >
                       <input
@@ -884,6 +894,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     <label
                       className="chakra-checkbox css-0"
                       data-disabled=""
+                      htmlFor="cars"
                       onClick={[Function]}
                     >
                       <input
@@ -954,6 +965,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="colors"
                       onClick={[Function]}
                     >
                       <input
@@ -1022,6 +1034,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="red"
                       onClick={[Function]}
                     >
                       <input
@@ -1090,6 +1103,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="blue"
                       onClick={[Function]}
                     >
                       <input
@@ -1158,6 +1172,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="plants"
                       onClick={[Function]}
                     >
                       <input
@@ -1226,6 +1241,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="furniture"
                       onClick={[Function]}
                     >
                       <input
@@ -1328,7 +1344,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
         aria-controls="accordion-panel-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 1 item currently selected"
-        className="chakra-accordion__button css-1rvudez"
+        className="chakra-accordion__button css-thznbn"
         disabled={false}
         id="accordion-button-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
@@ -1401,6 +1417,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="dogs"
                       onClick={[Function]}
                     >
                       <input
@@ -1469,6 +1486,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="cats"
                       onClick={[Function]}
                     >
                       <input
@@ -1538,6 +1556,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     <label
                       className="chakra-checkbox css-0"
                       data-disabled=""
+                      htmlFor="cars"
                       onClick={[Function]}
                     >
                       <input
@@ -1608,6 +1627,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="colors"
                       onClick={[Function]}
                     >
                       <input
@@ -1708,6 +1728,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     <label
                       className="chakra-checkbox css-0"
                       data-checked=""
+                      htmlFor="red"
                       onClick={[Function]}
                     >
                       <input
@@ -1787,6 +1808,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="blue"
                       onClick={[Function]}
                     >
                       <input
@@ -1855,6 +1877,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="plants"
                       onClick={[Function]}
                     >
                       <input
@@ -1923,6 +1946,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="furniture"
                       onClick={[Function]}
                     >
                       <input
@@ -2044,7 +2068,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
         aria-controls="accordion-panel-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 2 items currently selected"
-        className="chakra-accordion__button css-1rvudez"
+        className="chakra-accordion__button css-thznbn"
         disabled={false}
         id="accordion-button-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
@@ -2117,6 +2141,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="dogs"
                       onClick={[Function]}
                     >
                       <input
@@ -2185,6 +2210,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="cats"
                       onClick={[Function]}
                     >
                       <input
@@ -2254,6 +2280,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     <label
                       className="chakra-checkbox css-0"
                       data-disabled=""
+                      htmlFor="cars"
                       onClick={[Function]}
                     >
                       <input
@@ -2325,6 +2352,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     <label
                       className="chakra-checkbox css-0"
                       data-checked=""
+                      htmlFor="colors"
                       onClick={[Function]}
                     >
                       <input
@@ -2405,6 +2433,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     <label
                       className="chakra-checkbox css-0"
                       data-checked=""
+                      htmlFor="red"
                       onClick={[Function]}
                     >
                       <input
@@ -2485,6 +2514,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     <label
                       className="chakra-checkbox css-0"
                       data-checked=""
+                      htmlFor="blue"
                       onClick={[Function]}
                     >
                       <input
@@ -2564,6 +2594,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="plants"
                       onClick={[Function]}
                     >
                       <input
@@ -2632,6 +2663,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   >
                     <label
                       className="chakra-checkbox css-0"
+                      htmlFor="furniture"
                       onClick={[Function]}
                     >
                       <input
