@@ -372,29 +372,17 @@ export const MultiSelect: ChakraComponent<
         );
       };
 
-      const itemLabelMap = React.useMemo(() => {
-        const labelsById: Record<string, JSX.Element> = {};
-
-        const addItemLabel = (item: MultiSelectItem) => {
-          const displayItemCount = !!(item.itemCount >= 0);
-          labelsById[item.id] = (
-            <Box>
-              {item.name}
-              {displayItemCount && ` (${item.itemCount})`}
-            </Box>
-          );
-        };
-
-        items.forEach((item) => {
-          addItemLabel(item);
-          item.children?.forEach((childItem) => addItemLabel(childItem));
-        });
-
-        return labelsById;
-      }, [items]);
-
-      const getItemLabelText = (item: MultiSelectItem): string | JSX.Element =>
-        itemLabelMap[item.id] || item.name;
+      const getItemLabelText = (
+        item: MultiSelectItem
+      ): string | JSX.Element => {
+        const displayItemCount = !!(item.itemCount >= 0);
+        return (
+          <Box>
+            {item.name}
+            {displayItemCount && ` (${item.itemCount})`}
+          </Box>
+        );
+      };
 
       /** Generate Checkbox components based on the provided MultiSelectItem. */
       const getMultiSelectCheckboxItem = (
