@@ -91,7 +91,6 @@ const MultiSelectCheckboxItem = React.memo(
     __css,
     marginInlineStart,
   }: MultiSelectCheckboxItemProps): JSX.Element => {
-    console.log(`rendered checkbox ${id}`);
     return (
       <Checkbox
         id={id}
