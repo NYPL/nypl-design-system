@@ -212,10 +212,6 @@ export const MultiSelect: ChakraComponent<
 
       const selectedItemsCount: number =
         selectedItems[mainId]?.items.length || 0;
-      const selectedItemsSet = React.useMemo(
-        () => new Set(selectedItems[mainId]?.items ?? []),
-        [mainId, selectedItems]
-      );
 
       const selectedItemsString = `item${selectedItemsCount === 1 ? "" : "s"}`;
       const ariaLabelValue = `${buttonText}, ${selectedItemsCount} ${selectedItemsString} currently selected`;
@@ -226,8 +222,14 @@ export const MultiSelect: ChakraComponent<
         width,
       });
 
-      const isChecked = (itemId: string): boolean =>
-        selectedItemsSet.has(itemId);
+      const isChecked = (multiSelectId: string, itemId: string): boolean => {
+        if (selectedItems[multiSelectId]) {
+          return !!selectedItems[multiSelectId].items.find(
+            (selectedItemId: string) => selectedItemId === itemId
+          );
+        }
+        return false;
+      };
 
       const onChangeRef = useRef(onChange);
       const onMixedStateChangeRef = useRef(onMixedStateChange);
@@ -413,7 +415,7 @@ export const MultiSelect: ChakraComponent<
                     isDisabled: isAllDisabled(item),
                   }
                 : {
-                    isChecked: isChecked(item.id),
+                    isChecked: isChecked(mainId, item.id),
                     isDisabled: isAllDisabled(item),
                     onChange: handleItemChange,
                   })}
@@ -427,7 +429,7 @@ export const MultiSelect: ChakraComponent<
                   labelText={getItemLabelText(childItem)}
                   name={childItem.name}
                   isDisabled={childItem.isDisabled}
-                  isChecked={isChecked(childItem.id)}
+                  isChecked={isChecked(mainId, childItem.id)}
                   onChange={handleItemChange}
                   __css={styles.menuChildren}
                 />
@@ -441,7 +443,7 @@ export const MultiSelect: ChakraComponent<
               labelText={getItemLabelText(item)}
               name={item.name}
               isDisabled={item.isDisabled}
-              isChecked={isChecked(item.id)}
+              isChecked={isChecked(mainId, item.id)}
               onChange={handleItemChange}
               key={item.id}
             />,
