@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import {
   MultiSelectItem,
   SelectedItems,
@@ -25,33 +25,37 @@ export default function useMultiSelect(initialState?: SelectedItems) {
    * themselves. It accepts two arguments - the id of the checkbox option and
    * the id of the MultiSelect component.
    */
-  const handleChange = (itemId: string, multiSelectId: string) => {
-    let itemIds;
-    // Check if the multiSelect already exists in the state.
-    if (selectedItems.hasOwnProperty(multiSelectId)) {
-      // Make a copy of the existing selected items.
-      itemIds = selectedItems[multiSelectId].items.slice();
-      // If itemId is in the selectedItems, remove it from the array.
-      if (selectedItems[multiSelectId].items.indexOf(itemId) > -1) {
-        itemIds = itemIds.filter((id) => id !== itemId);
+  const handleChange = useCallback((itemId: string, multiSelectId: string) => {
+    setSelectedItems((prevSelectedItems) => {
+      let itemIds;
+      // Check if the multiSelect already exists in the state.
+      if (
+        Object.prototype.hasOwnProperty.call(prevSelectedItems, multiSelectId)
+      ) {
+        // Make a copy of the existing selected items.
+        itemIds = prevSelectedItems[multiSelectId].items.slice();
+        // If itemId is in the selectedItems, remove it from the array.
+        if (prevSelectedItems[multiSelectId].items.indexOf(itemId) > -1) {
+          itemIds = itemIds.filter((id) => id !== itemId);
+        } else {
+          // Add it to the array, but modify the copy, not the original.
+          itemIds.push(itemId);
+        }
+        // If there were no items from the multiSelect in the selectedItems before
       } else {
-        // Add it to the array, but modify the copy, not the original.
+        // Add the itemId to the itemsIds
+        itemIds = [];
         itemIds.push(itemId);
       }
-      // If there were no items from the multiSelect in the selectedItems before
-    } else {
-      // Add the itemId to the itemsIds
-      itemIds = [];
-      itemIds.push(itemId);
-    }
-    // Update selectedItems on state to reflect the new selection
-    setSelectedItems({
-      ...selectedItems,
-      [multiSelectId]: {
-        items: itemIds,
-      },
+      // Update selectedItems on state to reflect the new selection
+      return {
+        ...prevSelectedItems,
+        [multiSelectId]: {
+          items: itemIds,
+        },
+      };
     });
-  };
+  }, []);
 
   /**
    * handleMixedStateChange handles the state for checkbox options with child
@@ -60,95 +64,105 @@ export default function useMultiSelect(initialState?: SelectedItems) {
    * MultiSelect. `disabled` state of items are not included in the
    * selectedItems array.
    */
-  const handleMixedStateChange = ({
-    parentId,
-    multiSelectId,
-    items,
-  }: {
-    parentId: string;
-    multiSelectId: string;
-    items: MultiSelectItem[];
-  }) => {
-    // Build an array of child items.
-    const childItems = items
-      .filter((item: MultiSelectItem) => item.id === parentId)[0]
-      .children.map((child) => ({
-        id: child.id,
-        isDisabled: child.isDisabled,
-      }));
+  const handleMixedStateChange = useCallback(
+    ({
+      parentId,
+      multiSelectId,
+      items,
+    }: {
+      parentId: string;
+      multiSelectId: string;
+      items: MultiSelectItem[];
+    }) => {
+      // Build an array of child items.
+      const childItems = items
+        .filter((item: MultiSelectItem) => item.id === parentId)[0]
+        .children.map((child) => ({
+          id: child.id,
+          isDisabled: child.isDisabled,
+        }));
 
-    const childIds = childItems.map((childItem) => childItem.id);
+      const childIds = childItems.map((childItem) => childItem.id);
 
-    let newItems;
-    // If some items of the multiSelect are already selected
+      setSelectedItems((prevSelectedItems) => {
+        let newItems;
+        // If some items of the multiSelect are already selected
+        if (prevSelectedItems[multiSelectId] !== undefined) {
+          const nonDisabledItems = childItems
+            .filter((childItem) => {
+              return !childItem.isDisabled;
+            })
+            .map((childItem) => childItem.id);
 
-    if (selectedItems[multiSelectId] !== undefined) {
-      const nonDisabledItems = childItems
-        .filter((childItem) => {
-          return !childItem.isDisabled;
-        })
-        .map((childItem) => childItem.id);
-
-      // If all children of the parent are already selected
-      if (
-        nonDisabledItems.every((childItem) =>
-          selectedItems[multiSelectId].items.includes(childItem)
-        )
-      ) {
-        // Remove all children from the selectedItems array (unselect all child checkbox options)
-        newItems = selectedItems[multiSelectId].items.filter(
-          (stateItem) => !childIds.map((childId) => childId).includes(stateItem)
-        );
-      } else {
-        // Else add missing childItems.
-        newItems = [
-          ...childItems
-            .filter(
-              (childItem) =>
-                !childItem.isDisabled &&
-                !selectedItems[multiSelectId].items.includes(childItem.id)
+          // If all children of the parent are already selected
+          if (
+            nonDisabledItems.every((childItem) =>
+              prevSelectedItems[multiSelectId].items.includes(childItem)
             )
-            .map((childItem) => childItem.id),
-          ...selectedItems[multiSelectId].items,
-        ];
-      }
-    } else {
-      // If no items of this multiSelect were selected before, select non-disabled child items
-      newItems = childItems
-        .filter((childItem) => {
-          return !childItem.isDisabled;
-        })
-        .map((childItem) => childItem.id);
-    }
-    // Update selectedItems on state to reflect the new selection
-    setSelectedItems({
-      ...selectedItems,
-      [multiSelectId]: {
-        items: newItems,
-      },
-    });
-  };
+          ) {
+            // Remove all children from the selectedItems array (unselect all child checkbox options)
+            newItems = prevSelectedItems[multiSelectId].items.filter(
+              (stateItem) =>
+                !childIds.map((childId) => childId).includes(stateItem)
+            );
+          } else {
+            // Else add missing childItems.
+            newItems = [
+              ...childItems
+                .filter(
+                  (childItem) =>
+                    !childItem.isDisabled &&
+                    !prevSelectedItems[multiSelectId].items.includes(
+                      childItem.id
+                    )
+                )
+                .map((childItem) => childItem.id),
+              ...prevSelectedItems[multiSelectId].items,
+            ];
+          }
+        } else {
+          // If no items of this multiSelect were selected before, select non-disabled child items
+          newItems = childItems
+            .filter((childItem) => {
+              return !childItem.isDisabled;
+            })
+            .map((childItem) => childItem.id);
+        }
+
+        // Update selectedItems on state to reflect the new selection
+        return {
+          ...prevSelectedItems,
+          [multiSelectId]: {
+            items: newItems,
+          },
+        };
+      });
+    },
+    []
+  );
 
   /**
    * handleClear is used for both MultiSelect variants. It will remove all
    * selected items of specific MultiSelect component from the selectedItems
    * array. It accepts one argument - the id of the MultiSelect component.
    */
-  const handleClear = (multiSelectId: string) => {
-    let newSelectedItems = {};
-    for (let key of Object.keys(selectedItems)) {
-      if (key !== multiSelectId) {
-        newSelectedItems[key] = selectedItems[key];
+  const handleClear = useCallback((multiSelectId: string) => {
+    setSelectedItems((prevSelectedItems) => {
+      let newSelectedItems = {};
+      for (let key of Object.keys(prevSelectedItems)) {
+        if (key !== multiSelectId) {
+          newSelectedItems[key] = prevSelectedItems[key];
+        }
       }
-    }
-    setSelectedItems(newSelectedItems);
-  };
+      return newSelectedItems;
+    });
+  }, []);
 
   /**
    * handleClearAll is used to clear all MultiSelects of a group. It will remove
    * all selected items.
    */
-  const handleClearAll = () => setSelectedItems({});
+  const handleClearAll = useCallback(() => setSelectedItems({}), []);
 
   return {
     selectedItems,

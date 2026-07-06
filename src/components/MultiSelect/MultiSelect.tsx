@@ -66,6 +66,48 @@ export interface MultiSelectProps extends BoxProps {
   width?: MultiSelectWidths;
 }
 
+interface MultiSelectCheckboxItemProps {
+  id: string;
+  labelText: string | JSX.Element;
+  name: string;
+  isDisabled?: boolean;
+  isChecked: boolean;
+  isIndeterminate?: boolean;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  __css?: Record<string, unknown>;
+  marginInlineStart?: string;
+}
+
+// Memoizes Checkbox to prevent all items from rerendering on a single change
+const MultiSelectCheckboxItem = React.memo(
+  ({
+    id,
+    labelText,
+    name,
+    isDisabled,
+    isChecked,
+    isIndeterminate,
+    onChange,
+    __css,
+    marginInlineStart,
+  }: MultiSelectCheckboxItemProps): JSX.Element => {
+    console.log(`rendered checkbox ${id}`);
+    return (
+      <Checkbox
+        id={id}
+        labelText={labelText}
+        name={name}
+        isDisabled={isDisabled}
+        isChecked={isChecked}
+        isIndeterminate={isIndeterminate}
+        onChange={onChange}
+        marginInlineStart={marginInlineStart}
+        __css={__css}
+      />
+    );
+  }
+);
+
 /**
  * The MultiSelect component is a customizable form input that supports multiple
  * configurations, including search functionality, checkbox options, and
@@ -171,6 +213,10 @@ export const MultiSelect: ChakraComponent<
 
       const selectedItemsCount: number =
         selectedItems[mainId]?.items.length || 0;
+      const selectedItemsSet = React.useMemo(
+        () => new Set(selectedItems[mainId]?.items ?? []),
+        [mainId, selectedItems]
+      );
 
       const selectedItemsString = `item${selectedItemsCount === 1 ? "" : "s"}`;
       const ariaLabelValue = `${buttonText}, ${selectedItemsCount} ${selectedItemsString} currently selected`;
@@ -181,14 +227,33 @@ export const MultiSelect: ChakraComponent<
         width,
       });
 
-      const isChecked = (multiSelectId: string, itemId: string): boolean => {
-        if (selectedItems[multiSelectId]) {
-          return !!selectedItems[multiSelectId].items.find(
-            (selectedItemId: string) => selectedItemId === itemId
-          );
-        }
-        return false;
-      };
+      const isChecked = (itemId: string): boolean =>
+        selectedItemsSet.has(itemId);
+
+      const onChangeRef = useRef(onChange);
+      const onMixedStateChangeRef = useRef(onMixedStateChange);
+
+      useEffect(() => {
+        onChangeRef.current = onChange;
+      }, [onChange]);
+
+      useEffect(() => {
+        onMixedStateChangeRef.current = onMixedStateChange;
+      }, [onMixedStateChange]);
+
+      const handleItemChange = React.useCallback(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+          onChangeRef.current(event);
+        },
+        []
+      );
+
+      const handleMixedItemChange = React.useCallback(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+          onMixedStateChangeRef.current?.(event);
+        },
+        []
+      );
 
       // isAllChecked defines the isChecked status of parent checkboxes. If
       // all child items are selected, it will turn true, otherwise it returns
@@ -306,17 +371,29 @@ export const MultiSelect: ChakraComponent<
         );
       };
 
-      const getItemLabelText = (
-        item: MultiSelectItem
-      ): string | JSX.Element => {
-        const displayItemCount = !!(item.itemCount >= 0);
-        return (
-          <Box>
-            {item.name}
-            {displayItemCount && ` (${item.itemCount})`}
-          </Box>
-        );
-      };
+      const itemLabelMap = React.useMemo(() => {
+        const labelsById: Record<string, JSX.Element> = {};
+
+        const addItemLabel = (item: MultiSelectItem) => {
+          const displayItemCount = !!(item.itemCount >= 0);
+          labelsById[item.id] = (
+            <Box>
+              {item.name}
+              {displayItemCount && ` (${item.itemCount})`}
+            </Box>
+          );
+        };
+
+        items.forEach((item) => {
+          addItemLabel(item);
+          item.children?.forEach((childItem) => addItemLabel(childItem));
+        });
+
+        return labelsById;
+      }, [items]);
+
+      const getItemLabelText = (item: MultiSelectItem): string | JSX.Element =>
+        itemLabelMap[item.id] || item.name;
 
       /** Generate Checkbox components based on the provided MultiSelectItem. */
       const getMultiSelectCheckboxItem = (
@@ -324,7 +401,7 @@ export const MultiSelect: ChakraComponent<
       ): JSX.Element[] => {
         if (item.children) {
           return [
-            <Checkbox
+            <MultiSelectCheckboxItem
               id={item.id}
               key={item.id}
               labelText={getItemLabelText(item)}
@@ -333,26 +410,26 @@ export const MultiSelect: ChakraComponent<
                 ? {
                     isChecked: isAllChecked(mainId, item),
                     isIndeterminate: isIndeterminate(mainId, item),
-                    onChange: onMixedStateChange,
+                    onChange: handleMixedItemChange,
                     isDisabled: isAllDisabled(item),
                   }
                 : {
-                    isChecked: isChecked(mainId, item.id),
+                    isChecked: isChecked(item.id),
                     isDisabled: isAllDisabled(item),
-                    onChange: onChange,
+                    onChange: handleItemChange,
                   })}
             />,
             ...item.children.map((childItem) => {
               return (
-                <Checkbox
+                <MultiSelectCheckboxItem
                   key={childItem.id}
                   marginInlineStart="0"
                   id={childItem.id}
                   labelText={getItemLabelText(childItem)}
                   name={childItem.name}
                   isDisabled={childItem.isDisabled}
-                  isChecked={isChecked(mainId, childItem.id)}
-                  onChange={onChange}
+                  isChecked={isChecked(childItem.id)}
+                  onChange={handleItemChange}
                   __css={styles.menuChildren}
                 />
               );
@@ -360,13 +437,13 @@ export const MultiSelect: ChakraComponent<
           ];
         } else {
           return [
-            <Checkbox
+            <MultiSelectCheckboxItem
               id={item.id}
               labelText={getItemLabelText(item)}
               name={item.name}
               isDisabled={item.isDisabled}
-              isChecked={isChecked(mainId, item.id)}
-              onChange={onChange}
+              isChecked={isChecked(item.id)}
+              onChange={handleItemChange}
               key={item.id}
             />,
           ];
