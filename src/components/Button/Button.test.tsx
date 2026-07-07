@@ -64,20 +64,20 @@ describe("Button", () => {
     expect(screen.getByTestId("ds-button")).toHaveAttribute("id", "test-id");
   });
 
-  it("calls the onClick", () => {
+  it("calls the onClick", async () => {
     expect(onClick).toHaveBeenCalledTimes(0);
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(screen.getByText("Submit"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it("optionally calls the onClick on mouseDown instead of on click", () => {
+  it("optionally calls the onClick on mouseDown instead of on click", async () => {
     expect(onClick).toHaveBeenCalledTimes(0);
     utils.rerender(
       <Button id="button5" mouseDown={true}>
         Submit
       </Button>
     );
-    userEvent.click(screen.getByText("Submit"));
+    await userEvent.click(screen.getByText("Submit"));
     expect(onClick).toHaveBeenCalledTimes(0);
     fireEvent.mouseDown(screen.getByText("Submit"));
     // TODO:

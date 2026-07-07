@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 
 import useStateWithDependencies from "../useStateWithDependencies";
@@ -21,18 +22,18 @@ describe("useStateWithDependencies hook", () => {
     );
   };
 
-  it("updates its internal value through its `set` function", () => {
+  it("updates its internal value through its `set` function", async () => {
     render(<TestComponent />);
 
     expect(screen.getByTestId("paragraph")).toHaveTextContent("red");
 
-    screen.getByRole("button", { name: "green" }).click();
+    await userEvent.click(screen.getByRole("button", { name: "green" }));
     expect(screen.getByTestId("paragraph")).toHaveTextContent("green");
 
-    screen.getByRole("button", { name: "blue" }).click();
+    await userEvent.click(screen.getByRole("button", { name: "blue" }));
     expect(screen.getByTestId("paragraph")).toHaveTextContent("blue");
 
-    screen.getByRole("button", { name: "red" }).click();
+    await userEvent.click(screen.getByRole("button", { name: "red" }));
     expect(screen.getByTestId("paragraph")).toHaveTextContent("red");
   });
 
@@ -41,13 +42,13 @@ describe("useStateWithDependencies hook", () => {
 
     expect(screen.getByTestId("paragraph")).toHaveTextContent("red");
 
-    screen.getByRole("button", { name: "green" }).click();
+    await userEvent.click(screen.getByRole("button", { name: "green" }));
     expect(screen.getByTestId("paragraph")).toHaveTextContent("green");
 
     rerender(<TestComponent value="blue" />);
     expect(screen.getByTestId("paragraph")).toHaveTextContent("blue");
 
-    screen.getByRole("button", { name: "green" }).click();
+    await userEvent.click(screen.getByRole("button", { name: "green" }));
     expect(screen.getByTestId("paragraph")).toHaveTextContent("green");
 
     rerender(<TestComponent value="red" />);

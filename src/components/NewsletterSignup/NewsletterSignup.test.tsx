@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
@@ -227,7 +227,7 @@ describe("NewsletterSignup Unit Tests", () => {
     expect(ancestor).toContainElement(descendant);
   });
 
-  it("calls the onChange on user type event", () => {
+  it("calls the onChange on user type event", async() => {
     render(
       <NewsletterSignup
         onSubmit={onSubmit}
@@ -240,9 +240,9 @@ describe("NewsletterSignup Unit Tests", () => {
     );
 
     expect(onChange).toHaveBeenCalledTimes(0);
-    userEvent.type(screen.getByRole("textbox"), "t");
+    await userEvent.type(screen.getByRole("textbox"), "t");
     expect(onChange).toHaveBeenCalledTimes(1);
-    userEvent.type(screen.getByRole("textbox"), "est");
+    await userEvent.type(screen.getByRole("textbox"), "est");
     expect(onChange).toHaveBeenCalledTimes(4);
     expect(screen.getByTestId("ds-form")).toHaveFormValues({ email: "test" });
   });
@@ -265,9 +265,12 @@ describe("NewsletterSignup Unit Tests", () => {
     );
 
     expect(onSubmit).toHaveBeenCalledTimes(0);
-    userEvent.type(screen.getByRole("textbox"), "test@email.com");
-    userEvent.click(screen.getByRole("button", { name: "Submit" }));
-    expect(onSubmit).toHaveBeenCalledTimes(1);
+    await userEvent.type(screen.getByRole("textbox"), "test@email.com");
+    await userEvent.click(screen.getByRole("button", { name: "Submit" }));
+    // expect(onSubmit).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(onSubmit).toHaveBeenCalledTimes(1);
+    });
     rerender(
       <NewsletterSignup
         onSubmit={onSubmit}

@@ -227,25 +227,25 @@ describe("FilterBarInline", () => {
       />
     );
     // Open menu
-    userEvent.click(screen.getByRole("button", { name: /colors/i }));
+    await userEvent.click(screen.getByRole("button", { name: /colors/i }));
     // Open menu
-    userEvent.click(screen.getByRole("button", { name: /pets/i }));
+    await userEvent.click(screen.getByRole("button", { name: /pets/i }));
     // Open menu
-    userEvent.click(screen.getByRole("button", { name: /tools/i }));
+    await userEvent.click(screen.getByRole("button", { name: /tools/i }));
     // Check item
-    userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
+    await userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
     // Check item
-    userEvent.click(screen.getByText("Dog"));
+    await userEvent.click(screen.getByText("Dog"));
     // Check item
-    userEvent.click(screen.getByRole("checkbox", { name: /hammer/i }));
+    await userEvent.click(screen.getByRole("checkbox", { name: /hammer/i }));
     expect(screen.getAllByRole("button", { name: /selected/i }).length).toBe(6);
     // click Clear All button
-    userEvent.click(screen.getByRole("button", { name: /clear all filters/i }));
+    await userEvent.click(screen.getByRole("button", { name: /clear all filters/i }));
     expect(
       Object.keys(screen.findAllByRole("button", { name: /selected/i })).length
     ).toBe(0);
   });
-  it("should call onSubmit function when 'Apply filters' button is clicked", () => {
+  it("should call onSubmit function when 'Apply filters' button is clicked", async () => {
     const mockonSubmit = jest.fn();
     const { rerender } = render(
       <FilterBarTestComponent onSubmit={mockonSubmit} id="filter-bar-test-4" />
@@ -254,7 +254,7 @@ describe("FilterBarInline", () => {
       <FilterBarTestComponent onSubmit={mockonSubmit} id="filter-bar-test-4" />
     );
     // click Submit All button
-    userEvent.click(screen.getByRole("button", { name: /apply filters/i }));
+    await userEvent.click(screen.getByRole("button", { name: /apply filters/i }));
     expect(mockonSubmit).toBeCalledTimes(1);
   });
   it("renders the UI snapshots correctly", () => {
