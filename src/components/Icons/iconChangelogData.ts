@@ -14,9 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Functionality"],
-    notes: [
-      "Added the `fileDownloadAlt` icon.",
-    ],
+    notes: ["Added the `fileDownloadAlt` icon."],
   },
   {
     date: "2026-06-09",
