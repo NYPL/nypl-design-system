@@ -163,6 +163,7 @@ export const iconNamesArray = [
   "editorMode",
   "errorFilled",
   "errorOutline",
+  "fileDownloadAlt",
   "fileTypeAudio",
   "fileTypeDoc",
   "fileTypeGenericDoc",

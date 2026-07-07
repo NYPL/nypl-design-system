@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `fileDownloadAlt` option to the `Icon` component.
+
 ## 4.3.0 (June 18, 2026)
 
 ### Adds
