@@ -8,6 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.4.0 (July 8, 2026)
+
+### Fixes
+
+- Reverts Chakra to version `2.8.2` to mitigate performance issues on consuming apps.
+
 ## 4.3.0 (June 18, 2026)
 
 ### Adds
