@@ -1,4 +1,5 @@
 import {
+  As,
   Box,
   BoxProps,
   chakra,
@@ -124,7 +125,7 @@ export const List: ChakraComponent<
     if (variant === "ol" || variant === "ul") {
       listElement = (
         <Box
-          as={variant}
+          as={variant as As}
           data-testid="ds-list"
           id={id}
           ref={ref}

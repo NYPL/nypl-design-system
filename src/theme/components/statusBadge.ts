@@ -78,7 +78,7 @@ export const recommendation = defineStyle({
   },
 });
 
-const StatusBadge: ReturnType<typeof defineStyleConfig> = defineStyleConfig({
+const StatusBadge = defineStyleConfig({
   baseStyle,
   variants: {
     neutral,
