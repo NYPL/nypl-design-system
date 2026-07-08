@@ -83,7 +83,7 @@
     "@storybook/addon-a11y": "9.0.16",
     "@storybook/addon-designs": "10.0.1",
     "@storybook/addon-docs": "9.0.16",
-    "@storybook/addon-jest": "9.0.16",
+    "@storybook/addon-jest": "9.1.12",
     "@storybook/addon-links": "9.0.16",
     "@storybook/react-vite": "9.0.16",
     "@testing-library/dom": "9.2.0",
