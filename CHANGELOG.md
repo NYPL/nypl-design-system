@@ -10,6 +10,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## 4.4.0 (July 8, 2026)
 
+### Adds
+
+- Adds the `fileDownloadAlt` option to the `Icon` component.
+
 ### Fixes
 
 - Reverts Chakra to version `2.8.2` to mitigate performance issues on consuming apps.
