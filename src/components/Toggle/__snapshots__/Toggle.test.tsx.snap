@@ -11,7 +11,6 @@ exports[`Toggle Renders the UI snapshot correctly 1`] = `
   >
     <label
       className="chakra-switch css-18x0has"
-      htmlFor="inputID"
       onClick={[Function]}
     >
       <input
@@ -88,7 +87,6 @@ exports[`Toggle Renders the UI snapshot correctly 2`] = `
     <label
       className="chakra-switch css-18x0has"
       data-checked=""
-      htmlFor="Toggle-checked"
       onClick={[Function]}
     >
       <input
@@ -168,7 +166,6 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
     <label
       className="chakra-switch css-18x0has"
       data-invalid=""
-      htmlFor="Toggle-invalid"
       onClick={[Function]}
     >
       <input
@@ -248,7 +245,6 @@ exports[`Toggle Renders the UI snapshot correctly 4`] = `
     <label
       className="chakra-switch css-18x0has"
       data-disabled=""
-      htmlFor="Toggle-disabled"
       onClick={[Function]}
     >
       <input
@@ -328,7 +324,6 @@ exports[`Toggle Renders the UI snapshot correctly 5`] = `
     <label
       className="chakra-switch css-18x0has"
       data-disabled=""
-      htmlFor="Toggle-disabled"
       onClick={[Function]}
     >
       <input
@@ -407,7 +402,6 @@ exports[`Toggle Renders the UI snapshot correctly 6`] = `
   >
     <label
       className="chakra-switch css-18x0has"
-      htmlFor="chakra"
       onClick={[Function]}
     >
       <input
@@ -483,7 +477,6 @@ exports[`Toggle Renders the UI snapshot correctly 7`] = `
   >
     <label
       className="chakra-switch css-18x0has"
-      htmlFor="props"
       onClick={[Function]}
     >
       <input
