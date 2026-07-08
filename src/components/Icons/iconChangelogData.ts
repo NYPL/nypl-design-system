@@ -10,8 +10,8 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2026-07-08",
+    version: "4.4.0",
     type: "Update",
     affects: ["Functionality"],
     notes: ["Added the `fileDownloadAlt` icon."],
