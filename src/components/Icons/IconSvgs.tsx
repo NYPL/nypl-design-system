@@ -52,6 +52,7 @@ import download from "../../../icons/svg/download.svg";
 import editorMode from "../../../icons/svg/editor-mode.svg";
 import errorFilled from "../../../icons/svg/error-filled.svg";
 import errorOutline from "../../../icons/svg/error-outline.svg";
+import fileDownloadAlt from "../../../icons/svg/file-download-alt.svg";
 import fileTypeAudio from "../../../icons/svg/file-type-audio.svg";
 import fileTypeDoc from "../../../icons/svg/file-type-doc.svg";
 import fileTypeGenericDoc from "../../../icons/svg/file-type-generic-doc.svg";
@@ -153,6 +154,7 @@ export default {
   editorMode,
   errorFilled,
   errorOutline,
+  fileDownloadAlt,
   fileTypeAudio,
   fileTypeDoc,
   fileTypeGenericDoc,

@@ -10,7 +10,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
     MultiSelectGroup example
   </legend>
   <div
-    className="chakra-stack css-fh5fqu"
+    className="chakra-stack css-5sy232"
     data-testid="MultiSelectGroup-multiselectGroup-stack"
     id="MultiSelectGroup"
   >
@@ -33,7 +33,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             aria-controls="accordion-panel-colors-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-thznbn"
+            className="chakra-accordion__button css-1rvudez"
             disabled={false}
             id="accordion-button-colors-accordion-item-0"
             onClick={[Function]}
@@ -106,7 +106,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="red"
                           onClick={[Function]}
                         >
                           <input
@@ -175,7 +174,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="blue"
                           onClick={[Function]}
                         >
                           <input
@@ -244,7 +242,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="yellow"
                           onClick={[Function]}
                         >
                           <input
@@ -344,7 +341,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             aria-controls="accordion-panel-pets-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-thznbn"
+            className="chakra-accordion__button css-1rvudez"
             disabled={false}
             id="accordion-button-pets-accordion-item-0"
             onClick={[Function]}
@@ -417,7 +414,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="cat"
                           onClick={[Function]}
                         >
                           <input
@@ -486,7 +482,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="dog"
                           onClick={[Function]}
                         >
                           <input
@@ -555,7 +550,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="corgy"
                           onClick={[Function]}
                         >
                           <input
@@ -624,7 +618,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="german-sheperd"
                           onClick={[Function]}
                         >
                           <input
@@ -693,7 +686,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="afghan-hound"
                           onClick={[Function]}
                         >
                           <input
@@ -762,7 +754,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="rat"
                           onClick={[Function]}
                         >
                           <input
@@ -862,7 +853,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             aria-controls="accordion-panel-tools-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-thznbn"
+            className="chakra-accordion__button css-1rvudez"
             disabled={false}
             id="accordion-button-tools-accordion-item-0"
             onClick={[Function]}
@@ -935,7 +926,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="hammer"
                           onClick={[Function]}
                         >
                           <input
@@ -1004,7 +994,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="skrewdriver"
                           onClick={[Function]}
                         >
                           <input
@@ -1073,7 +1062,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="slottet"
                           onClick={[Function]}
                         >
                           <input
@@ -1142,7 +1130,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="phillips"
                           onClick={[Function]}
                         >
                           <input
@@ -1211,7 +1198,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="allen"
                           onClick={[Function]}
                         >
                           <input
@@ -1280,7 +1266,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="whisk"
                           onClick={[Function]}
                         >
                           <input
@@ -1375,7 +1360,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
     MultiSelectGroup example
   </legend>
   <div
-    className="chakra-stack css-fh5fqu"
+    className="chakra-stack css-5sy232"
     data-testid="MultiSelectGroup-multiselectGroup-stack"
     id="MultiSelectGroup"
   >
@@ -1398,7 +1383,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             aria-controls="accordion-panel-colors-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-thznbn"
+            className="chakra-accordion__button css-1rvudez"
             disabled={false}
             id="accordion-button-colors-accordion-item-0"
             onClick={[Function]}
@@ -1471,7 +1456,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="red"
                           onClick={[Function]}
                         >
                           <input
@@ -1540,7 +1524,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="blue"
                           onClick={[Function]}
                         >
                           <input
@@ -1609,7 +1592,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="yellow"
                           onClick={[Function]}
                         >
                           <input
@@ -1709,7 +1691,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             aria-controls="accordion-panel-pets-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-thznbn"
+            className="chakra-accordion__button css-1rvudez"
             disabled={false}
             id="accordion-button-pets-accordion-item-0"
             onClick={[Function]}
@@ -1782,7 +1764,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="cat"
                           onClick={[Function]}
                         >
                           <input
@@ -1851,7 +1832,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="dog"
                           onClick={[Function]}
                         >
                           <input
@@ -1920,7 +1900,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="corgy"
                           onClick={[Function]}
                         >
                           <input
@@ -1989,7 +1968,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="german-sheperd"
                           onClick={[Function]}
                         >
                           <input
@@ -2058,7 +2036,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="afghan-hound"
                           onClick={[Function]}
                         >
                           <input
@@ -2127,7 +2104,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="rat"
                           onClick={[Function]}
                         >
                           <input
@@ -2227,7 +2203,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             aria-controls="accordion-panel-tools-accordion-item-0"
             aria-expanded={false}
             aria-label="MultiSelect, 0 items currently selected"
-            className="chakra-accordion__button css-thznbn"
+            className="chakra-accordion__button css-1rvudez"
             disabled={false}
             id="accordion-button-tools-accordion-item-0"
             onClick={[Function]}
@@ -2300,7 +2276,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="hammer"
                           onClick={[Function]}
                         >
                           <input
@@ -2369,7 +2344,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="skrewdriver"
                           onClick={[Function]}
                         >
                           <input
@@ -2438,7 +2412,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="slottet"
                           onClick={[Function]}
                         >
                           <input
@@ -2507,7 +2480,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="phillips"
                           onClick={[Function]}
                         >
                           <input
@@ -2576,7 +2548,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="allen"
                           onClick={[Function]}
                         >
                           <input
@@ -2645,7 +2616,6 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       >
                         <label
                           className="chakra-checkbox css-0"
-                          htmlFor="whisk"
                           onClick={[Function]}
                         >
                           <input
