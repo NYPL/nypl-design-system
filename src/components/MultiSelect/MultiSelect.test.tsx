@@ -1,5 +1,5 @@
 import { axe } from "jest-axe";
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 import { useEffect } from "react";
@@ -10,6 +10,14 @@ jest.mock("../../hooks/useSafeId", () => ({
   ...jest.requireActual("../../hooks/useSafeId"),
   useSafeId: jest.fn((id) => id || "test-id"),
 }));
+
+const intersectionObserverMock = () => ({
+  observe: () => null,
+  disconnect: () => null,
+});
+window.IntersectionObserver = jest
+  .fn()
+  .mockImplementation(intersectionObserverMock);
 
 const items = [
   { id: "dogs", name: "Dogs", isDisabled: false },
@@ -64,6 +72,22 @@ const itemsWithCount = [
 ];
 
 const defaultItemsVisible = 5;
+
+const lazyItems = [
+  { id: "item-1", name: "Item 1" },
+  { id: "item-2", name: "Item 2" },
+  { id: "item-3", name: "Item 3" },
+  { id: "item-4", name: "Item 4" },
+  { id: "item-5", name: "Item 5" },
+  { id: "item-6", name: "Item 6" },
+  { id: "item-7", name: "Item 7" },
+  { id: "item-8", name: "Item 8" },
+  { id: "item-9", name: "Item 9" },
+  { id: "item-10", name: "Item 10" },
+  { id: "item-11", name: "Item 11" },
+  { id: "item-12", name: "Item 12" },
+  { id: "item-13", name: "Item 13" },
+];
 
 const MultiSelectTestComponent = ({
   multiSelectId,
@@ -467,6 +491,56 @@ describe("MultiSelect", () => {
     userEvent.keyboard("[Space]");
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
       "false"
+    );
+  });
+
+  it("should lazily load more list items while scrolling in lazy mode", async () => {
+    render(
+      <MultiSelect
+        id="multiselect-lazy-id"
+        buttonText="Multiselect button text"
+        defaultItemsVisible={3}
+        items={lazyItems}
+        isDefaultOpen={true}
+        isSearchable={false}
+        isBlockElement={false}
+        listOverflow="lazy"
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+
+    expect(screen.queryAllByRole("checkbox")).toHaveLength(3);
+
+    const listContainer = screen.getByTestId("multiselect-lazy-id-items-list");
+    Object.defineProperty(listContainer, "clientHeight", {
+      configurable: true,
+      value: 500,
+    });
+    Object.defineProperty(listContainer, "scrollHeight", {
+      configurable: true,
+      value: 1000,
+    });
+    Object.defineProperty(listContainer, "scrollTop", {
+      configurable: true,
+      value: 500,
+      writable: true,
+    });
+
+    fireEvent.scroll(listContainer);
+    await waitFor(() =>
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(7)
+    );
+
+    fireEvent.scroll(listContainer);
+    await waitFor(() =>
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(12)
+    );
+
+    fireEvent.scroll(listContainer);
+    await waitFor(() =>
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(13)
     );
   });
 
