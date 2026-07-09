@@ -39,6 +39,7 @@ import { changelogData } from "./multiSelectChangelogData";
 - [Width](#width)
 - [Default Open State](#default-open-state)
 - [Close on Blur State](#close-on-blur-state)
+- [Lazy Loading Items](#lazy-loading-items)
 - [MultiSelect in a Group](#multiselect-in-a-group)
 - [Controlling state using selectedItems and onChange props](#controlling-state-using-selecteditems-and-onchange-props)
 - [MultiSelect NextJS routing implementation](#multiselect-nextjs-routing-implementation)
@@ -211,7 +212,8 @@ counting the items to display.
   content={
     <>
       <strong>IMPORTANT:</strong> This prop can only be used with{" "}
-      <code>listOverflow="expand"</code>.
+      <code>listOverflow</code> is set to <code>"expand"</code> or{" "}
+      <code>"lazy"</code>.
     </>
   }
   variant="informative"
@@ -750,6 +752,15 @@ focus leaves the component (the user clicks outside or uses the keyboard to tab 
 `}
   language="tsx"
 />
+
+## Lazy loading items
+
+If a large number of items is hindering performance, `listOverflow` can be set
+to `lazy`. The component renders the first `defaultItemsVisible` items on load.
+Scrolling down in the panel triggers more items to be rendered. The number of
+items loaded scales with how far has been already scrolled.
+
+<Canvas of={MultiSelectStories.lazyLoadingItems} />
 
 ## MultiSelect in a Group
 

@@ -5,7 +5,13 @@ import {
   ChakraComponent,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import Accordion from "./../Accordion/Accordion";
 import Button from "./../Button/Button";
@@ -24,7 +30,11 @@ export interface MultiSelectItem {
 }
 export const multiSelectWidthsArray = ["fitContent", "full"] as const;
 export type MultiSelectWidths = typeof multiSelectWidthsArray[number];
-export const multiSelectListOverflowArray = ["scroll", "expand"] as const;
+export const multiSelectListOverflowArray = [
+  "scroll",
+  "expand",
+  "lazy",
+] as const;
 export type MultiSelectListOverflowTypes =
   typeof multiSelectListOverflowArray[number];
 export interface SelectedItems {
@@ -51,7 +61,7 @@ export interface MultiSelectProps extends BoxProps {
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
   /** listOverflow is a property indicating how the list should handle overflow,
-   * with options limited to either "scroll" or "expand." */
+   * with options limited to "scroll", "expand", or "lazy." */
   listOverflow?: MultiSelectListOverflowTypes;
   /** The action to perform for the clear/reset button of individual MultiSelects. */
   onClear?: () => void;
@@ -111,6 +121,13 @@ export const MultiSelect: ChakraComponent<
       const expandToggleButtonRef: React.RefObject<HTMLButtonElement> =
         useRef<HTMLButtonElement>();
 
+      // Used for Intersection Observer for lazy loading
+      const itemsListRef: React.RefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>();
+      // Observation target for Intersection Observer
+      const lazyLoadTargetRef: React.RefObject<HTMLDivElement> =
+        useRef<HTMLDivElement>();
+
       // Tells `Accordion` to close if open when user clicks outside of the container
       const handleClickOutside = (e) => {
         if (e.type === "mousedown") {
@@ -153,6 +170,21 @@ export const MultiSelect: ChakraComponent<
 
       const MINIMUM_ITEMS_LIST_HEIGHT = "215px";
       const MAXIMUM_ITEMS_LIST_HEIGHT = "270px";
+      const isOverflowExpand =
+        items.length > defaultItemsVisible && listOverflow === "expand";
+      const isOverflowLazy =
+        items.length > defaultItemsVisible && listOverflow === "lazy";
+      const defaultItemsList = React.useMemo(
+        () => (isOverflowExpand ? items.slice(0, defaultItemsVisible) : items),
+        [isOverflowExpand, items, defaultItemsVisible]
+      );
+      const [itemsList, setItemsList] = useState(defaultItemsList);
+      const [isExpandable, setIsExpandable] = useState(true);
+      const [lazyItemsVisible, setLazyItemsVisible] =
+        useState(defaultItemsVisible);
+
+      const hasScrollablePanel = listOverflow === "scroll" || isOverflowLazy;
+
       const listHeight =
         listOverflow === "expand"
           ? "unset"
@@ -160,14 +192,9 @@ export const MultiSelect: ChakraComponent<
           ? MAXIMUM_ITEMS_LIST_HEIGHT
           : MINIMUM_ITEMS_LIST_HEIGHT;
 
-      const isOverflowExpand =
-        items.length > defaultItemsVisible && listOverflow === "expand";
-      const defaultItemsList = React.useMemo(
-        () => (isOverflowExpand ? items.slice(0, defaultItemsVisible) : items),
-        [isOverflowExpand, items, defaultItemsVisible]
-      );
-      const [itemsList, setItemsList] = useState(defaultItemsList);
-      const [isExpandable, setIsExpandable] = useState(true);
+      const visibleItemsList = isOverflowLazy
+        ? itemsList.slice(0, lazyItemsVisible)
+        : itemsList;
 
       const selectedItemsCount: number =
         selectedItems[mainId]?.items.length || 0;
@@ -245,6 +272,21 @@ export const MultiSelect: ChakraComponent<
         return <Box>No options found</Box>;
       };
 
+      const loadMoreLazyItems = useCallback(() => {
+        if (!isOverflowLazy) {
+          return;
+        }
+
+        setLazyItemsVisible((previousVisibleItems) =>
+          Math.min(
+            previousVisibleItems +
+              defaultItemsVisible +
+              previousVisibleItems / defaultItemsVisible, // Scales with further scrolling
+            itemsList.length
+          )
+        );
+      }, [defaultItemsVisible, isOverflowLazy, itemsList]);
+
       const onChangeSearch = (event) => {
         const value = event.target.value.trim().toLowerCase();
         if (!value) {
@@ -287,9 +329,52 @@ export const MultiSelect: ChakraComponent<
         }, 1); // Ensure focus logic runs after state update
       };
 
+      const onItemsListScroll = () => {
+        if (!isOverflowLazy || !itemsListRef.current) {
+          return;
+        }
+
+        const { scrollTop, clientHeight, scrollHeight } = itemsListRef.current;
+        const scrollThreshold = scrollHeight / 2; // Scales with further scrolling
+        const isAtBottom =
+          scrollTop + clientHeight >= scrollHeight - scrollThreshold;
+
+        if (!isAtBottom) {
+          return;
+        }
+
+        loadMoreLazyItems();
+      };
+
       React.useEffect(() => {
         setItemsList(isExpandable ? defaultItemsList : items);
       }, [isExpandable, defaultItemsList, items]);
+
+      React.useEffect(() => {
+        if (
+          !isOverflowLazy ||
+          !itemsListRef.current ||
+          !lazyLoadTargetRef.current
+        ) {
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (entries.some((entry) => entry.isIntersecting)) {
+              loadMoreLazyItems();
+            }
+          },
+          {
+            root: itemsListRef.current,
+            threshold: 0,
+          }
+        );
+
+        observer.observe(lazyLoadTargetRef.current);
+
+        return () => observer.disconnect();
+      }, [isOverflowLazy, loadMoreLazyItems]);
 
       const ExpandToggleButton = (): JSX.Element => {
         return (
@@ -402,22 +487,25 @@ export const MultiSelect: ChakraComponent<
 
       const accordionPanel = (
         <Box position="relative">
-          {isSearchable && !isOverflowExpand ? (
+          {isSearchable && hasScrollablePanel ? (
             <Box position="sticky" top="0" marginBottom="12px" zIndex="1">
               {searchInput}
             </Box>
-          ) : isSearchable && isOverflowExpand ? (
+          ) : isSearchable && (isOverflowExpand || isOverflowLazy) ? (
             searchInput
           ) : null}
 
           <Box
+            data-testid={isOverflowLazy ? `${mainId}-items-list` : undefined}
+            ref={itemsListRef}
+            onScroll={isOverflowLazy ? onItemsListScroll : undefined}
             maxHeight={listHeight}
             overflowY="auto"
             paddingTop="xxs"
             paddingLeft="xs"
             paddingBottom="xxs"
           >
-            {itemsList.length === 0 ? (
+            {visibleItemsList.length === 0 ? (
               <NoSearchResults />
             ) : (
               <>
@@ -430,13 +518,21 @@ export const MultiSelect: ChakraComponent<
                   showLabel={false}
                   name="multi-select-checkbox-group"
                 >
-                  {itemsList.map((item: MultiSelectItem) => (
+                  {visibleItemsList.map((item: MultiSelectItem) => (
                     <React.Fragment key={item.id}>
                       {getMultiSelectCheckboxItem(item)}
                     </React.Fragment>
                   ))}
                 </CheckboxGroup>
                 {isOverflowExpand && <ExpandToggleButton />}
+                {isOverflowLazy &&
+                  visibleItemsList.length < itemsList.length && (
+                    <Box
+                      ref={lazyLoadTargetRef}
+                      data-testid={`${mainId}-lazy-load-observer-target`}
+                      height="1px"
+                    />
+                  )}
               </>
             )}
           </Box>
