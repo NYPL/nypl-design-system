@@ -270,7 +270,7 @@ const withItemCountItems = [
   },
 ];
 
-const withLazyItems = [
+const withLazyLoadItems = [
   "Admiral",
   "AgentS",
   "Agnes",
@@ -721,7 +721,7 @@ export const withControls: Story = {
     isDefaultOpen: false,
     isSearchable: true,
     items: withItems,
-    listOverflow: "lazy",
+    listOverflow: "lazy-load",
     onClear: undefined,
     onChange: undefined,
     onMixedStateChange: undefined,
@@ -833,7 +833,7 @@ export const disabledListItems: Story = {
       isDefaultOpen={false}
       isSearchable={true}
       items={withDisabledItems}
-      listOverflow="lazy"
+      listOverflow="lazy-load"
       defaultItemsVisible={3}
     />
   ),
@@ -1023,8 +1023,8 @@ export const lazyLoadingItems: Story = {
       isBlockElement
       isDefaultOpen={false}
       isSearchable={true}
-      items={withLazyItems}
-      listOverflow="lazy"
+      items={withLazyLoadItems}
+      listOverflow="lazy-load"
       defaultItemsVisible={5}
     />
   ),

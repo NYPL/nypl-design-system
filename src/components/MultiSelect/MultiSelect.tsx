@@ -33,7 +33,7 @@ export type MultiSelectWidths = typeof multiSelectWidthsArray[number];
 export const multiSelectListOverflowArray = [
   "scroll",
   "expand",
-  "lazy",
+  "lazy-load",
 ] as const;
 export type MultiSelectListOverflowTypes =
   typeof multiSelectListOverflowArray[number];
@@ -61,7 +61,7 @@ export interface MultiSelectProps extends BoxProps {
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
   /** listOverflow is a property indicating how the list should handle overflow,
-   * with options limited to "scroll", "expand", or "lazy." */
+   * with options limited to "scroll", "expand", or "lazy-load". */
   listOverflow?: MultiSelectListOverflowTypes;
   /** The action to perform for the clear/reset button of individual MultiSelects. */
   onClear?: () => void;
@@ -173,7 +173,7 @@ export const MultiSelect: ChakraComponent<
       const isOverflowExpand =
         items.length > defaultItemsVisible && listOverflow === "expand";
       const isOverflowLazy =
-        items.length > defaultItemsVisible && listOverflow === "lazy";
+        items.length > defaultItemsVisible && listOverflow === "lazy-load";
       const defaultItemsList = React.useMemo(
         () => (isOverflowExpand ? items.slice(0, defaultItemsVisible) : items),
         [isOverflowExpand, items, defaultItemsVisible]

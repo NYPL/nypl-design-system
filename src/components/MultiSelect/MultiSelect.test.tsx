@@ -73,7 +73,7 @@ const itemsWithCount = [
 
 const defaultItemsVisible = 5;
 
-const lazyItems = [
+const lazyLoadItems = [
   { id: "item-1", name: "Item 1" },
   { id: "item-2", name: "Item 2" },
   { id: "item-3", name: "Item 3" },
@@ -494,17 +494,17 @@ describe("MultiSelect", () => {
     );
   });
 
-  it("should lazily load more list items while scrolling in lazy mode", async () => {
+  it("should lazily load more list items while scrolling in lazy load mode", async () => {
     render(
       <MultiSelect
-        id="multiselect-lazy-id"
+        id="multiselect-lazy-load-id"
         buttonText="Multiselect button text"
         defaultItemsVisible={3}
-        items={lazyItems}
+        items={lazyLoadItems}
         isDefaultOpen={true}
         isSearchable={false}
         isBlockElement={false}
-        listOverflow="lazy"
+        listOverflow="lazy-load"
         selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}
@@ -513,7 +513,9 @@ describe("MultiSelect", () => {
 
     expect(screen.queryAllByRole("checkbox")).toHaveLength(3);
 
-    const listContainer = screen.getByTestId("multiselect-lazy-id-items-list");
+    const listContainer = screen.getByTestId(
+      "multiselect-lazy-load-id-items-list"
+    );
     Object.defineProperty(listContainer, "clientHeight", {
       configurable: true,
       value: 500,
