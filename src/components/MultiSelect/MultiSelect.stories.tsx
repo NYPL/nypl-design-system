@@ -833,8 +833,6 @@ export const disabledListItems: Story = {
       isDefaultOpen={false}
       isSearchable={true}
       items={withDisabledItems}
-      listOverflow="lazy-load"
-      defaultItemsVisible={3}
     />
   ),
 };
