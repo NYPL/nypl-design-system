@@ -267,7 +267,6 @@ describe("NewsletterSignup Unit Tests", () => {
     expect(onSubmit).toHaveBeenCalledTimes(0);
     await userEvent.type(screen.getByRole("textbox"), "test@email.com");
     await userEvent.click(screen.getByRole("button", { name: "Submit" }));
-    // expect(onSubmit).toHaveBeenCalledTimes(1);
     await waitFor(() => {
       expect(onSubmit).toHaveBeenCalledTimes(1);
     });
