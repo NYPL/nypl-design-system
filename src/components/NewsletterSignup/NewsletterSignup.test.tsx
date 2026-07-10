@@ -227,7 +227,7 @@ describe("NewsletterSignup Unit Tests", () => {
     expect(ancestor).toContainElement(descendant);
   });
 
-  it("calls the onChange on user type event", async() => {
+  it("calls the onChange on user type event", async () => {
     render(
       <NewsletterSignup
         onSubmit={onSubmit}
