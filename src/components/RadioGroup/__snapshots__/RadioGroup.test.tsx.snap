@@ -27,7 +27,6 @@ exports[`RadioGroup renders the UI snapshot correctly 1`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-2"
         >
           <input
             checked={false}
@@ -94,7 +93,6 @@ exports[`RadioGroup renders the UI snapshot correctly 1`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-3"
         >
           <input
             checked={false}
@@ -196,7 +194,6 @@ exports[`RadioGroup renders the UI snapshot correctly 2`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-2"
         >
           <input
             checked={false}
@@ -263,7 +260,6 @@ exports[`RadioGroup renders the UI snapshot correctly 2`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-3"
         >
           <input
             checked={false}
@@ -365,7 +361,6 @@ exports[`RadioGroup renders the UI snapshot correctly 3`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-2"
         >
           <input
             checked={false}
@@ -432,7 +427,6 @@ exports[`RadioGroup renders the UI snapshot correctly 3`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-3"
         >
           <input
             checked={false}
@@ -534,7 +528,6 @@ exports[`RadioGroup renders the UI snapshot correctly 4`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-2"
         >
           <input
             checked={false}
@@ -601,7 +594,6 @@ exports[`RadioGroup renders the UI snapshot correctly 4`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-3"
         >
           <input
             checked={false}
@@ -708,7 +700,6 @@ exports[`RadioGroup renders the UI snapshot correctly 5`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-2"
         >
           <input
             checked={false}
@@ -775,7 +766,6 @@ exports[`RadioGroup renders the UI snapshot correctly 5`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-3"
         >
           <input
             checked={false}
@@ -877,7 +867,6 @@ exports[`RadioGroup renders the UI snapshot correctly 6`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-2"
         >
           <input
             aria-required={true}
@@ -945,7 +934,6 @@ exports[`RadioGroup renders the UI snapshot correctly 6`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-3"
         >
           <input
             aria-required={true}
@@ -1051,7 +1039,6 @@ exports[`RadioGroup renders the UI snapshot correctly 7`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-2"
         >
           <input
             aria-required={true}
@@ -1119,7 +1106,6 @@ exports[`RadioGroup renders the UI snapshot correctly 7`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-3"
         >
           <input
             aria-required={true}
@@ -1223,7 +1209,6 @@ exports[`RadioGroup renders the UI snapshot correctly 8`] = `
         <label
           className="chakra-radio css-rfs4w5"
           data-invalid=""
-          htmlFor="radio-2"
         >
           <input
             aria-invalid={true}
@@ -1294,7 +1279,6 @@ exports[`RadioGroup renders the UI snapshot correctly 8`] = `
         <label
           className="chakra-radio css-rfs4w5"
           data-invalid=""
-          htmlFor="radio-3"
         >
           <input
             aria-invalid={true}
@@ -1400,7 +1384,6 @@ exports[`RadioGroup renders the UI snapshot correctly 9`] = `
         <label
           className="chakra-radio css-rfs4w5"
           data-disabled=""
-          htmlFor="radio-2"
         >
           <input
             aria-disabled={true}
@@ -1471,7 +1454,6 @@ exports[`RadioGroup renders the UI snapshot correctly 9`] = `
         <label
           className="chakra-radio css-rfs4w5"
           data-disabled=""
-          htmlFor="radio-3"
         >
           <input
             aria-disabled={true}
@@ -1576,7 +1558,6 @@ exports[`RadioGroup renders the UI snapshot correctly 10`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="arts"
         >
           <input
             checked={false}
@@ -1655,7 +1636,6 @@ exports[`RadioGroup renders the UI snapshot correctly 10`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="English"
         >
           <input
             checked={false}
@@ -1769,7 +1749,6 @@ exports[`RadioGroup renders the UI snapshot correctly 11`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-2"
         >
           <input
             checked={false}
@@ -1836,7 +1815,6 @@ exports[`RadioGroup renders the UI snapshot correctly 11`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-3"
         >
           <input
             checked={false}
@@ -1938,7 +1916,6 @@ exports[`RadioGroup renders the UI snapshot correctly 12`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-2"
         >
           <input
             checked={false}
@@ -2005,7 +1982,6 @@ exports[`RadioGroup renders the UI snapshot correctly 12`] = `
       >
         <label
           className="chakra-radio css-rfs4w5"
-          htmlFor="radio-3"
         >
           <input
             checked={false}

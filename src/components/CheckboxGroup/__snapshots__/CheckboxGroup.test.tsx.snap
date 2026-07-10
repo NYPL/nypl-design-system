@@ -21,7 +21,6 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox2"
         onClick={[Function]}
       >
         <input
@@ -87,7 +86,6 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox3"
         onClick={[Function]}
       >
         <input
@@ -181,7 +179,6 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox2"
         onClick={[Function]}
       >
         <input
@@ -247,7 +244,6 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox3"
         onClick={[Function]}
       >
         <input
@@ -341,7 +337,6 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox2"
         onClick={[Function]}
       >
         <input
@@ -407,7 +402,6 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox3"
         onClick={[Function]}
       >
         <input
@@ -501,7 +495,6 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox2"
         onClick={[Function]}
       >
         <input
@@ -567,7 +560,6 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox3"
         onClick={[Function]}
       >
         <input
@@ -666,7 +658,6 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox2"
         onClick={[Function]}
       >
         <input
@@ -732,7 +723,6 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox3"
         onClick={[Function]}
       >
         <input
@@ -826,7 +816,6 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox2"
         onClick={[Function]}
       >
         <input
@@ -892,7 +881,6 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox3"
         onClick={[Function]}
       >
         <input
@@ -989,7 +977,6 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox2"
         onClick={[Function]}
       >
         <input
@@ -1055,7 +1042,6 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="checkbox3"
         onClick={[Function]}
       >
         <input
@@ -1150,7 +1136,6 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
       <label
         className="chakra-checkbox css-0"
         data-invalid=""
-        htmlFor="checkbox2"
         onClick={[Function]}
       >
         <input
@@ -1219,7 +1204,6 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
       <label
         className="chakra-checkbox css-0"
         data-invalid=""
-        htmlFor="checkbox3"
         onClick={[Function]}
       >
         <input
@@ -1316,7 +1300,6 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
       <label
         className="chakra-checkbox css-0"
         data-disabled=""
-        htmlFor="checkbox2"
         onClick={[Function]}
       >
         <input
@@ -1385,7 +1368,6 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
       <label
         className="chakra-checkbox css-0"
         data-disabled=""
-        htmlFor="checkbox3"
         onClick={[Function]}
       >
         <input
@@ -1481,7 +1463,6 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="arts"
         onClick={[Function]}
       >
         <input
@@ -1559,7 +1540,6 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="English"
         onClick={[Function]}
       >
         <input
@@ -1665,7 +1645,6 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="2"
         onClick={[Function]}
       >
         <input
@@ -1731,7 +1710,6 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="3"
         onClick={[Function]}
       >
         <input
@@ -1825,7 +1803,6 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="2"
         onClick={[Function]}
       >
         <input
@@ -1891,7 +1868,6 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
     >
       <label
         className="chakra-checkbox css-0"
-        htmlFor="3"
         onClick={[Function]}
       >
         <input

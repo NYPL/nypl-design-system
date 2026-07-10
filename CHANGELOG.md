@@ -12,6 +12,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Updates npm packages that only affect the repo, not the components, for general security maintenance.
 
+## 4.4.0 (July 8, 2026)
+
+### Adds
+
+- Adds the `fileDownloadAlt` option to the `Icon` component.
+
+### Fixes
+
+- Reverts Chakra to version `2.8.2` to mitigate performance issues on consuming apps.
+
 ## 4.3.0 (June 18, 2026)
 
 ### Adds
