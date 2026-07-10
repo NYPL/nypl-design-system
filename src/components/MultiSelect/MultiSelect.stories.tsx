@@ -721,7 +721,7 @@ export const withControls: Story = {
     isDefaultOpen: false,
     isSearchable: true,
     items: withItems,
-    listOverflow: "lazy-load",
+    listOverflow: "scroll",
     onClear: undefined,
     onChange: undefined,
     onMixedStateChange: undefined,
@@ -831,7 +831,7 @@ export const disabledListItems: Story = {
       id="multi-select-id-5"
       isBlockElement
       isDefaultOpen={false}
-      isSearchable={true}
+      isSearchable={false}
       items={withDisabledItems}
     />
   ),
