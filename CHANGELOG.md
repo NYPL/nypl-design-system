@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `lazy-load` option to the `listOverflow` prop of the `MultiSelect` component.
+
 ## 4.4.0 (July 8, 2026)
 
 ### Adds
