@@ -527,11 +527,7 @@ export const MultiSelect: ChakraComponent<
                 {isOverflowExpand && <ExpandToggleButton />}
                 {isOverflowLazy &&
                   visibleItemsList.length < itemsList.length && (
-                    <Box
-                      ref={lazyLoadTargetRef}
-                      data-testid={`${mainId}-lazy-load-observer-target`}
-                      height="1px"
-                    />
+                    <Box ref={lazyLoadTargetRef} height="1px" />
                   )}
               </>
             )}
