@@ -1,23 +1,55 @@
 import { axe } from "jest-axe";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 import { useEffect } from "react";
 import MultiSelect from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
+import withLazyLoadItems from "./MultiSelectWithLazyLoadItems";
 
 jest.mock("../../hooks/useSafeId", () => ({
   ...jest.requireActual("../../hooks/useSafeId"),
   useSafeId: jest.fn((id) => id || "test-id"),
 }));
 
-const intersectionObserverMock = () => ({
-  observe: () => null,
-  disconnect: () => null,
+let intersectionCallback: IntersectionObserverCallback | null = null;
+
+const observeMock = jest.fn();
+const disconnectMock = jest.fn();
+
+beforeEach(() => {
+  intersectionCallback = null;
+  observeMock.mockClear();
+  disconnectMock.mockClear();
+
+  window.IntersectionObserver = jest.fn().mockImplementation((callback) => {
+    intersectionCallback = callback;
+    return {
+      observe: observeMock,
+      disconnect: disconnectMock,
+      unobserve: jest.fn(),
+    };
+  });
 });
-window.IntersectionObserver = jest
-  .fn()
-  .mockImplementation(intersectionObserverMock);
+
+const triggerIntersection = () => {
+  if (!intersectionCallback) return;
+
+  intersectionCallback(
+    [
+      {
+        isIntersecting: true,
+        target: document.createElement("div"),
+        intersectionRatio: 1,
+        time: 0,
+        boundingClientRect: {} as DOMRectReadOnly,
+        intersectionRect: {} as DOMRectReadOnly,
+        rootBounds: null,
+      },
+    ],
+    {} as IntersectionObserver
+  );
+};
 
 const items = [
   { id: "dogs", name: "Dogs", isDisabled: false },
@@ -72,22 +104,6 @@ const itemsWithCount = [
 ];
 
 const defaultItemsVisible = 5;
-
-const lazyLoadItems = [
-  { id: "item-1", name: "Item 1" },
-  { id: "item-2", name: "Item 2" },
-  { id: "item-3", name: "Item 3" },
-  { id: "item-4", name: "Item 4" },
-  { id: "item-5", name: "Item 5" },
-  { id: "item-6", name: "Item 6" },
-  { id: "item-7", name: "Item 7" },
-  { id: "item-8", name: "Item 8" },
-  { id: "item-9", name: "Item 9" },
-  { id: "item-10", name: "Item 10" },
-  { id: "item-11", name: "Item 11" },
-  { id: "item-12", name: "Item 12" },
-  { id: "item-13", name: "Item 13" },
-];
 
 const MultiSelectTestComponent = ({
   multiSelectId,
@@ -499,8 +515,7 @@ describe("MultiSelect", () => {
       <MultiSelect
         id="multiselect-lazy-load-id"
         buttonText="Multiselect button text"
-        defaultItemsVisible={3}
-        items={lazyLoadItems}
+        items={withLazyLoadItems}
         isDefaultOpen={true}
         isSearchable={false}
         isBlockElement={false}
@@ -511,38 +526,23 @@ describe("MultiSelect", () => {
       />
     );
 
-    expect(screen.queryAllByRole("checkbox")).toHaveLength(3);
+    expect(screen.queryAllByRole("checkbox")).toHaveLength(25);
 
-    const listContainer = screen.getByTestId(
-      "multiselect-lazy-load-id-items-list"
-    );
-    Object.defineProperty(listContainer, "clientHeight", {
-      configurable: true,
-      value: 500,
-    });
-    Object.defineProperty(listContainer, "scrollHeight", {
-      configurable: true,
-      value: 1000,
-    });
-    Object.defineProperty(listContainer, "scrollTop", {
-      configurable: true,
-      value: 500,
-      writable: true,
-    });
+    await waitFor(() => expect(observeMock).toHaveBeenCalled());
 
-    fireEvent.scroll(listContainer);
+    act(() => triggerIntersection());
     await waitFor(() =>
-      expect(screen.queryAllByRole("checkbox")).toHaveLength(7)
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(50)
     );
 
-    fireEvent.scroll(listContainer);
+    act(() => triggerIntersection());
     await waitFor(() =>
-      expect(screen.queryAllByRole("checkbox")).toHaveLength(12)
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(80)
     );
 
-    fireEvent.scroll(listContainer);
+    act(() => triggerIntersection());
     await waitFor(() =>
-      expect(screen.queryAllByRole("checkbox")).toHaveLength(13)
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(116)
     );
   });
 

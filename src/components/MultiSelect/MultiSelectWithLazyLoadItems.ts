@@ -1,4 +1,4 @@
-export const withLazyLoadItems = [
+export default [
   "Admiral",
   "AgentS",
   "Agnes",

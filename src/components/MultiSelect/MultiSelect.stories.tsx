@@ -13,7 +13,7 @@ import MultiSelect, {
 import Text from "../Text/Text";
 import useMultiSelect from "../../hooks/useMultiSelect";
 import Button from "../Button/Button";
-import { withLazyLoadItems } from "./MultiSelectStoriesData";
+import withLazyLoadItems from "./MultiSelectWithLazyLoadItems";
 
 const withItems = [
   {
