@@ -510,7 +510,7 @@ describe("MultiSelect", () => {
     );
   });
 
-  it("should lazily load more list items while scrolling in lazy load mode", async () => {
+  it("should lazily load more list items with a large items list", async () => {
     render(
       <MultiSelect
         id="multiselect-lazy-load-id"
@@ -519,7 +519,7 @@ describe("MultiSelect", () => {
         isDefaultOpen={true}
         isSearchable={false}
         isBlockElement={false}
-        listOverflow="lazy-load"
+        listOverflow="scroll"
         selectedItems={selectedTestItems}
         onChange={() => null}
         onClear={() => null}

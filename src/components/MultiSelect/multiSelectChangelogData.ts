@@ -14,7 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "New Feature",
     affects: ["Documentation", "Functionality"],
-    notes: ["Adds the `lazy-load` option to the `listOverflow` prop"],
+    notes: ["Adds lazy loading when `listOverflow='scroll'`"],
   },
   {
     date: "2025-09-30",

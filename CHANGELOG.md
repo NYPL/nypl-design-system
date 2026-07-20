@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `lazy-load` option to the `listOverflow` prop of the `MultiSelect` component.
+- Adds lazy loading to the `MultiSelect` component when `listOverflow="scroll"`.
 
 ## 4.4.0 (July 8, 2026)
 

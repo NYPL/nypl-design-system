@@ -626,7 +626,7 @@ export const lazyLoadingItems: Story = {
       isDefaultOpen={false}
       isSearchable={true}
       items={withLazyLoadItems}
-      listOverflow="lazy-load"
+      listOverflow="scroll"
     />
   ),
 };

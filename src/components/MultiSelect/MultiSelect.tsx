@@ -30,11 +30,7 @@ export interface MultiSelectItem {
 }
 export const multiSelectWidthsArray = ["fitContent", "full"] as const;
 export type MultiSelectWidths = typeof multiSelectWidthsArray[number];
-export const multiSelectListOverflowArray = [
-  "scroll",
-  "expand",
-  "lazy-load",
-] as const;
+export const multiSelectListOverflowArray = ["scroll", "expand"] as const;
 export type MultiSelectListOverflowTypes =
   typeof multiSelectListOverflowArray[number];
 export interface SelectedItems {
@@ -182,7 +178,7 @@ export const MultiSelect: ChakraComponent<
       const lazyLoadIncrementNum = 20;
       const isOverflowLazy =
         items.length > defaultItemsVisible + lazyLoadIncrementNum &&
-        listOverflow === "lazy-load";
+        listOverflow === "scroll";
       const defaultItemsList = React.useMemo(
         () => (isOverflowExpand ? items.slice(0, defaultItemsVisible) : items),
         [isOverflowExpand, items, defaultItemsVisible]
@@ -192,9 +188,6 @@ export const MultiSelect: ChakraComponent<
       const [lazyItemsVisible, setLazyItemsVisible] = useState(
         defaultItemsVisible + lazyLoadIncrementNum
       );
-
-      const hasScrollablePanel =
-        listOverflow === "scroll" || listOverflow === "lazy-load";
 
       const visibleItemsList = isOverflowLazy
         ? itemsList.slice(0, lazyItemsVisible)
@@ -473,11 +466,11 @@ export const MultiSelect: ChakraComponent<
 
       const accordionPanel = (
         <Box position="relative">
-          {isSearchable && hasScrollablePanel ? (
+          {isSearchable && !isOverflowExpand ? (
             <Box position="sticky" top="0" marginBottom="12px" zIndex="1">
               {searchInput}
             </Box>
-          ) : isSearchable && (isOverflowExpand || isOverflowLazy) ? (
+          ) : isSearchable && isOverflowExpand ? (
             searchInput
           ) : null}
 
