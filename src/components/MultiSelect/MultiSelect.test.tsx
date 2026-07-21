@@ -534,17 +534,17 @@ describe("MultiSelect", () => {
 
     act(() => triggerIntersection());
     await waitFor(() =>
-      expect(screen.queryAllByRole("checkbox")).toHaveLength(50)
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(45)
     );
 
     act(() => triggerIntersection());
     await waitFor(() =>
-      expect(screen.queryAllByRole("checkbox")).toHaveLength(80)
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(65)
     );
 
     act(() => triggerIntersection());
     await waitFor(() =>
-      expect(screen.queryAllByRole("checkbox")).toHaveLength(116)
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(85)
     );
   });
 

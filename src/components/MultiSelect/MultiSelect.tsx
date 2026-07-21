@@ -276,7 +276,7 @@ export const MultiSelect: ChakraComponent<
 
         setLazyItemsVisible((previousVisibleItems) =>
           Math.min(
-            previousVisibleItems * 1.2 + lazyLoadIncrementNum,
+            previousVisibleItems + lazyLoadIncrementNum,
             itemsList.length
           )
         );
@@ -346,7 +346,7 @@ export const MultiSelect: ChakraComponent<
           {
             root: itemsListRef.current,
             threshold: 0,
-            rootMargin: `${12 * lazyItemsVisible}px`,
+            rootMargin: "0px 0px 300px 0px",
           }
         );
 
