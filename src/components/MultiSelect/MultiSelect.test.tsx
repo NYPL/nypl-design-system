@@ -16,18 +16,20 @@ let intersectionCallback: IntersectionObserverCallback | null = null;
 
 const observeMock = jest.fn();
 const disconnectMock = jest.fn();
+const unobserveMock = jest.fn();
 
 beforeEach(() => {
   intersectionCallback = null;
   observeMock.mockClear();
   disconnectMock.mockClear();
+  unobserveMock.mockClear();
 
   window.IntersectionObserver = jest.fn().mockImplementation((callback) => {
     intersectionCallback = callback;
     return {
       observe: observeMock,
       disconnect: disconnectMock,
-      unobserve: jest.fn(),
+      unobserve: unobserveMock,
     };
   });
 });
