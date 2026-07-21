@@ -47,7 +47,8 @@ export default defineConfig({
           "@emotion/react": "Emotion",
         },
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === "design-system-react-components.css") return "styles.css";
+          if (assetInfo.name === "design-system-react-components.css")
+            return "styles.css";
           return assetInfo.name || "";
         },
       },
