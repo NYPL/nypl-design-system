@@ -756,8 +756,8 @@ focus leaves the component (the user clicks outside or uses the keyboard to tab 
 
 If the items list is large and `listOverflow="scroll"`, items will be lazily
 loaded to optimize performance. The component renders the first
-`defaultItemsVisible + 20` items on load. Scrolling down in the panel triggers
-more items to be rendered.
+`defaultItemsVisible + 20` items on load. Scrolling down triggers the rendering
+of more items.
 
 <Canvas of={MultiSelectStories.lazyLoadingItems} />
 
