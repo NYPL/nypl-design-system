@@ -57,7 +57,7 @@ export interface MultiSelectProps extends BoxProps {
   /** The items to be rendered in the Multiselect as checkbox options. */
   items: MultiSelectItem[];
   /** listOverflow is a property indicating how the list should handle overflow,
-   * with options limited to "scroll", "expand", or "lazy-load". */
+   * with options limited to either "scroll" or "expand." */
   listOverflow?: MultiSelectListOverflowTypes;
   /** The action to perform for the clear/reset button of individual MultiSelects. */
   onClear?: () => void;
@@ -504,7 +504,7 @@ export const MultiSelect: ChakraComponent<
                 </CheckboxGroup>
                 {isOverflowExpand && <ExpandToggleButton />}
                 {/* Target element for IntersectionObserver; intersections
-                    triggers lazy loading callback */}
+                    trigger lazy loading callback */}
                 {isOverflowLazy &&
                   visibleItemsList.length < itemsList.length && (
                     <Box ref={lazyLoadTargetRef} height="1px" />
