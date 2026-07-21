@@ -1,6 +1,6 @@
 {
   "name": "@nypl/design-system-react-components",
-  "version": "4.4.0",
+  "version": "4.4.1-rc2",
   "description": "NYPL Reservoir Design System React Components",
   "repository": {
     "type": "git",
@@ -15,10 +15,16 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/design-system-react-components.js",
-      "require": "./dist/design-system-react-components.cjs"
+      "types": "./dist/src/index.d.ts",
+      "require": "./dist/design-system-react-components.cjs",
+      "import": "./dist/design-system-react-components.js"
     },
-    "./dist/styles.css": "./dist/styles.css"
+    "./dist/styles.css": "./dist/styles.css",
+    "./dist/src/*": {
+      "types": "./dist/src/*.d.ts",
+      "require": "./dist/design-system-react-components.cjs",
+      "import": "./dist/design-system-react-components.js"
+    }
   },
   "author": "NYPL",
   "license": "Apache-2.0",

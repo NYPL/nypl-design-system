@@ -20,7 +20,7 @@ export default defineConfig({
       include: "**/*.svg",
     }),
     // For Typescript support
-    dts(),
+    dts({ outDir: "dist/src" }),
   ],
   root,
   build: {
