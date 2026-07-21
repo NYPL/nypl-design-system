@@ -503,6 +503,8 @@ export const MultiSelect: ChakraComponent<
                   ))}
                 </CheckboxGroup>
                 {isOverflowExpand && <ExpandToggleButton />}
+                {/* Target element for IntersectionObserver; intersections
+                    triggers lazy loading callback */}
                 {isOverflowLazy &&
                   visibleItemsList.length < itemsList.length && (
                     <Box ref={lazyLoadTargetRef} height="1px" />
