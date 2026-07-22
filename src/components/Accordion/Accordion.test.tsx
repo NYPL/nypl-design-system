@@ -157,7 +157,7 @@ describe("Accordion", () => {
     expect(accordionLabel).toHaveAttribute("aria-expanded", "true");
   });
 
-  it("opens the accordion when the label is clicked", () => {
+  it("opens the accordion when the label is clicked", async () => {
     render(<Accordion accordionData={[accordionData[0]]} />);
 
     const accordionLabel = screen.getByRole("button", { name: "Tom Nook" });
@@ -173,7 +173,7 @@ describe("Accordion", () => {
       "SvgPlus"
     );
 
-    userEvent.click(accordionLabel);
+    await userEvent.click(accordionLabel);
 
     accordionPanelContent = screen.queryByText(/operates the village store/i);
     expect(accordionLabel).toHaveAttribute("aria-expanded", "true");
@@ -238,7 +238,7 @@ describe("Accordion", () => {
     expect(accordion3).toHaveAttribute("aria-expanded", "false");
   });
 
-  it("opens each accordion item independently of each other", () => {
+  it("opens each accordion item independently of each other", async () => {
     render(<Accordion accordionData={accordionData} />);
 
     const accordion1 = screen.getByRole("button", { name: "Tom Nook" });
@@ -249,18 +249,18 @@ describe("Accordion", () => {
     expect(accordion2).toHaveAttribute("aria-expanded", "false");
     expect(accordion3).toHaveAttribute("aria-expanded", "false");
 
-    userEvent.click(accordion1);
+    await userEvent.click(accordion1);
     expect(accordion1).toHaveAttribute("aria-expanded", "true");
     expect(accordion2).toHaveAttribute("aria-expanded", "false");
     expect(accordion3).toHaveAttribute("aria-expanded", "false");
 
-    userEvent.click(accordion2);
+    await userEvent.click(accordion2);
     expect(accordion1).toHaveAttribute("aria-expanded", "true");
     expect(accordion2).toHaveAttribute("aria-expanded", "true");
     expect(accordion3).toHaveAttribute("aria-expanded", "false");
 
-    userEvent.click(accordion3);
-    userEvent.click(accordion1);
+    await userEvent.click(accordion3);
+    await userEvent.click(accordion1);
     expect(accordion1).toHaveAttribute("aria-expanded", "false");
     expect(accordion2).toHaveAttribute("aria-expanded", "true");
     expect(accordion3).toHaveAttribute("aria-expanded", "true");
@@ -275,15 +275,15 @@ describe("Accordion", () => {
     expect(accordion1).toHaveAttribute("aria-expanded", "false");
     expect(accordion3).toHaveAttribute("aria-expanded", "false");
 
-    userEvent.click(accordion1);
-    userEvent.click(accordion3);
+    await userEvent.click(accordion1);
+    await userEvent.click(accordion3);
 
     expect(accordion1).toHaveAttribute("aria-expanded", "true");
     expect(accordion3).toHaveAttribute("aria-expanded", "true");
 
     const linkInPanel1 = screen.getByRole("link");
 
-    userEvent.type(linkInPanel1, "[Escape]");
+    await userEvent.type(linkInPanel1, "[Escape]");
 
     expect(accordion1).toHaveAttribute("aria-expanded", "false");
     expect(accordion3).toHaveAttribute("aria-expanded", "true");

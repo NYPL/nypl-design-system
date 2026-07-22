@@ -402,9 +402,9 @@ describe("TextInput", () => {
     );
   });
 
-  it("calls the onChange handler function", () => {
+  it("calls the onChange handler function", async () => {
     expect(changeHandler).toHaveBeenCalledTimes(0);
-    userEvent.type(screen.getByLabelText(/Custom Input Label/i), "Hello");
+    await userEvent.type(screen.getByLabelText(/Custom Input Label/i), "Hello");
     // Called 5 times because "Hello" has length of 5.
     expect(changeHandler).toHaveBeenCalledTimes(5);
   });
@@ -463,7 +463,7 @@ describe("TextInput", () => {
     expect(clearButton).not.toBeInTheDocument();
   });
 
-  it("renders a `clear` button and clears the input field when clicked", () => {
+  it("renders a `clear` button and clears the input field when clicked", async () => {
     const onChangeSpy = jest.fn();
 
     utils.rerender(
@@ -483,21 +483,21 @@ describe("TextInput", () => {
     expect(clearButton).not.toBeInTheDocument();
 
     // Type some value
-    userEvent.type(screen.getByRole("textbox"), "text value");
+    await userEvent.type(screen.getByRole("textbox"), "text value");
 
     expect(screen.getByRole("textbox")).toHaveValue("text value");
     clearButton = screen.queryByRole("button");
     expect(clearButton).toBeInTheDocument();
 
     // Click on the clear button
-    userEvent.click(clearButton);
+    await userEvent.click(clearButton);
     // The text should no longer be in the input field.
     expect(screen.getByRole("textbox")).toHaveValue("");
     // The clear button does not render.
     expect(clearButton).not.toBeInTheDocument();
   });
 
-  it("calls the `isClearableCallback` when the clear button is clicked for controlled TextInput", () => {
+  it("calls the `isClearableCallback` when the clear button is clicked for controlled TextInput", async () => {
     let value = "";
     const setValue = (v) => {
       value = v;
@@ -518,20 +518,20 @@ describe("TextInput", () => {
     let clearButton = screen.queryByRole("button");
 
     // Type some value
-    userEvent.type(screen.getByRole("textbox"), "text value");
+    await userEvent.type(screen.getByRole("textbox"), "text value");
 
     expect(screen.getByRole("textbox")).toHaveValue("text value");
     clearButton = screen.queryByRole("button");
 
     // Click on the clear button
-    userEvent.click(clearButton);
+    await userEvent.click(clearButton);
     // The text should no longer be in the input field.
     expect(screen.getByRole("textbox")).toHaveValue("");
     // The clear button does not render.
     expect(clearButton).not.toBeInTheDocument();
   });
 
-  it("returns focus to the input field when the `clear` button is clicked", () => {
+  it("returns focus to the input field when the `clear` button is clicked", async () => {
     const onChangeSpy = jest.fn();
 
     utils.rerender(
@@ -549,12 +549,12 @@ describe("TextInput", () => {
     let clearButton;
 
     // Type some value
-    userEvent.type(inputElement, "text value");
+    await userEvent.type(inputElement, "text value");
     clearButton = screen.queryByRole("button");
     expect(clearButton).toBeInTheDocument();
 
     // Click on the clear button
-    userEvent.click(clearButton);
+    await userEvent.click(clearButton);
 
     // The text should no longer be in the input field.
     expect(inputElement).toHaveValue("");

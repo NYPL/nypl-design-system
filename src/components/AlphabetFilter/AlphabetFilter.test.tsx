@@ -157,7 +157,7 @@ describe("AlphabetFilter", () => {
     expect(container.querySelector("nav")).toBe(ref.current);
   });
 
-  it("should update active letter when letter or show all button is clicked", () => {
+  it("should update active letter when letter or show all button is clicked", async() => {
     const onClick = (letter: string) => (currentLetter = letter);
     let currentLetter = "c";
 
@@ -172,11 +172,11 @@ describe("AlphabetFilter", () => {
     const buttons = screen.getAllByRole("button");
 
     // E button
-    userEvent.click(buttons[5]);
+    await userEvent.click(buttons[5]);
     expect(currentLetter).toEqual("e");
 
     // Show All button
-    userEvent.click(buttons[buttons.length - 1]);
+    await userEvent.click(buttons[buttons.length - 1]);
     expect(currentLetter).toEqual("showAll");
   });
 });
