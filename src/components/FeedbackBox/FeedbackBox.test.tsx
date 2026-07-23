@@ -28,7 +28,7 @@ describe("FeedbackBox Accessibility", () => {
 
     expect(screen.queryByText(/Comment/i)).not.toBeInTheDocument();
 
-    screen.getByText("Help and Feeback").click();
+    await userEvent.click(screen.getByText("Help and Feeback"));
     // Just to make sure the dialog is opened.
     expect(screen.getByText(/Comment/i)).toBeInTheDocument();
     expect(await axe(container)).toHaveNoViolations();
@@ -53,12 +53,12 @@ describe("FeedbackBox", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the basic content when opened", () => {
+  it("renders the basic content when opened", async () => {
     render(<FeedbackBox title="Help and feedback" onSubmit={onSubmit} />);
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     expect(screen.getByTestId("title")).toHaveTextContent("Help and feedback");
     expect(
@@ -76,7 +76,7 @@ describe("FeedbackBox", () => {
     expect(screen.getByRole("button", { name: "Cancel" })).toBeInTheDocument();
   });
 
-  it("renders optional radio group and email field", () => {
+  it("renders optional radio group and email field", async () => {
     render(
       <FeedbackBox
         onSubmit={onSubmit}
@@ -88,7 +88,7 @@ describe("FeedbackBox", () => {
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     expect(
       screen.getByText(/what is your feedback about/i)
@@ -96,7 +96,7 @@ describe("FeedbackBox", () => {
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
   });
 
-  it("sets the invalid state for the comment and email field", () => {
+  it("sets the invalid state for the comment and email field", async () => {
     render(
       <FeedbackBox
         isInvalidComment
@@ -110,7 +110,7 @@ describe("FeedbackBox", () => {
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     expect(screen.getByText(/please fill out this field/i)).toBeInTheDocument();
     expect(
@@ -118,7 +118,7 @@ describe("FeedbackBox", () => {
     ).toBeInTheDocument();
   });
 
-  it("sets the invalid state for the comment field if it is empty when submitted", () => {
+  it("sets the invalid state for the comment field if it is empty when submitted", async () => {
     render(
       <FeedbackBox
         onSubmit={onSubmit}
@@ -130,15 +130,15 @@ describe("FeedbackBox", () => {
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     const submit = screen.getByRole("button", { name: "Submit" });
-    submit.click();
+    await userEvent.click(submit);
 
     expect(screen.getByText(/please fill out this field/i)).toBeInTheDocument();
   });
 
-  it("renders optional additional description text", () => {
+  it("renders optional additional description text", async () => {
     render(
       <FeedbackBox
         descriptionText="Please share your question or feedback."
@@ -149,14 +149,14 @@ describe("FeedbackBox", () => {
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     expect(
       screen.getByText(/Please share your question or feedback/i)
     ).toBeInTheDocument();
   });
 
-  it("renders optional notification text or JSX", () => {
+  it("renders optional notification text or JSX", async () => {
     const { rerender } = render(
       <FeedbackBox
         notificationText="Call Number: JFE 95-8555"
@@ -167,7 +167,7 @@ describe("FeedbackBox", () => {
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     expect(screen.getByText(/Call Number: JFE 95-8555/i)).toBeInTheDocument();
 
@@ -184,7 +184,7 @@ describe("FeedbackBox", () => {
     );
   });
 
-  it("renders the `confirmation` screen through the `view` prop", () => {
+  it("renders the `confirmation` screen through the `view` prop", async () => {
     render(
       <FeedbackBox
         title="Help and feedback"
@@ -195,7 +195,7 @@ describe("FeedbackBox", () => {
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     expect(
       screen.getByText(/thank you for submitting your feedback/i)
@@ -205,7 +205,7 @@ describe("FeedbackBox", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("renders the email `confirmation` message when showEmailField is true", () => {
+  it("renders the email `confirmation` message when showEmailField is true", async () => {
     render(
       <FeedbackBox
         onSubmit={onSubmit}
@@ -217,26 +217,26 @@ describe("FeedbackBox", () => {
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     expect(
       screen.getByText(/if you asked a question and provided an email/i)
     ).toBeInTheDocument();
   });
 
-  it("renders the `error` screen through the `view` prop", () => {
+  it("renders the `error` screen through the `view` prop", async () => {
     render(
       <FeedbackBox title="Help and feedback" onSubmit={onSubmit} view="error" />
     );
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     expect(screen.getByText(/oops! something went wrong/i)).toBeInTheDocument();
   });
 
-  it("submits the form and returns the submitted data", () => {
+  it("submits the form and returns the submitted data", async () => {
     let submittedValues;
     let onSubmit = (values) => {
       submittedValues = values;
@@ -252,18 +252,18 @@ describe("FeedbackBox", () => {
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     // The first comment field is the radio button.
     const commentField = screen.getAllByLabelText(/comment/i)[1];
     const emailField = screen.getByLabelText(/email/i);
     const submit = screen.getByRole("button", { name: "Submit" });
 
-    screen.getByText(/bug/i).click();
-    userEvent.type(commentField, "This is a comment");
-    userEvent.type(emailField, "email@email.com");
+    await userEvent.click(screen.getByText(/bug/i));
+    await userEvent.type(commentField, "This is a comment");
+    await userEvent.type(emailField, "email@email.com");
 
-    submit.click();
+    await userEvent.click(submit);
 
     expect(submittedValues).toEqual({
       category: "bug",
@@ -272,7 +272,7 @@ describe("FeedbackBox", () => {
     });
   });
 
-  it("adds hidden fields data to the submitted data", () => {
+  it("adds hidden fields data to the submitted data", async () => {
     const hiddenFields = {
       "hidden-field-1": "hidden-field-value-1",
       "hidden-field-2": "hidden-field-value-2",
@@ -293,18 +293,18 @@ describe("FeedbackBox", () => {
 
     const button = screen.getByRole("button", { name: "Help and feedback" });
 
-    button.click();
+    await userEvent.click(button);
 
     // The first comment field is the radio button.
     const commentField = screen.getAllByLabelText(/comment/i)[1];
     const emailField = screen.getByLabelText(/email/i);
     const submit = screen.getByRole("button", { name: "Submit" });
 
-    screen.getByText(/bug/i).click();
-    userEvent.type(commentField, "This is a comment");
-    userEvent.type(emailField, "email@email.com");
+    await userEvent.click(screen.getByText(/bug/i));
+    await userEvent.type(commentField, "This is a comment");
+    await userEvent.type(emailField, "email@email.com");
 
-    submit.click();
+    await userEvent.click(submit);
 
     expect(submittedValues).toEqual({
       category: "bug",
@@ -315,20 +315,20 @@ describe("FeedbackBox", () => {
     });
   });
 
-  it("transitions to the `form` screen from the `error` screen", () => {
+  it("transitions to the `form` screen from the `error` screen", async () => {
     render(
       <FeedbackBox title="Help and feedback" onSubmit={onSubmit} view="error" />
     );
 
     // Open the dialog.
-    screen.queryByRole("button", { name: "Help and feedback" }).click();
+    await userEvent.click(screen.queryByRole("button", { name: "Help and feedback" }));
 
     const button = screen.queryByRole("button", { name: "Try again" });
     expect(
       screen.queryByText(/oops! something went wrong/i)
     ).toBeInTheDocument();
 
-    button.click();
+    await userEvent.click(button);
 
     // The `error` screen should no longer display.
     expect(

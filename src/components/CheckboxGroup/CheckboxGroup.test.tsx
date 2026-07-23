@@ -200,7 +200,7 @@ describe("Checkbox", () => {
     expect(screen.getByRole("group")).toHaveAttribute("id", "some-id");
   });
 
-  it("sets the next value through the onChange function", () => {
+  it("sets the next value through the onChange function", async () => {
     let newValue: string[] = [];
     const onChange = (value: string[]) => {
       newValue = value;
@@ -221,12 +221,12 @@ describe("Checkbox", () => {
 
     expect(newValue).toEqual([]);
 
-    userEvent.click(screen.getByText("Checkbox 3"));
+    await userEvent.click(screen.getByText("Checkbox 3"));
     // "4" was the initial selected value
     expect(newValue).toEqual(["4", "3"]);
-    userEvent.click(screen.getByText("Checkbox 2"));
+    await userEvent.click(screen.getByText("Checkbox 2"));
     expect(newValue).toEqual(["4", "3", "2"]);
-    userEvent.click(screen.getByText("Checkbox 3"));
+    await userEvent.click(screen.getByText("Checkbox 3"));
     expect(newValue).toEqual(["4", "2"]);
   });
 
