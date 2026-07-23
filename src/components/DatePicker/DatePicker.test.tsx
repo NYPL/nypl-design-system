@@ -414,7 +414,7 @@ describe("DatePicker", () => {
       expect(screen.queryByText(/required/i)).not.toBeInTheDocument();
     });
 
-    it("should pass the value to the `onChange` function", () => {
+    it("should pass the value to the `onChange` function", async () => {
       let dateObject: FullDateType = {
         startDate: new Date(),
         endDate: new Date(),
@@ -439,9 +439,9 @@ describe("DatePicker", () => {
       const midMonthDay = "15";
 
       // Let's select a new day.
-      userEvent.click(input);
+      await userEvent.click(input);
       // The popup displays.
-      userEvent.click(screen.getByText(midMonthDay));
+      await userEvent.click(screen.getByText(midMonthDay));
 
       const newDayValue = date.slice(0, -2) + midMonthDay;
       expect(screen.getByDisplayValue(newDayValue)).toBeInTheDocument();
@@ -821,7 +821,7 @@ describe("DatePicker", () => {
       expect(disabled).toMatchSnapshot();
     });
 
-    it("should select two new dates", () => {
+    it("should select two new dates", async() => {
       render(
         <DatePicker
           id="datePicker"
@@ -843,11 +843,11 @@ describe("DatePicker", () => {
       // expect(screen.getAllByDisplayValue(date)).toHaveLength(2);
 
       // Let's select a new day.
-      userEvent.click(inputFrom);
+      await userEvent.click(inputFrom);
       // The popup displays. Select a new day.
       const newDateFrom = 5;
       const newDateTo = 25;
-      userEvent.click(screen.getByText(newDateFrom));
+      await userEvent.click(screen.getByText(newDateFrom));
 
       // We selected a new day but kept everything else the same.
       // Example: 2021-03-02 -> 5 is selected -> 2021-03-05
@@ -856,9 +856,9 @@ describe("DatePicker", () => {
       // expect(screen.getAllByDisplayValue(date)).toHaveLength(1);
 
       // Now select the "To" date.
-      userEvent.click(inputTo);
+      await userEvent.click(inputTo);
       // The popup displays.
-      userEvent.click(screen.getByText(newDateTo));
+      await userEvent.click(screen.getByText(newDateTo));
 
       expect(screen.getByDisplayValue("1988-03-25")).toBeInTheDocument();
       // The original date values are no longer in display.
@@ -891,7 +891,7 @@ describe("DatePicker", () => {
   });
 
   describe("Popup Calendar", () => {
-    it("should render a popup calendar for the full date", () => {
+    it("should render a popup calendar for the full date", async () => {
       render(
         <DatePicker
           id="datePicker"
@@ -909,7 +909,7 @@ describe("DatePicker", () => {
       ).not.toBeInTheDocument();
       expect(screen.queryByText("Su")).not.toBeInTheDocument();
 
-      userEvent.click(input);
+      await userEvent.click(input);
 
       // In the display, the calendar displays "Month Year" such as
       // "August 2021" for example.
@@ -924,7 +924,7 @@ describe("DatePicker", () => {
       expect(screen.getByText("Sa")).toBeInTheDocument();
     });
 
-    it("should select a new date from the calendar", () => {
+    it("should select a new date from the calendar", async () => {
       render(
         <DatePicker
           id="datePicker"
@@ -941,9 +941,9 @@ describe("DatePicker", () => {
       expect(screen.getByDisplayValue(date)).toBeInTheDocument();
 
       // Let's select a new day.
-      userEvent.click(input);
+      await userEvent.click(input);
       // The popup displays.
-      userEvent.click(screen.getByText(midMonthDay));
+      await userEvent.click(screen.getByText(midMonthDay));
 
       // We selected a new day but kept everything else the same. So we just
       // need to remove the older day with the new "15" selected date.
@@ -952,16 +952,16 @@ describe("DatePicker", () => {
       expect(screen.getByDisplayValue(newDayValue)).toBeInTheDocument();
 
       // Let's select a new month
-      userEvent.click(input);
+      await userEvent.click(input);
       // The popup displays. We are currently on 08/15/2021.
       expect(
         screen.getAllByText(monthArray["7"], { exact: false })[0]
       ).toBeInTheDocument();
-      userEvent.click(screen.getByLabelText("Next Month"));
-      userEvent.click(screen.getByLabelText("Next Month"));
+      await userEvent.click(screen.getByLabelText("Next Month"));
+      await userEvent.click(screen.getByLabelText("Next Month"));
 
       // We are two months ahead but still selecting the midmonth day.
-      userEvent.click(screen.getByText(midMonthDay));
+      await userEvent.click(screen.getByText(midMonthDay));
       // So only the month should change accordingly.
       const newMonthValue = `${newDayValue.substr(0, 5)}${strPad(
         10
@@ -969,7 +969,7 @@ describe("DatePicker", () => {
       expect(screen.getByDisplayValue(newMonthValue)).toBeInTheDocument();
     });
 
-    it("should render a popup calendar for the month date", () => {
+    it("should render a popup calendar for the month date", async () => {
       render(
         <DatePicker
           id="datePicker"
@@ -985,7 +985,7 @@ describe("DatePicker", () => {
       expect(screen.queryByText(year)).not.toBeInTheDocument();
       expect(screen.queryByText("Jan")).not.toBeInTheDocument();
 
-      userEvent.click(input);
+      await userEvent.click(input);
 
       // In the display, the calendar displays "Year" such as "2021".
       expect(screen.getByText(year)).toBeInTheDocument();
@@ -996,7 +996,7 @@ describe("DatePicker", () => {
       });
     });
 
-    it("should select a new month from the calendar", () => {
+    it("should select a new month from the calendar", async () => {
       render(
         <DatePicker
           id="datePicker"
@@ -1022,12 +1022,12 @@ describe("DatePicker", () => {
 
       // Let's select a new day by first clicking on the input to open
       // the calendar popup.
-      userEvent.click(input);
+      await userEvent.click(input);
 
       // Now "May" appears as the next month in the calendar popup.
       expect(screen.getByText(currentMonthSelectedDisplay)).toBeInTheDocument();
 
-      userEvent.click(screen.getByText(currentMonthSelectedDisplay));
+      await userEvent.click(screen.getByText(currentMonthSelectedDisplay));
 
       // We selected a new month but kept the year the same.
       // Example: 04-2021 -> "May" -> 05-2021
@@ -1036,7 +1036,7 @@ describe("DatePicker", () => {
       ).toBeInTheDocument();
     });
 
-    it("should render a popup calendar for the year date", () => {
+    it("should render a popup calendar for the year date", async () => {
       render(
         <DatePicker
           id="datePicker"
@@ -1055,7 +1055,7 @@ describe("DatePicker", () => {
         )
       ).not.toBeInTheDocument();
 
-      userEvent.click(input);
+      await userEvent.click(input);
 
       // In the display, the calendar displays a date range from four years
       // before the current year to seven years after the current year. For year
@@ -1074,7 +1074,7 @@ describe("DatePicker", () => {
       }
     });
 
-    it("should select a new year from the calendar", () => {
+    it("should select a new year from the calendar", async () => {
       render(
         <DatePicker
           id="datePicker"
@@ -1090,11 +1090,11 @@ describe("DatePicker", () => {
       expect(screen.getByDisplayValue(year)).toBeInTheDocument();
 
       // Let's select a new day.
-      userEvent.click(input);
+      await userEvent.click(input);
       // The popup displays.
 
       // Select a new year
-      userEvent.click(screen.getByText("2024"));
+      await userEvent.click(screen.getByText("2024"));
 
       expect(screen.getByDisplayValue("2024")).toBeInTheDocument();
     });

@@ -147,7 +147,7 @@ describe("Tabs", () => {
     ).not.toBeVisible();
   });
 
-  it("switches between tabs", () => {
+  it("switches between tabs", async () => {
     render(<Tabs tabsData={animalCrossing} />);
     const isabelleTab = getTabByName("Isabelle");
     const kkSliderTab = getTabByName("K.K. Slider");
@@ -162,7 +162,7 @@ describe("Tabs", () => {
       screen.queryByText(/Totakeke, more commonly known as/i)
     ).not.toBeVisible();
 
-    userEvent.click(isabelleTab);
+    await userEvent.click(isabelleTab);
     expect(isabelleTab).toHaveAttribute("aria-selected", "true");
 
     expect(
@@ -175,7 +175,7 @@ describe("Tabs", () => {
       screen.queryByText(/Totakeke, more commonly known/i)
     ).not.toBeVisible();
 
-    userEvent.click(kkSliderTab);
+    await userEvent.click(kkSliderTab);
     expect(kkSliderTab).toHaveAttribute("aria-selected", "true");
 
     expect(
@@ -200,7 +200,7 @@ describe("Tabs", () => {
     expect(kkSliderTab).toHaveAttribute("aria-selected", "true");
   });
 
-  it("invokes the callback function", () => {
+  it("invokes the callback function", async () => {
     let selectedIndex = 0;
     const onChange = (index: number) => (selectedIndex = index);
 
@@ -210,13 +210,13 @@ describe("Tabs", () => {
     const isabelleTab = getTabByName("Isabelle");
     const kkSliderTab = getTabByName("K.K. Slider");
 
-    userEvent.click(kkSliderTab);
+    await userEvent.click(kkSliderTab);
     expect(selectedIndex).toEqual(2);
 
-    userEvent.click(tomTab);
+    await userEvent.click(tomTab);
     expect(selectedIndex).toEqual(0);
 
-    userEvent.click(isabelleTab);
+    await userEvent.click(isabelleTab);
     expect(selectedIndex).toEqual(1);
   });
 

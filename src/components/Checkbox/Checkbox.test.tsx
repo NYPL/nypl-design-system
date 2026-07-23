@@ -196,7 +196,7 @@ describe("Checkbox", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("should call onChange only once when checkbox is clicked", () => {
+  it("should call onChange only once when checkbox is clicked", async () => {
     const onChangeMock = jest.fn();
 
     render(
@@ -212,11 +212,11 @@ describe("Checkbox", () => {
     expect(
       screen.getByRole("checkbox", { name: /onchangetest/i })
     ).toBeInTheDocument();
-    userEvent.click(screen.getByRole("checkbox", { name: /onchangetest/i }));
+    await userEvent.click(screen.getByRole("checkbox", { name: /onchangetest/i }));
     expect(onChangeMock).toBeCalledTimes(1);
   });
 
-  it("Changing the value calls the onChange handler", () => {
+  it("Changing the value calls the onChange handler", async () => {
     let isChecked = false;
     const onChange = (e) => {
       isChecked = e.target.checked;
@@ -232,7 +232,7 @@ describe("Checkbox", () => {
     );
 
     expect(isChecked).toEqual(false);
-    userEvent.click(utils.getByText("onChangeTest Lab"));
+    await userEvent.click(utils.getByText("onChangeTest Lab"));
     expect(isChecked).toEqual(true);
 
     utils.rerender(
@@ -245,7 +245,7 @@ describe("Checkbox", () => {
       />
     );
 
-    userEvent.click(utils.getByText("onChangeTest Lab"));
+    await userEvent.click(utils.getByText("onChangeTest Lab"));
     expect(isChecked).toEqual(false);
   });
 

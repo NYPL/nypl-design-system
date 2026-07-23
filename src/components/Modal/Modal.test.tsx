@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { renderHook } from "@testing-library/react-hooks";
 import { axe } from "jest-axe";
 import * as React from "react";
@@ -83,12 +84,12 @@ describe("ModalTrigger", () => {
   // for their Modal component.
   // it("should not render an id if none is passed", () => {
   //   render(modalTrigger());
-  //   screen.getByText("Button Text").click();
+  //   userEvent.click(screen.getByText("Button Text"));
 
   //   expect(screen.getByTestId("ds-modal")).not.toHaveAttribute("id");
   // });
 
-  it("renders content when it is opened", () => {
+  it("renders content when it is opened", async () => {
     render(modalTrigger());
     const openButton = screen.getByText("Button Text");
     const closeButton = screen.queryByText("Close Button");
@@ -97,7 +98,7 @@ describe("ModalTrigger", () => {
     expect(closeButton).not.toBeInTheDocument();
     expect(screen.queryByText("Modal Heading Text")).not.toBeInTheDocument();
 
-    openButton.click();
+    await userEvent.click(openButton);
 
     expect(openButton).toBeInTheDocument();
     expect(screen.queryByText("Close Button")).toBeInTheDocument();
@@ -105,7 +106,7 @@ describe("ModalTrigger", () => {
     expect(screen.queryByText("Modal Heading Text")).toBeInTheDocument();
   });
 
-  it("renders a custom heading", () => {
+  it("renders a custom heading", async () => {
     render(
       <ModalTrigger
         buttonText="Button Text"
@@ -123,7 +124,7 @@ describe("ModalTrigger", () => {
     );
 
     const openButton = screen.getByText("Button Text");
-    openButton.click();
+    await userEvent.click(openButton);
 
     expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(
       "Modal Heading Text"
@@ -157,7 +158,7 @@ describe("ModalTrigger", () => {
     expect(confirmButton).not.toBeInTheDocument();
 
     const openButton = screen.getByText("Button Text");
-    openButton.click();
+    await userEvent.click(openButton);
 
     expect(screen.getByRole("heading", { level: 3 })).toHaveTextContent(
       "Confirmation"
@@ -169,7 +170,7 @@ describe("ModalTrigger", () => {
     expect(confirmButton).toBeInTheDocument();
   });
 
-  it("renders default heading with expected size", () => {
+  it("renders default heading with expected size", async () => {
     render(
       <ModalTrigger
         buttonText="Button Text"
@@ -187,7 +188,7 @@ describe("ModalTrigger", () => {
     );
 
     const openButton = screen.getByText("Button Text");
-    openButton.click();
+    await userEvent.click(openButton);
 
     expect(screen.getByRole("heading", { level: 2 })).toHaveStyle(
       //var(--nypl-fontSizes-mobile-heading-heading4) = 1.5em
@@ -245,12 +246,12 @@ describe("useModal", () => {
   // for their Modal component.
   // it("should not render an id if none is passed", () => {
   //   render(useModalComponent);
-  //   screen.getByText("Open Modal").click();
+  //   await userEvent.click(screen.getByText("Open Modal"));
 
   //   expect(screen.getByTestId("ds-modal")).not.toHaveAttribute("id");
   // });
 
-  it("renders content when it is opened", () => {
+  it("renders content when it is opened", async () => {
     render(useModalComponent);
     const openButton = screen.getByText("Open Modal");
     const closeButton = screen.queryByText("This is a custom close button.");
@@ -259,7 +260,7 @@ describe("useModal", () => {
     expect(closeButton).not.toBeInTheDocument();
     expect(screen.queryByText("Modal Heading Text")).not.toBeInTheDocument();
 
-    openButton.click();
+    await userEvent.click(openButton);
 
     // TODO: Fix this test
     // expect(openButton).toBeInTheDocument();

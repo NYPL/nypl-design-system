@@ -1,5 +1,6 @@
 import * as React from "react";
 import { render, RenderResult, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
@@ -170,7 +171,7 @@ describe("Banner", () => {
     );
   });
 
-  it("calls onClose correctly", () => {
+  it("calls onClose correctly", async () => {
     const log = jest.spyOn(console, "log");
 
     utils.rerender(
@@ -182,7 +183,7 @@ describe("Banner", () => {
       />
     );
     const button = screen.getByRole("button");
-    button.click();
+    await userEvent.click(button);
     expect(log).toHaveBeenCalledWith("custom close");
   });
 
