@@ -89,7 +89,7 @@ const getElementsFromData = ({
           error: "dark.ui.status.primary", // TODO: replace with vivid burgundy 700
         }
       : {
-          default: "ui.white",
+          default: "dark.ui.border.hover",
           warning: "ui.status.primary",
           error: "dark.ui.error.primary",
         };
@@ -129,6 +129,13 @@ const getElementsFromData = ({
       );
 
     const finalAriaLabel = content.ariaLabel ? content.ariaLabel : ariaLabel;
+
+    const bgColorLight =
+      getColorMapLight(isDisabled)[content.variant] ||
+      getColorMapLight(isDisabled)["default"];
+    const borderStartColorDark =
+      getBorderStartColorMapDark(isDisabled)[content.variant] ||
+      getBorderStartColorMapDark(isDisabled)["default"];
 
     if (content.ariaLabel && ariaLabel) {
       console.warn(
@@ -175,24 +182,19 @@ const getElementsFromData = ({
                     ? "transparent"
                     : undefined
                 }
-                bg={
-                  getColorMapLight(isDisabled)[content?.variant] ||
-                  getColorMapLight(isDisabled)["default"]
-                }
+                bg={bgColorLight}
                 _hover={
                   !isDisabled && {
-                    bg: getColorMapLight(isDisabled)[content.variant],
+                    bg: noTypeOrDefaultType ? "transparent" : bgColorLight,
                     borderColor: "ui.gray.dark",
                   }
                 }
                 _expanded={{
-                  bg: noTypeOrDefaultType
-                    ? "ui.gray.light-cool"
-                    : getColorMapLight(isDisabled)[content.variant],
+                  bg: noTypeOrDefaultType ? "ui.gray.light-cool" : bgColorLight,
                   _hover: {
                     bg: noTypeOrDefaultType
                       ? "ui.gray.light-cool"
-                      : getColorMapLight(isDisabled)[content.variant],
+                      : bgColorLight,
                   },
                 }}
                 _dark={{
@@ -206,9 +208,7 @@ const getElementsFromData = ({
                       : "dark.ui.border.default",
                   color: "dark.ui.typography.heading",
                   borderStart: "4px solid",
-                  borderStartColor: noTypeOrDefaultType
-                    ? "dark.ui.border.hover"
-                    : getBorderStartColorMapDark(isDisabled)[content.variant],
+                  borderStartColor: borderStartColorDark,
                   borderBottomColor:
                     isLast && isDisabled && numAccordionItems === 1
                       ? "dark.ui.disabled.primary"
