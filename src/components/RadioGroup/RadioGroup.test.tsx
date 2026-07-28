@@ -197,7 +197,7 @@ describe("RadioGroup", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("sets the next value through the onChange function", () => {
+  it("sets the next value through the onChange function", async () => {
     let newValue = "";
     const onChange = (value: string) => {
       newValue = value;
@@ -217,9 +217,9 @@ describe("RadioGroup", () => {
     );
 
     expect(newValue).toEqual("");
-    userEvent.click(screen.getByText("Radio 3"));
+    await userEvent.click(screen.getByText("Radio 3"));
     expect(newValue).toEqual("3");
-    userEvent.click(screen.getByText("Radio 2"));
+    await userEvent.click(screen.getByText("Radio 2"));
     expect(newValue).toEqual("2");
   });
 

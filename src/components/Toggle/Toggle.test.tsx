@@ -113,7 +113,7 @@ describe("Toggle", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("Changing the value calls the onChange handler", () => {
+  it("Changing the value calls the onChange handler", async () => {
     const utils = render(
       <Toggle
         id="onChangeTest"
@@ -124,7 +124,7 @@ describe("Toggle", () => {
     );
 
     expect(changeHandler).toHaveBeenCalledTimes(0);
-    userEvent.click(utils.getByText("onChangeTest Lab"));
+    await userEvent.click(utils.getByText("onChangeTest Lab"));
     expect(changeHandler).toHaveBeenCalledTimes(1);
   });
 

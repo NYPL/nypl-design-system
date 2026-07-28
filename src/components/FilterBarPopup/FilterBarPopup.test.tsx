@@ -213,7 +213,7 @@ describe("FilterBarPopup", () => {
       screen.getByRole("button", { name: /show filters/i })
     ).toBeInTheDocument();
     // Open the modal
-    userEvent.click(screen.getByRole("button", { name: /show filters/i }));
+    await userEvent.click(screen.getByRole("button", { name: /show filters/i }));
     // Check that all the multiselects are present
     expect(screen.getByRole("button", { name: /pets/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /colors/i })).toBeInTheDocument();
@@ -221,7 +221,7 @@ describe("FilterBarPopup", () => {
     // Check for the Close button to be present
     expect(screen.getByRole("button", { name: /close/i })).toBeInTheDocument();
     // Close the modal
-    userEvent.click(screen.getByRole("button", { name: /close/i }));
+    await userEvent.click(screen.getByRole("button", { name: /close/i }));
     // Wait for the modal to close before making the check
     await waitFor(() => {
       expect(
@@ -237,27 +237,27 @@ describe("FilterBarPopup", () => {
       />
     );
     // Open the modal
-    userEvent.click(screen.getByRole("button", { name: /show filters/i }));
+    await userEvent.click(screen.getByRole("button", { name: /show filters/i }));
     // Open menu
-    userEvent.click(screen.getByRole("button", { name: /colors/i }));
+    await userEvent.click(screen.getByRole("button", { name: /colors/i }));
     // Open menu
-    userEvent.click(screen.getByRole("button", { name: /pets/i }));
+    await userEvent.click(screen.getByRole("button", { name: /pets/i }));
     // Open menu
-    userEvent.click(screen.getByRole("button", { name: /tools/i }));
+    await userEvent.click(screen.getByRole("button", { name: /tools/i }));
     // Check item
-    userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
+    await userEvent.click(screen.getByRole("checkbox", { name: /blue/i }));
     // Check item
-    userEvent.click(screen.getByText("Dog"));
+    await userEvent.click(screen.getByText("Dog"));
     // Check item
-    userEvent.click(screen.getByRole("checkbox", { name: /hammer/i }));
+    await userEvent.click(screen.getByRole("checkbox", { name: /hammer/i }));
     expect(screen.getAllByRole("button", { name: /selected/i }).length).toBe(6);
     // click Clear All button
-    userEvent.click(screen.getByRole("button", { name: /clear all filters/i }));
+    await userEvent.click(screen.getByRole("button", { name: /clear all filters/i }));
     expect(
       Object.keys(screen.findAllByRole("button", { name: /selected/i })).length
     ).toBe(0);
   });
-  it("should call onSubmit function when 'Show results' button is clicked", () => {
+  it("should call onSubmit function when 'Show results' button is clicked", async () => {
     const mockonSubmit = jest.fn();
     const { rerender } = render(
       <FilterBarTestComponent onSubmit={mockonSubmit} id="filter-bar-test-4" />
@@ -266,9 +266,9 @@ describe("FilterBarPopup", () => {
       <FilterBarTestComponent onSubmit={mockonSubmit} id="filter-bar-test-4" />
     );
     // Open the modal
-    userEvent.click(screen.getByRole("button", { name: /show filters/i }));
+    await userEvent.click(screen.getByRole("button", { name: /show filters/i }));
     // click Submit All button
-    userEvent.click(screen.getByRole("button", { name: /show results/i }));
+    await userEvent.click(screen.getByRole("button", { name: /show results/i }));
     expect(mockonSubmit).toBeCalledTimes(1);
   });
   it("renders the UI snapshots correctly", () => {
