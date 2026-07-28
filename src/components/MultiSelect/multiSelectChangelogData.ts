@@ -13,7 +13,7 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "Prerelease",
     type: "New Feature",
-    affects: ["Documentation", "Functionality"],
+    affects: ["Documentation", "Functionality", "Styles"],
     notes: ["Adds the `isDisabled` prop."],
   },
   {
