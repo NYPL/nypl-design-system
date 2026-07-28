@@ -44,7 +44,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             type="button"
           >
             <span
-              className="css-1f0p62r"
+              className="css-1kmgev1"
             >
               <span
                 className="css-0"
@@ -352,7 +352,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             type="button"
           >
             <span
-              className="css-1f0p62r"
+              className="css-1kmgev1"
             >
               <span
                 className="css-0"
@@ -864,7 +864,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
             type="button"
           >
             <span
-              className="css-1f0p62r"
+              className="css-1kmgev1"
             >
               <span
                 className="css-0"
@@ -1394,7 +1394,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             type="button"
           >
             <span
-              className="css-1f0p62r"
+              className="css-1kmgev1"
             >
               <span
                 className="css-0"
@@ -1702,7 +1702,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             type="button"
           >
             <span
-              className="css-1f0p62r"
+              className="css-1kmgev1"
             >
               <span
                 className="css-0"
@@ -2214,7 +2214,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
             type="button"
           >
             <span
-              className="css-1f0p62r"
+              className="css-1kmgev1"
             >
               <span
                 className="css-0"

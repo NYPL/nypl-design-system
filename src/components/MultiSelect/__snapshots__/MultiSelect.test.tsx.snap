@@ -31,7 +31,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
         type="button"
       >
         <span
-          className="css-1f0p62r"
+          className="css-1kmgev1"
         >
           <span
             className="css-0"
@@ -685,7 +685,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
         type="button"
       >
         <span
-          className="css-1f0p62r"
+          className="css-1kmgev1"
         >
           <span
             className="css-0"
@@ -1339,7 +1339,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
         type="button"
       >
         <span
-          className="css-1f0p62r"
+          className="css-1kmgev1"
         >
           <span
             className="css-0"
@@ -2055,7 +2055,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
         type="button"
       >
         <span
-          className="css-1f0p62r"
+          className="css-1kmgev1"
         >
           <span
             className="css-0"

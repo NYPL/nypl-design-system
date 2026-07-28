@@ -231,17 +231,15 @@ const getElementsFromData = ({
                   flex="1"
                   fontSize={multipleFontSize}
                   textAlign="start"
-                  color={useColorModeValue(
-                    isDisabled ? "ui.gray.dark" : "ui.black",
-                    isDisabled ? "dark.ui.disabled.primary" : "ui.white"
-                  )}
                 >
                   {content.label}
                 </Box>
                 <Icon
                   color={useColorModeValue(
                     isDisabled ? "ui.gray.medium" : "ui.black",
-                    isDisabled ? "dark.ui.disabled.primary" : "ui.white"
+                    isDisabled
+                      ? "dark.ui.disabled.primary"
+                      : "dark.ui.typography.heading"
                   )}
                   id={`${id}-icon-${index}`}
                   name={isExpanded ? "minus" : "plus"}

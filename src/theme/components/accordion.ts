@@ -29,6 +29,10 @@ const buttonStyles = {
   },
   _disabled: {
     opacity: 1,
+    color: "ui.gray.dark",
+    _dark: {
+      color: "dark.ui.disabled.primary",
+    },
   },
 };
 const panelStyles = {
