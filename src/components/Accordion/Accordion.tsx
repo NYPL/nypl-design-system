@@ -286,13 +286,13 @@ export const Accordion: ChakraComponent<
       isDefaultOpen ? [0] : []
     );
 
-    const [prevAccordionData, setPrevAccordionDate] =
+    const [prevAccordionData, setPrevAccordionData] =
       useState<AccordionDataProps[]>(accordionData);
     if (accordionData !== prevAccordionData) {
-      setPrevAccordionDate(accordionData);
+      setPrevAccordionData(accordionData);
       // Closes accordion items that are set to disabled
       setExpandedPanels((prev) =>
-        prev.filter((idx) => !updatedAccordionData[idx]?.isDisabled)
+        prev.filter((idx) => !accordionData[idx]?.isDisabled)
       );
     }
 
