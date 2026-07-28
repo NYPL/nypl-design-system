@@ -14,7 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "New Feature",
     affects: ["Documentation", "Functionality", "Styles"],
-    notes: ["Adds the `isDisabled` prop."],
+    notes: ["Adds the `isDisabled` prop to `AccordionDataProps`"],
   },
   {
     date: "2025-08-11",

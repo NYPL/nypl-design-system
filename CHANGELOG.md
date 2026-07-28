@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `isDisabled` prop to the `Accordion` and `MultiSelect` components.
+- Adds the `isDisabled` prop to the `MultiSelect` component and `AccordionDataProps`.
 
 ## 4.4.1 (July 22, 2026)
 
