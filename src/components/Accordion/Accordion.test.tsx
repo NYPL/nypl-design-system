@@ -157,6 +157,15 @@ describe("Accordion", () => {
     expect(accordionLabel).toHaveAttribute("aria-expanded", "true");
   });
 
+  it("sets the 'disabled' attribute", () => {
+    render(
+      <Accordion accordionData={[{ ...accordionData[0], isDisabled: true }]} />
+    );
+    const accordionButton = screen.getByRole("button");
+    expect(accordionButton).toHaveAttribute("disabled");
+    expect(accordionButton.getAttribute("aria-expanded")).toEqual("false");
+  });
+
   it("opens the accordion when the label is clicked", () => {
     render(<Accordion accordionData={[accordionData[0]]} />);
 

@@ -11,6 +11,7 @@ import Heading from "../Heading/Heading";
 const accordionData: AccordionDataProps[] = [
   {
     variant: "default",
+    isDisabled: false,
     label: "Tom Nook",
     panel: (
       <Card
@@ -183,6 +184,12 @@ export const PanelMaxHeightExample2: Story = {
     <Accordion accordionData={accordionLongTextData} panelMaxHeight="100px" />
   ),
   name: "panelMaxHeight Example with Long Text",
+};
+
+export const DisabledState: Story = {
+  render: () => (
+    <Accordion accordionData={[{ ...accordionData[0], isDisabled: true }]} />
+  ),
 };
 
 const onChange = (data) => {

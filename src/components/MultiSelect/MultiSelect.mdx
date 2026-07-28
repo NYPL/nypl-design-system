@@ -32,6 +32,7 @@ import { changelogData } from "./multiSelectChangelogData";
 - [Populating the List Items](#populating-the-list-items)
 - [Visible List Items](#visible-list-items)
 - [Nested List Items](#nested-list-items)
+- [Disabled State](#disabled-state)
 - [Disabled List Items](#disabled-list-items)
 - [Search Input Field](#search-input-field)
 - [Item Count](#item-count)
@@ -299,6 +300,13 @@ a check/uncheck all toggle for its children.
 `}
   language="tsx"
 />
+
+## Disabled State
+
+To disable an entire `MultiSelect`, set the `isDisabled` prop to `true`. The
+`Accordion` and item count button will be disabled.
+
+<Canvas of={MultiSelectStories.disabledState} />
 
 ## Disabled List Items
 

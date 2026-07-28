@@ -20,7 +20,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
         aria-controls="accordion-panel-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
-        className="chakra-accordion__button css-1rvudez"
+        className="chakra-accordion__button css-u9xvwr"
         disabled={false}
         id="accordion-button-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
@@ -31,7 +31,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
         type="button"
       >
         <span
-          className="css-1kmgev1"
+          className="css-1f0p62r"
         >
           <span
             className="css-0"
@@ -42,7 +42,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon css-1b9sovw"
+          className="chakra-icon css-1nreziu"
           data-file-name="SvgPlus"
           focusable={false}
           id="multiselect-test-id-accordion-icon-0"
@@ -674,7 +674,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
         aria-controls="accordion-panel-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 0 items currently selected"
-        className="chakra-accordion__button css-1rvudez"
+        className="chakra-accordion__button css-u9xvwr"
         disabled={false}
         id="accordion-button-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
@@ -685,7 +685,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
         type="button"
       >
         <span
-          className="css-1kmgev1"
+          className="css-1f0p62r"
         >
           <span
             className="css-0"
@@ -696,7 +696,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon css-1b9sovw"
+          className="chakra-icon css-1nreziu"
           data-file-name="SvgPlus"
           focusable={false}
           id="multiselect-test-id-accordion-icon-0"
@@ -1328,7 +1328,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
         aria-controls="accordion-panel-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 1 item currently selected"
-        className="chakra-accordion__button css-1rvudez"
+        className="chakra-accordion__button css-u9xvwr"
         disabled={false}
         id="accordion-button-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
@@ -1339,7 +1339,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
         type="button"
       >
         <span
-          className="css-1kmgev1"
+          className="css-1f0p62r"
         >
           <span
             className="css-0"
@@ -1350,7 +1350,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon css-1b9sovw"
+          className="chakra-icon css-1nreziu"
           data-file-name="SvgPlus"
           focusable={false}
           id="multiselect-test-id-accordion-icon-0"
@@ -2044,7 +2044,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
         aria-controls="accordion-panel-multiselect-test-id-accordion-item-0"
         aria-expanded={false}
         aria-label="multiselect-button-text, 2 items currently selected"
-        className="chakra-accordion__button css-1rvudez"
+        className="chakra-accordion__button css-u9xvwr"
         disabled={false}
         id="accordion-button-multiselect-test-id-accordion-item-0"
         onClick={[Function]}
@@ -2055,7 +2055,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
         type="button"
       >
         <span
-          className="css-1kmgev1"
+          className="css-1f0p62r"
         >
           <span
             className="css-0"
@@ -2066,7 +2066,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
         </span>
         <svg
           aria-hidden={true}
-          className="chakra-icon css-1b9sovw"
+          className="chakra-icon css-1nreziu"
           data-file-name="SvgPlus"
           focusable={false}
           id="multiselect-test-id-accordion-icon-0"

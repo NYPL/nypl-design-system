@@ -356,6 +356,33 @@ describe("MultiSelect", () => {
     ).not.toBeInTheDocument();
   });
 
+  it("sets the 'disabled' attribute if entire MultiSelect is disabled", () => {
+    selectedTestItems = { "multiselect-test-id": { items: ["red", "blue"] } };
+    render(
+      <MultiSelect
+        id="multiselect-test-id"
+        buttonText="Multiselect button text"
+        items={items}
+        isDisabled={true}
+        isSearchable={false}
+        isBlockElement={false}
+        isDefaultOpen={false}
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+    const multiSelectButton = screen.getByRole("button", {
+      name: "Multiselect button text, 2 items currently selected",
+    });
+    const itemCountButton = screen.getByRole("button", {
+      name: "remove 2 items selected from Multiselect button text",
+    });
+    expect(multiSelectButton).toHaveAttribute("disabled");
+    expect(multiSelectButton.getAttribute("aria-expanded")).toEqual("false");
+    expect(itemCountButton).toHaveAttribute("disabled");
+  });
+
   it("should close the multiselect when the component loses focus, if `closeOnBlur` is true", async () => {
     render(
       <MultiSelect

@@ -322,6 +322,7 @@ export const withControls: Story = {
     defaultItemsVisible: undefined,
     isBlockElement: true,
     isDefaultOpen: false,
+    isDisabled: false,
     isSearchable: true,
     items: withItems,
     listOverflow: "scroll",
@@ -617,6 +618,16 @@ export const closeOnBlurState: Story = {
   ),
 };
 
+export const disabledState: Story = {
+  render: () => (
+    <MultiSelectStory
+      id="multi-select-id-18"
+      isDisabled={true}
+      items={withChildrenItems}
+    />
+  ),
+};
+
 export const InAGroup: Story = {
   render: () => <MultiSelectGroupStory items={withItems} />,
 };
@@ -668,6 +679,7 @@ const MultiSelectStory = ({
   id,
   closeOnBlur = false,
   isBlockElement = false,
+  isDisabled = false,
   isSearchable = false,
   isDefaultOpen,
   items,
@@ -699,6 +711,7 @@ const MultiSelectStory = ({
       id={id}
       isBlockElement={isBlockElement}
       isDefaultOpen={isDefaultOpen}
+      isDisabled={isDisabled}
       isSearchable={isSearchable}
       items={items}
       listOverflow={listOverflow}
