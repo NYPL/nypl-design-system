@@ -68,31 +68,33 @@ const getElementsFromData = ({
   hoveredButtonIndex: number;
   setHoveredButtonIndex: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  const getColorMapLight = (isDisabled) => {
-    return isDisabled
-      ? {
-          default: "ui.bg.accordion.default.disabled",
-          warning: "ui.bg.accordion.warning.disabled",
-          error: "ui.bg.accordion.error.disabled",
-        }
-      : {
-          default: "ui.bg.accordion.default.init",
-          warning: "ui.bg.accordion.warning.init",
-          error: "ui.bg.accordion.error.init",
-        };
-  };
-  const getBorderStartColorMapDark = (isDisabled) => {
-    return isDisabled
-      ? {
-          default: "dark.ui.bg.accordion.default.disabled",
-          warning: "dark.ui.bg.accordion.warning.disabled",
-          error: "dark.ui.bg.accordion.error.disabled",
-        }
-      : {
-          default: "dark.ui.bg.accordion.default.init",
-          warning: "dark.ui.bg.accordion.warning.init",
-          error: "dark.ui.bg.accordion.error.init",
-        };
+  const getColorMap = (isDisabled) => {
+    return {
+      default: {
+        bgLight: isDisabled
+          ? "ui.bg.accordion.default.disabled"
+          : "ui.bg.accordion.default.init",
+        borderStartDark: isDisabled
+          ? "dark.ui.bg.accordion.default.disabled"
+          : "dark.ui.bg.accordion.default.init",
+      },
+      warning: {
+        bgLight: isDisabled
+          ? "ui.bg.accordion.warning.disabled"
+          : "ui.bg.accordion.warning.init",
+        borderStartDark: isDisabled
+          ? "dark.ui.bg.accordion.warning.disabled"
+          : "dark.ui.bg.accordion.warning.init",
+      },
+      error: {
+        bgLight: isDisabled
+          ? "ui.bg.accordion.error.disabled"
+          : "ui.bg.accordion.error.init",
+        borderStartDark: isDisabled
+          ? "dark.ui.bg.accordion.error.disabled"
+          : "dark.ui.bg.accordion.error.init",
+      },
+    };
   };
 
   const getBorderColorLight = (isDisabled, numAccordionItems) => {
@@ -142,12 +144,16 @@ const getElementsFromData = ({
 
     const finalAriaLabel = content.ariaLabel ? content.ariaLabel : ariaLabel;
 
-    const bgColorLight =
-      getColorMapLight(isDisabled)[content.variant] ||
-      getColorMapLight(isDisabled)["default"];
-    const borderStartColorDark =
-      getBorderStartColorMapDark(isDisabled)[content.variant] ||
-      getBorderStartColorMapDark(isDisabled)["default"];
+    const colorMap = getColorMap(isDisabled);
+    const bgLight = content.variant
+      ? colorMap[content.variant]["bgLight"]
+      : colorMap["default"]["bgLight"];
+    const borderStartColorDark = content.variant
+      ? colorMap[content.variant]["borderStartDark"]
+      : colorMap["default"]["borderStartDark"];
+
+    const borderColorLight = getBorderColorLight(isDisabled, numAccordionItems);
+    const borderColorDark = getBorderColorDark(isDisabled, numAccordionItems);
 
     if (content.ariaLabel && ariaLabel) {
       console.warn(
@@ -173,13 +179,11 @@ const getElementsFromData = ({
                 id={`${id}-button-${index}`}
                 padding={multiplePadding}
                 ref={content.buttonInteractionRef}
-                borderColor={getBorderColorLight(isDisabled, numAccordionItems)}
+                borderColor={borderColorLight}
                 // Fix for double border issue in non-hovered state
                 // i.e. Hide the bottom border unless the accordion is last or expanded
                 borderBottomColor={
-                  isLast || isExpanded
-                    ? getBorderColorLight(isDisabled, numAccordionItems)
-                    : "transparent"
+                  isLast || isExpanded ? borderColorLight : "transparent"
                 }
                 // Fix for double border issue on hover
                 // i.e. Hide the top border on the next button after the hovered button unless it's first
@@ -188,19 +192,17 @@ const getElementsFromData = ({
                     ? "transparent"
                     : undefined
                 }
-                bg={bgColorLight}
+                bg={bgLight}
                 _hover={
                   !isDisabled && {
-                    bg: noTypeOrDefaultType ? "transparent" : bgColorLight,
+                    bg: noTypeOrDefaultType ? "transparent" : bgLight,
                     borderColor: "ui.gray.dark",
                   }
                 }
                 _expanded={{
-                  bg: noTypeOrDefaultType ? "ui.gray.light-cool" : bgColorLight,
+                  bg: noTypeOrDefaultType ? "ui.gray.light-cool" : bgLight,
                   _hover: {
-                    bg: noTypeOrDefaultType
-                      ? "ui.gray.light-cool"
-                      : bgColorLight,
+                    bg: noTypeOrDefaultType ? "ui.gray.light-cool" : bgLight,
                   },
                 }}
                 _dark={{
@@ -208,17 +210,12 @@ const getElementsFromData = ({
                     bg: "dark.ui.bg.active",
                   },
                   bg: "dark.ui.bg.default",
-                  borderColor: getBorderColorDark(
-                    isDisabled,
-                    numAccordionItems
-                  ),
+                  borderColor: borderColorDark,
                   color: "dark.ui.typography.heading",
                   borderStart: "4px solid",
                   borderStartColor: borderStartColorDark,
                   borderBottomColor:
-                    isLast || isExpanded
-                      ? getBorderColorDark(isDisabled, numAccordionItems)
-                      : "transparent",
+                    isLast || isExpanded ? borderColorDark : "transparent",
                   _hover: !isDisabled && {
                     borderColor: "dark.ui.border.hover",
                   },
