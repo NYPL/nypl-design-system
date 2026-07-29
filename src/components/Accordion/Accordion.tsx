@@ -68,45 +68,42 @@ const getElementsFromData = ({
   hoveredButtonIndex: number;
   setHoveredButtonIndex: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  const getColorMap = (isDisabled) => {
-    return {
-      default: {
-        bgLight: isDisabled
-          ? "ui.bg.accordion.default.disabled"
-          : "ui.bg.accordion.default.init",
-        borderStartDark: isDisabled
-          ? "dark.ui.bg.accordion.default.disabled"
-          : "dark.ui.bg.accordion.default.init",
-      },
-      warning: {
-        bgLight: isDisabled
-          ? "ui.bg.accordion.warning.disabled"
-          : "ui.bg.accordion.warning.init",
-        borderStartDark: isDisabled
-          ? "dark.ui.bg.accordion.warning.disabled"
-          : "dark.ui.bg.accordion.warning.init",
-      },
-      error: {
-        bgLight: isDisabled
-          ? "ui.bg.accordion.error.disabled"
-          : "ui.bg.accordion.error.init",
-        borderStartDark: isDisabled
-          ? "dark.ui.bg.accordion.error.disabled"
-          : "dark.ui.bg.accordion.error.init",
-      },
-    };
-  };
+  const getColorMap = (isDisabled) => ({
+    default: {
+      bgLight: isDisabled
+        ? "ui.bg.accordion.default.disabled"
+        : "ui.bg.accordion.default.init",
+      borderStartDark: isDisabled
+        ? "dark.ui.bg.accordion.default.disabled"
+        : "dark.ui.bg.accordion.default.init",
+    },
+    warning: {
+      bgLight: isDisabled
+        ? "ui.bg.accordion.warning.disabled"
+        : "ui.bg.accordion.warning.init",
+      borderStartDark: isDisabled
+        ? "dark.ui.bg.accordion.warning.disabled"
+        : "dark.ui.bg.accordion.warning.init",
+    },
+    error: {
+      bgLight: isDisabled
+        ? "ui.bg.accordion.error.disabled"
+        : "ui.bg.accordion.error.init",
+      borderStartDark: isDisabled
+        ? "dark.ui.bg.accordion.error.disabled"
+        : "dark.ui.bg.accordion.error.init",
+    },
+  });
 
-  const getBorderColorLight = (isDisabled, numAccordionItems) => {
-    return isDisabled && numAccordionItems === 1
+  const getBorderColorLight = (isDisabled, numAccordionItems) =>
+    isDisabled && numAccordionItems === 1
       ? "ui.gray.semi-medium"
       : "ui.gray.medium";
-  };
-  const getBorderColorDark = (isDisabled, numAccordionItems) => {
-    return isDisabled && numAccordionItems === 1
+
+  const getBorderColorDark = (isDisabled, numAccordionItems) =>
+    isDisabled && numAccordionItems === 1
       ? "dark.ui.disabled.primary"
       : "dark.ui.border.default";
-  };
 
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
