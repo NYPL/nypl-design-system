@@ -209,6 +209,19 @@ export const DisabledState: Story = {
   ),
 };
 
+export const FaqContentWithDisabledItem: Story = {
+  render: () => (
+    <Accordion
+      accordionData={[
+        { ...faqContentData[0], isDisabled: true },
+        faqContentData[1],
+        faqContentData[2],
+      ]}
+    />
+  ),
+  name: "FAQ Content With Disabled Item",
+};
+
 const onChange = (data) => {
   console.log(data);
 };
