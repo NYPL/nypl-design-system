@@ -71,27 +71,27 @@ const getElementsFromData = ({
   const getColorMapLight = (isDisabled) => {
     return isDisabled
       ? {
-          default: "ui.disabled.secondary",
-          warning: "ui.status.primary-10",
-          error: "ui.status.primary-10", // TODO: replace with vivid burgundy 25
+          default: "ui.bg.accordion.default.disabled",
+          warning: "ui.bg.accordion.warning.disabled",
+          error: "ui.bg.accordion.error.disabled",
         }
       : {
-          default: "ui.white",
-          warning: "ui.status.primary",
-          error: "ui.status.secondary",
+          default: "ui.bg.accordion.default.init",
+          warning: "ui.bg.accordion.warning.init",
+          error: "ui.bg.accordion.error.init",
         };
   };
   const getBorderStartColorMapDark = (isDisabled) => {
     return isDisabled
       ? {
-          default: "dark.ui.disabled.primary",
-          warning: "dark.ui.status.primary",
-          error: "dark.ui.status.primary", // TODO: replace with vivid burgundy 700
+          default: "dark.ui.bg.accordion.default.disabled",
+          warning: "dark.ui.bg.accordion.warning.disabled",
+          error: "dark.ui.bg.accordion.error.disabled",
         }
       : {
-          default: "dark.ui.border.hover",
-          warning: "ui.status.primary",
-          error: "dark.ui.error.primary",
+          default: "dark.ui.bg.accordion.default.init",
+          warning: "dark.ui.bg.accordion.warning.init",
+          error: "dark.ui.bg.accordion.error.init",
         };
   };
 

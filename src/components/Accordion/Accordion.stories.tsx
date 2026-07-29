@@ -188,7 +188,24 @@ export const PanelMaxHeightExample2: Story = {
 
 export const DisabledState: Story = {
   render: () => (
-    <Accordion accordionData={[{ ...accordionData[0], isDisabled: true }]} />
+    <VStack gap="s">
+      <Accordion
+        accordionData={[{ ...accordionData[0], isDisabled: true }]}
+        width="100%"
+      />
+      <Accordion
+        accordionData={[
+          { ...accordionData[0], isDisabled: true, variant: "error" },
+        ]}
+        width="100%"
+      />
+      <Accordion
+        accordionData={[
+          { ...accordionData[0], isDisabled: true, variant: "warning" },
+        ]}
+        width="100%"
+      />
+    </VStack>
   ),
 };
 
