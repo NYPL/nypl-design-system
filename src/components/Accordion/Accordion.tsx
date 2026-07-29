@@ -94,6 +94,18 @@ const getElementsFromData = ({
           error: "dark.ui.error.primary",
         };
   };
+
+  const getBorderColorLight = (isDisabled, numAccordionItems) => {
+    return isDisabled && numAccordionItems === 1
+      ? "ui.gray.semi-medium"
+      : "ui.gray.medium";
+  };
+  const getBorderColorDark = (isDisabled, numAccordionItems) => {
+    return isDisabled && numAccordionItems === 1
+      ? "dark.ui.disabled.primary"
+      : "dark.ui.border.default";
+  };
+
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
   const numAccordionItems = data?.length;
@@ -161,18 +173,12 @@ const getElementsFromData = ({
                 id={`${id}-button-${index}`}
                 padding={multiplePadding}
                 ref={content.buttonInteractionRef}
-                borderColor={
-                  isDisabled && numAccordionItems === 1
-                    ? "ui.gray.semi-medium"
-                    : "ui.gray.medium"
-                }
+                borderColor={getBorderColorLight(isDisabled, numAccordionItems)}
                 // Fix for double border issue in non-hovered state
                 // i.e. Hide the bottom border unless the accordion is last or expanded
                 borderBottomColor={
-                  isLast && isDisabled && numAccordionItems === 1
-                    ? "ui.gray.semi-medium"
-                    : isLast || isExpanded
-                    ? "ui.gray.medium"
+                  isLast || isExpanded
+                    ? getBorderColorLight(isDisabled, numAccordionItems)
                     : "transparent"
                 }
                 // Fix for double border issue on hover
@@ -202,18 +208,16 @@ const getElementsFromData = ({
                     bg: "dark.ui.bg.active",
                   },
                   bg: "dark.ui.bg.default",
-                  borderColor:
-                    isDisabled && numAccordionItems === 1
-                      ? "dark.ui.disabled.primary"
-                      : "dark.ui.border.default",
+                  borderColor: getBorderColorDark(
+                    isDisabled,
+                    numAccordionItems
+                  ),
                   color: "dark.ui.typography.heading",
                   borderStart: "4px solid",
                   borderStartColor: borderStartColorDark,
                   borderBottomColor:
-                    isLast && isDisabled && numAccordionItems === 1
-                      ? "dark.ui.disabled.primary"
-                      : isLast || isExpanded
-                      ? "dark.ui.border.default"
+                    isLast || isExpanded
+                      ? getBorderColorDark(isDisabled, numAccordionItems)
                       : "transparent",
                   _hover: !isDisabled && {
                     borderColor: "dark.ui.border.hover",
