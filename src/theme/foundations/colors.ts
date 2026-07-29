@@ -539,7 +539,7 @@ const colors: Colors = {
           warning: {
             init: statusPrimary,
             expanded: statusPrimary,
-            disabled: "statusPrimaryDark",
+            disabled: statusPrimaryDark,
           },
           error: {
             init: errorPrimaryDark,
