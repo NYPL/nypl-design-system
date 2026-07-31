@@ -13,6 +13,7 @@ import MultiSelect, {
 import Text from "../Text/Text";
 import useMultiSelect from "../../hooks/useMultiSelect";
 import Button from "../Button/Button";
+import withLazyLoadItems from "./MultiSelectWithLazyLoadItems";
 
 const withItems = [
   {
@@ -613,6 +614,19 @@ export const closeOnBlurState: Story = {
       closeOnBlur={true}
       isBlockElement
       items={withChildrenItems}
+    />
+  ),
+};
+
+export const lazyLoadingItems: Story = {
+  render: () => (
+    <MultiSelectStory
+      id="multi-select-id-18"
+      isBlockElement
+      isDefaultOpen={false}
+      isSearchable={true}
+      items={withLazyLoadItems}
+      listOverflow="scroll"
     />
   ),
 };
