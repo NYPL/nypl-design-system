@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds lazy loading to the `MultiSelect` component when `listOverflow="scroll"`.
 - Adds the `isDisabled` prop to the `MultiSelect` component and `AccordionDataProps`.
 
 ## 4.4.1 (July 22, 2026)

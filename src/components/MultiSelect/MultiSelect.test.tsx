@@ -1,15 +1,57 @@
 import { axe } from "jest-axe";
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import userEvent from "@testing-library/user-event";
 import { useEffect } from "react";
 import MultiSelect from "./MultiSelect";
 import useMultiSelect from "../../hooks/useMultiSelect";
+import withLazyLoadItems from "./MultiSelectWithLazyLoadItems";
 
 jest.mock("../../hooks/useSafeId", () => ({
   ...jest.requireActual("../../hooks/useSafeId"),
   useSafeId: jest.fn((id) => id || "test-id"),
 }));
+
+let intersectionCallback: IntersectionObserverCallback | null = null;
+
+const observeMock = jest.fn();
+const disconnectMock = jest.fn();
+const unobserveMock = jest.fn();
+
+beforeEach(() => {
+  intersectionCallback = null;
+  observeMock.mockClear();
+  disconnectMock.mockClear();
+  unobserveMock.mockClear();
+
+  window.IntersectionObserver = jest.fn().mockImplementation((callback) => {
+    intersectionCallback = callback;
+    return {
+      observe: observeMock,
+      disconnect: disconnectMock,
+      unobserve: unobserveMock,
+    };
+  });
+});
+
+const triggerIntersection = () => {
+  if (!intersectionCallback) return;
+
+  intersectionCallback(
+    [
+      {
+        isIntersecting: true,
+        target: document.createElement("div"),
+        intersectionRatio: 1,
+        time: 0,
+        boundingClientRect: {} as DOMRectReadOnly,
+        intersectionRect: {} as DOMRectReadOnly,
+        rootBounds: null,
+      },
+    ],
+    {} as IntersectionObserver
+  );
+};
 
 const items = [
   { id: "dogs", name: "Dogs", isDisabled: false },
@@ -497,6 +539,42 @@ describe("MultiSelect", () => {
     );
   });
 
+  it("should lazily load more list items with a large items list", async () => {
+    render(
+      <MultiSelect
+        id="multiselect-lazy-load-id"
+        buttonText="Multiselect button text"
+        items={withLazyLoadItems}
+        isDefaultOpen={true}
+        isSearchable={false}
+        isBlockElement={false}
+        listOverflow="scroll"
+        selectedItems={selectedTestItems}
+        onChange={() => null}
+        onClear={() => null}
+      />
+    );
+
+    expect(screen.queryAllByRole("checkbox")).toHaveLength(25);
+
+    await waitFor(() => expect(observeMock).toHaveBeenCalled());
+
+    act(() => triggerIntersection());
+    await waitFor(() =>
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(45)
+    );
+
+    act(() => triggerIntersection());
+    await waitFor(() =>
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(65)
+    );
+
+    act(() => triggerIntersection());
+    await waitFor(() =>
+      expect(screen.queryAllByRole("checkbox")).toHaveLength(85)
+    );
+  });
+
   it("should call onChange when an item without child items or a child item is selected/unselected", async () => {
     const onChangeMock = jest.fn();
     const onMixedStateChangeMock = jest.fn();
@@ -688,7 +766,9 @@ describe("MultiSelect", () => {
     expect(countButton).toHaveTextContent("3");
 
     // Close menu
-    await userEvent.click(screen.queryByTestId("ds-multiSelectItemsCountButton"));
+    await userEvent.click(
+      screen.queryByTestId("ds-multiSelectItemsCountButton")
+    );
     // Count button is still present
     expect(countButton).toHaveTextContent("3");
     // Click count button
