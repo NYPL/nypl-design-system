@@ -95,15 +95,16 @@ const getElementsFromData = ({
     },
   });
 
-  const getBorderColorLight = (isDisabled, numAccordionItems) =>
+  const getBorderColor = (isDisabled, numAccordionItems) =>
     isDisabled && numAccordionItems === 1
-      ? "ui.gray.semi-medium"
-      : "ui.gray.medium";
-
-  const getBorderColorDark = (isDisabled, numAccordionItems) =>
-    isDisabled && numAccordionItems === 1
-      ? "dark.ui.disabled.primary"
-      : "dark.ui.border.default";
+      ? {
+          borderColorLight: "ui.gray.semi-medium",
+          borderColorDark: "dark.ui.disabled.primary",
+        }
+      : {
+          borderColorLight: "ui.gray.medium",
+          borderColorDark: "dark.ui.border.default",
+        };
 
   // For FAQ-style multiple accordions, the button should be bigger.
   // Otherwise, use the default.
@@ -149,8 +150,10 @@ const getElementsFromData = ({
       ? colorMap[content.variant]["borderStartDark"]
       : colorMap["default"]["borderStartDark"];
 
-    const borderColorLight = getBorderColorLight(isDisabled, numAccordionItems);
-    const borderColorDark = getBorderColorDark(isDisabled, numAccordionItems);
+    const { borderColorLight, borderColorDark } = getBorderColor(
+      isDisabled,
+      numAccordionItems
+    );
 
     if (content.ariaLabel && ariaLabel) {
       console.warn(
@@ -282,8 +285,13 @@ export const Accordion: ChakraComponent<
       isDefaultOpen ? [0] : []
     );
 
+    // Used for fix a double border issue on hover for users with JS enabled
+    // Necessary due to Chakra's internal wrapping of the AccordionButton in a div
+    const [hoveredButtonIndex, setHoveredButtonIndex] = useState<number>(-1);
+
     const [prevAccordionData, setPrevAccordionData] =
       useState<AccordionDataProps[]>(accordionData);
+
     if (accordionData !== prevAccordionData) {
       setPrevAccordionData(accordionData);
       // Closes accordion items that are set to disabled
@@ -291,10 +299,6 @@ export const Accordion: ChakraComponent<
         prev.filter((idx) => !accordionData[idx]?.isDisabled)
       );
     }
-
-    // Used for fix a double border issue on hover for users with JS enabled
-    // Necessary due to Chakra's internal wrapping of the AccordionButton in a div
-    const [hoveredButtonIndex, setHoveredButtonIndex] = useState<number>(-1);
 
     // If the accordionData doesn't already contain refs for the panel
     // buttons, add them now.
