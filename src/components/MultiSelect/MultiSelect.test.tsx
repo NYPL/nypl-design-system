@@ -451,7 +451,7 @@ describe("MultiSelect", () => {
     expect(multiSelectButton).toHaveAttribute("aria-expanded", "false");
   });
 
-  it("should allow user to toggle menu by clicking menu button or use the 'Enter'/'Spacebar' key", () => {
+  it("should allow user to toggle menu by clicking menu button or use the 'Enter'/'Spacebar' key", async () => {
     render(
       <MultiSelect
         id="multiselect-test-id"
@@ -474,39 +474,39 @@ describe("MultiSelect", () => {
     expect(screen.queryByRole("checkbox")).toBeNull();
 
     // Open multiselect.
-    userEvent.click(screen.getByRole("button"));
+    await userEvent.click(screen.getByRole("button"));
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
       "true"
     );
 
     // Close multiselect.
-    userEvent.click(screen.getByRole("button"));
+    await userEvent.click(screen.getByRole("button"));
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
       "false"
     );
 
     // TESTING FOR ENTER KEY
     // Open multiselect using ENTER key.
-    userEvent.keyboard("[Enter]");
+    await userEvent.keyboard("[Enter]");
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
       "true"
     );
 
     // Close multiselect using ENTER key.
-    userEvent.keyboard("[Enter]");
+    await userEvent.keyboard("[Enter]");
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
       "false"
     );
 
     // TESTING FOR SPACEBAR KEY
     // Open multiselect using SPACEBAR key.
-    userEvent.keyboard("[Space]");
+    await userEvent.keyboard("[Space]");
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
       "true"
     );
 
     // Close multiselect using SPACEBAR key.
-    userEvent.keyboard("[Space]");
+    await userEvent.keyboard("[Space]");
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
       "false"
     );
@@ -548,7 +548,7 @@ describe("MultiSelect", () => {
     );
   });
 
-  it("should call onChange when an item without child items or a child item is selected/unselected", () => {
+  it("should call onChange when an item without child items or a child item is selected/unselected", async () => {
     const onChangeMock = jest.fn();
     const onMixedStateChangeMock = jest.fn();
 
@@ -568,7 +568,7 @@ describe("MultiSelect", () => {
       />
     );
     // Open multiselect menu.
-    userEvent.click(screen.queryByRole("button"));
+    await userEvent.click(screen.queryByRole("button"));
     expect(screen.queryByRole("button").getAttribute("aria-expanded")).toEqual(
       "true"
     );
@@ -588,21 +588,21 @@ describe("MultiSelect", () => {
         onClear={() => null}
       />
     );
-    userEvent.click(screen.queryByRole("checkbox", { name: /dogs/i }));
+    await userEvent.click(screen.queryByRole("checkbox", { name: /dogs/i }));
     expect(onMixedStateChangeMock).not.toBeCalled();
     expect(onChangeMock).toBeCalledTimes(1);
 
-    userEvent.click(screen.queryByRole("checkbox", { name: /blue/i }));
-    userEvent.click(screen.queryByRole("checkbox", { name: /plants/i }));
+    await userEvent.click(screen.queryByRole("checkbox", { name: /blue/i }));
+    await userEvent.click(screen.queryByRole("checkbox", { name: /plants/i }));
     expect(onMixedStateChangeMock).not.toBeCalled();
     expect(onChangeMock).toBeCalledTimes(3);
 
-    userEvent.click(screen.queryByRole("checkbox", { name: /blue/i }));
+    await userEvent.click(screen.queryByRole("checkbox", { name: /blue/i }));
     expect(onMixedStateChangeMock).not.toBeCalled();
     expect(onChangeMock).toBeCalledTimes(4);
   });
 
-  it("should call onMixedStateChange when a parent item is selected/unselected", () => {
+  it("should call onMixedStateChange when a parent item is selected/unselected", async () => {
     const onChangeMock = jest.fn();
     const onMixedStateChangeMock = jest.fn();
     const { rerender } = render(
@@ -622,7 +622,7 @@ describe("MultiSelect", () => {
     );
 
     // Open menu
-    userEvent.click(screen.queryByRole("button"));
+    await userEvent.click(screen.queryByRole("button"));
     expect(screen.getByRole("button").getAttribute("aria-expanded")).toEqual(
       "true"
     );
@@ -645,44 +645,44 @@ describe("MultiSelect", () => {
     expect(
       screen.queryByRole("checkbox", { name: /colors/i })
     ).toBeInTheDocument();
-    userEvent.click(screen.queryByRole("checkbox", { name: /colors/i }));
+    await userEvent.click(screen.queryByRole("checkbox", { name: /colors/i }));
     expect(onMixedStateChangeMock).toBeCalledTimes(1);
     expect(onChangeMock).not.toBeCalled();
 
-    userEvent.click(screen.queryByRole("checkbox", { name: /colors/i }));
+    await userEvent.click(screen.queryByRole("checkbox", { name: /colors/i }));
     expect(onMixedStateChangeMock).toBeCalledTimes(2);
     expect(onChangeMock).not.toBeCalled();
   });
 
-  it("should have indeterminate state for parent item if not all child items are checked", () => {
+  it("should have indeterminate state for parent item if not all child items are checked", async () => {
     const { rerender } = render(
       <MultiSelectTestComponent multiSelectId="multiselect-test-id" />
     );
     // Open menu
-    userEvent.click(screen.queryByRole("button"));
+    await userEvent.click(screen.queryByRole("button"));
     expect(screen.queryByRole("button").getAttribute("aria-expanded")).toEqual(
       "true"
     );
     rerender(<MultiSelectTestComponent multiSelectId="multiselect-test-id" />);
     expect(screen.queryAllByRole("checkbox")).toHaveLength(8);
     // Check the child
-    userEvent.click(screen.getByText("Red"));
+    await userEvent.click(screen.getByText("Red"));
     // Child is checked
     expect(screen.getByLabelText("Red")).toBeChecked();
     // Parent is indeterminated
     expect(screen.getByLabelText("Colors")).toBePartiallyChecked();
   });
 
-  it("should check all child items if parent is checked", () => {
+  it("should check all child items if parent is checked", async () => {
     const { rerender } = render(
       <MultiSelectTestComponent multiSelectId="multiselect-test-id" />
     );
     // Open menu
-    userEvent.click(screen.queryByRole("button"));
+    await userEvent.click(screen.queryByRole("button"));
     rerender(<MultiSelectTestComponent multiSelectId="multiselect-test-id" />);
     expect(screen.queryAllByRole("checkbox")).toHaveLength(8);
     // Check the parent item
-    userEvent.click(screen.getByText("Colors"));
+    await userEvent.click(screen.getByText("Colors"));
     // Parent is checked
     expect(screen.getByLabelText("Colors")).toBeChecked();
     // Children are checked
@@ -713,7 +713,7 @@ describe("MultiSelect", () => {
     expect(screen.getByLabelText("Colors")).toBeChecked();
   });
 
-  it("should render a count button with the correct count, should clear the selectedItems on click ", () => {
+  it("should render a count button with the correct count, should clear the selectedItems on click ", async () => {
     const { rerender } = render(
       <MultiSelectTestComponent multiSelectId="multiselect-test-id" />
     );
@@ -722,11 +722,11 @@ describe("MultiSelect", () => {
     ).not.toBeInTheDocument();
 
     // Open menu
-    userEvent.click(screen.queryByRole("button"));
+    await userEvent.click(screen.queryByRole("button"));
 
     rerender(<MultiSelectTestComponent multiSelectId="multiselect-test-id" />);
     // Check on item
-    userEvent.click(screen.queryByRole("checkbox", { name: /dogs/i }));
+    await userEvent.click(screen.queryByRole("checkbox", { name: /dogs/i }));
     const countButton = screen.queryByTestId("ds-multiSelectItemsCountButton");
 
     // Check for the selectedItems count button to be present and reflect the count of selectedItems
@@ -734,16 +734,18 @@ describe("MultiSelect", () => {
     expect(countButton).toHaveTextContent("1");
 
     // Check the parent item with two child item
-    userEvent.click(screen.queryByRole("checkbox", { name: /colors/i }));
+    await userEvent.click(screen.queryByRole("checkbox", { name: /colors/i }));
     // Check for the count of selectedItems
     expect(countButton).toHaveTextContent("3");
 
     // Close menu
-    userEvent.click(screen.queryByTestId("ds-multiSelectItemsCountButton"));
+    await userEvent.click(
+      screen.queryByTestId("ds-multiSelectItemsCountButton")
+    );
     // Count button is still present
     expect(countButton).toHaveTextContent("3");
     // Click count button
-    userEvent.click(countButton);
+    await userEvent.click(countButton);
     // Count button disapeared
     expect(countButton).not.toBeInTheDocument();
   });

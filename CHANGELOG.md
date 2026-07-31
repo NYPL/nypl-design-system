@@ -12,6 +12,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds lazy loading to the `MultiSelect` component when `listOverflow="scroll"`.
 
+## 4.4.1 (July 22, 2026)
+
+### Updates
+
+- Updates npm packages that only affect the repo, not the components, for general security maintenance.
+
 ## 4.4.0 (July 8, 2026)
 
 ### Adds

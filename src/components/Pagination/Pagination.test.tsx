@@ -259,7 +259,7 @@ describe("Pagination", () => {
   });
 
   describe("Behavior", () => {
-    it("navigates to the appropriate page when the Next or Previous links are clicked", () => {
+    it("navigates to the appropriate page when the Next or Previous links are clicked", async () => {
       const onPageChange = (page: number) => (currentPage = page);
       let currentPage = 3;
 
@@ -274,13 +274,13 @@ describe("Pagination", () => {
       let links = screen.getAllByRole("link");
 
       // Previous link
-      userEvent.click(links[0]);
+      await userEvent.click(links[0]);
       expect(currentPage).toEqual(2);
 
       links = screen.getAllByRole("link");
 
       // Next link
-      userEvent.click(links[links.length - 1]);
+      await userEvent.click(links[links.length - 1]);
       expect(currentPage).toEqual(3);
     });
 
@@ -309,7 +309,7 @@ describe("Pagination", () => {
 
     // In this scenario, we need to update the current page ourselves
     // since we stay on the same page.
-    it("when page item is selected, runs the onPageChange callback", () => {
+    it("when page item is selected, runs the onPageChange callback", async () => {
       const onPageChange = (page: number) => (currentPage = page);
       let currentPage = 5;
       const { rerender } = render(
@@ -335,7 +335,7 @@ describe("Pagination", () => {
       expect(links[6].getAttribute("href")).toEqual("#");
 
       // Page 4
-      userEvent.click(links[2]);
+      await userEvent.click(links[2]);
       expect(currentPage).toEqual(4);
 
       rerender(
@@ -350,7 +350,7 @@ describe("Pagination", () => {
       links = screen.getAllByRole("link");
 
       // Previous link
-      userEvent.click(links[0]);
+      await userEvent.click(links[0]);
       expect(currentPage).toEqual(3);
 
       rerender(
@@ -365,7 +365,7 @@ describe("Pagination", () => {
       links = screen.getAllByRole("link");
 
       // Page 10
-      userEvent.click(links[6]);
+      await userEvent.click(links[6]);
       expect(currentPage).toEqual(10);
 
       rerender(
@@ -380,7 +380,7 @@ describe("Pagination", () => {
       links = screen.getAllByRole("link");
 
       // Page 6
-      userEvent.click(links[2]);
+      await userEvent.click(links[2]);
       expect(currentPage).toEqual(6);
     });
 

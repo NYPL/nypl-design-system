@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import renderer from "react-test-renderer";
 
@@ -297,7 +298,7 @@ describe("TagSet Filter", () => {
     );
   });
 
-  it("returns the clicked tag's object to the `onClick` function", () => {
+  it("returns the clicked tag's object to the `onClick` function", async () => {
     let currentTag = {};
     const onClick = (tagSet) => {
       currentTag = tagSet;
@@ -311,11 +312,11 @@ describe("TagSet Filter", () => {
       />
     );
 
-    screen.getByText("Blue").click();
+    await userEvent.click(screen.getByText("Blue"));
     expect(currentTag).toEqual({ label: "Blue", id: "blue", field: "color" });
-    screen.getByText("Red").click();
+    await userEvent.click(screen.getByText("Red"));
     expect(currentTag).toEqual({ label: "Red", id: "red", field: "color" });
-    screen.getByText("Violet").click();
+    await userEvent.click(screen.getByText("Violet"));
     expect(currentTag).toEqual({
       label: "Violet",
       id: "violet",
@@ -356,7 +357,7 @@ describe("TagSet Filter", () => {
     expect(screen.queryByRole("button")).not.toBeInTheDocument;
   });
 
-  it("returns correct meta data when the 'Clear filters' button is clicked", () => {
+  it("returns correct meta data when the 'Clear filters' button is clicked", async () => {
     let currentTag = {};
     const onClick = (tagSet) => {
       currentTag = tagSet;
@@ -370,7 +371,7 @@ describe("TagSet Filter", () => {
       />
     );
 
-    screen.getByText("Clear filters").click();
+    await userEvent.click(screen.getByText("Clear filters"));
 
     expect(currentTag).toEqual({ label: "Clear filters", id: "clear-filters" });
   });

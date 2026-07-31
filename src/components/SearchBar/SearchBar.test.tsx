@@ -208,7 +208,7 @@ describe("SearchBar", () => {
     ).not.toBeInTheDocument();
   });
 
-  it("calls the TextInput onChange callback function", () => {
+  it("calls the TextInput onChange callback function", async () => {
     textInputProps.onChange = jest.fn();
 
     render(
@@ -223,13 +223,13 @@ describe("SearchBar", () => {
     const input = screen.getByLabelText(textInputProps.labelText.toString());
     expect(textInputProps.onChange).toHaveBeenCalledTimes(0);
 
-    userEvent.type(input, "search!");
+    await userEvent.type(input, "search!");
 
     // Seven times for every letter in the search string
     expect(textInputProps.onChange).toHaveBeenCalledTimes(7);
   });
 
-  it("renders a `clear` button and clears the input field when clicked", () => {
+  it("renders a `clear` button and clears the input field when clicked", async () => {
     render(
       <SearchBar
         helperText={helperText}
@@ -251,7 +251,7 @@ describe("SearchBar", () => {
     expect(clearButton).not.toBeInTheDocument();
 
     // Type some value
-    userEvent.type(screen.getByRole("textbox"), "text value");
+    await userEvent.type(screen.getByRole("textbox"), "text value");
 
     expect(screen.getByRole("textbox")).toHaveValue("text value");
     clearButton = screen.queryByRole("button", {
@@ -260,14 +260,14 @@ describe("SearchBar", () => {
     expect(clearButton).toBeInTheDocument();
 
     // Click on the clear button
-    userEvent.click(clearButton);
+    await userEvent.click(clearButton);
     // The text should no longer be in the input field.
     expect(screen.getByRole("textbox")).toHaveValue("");
     // The clear button does not render.
     expect(clearButton).not.toBeInTheDocument();
   });
 
-  it("calls the isClearableCallback function for the `TextInput` component when `isClearable` is true", () => {
+  it("calls the isClearableCallback function for the `TextInput` component when `isClearable` is true", async () => {
     let called = false;
 
     render(
@@ -287,7 +287,7 @@ describe("SearchBar", () => {
     );
 
     // Type some value
-    userEvent.type(screen.getByRole("textbox"), "text value");
+    await userEvent.type(screen.getByRole("textbox"), "text value");
 
     let clearButton = screen.queryByRole("button", {
       name: "Clear Item Search",
@@ -297,13 +297,13 @@ describe("SearchBar", () => {
     expect(called).toEqual(false);
 
     // Click on the clear button
-    userEvent.click(clearButton);
+    await userEvent.click(clearButton);
 
     // But now it should!
     expect(called).toEqual(true);
   });
 
-  it("calls the Select onChange callback function", () => {
+  it("calls the Select onChange callback function", async () => {
     let selectValue = "Songs";
     selectProps.onChange = (e) => (selectValue = (e.target as any).value);
     selectProps.value = selectValue;
@@ -321,14 +321,14 @@ describe("SearchBar", () => {
     const select = screen.getByLabelText(selectProps.labelText);
     expect(selectValue).toEqual("Songs");
 
-    userEvent.selectOptions(select, "Flowers");
+    await userEvent.selectOptions(select, "Flowers");
     expect(selectValue).toEqual("flowers");
 
-    userEvent.selectOptions(select, "Furniture");
+    await userEvent.selectOptions(select, "Furniture");
     expect(selectValue).toEqual("furniture");
   });
 
-  it("calls the callback function for the Button component ", () => {
+  it("calls the callback function for the Button component ", async () => {
     render(
       <SearchBar
         buttonOnClick={buttonCallback}
@@ -341,11 +341,11 @@ describe("SearchBar", () => {
       />
     );
     expect(buttonCallback).toHaveBeenCalledTimes(0);
-    userEvent.click(screen.getByRole("button"));
+    await userEvent.click(screen.getByRole("button"));
     expect(buttonCallback).toHaveBeenCalledTimes(1);
   });
 
-  it("calls the callback function on submit ", () => {
+  it("calls the callback function on submit ", async () => {
     render(
       <SearchBar
         helperText={helperText}
@@ -357,7 +357,7 @@ describe("SearchBar", () => {
       />
     );
     expect(searchBarSubmit).toHaveBeenCalledTimes(0);
-    userEvent.click(screen.getByRole("button"));
+    await userEvent.click(screen.getByRole("button"));
     expect(searchBarSubmit).toHaveBeenCalledTimes(1);
   });
 
