@@ -32,6 +32,24 @@ const MultiSelectItemsCountButton = defineStyleConfig({
       marginRight: "6px",
       marginTop: "0",
     },
+    _disabled: {
+      color: "ui.gray.medium",
+      backgroundColor: "ui.disabled.secondary",
+      borderColor: "ui.disabled.primary",
+      opacity: "1",
+      pointerEvents: "none",
+      svg: {
+        fill: "ui.gray.medium",
+      },
+      _dark: {
+        backgroundColor: "dark.ui.bg.default",
+        borderColor: "dark.ui.disabled.secondary",
+        color: "dark.ui.disabled.secondary",
+        svg: {
+          fill: "dark.ui.disabled.secondary",
+        },
+      },
+    },
     _dark: {
       backgroundColor: "dark.ui.bg.hover",
       borderColor: isOpen ? "dark.ui.border.hover" : "dark.ui.border.default",

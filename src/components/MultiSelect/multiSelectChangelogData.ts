@@ -12,6 +12,13 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
+    type: "Update",
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: ["Adds the `isDisabled` prop."],
+  },
+  {
+    date: "Prerelease",
+    version: "Prerelease",
     type: "New Feature",
     affects: ["Documentation", "Functionality"],
     notes: ["Adds lazy loading when `listOverflow='scroll'`"],

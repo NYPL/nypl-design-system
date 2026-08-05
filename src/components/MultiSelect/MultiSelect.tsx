@@ -51,6 +51,9 @@ export interface MultiSelectProps extends BoxProps {
   isBlockElement?: boolean;
   /** Set the default open or closed state of the Multiselect. */
   isDefaultOpen?: boolean;
+  /** Adds the 'disabled' state to the MultiSelect's expand and item count buttons
+   * when true. */
+  isDisabled?: boolean;
   /** Boolean value used to enable the component's search functionality
    * The default value is false. */
   isSearchable?: boolean;
@@ -91,6 +94,7 @@ export const MultiSelect: ChakraComponent<
         id,
         isBlockElement = false,
         isDefaultOpen = false,
+        isDisabled = false,
         isSearchable = false,
         defaultItemsVisible = 5,
         items,
@@ -528,6 +532,7 @@ export const MultiSelect: ChakraComponent<
             accordionData={[
               {
                 variant: "default",
+                isDisabled: isDisabled,
                 // Pass the ref for interaction with the accordion button.
                 buttonInteractionRef: accordionButtonRef,
                 label: accordionLabel,
@@ -549,6 +554,7 @@ export const MultiSelect: ChakraComponent<
               id={mainId}
               multiSelectLabelText={buttonText}
               isOpen={isDefaultOpen}
+              isDisabled={isDisabled}
               selectedItemsString={selectedItemsString}
               selectedItemsCount={selectedItemsCount}
               onClear={onClear}
