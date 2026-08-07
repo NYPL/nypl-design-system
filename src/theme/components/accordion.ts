@@ -27,6 +27,13 @@ const buttonStyles = {
     bg: "dark.ui.bg.default",
     color: "dark.ui.typography.heading",
   },
+  _disabled: {
+    opacity: 1,
+    color: "ui.gray.dark",
+    _dark: {
+      color: "dark.ui.disabled.primary",
+    },
+  },
 };
 const panelStyles = {
   padding: "s",

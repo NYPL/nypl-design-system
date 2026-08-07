@@ -47,7 +47,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 aria-controls="accordion-panel-colors-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-colors-accordion-item-0"
                 onClick={[Function]}
@@ -69,7 +69,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="colors-accordion-icon-0"
@@ -355,7 +355,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 aria-controls="accordion-panel-pets-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-pets-accordion-item-0"
                 onClick={[Function]}
@@ -377,7 +377,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="pets-accordion-icon-0"
@@ -867,7 +867,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 aria-controls="accordion-panel-tools-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-tools-accordion-item-0"
                 onClick={[Function]}
@@ -889,7 +889,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="tools-accordion-icon-0"
@@ -1423,7 +1423,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 aria-controls="accordion-panel-colors-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-colors-accordion-item-0"
                 onClick={[Function]}
@@ -1445,7 +1445,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="colors-accordion-icon-0"
@@ -1731,7 +1731,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 aria-controls="accordion-panel-pets-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-pets-accordion-item-0"
                 onClick={[Function]}
@@ -1753,7 +1753,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="pets-accordion-icon-0"
@@ -2243,7 +2243,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 aria-controls="accordion-panel-tools-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-tools-accordion-item-0"
                 onClick={[Function]}
@@ -2265,7 +2265,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="tools-accordion-icon-0"
@@ -2813,7 +2813,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 aria-controls="accordion-panel-colors-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-colors-accordion-item-0"
                 onClick={[Function]}
@@ -2835,7 +2835,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="colors-accordion-icon-0"
@@ -3121,7 +3121,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 aria-controls="accordion-panel-pets-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-pets-accordion-item-0"
                 onClick={[Function]}
@@ -3143,7 +3143,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="pets-accordion-icon-0"
@@ -3633,7 +3633,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 aria-controls="accordion-panel-tools-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-tools-accordion-item-0"
                 onClick={[Function]}
@@ -3655,7 +3655,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="tools-accordion-icon-0"
@@ -4203,7 +4203,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 aria-controls="accordion-panel-colors-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-colors-accordion-item-0"
                 onClick={[Function]}
@@ -4225,7 +4225,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="colors-accordion-icon-0"
@@ -4511,7 +4511,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 aria-controls="accordion-panel-pets-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-pets-accordion-item-0"
                 onClick={[Function]}
@@ -4533,7 +4533,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="pets-accordion-icon-0"
@@ -5023,7 +5023,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 aria-controls="accordion-panel-tools-accordion-item-0"
                 aria-expanded={false}
                 aria-label="MultiSelect, 0 items currently selected"
-                className="chakra-accordion__button css-1rvudez"
+                className="chakra-accordion__button css-1okgljw"
                 disabled={false}
                 id="accordion-button-tools-accordion-item-0"
                 onClick={[Function]}
@@ -5045,7 +5045,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                 </span>
                 <svg
                   aria-hidden={true}
-                  className="chakra-icon css-1b9sovw"
+                  className="chakra-icon css-1nreziu"
                   data-file-name="SvgPlus"
                   focusable={false}
                   id="tools-accordion-icon-0"
