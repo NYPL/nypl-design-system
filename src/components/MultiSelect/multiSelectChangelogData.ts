@@ -10,18 +10,14 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2026-08-07",
+    version: "4.4.2",
     type: "Update",
     affects: ["Documentation", "Functionality", "Styles"],
-    notes: ["Adds the `isDisabled` prop."],
-  },
-  {
-    date: "Prerelease",
-    version: "Prerelease",
-    type: "New Feature",
-    affects: ["Documentation", "Functionality"],
-    notes: ["Adds lazy loading when `listOverflow='scroll'`"],
+    notes: [
+      "Adds the `isDisabled` prop.",
+      "Adds lazy loading when `listOverflow='scroll'`",
+    ],
   },
   {
     date: "2025-09-30",
