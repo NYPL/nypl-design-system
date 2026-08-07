@@ -9,6 +9,8 @@ export interface MultiSelectItemsCountButtonProps extends BoxProps {
   multiSelectLabelText: string;
   /** The open status of the MultiSelect menu. */
   isOpen: boolean;
+  /** Whether the button is disabled. */
+  isDisabled?: boolean;
   /** The selected items state (items that were checked by user). */
   selectedItemsString: string;
   /** The number of selected items. */
@@ -37,6 +39,7 @@ const MultiSelectItemsCountButton = forwardRef<
   const {
     id,
     isOpen,
+    isDisabled = false,
     multiSelectLabelText,
     accordionButtonRef,
     onClear,
@@ -56,6 +59,7 @@ const MultiSelectItemsCountButton = forwardRef<
       aria-label={selectedItemsAriaLabel}
       data-testid="ds-multiSelectItemsCountButton"
       id={`${id}-count-button`}
+      isDisabled={isDisabled}
       onClick={() => {
         onClear && onClear();
         // Set focus on the Accordion Button when close the

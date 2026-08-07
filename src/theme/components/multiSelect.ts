@@ -109,9 +109,12 @@ const MultiSelect = defineMultiStyleConfig({
           backgroundColor: "dark.ui.bg.default",
           borderStartColor: "dark.ui.border.default",
           borderStartWidth: "1px",
-          _hover: {
-            borderStartColor: "ui.gray.dark",
+          _disabled: {
+            borderStartColor: "dark.ui.disabled.primary",
           },
+        },
+        _disabled: {
+          backgroundColor: "ui.disabled.secondary",
         },
         _expanded: {
           bgColor: "ui.link.primary-05",

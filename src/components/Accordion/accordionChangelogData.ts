@@ -10,6 +10,13 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "2026-08-07",
+    version: "4.4.2",
+    type: "Update",
+    affects: ["Documentation", "Functionality", "Styles"],
+    notes: ["Adds the `isDisabled` prop to `AccordionDataProps`"],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",

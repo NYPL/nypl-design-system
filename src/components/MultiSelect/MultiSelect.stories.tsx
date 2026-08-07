@@ -13,6 +13,7 @@ import MultiSelect, {
 import Text from "../Text/Text";
 import useMultiSelect from "../../hooks/useMultiSelect";
 import Button from "../Button/Button";
+import withLazyLoadItems from "./MultiSelectWithLazyLoadItems";
 
 const withItems = [
   {
@@ -322,6 +323,7 @@ export const withControls: Story = {
     defaultItemsVisible: undefined,
     isBlockElement: true,
     isDefaultOpen: false,
+    isDisabled: false,
     isSearchable: true,
     items: withItems,
     listOverflow: "scroll",
@@ -617,6 +619,29 @@ export const closeOnBlurState: Story = {
   ),
 };
 
+export const lazyLoadingItems: Story = {
+  render: () => (
+    <MultiSelectStory
+      id="multi-select-id-18"
+      isBlockElement
+      isDefaultOpen={false}
+      isSearchable={true}
+      items={withLazyLoadItems}
+      listOverflow="scroll"
+    />
+  ),
+};
+
+export const disabledState: Story = {
+  render: () => (
+    <MultiSelectStory
+      id="multi-select-id-18"
+      isDisabled={true}
+      items={withChildrenItems}
+    />
+  ),
+};
+
 export const InAGroup: Story = {
   render: () => <MultiSelectGroupStory items={withItems} />,
 };
@@ -668,6 +693,7 @@ const MultiSelectStory = ({
   id,
   closeOnBlur = false,
   isBlockElement = false,
+  isDisabled = false,
   isSearchable = false,
   isDefaultOpen,
   items,
@@ -699,6 +725,7 @@ const MultiSelectStory = ({
       id={id}
       isBlockElement={isBlockElement}
       isDefaultOpen={isDefaultOpen}
+      isDisabled={isDisabled}
       isSearchable={isSearchable}
       items={items}
       listOverflow={listOverflow}

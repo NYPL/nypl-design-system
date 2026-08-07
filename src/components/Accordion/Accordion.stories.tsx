@@ -11,6 +11,7 @@ import Heading from "../Heading/Heading";
 const accordionData: AccordionDataProps[] = [
   {
     variant: "default",
+    isDisabled: false,
     label: "Tom Nook",
     panel: (
       <Card
@@ -183,6 +184,42 @@ export const PanelMaxHeightExample2: Story = {
     <Accordion accordionData={accordionLongTextData} panelMaxHeight="100px" />
   ),
   name: "panelMaxHeight Example with Long Text",
+};
+
+export const DisabledState: Story = {
+  render: () => (
+    <VStack gap="s">
+      <Accordion
+        accordionData={[{ ...accordionData[0], isDisabled: true }]}
+        width="100%"
+      />
+      <Accordion
+        accordionData={[
+          { ...accordionData[0], isDisabled: true, variant: "error" },
+        ]}
+        width="100%"
+      />
+      <Accordion
+        accordionData={[
+          { ...accordionData[0], isDisabled: true, variant: "warning" },
+        ]}
+        width="100%"
+      />
+    </VStack>
+  ),
+};
+
+export const FaqContentWithDisabledItem: Story = {
+  render: () => (
+    <Accordion
+      accordionData={[
+        { ...faqContentData[0], isDisabled: true },
+        faqContentData[1],
+        faqContentData[2],
+      ]}
+    />
+  ),
+  name: "FAQ Content With Disabled Item",
 };
 
 const onChange = (data) => {

@@ -410,6 +410,23 @@ const colors: Colors = {
       defaultAsAlpha: hexToRGB(black, 0.04),
       hoverAsAlpha: hexToRGB(black, 0.09),
       activeAsAlpha: hexToRGB(black, 0.26),
+      accordion: {
+        default: {
+          init: white,
+          expanded: grayLightCool,
+          disabled: grayxxLightCool,
+        },
+        warning: {
+          init: statusPrimary,
+          expanded: statusPrimary,
+          disabled: primitives.flavescent[25],
+        },
+        error: {
+          init: statusSecondary,
+          expanded: statusSecondary,
+          disabled: primitives.vividBurgundy[25],
+        },
+      },
     },
     border: {
       default: grayMedium,
@@ -513,6 +530,23 @@ const colors: Colors = {
         defaultAsAlpha: hexToRGB(white, 0.04),
         hoverAsAlpha: hexToRGB(white, 0.09),
         activeAsAlpha: hexToRGB(white, 0.26),
+        accordion: {
+          default: {
+            init: white,
+            expanded: grayLightCool,
+            disabled: grayDark,
+          },
+          warning: {
+            init: statusPrimary,
+            expanded: statusPrimary,
+            disabled: statusPrimaryDark,
+          },
+          error: {
+            init: errorPrimaryDark,
+            expanded: errorPrimaryDark,
+            disabled: primitives.vividBurgundy[700],
+          },
+        },
       },
       border: {
         default: graySemiDark,
