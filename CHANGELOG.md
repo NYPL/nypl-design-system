@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates Node from v20 to v22.
+
 ## 4.4.2 (August 7, 2026)
 
 ### Adds
