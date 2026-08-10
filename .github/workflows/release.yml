@@ -14,10 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # we take the message of the commit to use for tag and release body.
-      - name: get commit message
+      # we extract the latest changelog entry to use as the release body.
+      - name: get changelog entry
         run: |
-          echo commitmsg=$(git log --format=%B -n 1 ${{ github.event.after }}) >> $GITHUB_ENV
+          body=$(awk '/^## /{i++} i==1{print}' CHANGELOG.md)
+          echo "commitmsg<<EOF" >> $GITHUB_ENV
+          echo "$body" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       # the tag will match the package.json version (eg. v1.0.0)
       - name: Tag
@@ -38,8 +41,8 @@ jobs:
         with:
           tag_name: ${{ steps.autotagger.outputs.tagname }}
           release_name: ${{ steps.autotagger.outputs.tagname }}
-          # use the body of the PR commit as the release body
-          body: "$commitmsg"
+          # use the latest changelog entry as the release body
+          body: "${{ env.commitmsg }}"
           draft: false
           prerelease: false
 
