@@ -8,16 +8,16 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates Node from v20 to v22.
+
 ## 4.4.2 (August 7, 2026)
 
 ### Adds
 
 - Adds lazy loading to the `MultiSelect` component when `listOverflow="scroll"`.
 - Adds the `isDisabled` prop to the `MultiSelect` component and `AccordionDataProps`.
-
-### Updates
-
-- Updates Node from v20 to v22.
 
 ## 4.4.1 (July 22, 2026)
 
