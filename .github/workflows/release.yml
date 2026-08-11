@@ -7,36 +7,8 @@ on:
     branches: [release]
 
 jobs:
-  publish_to_npm:
-    name: Publish to NPM
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-    env:
-      CI: true
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Use Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Upgrade npm
-        run: npm install -g npm@latest
-
-      - name: Cache and install node modules
-        uses: bahmutov/npm-install@v1
-
-      - name: Publish
-        run: npm publish --access public --provenance
-
   tag_and_release:
     name: Tag and Create GitHub Release
-    needs: publish_to_npm
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -74,3 +46,30 @@ jobs:
             --title "$TAG_NAME" \
             --notes "$release_notes" \
             --verify-tag
+
+  publish_to_npm:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      CI: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Upgrade npm
+        run: npm install -g npm@latest
+
+      - name: Cache and install node modules
+        uses: bahmutov/npm-install@v1
+
+      - name: Publish
+        run: npm publish --access public --provenance
