@@ -1,4 +1,4 @@
-# This workflow will publish to npm, then tag and create a GitHub release.
+# This workflow will tag, release, and publish to npm.
 name: Production Release
 
 # Runs on any push to the release branch.
@@ -16,8 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Extract the first changelog entry (from the first ## heading up to,
-      # but not including, the next ## heading) to use as the release notes.
+      # Extract the first changelog entry (from the first ## heading up to
+      # the next ## heading) to use as the release notes.
       - name: Get release notes
         run: |
           release_notes=$(awk '/^## /{i++} i==1{print}' CHANGELOG.md)
