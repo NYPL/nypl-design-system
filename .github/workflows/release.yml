@@ -35,7 +35,7 @@ jobs:
         run: npm publish --access public --provenance
 
   tag_and_release:
-    name: Tag and create GitHub release
+    name: Tag and Create GitHub Release
     needs: publish_to_npm
     runs-on: ubuntu-latest
     permissions:
@@ -49,25 +49,26 @@ jobs:
       - name: Get release notes
         run: |
           release_notes=$(awk '/^## /{i++} i==1{print}' CHANGELOG.md)
-          echo "release_notes<<EOF" >> "$GITHUB_ENV"
-          echo "$release_notes" >> "$GITHUB_ENV"
-          echo "EOF" >> "$GITHUB_ENV"
+          {
+            echo "release_notes<<EOF"
+            echo "$release_notes"
+            echo "EOF"
+          } >> "$GITHUB_ENV"
 
-      # The tag will match the package.json version (e.g. v1.0.0).
+      # Create a tag matching the package.json version (e.g. v1.0.0).
       - name: Tag
-        id: autotagger
-        uses: butlerlogic/action-autotag@1.1.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          strategy: package
-          tag_prefix: v
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          TAG_NAME="v$VERSION"
+
+          git tag "$TAG_NAME"
+          git push origin "$TAG_NAME"
+
+          echo "TAG_NAME=$TAG_NAME" >> "$GITHUB_ENV"
 
       - name: Create GitHub release
-        if: steps.autotagger.outputs.tagname != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ steps.autotagger.outputs.tagname }}
         run: |
           gh release create "$TAG_NAME" \
             --title "$TAG_NAME" \
