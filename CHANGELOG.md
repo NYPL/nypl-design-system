@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Updates
 
 - Updates Node from v20 to v22.
+- Cleans up the tag and release job in `release.yml` to remove or upgrade old dependencies and properly add the CHANGELOG to the tag.
 
 ## 4.4.2 (August 7, 2026)
 
