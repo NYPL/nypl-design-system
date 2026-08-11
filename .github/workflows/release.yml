@@ -1,51 +1,12 @@
-# This workflow will tag, release, and publish to npm.
+# This workflow will publish to npm, then tag and create a GitHub release.
 name: Production Release
 
-# workflow will only run when a pull request to the release branch is closed.
+# Runs on any push to the release branch.
 on:
   push:
     branches: [release]
 
 jobs:
-  release_master:
-    name: Tag and Release
-    # only run if PR is merged (not just closed)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      # we extract the latest changelog entry to use as the release body.
-      - name: get changelog entry
-        run: |
-          body=$(awk '/^## /{i++} i==1{print}' CHANGELOG.md)
-          echo "commitmsg<<EOF" >> $GITHUB_ENV
-          echo "$body" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-      # the tag will match the package.json version (eg. v1.0.0)
-      - name: Tag
-        id: autotagger
-        uses: butlerlogic/action-autotag@1.1.2
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        with:
-          strategy: package
-          tag_prefix: v
-
-      - name: Release
-        id: create_release
-        if: steps.autotagger.outputs.tagname != ''
-        uses: actions/create-release@v1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.autotagger.outputs.tagname }}
-          release_name: ${{ steps.autotagger.outputs.tagname }}
-          # use the latest changelog entry as the release body
-          body: "${{ env.commitmsg }}"
-          draft: false
-          prerelease: false
-
   publish_to_npm:
     name: Publish to NPM
     runs-on: ubuntu-latest
@@ -54,16 +15,61 @@ jobs:
       id-token: write
     env:
       CI: true
+
     steps:
       - uses: actions/checkout@v4
+
       - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
           registry-url: "https://registry.npmjs.org"
+
       - name: Upgrade npm
         run: npm install -g npm@latest
+
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
+
       - name: Publish
         run: npm publish --access public --provenance
+
+  tag_and_release:
+    name: Tag and create GitHub release
+    needs: publish_to_npm
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Extract the first changelog entry (from the first ## heading up to,
+      # but not including, the next ## heading) to use as the release notes.
+      - name: Get release notes
+        run: |
+          release_notes=$(awk '/^## /{i++} i==1{print}' CHANGELOG.md)
+          echo "release_notes<<EOF" >> "$GITHUB_ENV"
+          echo "$release_notes" >> "$GITHUB_ENV"
+          echo "EOF" >> "$GITHUB_ENV"
+
+      # The tag will match the package.json version (e.g. v1.0.0).
+      - name: Tag
+        id: autotagger
+        uses: butlerlogic/action-autotag@1.1.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          strategy: package
+          tag_prefix: v
+
+      - name: Create GitHub release
+        if: steps.autotagger.outputs.tagname != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: ${{ steps.autotagger.outputs.tagname }}
+        run: |
+          gh release create "$TAG_NAME" \
+            --title "$TAG_NAME" \
+            --notes "$release_notes" \
+            --verify-tag
