@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Updates
+
+- Updates vite config to export external packages for the npm package.
+
 ## 4.4.2 (August 7, 2026)
 
 ### Adds
