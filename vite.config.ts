@@ -6,6 +6,16 @@ import dts from "vite-plugin-dts";
 
 const root = resolve(__dirname, "./");
 const outDir = resolve(__dirname, "dist");
+const externalPackages = [
+  /^react($|\/)/,
+  /^react-dom($|\/)/,
+  /^@chakra-ui\//,
+  /^@emotion\//,
+  /^framer-motion($|\/)/,
+  /^react-datepicker($|\/)/,
+  /^react-popper($|\/)/,
+  /^@popperjs\//,
+];
 
 export default defineConfig({
   plugins: [
@@ -32,19 +42,21 @@ export default defineConfig({
       name: "design-system-react-components",
     },
     rollupOptions: {
-      external: [
-        "react",
-        "@chakra-ui/react",
-        "@chakra-ui/system",
-        "@emotion/react",
-      ],
+      // Keep React and peer deps external, including deep imports like react/jsx-runtime.
+      external: (id) => externalPackages.some((pattern) => pattern.test(id)),
       output: {
         name: "design-system-react-components",
         globals: {
           react: "React",
+          "react-dom": "ReactDOM",
           "@chakra-ui/react": "ChakraUI",
           "@chakra-ui/system": "ChakraSystem",
           "@emotion/react": "Emotion",
+          "@emotion/styled": "EmotionStyled",
+          "framer-motion": "FramerMotion",
+          "react-datepicker": "ReactDatePicker",
+          "react-popper": "ReactPopper",
+          "@popperjs/core": "Popper",
         },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === "design-system-react-components.css")
