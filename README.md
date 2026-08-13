@@ -140,9 +140,9 @@ The Reservoir Design System is built with Typescript. Check out the Design Syste
 
 ### Node version
 
-The DS uses Node version 20.x and we do not support any Node versions below 20.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 20.x.
+The DS uses Node version 22.x and we do not support any Node versions below 22.x. The Github Actions for linting, automated testing, deploying to Github Pages, and releasing to npm are all running on Node 22.x.
 
-If you are using `nvm`, the local `.nvmrc` file (using `20.x`) can be used to set your local Node version with the `nvm use` command. Make sure your machine has Node version 20.x installed through `nvm` already.
+If you are using `nvm`, the local `.nvmrc` file (using `22.x`) can be used to set your local Node version with the `nvm use` command. Make sure your machine has Node version 22.x installed through `nvm` already.
 
 ### Component documentation
 
