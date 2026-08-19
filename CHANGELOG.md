@@ -8,6 +8,13 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.5.0 (August 19, 2026)
+
+### Updates
+
+- Updates Node from v20 to v22.
+- Updates vite config to export external packages for the npm package.
+
 ## 4.4.2 (August 7, 2026)
 
 ### Adds
