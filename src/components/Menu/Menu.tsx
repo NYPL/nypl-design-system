@@ -58,6 +58,7 @@ export interface ActionItem {
   label: string;
   id: string;
   media?: Media | null;
+  isDisabled?: boolean;
   onClick: (id: string) => void;
 }
 
@@ -112,7 +113,8 @@ export const Menu: ChakraComponent<
       const [selected, setSelected] = useState<ActionItem | GroupItem | null>(
         initialItem || null
       );
-      const handleSelect = (id, customHandler) => {
+      const handleSelect = (id, customHandler, isDisabled) => {
+        if (isDisabled) return;
         if (customHandler) {
           customHandler(id);
         }
@@ -277,8 +279,11 @@ export const Menu: ChakraComponent<
             <MenuItem
               key={item.id}
               isFocusable={true}
+              isDisabled={item.isDisabled}
               data-testid={isSelected ? "selected-item" : ""}
-              onClick={() => handleSelect(item.id, item.onClick)}
+              onClick={() =>
+                handleSelect(item.id, item.onClick, item.isDisabled)
+              }
               ref={isSelected ? initialRef : null}
               sx={{
                 ...styles.actionItem,
