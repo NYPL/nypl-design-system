@@ -379,11 +379,6 @@ const disabledItems: ListItemsData[] = [
     id: "item-title-1",
     isDisabled: true,
     label: "I'm item 1",
-    media: {
-      type: "image",
-      src: getPlaceholderImage("smaller"),
-      alt: "",
-    },
     onClick: () => {
       console.log("Item Title 1 clicked");
     },
@@ -391,20 +386,17 @@ const disabledItems: ListItemsData[] = [
   {
     type: "action",
     id: "item-title-1",
-    isDisabled: true,
     label: "I'm item 2",
-    media: { type: "icon", name: "search" },
     onClick: () => {
-      console.log("Item Title 1 clicked");
+      console.log("Item Title 2 clicked");
     },
   },
   {
     type: "action",
     id: "item-title-1",
-    isDisabled: true,
     label: "I'm item 3",
     onClick: () => {
-      console.log("Item Title 1 clicked");
+      console.log("Item Title 3 clicked");
     },
   },
 ];

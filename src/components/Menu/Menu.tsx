@@ -113,8 +113,7 @@ export const Menu: ChakraComponent<
       const [selected, setSelected] = useState<ActionItem | GroupItem | null>(
         initialItem || null
       );
-      const handleSelect = (id, customHandler, isDisabled) => {
-        if (isDisabled) return;
+      const handleSelect = (id, customHandler) => {
         if (customHandler) {
           customHandler(id);
         }
@@ -278,12 +277,9 @@ export const Menu: ChakraComponent<
           const menuItem = (
             <MenuItem
               key={item.id}
-              isFocusable={!item.isDisabled}
               isDisabled={item.isDisabled}
               data-testid={isSelected ? "selected-item" : ""}
-              onClick={() =>
-                handleSelect(item.id, item.onClick, item.isDisabled)
-              }
+              onClick={() => handleSelect(item.id, item.onClick)}
               ref={isSelected ? initialRef : null}
               sx={{
                 ...styles.actionItem,
