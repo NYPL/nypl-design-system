@@ -73,6 +73,21 @@ const Menu = defineMultiStyleConfig({
             bg: "ui.bg.hover",
             fontWeight: "medium",
           },
+          _disabled: {
+            textColor: "ui.gray.semi-dark",
+            fontStyle: "italic",
+            cursor: "not-allowed",
+            svg: {
+              fill: "ui.disabled.primary",
+            },
+            img: {
+              opacity: 0.4,
+            },
+            _hover: {
+              bg: "transparent",
+              fontWeight: "body.body2",
+            },
+          },
           _dark: {
             bg: "dark.ui.bg.default",
             textColor: "dark.ui.typography.body",
@@ -88,6 +103,13 @@ const Menu = defineMultiStyleConfig({
               bg: "dark.ui.bg.active",
               fontWeight: "medium",
               textColor: "dark.ui.typography.heading",
+            },
+            _disabled: {
+              textColor: "ui.gray.semi-dark",
+              _hover: {
+                bg: "dark.ui.bg.default",
+                fontWeight: "body.body2",
+              },
             },
           },
         },

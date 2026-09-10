@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## Updates
+
+- "Adds the `isDisabled` prop and associated styling to the `Menu` component's item.",
+
 ## 4.5.0 (August 19, 2026)
 
 ### Updates

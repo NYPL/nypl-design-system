@@ -13,7 +13,7 @@ import { changelogData } from "./menuChangelogData";
   componentName="Menu"
   summary="List of interactive elements rendered in a dropdown format and used for executing actions or navigating"
   versionAdded="3.0.0"
-  versionLatest="4.0.1"
+  versionLatest="Prerelease"
 />
 
 <Canvas of={MenuStories.WithControls} />
@@ -182,7 +182,7 @@ optional and will display to the left of the menu text, and will render either
 an [Icon](./?path=/docs/components-media-icons-icon--docs) or
 [Image](./?path=/docs/components-media-icons-image--docs). The `media` prop
 requires a `type` property (icon or image) and then either the name of the icon
-or the source URL and alt text of the image.
+or the source URL and alt text of the image. The optional `isDisabled` prop can be used to prevent items from being selected.
 
 <Source
   code={`
@@ -206,8 +206,19 @@ or the source URL and alt text of the image.
       console.log("Item Title 2 clicked");
     },
   }
+  // Example of disabled action item
+  {
+    type: "action",
+    id: "item-title-3",
+    label: "I am a disabled option",
+    isDisabled: true,
+    onClick: () => {
+      console.log("Item Title 3 clicked");
+    },
+
+}
 `}
-  language="tsx"
+language="tsx"
 />
 
 Below are examples of different content variations:
