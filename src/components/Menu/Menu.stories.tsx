@@ -373,6 +373,42 @@ const wideListItems: ListItemsData[] = [
   },
 ];
 
+const disabledItems: ListItemsData[] = [
+  {
+    type: "action",
+    id: "item-title-1",
+    isDisabled: true,
+    label: "I'm item 1",
+    media: {
+      type: "image",
+      src: getPlaceholderImage("smaller"),
+      alt: "",
+    },
+    onClick: () => {
+      console.log("Item Title 1 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-1",
+    isDisabled: true,
+    label: "I'm item 2",
+    media: { type: "icon", name: "search" },
+    onClick: () => {
+      console.log("Item Title 1 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-1",
+    isDisabled: true,
+    label: "I'm item 3",
+    onClick: () => {
+      console.log("Item Title 1 clicked");
+    },
+  },
+];
+
 /**
  * Main Story for the Menu component. This must contain the `args`
  * and `parameters` properties in this object.
@@ -505,6 +541,7 @@ export const MenuContent: Story = {
         listItemsData={reallyLongListItems}
       />
       <Menu labelText={"I have max width"} listItemsData={wideListItems} />
+      <Menu labelText={"I have disabled items"} listItemsData={disabledItems} />
     </HStack>
   ),
   parameters: {
