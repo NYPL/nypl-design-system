@@ -278,7 +278,7 @@ export const Menu: ChakraComponent<
           const menuItem = (
             <MenuItem
               key={item.id}
-              isFocusable={true}
+              isFocusable={!item.isDisabled}
               isDisabled={item.isDisabled}
               data-testid={isSelected ? "selected-item" : ""}
               onClick={() =>
