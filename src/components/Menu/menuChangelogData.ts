@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Adds the `isDisabled` prop and associated styling to the action menu item.",
+    ],
+  },
+  {
     date: "2025-09-11",
     version: "4.0.1",
     type: "Update",
