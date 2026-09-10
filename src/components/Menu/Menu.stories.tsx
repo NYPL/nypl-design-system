@@ -385,7 +385,8 @@ const disabledItems: ListItemsData[] = [
   },
   {
     type: "action",
-    id: "item-title-1",
+    id: "item-title-2",
+    isDisabled: true,
     label: "I'm item 2",
     onClick: () => {
       console.log("Item Title 2 clicked");
@@ -393,7 +394,7 @@ const disabledItems: ListItemsData[] = [
   },
   {
     type: "action",
-    id: "item-title-1",
+    id: "item-title-3",
     label: "I'm item 3",
     onClick: () => {
       console.log("Item Title 3 clicked");
