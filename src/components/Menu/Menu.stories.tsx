@@ -377,7 +377,6 @@ const disabledItems: ListItemsData[] = [
   {
     type: "action",
     id: "item-title-1",
-    isDisabled: true,
     label: "I'm item 1",
     onClick: () => {
       console.log("Item Title 1 clicked");
@@ -386,8 +385,8 @@ const disabledItems: ListItemsData[] = [
   {
     type: "action",
     id: "item-title-2",
-    isDisabled: true,
     label: "I'm item 2",
+    isDisabled: true,
     onClick: () => {
       console.log("Item Title 2 clicked");
     },
@@ -396,8 +395,46 @@ const disabledItems: ListItemsData[] = [
     type: "action",
     id: "item-title-3",
     label: "I'm item 3",
+    media: {
+      type: "image",
+      src: getPlaceholderImage("smaller"),
+      alt: "",
+    },
     onClick: () => {
       console.log("Item Title 3 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-4",
+    label: "I'm item 4",
+    isDisabled: true,
+    media: {
+      type: "image",
+      src: getPlaceholderImage("smaller"),
+      alt: "",
+    },
+    onClick: () => {
+      console.log("Item Title 4 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-5",
+    label: "I'm item 5",
+    media: { type: "icon", name: "search" },
+    onClick: () => {
+      console.log("Item Title 5 clicked");
+    },
+  },
+  {
+    type: "action",
+    id: "item-title-6",
+    label: "I'm item 6",
+    isDisabled: true,
+    media: { type: "icon", name: "search" },
+    onClick: () => {
+      console.log("Item Title 6 clicked");
     },
   },
 ];
