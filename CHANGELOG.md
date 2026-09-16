@@ -8,6 +8,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+- Updates `Header` docs to reflect new placeholder styles.
+
 ## 4.5.0 (August 19, 2026)
 
 ### Updates
