@@ -58,6 +58,7 @@ export interface ActionItem {
   label: string;
   id: string;
   media?: Media | null;
+  isDisabled?: boolean;
   onClick: (id: string) => void;
 }
 
@@ -276,7 +277,7 @@ export const Menu: ChakraComponent<
           const menuItem = (
             <MenuItem
               key={item.id}
-              isFocusable={true}
+              isDisabled={item.isDisabled}
               data-testid={isSelected ? "selected-item" : ""}
               onClick={() => handleSelect(item.id, item.onClick)}
               ref={isSelected ? initialRef : null}
