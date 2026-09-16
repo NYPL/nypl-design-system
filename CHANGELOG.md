@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ## Updates
 
 - "Adds the `isDisabled` prop and associated styling to the `Menu` component's item.",
+- Updates `Header` docs to reflect new placeholder styles.
 
 ## 4.5.0 (August 19, 2026)
 
