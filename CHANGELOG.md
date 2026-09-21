@@ -10,7 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Updates
 
--Updates `Banner` styles to adapt based on `dir` attribute.
+- Updates `Banner` styles to adapt based on `dir` attribute.
 
 ## 4.5.1 (September 21, 2026)
 
