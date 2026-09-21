@@ -66,7 +66,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Upgrade npm
-        run: npm install -g npm@latest
+        run: npm install -g npm@11
 
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
