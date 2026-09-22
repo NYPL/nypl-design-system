@@ -114,7 +114,7 @@ const Banner = defineMultiStyleConfig({
     base: {
       alignItems: "flex-start",
       backgroundColor: backgroundColor ? backgroundColor : null,
-      borderLeft: "4px",
+      borderInlineStartWidth: "4px",
       borderColor: highlightColor ? highlightColor : null,
       display: "flex",
       fontSize: "desktop.body.body2",
@@ -156,7 +156,10 @@ const Banner = defineMultiStyleConfig({
       margin: "xs",
       minWidth: "0",
       position: "absolute",
-      right: "0",
+      // Using native CSS property to bypass
+      // the way Chakra resolves `insetInlineEnd`
+      // which is not what we want
+      "inset-inline-end": "0",
       top: "0",
       svg: {
         fill: "ui.black",
