@@ -15,12 +15,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
-      # Extract the first changelog entry (from the first ## heading up to
-      # the next ## heading) to use as the release notes.
+      # Extract the most recent CHANGELOG entry with heading
+      # in ## X.X.X format (skips ## Prerelease heading) to
+      # use as the release notes.
       - name: Get release notes
         run: |
-          release_notes=$(awk '/^## /{i++} i==1{print}' CHANGELOG.md)
+          release_notes=$(awk '/^## [0-9]+\.[0-9]+\.[0-9]+/{i++} i==1{print}; /^## [0-9]+\.[0-9]+\.[0-9]+/ && i==2{exit}' CHANGELOG.md)
           {
             echo "release_notes<<EOF"
             echo "$release_notes"
@@ -66,7 +66,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Upgrade npm
-        run: npm install -g npm@latest
+        run: npm install -g npm@11
 
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
