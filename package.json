@@ -63,7 +63,7 @@
     "@chakra-ui/react": "2.8.2",
     "@chakra-ui/system": "2.6.2",
     "@charlietango/use-native-lazy-loading": "1.10.0",
-    "@emotion/react": "11.11.1",
+    "@emotion/react": "11.14.0",
     "@emotion/styled": "11.11.0",
     "framer-motion": "10.16.4",
     "react-datepicker": "4.14.1",
