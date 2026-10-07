@@ -1,0 +1,266 @@
+import {
+  ArgTypes,
+  Canvas,
+  Description,
+  Meta,
+  Source,
+} from "@storybook/addon-docs/blocks";
+import { Flex } from "@chakra-ui/react";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import Icon from "../Icons/Icon";
+import Table from "../Table/Table";
+import PlaceholderImage from "./PlaceholderImage";
+import * as PlaceholderImageStories from "./PlaceholderImage.stories";
+import { changelogData } from "./placeholderImageChangelogData";
+
+<Meta of={PlaceholderImageStories} />
+
+<ComponentDocsHeader
+  category="Media & icon component"
+  componentName="PlaceholderImage"
+  summary="Contextual placeholder image to use when a viable image is not available."
+  versionAdded="Prerelease"
+  versionLatest="Prerelease"
+/>
+
+<Canvas of={PlaceholderImageStories.WithControls} />
+
+## Table of contents
+
+- [Overview](#overview)
+- [Component Props](#component-props)
+- [Accessibility](#accessibility)
+- [Using width](#using-width)
+- [Content types](#content-types)
+- [Responsive sizing](#responsive-sizing)
+- [Changelog](#changelog)
+
+## Overview
+
+The `PlaceholderImage` component is displayed whenever a viable image is not
+available. The placeholder includes an icon representing the image's `contentType`
+and an inline message that reads "Preview not available."
+
+## Component Props
+
+`PlaceholderImage` composes an HTML `div` element, so you may pass any HTML `div`
+attributes, as well any Chakra style props and the props below.
+
+<ArgTypes of={PlaceholderImageStories.WithControls} />
+
+## Accessibility
+
+The icon representing `contentType` is decorative and is automatically hidden from
+assistive technology.
+
+When possible, pass a specific `contentTitle` that specifically describes the
+missing content (e.g. a book's title), especially when multiple `PlaceholderImage`s
+are rendered, as in a grid. This text is used to provide context to screen reader
+users.
+
+<Source
+  code={`
+  <Grid templateColumns="repeat(3, 1fr)" gap="grid.m">
+    <GridItem>
+      <PlaceholderImage
+        contentType="book"
+        contentTitle="Moby Dick by Herman Melville"
+      />
+    </GridItem>
+    <GridItem>
+      <PlaceholderImage
+        contentType="book"
+        contentTitle="Pride and Prejudice by Jane Austen"
+      />
+    </GridItem>
+    <GridItem>
+      <PlaceholderImage
+        contentType="book"
+        contentTitle="1984 by George Orwell"
+      />
+    </GridItem>
+  </Grid>
+`}
+  language="tsx"
+/>
+
+Resources:
+
+- [WebAIM: Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
+
+## Using width
+
+The `PlaceholderImage` component's size is determined by the width of its container,
+or a particular `width` passed directly to the component as a prop. It will
+automatically adjust to fit the available space while maintaining its aspect ratio.
+
+## Content types
+
+`PlaceholderImage`s display an icon that represents the content type of the
+unavailable image.
+
+<Table
+  border="0"
+  columnHeaders={["Content Type", "Examples", "Icon"]}
+  columnStyles={[
+    { minWidth: "200px", width: "15%", height: "1px" },
+    { height: "1px" },
+    { width: "200px", height: "1px" },
+  ]}
+  fontSize="desktop.body.body2"
+  tableData={[
+    [
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>audio</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Teacher audio
+          <br />
+          - Spoken word recording
+          <br />
+          - Musical recording
+          <br />
+          - E-audiobook
+          <br />
+          - Music CD
+          <br />- Audiobook
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeAudio" size="xxlarge" />
+      </Flex>,
+    ],
+    [
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>book</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Book/text
+          <br />
+          - Large print
+          <br />
+          - Read-along book
+          <br />
+          - Teacher set
+          <br />- Kit
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeBook" size="xxlarge" />
+      </Flex>,
+    ],
+    [
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>ebook</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Tablet
+          <br />- E-book
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeEBook" size="xxlarge" />
+      </Flex>,
+    ],
+    [
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>event</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Events
+          <br />
+          - Meetings
+          <br />- Time-sensitive information
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeEvent" size="xxlarge" />
+      </Flex>,
+    ],
+    [
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>image</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Picture
+          <br />
+          - 3D object
+          <br />
+          - Film, slide, etc.
+          <br />
+          - Microform
+          <br />- Map
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeImage" size="xxlarge" />
+      </Flex>,
+    ],
+    [
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>miscellaneous</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Computer file
+          <br />
+          - Archival mix
+          <br />
+          - Web resource
+          <br />
+          - Manuscript
+          <br />
+          - Manuscript notated music
+          <br />- Notated music
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeMisc" size="xxlarge" />
+      </Flex>,
+    ],
+    [
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>video</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Blu-ray
+          <br />
+          - DVD
+          <br />
+          - VHS
+          <br />
+          - E-video
+          <br />- Game
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeVideo" size="xxlarge" />
+      </Flex>,
+    ],
+  ]}
+  useRowHeaders
+/>
+
+<Canvas of={PlaceholderImageStories.ContentTypes} />
+
+## Responsive Sizing
+
+Since `PlaceholderImage` fills whatever container it's placed in while preserving
+its `aspectRatio`, it naturally resizes responsively when used inside fluid
+layouts like `Grid`. It uses container queries, rather than viewport breakpoints,
+to scale its icon and caption, so below a 200px width container the "Preview not
+available" text is visually hidden (though still exposed to screen readers) to
+avoid crowding very small placeholders.
+
+<Canvas of={PlaceholderImageStories.ResponsiveSizing} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />
