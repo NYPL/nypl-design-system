@@ -3,7 +3,9 @@ import {
   Canvas,
   Description,
   Meta,
+  Source,
 } from "@storybook/addon-docs/blocks";
+import { Flex } from "@chakra-ui/react";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Icon from "../Icons/Icon";
@@ -31,6 +33,7 @@ import { changelogData } from "./placeholderImageChangelogData";
 - [Accessibility](#accessibility)
 - [Using width](#using-width)
 - [Content types](#content-types)
+- [Responsive sizing](#responsive-sizing)
 - [Changelog](#changelog)
 
 ## Overview
@@ -56,6 +59,32 @@ missing content (e.g. a book's title), especially when multiple `PlaceholderImag
 are rendered, as in a grid. This text is used to provide context to screen reader
 users.
 
+<Source
+  code={`
+  <Grid templateColumns="repeat(3, 1fr)" gap="grid.m">
+    <GridItem>
+      <PlaceholderImage
+        contentType="book"
+        contentTitle="Moby Dick by Herman Melville"
+      />
+    </GridItem>
+    <GridItem>
+      <PlaceholderImage
+        contentType="book"
+        contentTitle="Pride and Prejudice by Jane Austen"
+      />
+    </GridItem>
+    <GridItem>
+      <PlaceholderImage
+        contentType="book"
+        contentTitle="1984 by George Orwell"
+      />
+    </GridItem>
+  </Grid>
+`}
+  language="tsx"
+/>
+
 Resources:
 
 - [WebAIM: Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
@@ -73,105 +102,164 @@ unavailable image.
 
 <Table
   border="0"
-  columnHeaders={["Category", "Examples", "Icon"]}
-  columnStyles={[{ minWidth: "200px", width: "15%" }, {}, { width: "200px" }]}
+  columnHeaders={["Content Type", "Examples", "Icon"]}
+  columnStyles={[
+    { minWidth: "200px", width: "15%", height: "1px" },
+    { height: "1px" },
+    { width: "200px", height: "1px" },
+  ]}
   fontSize="desktop.body.body2"
   tableData={[
     [
-      "Audio",
-      <>
-        - Teacher audio
-        <br />
-        - Spoken word recording
-        <br />
-        - Musical recording
-        <br />
-        - E-audiobook
-        <br />
-        - Music CD
-        <br />- Audiobook
-      </>,
-      <Icon name="contentTypeAudio" size="xxlarge" />,
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>audio</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Teacher audio
+          <br />
+          - Spoken word recording
+          <br />
+          - Musical recording
+          <br />
+          - E-audiobook
+          <br />
+          - Music CD
+          <br />- Audiobook
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeAudio" size="xxlarge" />
+      </Flex>,
     ],
     [
-      "Books (physical books)",
-      <>
-        - Book/text
-        <br />
-        - Large print
-        <br />
-        - Read-along book
-        <br />
-        - Teacher set
-        <br />- Kit
-      </>,
-      <Icon name="contentTypeBook" size="xxlarge" />,
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>book</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Book/text
+          <br />
+          - Large print
+          <br />
+          - Read-along book
+          <br />
+          - Teacher set
+          <br />- Kit
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeBook" size="xxlarge" />
+      </Flex>,
     ],
     [
-      "eBooks (digital books)",
-      <>
-        - Tablet
-        <br />- E-book
-      </>,
-      <Icon name="contentTypeEBook" size="xxlarge" />,
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>ebook</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Tablet
+          <br />- E-book
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeEBook" size="xxlarge" />
+      </Flex>,
     ],
     [
-      "Events",
-      <>
-        - Events
-        <br />
-        - Meetings
-        <br />- Time-sensitive information
-      </>,
-      <Icon name="contentTypeEvent" size="xxlarge" />,
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>event</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Events
+          <br />
+          - Meetings
+          <br />- Time-sensitive information
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeEvent" size="xxlarge" />
+      </Flex>,
     ],
     [
-      "Images",
-      <>
-        - Picture
-        <br />
-        - 3D object
-        <br />
-        - Film, slide, etc.
-        <br />
-        - Microform
-        <br />- Map
-      </>,
-      <Icon name="contentTypeImage" size="xxlarge" />,
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>image</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Picture
+          <br />
+          - 3D object
+          <br />
+          - Film, slide, etc.
+          <br />
+          - Microform
+          <br />- Map
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeImage" size="xxlarge" />
+      </Flex>,
     ],
     [
-      "Miscellaneous",
-      <>
-        - Computer file
-        <br />
-        - Archival mix
-        <br />
-        - Web resource
-        <br />
-        - Manuscript
-        <br />
-        - Manuscript notated music
-        <br />- Notated music
-      </>,
-      <Icon name="contentTypeMisc" size="xxlarge" />,
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>miscellaneous</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Computer file
+          <br />
+          - Archival mix
+          <br />
+          - Web resource
+          <br />
+          - Manuscript
+          <br />
+          - Manuscript notated music
+          <br />- Notated music
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeMisc" size="xxlarge" />
+      </Flex>,
     ],
     [
-      "Video & moving media",
-      <>
-        - Blu-ray
-        <br />
-        - DVD
-        <br />
-        - VHS
-        <br />
-        - E-video
-        <br />- Game
-      </>,
-      <Icon name="contentTypeVideo" size="xxlarge" />,
+      <Flex align="center" height="100%">
+        <span style={{ textTransform: "lowercase" }}>video</span>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <>
+          - Blu-ray
+          <br />
+          - DVD
+          <br />
+          - VHS
+          <br />
+          - E-video
+          <br />- Game
+        </>
+      </Flex>,
+      <Flex align="center" height="100%">
+        <Icon name="contentTypeVideo" size="xxlarge" />
+      </Flex>,
     ],
   ]}
   useRowHeaders
 />
+
+<Canvas of={PlaceholderImageStories.ContentTypes} />
+
+## Responsive Sizing
+
+Since `PlaceholderImage` fills whatever container it's placed in while preserving
+its `aspectRatio`, it naturally resizes responsively when used inside fluid
+layouts like `Grid`. It uses container queries, rather than viewport breakpoints,
+to scale its icon and caption, so below a 200px width container the "Preview not
+available" text is visually hidden (though still exposed to screen readers) to
+avoid crowding very small placeholders.
+
+<Canvas of={PlaceholderImageStories.ResponsiveSizing} />
 
 ## Changelog
 

@@ -29,25 +29,27 @@ type Story = StoryObj<typeof PlaceholderImage>;
 
 export const WithControls: Story = {
   args: {
-    aspectRatio: "square",
+    aspectRatio: "twoByOne",
     contentTitle: "Example Title",
     contentType: "miscellaneous",
   },
   render: (args) => (
     <Box display="flex" justifyContent="center">
-      <PlaceholderImage {...args} width="350px" />
+      <PlaceholderImage {...args} width="100%" />
     </Box>
   ),
 };
 
 const renderPlaceholderImageGrid = (
   columns: number,
-  type: typeof contentTypesArray[number]
+  type?: typeof contentTypesArray[number]
 ) => (
   <Box>
-    <Heading level="h4" size="heading6" mb="s">
-      {type.charAt(0).toUpperCase() + type.slice(1)}
-    </Heading>
+    {type && (
+      <Heading level="h4" size="heading6" mb="s">
+        {type.charAt(0).toUpperCase() + type.slice(1)}
+      </Heading>
+    )}
     <Grid
       templateColumns={`repeat(${columns}, 1fr)`}
       gap={responsiveSpacing.gridGap}
@@ -75,6 +77,17 @@ export const ContentTypes: Story = {
       {renderPlaceholderImageGrid(3, "image")}
       {renderPlaceholderImageGrid(3, "miscellaneous")}
       {renderPlaceholderImageGrid(3, "video")}
+    </Box>
+  ),
+};
+
+export const ResponsiveSizing: Story = {
+  render: () => (
+    <Box display="flex" flexDirection="column" gap="grid.l">
+      {renderPlaceholderImageGrid(6)}
+      {renderPlaceholderImageGrid(3)}
+      {renderPlaceholderImageGrid(2)}
+      {renderPlaceholderImageGrid(1)}
     </Box>
   ),
 };
