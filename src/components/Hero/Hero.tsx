@@ -11,9 +11,10 @@ import React, { forwardRef } from "react";
 import Image, { ComponentImageProps } from "../Image/Image";
 
 export const heroVariantsArray = ["primary", "tertiary", "campaign"] as const;
-export type HeroVariants = typeof heroVariantsArray[number];
+export type HeroVariants = (typeof heroVariantsArray)[number];
 export interface HeroImageProps
-  extends Omit<BoxProps, "onError">,
+  extends
+    Omit<BoxProps, "onError">,
     Pick<
       ComponentImageProps,
       "alt" | "fallbackSrc" | "id" | "src" | "onError" | "component"
@@ -122,6 +123,7 @@ export const Hero: ChakraComponent<
       const finalHeading =
         heading && React.cloneElement(heading, { __css: headingStyles });
       let backgroundImageStyle = {};
+
       let contentBoxStyling = {};
 
       const imageToRender = (
@@ -240,8 +242,8 @@ export const Hero: ChakraComponent<
           isDarkBackgroundImage
             ? "brightness(0.4)" // Much darker for "dark" style
             : isBlurredBackgroundImage
-            ? "brightness(0.8)" // Slightly darker for "blurred" style
-            : null,
+              ? "brightness(0.8)" // Slightly darker for "blurred" style
+              : null,
         ]
           .filter(Boolean)
           .join(" ");
@@ -274,18 +276,18 @@ export const Hero: ChakraComponent<
               },
             }
           : backdropBackgroundColor
-          ? {
-              _before: {
-                ...campaignBgStyles,
-                bgColor: backdropBackgroundColor,
-              },
-            }
-          : {
-              _before: {
-                ...campaignBgStyles,
-                bgColor: allDefaultBackgroundColors["campaignBackdrop"],
-              },
-            };
+            ? {
+                _before: {
+                  ...campaignBgStyles,
+                  bgColor: backdropBackgroundColor,
+                },
+              }
+            : {
+                _before: {
+                  ...campaignBgStyles,
+                  bgColor: allDefaultBackgroundColors["campaignBackdrop"],
+                },
+              };
       } else if (variant === "tertiary") {
         backgroundImageStyle =
           textBackgroundColor || backgroundColor
