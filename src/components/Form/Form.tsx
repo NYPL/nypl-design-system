@@ -1,4 +1,3 @@
- 
 import {
   Box,
   BoxProps,
@@ -21,7 +20,6 @@ interface FormBaseProps extends Pick<
   gap?: GridGaps;
 }
 
- 
 export interface FormChildProps extends Partial<FormBaseProps> {}
 
 export interface FormProps

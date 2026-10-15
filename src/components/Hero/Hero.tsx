@@ -123,7 +123,7 @@ export const Hero: ChakraComponent<
       const finalHeading =
         heading && React.cloneElement(heading, { __css: headingStyles });
       let backgroundImageStyle = {};
-       
+
       let contentBoxStyling = {};
 
       const imageToRender = (

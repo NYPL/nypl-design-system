@@ -1,5 +1,3 @@
- 
- 
 import {
   BoxProps,
   chakra,

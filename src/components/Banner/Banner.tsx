@@ -101,7 +101,6 @@ export const Banner: ChakraComponent<
     const mainId = useSafeId(id);
     const [isOpen, setIsOpen] = useState(true);
     const handleClose = () => {
-       
       onClose && onClose();
       setIsOpen(false);
     };

@@ -1,4 +1,3 @@
- 
 import appleAppStoreBlack from "../../../icons/svg/logo-apple-app-store-black.svg";
 import appleAppStoreWhite from "../../../icons/svg/logo-apple-app-store-white.svg";
 import bplBlack from "../../../icons/svg/logo-bpl-black.svg";

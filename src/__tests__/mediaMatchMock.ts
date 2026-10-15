@@ -85,7 +85,6 @@ export default class MatchMedia {
     window.addEventListener("resize", () => this.handleResize());
   }
 
-   
   private compileQuery(query: string) {
     type UnitsReplaceType = ($0: string, $1: string, $2: UnitType) => string;
 
@@ -141,19 +140,16 @@ export default class MatchMedia {
   }
 
   private evalQuery(query: string): boolean {
-    const result = !!(
-       
-      new Function("media", this.compileQuery(query))({
-        width: window.innerWidth,
-        height: window.innerHeight,
-        orientation: window.screen.orientation
-          ? window.screen.orientation.type.replace(
-              /^(landscape|portrait).*$/,
-              "$1"
-            )
-          : "landscape",
-      })
-    );
+    const result = !!new Function("media", this.compileQuery(query))({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      orientation: window.screen.orientation
+        ? window.screen.orientation.type.replace(
+            /^(landscape|portrait).*$/,
+            "$1"
+          )
+        : "landscape",
+    });
 
     return result;
   }
