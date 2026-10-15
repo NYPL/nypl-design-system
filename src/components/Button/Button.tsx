@@ -72,9 +72,7 @@ export const Button: ChakraComponent<
       const mainId = useSafeId(id);
       const isButtonGroupDisabled = useButtonGroup();
       const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
-      let styles: any = {};
-
-      styles = useMultiStyleConfig("ReservoirButton", {
+      const styles = useMultiStyleConfig("ReservoirButton", {
         variant,
         buttonSize: size,
       });

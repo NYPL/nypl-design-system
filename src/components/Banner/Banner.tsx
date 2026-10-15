@@ -101,6 +101,7 @@ export const Banner: ChakraComponent<
     const mainId = useSafeId(id);
     const [isOpen, setIsOpen] = useState(true);
     const handleClose = () => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onClose && onClose();
       setIsOpen(false);
     };

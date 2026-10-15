@@ -122,6 +122,7 @@ export const Hero: ChakraComponent<
       const finalHeading =
         heading && React.cloneElement(heading, { __css: headingStyles });
       let backgroundImageStyle = {};
+      // eslint-disable-next-line no-useless-assignment
       let contentBoxStyling = {};
 
       const imageToRender = (

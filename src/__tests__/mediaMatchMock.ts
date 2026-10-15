@@ -184,6 +184,7 @@ export default class MatchMedia {
         };
 
         listeners.forEach((listener) => {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
           (listener as Function)?.call(
             this.mediaQueryList,
             mqListEvent as MediaQueryListEvent

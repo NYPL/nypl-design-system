@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import {
   Box,
   BoxProps,
@@ -18,6 +19,7 @@ interface FormBaseProps
   gap?: GridGaps;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface FormChildProps extends Partial<FormBaseProps> {}
 
 export interface FormProps

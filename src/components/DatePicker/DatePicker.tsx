@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-assignment */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import {
   BoxProps,
   chakra,

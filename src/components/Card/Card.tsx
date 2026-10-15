@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import {
   Box,
   BoxProps,
@@ -127,7 +128,7 @@ export const CardHeading: React.FC<any> = chakra(Heading);
 
 // CardContent child-component
 export const CardContent: React.FC<React.PropsWithChildren<any>> = chakra(
-  (props: React.PropsWithChildren<{}>) => {
+  (props: React.PropsWithChildren<object>) => {
     const { children, ...rest } = props;
     const styles = useStyleConfig("CardContent");
     return children ? (

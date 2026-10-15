@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import React, { forwardRef, useRef, useState } from "react";
 import {
   Box,
