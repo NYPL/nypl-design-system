@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+ 
 import accessibilityFull from "../../../icons/svg/accessibility-full.svg";
 import accessibilityPartial from "../../../icons/svg/accessibility-partial.svg";
 import actionCheckCircle from "../../../icons/svg/action-check-circle.svg";

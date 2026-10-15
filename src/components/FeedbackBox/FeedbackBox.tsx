@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
+ 
 import {
   Box,
   BoxProps,
@@ -35,7 +35,7 @@ export const feedbackBoxViewTypeArray = [
   "confirmation",
   "error",
 ] as const;
-export type FeedbackBoxViewType = typeof feedbackBoxViewTypeArray[number];
+export type FeedbackBoxViewType = (typeof feedbackBoxViewTypeArray)[number];
 
 export interface FeedbackBoxProps extends Omit<BoxProps, "onSubmit"> {
   /** Used to add additional information to the default confirmation message in

@@ -17,9 +17,9 @@ import Heading, { HeadingSizes } from "../Heading/Heading";
 import Icon, { IconProps } from "../Icons/Icon";
 import { useSafeId } from "../../hooks/useSafeId";
 
-export type BannerVariants = typeof messageVariantsArray[number];
-export type BannerBgColors = typeof bgColorsArray[number];
-export type BannerHighlightColors = typeof highlightColorsArray[number];
+export type BannerVariants = (typeof messageVariantsArray)[number];
+export type BannerBgColors = (typeof bgColorsArray)[number];
+export type BannerHighlightColors = (typeof highlightColorsArray)[number];
 
 export interface BannerProps extends Omit<BoxProps, "content"> {
   /** Used to set the color of the background for the full component.
@@ -101,7 +101,7 @@ export const Banner: ChakraComponent<
     const mainId = useSafeId(id);
     const [isOpen, setIsOpen] = useState(true);
     const handleClose = () => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+       
       onClose && onClose();
       setIsOpen(false);
     };

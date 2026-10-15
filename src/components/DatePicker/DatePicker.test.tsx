@@ -821,7 +821,7 @@ describe("DatePicker", () => {
       expect(disabled).toMatchSnapshot();
     });
 
-    it("should select two new dates", async() => {
+    it("should select two new dates", async () => {
       render(
         <DatePicker
           id="datePicker"

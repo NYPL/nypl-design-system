@@ -1,5 +1,5 @@
-/* eslint-disable no-useless-assignment */
-/* eslint-disable @typescript-eslint/no-unused-expressions */
+ 
+ 
 import {
   BoxProps,
   chakra,
@@ -34,7 +34,7 @@ interface ReactDatePickerAttrs {
 }
 
 export const datePickerTypesArray = ["full", "month", "year"] as const;
-export type DatePickerTypes = typeof datePickerTypesArray[number];
+export type DatePickerTypes = (typeof datePickerTypesArray)[number];
 
 // The object shape for the DatePicker's start and end date state values.
 export interface FullDateType {
@@ -54,8 +54,7 @@ interface DateRangeRowProps extends BoxProps {
 // Interface used by the `div` or `fieldset` parent wrapper element.
 // Internal use only.
 interface DatePickerWrapperProps
-  extends Omit<BoxProps, "onChange">,
-    DateRangeRowProps {
+  extends Omit<BoxProps, "onChange">, DateRangeRowProps {
   /** Adds the 'required' property to the input element(s). */
   isRequired?: boolean;
   /** Passed to the `TextInput` component to render a label associated with an input field. */
@@ -83,8 +82,10 @@ export interface CustomTextInputProps extends Partial<InputProps> {
 }
 
 // Main interface for the exported DS DatePicker component.
-export interface DatePickerProps
-  extends Omit<DatePickerWrapperProps, "onChange"> {
+export interface DatePickerProps extends Omit<
+  DatePickerWrapperProps,
+  "onChange"
+> {
   /** The date format to display. Defaults to "yyyy-MM-dd".
    * Must be in ISO-8601 format. */
   dateFormat?: string;
@@ -304,13 +305,13 @@ export const DatePicker: ChakraComponent<
     const initStartDate = initialDate
       ? new Date(initialDate)
       : initialDate === ""
-      ? null
-      : new Date();
+        ? null
+        : new Date();
     const initEndDate = initialDateTo
       ? new Date(initialDateTo)
       : initialDateTo === ""
-      ? null
-      : new Date();
+        ? null
+        : new Date();
     const startDateInputRef = useRef(null);
     const endDateInputRef = useRef(null);
 

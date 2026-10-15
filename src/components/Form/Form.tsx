@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
+ 
 import {
   Box,
   BoxProps,
@@ -11,20 +11,21 @@ import React, { FormHTMLAttributes, forwardRef } from "react";
 import SimpleGrid, { GridGaps } from "../Grid/SimpleGrid";
 import { useSafeId } from "../../hooks/useSafeId";
 
-interface FormBaseProps
-  extends Pick<BoxProps, "id" | "className" | keyof ChakraProps> {
+interface FormBaseProps extends Pick<
+  BoxProps,
+  "id" | "className" | keyof ChakraProps
+> {
   /** Optional spacing size; if omitted, the default `large` (2rem / 32px)
    * spacing will be used; ```IMPORTANT: for general form layout, this prop
    * should not be used``` */
   gap?: GridGaps;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+ 
 export interface FormChildProps extends Partial<FormBaseProps> {}
 
 export interface FormProps
-  extends FormBaseProps,
-    Omit<FormHTMLAttributes<HTMLFormElement>, "color"> {}
+  extends FormBaseProps, Omit<FormHTMLAttributes<HTMLFormElement>, "color"> {}
 
 /** FormRow child-component */
 export const FormRow: ChakraComponent<

@@ -84,5 +84,5 @@ export default tseslint.config(
       "no-redeclare": "error",
       "no-var": "error",
     },
-  },
+  }
 );
