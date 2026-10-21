@@ -87,7 +87,7 @@
     "@rollup/plugin-commonjs": "26.0.3",
     "@rollup/plugin-typescript": "11.1.6",
     "@storybook/addon-a11y": "9.1.20",
-    "@storybook/addon-designs": "10.0.1",
+    "@storybook/addon-designs": "11.1.4",
     "@storybook/addon-docs": "9.1.20",
     "@storybook/addon-jest": "9.1.12",
     "@storybook/addon-links": "9.1.20",
