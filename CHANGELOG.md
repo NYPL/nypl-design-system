@@ -8,9 +8,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+## 4.5.2 (October 15, 2026)
+
 ### Updates
 
 - Updates tag action to extract proper CHANGELOG entry for release notes.
+- Updates `Banner` styles to adapt based on `dir` attribute.
 
 ## 4.5.1 (September 21, 2026)
 
