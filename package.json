@@ -49,12 +49,6 @@
     "*.{jsx,ts,tsx}": "eslint src --ext=jsx,ts,tsx --cache --fix",
     "*.{js,jsx,ts,tsx,css}": "prettier --write"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": false,
-    "trailingComma": "es5"
-  },
   "overrides": {
     "@microsoft/api-extractor": "7.34.4",
     "types-ramda": "0.29.4"
