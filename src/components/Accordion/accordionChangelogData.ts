@@ -14,7 +14,7 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Documentation", "Functionality"],
-    notes: ["Adds the `onToggle` prop"],
+    notes: ["Adds the `onToggle` prop."],
   },
   {
     date: "2026-08-07",
