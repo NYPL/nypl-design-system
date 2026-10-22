@@ -7,6 +7,8 @@ import Card, { CardHeading, CardContent } from "../Card/Card";
 import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import Heading from "../Heading/Heading";
+import Text from "../Text/Text";
+import { useState } from "react";
 
 const accordionData: AccordionDataProps[] = [
   {
@@ -262,4 +264,26 @@ export const IsAlwaysRendered: Story = {
     </VStack>
   ),
   name: "isAlwaysRendered",
+};
+
+export const OnToggleExample: Story = {
+  render: () => {
+    const OnToggleDemo = () => {
+      const [lastToggle, setLastToggle] = useState<string>("None");
+
+      const handleToggle = (index: number, isOpen: boolean) => {
+        setLastToggle(`index: ${index}, isOpen: ${isOpen}`);
+      };
+
+      return (
+        <VStack align="stretch" spacing="s">
+          <Text>Last onToggle call: {lastToggle}</Text>
+
+          <Accordion accordionData={faqContentData} onToggle={handleToggle} />
+        </VStack>
+      );
+    };
+    return <OnToggleDemo />;
+  },
+  name: "onToggle Example",
 };
