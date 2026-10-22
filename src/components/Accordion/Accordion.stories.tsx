@@ -1,5 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState } from "react";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import { Accordion, AccordionDataProps } from "./Accordion";
@@ -8,7 +9,6 @@ import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import Heading from "../Heading/Heading";
 import Text from "../Text/Text";
-import { useState } from "react";
 
 const accordionData: AccordionDataProps[] = [
   {
@@ -144,6 +144,7 @@ const meta: Meta<typeof Accordion> = {
     isDefaultOpen: argsBooleanType(),
     isAlwaysRendered: argsBooleanType(),
     panelMaxHeight: { control: { type: "text" } },
+    onToggle: { control: false },
   },
 };
 
