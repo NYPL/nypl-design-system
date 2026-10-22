@@ -6,6 +6,7 @@ import {
   Source,
 } from "@storybook/addon-docs/blocks";
 import { Flex } from "@chakra-ui/react";
+import Banner from "../Banner/Banner";
 import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
 import Icon from "../Icons/Icon";
@@ -54,10 +55,12 @@ attributes, as well any Chakra style props and the props below.
 The icon representing `contentType` is decorative and is automatically hidden from
 assistive technology.
 
-When possible, pass a specific `contentTitle` that specifically describes the
-missing content (e.g. a book's title), especially when multiple `PlaceholderImage`s
-are rendered, as in a grid. This text is used to provide context to screen reader
-users.
+If the `PlaceholderImage`'s purpose is clear to sighted users but lacks sufficient
+context for screen reader users, you can provide a ``contentTitle` to identify the
+unavailable content (e.g., a book's title).
+
+This prop provides additional context exclusively to screen reader users and is
+not displayed visually.
 
 <Source
   code={`
@@ -258,6 +261,16 @@ layouts like `Grid`. It uses container queries, rather than viewport breakpoints
 to scale its icon and caption, so below a 200px width container the "Preview not
 available" text is visually hidden (though still exposed to screen readers) to
 avoid crowding very small placeholders.
+
+<Banner
+  content={
+    <>
+      <strong>RECOMMENDATION:</strong> Resize your browser window to see{" "}
+      <code>PlaceholderImage</code>'s responsive behavior in action.
+    </>
+  }
+  variant="recommendation"
+/>
 
 <Canvas of={PlaceholderImageStories.ResponsiveSizing} />
 
