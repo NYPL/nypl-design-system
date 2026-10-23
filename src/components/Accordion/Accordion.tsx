@@ -44,6 +44,10 @@ export interface AccordionProps extends Omit<BoxProps, "onChange"> {
    * MultiSelect's `closeOnBlur` prop is true and the user clicks outside the
    * component. */
   userClickedOutside?: boolean;
+  /** Callback function that fires whenever an accordion item is expanded or
+   * collapsed. Receives the `index` of the toggled item and its new
+   * `isOpen` state. */
+  onToggle?: (index: number, isOpen: boolean) => void;
 }
 
 /**
@@ -276,6 +280,7 @@ export const Accordion: ChakraComponent<
       isAlwaysRendered = false,
       panelMaxHeight,
       userClickedOutside,
+      onToggle,
       ...rest
     } = props;
     const mainId = useSafeId(id);
@@ -324,6 +329,10 @@ export const Accordion: ChakraComponent<
           );
         }
 
+        if (expandedPanels.includes(focusedPanelIndex)) {
+          onToggle?.(focusedPanelIndex, false);
+        }
+
         setExpandedPanels(
           expandedPanels.filter((i) => i !== focusedPanelIndex)
         );
@@ -349,7 +358,20 @@ export const Accordion: ChakraComponent<
         allowMultiple
         data-testid="ds-accordion"
         index={expandedPanels}
-        onChange={(expandedIdxs: number[]) => setExpandedPanels(expandedIdxs)}
+        onChange={(expandedIdxs: number[]) => {
+          const openedIndex = expandedIdxs.find(
+            (i) => !expandedPanels.includes(i)
+          );
+          const closedIndex = expandedPanels.find(
+            (i) => !expandedIdxs.includes(i)
+          );
+          if (openedIndex !== undefined) {
+            onToggle?.(openedIndex, true);
+          } else if (closedIndex !== undefined) {
+            onToggle?.(closedIndex, false);
+          }
+          setExpandedPanels(expandedIdxs);
+        }}
         onKeyDown={handleKeyDown}
         id={mainId}
         ref={ref}
