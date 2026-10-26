@@ -359,17 +359,24 @@ export const Accordion: ChakraComponent<
         data-testid="ds-accordion"
         index={expandedPanels}
         onChange={(expandedIdxs: number[]) => {
+          // Checks the difference between Chakra's indexes and current state to find the panel that was opened:
+          // expandedIdxs is the new array from Chakra,
+          // expandedPanels is the old state,
+          // .find() iterates through each element to find the difference.
           const openedIndex = expandedIdxs.find(
             (i) => !expandedPanels.includes(i)
           );
+          // Same as above, but to find the panel that was closed.
           const closedIndex = expandedPanels.find(
             (i) => !expandedIdxs.includes(i)
           );
+          // Calls the onToggle prop with the index and new opened/closed state.
           if (openedIndex !== undefined) {
             onToggle?.(openedIndex, true);
           } else if (closedIndex !== undefined) {
             onToggle?.(closedIndex, false);
           }
+          // Syncs the internal state with the Chakra state.
           setExpandedPanels(expandedIdxs);
         }}
         onKeyDown={handleKeyDown}
