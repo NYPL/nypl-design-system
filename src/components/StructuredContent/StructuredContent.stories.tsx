@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Heading from "../Heading/Heading";
