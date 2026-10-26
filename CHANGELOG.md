@@ -10,6 +10,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Adds the `onToggle` prop to the `Accordion` component.
 - Updates eslint and prettier npm packages.
 
 ## 4.5.2 (October 15, 2026)

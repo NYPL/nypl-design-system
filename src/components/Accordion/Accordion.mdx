@@ -30,8 +30,9 @@ import { changelogData } from "./accordionChangelogData";
 - [Component props](#component-props)
 - [Accessibility](#accessibility)
 - [FAQ example](#faq-example)
-- [Example with panelMaxHeight prop](#example-with-panelmaxheight-prop)
+- [Examples with panelMaxHeight prop](#examples-with-panelmaxheight-prop)
 - [Disabled state example](#disabled-state-example)
+- [Example with onToggle callback](#example-with-ontoggle-callback)
 - [Changelog](#changelog)
 
 ## Overview
@@ -167,6 +168,8 @@ You may pass any Chakra `Box` props, as well as the props below.
     `ariaLabel` to a particular entry, the latter will take precedence.
 - If the user presses the 'esc' key and focus is on an open accordion panel,
   that panel will close and focus will return to the accordion's button.
+- The `onToggle` callback fires for direct button interaction (click or
+  keyboard) and closing via the 'esc' key.
 
 Resources:
 
@@ -300,6 +303,18 @@ of the content when it is closed. Click on subjects inside both `Accordion`s and
 toggle them closed and opened to see the difference.
 
 <Canvas of={AccordionStories.IsAlwaysRendered} />
+
+## Example with onToggle callback
+
+The `Accordion` component accepts an `onToggle` callback prop that fires
+whenever a panel is opened or closed. The callback receives the index of the toggled item
+and a boolean indicating whether it is now open or closed.
+
+In the following example, the `onToggle` callback updates a text display
+showing the index and open state of the last panel that was toggled. Click
+on the items below to see the values update.
+
+<Canvas of={AccordionStories.OnToggleExample} />
 
 ## Changelog
 
