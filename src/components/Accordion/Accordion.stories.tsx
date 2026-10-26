@@ -1,5 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { useState } from "react";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
 import { Accordion, AccordionDataProps } from "./Accordion";
@@ -7,6 +8,7 @@ import Card, { CardHeading, CardContent } from "../Card/Card";
 import Checkbox from "../Checkbox/Checkbox";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
 import Heading from "../Heading/Heading";
+import Text from "../Text/Text";
 
 const accordionData: AccordionDataProps[] = [
   {
@@ -142,6 +144,7 @@ const meta: Meta<typeof Accordion> = {
     isDefaultOpen: argsBooleanType(),
     isAlwaysRendered: argsBooleanType(),
     panelMaxHeight: { control: { type: "text" } },
+    onToggle: { control: false },
   },
 };
 
@@ -262,4 +265,26 @@ export const IsAlwaysRendered: Story = {
     </VStack>
   ),
   name: "isAlwaysRendered",
+};
+
+export const OnToggleExample: Story = {
+  render: () => {
+    const OnToggleDemo = () => {
+      const [lastToggle, setLastToggle] = useState<string>("None");
+
+      const handleToggle = (index: number, isOpen: boolean) => {
+        setLastToggle(`index: ${index}, isOpen: ${isOpen}`);
+      };
+
+      return (
+        <VStack align="stretch" spacing="s">
+          <Text>Last onToggle call: {lastToggle}</Text>
+
+          <Accordion accordionData={faqContentData} onToggle={handleToggle} />
+        </VStack>
+      );
+    };
+    return <OnToggleDemo />;
+  },
+  name: "onToggle Example",
 };
