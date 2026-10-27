@@ -1,0 +1,91 @@
+{
+  "artBoardWidth": {
+    "$type": "number",
+    "$value": 960,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:29:61",
+      "com.figma.hiddenFromPublishing": true,
+      "com.figma.scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ]
+    }
+  },
+  "columns": {
+    "$type": "number",
+    "$value": 3,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:29:60",
+      "com.figma.hiddenFromPublishing": true,
+      "com.figma.scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ]
+    }
+  },
+  "margin": {
+    "$type": "number",
+    "$value": 28,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:29:59",
+      "com.figma.hiddenFromPublishing": true,
+      "com.figma.scopes": [
+        "GAP"
+      ],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:c391697162cdcf67ca5ba92aeb4247febc4dd756/-1:-1",
+        "targetVariableName": "spacing/28",
+        "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+        "targetVariableSetName": "_primitives"
+      }
+    }
+  },
+  "padding": {
+    "$type": "number",
+    "$value": 24,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:29:58",
+      "com.figma.hiddenFromPublishing": true,
+      "com.figma.scopes": [
+        "GAP"
+      ],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:e74415aff398f0dfba6e93c35d864a1067094003/-1:-1",
+        "targetVariableName": "spacing/24",
+        "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+        "targetVariableSetName": "_primitives"
+      }
+    }
+  },
+  "gap": {
+    "$type": "number",
+    "$value": 24,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:29:57",
+      "com.figma.hiddenFromPublishing": true,
+      "com.figma.scopes": [
+        "GAP"
+      ],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:5b0aa259fad455291edabd0bba4f7554ab282fda/-1:-1",
+        "targetVariableName": "grid/normal",
+        "targetVariableSetId": "VariableCollectionId:4d6454a1442e48080fff79eaf8f76e694855aa0d/-1:-1",
+        "targetVariableSetName": "spacing"
+      }
+    }
+  },
+  "containerMaxWidth": {
+    "$type": "number",
+    "$value": 1360,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:29:56",
+      "com.figma.hiddenFromPublishing": true,
+      "com.figma.scopes": [
+        "WIDTH_HEIGHT"
+      ]
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "tablet-small"
+  }
+}

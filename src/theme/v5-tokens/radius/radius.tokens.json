@@ -1,0 +1,151 @@
+{
+  "sharp": {
+    "$type": "number",
+    "$value": 0,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:111:184",
+      "com.figma.scopes": ["CORNER_RADIUS"],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:7e7d42a172893b58bfa898f2bd617294e4334098/-1:-1",
+        "targetVariableName": "radius/0",
+        "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+        "targetVariableSetName": "_primitives"
+      }
+    }
+  },
+  "faint": {
+    "$type": "number",
+    "$value": 2,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:429:8",
+      "com.figma.scopes": ["CORNER_RADIUS"],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:4bf1430ea1182044fe5405789c67851f3d7fbbfb/-1:-1",
+        "targetVariableName": "radius/2",
+        "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+        "targetVariableSetName": "_primitives"
+      }
+    }
+  },
+  "soft": {
+    "$type": "number",
+    "$value": 4,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:111:185",
+      "com.figma.scopes": ["CORNER_RADIUS"],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:ec4a8fa15b2019c04dbdad6dbace15c75cf55f2e/-1:-1",
+        "targetVariableName": "radius/4",
+        "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+        "targetVariableSetName": "_primitives"
+      }
+    }
+  },
+  "softer": {
+    "$type": "number",
+    "$value": 8,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:111:186",
+      "com.figma.scopes": ["CORNER_RADIUS"],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:a7224df2c6d378b280ff7196662e80dbf5ab894d/-1:-1",
+        "targetVariableName": "radius/8",
+        "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+        "targetVariableSetName": "_primitives"
+      }
+    }
+  },
+  "softest": {
+    "$type": "number",
+    "$value": 12,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:111:187",
+      "com.figma.scopes": ["CORNER_RADIUS"],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:00ab928834fddb2847456e18ffbae9ac3b43b122/-1:-1",
+        "targetVariableName": "radius/12",
+        "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+        "targetVariableSetName": "_primitives"
+      }
+    }
+  },
+  "round": {
+    "$type": "number",
+    "$value": 9999,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:118:77",
+      "com.figma.scopes": ["CORNER_RADIUS"],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:923764191e43945265c062410053132f106ab6bc/-1:-1",
+        "targetVariableName": "radius/round",
+        "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+        "targetVariableSetName": "_primitives"
+      }
+    }
+  },
+  "badge": {
+    "default": {
+      "$type": "number",
+      "$value": "{faint}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:429:9",
+        "com.figma.scopes": ["CORNER_RADIUS"]
+      }
+    }
+  },
+  "button": {
+    "default": {
+      "$type": "number",
+      "$value": "{soft}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:118:55",
+        "com.figma.scopes": ["CORNER_RADIUS"]
+      }
+    },
+    "rounded": {
+      "$type": "number",
+      "$value": 48,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:129:19",
+        "com.figma.scopes": ["CORNER_RADIUS"],
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:e5a6dab15dba897f10b459bcf4c4de66022204cb/-1:-1",
+          "targetVariableName": "radius/48",
+          "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+          "targetVariableSetName": "_primitives"
+        }
+      }
+    },
+    "icon": {
+      "$type": "number",
+      "$value": "{round}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:118:76",
+        "com.figma.scopes": ["CORNER_RADIUS"]
+      }
+    }
+  },
+  "panel": {
+    "default": {
+      "$type": "number",
+      "$value": "{soft}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:722:640",
+        "com.figma.scopes": ["CORNER_RADIUS"]
+      }
+    }
+  },
+  "tag": {
+    "default": {
+      "$type": "number",
+      "$value": "{round}",
+      "$extensions": {
+        "com.figma.variableId": "VariableID:254:78",
+        "com.figma.scopes": ["CORNER_RADIUS"]
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Mode 1"
+  }
+}

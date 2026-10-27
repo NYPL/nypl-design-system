@@ -43,7 +43,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook:v4": "storybook build -c .storybook -o ./reservoir/v4",
     "prebuild:storybook": "npm run test:generate-output",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "tokens:build": "node src/theme/token-build/build.mjs"
   },
   "lint-staged": {
     "*.{jsx,ts,tsx}": "eslint src --ext=jsx,ts,tsx --cache --fix",
