@@ -4,8 +4,8 @@ import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 import dts from "vite-plugin-dts";
 
-const root = resolve(__dirname, "./");
-const outDir = resolve(__dirname, "dist");
+const root = resolve(import.meta.dirname, "./");
+const outDir = resolve(import.meta.dirname, "dist");
 const externalPackages = [
   /^react($|\/)/,
   /^react-dom($|\/)/,

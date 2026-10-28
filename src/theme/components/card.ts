@@ -36,6 +36,7 @@ interface CardActionsBaseStyleProps extends StyleFunctionProps {
   topBorder: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const imageSizes = {
   xxsmall: { flex: { base: "0 0 100%", md: "0 0 64px" }, width: "100%" },
   xsmall: { flex: { md: "0 0 96px" } },
