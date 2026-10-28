@@ -36,6 +36,12 @@ import { responsiveSpacing } from "../../theme/components/global";
 const meta: Meta<typeof Template> = {
   title: "Components/Page Layout/Template",
   component: Template,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: landmark-unique
+    a11y: { test: "todo" },
+  },
   argTypes: {
     variant: {
       control: { type: "select" },

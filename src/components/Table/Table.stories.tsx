@@ -9,6 +9,12 @@ import { Stack } from "@chakra-ui/react";
 const meta: Meta<typeof Table> = {
   title: "Components/Page Layout/Table",
   component: Table,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: landmark-unique
+    a11y: { test: "todo" },
+  },
   argTypes: {
     columnHeaders: { control: { disable: true } },
     columnHeadersBackgroundColor: { control: { type: "color" } },

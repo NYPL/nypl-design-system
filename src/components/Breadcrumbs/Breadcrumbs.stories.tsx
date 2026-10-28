@@ -33,6 +33,12 @@ const breadcrumbsLongTextData = [
 const meta: Meta<typeof Breadcrumbs> = {
   title: "Components/Navigation/Breadcrumbs",
   component: Breadcrumbs,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: landmark-unique
+    a11y: { test: "todo" },
+  },
   argTypes: {
     breadcrumbsData: { control: false },
     customLinkComponent: { control: false },

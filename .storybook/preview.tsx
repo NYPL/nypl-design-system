@@ -137,6 +137,16 @@ const parameters = {
       sourceState: "none",
     },
   },
+  // Sets the default for automated axe checks run by `@storybook/addon-vitest`.
+  // All stories fail on a11y violations by default. Components with known
+  // violations temporarily opt out by setting
+  // `parameters: { a11y: { test: "todo" } }` in their stories' `meta`.
+  // - "todo": report violations as warnings, don't fail
+  // - "error": fail the test (and CI) on violations
+  // - "off": skip a11y checks entirely
+  a11y: {
+    test: "error",
+  },
 };
 
 interface ColorModeProps {

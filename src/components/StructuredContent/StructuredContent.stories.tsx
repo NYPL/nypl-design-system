@@ -8,6 +8,12 @@ import { getPlaceholderImage } from "../../utils/utils";
 const meta: Meta<typeof StructuredContent> = {
   title: "Components/Page Layout/StructuredContent",
   component: StructuredContent,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: scrollable-region-focusable
+    a11y: { test: "todo" },
+  },
   argTypes: {
     "imageProps.aspectRatio": {
       table: {

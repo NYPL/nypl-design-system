@@ -13,6 +13,12 @@ import { argsBooleanType } from "../../helpers/storybookUtils";
 const meta: Meta<typeof Slider> = {
   title: "Components/Form Elements/Slider",
   component: Slider,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: color-contrast
+    a11y: { test: "todo" },
+  },
   argTypes: {
     defaultValue: {
       control: false,

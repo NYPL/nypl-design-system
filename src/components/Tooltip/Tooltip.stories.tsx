@@ -18,6 +18,12 @@ import Card, { CardContent, CardHeading } from "../Card/Card";
 const meta: Meta<typeof Tooltip> = {
   title: "Components/Overlays & Switchers/Tooltip",
   component: Tooltip,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: link-name
+    a11y: { test: "todo" },
+  },
   argTypes: {
     isDisabled: argsBooleanType(),
     offset: { control: false },

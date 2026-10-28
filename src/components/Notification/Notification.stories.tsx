@@ -10,6 +10,12 @@ import { VStack } from "@chakra-ui/react";
 const meta: Meta<typeof Notification> = {
   title: "Components/Feedback/Notification",
   component: Notification,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: landmark-unique, heading-order
+    a11y: { test: "todo" },
+  },
   argTypes: {
     dismissible: {
       table: { defaultValue: { summary: "false" } },

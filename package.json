@@ -38,6 +38,7 @@
     "test:watch": "jest --watch --config=jest.config.js",
     "test:generate-output": "jest --config=jest.config.js --json --outputFile=.jest-test-results.json || true",
     "test:ci": "jest --ci --config=jest.config.js --maxWorkers=2",
+    "test:storybook": "vitest run --project=storybook",
     "lint": "eslint src --ext=ts,tsx --cache",
     "prepare": "npm run build && husky install",
     "storybook": "storybook dev -p 6006",
@@ -57,7 +58,10 @@
   },
   "overrides": {
     "@microsoft/api-extractor": "7.34.4",
-    "types-ramda": "0.29.4"
+    "types-ramda": "0.29.4",
+    "vitest": "4.1.12",
+    "@vitest/browser": "4.1.12",
+    "@vitest/browser-playwright": "4.1.12"
   },
   "dependencies": {
     "@chakra-ui/react": "2.8.2",
@@ -91,6 +95,7 @@
     "@storybook/addon-docs": "9.1.20",
     "@storybook/addon-jest": "9.1.12",
     "@storybook/addon-links": "9.1.20",
+    "@storybook/addon-vitest": "9.1.20",
     "@storybook/react-vite": "9.1.20",
     "@testing-library/dom": "9.2.0",
     "@testing-library/jest-dom": "6.0.0",
@@ -105,6 +110,8 @@
     "@typescript-eslint/eslint-plugin": "5.57.0",
     "@typescript-eslint/parser": "5.57.0",
     "@vitejs/plugin-react": "5.2.0",
+    "@vitest/browser-playwright": "4.1.12",
+    "@vitest/coverage-v8": "4.1.12",
     "eslint": "7.31.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-jsx-a11y": "6.7.1",
@@ -119,6 +126,7 @@
     "js-cookie": "3.0.8",
     "lint-staged": "10.5.4",
     "normalize.css": "8.0.1",
+    "playwright": "1.64.1",
     "prettier": "2.4.1",
     "prop-types": "15.8.1",
     "react": "18.3.0",
@@ -133,6 +141,7 @@
     "typescript": "4.9.5",
     "vite": "7.3.6",
     "vite-plugin-dts": "4.5.4",
-    "vite-plugin-svgr": "4.3.0"
+    "vite-plugin-svgr": "4.3.0",
+    "vitest": "4.1.12"
   }
 }

@@ -14,10 +14,10 @@ jobs:
       CI: true
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 22.x
+      - name: Use Node.js version from .nvmrc
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version-file: .nvmrc
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
         with:
@@ -32,11 +32,32 @@ jobs:
       CI: true
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 22.x
+      - name: Use Node.js version from .nvmrc
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version-file: .nvmrc
       - name: Cache and install node modules
         uses: bahmutov/npm-install@v1
       - name: Test
         run: npm run test:ci
+
+  storybook-tests:
+    name: Storybook tests (a11y)
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js version from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - name: Cache and install node modules
+        uses: bahmutov/npm-install@v1
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+      # Renders every story in headless Chromium, runs its `play` function,
+      # and runs axe. Stories fail on a11y violations by default, except for
+      # components that opt out with `a11y: { test: "todo" }` (see preview.tsx).
+      - name: Storybook tests
+        run: npm run test:storybook

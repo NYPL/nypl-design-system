@@ -68,6 +68,12 @@ shortMultiSelectItems.pop();
 const meta: Meta<typeof FilterBarInline> = {
   title: "Components/Form Elements/FilterBarInline",
   component: FilterBarInline,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: heading-order
+    a11y: { test: "todo" },
+  },
   argTypes: {
     heading: { control: false },
     layout: {

@@ -274,6 +274,12 @@ const withItemCountItems = [
 const meta: Meta<typeof MultiSelect> = {
   title: "Components/Form Elements/MultiSelect",
   component: MultiSelect,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: color-contrast
+    a11y: { test: "todo" },
+  },
   argTypes: {
     defaultItemsVisible: {
       table: { defaultValue: { summary: "5" } },

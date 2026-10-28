@@ -11,6 +11,12 @@ import { bgColorsArray, highlightColorsArray } from "../../theme/sharedTypes";
 const meta: Meta<typeof SubNav> = {
   title: "Components/Navigation/SubNav",
   component: SubNav,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: color-contrast
+    a11y: { test: "todo" },
+  },
   argTypes: {
     actionBackgroundColor: {
       control: "select",

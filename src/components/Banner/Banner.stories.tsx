@@ -20,6 +20,12 @@ import {
 const meta: Meta<typeof Banner> = {
   title: "Components/Feedback/Banner",
   component: Banner,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: landmark-unique, heading-order, link-in-text-block
+    a11y: { test: "todo" },
+  },
   argTypes: {
     backgroundColor: {
       control: { type: "select" },

@@ -21,6 +21,7 @@ const config: StorybookConfig = {
       },
     },
     "@storybook/addon-jest",
+    "@storybook/addon-vitest",
   ],
 
   framework: {

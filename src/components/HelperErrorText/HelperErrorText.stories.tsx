@@ -8,6 +8,12 @@ import TextInput from "../TextInput/TextInput";
 const meta: Meta<typeof HelperErrorText> = {
   title: "Components/Content Display/HelperErrorText",
   component: HelperErrorText,
+  parameters: {
+    // TODO: Fix these axe violations, then remove this opt-out so the
+    // stories fail on a11y violations like other components.
+    // Violations: link-in-text-block
+    a11y: { test: "todo" },
+  },
   argTypes: {
     isInvalid: {
       table: { defaultValue: { summary: "false" } },
