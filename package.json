@@ -54,7 +54,7 @@
     "types-ramda": "0.29.4"
   },
   "dependencies": {
-    "@chakra-ui/react": "2.8.2",
+    "@chakra-ui/react": "3.37.0",
     "@chakra-ui/system": "2.6.2",
     "@charlietango/use-native-lazy-loading": "1.10.0",
     "@emotion/react": "11.11.1",
