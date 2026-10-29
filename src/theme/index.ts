@@ -1,3 +1,10 @@
+/** v5 global theme styles (will eventually replace the current foundations) */
+// import { breakpoints as v5Breakpoints } from "./generated/breakpoints";
+import { colors as v5Colors } from "./generated/colors";
+import { radii as v5Radii } from "./generated/radii";
+import { sizes as v5Sizes } from "./generated/sizes";
+import { space as v5Space } from "./generated/space";
+import { typography as v5Typography } from "./generated/typography";
 /** Global theme styles */
 import global from "./foundations/global";
 import breakpoints from "./foundations/breakpoints";
@@ -87,12 +94,27 @@ import VideoPlayer from "./components/videoPlayer";
 const theme: any = {
   styles: { global },
   breakpoints,
-  colors,
-  radii,
-  sizes,
+  colors: {
+    ...colors,
+    v5: v5Colors,
+  },
+  radii: {
+    ...radii,
+    v5: v5Radii,
+  },
+  sizes: {
+    ...sizes,
+    v5: v5Sizes,
+  },
   shadows,
-  space: spacing,
-  ...typography,
+  space: {
+    ...spacing,
+    v5: v5Space,
+  },
+  typography: {
+    ...typography,
+    v5: v5Typography,
+  },
   /**
    * Chakra documentation on component styles:
    * https://chakra-ui.com/docs/theming/component-style
