@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, within } from "storybook/test";
 
 import Heading from "../Heading/Heading";
 import Link from "../Link/Link";
@@ -139,6 +140,19 @@ export const WithControls: Story = {
     },
     jest: ["List.test.tsx"],
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // By default, the `WithControls` story renders an unordered ("ul")
+    // list, so the `li` items from `itemGroups` should be rendered.
+    const listItems = canvas.getAllByRole("listitem");
+    expect(listItems).toHaveLength(itemGroups.length);
+    expect(canvas.getByText("Art")).toBeInTheDocument();
+    expect(canvas.getByText("Villagers")).toBeInTheDocument();
+
+    const list = canvas.getByTestId("ds-list");
+    expect(list.tagName).toBe("UL");
+  },
 };
 
 // The following are additional List example Stories.
@@ -167,6 +181,18 @@ export const DescriptionList: Story = {
       type: "figma",
       url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=10734%3A5178",
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const definitions = canvas.getAllByRole("definition");
+    expect(definitions).toHaveLength(descriptions.length);
+    expect(canvas.getByText("Balrogs")).toBeInTheDocument();
+    expect(canvas.getByText("Hobbits")).toBeInTheDocument();
+
+    const list = canvas.getByTestId("ds-list");
+    expect(list.tagName).toBe("SECTION");
+    expect(list.querySelector("dl")).toBeInTheDocument();
   },
 };
 export const DescriptionListWithCustomHeading: Story = {
