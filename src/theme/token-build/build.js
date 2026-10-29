@@ -31,6 +31,19 @@ const kebabToCamelCase = (name) =>
 const flattenTokens = (object, prefix = "", result = {}) => {
   // Loop through each key-value pair in the JSON object.
   for (const [key, value] of Object.entries(object)) {
+    // "$root" represents the group's own value (ie the default state)
+    // alongside sibling sub-state keys like "disabled"/"error", rather
+    // than metadata, so give it a usable leaf name instead of skipping it.
+    if (key === "$root") {
+      const tokenPath = prefix ? `${prefix}.default` : "default";
+
+      if (value && typeof value === "object" && "$value" in value) {
+        result[tokenPath] = value.$value;
+      }
+
+      continue;
+    }
+
     if (key.startsWith("$")) continue;
 
     // Build the token path, ie "container" --> "container.padding-x"
@@ -304,7 +317,7 @@ for (const [tokenPath, value] of Object.entries(breakpointValues)) {
   const breakpointName = tokenPath.replace("bibliocommons.", "");
 
   // Chakra treats "base" (0px) implicitly, so the explicit "xxs" breakpoint
-  // at 0px is redundant and intentionally omitted.
+  // at 0px is intentionally omitted.
   if (breakpointName === "xxs") continue;
 
   buildNestedTokens(breakpointTokens, breakpointName, {
@@ -331,8 +344,8 @@ const typographyTokens = {
 };
 
 await generate(typographyTokens, "typography", "typography.ts");
-// Generate color tokens.
 
+// Generate color tokens.
 const formatColor = (color) => {
   const { hex, alpha } = color;
 

@@ -111,9 +111,21 @@ const theme: any = {
     ...spacing,
     v5: v5Space,
   },
-  typography: {
-    ...typography,
-    v5: v5Typography,
+  ...typography,
+  fonts: {
+    ...typography.fonts,
+    v5: v5Typography.fonts,
+  },
+  fontSizes: {
+    ...typography.fontSizes,
+    v5: v5Typography.fontSizes,
+  },
+  fontWeights: {
+    ...typography.fontWeights,
+    v5: v5Typography.fontWeights,
+  },
+  lineHeights: {
+    v5: v5Typography.lineHeights,
   },
   /**
    * Chakra documentation on component styles:
