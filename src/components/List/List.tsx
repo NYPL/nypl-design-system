@@ -11,7 +11,7 @@ import React, { forwardRef } from "react";
 import useDSHeading from "../../hooks/useDSHeading";
 
 export const listVariantsArray = ["ol", "ul", "dl"] as const;
-export type ListVariants = typeof listVariantsArray[number];
+export type ListVariants = (typeof listVariantsArray)[number];
 
 export interface DescriptionProps {
   term: string;
@@ -87,11 +87,7 @@ export const List: ChakraComponent<
     // children such as `{condition && <Element />}`) are still treated as
     // valid children and are not mistaken for the `children` prop not
     // being passed.
-    if (
-      typeof children !== "undefined" &&
-      listItems &&
-      listItems?.length > 0
-    ) {
+    if (typeof children !== "undefined" && listItems && listItems?.length > 0) {
       console.warn(
         "NYPL Reservoir List: Pass in either `<li>`, `<dt>`, or `<dd>` " +
           "children or use the `listItems` data prop. Do not use both."
