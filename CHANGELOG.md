@@ -6,20 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
-## 4.5.3 (October 28, 2026)
+## Prerelease
 
 ### Adds
 
 - Adds interaction tests for the List component UL and DL variants.
 
+### Fixes
+
+- Fixes a `List` component issue where empty children threw warning messages and did not render the component.
+
+## 4.5.3 (October 28, 2026)
+
 ### Updates
 
 - Adds the `onToggle` prop to the `Accordion` component.
 - Updates eslint and prettier npm packages.
-
-### Fixes
-
-- Fixes a `List` component issue where empty children threw warning messages and did not render the component.
 
 ## 4.5.2 (October 15, 2026)
 
