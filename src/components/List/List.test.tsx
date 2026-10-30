@@ -179,6 +179,28 @@ describe("List", () => {
     );
   });
 
+  it("renders a description list when a falsy conditional child is passed, instead of returning null", () => {
+    const warn = jest.spyOn(console, "warn");
+    const showTerm = false;
+    const { container } = render(
+      <List variant="dl" noStyling showRowDividers={false}>
+        {showTerm && (
+          <>
+            <dt>Term</dt>
+            <dd>Description</dd>
+          </>
+        )}
+      </List>
+    );
+
+    // A falsy child, e.g. from `{condition && <Element />}`, should not be
+    // mistaken for the `children` prop never having been passed. Instead, it
+    // is treated as a valid child and the component renders but without
+    // any content.
+    expect(warn).not.toHaveBeenCalled();
+    expect(container.querySelector("dl")).toBeInTheDocument();
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const unordered = renderer
       .create(<List id="unordered" variant="ul" listItems={fishArray} />)

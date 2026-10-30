@@ -11,7 +11,7 @@ import React, { forwardRef } from "react";
 import useDSHeading from "../../hooks/useDSHeading";
 
 export const listVariantsArray = ["ol", "ul", "dl"] as const;
-export type ListVariants = typeof listVariantsArray[number];
+export type ListVariants = (typeof listVariantsArray)[number];
 
 export interface DescriptionProps {
   term: string;
@@ -81,15 +81,20 @@ export const List: ChakraComponent<
     let listElement = null;
 
     // Either li/dt/dd children elements must be passed or the `listItems`
-    // prop must be used.
-    if (children && listItems && listItems?.length > 0) {
+    // prop must be used. `children` is checked with
+    // `typeof children !== "undefined"` rather than a truthy check so that
+    // falsy values (e.g. `false` or `null` from conditionally rendered
+    // children such as `{condition && <Element />}`) are still treated as
+    // valid children and are not mistaken for the `children` prop not
+    // being passed.
+    if (typeof children !== "undefined" && listItems && listItems?.length > 0) {
       console.warn(
         "NYPL Reservoir List: Pass in either `<li>`, `<dt>`, or `<dd>` " +
           "children or use the `listItems` data prop. Do not use both."
       );
       return null;
     }
-    if (!children && !listItems) {
+    if (typeof children === "undefined" && !listItems) {
       console.warn(
         "NYPL Reservoir List: Pass in either `<li>` children or pass data in " +
           "the `listItems` prop, not both."
@@ -105,7 +110,7 @@ export const List: ChakraComponent<
      * combination of `dt` and `dd` elements for the description type.
      */
     const listChildrenElms = (variant: ListVariants) => {
-      if (children) {
+      if (typeof children !== "undefined") {
         return children;
       }
       if (!listItems) {

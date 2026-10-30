@@ -10,6 +10,17 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Bug Fix",
+    affects: ["Functionality"],
+    notes: [
+      "Fixes a bug where passing a falsy value as `children` was treated as " +
+        "if the `children` prop was not passed. This caused unnecessary " +
+        "warnings and the component to not render.",
+    ],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",
