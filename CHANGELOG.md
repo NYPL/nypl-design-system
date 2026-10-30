@@ -15,6 +15,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## 4.5.2 (October 15, 2026)
 
+### Adds
+
+- Adds `PlaceholderImage` component.
+
 ### Updates
 
 - Updates tag action to extract proper CHANGELOG entry for release notes.
