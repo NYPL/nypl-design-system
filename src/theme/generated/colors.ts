@@ -1,4 +1,4 @@
-// Generated file. Do not edit manually.
+// Generated file from v5-tokens/color/color.tokens.json. Do not edit manually.
 export const colors = {
   fadeStart: "rgba(255, 255, 255, 0)",
   surface: {

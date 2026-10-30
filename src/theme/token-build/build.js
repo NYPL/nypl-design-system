@@ -316,9 +316,9 @@ for (const [tokenPath, value] of Object.entries(breakpointValues)) {
 
   const breakpointName = tokenPath.replace("bibliocommons.", "");
 
-  // Chakra treats "base" (0px) implicitly, so the explicit "xxs" breakpoint
-  // at 0px is intentionally omitted.
-  if (breakpointName === "xxs") continue;
+  // Chakra treats "base" (0px) implicitly, so an explicit 0px breakpoint
+  // is intentionally omitted.
+  if (value === 0) continue;
 
   buildNestedTokens(breakpointTokens, breakpointName, {
     $type: "dimension",

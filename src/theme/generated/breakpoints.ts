@@ -1,4 +1,4 @@
-// Generated file. Do not edit manually.
+// Generated file from v5-tokens/breakpoint/breakpoint.tokens.json. Do not edit manually.
 export const breakpoints = {
   xs: "480px",
   sm: "576px",
