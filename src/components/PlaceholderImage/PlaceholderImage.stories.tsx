@@ -83,7 +83,12 @@ export const ContentTypes: Story = {
 
 export const ResponsiveSizing: Story = {
   render: () => (
-    <Box display="flex" flexDirection="column" gap="grid.l" maxWidth="1024px">
+    <Box
+      display="flex"
+      flexDirection="column"
+      gap={responsiveSpacing.gridGap}
+      maxWidth="1024px"
+    >
       {renderPlaceholderImageGrid(6)}
       {renderPlaceholderImageGrid(3)}
       {renderPlaceholderImageGrid(2)}

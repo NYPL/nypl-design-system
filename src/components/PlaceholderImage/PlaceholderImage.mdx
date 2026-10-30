@@ -40,8 +40,9 @@ import { changelogData } from "./placeholderImageChangelogData";
 ## Overview
 
 The `PlaceholderImage` component is displayed whenever a viable image is not
-available. The placeholder includes an icon representing the image's `contentType`
-and an inline message that reads "Preview not available."
+available. `PlaceholderImage`s are most commonly used inside `Card`s grouped
+in a grid layout. The component includes an icon representing the image's
+`contentType` and an inline message that reads "Preview not available."
 
 ## Component Props
 
@@ -59,8 +60,9 @@ If the `PlaceholderImage`'s purpose is clear to sighted users but lacks sufficie
 context for screen reader users, you can provide a `contentTitle` to identify the
 unavailable content (e.g., a book's title).
 
-This prop provides additional context exclusively to screen reader users and is
-not displayed visually.
+This prop provides additional context exclusively to screen reader users using the
+sr-only method described in the [Repetitive Actions](../?path=/docs/accessibility-guide-repetitive-actions--docs#sr-only)
+documentation and is not displayed visually.
 
 <Source
   code={`
@@ -106,18 +108,14 @@ unavailable image.
 <Table
   border="0"
   columnHeaders={["Content Type", "Examples", "Icon"]}
-  columnStyles={[
-    { minWidth: "200px", width: "15%", height: "1px" },
-    { height: "1px" },
-    { width: "200px", height: "1px" },
-  ]}
+  columnStyles={[{ minWidth: "200px", width: "15%" }, {}, { width: "200px" }]}
   fontSize="desktop.body.body2"
   tableData={[
     [
-      <Flex align="center" height="100%">
+      <Flex>
         <span style={{ textTransform: "lowercase" }}>audio</span>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <>
           - Teacher audio
           <br />
@@ -131,15 +129,15 @@ unavailable image.
           <br />- Audiobook
         </>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <Icon name="contentTypeAudio" size="xxlarge" />
       </Flex>,
     ],
     [
-      <Flex align="center" height="100%">
+      <Flex>
         <span style={{ textTransform: "lowercase" }}>book</span>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <>
           - Book/text
           <br />
@@ -151,29 +149,29 @@ unavailable image.
           <br />- Kit
         </>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <Icon name="contentTypeBook" size="xxlarge" />
       </Flex>,
     ],
     [
-      <Flex align="center" height="100%">
+      <Flex>
         <span style={{ textTransform: "lowercase" }}>ebook</span>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <>
           - Tablet
           <br />- E-book
         </>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <Icon name="contentTypeEBook" size="xxlarge" />
       </Flex>,
     ],
     [
-      <Flex align="center" height="100%">
+      <Flex>
         <span style={{ textTransform: "lowercase" }}>event</span>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <>
           - Events
           <br />
@@ -181,15 +179,15 @@ unavailable image.
           <br />- Time-sensitive information
         </>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <Icon name="contentTypeEvent" size="xxlarge" />
       </Flex>,
     ],
     [
-      <Flex align="center" height="100%">
+      <Flex>
         <span style={{ textTransform: "lowercase" }}>image</span>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <>
           - Picture
           <br />
@@ -201,15 +199,15 @@ unavailable image.
           <br />- Map
         </>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <Icon name="contentTypeImage" size="xxlarge" />
       </Flex>,
     ],
     [
-      <Flex align="center" height="100%">
+      <Flex>
         <span style={{ textTransform: "lowercase" }}>miscellaneous</span>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <>
           - Computer file
           <br />
@@ -223,15 +221,15 @@ unavailable image.
           <br />- Notated music
         </>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <Icon name="contentTypeMisc" size="xxlarge" />
       </Flex>,
     ],
     [
-      <Flex align="center" height="100%">
+      <Flex>
         <span style={{ textTransform: "lowercase" }}>video</span>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <>
           - Blu-ray
           <br />
@@ -243,7 +241,7 @@ unavailable image.
           <br />- Game
         </>
       </Flex>,
-      <Flex align="center" height="100%">
+      <Flex>
         <Icon name="contentTypeVideo" size="xxlarge" />
       </Flex>,
     ],
