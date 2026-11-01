@@ -50,8 +50,8 @@ const checkboxRadioLabelStyles = {
 // Custom values not in the spacing theme.
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioControlSize = {
-  h: "1.375rem",
-  w: "1.375rem",
+  h: "v5.checkbox",
+  w: "v5.checkbox",
 };
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioHelperErrorTextStyle = {

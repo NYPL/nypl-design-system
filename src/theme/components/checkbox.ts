@@ -34,91 +34,37 @@ const baseStyleIcon = defineStyle({
 // Style object for the Checkbox's "control."
 const baseStyleControl = defineStyle({
   border: "2px solid",
-  borderRadius: "sm",
-  borderColor: "ui.gray.dark",
-  bg: "ui.gray.xx-light-cool",
-  color: "ui.black",
+  borderRadius: "v5.faint",
+  borderColor: "v5.checkbox.border.default",
+  bg: "v5.checkbox.bg.default",
   cursor: "pointer",
   outline: "none",
   transitionProperty: "box-shadow",
   transitionDuration: "normal",
 
   _checked: {
-    borderColor: "ui.focus",
-    color: "ui.focus",
-    _hover: {
-      bg: "ui.gray.xx-light-cool",
-    },
+    borderColor: "v5.checkbox.border.selected",
+    bg: "v5.checkbox.bg.selected.default",
+    color: "v5.checkbox.icon.default",
     _disabled: {
-      bg: "ui.disabled.secondary",
-      borderColor: "ui.disabled.primary",
+      bg: "v5.checkbox.bg.disabled",
+      borderColor: "v5.checkbox.border.disabled",
       svg: {
-        color: "ui.disabled.primary",
+        color: "v5.checkbox.icon.disabled",
       },
     },
-    _indeterminate: {
-      color: "ui.focus",
-      borderColor: "ui.focus",
-    },
-  },
-  _indeterminate: {
-    color: "ui.focus",
-    borderColor: "ui.focus",
   },
   _disabled: {
-    bg: "ui.white",
-    borderColor: "ui.disabled.primary",
+    bg: "v5.checkbox.bg.disabled",
+    borderColor: "v5.checkbox.border.disabled",
   },
   _focus: {
     boxShadow: "none",
-    outlineColor: "ui.focus",
+    outline: "none",
   },
   _invalid: {
-    borderColor: "ui.error.primary",
-    color: "ui.error.primary",
-  },
-  _dark: {
-    borderColor: "dark.ui.border.default",
-    backgroundColor: "dark.ui.bg.default",
-    color: "dark.ui.typography.body",
-    _checked: {
-      borderColor: "dark.ui.focus",
-      color: "dark.ui.focus",
-      _disabled: {
-        backgroundColor: "dark.ui.bg.default",
-        borderColor: "dark.ui.disabled.secondary",
-        svg: {
-          color: "dark.ui.disabled.secondary",
-        },
-      },
-      _indeterminate: {
-        color: "dark.ui.focus",
-        borderColor: "dark.ui.focus",
-      },
-      _invalid: {
-        borderColor: "dark.ui.error.primary",
-        color: "dark.ui.error.primary",
-      },
-    },
-    _indeterminate: {
-      color: "dark.ui.focus",
-      borderColor: "dark.ui.focus",
-    },
-    _disabled: {
-      backgroundColor: "dark.ui.bg.default",
-      borderColor: "dark.ui.disabled.secondary",
-      svg: {
-        color: "dark.ui.disabled.secondary",
-      },
-    },
-    _focus: {
-      boxShadow: "none",
-      outlineColor: "dark.ui.focus",
-    },
-    _invalid: {
-      borderColor: "dark.ui.error.primary",
-      color: "dark.ui.error.primary",
-    },
+    borderColor: "v5.checkbox.border.error",
+    color: "v5.checkbox.icon.default",
   },
 });
 
@@ -148,7 +94,6 @@ const sizes = {
     // Controls the width/height of the checkbox itself.
     control: defineStyle({
       ...checkboxRadioControlSize,
-      borderRadius: "checkbox",
     }),
     // Controls the font-size of the label only.
     label: defineStyle({ fontSize: "desktop.label.label1" }),
