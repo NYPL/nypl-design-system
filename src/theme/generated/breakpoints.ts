@@ -1,8 +1,8 @@
-// Generated file from v5-tokens/breakpoint/breakpoint.tokens.json. Do not edit manually.
+// Generated file. Do not edit manually.
 export const breakpoints = {
-  xs: "480px",
-  sm: "576px",
-  md: "768px",
-  lg: "992px",
-  xl: "1200px",
+  xs: "480px", // mobileSmall
+  sm: "576px", // mobileLarge
+  md: "768px", // mobileXLarge
+  lg: "992px", // tabletSmall
+  xl: "1200px", // tabletLarge
 } as const;

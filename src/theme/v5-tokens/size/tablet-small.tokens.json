@@ -31,11 +31,31 @@
           ]
         }
       },
+      "width-mobile": {
+        "$type": "number",
+        "$value": 40,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1004:11914",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ]
+        }
+      },
       "height": {
         "$type": "number",
         "$value": 24,
         "$extensions": {
           "com.figma.variableId": "VariableID:395:3063",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ]
+        }
+      },
+      "height-mobile": {
+        "$type": "number",
+        "$value": 40,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1004:11915",
           "com.figma.scopes": [
             "ALL_SCOPES"
           ]
@@ -218,7 +238,7 @@
   "featured-content": {
     "min-height": {
       "$type": "number",
-      "$value": 0,
+      "$value": 320,
       "$extensions": {
         "com.figma.variableId": "VariableID:341:703",
         "com.figma.scopes": [
@@ -474,7 +494,7 @@
     }
   },
   "modal": {
-    "width": {
+    "max-width": {
       "$type": "number",
       "$value": 560,
       "$extensions": {
@@ -484,19 +504,21 @@
         ]
       }
     },
-    "content-min-height": {
-      "$type": "number",
-      "$value": 48,
-      "$extensions": {
-        "com.figma.variableId": "VariableID:281:38",
-        "com.figma.scopes": [
-          "WIDTH_HEIGHT"
-        ],
-        "com.figma.aliasData": {
-          "targetVariableId": "VariableID:02c016ad1eea4be1f783d383916a4121eae3c81f/-1:-1",
-          "targetVariableName": "spacing/48",
-          "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
-          "targetVariableSetName": "_primitives"
+    "content": {
+      "min-height": {
+        "$type": "number",
+        "$value": 48,
+        "$extensions": {
+          "com.figma.variableId": "VariableID:281:38",
+          "com.figma.scopes": [
+            "WIDTH_HEIGHT"
+          ],
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:02c016ad1eea4be1f783d383916a4121eae3c81f/-1:-1",
+            "targetVariableName": "spacing/48",
+            "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+            "targetVariableSetName": "_primitives"
+          }
         }
       }
     }

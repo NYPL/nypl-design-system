@@ -606,18 +606,36 @@
         }
       },
       "form": {
-        "$type": "number",
-        "$value": 16,
-        "$extensions": {
-          "com.figma.variableId": "VariableID:189:18",
-          "com.figma.scopes": [
-            "FONT_SIZE"
-          ],
-          "com.figma.aliasData": {
-            "targetVariableId": "VariableID:8cc2a285208288e5b0ce3e482bacd9cbbc80b48f/-1:-1",
-            "targetVariableName": "text/font-size/modest",
-            "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
-            "targetVariableSetName": "_primitives"
+        "primary": {
+          "$type": "number",
+          "$value": 16,
+          "$extensions": {
+            "com.figma.variableId": "VariableID:189:18",
+            "com.figma.scopes": [
+              "FONT_SIZE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:8cc2a285208288e5b0ce3e482bacd9cbbc80b48f/-1:-1",
+              "targetVariableName": "text/font-size/modest",
+              "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+              "targetVariableSetName": "_primitives"
+            }
+          }
+        },
+        "secondary": {
+          "$type": "number",
+          "$value": 14,
+          "$extensions": {
+            "com.figma.variableId": "VariableID:974:11907",
+            "com.figma.scopes": [
+              "FONT_SIZE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:d1ed9ee13af6f83f811a3d240b894623b3870a30/-1:-1",
+              "targetVariableName": "text/font-size/small",
+              "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+              "targetVariableSetName": "_primitives"
+            }
           }
         }
       }
@@ -728,7 +746,7 @@
         }
       }
     },
-    "subheading": {
+    "subtitle": {
       "primary": {
         "$type": "number",
         "$value": 20,
@@ -1665,19 +1683,38 @@
         }
       },
       "form": {
-        "$type": "number",
-        "$value": 24,
-        "$extensions": {
-          "com.figma.variableId": "VariableID:190:19",
-          "com.figma.scopes": [
-            "LINE_HEIGHT",
-            "FONT_VARIATIONS"
-          ],
-          "com.figma.aliasData": {
-            "targetVariableId": "VariableID:92dae7be5f6b550fbc61090f7a53342ae57e7ca4/-1:-1",
-            "targetVariableName": "text/line-height/modest-body",
-            "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
-            "targetVariableSetName": "_primitives"
+        "primary": {
+          "$type": "number",
+          "$value": 24,
+          "$extensions": {
+            "com.figma.variableId": "VariableID:190:19",
+            "com.figma.scopes": [
+              "LINE_HEIGHT",
+              "FONT_VARIATIONS"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:92dae7be5f6b550fbc61090f7a53342ae57e7ca4/-1:-1",
+              "targetVariableName": "text/line-height/modest-body",
+              "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+              "targetVariableSetName": "_primitives"
+            }
+          }
+        },
+        "secondary": {
+          "$type": "number",
+          "$value": 20,
+          "$extensions": {
+            "com.figma.variableId": "VariableID:974:11908",
+            "com.figma.scopes": [
+              "LINE_HEIGHT",
+              "FONT_VARIATIONS"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:75754d56b257e15c80db1040fcb3ced6f6d74f6d/-1:-1",
+              "targetVariableName": "text/line-height/small",
+              "targetVariableSetId": "VariableCollectionId:8be2be80c1ccb60528ce7e31e37bf53e4ba8c03d/-1:-1",
+              "targetVariableSetName": "_primitives"
+            }
           }
         }
       }
