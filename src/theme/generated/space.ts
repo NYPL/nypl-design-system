@@ -1,4 +1,4 @@
-// Generated file from v5-tokens/space/space.tokens.json. Do not edit manually.
+// Generated file from v5-tokens/spacing/*.tokens.json. Do not edit manually.
 export const space = {
   "3xs": "2px",
   "2xs": "4px",
@@ -9,14 +9,38 @@ export const space = {
   xl: "48px",
   "2xl": "64px",
   "3xl": "96px",
-  container: {
-    paddingX: {
-      desktop: "48px",
-      mobileLarge: "20px",
-      mobileSmall: "20px",
-      mobileXlarge: "20px",
-      tabletLarge: "48px",
-      tabletSmall: "24px",
+  responsive: {
+    container: {
+      paddingX: {
+        mobileLarge: "20px",
+        mobileSmall: "20px",
+        mobileXlarge: "20px",
+        tabletLarge: "48px",
+        tabletSmall: "24px",
+      },
+    },
+    grid: {
+      condensed: {
+        mobileLarge: "8px",
+        mobileSmall: "8px",
+        mobileXlarge: "8px",
+        tabletLarge: "16px",
+        tabletSmall: "16px",
+      },
+      normal: {
+        mobileLarge: "16px",
+        mobileSmall: "16px",
+        mobileXlarge: "16px",
+        tabletLarge: "24px",
+        tabletSmall: "24px",
+      },
+      spacious: {
+        mobileLarge: "24px",
+        mobileSmall: "24px",
+        mobileXlarge: "24px",
+        tabletLarge: "32px",
+        tabletSmall: "32px",
+      },
     },
   },
   density: {
@@ -40,32 +64,6 @@ export const space = {
     spacious: "64px",
     expansive: "80px",
     airy: "96px",
-  },
-  grid: {
-    condensed: {
-      desktop: "16px",
-      mobileLarge: "8px",
-      mobileSmall: "8px",
-      mobileXlarge: "8px",
-      tabletLarge: "16px",
-      tabletSmall: "16px",
-    },
-    normal: {
-      desktop: "24px",
-      mobileLarge: "16px",
-      mobileSmall: "16px",
-      mobileXlarge: "16px",
-      tabletLarge: "24px",
-      tabletSmall: "24px",
-    },
-    spacious: {
-      desktop: "32px",
-      mobileLarge: "24px",
-      mobileSmall: "24px",
-      mobileXlarge: "24px",
-      tabletLarge: "32px",
-      tabletSmall: "32px",
-    },
   },
   inset: {
     crushed: "2px",
@@ -123,14 +121,7 @@ export const space = {
       gap: "4px",
     },
     lg: {
-      paddingX: {
-        desktop: "20px",
-        mobileLarge: "20px",
-        mobileSmall: "20px",
-        mobileXlarge: "20px",
-        tabletLarge: "20px",
-        tabletSmall: "16px",
-      },
+      paddingX: "20px",
       paddingTop: "10px",
       paddingBottom: "12px",
       gap: "4px",
@@ -195,7 +186,6 @@ export const space = {
     row: {
       paddingY: "24px",
       paddingX: {
-        desktop: "48px",
         mobileLarge: "20px",
         mobileSmall: "20px",
         mobileXlarge: "20px",
@@ -210,7 +200,6 @@ export const space = {
   hero: {
     background: {
       paddingY: {
-        desktop: "48px",
         mobileLarge: "20px",
         mobileSmall: "20px",
         mobileXlarge: "20px",
@@ -220,7 +209,6 @@ export const space = {
     },
     container: {
       paddingX: {
-        desktop: "48px",
         mobileLarge: "20px",
         mobileSmall: "20px",
         mobileXlarge: "20px",
@@ -270,75 +258,35 @@ export const space = {
     },
     overlay: {
       paddingX: "0px",
-      paddingTop: {
-        desktop: "96px",
-        mobileLarge: "0px",
-        mobileSmall: "0px",
-        mobileXlarge: "0px",
-        tabletLarge: "96px",
-        tabletSmall: "96px",
-      },
-      paddingBottom: {
-        desktop: "96px",
-        mobileLarge: "0px",
-        mobileSmall: "0px",
-        mobileXlarge: "0px",
-        tabletLarge: "96px",
-        tabletSmall: "96px",
-      },
+      paddingY: "96px",
+      paddingYMobile: "0px",
     },
   },
   multiselectGroup: {
     column: {
-      gap: {
-        desktop: "8px",
-        mobileLarge: "4px",
-        mobileSmall: "4px",
-        mobileXlarge: "4px",
-        tabletLarge: "4px",
-        tabletSmall: "4px",
-      },
+      gap: "8px",
     },
     row: {
       gap: "32px",
     },
   },
   newsletterSignup: {
-    paddingX: {
-      desktop: "48px",
-      mobileLarge: "32px",
-      mobileSmall: "32px",
-      mobileXlarge: "32px",
-      tabletLarge: "48px",
-      tabletSmall: "48px",
-    },
+    paddingX: "48px",
+    paddingXMobile: "32px",
     paddingY: "32px",
   },
   pageHeading: {
     paddingX: {
-      desktop: "48px",
       mobileLarge: "20px",
       mobileSmall: "20px",
       mobileXlarge: "20px",
       tabletLarge: "48px",
       tabletSmall: "24px",
     },
-    paddingTop: {
-      desktop: "32px",
-      mobileLarge: "20px",
-      mobileSmall: "20px",
-      mobileXlarge: "20px",
-      tabletLarge: "32px",
-      tabletSmall: "24px",
-    },
-    paddingBottom: {
-      desktop: "36px",
-      mobileLarge: "24px",
-      mobileSmall: "24px",
-      mobileXlarge: "24px",
-      tabletLarge: "36px",
-      tabletSmall: "28px",
-    },
+    paddingTop: "32px",
+    paddingTopMobile: "24px",
+    paddingBottom: "36px",
+    paddingBottomMobile: "28px",
   },
   statusBadge: {
     gap: "4px",
@@ -364,7 +312,7 @@ export const space = {
     },
   },
   panel: {
-    paddingX: "24px",
+    paddingX: "20px",
     paddingY: "16px",
   },
   radioGroup: {
@@ -426,14 +374,7 @@ export const space = {
     paddingY: "4px",
     gap: {
       icon: "4px",
-      button: {
-        desktop: "8px",
-        mobileLarge: "4px",
-        mobileSmall: "4px",
-        mobileXlarge: "4px",
-        tabletLarge: "4px",
-        tabletSmall: "4px",
-      },
+      button: "4px",
     },
   },
   tagSet: {

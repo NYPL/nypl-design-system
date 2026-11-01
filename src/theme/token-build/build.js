@@ -250,7 +250,7 @@ StyleDictionary.registerFormat({
     }
 
     return (
-      "// Generated file. Do not edit manually.\n" +
+      `// Generated file from ${options.source}. Do not edit manually.\n` +
       `export const ${options.exportName} = ` +
       `${JSON.stringify(output, null, 2)} as const;\n`
     );
@@ -258,7 +258,7 @@ StyleDictionary.registerFormat({
 });
 
 // Run Style Dictionary and write a generated theme file.
-async function generate(tokens, exportName, filename) {
+async function generate(tokens, exportName, filename, source) {
   const dictionary = new StyleDictionary({
     tokens,
     platforms: {
@@ -269,7 +269,7 @@ async function generate(tokens, exportName, filename) {
           {
             destination: filename,
             format: "chakra/typescript",
-            options: { exportName },
+            options: { exportName, source },
           },
         ],
       },
@@ -282,11 +282,11 @@ async function generate(tokens, exportName, filename) {
 
 // Generate spacing tokens.
 const space = buildResponsiveTokens("spacing");
-await generate(space, "space", "space.ts");
+await generate(space, "space", "space.ts", "v5-tokens/spacing/*.tokens.json");
 
 // Generate size tokens.
 const sizes = buildResponsiveTokens("size");
-await generate(sizes, "sizes", "sizes.ts");
+await generate(sizes, "sizes", "sizes.ts", "v5-tokens/size/*.tokens.json");
 
 // Generate radius tokens.
 const radii = resolveTokens(
@@ -302,7 +302,12 @@ for (const [tokenPath, value] of Object.entries(radii)) {
   });
 }
 
-await generate(radiusTokens, "radii", "radii.ts");
+await generate(
+  radiusTokens,
+  "radii",
+  "radii.ts",
+  "v5-tokens/radius/radius.tokens.json"
+);
 
 // Generate breakpoint tokens.
 const breakpointValues = resolveTokens(
@@ -326,12 +331,22 @@ for (const [tokenPath, value] of Object.entries(breakpointValues)) {
   });
 }
 
-await generate(breakpointTokens, "breakpoints", "breakpoints.ts");
+await generate(
+  breakpointTokens,
+  "breakpoints",
+  "breakpoints.ts",
+  "v5-tokens/breakpoint/breakpoint.tokens.json"
+);
 
 // Generate font size tokens.
 const fontSizeTokens = buildResponsiveTokens("text", "dimension", "font-size.");
 
-await generate({ ...fontSizeTokens.fontSize }, "fontSizes", "fontSizes.ts");
+await generate(
+  { ...fontSizeTokens.fontSize },
+  "fontSizes",
+  "fontSizes.ts",
+  "v5-tokens/text/*.tokens.json"
+);
 
 // Generate typography tokens.
 const typographyTokens = {
@@ -343,7 +358,12 @@ const typographyTokens = {
     .lineHeight,
 };
 
-await generate(typographyTokens, "typography", "typography.ts");
+await generate(
+  typographyTokens,
+  "typography",
+  "typography.ts",
+  "v5-tokens/text/*.tokens.json"
+);
 
 // Generate color tokens.
 const formatColor = (color) => {
@@ -369,4 +389,9 @@ for (const [tokenPath, value] of Object.entries(colorValues)) {
   });
 }
 
-await generate(colorTokens, "colors", "colors.ts");
+await generate(
+  colorTokens,
+  "colors",
+  "colors.ts",
+  "v5-tokens/color/color.tokens.json"
+);

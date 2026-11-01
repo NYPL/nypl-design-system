@@ -1,4 +1,4 @@
-// Generated file from v5-tokens/font-size/font-size.tokens.json. Do not edit manually.
+// Generated file from v5-tokens/text/*.tokens.json. Do not edit manually.
 export const fontSizes = {
   body: "16px",
   body2: "14px",
@@ -64,7 +64,10 @@ export const fontSizes = {
   label: {
     primary: "12px",
     secondary: "11px",
-    form: "16px",
+    form: {
+      primary: "16px",
+      secondary: "14px",
+    },
   },
   notification: {
     default: "16px",
@@ -82,7 +85,7 @@ export const fontSizes = {
       linear: "14px",
     },
   },
-  subheading: {
+  subtitle: {
     primary: "20px",
     secondary: "16px",
     tertiary: "14px",

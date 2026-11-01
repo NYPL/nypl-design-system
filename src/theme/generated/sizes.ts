@@ -1,25 +1,13 @@
-// Generated file from v5-tokens/size/size.tokens.json. Do not edit manually.
+// Generated file from v5-tokens/size/*.tokens.json. Do not edit manually.
 export const sizes = {
   checkbox: "16px",
   radio: "16px",
   alphabetFilter: {
     option: {
-      width: {
-        desktop: "24px",
-        mobileLarge: "40px",
-        mobileSmall: "40px",
-        mobileXlarge: "40px",
-        tabletLarge: "24px",
-        tabletSmall: "24px",
-      },
-      height: {
-        desktop: "24px",
-        mobileLarge: "40px",
-        mobileSmall: "40px",
-        mobileXlarge: "40px",
-        tabletLarge: "24px",
-        tabletSmall: "24px",
-      },
+      width: "24px",
+      widthMobile: "40px",
+      height: "24px",
+      heightMobile: "40px",
     },
   },
   capsule: {
@@ -54,14 +42,7 @@ export const sizes = {
     },
   },
   featuredContent: {
-    minHeight: {
-      desktop: "320px",
-      mobileLarge: "0px",
-      mobileSmall: "0px",
-      mobileXlarge: "0px",
-      tabletLarge: "320px",
-      tabletSmall: "0px",
-    },
+    minHeight: "320px",
   },
   filterBar: {
     popup: {
@@ -119,27 +100,15 @@ export const sizes = {
     "3xl": "360px",
   },
   modal: {
-    width: {
-      desktop: "560px",
-      mobileLarge: "1360px",
-      mobileSmall: "1360px",
-      mobileXlarge: "512px",
-      tabletLarge: "560px",
-      tabletSmall: "560px",
+    maxWidth: "560px",
+    content: {
+      minHeight: "48px",
     },
-    contentMinHeight: "48px",
   },
   multiSelect: {
     height: "64px",
     dropdown: {
-      maxWidth: {
-        desktop: "320px",
-        mobileLarge: "767px",
-        mobileSmall: "767px",
-        mobileXlarge: "767px",
-        tabletLarge: "320px",
-        tabletSmall: "320px",
-      },
+      maxWidth: "320px",
       minWidth: "200px",
     },
   },

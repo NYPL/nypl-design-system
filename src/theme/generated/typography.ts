@@ -1,4 +1,4 @@
-// Generated file from v5-tokens/typography/typography.tokens.json. Do not edit manually.
+// Generated file from v5-tokens/text/*.tokens.json. Do not edit manually.
 export const typography = {
   fonts: {
     base: "Open Sans",
@@ -71,7 +71,10 @@ export const typography = {
     label: {
       primary: "12px",
       secondary: "11px",
-      form: "16px",
+      form: {
+        primary: "16px",
+        secondary: "14px",
+      },
     },
     notification: {
       default: "16px",
@@ -89,7 +92,7 @@ export const typography = {
         linear: "14px",
       },
     },
-    subheading: {
+    subtitle: {
       primary: "20px",
       secondary: "16px",
       tertiary: "14px",
@@ -196,7 +199,10 @@ export const typography = {
     label: {
       primary: "16px",
       secondary: "15px",
-      form: "24px",
+      form: {
+        primary: "24px",
+        secondary: "20px",
+      },
     },
     progressIndicator: {
       percentage: {
