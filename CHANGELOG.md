@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Fixes
 
 - Fixes a `List` component issue where empty children threw warning messages and did not render the component.
+- Fixes a bug in the `Link` component that did not easily allow the `sx` or style props to appropriately update the component.
 
 ## 4.5.3 (October 28, 2026)
 

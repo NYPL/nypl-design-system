@@ -250,7 +250,9 @@ describe("Link", () => {
       .toJSON();
     const withOtherProps = renderer
       .create(
-        <Link href="#passed-in-link" id="props" data-testid="props">
+        <Link href="#passed-in-link" id="props" data-testid="props" sx={{
+          color: "red"
+        }}>
           Standard
         </Link>
       )

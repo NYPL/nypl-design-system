@@ -164,6 +164,7 @@ export const Link: ChakraComponent<
       screenreaderOnlyText,
       target,
       variant = "default",
+      sx,
       ...rest
     } = props;
     // Set initial underline style for certain variants
@@ -176,8 +177,9 @@ export const Link: ChakraComponent<
     const rel = variant === "external" ? "nofollow noopener noreferrer" : null;
     const internalTarget =
       variant === "external" ? "_blank" : target ? target : null;
-    // Merge the necessary props alongside any extra props for the
-    // anchor element.
+    // Merge the necessary props alongside any extra props for the anchor
+    // element. Note that `sx` is not a part of this object and is merged
+    // directly into the `ChakraLink` component below.
     const linkProps = {
       id,
       href,
@@ -241,8 +243,7 @@ export const Link: ChakraComponent<
         as={as}
         data-testid="ds-link"
         {...linkProps}
-        sx={styles.base}
-        {...rest}
+        sx={{ ...styles.base, ...sx }}
       >
         {newChildren}
         {screenReaderOnlyElement}
