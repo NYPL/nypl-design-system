@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### 5.0.0 (Prerelease)
+
+- Updates `Checkbox` styles to align with v5 designs.
+
 ### Updates
 
 - Adds the `onToggle` prop to the `Accordion` component.
