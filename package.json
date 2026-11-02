@@ -44,7 +44,7 @@
     "build-storybook:v4": "storybook build -c .storybook -o ./reservoir/v4",
     "prebuild:storybook": "npm run test:generate-output",
     "build-storybook": "storybook build",
-    "tokens:build": "node src/theme/token-build/build.js"
+    "tokens:build": "tsx src/theme/token-build/build.ts"
   },
   "lint-staged": {
     "*.{jsx,ts,tsx}": "eslint src --ext=jsx,ts,tsx --cache --fix",
@@ -61,18 +61,18 @@
     "types-ramda": "0.29.4"
   },
   "dependencies": {
-    "@chakra-ui/react": ">=2.8.2",
-    "@chakra-ui/system": ">=2.6.2",
+    "@chakra-ui/react": "2.8.2",
+    "@chakra-ui/system": "2.6.2",
     "@charlietango/use-native-lazy-loading": "1.10.0",
-    "@emotion/react": ">=11.11.1",
-    "@emotion/styled": ">=11.11.0",
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
     "@fontsource/merriweather": "5.3.0",
     "@fontsource/open-sans": "5.3.0",
-    "framer-motion": ">=10.16.4",
+    "framer-motion": "10.16.4",
     "react-datepicker": "4.14.1",
     "react-intersection-observer": "9.2.2",
     "system-font-css": "2.0.2",
-    "typescript": ">=4.9.5"
+    "typescript": "4.9.5"
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=2.8.2",
@@ -134,6 +134,7 @@
     "style-dictionary": "5.7.1",
     "ts-jest": "29.1.5",
     "tslib": "2.3.0",
+    "tsx": "4.23.15",
     "typescript": "4.9.5",
     "vite": "7.3.6",
     "vite-plugin-dts": "4.5.4",

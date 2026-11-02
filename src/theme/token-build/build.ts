@@ -1,34 +1,91 @@
 import fs from "node:fs";
 import path from "node:path";
+// style-dictionary's package.json has no "main"/"types" field which TypeScript's
+// module resolution doesn't understand, so this import can't be resolved for
+// type-checking purposes (it resolves fine at runtime).
+// @ts-expect-error
 import StyleDictionary from "style-dictionary";
+import type {
+  Config,
+  DesignTokens,
+  FormatFnArguments,
+  TransformedToken,
+} from "style-dictionary/types";
 
 const themeDir = path.resolve("src/theme");
 const sourceDir = path.join(themeDir, "v5-tokens");
 const outputDir = path.join(themeDir, "generated");
 
-const kebabToCamelCase = (name) =>
+const kebabToCamelCase = (name: string): string =>
   name.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+
+// A color value as exported by Figma, eg:
+// { colorSpace: "srgb", components: [1, 1, 1], alpha: 0, hex: "#FFFFFF" }
+interface FigmaColorValue {
+  colorSpace: string;
+  components: number[];
+  alpha: number;
+  hex: string;
+}
+
+type TokenValue = string | number | FigmaColorValue;
+
+// A single leaf node in a raw Figma token export (before flattening).
+interface FigmaToken {
+  $type?: string;
+  $value?: TokenValue;
+  $extensions?: Record<string, unknown>;
+}
+
+// The raw, nested shape of a Figma token export.
+interface FigmaTokenTree {
+  [key: string]: FigmaToken | FigmaTokenTree;
+}
+
+// A flattened map of dot-separated token paths to their (possibly
+// still-aliased, ie "{other.token}") values.
+type FlatTokenMap = Record<string, TokenValue>;
+
+// A generic nested object, used while rebuilding dot-separated token
+// paths back into nested objects of arbitrary shape.
+interface NestedObject {
+  [key: string]: unknown;
+}
 
 /**
  * Flatten Figma's nested token structure into dot-separated paths.
  * For example, this:
  * {
- *   "container": {
- *     "padding-x": {
- *       "$type": "number",
- *       "$value": 20,
+ *   "font-family": {
+ *     "base": {
+ *       "$type": "string",
+ *       "$value": "Open Sans",
  *       "$extensions": {
- *         "com.figma.variableId": "..."
+ *         "com.figma.variableId": "VariableID:26:417",
+ *         "com.figma.scopes": ["FONT_FAMILY"]
+ *       }
+ *     },
+ *     "heading-default": {
+ *       "$type": "string",
+ *       "$value": "{font-family.base}",
+ *       "$extensions": {
+ *         "com.figma.variableId": "VariableID:26:418",
+ *         "com.figma.scopes": ["FONT_FAMILY"]
  *       }
  *     }
  *   }
  * }
  * becomes:
  * {
- *   "container.padding-x": 20
+ *   "font-family.base": "Open Sans",
+ *   "font-family.heading-default": "{font-family.base}"
  * }
  */
-const flattenTokens = (object, prefix = "", result = {}) => {
+const flattenTokens = (
+  object: FigmaTokenTree,
+  prefix = "",
+  result: FlatTokenMap = {}
+): FlatTokenMap => {
   // Loop through each key-value pair in the JSON object.
   for (const [key, value] of Object.entries(object)) {
     // "$root" represents the group's own value (ie the default state)
@@ -38,7 +95,7 @@ const flattenTokens = (object, prefix = "", result = {}) => {
       const tokenPath = prefix ? `${prefix}.default` : "default";
 
       if (value && typeof value === "object" && "$value" in value) {
-        result[tokenPath] = value.$value;
+        result[tokenPath] = (value as FigmaToken).$value as TokenValue;
       }
 
       continue;
@@ -52,9 +109,9 @@ const flattenTokens = (object, prefix = "", result = {}) => {
     // If the token value exists in the object's value,
     // set it equal to the path in the result object.
     if (value && typeof value === "object" && "$value" in value) {
-      result[tokenPath] = value.$value;
+      result[tokenPath] = (value as FigmaToken).$value as TokenValue;
     } else if (value && typeof value === "object") {
-      flattenTokens(value, tokenPath, result);
+      flattenTokens(value as FigmaTokenTree, tokenPath, result);
     }
   }
 
@@ -62,22 +119,26 @@ const flattenTokens = (object, prefix = "", result = {}) => {
 };
 
 // Read and flatten a Figma token export.
-const readTokenFile = (collection, filename) => {
-  const filePath = path.join(sourceDir, collection, filename); // ex: "src/theme/v5-tokens/spacing/mobile-small.tokens.json"
+const readTokenFile = (
+  collection: string,
+  filename: string
+): FigmaTokenTree => {
+  // ex: "src/theme/v5-tokens/spacing/mobile-small.tokens.json"
+  const filePath = path.join(sourceDir, collection, filename);
 
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 };
 
 /**
  * Resolve references such as "{soft}" or "{container.padding-x}".
+ * Takes an already-flattened token map (ie the output of `flattenTokens`),
+ * not a raw Figma export.
  * For example, this:
  * {
  *   "soft": 8,
  *   "container.padding-x": 20,
- *   "spacing": {
- *     "small": "{soft}",
- *     "medium": "{container.padding-x}"
- *   }
+ *   "spacing.small": "{soft}",
+ *   "spacing.medium": "{container.padding-x}"
  * }
  * becomes:
  * {
@@ -87,12 +148,12 @@ const readTokenFile = (collection, filename) => {
  *   "spacing.medium": 20
  * }
  */
-const resolveTokens = (tokens) => {
-  const resolved = {};
-  const resolving = new Set();
+const resolveTokens = (tokens: FlatTokenMap): FlatTokenMap => {
+  const resolved: FlatTokenMap = {};
+  const resolving = new Set<string>();
 
   // Recursively resolve a token until we reach the real value.
-  function resolve(name) {
+  function resolve(name: string): TokenValue {
     // If the token has already been resolved, return the cached value.
     if (Object.hasOwn(resolved, name)) {
       return resolved[name];
@@ -148,22 +209,26 @@ const resolveTokens = (tokens) => {
  *   }
  * }
  */
-const buildNestedTokens = (object, tokenPath, value) => {
+const buildNestedTokens = (
+  object: NestedObject,
+  tokenPath: string,
+  value: unknown
+): void => {
   const parts = tokenPath.split(".").map(kebabToCamelCase);
   let current = object;
 
   for (const part of parts.slice(0, -1)) {
-    current = current[part] ??= {};
+    current = (current[part] ??= {}) as NestedObject;
   }
 
-  current[parts.at(-1)] = value;
+  current[parts.at(-1) as string] = value;
 };
 
 function buildResponsiveTokens(
-  collection,
+  collection: string,
   tokenType = "dimension",
   prefix = ""
-) {
+): DesignTokens {
   // Find all breakpoint files for this collection.
   // This allows different collections to have different breakpoints.
   const collectionDir = path.join(sourceDir, collection);
@@ -174,7 +239,7 @@ function buildResponsiveTokens(
     .map((file) => file.replace(".tokens.json", ""));
 
   // Create one flattened, fully resolved token map per breakpoint.
-  const byBreakpoint = Object.fromEntries(
+  const byBreakpoint: Record<string, FlatTokenMap> = Object.fromEntries(
     breakpoints.map((breakpoint) => [
       breakpoint,
       resolveTokens(
@@ -190,7 +255,7 @@ function buildResponsiveTokens(
       .filter((path) => path.startsWith(prefix))
   );
 
-  const result = {};
+  const result: NestedObject = {};
 
   for (const tokenPath of allPaths) {
     // Get this token's value at each breakpoint.
@@ -227,23 +292,23 @@ function buildResponsiveTokens(
     }
   }
 
-  return result;
+  return result as DesignTokens;
 }
 
 // Convert dimension values from numbers to CSS pixel strings.
 StyleDictionary.registerTransform({
   name: "figma/number-to-px",
   type: "value",
-  filter: (token) =>
+  filter: (token: TransformedToken) =>
     token.$type === "dimension" && typeof token.$value === "number",
-  transform: (token) => `${token.$value}px`,
+  transform: (token: TransformedToken) => `${token.$value}px`,
 });
 
 // Generate a nested TypeScript object from transformed tokens.
 StyleDictionary.registerFormat({
   name: "chakra/typescript",
-  format: ({ dictionary, options }) => {
-    const output = {};
+  format: ({ dictionary, options }: FormatFnArguments) => {
+    const output: NestedObject = {};
 
     for (const token of dictionary.allTokens) {
       buildNestedTokens(output, token.path.join("."), token.$value);
@@ -258,8 +323,13 @@ StyleDictionary.registerFormat({
 });
 
 // Run Style Dictionary and write a generated theme file.
-async function generate(tokens, exportName, filename, source) {
-  const dictionary = new StyleDictionary({
+async function generate(
+  tokens: DesignTokens,
+  exportName: string,
+  filename: string,
+  source: string
+): Promise<void> {
+  const config: Config = {
     tokens,
     platforms: {
       chakra: {
@@ -274,7 +344,9 @@ async function generate(tokens, exportName, filename, source) {
         ],
       },
     },
-  });
+  };
+
+  const dictionary = new StyleDictionary(config);
 
   await dictionary.buildPlatform("chakra");
   console.log(`Generated ${filename}`);
@@ -293,7 +365,7 @@ const radii = resolveTokens(
   flattenTokens(readTokenFile("radius", "radius.tokens.json"))
 );
 
-const radiusTokens = {};
+const radiusTokens: NestedObject = {};
 
 for (const [tokenPath, value] of Object.entries(radii)) {
   buildNestedTokens(radiusTokens, tokenPath, {
@@ -303,7 +375,7 @@ for (const [tokenPath, value] of Object.entries(radii)) {
 }
 
 await generate(
-  radiusTokens,
+  radiusTokens as DesignTokens,
   "radii",
   "radii.ts",
   "v5-tokens/radius/radius.tokens.json"
@@ -314,7 +386,7 @@ const breakpointValues = resolveTokens(
   flattenTokens(readTokenFile("breakpoint", "breakpoint.tokens.json"))
 );
 
-const breakpointTokens = {};
+const breakpointTokens: NestedObject = {};
 
 for (const [tokenPath, value] of Object.entries(breakpointValues)) {
   if (!tokenPath.startsWith("bibliocommons.")) continue;
@@ -332,31 +404,27 @@ for (const [tokenPath, value] of Object.entries(breakpointValues)) {
 }
 
 await generate(
-  breakpointTokens,
+  breakpointTokens as DesignTokens,
   "breakpoints",
   "breakpoints.ts",
   "v5-tokens/breakpoint/breakpoint.tokens.json"
 );
 
-// Generate font size tokens.
-const fontSizeTokens = buildResponsiveTokens("text", "dimension", "font-size.");
-
-await generate(
-  { ...fontSizeTokens.fontSize },
-  "fontSizes",
-  "fontSizes.ts",
-  "v5-tokens/text/*.tokens.json"
-);
-
 // Generate typography tokens.
 const typographyTokens = {
-  fonts: buildResponsiveTokens("text", "string", "font-family.").fontFamily,
-  fontSizes: buildResponsiveTokens("text", "dimension", "font-size.").fontSize,
-  fontWeights: buildResponsiveTokens("text", "number", "font-weight.")
-    .fontWeight,
-  lineHeights: buildResponsiveTokens("text", "dimension", "line-height.")
-    .lineHeight,
-};
+  fonts: (
+    buildResponsiveTokens("text", "string", "font-family.") as NestedObject
+  ).fontFamily,
+  fontSizes: (
+    buildResponsiveTokens("text", "dimension", "font-size.") as NestedObject
+  ).fontSize,
+  fontWeights: (
+    buildResponsiveTokens("text", "number", "font-weight.") as NestedObject
+  ).fontWeight,
+  lineHeights: (
+    buildResponsiveTokens("text", "dimension", "line-height.") as NestedObject
+  ).lineHeight,
+} as DesignTokens;
 
 await generate(
   typographyTokens,
@@ -366,7 +434,7 @@ await generate(
 );
 
 // Generate color tokens.
-const formatColor = (color) => {
+const formatColor = (color: FigmaColorValue): string => {
   const { hex, alpha } = color;
 
   if (alpha === 1) return hex;
@@ -380,17 +448,17 @@ const colorValues = resolveTokens(
   flattenTokens(readTokenFile("color", "color.tokens.json"))
 );
 
-const colorTokens = {};
+const colorTokens: NestedObject = {};
 
 for (const [tokenPath, value] of Object.entries(colorValues)) {
   buildNestedTokens(colorTokens, tokenPath, {
     $type: "color",
-    $value: formatColor(value),
+    $value: formatColor(value as FigmaColorValue),
   });
 }
 
 await generate(
-  colorTokens,
+  colorTokens as DesignTokens,
   "colors",
   "colors.ts",
   "v5-tokens/color/color.tokens.json"
