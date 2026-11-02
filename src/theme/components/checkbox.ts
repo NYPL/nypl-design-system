@@ -6,16 +6,13 @@ import { defineStyle } from "@chakra-ui/system";
 
 import {
   checkboxRadioLabelStyles,
-  checkboxRadioControlSize,
   checkboxRadioHelperErrorTextStyle,
-  checkboxRadioHoverStyles,
 } from "./global";
 
 // This function creates a set of function that helps us
 // create multipart component styles.
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers([
-    "base",
     "helperErrorText",
     "icon",
     "control",
@@ -27,8 +24,8 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const baseStyleIcon = defineStyle({
   // Remove Chakra's default animation
   animation: null,
-  width: "22px",
-  height: "22px",
+  width: "14px",
+  height: "14px",
 });
 
 // Style object for the Checkbox's "control."
@@ -41,8 +38,25 @@ const baseStyleControl = defineStyle({
   outline: "none",
   transitionProperty: "box-shadow",
   transitionDuration: "normal",
-
+  h: "v5.checkbox",
+  w: "v5.checkbox",
   _checked: {
+    borderColor: "v5.checkbox.border.selected",
+    bg: "v5.checkbox.bg.selected.default",
+    color: "v5.checkbox.icon.default",
+    _hover: {
+      borderColor: "v5.checkbox.border.selected",
+      bg: "v5.checkbox.bg.selected.default",
+    },
+    _disabled: {
+      bg: "v5.checkbox.bg.disabled",
+      borderColor: "v5.checkbox.border.disabled",
+      svg: {
+        color: "v5.checkbox.icon.disabled",
+      },
+    },
+  },
+  _indeterminate: {
     borderColor: "v5.checkbox.border.selected",
     bg: "v5.checkbox.bg.selected.default",
     color: "v5.checkbox.icon.default",
@@ -53,14 +67,15 @@ const baseStyleControl = defineStyle({
         color: "v5.checkbox.icon.disabled",
       },
     },
+    _invalid: {
+      _hover: {
+        borderColor: "v5.checkbox.border.error",
+      },
+    },
   },
   _disabled: {
     bg: "v5.checkbox.bg.disabled",
     borderColor: "v5.checkbox.border.disabled",
-  },
-  _focus: {
-    boxShadow: "none",
-    outline: "none",
   },
   _invalid: {
     borderColor: "v5.checkbox.border.error",
@@ -79,35 +94,42 @@ const baseStyle = definePartsStyle({
   // Style object for the Checkbox's helper text
   helperErrorText: checkboxRadioHelperErrorTextStyle,
   icon: baseStyleIcon,
-  base: {
-    alignItems: "flex-start",
+  container: {
+    alignItems: "center",
     position: "relative",
-    ...checkboxRadioHoverStyles,
+    _hover: {
+      span: {
+        _first: {
+          borderColor: "v5.checkbox.border.hover",
+        },
+        _checked: {
+          borderColor: "v5.checkbox.border.selected",
+        },
+        _indeterminate: {
+          borderColor: "v5.checkbox.border.selected",
+        },
+        _disabled: {
+          borderColor: "v5.checkbox.border.disabled",
+        },
+        _invalid: {
+          borderColor: "v5.checkbox.border.error",
+        },
+      },
+    },
   },
   control: baseStyleControl,
-  label: baseStyleLabel,
+  // Controls the font-size of the label only.
+  label: defineStyle({
+    ...baseStyleLabel,
+    fontSize: "desktop.label.label1",
+    _invalid: {
+      color: "v5.checkbox.label.error",
+    },
+  }),
 });
-
-// Sticking to "lg" for the default size.
-const sizes = {
-  lg: {
-    // Controls the width/height of the checkbox itself.
-    control: defineStyle({
-      ...checkboxRadioControlSize,
-    }),
-    // Controls the font-size of the label only.
-    label: defineStyle({ fontSize: "desktop.label.label1" }),
-  },
-};
 
 const Checkbox = defineMultiStyleConfig({
   baseStyle,
-  sizes,
-  // Default values
-  defaultProps: {
-    size: "lg",
-    colorScheme: "white",
-  },
 });
 
 export default Checkbox;

@@ -25,33 +25,26 @@ const activeFocus = (darkMode = false) => ({
 });
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
+  color: "v5.text.body.default",
   userSelect: "none",
-  fontWeight: "body.default",
+  fontFamily: "v5.base",
+  fontWeight: "v5.body",
   marginBottom: "0",
-  marginStart: "xs",
+  marginStart: "v5.density.condensed",
   width: "100%",
   _disabled: {
-    color: "ui.gray.dark",
+    color: "v5.text.disabled",
     opacity: 1,
-    fontStyle: "italic",
   },
   _invalid: {
     color: "ui.error.primary",
-  },
-  _dark: {
-    _disabled: {
-      color: "dark.ui.disabled.primary",
-    },
-    _invalid: {
-      color: "dark.ui.error.primary",
-    },
   },
 };
 // Custom values not in the spacing theme.
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioControlSize = {
-  h: "v5.checkbox",
-  w: "v5.checkbox",
+  h: "1.375rem",
+  w: "1.375rem",
 };
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioHelperErrorTextStyle = {

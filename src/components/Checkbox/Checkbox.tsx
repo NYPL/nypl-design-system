@@ -61,7 +61,7 @@ function CheckboxIcon(props: CheckboxIconProps) {
   const { isIndeterminate, isChecked } = props;
 
   return isChecked || isIndeterminate ? (
-    <Icon name="utilityCheck" sx={{ fill: "currentColor" }} />
+    <Icon name="check" sx={{ fill: "currentColor" }} />
   ) : null;
 }
 
@@ -132,7 +132,6 @@ export const Checkbox: ChakraComponent<
             : {
                 defaultChecked: false,
               })}
-          __css={styles.base}
           {...ariaAttributes}
         >
           {showLabel && labelText}
