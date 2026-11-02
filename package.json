@@ -44,7 +44,7 @@
     "build-storybook:v4": "storybook build -c .storybook -o ./reservoir/v4",
     "prebuild:storybook": "npm run test:generate-output",
     "build-storybook": "storybook build",
-    "tokens:build": "node src/theme/token-build/build.js"
+    "tokens:build": "tsx src/theme/token-build/build.ts"
   },
   "lint-staged": {
     "*.{jsx,ts,tsx}": "eslint src --ext=jsx,ts,tsx --cache --fix",
@@ -134,6 +134,7 @@
     "style-dictionary": "5.7.1",
     "ts-jest": "29.1.5",
     "tslib": "2.3.0",
+    "tsx": "4.23.15",
     "typescript": "4.9.5",
     "vite": "7.3.6",
     "vite-plugin-dts": "4.5.4",
