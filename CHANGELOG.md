@@ -8,7 +8,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-### 5.0.0 (Prerelease)
+### 5.0.0 (TBD)
 
 - Updates `Checkbox` styles to align with v5 designs.
 
