@@ -25,10 +25,11 @@ export const linkVariantsArray = [
   "forwards",
   "standalone",
 ] as const;
-export type LinkVariants = typeof linkVariantsArray[number];
+export type LinkVariants = (typeof linkVariantsArray)[number];
 
 export interface LinkProps
-  extends Pick<BoxProps, "as" | keyof ChakraProps>,
+  extends
+    Pick<BoxProps, "as" | keyof ChakraProps>,
     Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "color"> {
   /** Used to include or remove visited state styles. Default is true. */
   hasVisitedState?: boolean;
