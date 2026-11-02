@@ -49,11 +49,16 @@ const baseStyleControl = defineStyle({
       bg: "v5.checkbox.bg.selected.default",
     },
     _disabled: {
-      bg: "v5.checkbox.bg.disabled",
+      bg: "v5.checkbox.bg.selected.disabled",
       borderColor: "v5.checkbox.border.disabled",
       svg: {
         color: "v5.checkbox.icon.disabled",
       },
+    },
+    _invalid: {
+      bg: "v5.checkbox.bg.selected.error",
+      borderColor: "v5.checkbox.border.error",
+      color: "v5.checkbox.icon.default",
     },
   },
   _indeterminate: {
@@ -61,16 +66,16 @@ const baseStyleControl = defineStyle({
     bg: "v5.checkbox.bg.selected.default",
     color: "v5.checkbox.icon.default",
     _disabled: {
-      bg: "v5.checkbox.bg.disabled",
+      bg: "v5.checkbox.bg.selected.disabled",
       borderColor: "v5.checkbox.border.disabled",
       svg: {
         color: "v5.checkbox.icon.disabled",
       },
     },
     _invalid: {
-      _hover: {
-        borderColor: "v5.checkbox.border.error",
-      },
+      bg: "v5.checkbox.bg.selected.error",
+      borderColor: "v5.checkbox.border.error",
+      color: "v5.checkbox.icon.default",
     },
   },
   _disabled: {
@@ -79,7 +84,6 @@ const baseStyleControl = defineStyle({
   },
   _invalid: {
     borderColor: "v5.checkbox.border.error",
-    color: "v5.checkbox.icon.default",
   },
 });
 
