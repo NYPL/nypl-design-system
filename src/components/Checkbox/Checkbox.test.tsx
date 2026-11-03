@@ -213,7 +213,7 @@ describe("Checkbox", () => {
       screen.getByRole("checkbox", { name: /onchangetest/i })
     ).toBeInTheDocument();
     await userEvent.click(screen.getByRole("checkbox", { name: /onchangetest/i }));
-    expect(onChangeMock).toBeCalledTimes(1);
+    expect(onChangeMock).toHaveBeenCalledTimes(1);
   });
 
   it("Changing the value calls the onChange handler", async () => {

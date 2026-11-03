@@ -269,7 +269,7 @@ describe("FilterBarPopup", () => {
     await userEvent.click(screen.getByRole("button", { name: /show filters/i }));
     // click Submit All button
     await userEvent.click(screen.getByRole("button", { name: /show results/i }));
-    expect(mockonSubmit).toBeCalledTimes(1);
+    expect(mockonSubmit).toHaveBeenCalledTimes(1);
   });
   it("renders the UI snapshots correctly", () => {
     const defaultFilterBarNoButtons = renderer

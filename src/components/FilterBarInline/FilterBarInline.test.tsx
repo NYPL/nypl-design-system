@@ -255,7 +255,7 @@ describe("FilterBarInline", () => {
     );
     // click Submit All button
     await userEvent.click(screen.getByRole("button", { name: /apply filters/i }));
-    expect(mockonSubmit).toBeCalledTimes(1);
+    expect(mockonSubmit).toHaveBeenCalledTimes(1);
   });
   it("renders the UI snapshots correctly", () => {
     const defaultFilterBarNoButtons = renderer

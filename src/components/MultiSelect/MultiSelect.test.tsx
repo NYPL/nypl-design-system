@@ -616,17 +616,17 @@ describe("MultiSelect", () => {
       />
     );
     await userEvent.click(screen.queryByRole("checkbox", { name: /dogs/i }));
-    expect(onMixedStateChangeMock).not.toBeCalled();
-    expect(onChangeMock).toBeCalledTimes(1);
+    expect(onMixedStateChangeMock).not.toHaveBeenCalled();
+    expect(onChangeMock).toHaveBeenCalledTimes(1);
 
     await userEvent.click(screen.queryByRole("checkbox", { name: /blue/i }));
     await userEvent.click(screen.queryByRole("checkbox", { name: /plants/i }));
-    expect(onMixedStateChangeMock).not.toBeCalled();
-    expect(onChangeMock).toBeCalledTimes(3);
+    expect(onMixedStateChangeMock).not.toHaveBeenCalled();
+    expect(onChangeMock).toHaveBeenCalledTimes(3);
 
     await userEvent.click(screen.queryByRole("checkbox", { name: /blue/i }));
-    expect(onMixedStateChangeMock).not.toBeCalled();
-    expect(onChangeMock).toBeCalledTimes(4);
+    expect(onMixedStateChangeMock).not.toHaveBeenCalled();
+    expect(onChangeMock).toHaveBeenCalledTimes(4);
   });
 
   it("should call onMixedStateChange when a parent item is selected/unselected", async () => {
@@ -673,12 +673,12 @@ describe("MultiSelect", () => {
       screen.queryByRole("checkbox", { name: /colors/i })
     ).toBeInTheDocument();
     await userEvent.click(screen.queryByRole("checkbox", { name: /colors/i }));
-    expect(onMixedStateChangeMock).toBeCalledTimes(1);
-    expect(onChangeMock).not.toBeCalled();
+    expect(onMixedStateChangeMock).toHaveBeenCalledTimes(1);
+    expect(onChangeMock).not.toHaveBeenCalled();
 
     await userEvent.click(screen.queryByRole("checkbox", { name: /colors/i }));
-    expect(onMixedStateChangeMock).toBeCalledTimes(2);
-    expect(onChangeMock).not.toBeCalled();
+    expect(onMixedStateChangeMock).toHaveBeenCalledTimes(2);
+    expect(onChangeMock).not.toHaveBeenCalled();
   });
 
   it("should have indeterminate state for parent item if not all child items are checked", async () => {
