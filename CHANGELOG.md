@@ -12,6 +12,15 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 - Adds interaction tests for the List component UL and DL variants.
 
+### Updates
+
+- Updates `@types/jest`, `jest`, `prettier`, `ts-jest`, and `vite` npm packages.
+- Updates `toBeCalled` to `toHaveBeenCalled` and `toBeCalledTimes` to `toHaveBeenCalledTimes` in a few unit tests.
+
+### Removes
+
+- Removes the `system-font-css` npm package.
+
 ### Fixes
 
 - Fixes a `List` component issue where empty children threw warning messages and did not render the component.
