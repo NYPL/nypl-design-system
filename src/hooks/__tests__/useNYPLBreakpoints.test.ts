@@ -1,4 +1,4 @@
-import { act, renderHook } from "@testing-library/react-hooks";
+import { act, renderHook } from "@testing-library/react";
 import MatchMedia from "../../__tests__/mediaMatchMock";
 import useNYPLBreakpoints from "../useNYPLBreakpoints";
 

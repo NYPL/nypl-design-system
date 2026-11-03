@@ -10,7 +10,21 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
+- Adds interaction tests for the List component UL and DL variants.
 - Adds `PlaceholderImage` component.
+
+### Fixes
+
+- Fixes a `List` component issue where empty children threw warning messages and did not render the component.
+
+## 4.5.3 (October 28, 2026)
+
+### Updates
+
+- Adds the `onToggle` prop to the `Accordion` component.
+- Updates eslint and prettier npm packages.
+
+## 4.5.2 (October 15, 2026)
 
 ### Updates
 
