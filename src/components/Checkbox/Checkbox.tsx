@@ -4,7 +4,6 @@ import {
   ChakraComponent,
   ChakraProps,
   Checkbox as ChakraCheckbox,
-  useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, InputHTMLAttributes } from "react";
 
@@ -90,7 +89,6 @@ export const Checkbox: ChakraComponent<
       ...rest
     } = props;
     const mainId = useSafeId(id);
-    const styles = useMultiStyleConfig("Checkbox", {});
     const groupProps = useCheckboxGroup();
     const footnote = isInvalid ? invalidText : helperText;
     // Use Chakra's default indeterminate icon.
@@ -107,7 +105,6 @@ export const Checkbox: ChakraComponent<
       <ComponentWrapper
         data-testid="ds-checkbox"
         helperText={helperText}
-        helperTextStyles={styles.helperErrorText}
         id={mainId}
         invalidText={invalidText}
         isInvalid={isInvalid}

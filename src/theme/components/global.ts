@@ -48,7 +48,7 @@ const checkboxRadioControlSize = {
 };
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioHelperErrorTextStyle = {
-  marginStart: "30px", // calc(22px + var(--nypl-space-xs))
+  marginStart: "30px", // calc(14px + var(--nypl-space-xs))
   _disabled: {
     color: "ui.gray.dark",
     fontStyle: "italic",
