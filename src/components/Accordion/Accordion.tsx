@@ -15,7 +15,7 @@ import Icon from "../Icons/Icon";
 import { useSafeId } from "../../hooks/useSafeId";
 
 export const accordionVariantsArray = ["default", "warning", "error"] as const;
-export type AccordionVariants = typeof accordionVariantsArray[number];
+export type AccordionVariants = (typeof accordionVariantsArray)[number];
 export interface AccordionDataProps {
   ariaLabel?: string;
   /** Ref to the DOM element of the AccordionButton. */
