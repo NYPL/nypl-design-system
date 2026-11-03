@@ -90,7 +90,6 @@ export const accordionData = [
       <p>
         Tom Nook,
         <b>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           known in <a href="#">Japan</a> as Tanukichi
         </b>
         , is a fictional character in the Animal Crossing series who operates

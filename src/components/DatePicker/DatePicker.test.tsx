@@ -472,7 +472,7 @@ describe("DatePicker", () => {
     it("should throw a warning when `onChange` is passed as well as a `ref` prop.", () => {
       const warn = jest.spyOn(console, "warn");
       const ref = React.createRef<TextInputRefType>();
-      const onChange = (_data: {}) => {};
+      const onChange = (_data: object) => {};
       render(
         <DatePicker
           id="datePicker"
@@ -821,7 +821,7 @@ describe("DatePicker", () => {
       expect(disabled).toMatchSnapshot();
     });
 
-    it("should select two new dates", async() => {
+    it("should select two new dates", async () => {
       render(
         <DatePicker
           id="datePicker"

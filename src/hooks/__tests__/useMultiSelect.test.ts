@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from "@testing-library/react";
 import useMultiSelect from "../useMultiSelect";
 
 const multiSelectIdOne = "multiselect-hook-test-id-1";

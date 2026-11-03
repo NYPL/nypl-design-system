@@ -25,12 +25,13 @@ export const buttonVariantsArray = [
   "noBrand",
 ] as const;
 
-export type ButtonElementType = typeof buttonElementTypeArray[number];
-export type ButtonVariants = typeof buttonVariantsArray[number];
-export type ButtonSizes = typeof sizesArray[number];
+export type ButtonElementType = (typeof buttonElementTypeArray)[number];
+export type ButtonVariants = (typeof buttonVariantsArray)[number];
+export type ButtonSizes = (typeof sizesArray)[number];
 
 export interface ButtonProps
-  extends Pick<BoxProps, keyof ChakraProps>,
+  extends
+    Pick<BoxProps, keyof ChakraProps>,
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {
   /** Adds 'disabled' property to the button. */
   isDisabled?: boolean;
@@ -72,9 +73,7 @@ export const Button: ChakraComponent<
       const mainId = useSafeId(id);
       const isButtonGroupDisabled = useButtonGroup();
       const btnCallback = mouseDown ? { onMouseDown: onClick } : { onClick };
-      let styles: any = {};
-
-      styles = useMultiStyleConfig("ReservoirButton", {
+      const styles = useMultiStyleConfig("ReservoirButton", {
         variant,
         buttonSize: size,
       });

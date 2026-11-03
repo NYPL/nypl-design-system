@@ -10,8 +10,8 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
-    date: "Prerelease",
-    version: "Prerelease",
+    date: "2026-10-28",
+    version: "4.5.3",
     type: "Update",
     affects: ["Documentation", "Functionality"],
     notes: ["Adds the `onToggle` prop."],
