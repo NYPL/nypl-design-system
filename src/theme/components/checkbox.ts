@@ -4,19 +4,12 @@ import { defineStyle } from "@chakra-ui/system";
 // @see https://github.com/chakra-ui/chakra-ui/blob/main/packages/components/theme/src/components/checkbox.ts
 // for available theme override options.
 
-import {
-  checkboxRadioLabelStyles,
-} from "./global";
+import { checkboxRadioLabelStyles } from "./global";
 
 // This function creates a set of function that helps us
 // create multipart component styles.
 const { defineMultiStyleConfig, definePartsStyle } =
-  createMultiStyleConfigHelpers([
-    "icon",
-    "control",
-    "label",
-    "container",
-  ]);
+  createMultiStyleConfigHelpers(["icon", "control", "label", "container"]);
 
 // Style object for the Checkbox's visual icon.
 const baseStyleIcon = defineStyle({
@@ -94,7 +87,6 @@ const baseStyleLabel = defineStyle({
     color: "v5.checkbox.label.error",
   },
 });
-
 
 // Chakra's default Checkbox theme defines a `sizes` map (sm/md/lg) that sets
 // `label.fontSize`. Since `sizes` merges on top of `baseStyle`, we need to

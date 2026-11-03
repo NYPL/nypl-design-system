@@ -25,7 +25,8 @@ interface CheckboxIconProps {
 }
 
 export interface CheckboxProps
-  extends Pick<BoxProps, keyof ChakraProps>,
+  extends
+    Pick<BoxProps, keyof ChakraProps>,
     CheckboxIconProps,
     Omit<InputHTMLAttributes<HTMLInputElement>, "color" | "height" | "width"> {
   /** Optional string to populate the HelperErrorText for standard state */
