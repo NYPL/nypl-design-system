@@ -213,7 +213,9 @@ describe("FilterBarPopup", () => {
       screen.getByRole("button", { name: /show filters/i })
     ).toBeInTheDocument();
     // Open the modal
-    await userEvent.click(screen.getByRole("button", { name: /show filters/i }));
+    await userEvent.click(
+      screen.getByRole("button", { name: /show filters/i })
+    );
     // Check that all the multiselects are present
     expect(screen.getByRole("button", { name: /pets/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /colors/i })).toBeInTheDocument();
@@ -237,7 +239,9 @@ describe("FilterBarPopup", () => {
       />
     );
     // Open the modal
-    await userEvent.click(screen.getByRole("button", { name: /show filters/i }));
+    await userEvent.click(
+      screen.getByRole("button", { name: /show filters/i })
+    );
     // Open menu
     await userEvent.click(screen.getByRole("button", { name: /colors/i }));
     // Open menu
@@ -252,7 +256,9 @@ describe("FilterBarPopup", () => {
     await userEvent.click(screen.getByRole("checkbox", { name: /hammer/i }));
     expect(screen.getAllByRole("button", { name: /selected/i }).length).toBe(6);
     // click Clear All button
-    await userEvent.click(screen.getByRole("button", { name: /clear all filters/i }));
+    await userEvent.click(
+      screen.getByRole("button", { name: /clear all filters/i })
+    );
     expect(
       Object.keys(screen.findAllByRole("button", { name: /selected/i })).length
     ).toBe(0);
@@ -266,9 +272,13 @@ describe("FilterBarPopup", () => {
       <FilterBarTestComponent onSubmit={mockonSubmit} id="filter-bar-test-4" />
     );
     // Open the modal
-    await userEvent.click(screen.getByRole("button", { name: /show filters/i }));
+    await userEvent.click(
+      screen.getByRole("button", { name: /show filters/i })
+    );
     // click Submit All button
-    await userEvent.click(screen.getByRole("button", { name: /show results/i }));
+    await userEvent.click(
+      screen.getByRole("button", { name: /show results/i })
+    );
     expect(mockonSubmit).toHaveBeenCalledTimes(1);
   });
   it("renders the UI snapshots correctly", () => {
