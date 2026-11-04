@@ -14,7 +14,9 @@ export const changelogData: ChangelogData[] = [
     version: "Prerelease",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Updates the spacing between the icon and the left side of the component."],
+    notes: [
+      "Updates the spacing between the icon and the left side of the component.",
+    ],
   },
   {
     date: "2026-10-15",
