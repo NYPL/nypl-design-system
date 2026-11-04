@@ -25,8 +25,8 @@ const SkipNavigation = defineStyleConfig({
         paddingY: "v5.skipNavigation.paddingY",
         top: "1rem",
         width: "auto",
-        // Remove default border offset for activefocused state.
-        borderOffset: "0px",
+        // Remove default outline offset for activefocused state.
+        outlineOffset: "0px",
       },
     },
   }),
