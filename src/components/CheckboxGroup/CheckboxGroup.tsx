@@ -13,7 +13,7 @@ import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import { LayoutTypes } from "../../helpers/types";
-import { spacing } from "../../theme/foundations/spacing";
+import { space } from "../../theme/generated/space";
 import { useSafeId } from "../../hooks/useSafeId";
 import { CheckboxGroupContext } from "./CheckboxGroupContext";
 
@@ -93,8 +93,8 @@ export const CheckboxGroup: ChakraComponent<
       const footnote = isInvalid ? invalidText : helperText;
       const spacingProp =
         layout === "column"
-          ? spacing.input.group.default.vstack
-          : spacing.input.group.default.hstack;
+          ? space.checkboxGroup.gap.column
+          : space.checkboxGroup.gap.row;
       const checkboxProps =
         defaultValue && onChange
           ? {
