@@ -20,7 +20,7 @@ import TextInput, {
 import { useSafeId } from "../../hooks/useSafeId";
 
 // NOTE: AI-generated comment below. This fixes an issue importing DS v4.5.4+
-// in Turbine. 
+// in Turbine.
 
 // `react-datepicker` ships as a CommonJS module with `exports.default` set to
 // the actual component (plus other named exports) and `exports.__esModule`
