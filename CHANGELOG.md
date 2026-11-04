@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Currently, this repo is in Prerelease. When it is released, this project will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 ========
 
+### 5.0.0 (TBD)
+
+- Adds v5 design tokens to repo. [ISW-6210](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6210)
+
 ## Prerelease
 
 ### Adds

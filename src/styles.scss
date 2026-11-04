@@ -1,7 +1,19 @@
+// `meta.load-css` is necessary to bundle the fonts
+@use "sass:meta";
+
 // Better style reset
 @import "normalize.css/normalize";
 // System fonts
 @import "system-font-css/_system-font.scss";
+// v5 web fonts
+@include meta.load-css("@fontsource/open-sans/400.css");
+@include meta.load-css("@fontsource/open-sans/500.css");
+@include meta.load-css("@fontsource/open-sans/600.css");
+@include meta.load-css("@fontsource/open-sans/700.css");
+@include meta.load-css("@fontsource/merriweather/400.css");
+@include meta.load-css("@fontsource/merriweather/500.css");
+@include meta.load-css("@fontsource/merriweather/600.css");
+@include meta.load-css("@fontsource/merriweather/700.css");
 // The `react-datepicker` styles. We'll compile and minimize it ourselves.
 @import "react-datepicker/src/stylesheets/datepicker.scss";
 

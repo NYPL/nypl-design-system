@@ -155,6 +155,24 @@ const responsiveSpacing = {
   gridGap: { base: "s", md: "m", xl: "l" },
   margin: { base: "s", md: "m", xl: "s" },
   padding: { base: "s", md: "m", xl: "s" },
+  // v5 values
+  containerPaddingX: {
+    base: "v5.responsive.container.paddingX.mobileSmall",
+    lg: "v5.responsive.container.paddingX.tabletSmall",
+    xl: "v5.responsive.container.paddingX.tabletLarge",
+  },
+  gridCondensed: {
+    base: "v5.responsive.grid.condensed.mobileSmall",
+    lg: "v5.responsive.grid.condensed.tabletSmall",
+  },
+  gridNormal: {
+    base: "v5.responsive.grid.normal.mobileSmall",
+    lg: "v5.responsive.grid.normal.tabletSmall",
+  },
+  gridSpacious: {
+    base: "v5.responsive.grid.spacious.mobileSmall",
+    lg: "v5.responsive.grid.spacious.tabletSmall",
+  },
 };
 
 export {
