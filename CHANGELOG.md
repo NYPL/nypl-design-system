@@ -13,6 +13,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds interaction tests for the List component UL and DL variants.
 - Adds `PlaceholderImage` component.
 
+### Updates
+
+- Updates `Banner` component to reduce the spacing between the icon and the left side of the component.
+
 ### Fixes
 
 - Fixes a `List` component issue where empty children threw warning messages and did not render the component.
