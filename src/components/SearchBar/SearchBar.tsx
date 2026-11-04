@@ -30,7 +30,10 @@ interface SelectOptionsProps {
 // From the `Select` component, we only need a certain set of optional props,
 // except for `optionsData`.
 export type SelectProps = Partial<
-  Pick<InitialSelectProps, "id" | "labelText" | "name" | "onChange" | "value">
+  Pick<
+    InitialSelectProps,
+    "id" | "labelText" | "name" | "onChange" | "prependText" | "value"
+  >
 > & {
   optionsData: SelectOptionsProps[];
 };
@@ -145,6 +148,7 @@ export const SearchBar: ChakraComponent<
         labelText={selectProps?.labelText}
         name={selectProps?.name}
         onChange={selectProps?.onChange}
+        prependText={selectProps?.prependText}
         variant="searchbar"
         value={selectProps?.value}
         __css={styles.select}

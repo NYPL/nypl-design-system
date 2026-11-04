@@ -435,4 +435,149 @@ describe("Select", () => {
 
     expect(container.querySelector("select")).toBe(ref.current);
   });
+
+  describe("prependText", () => {
+    it("prepends the text to the initially selected option (first option by default)", () => {
+      render(
+        <Select {...baseProps} prependText="Sort by: ">
+          {baseOptions}
+        </Select>
+      );
+
+      expect(screen.getByRole("combobox")).toHaveTextContent("Sort by: Red");
+    });
+
+    it("prepends the text to the initially selected option when `defaultValue` is passed", () => {
+      render(
+        <Select {...baseProps} defaultValue="blue" prependText="Sort by: ">
+          {baseOptions}
+        </Select>
+      );
+
+      expect(screen.getByRole("combobox")).toHaveTextContent("Sort by: Blue");
+    });
+
+    it("prepends the text to the initially selected option when `value` is passed", () => {
+      render(
+        <Select
+          {...baseProps}
+          onChange={() => {}}
+          value="white"
+          prependText="Sort by: "
+        >
+          {baseOptions}
+        </Select>
+      );
+
+      expect(screen.getByRole("combobox")).toHaveTextContent("Sort by: White");
+    });
+
+    it("updates the prepended text when the selected option changes (uncontrolled)", () => {
+      render(
+        <Select {...baseProps} defaultValue="red" prependText="Sort by: ">
+          {baseOptions}
+        </Select>
+      );
+      const select = screen.getByRole("combobox");
+
+      expect(select).toHaveTextContent("Sort by: Red");
+
+      fireEvent.change(select, { target: { value: "green" } });
+      expect(select).toHaveTextContent("Sort by: Green");
+      expect(select).not.toHaveTextContent("Sort by: Red");
+    });
+
+    it("updates the prepended text when the selected option changes (controlled)", () => {
+      function ControlledSelect() {
+        const [value, setValue] = React.useState("red");
+        return (
+          <Select
+            {...baseProps}
+            onChange={(e) => setValue(e.target.value)}
+            value={value}
+            prependText="Sort by: "
+          >
+            {baseOptions}
+          </Select>
+        );
+      }
+      render(<ControlledSelect />);
+      const select = screen.getByRole("combobox");
+
+      expect(select).toHaveTextContent("Sort by: Red");
+
+      fireEvent.change(select, { target: { value: "blue" } });
+      expect(select).toHaveTextContent("Sort by: Blue");
+      expect(select).not.toHaveTextContent("Sort by: Red");
+    });
+
+    it("does not prepend any text when `prependText` is not passed", () => {
+      render(<Select {...baseProps}>{baseOptions}</Select>);
+
+      expect(screen.getByRole("combobox")).not.toHaveTextContent("Sort by:");
+    });
+
+    it("hides the prepended text from option labels while the select is open", () => {
+      render(
+        <Select {...baseProps} defaultValue="red" prependText="Sort by: ">
+          {baseOptions}
+        </Select>
+      );
+      const select = screen.getByRole("combobox");
+
+      expect(select).toHaveTextContent("Sort by: Red");
+
+      fireEvent.mouseDown(select);
+      const redOption = screen.getByRole("option", {
+        name: "Red",
+      }) as HTMLOptionElement;
+      expect(redOption.textContent).toEqual("Red");
+      expect(select).not.toHaveTextContent("Sort by: Red");
+    });
+
+    it("re-applies the prepended text once the select closes via onBlur", () => {
+      render(
+        <Select {...baseProps} defaultValue="red" prependText="Sort by: ">
+          {baseOptions}
+        </Select>
+      );
+      const select = screen.getByRole("combobox");
+
+      fireEvent.mouseDown(select);
+      expect(select).not.toHaveTextContent("Sort by: Red");
+
+      fireEvent.blur(select);
+      expect(select).toHaveTextContent("Sort by: Red");
+    });
+
+    it("re-applies the prepended text once an option is selected", () => {
+      render(
+        <Select {...baseProps} defaultValue="red" prependText="Sort by: ">
+          {baseOptions}
+        </Select>
+      );
+      const select = screen.getByRole("combobox");
+
+      fireEvent.mouseDown(select);
+      expect(select).not.toHaveTextContent("Sort by: Green");
+
+      fireEvent.change(select, { target: { value: "green" } });
+      expect(select).toHaveTextContent("Sort by: Green");
+    });
+
+    it("opens on relevant key presses so option labels are shown without prepended text", () => {
+      render(
+        <Select {...baseProps} defaultValue="red" prependText="Sort by: ">
+          {baseOptions}
+        </Select>
+      );
+      const select = screen.getByRole("combobox");
+
+      fireEvent.keyDown(select, { key: "Enter" });
+      expect(select).not.toHaveTextContent("Sort by: Red");
+
+      fireEvent.blur(select);
+      expect(select).toHaveTextContent("Sort by: Red");
+    });
+  });
 });
