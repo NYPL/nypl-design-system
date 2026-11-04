@@ -82,7 +82,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                   multiselect-button-text
                 </legend>
                 <div
-                  className="chakra-stack css-19s3t1h"
+                  className="chakra-stack css-1hdbc19"
                   data-testid="checkbox-group"
                   id="multiselect-test-id-checkboxGroup-stack"
                 >
@@ -736,7 +736,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                   multiselect-button-text
                 </legend>
                 <div
-                  className="chakra-stack css-19s3t1h"
+                  className="chakra-stack css-1hdbc19"
                   data-testid="checkbox-group"
                   id="multiselect-test-id-checkboxGroup-stack"
                 >
@@ -1390,7 +1390,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                   multiselect-button-text
                 </legend>
                 <div
-                  className="chakra-stack css-19s3t1h"
+                  className="chakra-stack css-1hdbc19"
                   data-testid="checkbox-group"
                   id="multiselect-test-id-checkboxGroup-stack"
                 >
@@ -2106,7 +2106,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                   multiselect-button-text
                 </legend>
                 <div
-                  className="chakra-stack css-19s3t1h"
+                  className="chakra-stack css-1hdbc19"
                   data-testid="checkbox-group"
                   id="multiselect-test-id-checkboxGroup-stack"
                 >
