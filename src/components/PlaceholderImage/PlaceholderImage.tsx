@@ -12,10 +12,12 @@ export const contentTypesArray = [
   "miscellaneous",
   "video",
 ] as const;
-export type ContentTypes = typeof contentTypesArray[number];
+export type ContentTypes = (typeof contentTypesArray)[number];
 
-export interface PlaceholderImageProps
-  extends Pick<BoxProps, keyof ChakraProps> {
+export interface PlaceholderImageProps extends Pick<
+  BoxProps,
+  keyof ChakraProps
+> {
   /** The aspect ratio of the placeholder image. Defaults to "square". */
   aspectRatio?: ImageRatios;
   /** The title of the content being represented by the placeholder image.
