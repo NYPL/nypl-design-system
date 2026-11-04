@@ -6,7 +6,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { useState, forwardRef, useRef } from "react";
-import ReactDatePicker from "react-datepicker";
+import * as ReactDatePickerModule from "react-datepicker";
 
 import Fieldset from "../Fieldset/Fieldset";
 import { FormRow, FormField } from "../Form/Form";
@@ -18,6 +18,47 @@ import TextInput, {
   TextInputRefType,
 } from "../TextInput/TextInput";
 import { useSafeId } from "../../hooks/useSafeId";
+
+// NOTE: AI-generated comment below. This fixes an issue importing DS v4.5.4+
+// in Turbine. 
+
+// `react-datepicker` ships as a CommonJS module with `exports.default` set to
+// the actual component (plus other named exports) and `exports.__esModule`
+// set to `true`. A plain default import
+// (`import ReactDatePicker from "react-datepicker"`) relies on the consuming
+// bundler/runtime to unwrap that `.default` for us, which is not guaranteed:
+// Node's native ESM/CJS interop, Jest's CJS interop, and this library's own
+// Rollup build can all bind the default import to the *whole* CJS
+// `module.exports` object instead of the component, causing
+// "Element type is invalid" errors when rendering (notably during SSR).
+//
+// Importing the namespace and unwrapping `.default` ourselves handles most
+// cases, but Node's *native* ESM/CJS interop (unlike bundlers/Babel) does not
+// honor the `__esModule` convention: for `import * as ns from "cjsPkg"`, Node
+// always sets `ns.default` to the *entire* CJS `module.exports` object, which
+// itself still has the real component under its own `.default` property. So
+// we may need to unwrap `.default` up to twice, checking `__esModule` at each
+// step to decide whether a further unwrap is needed.
+const unwrapCjsDefault = <T,>(mod: unknown): T => {
+  let current = mod as { default?: unknown; __esModule?: boolean };
+  // Follow `.default` while the current value still looks like an
+  // __esModule-flagged CJS module (i.e. there's another level to unwrap).
+  while (
+    current &&
+    typeof current === "object" &&
+    current.__esModule &&
+    current.default &&
+    typeof current.default === "object" &&
+    (current.default as { __esModule?: boolean }).__esModule
+  ) {
+    current = current.default as { default?: unknown; __esModule?: boolean };
+  }
+  return (current?.default ?? current) as T;
+};
+
+const ReactDatePicker: typeof ReactDatePickerModule.default = unwrapCjsDefault<
+  typeof ReactDatePickerModule.default
+>(ReactDatePickerModule);
 
 interface ReactDatePickerAttrs {
   popperClassName: string;
