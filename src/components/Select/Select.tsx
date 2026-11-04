@@ -19,11 +19,12 @@ import { useSafeId } from "../../hooks/useSafeId";
 
 export const selectVariantsArray = ["default", "searchbar"] as const;
 export const labelPositionsArray = ["default", "inline"] as const;
-export type SelectVariants = typeof selectVariantsArray[number];
-export type LabelPositions = typeof labelPositionsArray[number];
+export type SelectVariants = (typeof selectVariantsArray)[number];
+export type LabelPositions = (typeof labelPositionsArray)[number];
 
 export interface SelectProps
-  extends Pick<BoxProps, keyof ChakraProps>,
+  extends
+    Pick<BoxProps, keyof ChakraProps>,
     Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "color"> {
   /** The initial value of an uncontrolled component */
   defaultValue?: string;
@@ -205,10 +206,10 @@ export const Select: ChakraComponent<
       const controlledOrUncontrolledProps = onChange
         ? { onChange: prependText ? handleChange : onChange, value }
         : defaultValue
-        ? { defaultValue, ...(prependText ? { onChange: handleChange } : {}) }
-        : prependText
-        ? { onChange: handleChange }
-        : {};
+          ? { defaultValue, ...(prependText ? { onChange: handleChange } : {}) }
+          : prependText
+            ? { onChange: handleChange }
+            : {};
 
       // When `prependText` is defined, open/close handlers toggle `isOpen`
       // so that option labels only show `prependText` while the dropdown
