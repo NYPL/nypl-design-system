@@ -42,7 +42,7 @@ export const WithControls: Story = {
 
 const renderPlaceholderImageGrid = (
   columns: number,
-  type?: typeof contentTypesArray[number]
+  type?: (typeof contentTypesArray)[number]
 ) => (
   <Box>
     {type && (
