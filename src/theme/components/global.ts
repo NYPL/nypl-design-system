@@ -18,7 +18,7 @@ const activeFocus = (darkMode = false) => ({
   boxShadow: "none",
   outline: "2px solid",
   outlineOffset: "2px",
-  outlineColor: darkMode ? "dark.ui.focus" : "ui.focus",
+  outlineColor: darkMode ? "dark.ui.focus" : "v5.inputShared.border.focus",
   _dark: {
     outlineColor: "dark.ui.focus",
   },
