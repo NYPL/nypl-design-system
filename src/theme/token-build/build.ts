@@ -307,9 +307,7 @@ function buildResponsiveOverrides(tokenType = "dimension"): NestedObject {
     breakpoints.map((breakpoint) => [
       breakpoint,
       resolveTokens(
-        flattenTokens(
-          readTokenFile("responsive", `${breakpoint}.tokens.json`)
-        )
+        flattenTokens(readTokenFile("responsive", `${breakpoint}.tokens.json`))
       ),
     ])
   );
