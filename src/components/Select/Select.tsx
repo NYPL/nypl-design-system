@@ -19,11 +19,36 @@ import { useSafeId } from "../../hooks/useSafeId";
 
 export const selectVariantsArray = ["default", "searchbar"] as const;
 export const labelPositionsArray = ["default", "inline"] as const;
-export type SelectVariants = typeof selectVariantsArray[number];
-export type LabelPositions = typeof labelPositionsArray[number];
+export type SelectVariants = (typeof selectVariantsArray)[number];
+export type LabelPositions = (typeof labelPositionsArray)[number];
+
+// Recursively collects `option` elements from `children`.
+const flattenOptions = (
+  nodes: React.ReactNode
+): React.ReactElement<React.OptionHTMLAttributes<HTMLOptionElement>>[] => {
+  const options: React.ReactElement<
+    React.OptionHTMLAttributes<HTMLOptionElement>
+  >[] = [];
+  React.Children.forEach(nodes, (node) => {
+    if (!React.isValidElement(node)) {
+      return;
+    }
+    if (node.type === React.Fragment) {
+      options.push(
+        ...flattenOptions(
+          (node.props as { children?: React.ReactNode }).children
+        )
+      );
+    } else if (node.type === "option") {
+      options.push(node);
+    }
+  });
+  return options;
+};
 
 export interface SelectProps
-  extends Pick<BoxProps, keyof ChakraProps>,
+  extends
+    Pick<BoxProps, keyof ChakraProps>,
     Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "color"> {
   /** The initial value of an uncontrolled component */
   defaultValue?: string;
@@ -48,6 +73,10 @@ export interface SelectProps
   labelText: string;
   /** Placeholder text in the select element. */
   placeholder?: string;
+  /** Optional string that is prepended to the label of the currently selected
+   * option, both on initial load and whenever the selected option changes.
+   */
+  prependText?: string;
   /** Allows the '(required)' text to be changed for language purposes
    * Note: Parenthesis will be added automatically by the component */
   requiredLabelText?: string;
@@ -91,6 +120,7 @@ export const Select: ChakraComponent<
         name,
         onChange,
         placeholder,
+        prependText,
         variant = "default",
         showHelperInvalidText = true,
         showLabel = true,
@@ -108,6 +138,45 @@ export const Select: ChakraComponent<
         labelWidth,
         showLabel,
       });
+      // Returns the `value` used to identify an `option` element. The fallback
+      // is the text content when no `value` attribute is passed. This mirrors
+      // the native `select`/`option` behavior. This is needed for the
+      // `prependText` feature.
+      const getOptionValue = (
+        option: React.ReactElement<
+          React.OptionHTMLAttributes<HTMLOptionElement>
+        >
+      ): string | undefined =>
+        option.props.value !== undefined
+          ? (option.props.value as string)
+          : (option.props.children as string);
+      // Computes the value of the option that is selected when the
+      // component is first rendered so that `prependText` can be applied
+      // to it immediately.
+      const getInitialSelectedValue = (): string | undefined => {
+        if (onChange) {
+          return value as string;
+        }
+        if (defaultValue !== undefined) {
+          return defaultValue;
+        }
+        const options = flattenOptions(children);
+        const selectedOption = options.find((option) => option.props.selected);
+        if (selectedOption) {
+          return getOptionValue(selectedOption);
+        }
+        const firstOption = options[0];
+        return firstOption ? getOptionValue(firstOption) : undefined;
+      };
+      const [selectedValue, setSelectedValue] = useState<string | undefined>(
+        getInitialSelectedValue
+      );
+      // Tracks whether the native dropdown list is currently open so that
+      // `prependText` can be hidden from the option labels while open and
+      // only shown on the closed select's selected value.
+      const [isOpen, setIsOpen] = useState(false);
+      const openSelect = () => setIsOpen(true);
+      const closeSelect = () => setIsOpen(false);
       const finalInvalidText = invalidText
         ? invalidText
         : "There is an error related to this field.";
@@ -119,12 +188,40 @@ export const Select: ChakraComponent<
         name: "Select",
         showLabel,
       });
+      // Keeps track of the selected value to apply the `prependText` to the
+      // currently selected option's label, regardless of whether the
+      // component is controlled or uncontrolled.
+      const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        if (prependText) {
+          setSelectedValue(event.target.value);
+          closeSelect();
+        }
+        onChange?.(event);
+      };
+
       // To control the `Select` component, both `onChange` and `value`
       // must be passed.
       const controlledOrUncontrolledProps = onChange
-        ? { onChange, value }
+        ? { onChange: prependText ? handleChange : onChange, value }
         : defaultValue
-        ? { defaultValue }
+          ? { defaultValue, ...(prependText ? { onChange: handleChange } : {}) }
+          : prependText
+            ? { onChange: handleChange }
+            : {};
+
+      // When `prependText` is defined, open/close handlers toggle `isOpen`
+      // so that option labels only show `prependText` while the dropdown
+      // list is closed.
+      const openCloseProps = prependText
+        ? {
+            onMouseDown: openSelect,
+            onBlur: closeSelect,
+            onKeyDown: (event: React.KeyboardEvent<HTMLSelectElement>) => {
+              if ([" ", "Enter", "ArrowDown", "ArrowUp"].includes(event.key)) {
+                openSelect();
+              }
+            },
+          }
         : {};
 
       // The number of pixels between the label and select elements
@@ -143,6 +240,42 @@ export const Select: ChakraComponent<
         );
       }
 
+      // When `prependText` is defined, prepend it to the label of the
+      // currently selected `option` element.
+      const mapOptions = (nodes: React.ReactNode): React.ReactNode =>
+        React.Children.map(nodes, (node) => {
+          if (!React.isValidElement(node)) {
+            return node;
+          }
+          if (node.type === React.Fragment) {
+            const fragmentProps = node.props as {
+              children?: React.ReactNode;
+            };
+            return React.cloneElement(
+              node,
+              {},
+              mapOptions(fragmentProps.children)
+            );
+          }
+          if (node.type !== "option") {
+            return node;
+          }
+          const optionElement = node as React.ReactElement<
+            React.OptionHTMLAttributes<HTMLOptionElement>
+          >;
+          const optionValue = getOptionValue(optionElement);
+          if (String(optionValue) !== String(selectedValue)) {
+            return node;
+          }
+          return React.cloneElement(
+            optionElement,
+            {},
+            `${prependText}${optionElement.props.children}`
+          );
+        });
+      const renderedChildren =
+        prependText && !isOpen ? mapOptions(children) : children;
+
       useEffect(() => {
         if (labelPosition === "inline") {
           if (labelRef.current) {
@@ -153,6 +286,15 @@ export const Select: ChakraComponent<
           setLabelWidth(0);
         }
       }, [labelPosition]);
+
+      // Keep `selectedValue` in sync with the `value` prop for controlled
+      // components since it may be updated externally, outside of the
+      // `onChange` callback.
+      useEffect(() => {
+        if (onChange && prependText) {
+          setSelectedValue(value as string);
+        }
+      }, [value, onChange, prependText]);
 
       return (
         <ComponentWrapper
@@ -200,11 +342,12 @@ export const Select: ChakraComponent<
                   size="medium"
                 />
               }
+              {...openCloseProps}
               {...controlledOrUncontrolledProps}
               {...ariaAttributes}
               __css={styles.select}
             >
-              {children}
+              {renderedChildren}
             </ChakraSelect>
           </Box>
         </ComponentWrapper>

@@ -27,6 +27,7 @@ const meta: Meta<typeof Select> = {
     name: { control: false },
     onChange: { control: false },
     placeholder: { control: "text" },
+    prependText: { control: "text" },
     ref: { table: { disable: true } },
     variant: {
       control: false,
@@ -60,6 +61,7 @@ export const WithControls: Story = {
     name: "color",
     onChange: undefined,
     placeholder: undefined,
+    prependText: undefined,
     showHelperInvalidText: undefined,
     showLabel: true,
     showRequiredLabel: true,
@@ -308,4 +310,35 @@ function SelectUncontrolledExample() {
 
 export const GetUncontrolledInputValue: Story = {
   render: () => <SelectUncontrolledExample />,
+};
+
+function WithPrependTextControlled() {
+  const [value, setValue] = useState();
+  const onChange = (e) => setValue(e.target.value);
+
+  return (
+    <Select
+      onChange={onChange}
+      value={value}
+      helperText="The selected option's label is prefixed with 'Category: '."
+      id="prepend-text-example"
+      labelText="Search by category"
+      name="sort"
+      prependText="Category: "
+    >
+      <option value="keyword">Keyword</option>
+      <option value="title">Title</option>
+      <option value="author-contributor">
+        Author or contributor or assistant
+      </option>
+      <option value="journal-title">Journal Title</option>
+      <option value="call-number">Call Number</option>
+      <option value="unique-identifier">Unique Identifier</option>
+      <option value="subject">Subject</option>
+      <option value="query">Query</option>
+    </Select>
+  );
+}
+export const WithPrependText: Story = {
+  render: () => <WithPrependTextControlled />,
 };

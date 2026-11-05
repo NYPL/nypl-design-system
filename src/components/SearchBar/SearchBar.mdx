@@ -179,10 +179,19 @@ The `optionsData` prop is an array of objects that contain the `text` and
   language="jsx"
 />
 
-`id`, `onChange`, and `value` are optional properties for the `selectProps` object.
-However, if you want to control the `Select` component, you _must_ pass the `onChange`
-and `value` props and then control the state of the selected value in your
-application. See the example at end of this page for a full demonstration.
+`id`, `onChange`, `prependText`, and `value` are optional properties for the
+`selectProps` object. However, if you want to control the `Select` component,
+you _must_ pass the `onChange` and `value` props and then control the state of
+the selected value in your application. See the example at end of this page
+for a full demonstration.
+
+### Prepend text
+
+Pass a value to the `selectProps.prependText` prop to prepend a string to the
+label of the currently selected option. This is applied when the `SearchBar`
+first loads and whenever the selected option changes.
+
+<Canvas of={SearchBarStories.WithPrependText} />
 
 ### `TextInput` component
 

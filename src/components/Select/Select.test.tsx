@@ -297,6 +297,101 @@ describe("Select", () => {
     );
   });
 
+  it("prepends the text to the initially selected option (first option by default)", () => {
+    render(
+      <Select {...baseProps} prependText="Sort by: ">
+        {baseOptions}
+      </Select>
+    );
+
+    expect(screen.getByRole("combobox")).toHaveTextContent("Sort by: Red");
+  });
+
+  it("prepends the text to the initially selected option when `defaultValue` is passed", () => {
+    render(
+      <Select {...baseProps} defaultValue="blue" prependText="Sort by: ">
+        {baseOptions}
+      </Select>
+    );
+
+    expect(screen.getByRole("combobox")).toHaveTextContent("Sort by: Blue");
+  });
+
+  it("prepends the text to the initially selected option when `value` is passed", () => {
+    render(
+      <Select
+        {...baseProps}
+        onChange={() => {}}
+        value="white"
+        prependText="Sort by: "
+      >
+        {baseOptions}
+      </Select>
+    );
+
+    expect(screen.getByRole("combobox")).toHaveTextContent("Sort by: White");
+  });
+
+  it("updates the prepended text when the selected option changes (uncontrolled)", () => {
+    render(
+      <Select {...baseProps} defaultValue="red" prependText="Sort by: ">
+        {baseOptions}
+      </Select>
+    );
+    const select = screen.getByRole("combobox");
+
+    expect(select).toHaveTextContent("Sort by: Red");
+
+    fireEvent.change(select, { target: { value: "green" } });
+
+    expect(select).toHaveTextContent("Sort by: Green");
+    expect(select).not.toHaveTextContent("Sort by: Red");
+  });
+
+  it("updates the prepended text when the selected option changes (controlled)", () => {
+    function ControlledSelect() {
+      const [value, setValue] = React.useState("red");
+      return (
+        <Select
+          {...baseProps}
+          onChange={(e) => setValue(e.target.value)}
+          value={value}
+          prependText="Sort by: "
+        >
+          {baseOptions}
+        </Select>
+      );
+    }
+    render(<ControlledSelect />);
+    const select = screen.getByRole("combobox");
+
+    expect(select).toHaveTextContent("Sort by: Red");
+
+    fireEvent.change(select, { target: { value: "blue" } });
+
+    expect(select).toHaveTextContent("Sort by: Blue");
+    expect(select).not.toHaveTextContent("Sort by: Red");
+  });
+
+  it("does not add the prepended text to option labels while the select is open", () => {
+    render(
+      <Select {...baseProps} defaultValue="red" prependText="Sort by: ">
+        {baseOptions}
+      </Select>
+    );
+    const select = screen.getByRole("combobox");
+
+    expect(select).toHaveTextContent("Sort by: Red");
+
+    fireEvent.mouseDown(select);
+    const redOption = screen.getByRole("option", {
+      name: "Red",
+    }) as HTMLOptionElement;
+
+    expect(redOption.textContent).toEqual("Red");
+    expect(select).not.toHaveTextContent("Sort by: Red");
+  });
+
   it("Renders the UI snapshot correctly", () => {
     const siblings = ["Kendall", "Shiv", "Connor", "Roman", "Tom"];
     const options = siblings.map((sibling) => (
@@ -309,6 +404,17 @@ describe("Select", () => {
           id="select"
           labelText="Which Succession sibling are you?"
           name="succession-sibling"
+        >
+          {options}
+        </Select>
+      )
+      .toJSON();
+    const prependText = renderer
+      .create(
+        <Select
+          id="select"
+          labelText="Sort by the following categories"
+          prependText="Sort by: "
         >
           {options}
         </Select>
@@ -415,6 +521,7 @@ describe("Select", () => {
       .toJSON();
 
     expect(primary).toMatchSnapshot();
+    expect(prependText).toMatchSnapshot();
     expect(disabled).toMatchSnapshot();
     expect(withInvalidText).toMatchSnapshot();
     expect(withHelperText).toMatchSnapshot();
