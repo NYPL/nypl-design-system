@@ -185,9 +185,13 @@ you _must_ pass the `onChange` and `value` props and then control the state of
 the selected value in your application. See the example at end of this page
 for a full demonstration.
 
-If `prependText` is passed, its value is prepended to the label of the
-currently selected option, both when the `SearchBar` first loads and whenever
-the selected option changes.
+### Prepend text
+
+Pass a value to the `selectProps.prependText` prop to prepend a string to the
+label of the currently selected option. This is applied when the `SearchBar`
+first loads and whenever the selected option changes.
+
+<Canvas of={SearchBarStories.WithPrependText} />
 
 ### `TextInput` component
 

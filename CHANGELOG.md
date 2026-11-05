@@ -11,6 +11,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### Adds
 
 - Adds interaction tests for the List component UL and DL variants.
+- Adds the `prependText` prop to the `Select` and `SearchBar` components.
 
 ### Fixes
 

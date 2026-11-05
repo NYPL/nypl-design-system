@@ -22,6 +22,32 @@ export const labelPositionsArray = ["default", "inline"] as const;
 export type SelectVariants = (typeof selectVariantsArray)[number];
 export type LabelPositions = (typeof labelPositionsArray)[number];
 
+// Recursively collects `option` elements from `children`.
+const flattenOptions = (
+  nodes: React.ReactNode
+): React.ReactElement<
+  React.OptionHTMLAttributes<HTMLOptionElement>
+>[] => {
+  const options: React.ReactElement<
+    React.OptionHTMLAttributes<HTMLOptionElement>
+  >[] = [];
+  React.Children.forEach(nodes, (node) => {
+    if (!React.isValidElement(node)) {
+      return;
+    }
+    if (node.type === React.Fragment) {
+      options.push(
+        ...flattenOptions(
+          (node.props as { children?: React.ReactNode }).children
+        )
+      );
+    } else if (node.type === "option") {
+      options.push(node);
+    }
+  });
+  return options;
+};
+
 export interface SelectProps
   extends
     Pick<BoxProps, keyof ChakraProps>,
@@ -114,9 +140,10 @@ export const Select: ChakraComponent<
         labelWidth,
         showLabel,
       });
-      // Returns the `value` used to identify an `option` element, falling
-      // back to its text content when no `value` attribute is passed, which
-      // mirrors the native `select`/`option` behavior.
+      // Returns the `value` used to identify an `option` element. The fallback
+      // is the text content when no `value` attribute is passed. This mirrors
+      // the native `select`/`option` behavior. This is needed for the
+      // `prependText` feature.
       const getOptionValue = (
         option: React.ReactElement<
           React.OptionHTMLAttributes<HTMLOptionElement>
@@ -125,32 +152,6 @@ export const Select: ChakraComponent<
         option.props.value !== undefined
           ? (option.props.value as string)
           : (option.props.children as string);
-      // Recursively collects `option` elements from `children`, unwrapping
-      // any `Fragment` elements along the way.
-      const flattenOptions = (
-        nodes: React.ReactNode
-      ): React.ReactElement<
-        React.OptionHTMLAttributes<HTMLOptionElement>
-      >[] => {
-        const options: React.ReactElement<
-          React.OptionHTMLAttributes<HTMLOptionElement>
-        >[] = [];
-        React.Children.forEach(nodes, (node) => {
-          if (!React.isValidElement(node)) {
-            return;
-          }
-          if (node.type === React.Fragment) {
-            options.push(
-              ...flattenOptions(
-                (node.props as { children?: React.ReactNode }).children
-              )
-            );
-          } else if (node.type === "option") {
-            options.push(node);
-          }
-        });
-        return options;
-      };
       // Computes the value of the option that is selected when the
       // component is first rendered so that `prependText` can be applied
       // to it immediately.
@@ -189,10 +190,9 @@ export const Select: ChakraComponent<
         name: "Select",
         showLabel,
       });
-      // Keeps track of the selected value so that `prependText` can be
-      // applied to the currently selected option's label, whether the
-      // `Select` component is controlled or uncontrolled. Selecting an
-      // option always closes the native dropdown list.
+      // Keeps track of the selected value to apply the `prependText` to the
+      // currently selected option's label, regardless of whether the
+      // component is controlled or uncontrolled.
       const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         if (prependText) {
           setSelectedValue(event.target.value);
@@ -242,18 +242,8 @@ export const Select: ChakraComponent<
         );
       }
 
-      // Keep `selectedValue` in sync with the `value` prop for controlled
-      // components since it may be updated externally, outside of the
-      // `onChange` callback.
-      useEffect(() => {
-        if (onChange && prependText) {
-          setSelectedValue(value as string);
-        }
-      }, [value, onChange, prependText]);
-
       // When `prependText` is defined, prepend it to the label of the
-      // currently selected `option` element. Recurses into `Fragment`
-      // elements so that options grouped in fragments are still handled.
+      // currently selected `option` element.
       const mapOptions = (nodes: React.ReactNode): React.ReactNode =>
         React.Children.map(nodes, (node) => {
           if (!React.isValidElement(node)) {
@@ -298,6 +288,15 @@ export const Select: ChakraComponent<
           setLabelWidth(0);
         }
       }, [labelPosition]);
+
+      // Keep `selectedValue` in sync with the `value` prop for controlled
+      // components since it may be updated externally, outside of the
+      // `onChange` callback.
+      useEffect(() => {
+        if (onChange && prependText) {
+          setSelectedValue(value as string);
+        }
+      }, [value, onChange, prependText]);
 
       return (
         <ComponentWrapper
