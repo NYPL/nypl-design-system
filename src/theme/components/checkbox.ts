@@ -45,7 +45,6 @@ const baseStyleControl = defineStyle({
     bg: "v5.checkbox.bg.selected.default",
     color: "v5.checkbox.icon.default",
     _hover: {
-      borderColor: "v5.checkbox.border.selected",
       bg: "v5.checkbox.bg.selected.default",
     },
     _disabled: {
@@ -114,18 +113,6 @@ const baseStyle = definePartsStyle({
       span: {
         _first: {
           borderColor: "v5.checkbox.border.hover",
-        },
-        _checked: {
-          borderColor: "v5.checkbox.border.selected",
-        },
-        _indeterminate: {
-          borderColor: "v5.checkbox.border.selected",
-        },
-        _disabled: {
-          borderColor: "v5.checkbox.border.disabled",
-        },
-        _invalid: {
-          borderColor: "v5.checkbox.border.error",
         },
       },
     },
