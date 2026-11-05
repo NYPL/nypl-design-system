@@ -25,9 +25,7 @@ export type LabelPositions = (typeof labelPositionsArray)[number];
 // Recursively collects `option` elements from `children`.
 const flattenOptions = (
   nodes: React.ReactNode
-): React.ReactElement<
-  React.OptionHTMLAttributes<HTMLOptionElement>
->[] => {
+): React.ReactElement<React.OptionHTMLAttributes<HTMLOptionElement>>[] => {
   const options: React.ReactElement<
     React.OptionHTMLAttributes<HTMLOptionElement>
   >[] = [];

@@ -328,7 +328,9 @@ function WithPrependTextControlled() {
     >
       <option value="keyword">Keyword</option>
       <option value="title">Title</option>
-      <option value="author-contributor">Author or contributor or assistant</option>
+      <option value="author-contributor">
+        Author or contributor or assistant
+      </option>
       <option value="journal-title">Journal Title</option>
       <option value="call-number">Call Number</option>
       <option value="unique-identifier">Unique Identifier</option>
