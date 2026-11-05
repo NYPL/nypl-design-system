@@ -47,12 +47,8 @@ const checkboxRadioControlSize = {
   w: "1.375rem",
 };
 // Used in `Checkbox` and `Radio`.
-const checkboxRadioHelperErrorTextStyle = {
-  marginStart: "30px", // calc(14px + var(--nypl-space-xs))
-  _disabled: {
-    color: "ui.gray.dark",
-    fontStyle: "italic",
-  },
+const checkboxRadioHelperErrorTextStyles = {
+  mt: "6px",
 };
 // General hover styles for Checkbox and Radio
 const checkboxRadioHoverStyles = {
@@ -172,7 +168,7 @@ export {
   activeFocus,
   checkboxRadioControlSize,
   checkboxRadioGroupStyles,
-  checkboxRadioHelperErrorTextStyle,
+  checkboxRadioHelperErrorTextStyles,
   checkboxRadioHoverStyles,
   checkboxRadioLabelStyles,
   customFocusColor,
