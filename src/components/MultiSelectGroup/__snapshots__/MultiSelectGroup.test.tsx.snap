@@ -95,7 +95,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       MultiSelect
                     </legend>
                     <div
-                      className="chakra-stack css-19s3t1h"
+                      className="chakra-stack css-1hdbc19"
                       data-testid="checkbox-group"
                       id="colors-checkboxGroup-stack"
                     >
@@ -403,7 +403,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       MultiSelect
                     </legend>
                     <div
-                      className="chakra-stack css-19s3t1h"
+                      className="chakra-stack css-1hdbc19"
                       data-testid="checkbox-group"
                       id="pets-checkboxGroup-stack"
                     >
@@ -915,7 +915,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                       MultiSelect
                     </legend>
                     <div
-                      className="chakra-stack css-19s3t1h"
+                      className="chakra-stack css-1hdbc19"
                       data-testid="checkbox-group"
                       id="tools-checkboxGroup-stack"
                     >
@@ -1445,7 +1445,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       MultiSelect
                     </legend>
                     <div
-                      className="chakra-stack css-19s3t1h"
+                      className="chakra-stack css-1hdbc19"
                       data-testid="checkbox-group"
                       id="colors-checkboxGroup-stack"
                     >
@@ -1753,7 +1753,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       MultiSelect
                     </legend>
                     <div
-                      className="chakra-stack css-19s3t1h"
+                      className="chakra-stack css-1hdbc19"
                       data-testid="checkbox-group"
                       id="pets-checkboxGroup-stack"
                     >
@@ -2265,7 +2265,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                       MultiSelect
                     </legend>
                     <div
-                      className="chakra-stack css-19s3t1h"
+                      className="chakra-stack css-1hdbc19"
                       data-testid="checkbox-group"
                       id="tools-checkboxGroup-stack"
                     >

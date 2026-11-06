@@ -10,7 +10,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
     column
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="column-stack"
   >
@@ -168,7 +168,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
     row
   </legend>
   <div
-    className="chakra-stack css-1478f2b"
+    className="chakra-stack css-5kz7rn"
     data-testid="checkbox-group"
     id="row-stack"
   >
@@ -326,7 +326,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
     no label
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="noLabel-stack"
   >
@@ -484,7 +484,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
     helperText
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="helperText-stack"
   >
@@ -647,7 +647,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     invalidText
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="invalidText-stack"
   >
@@ -805,7 +805,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
     no optional or required label
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="noRequiredLabel-stack"
   >
@@ -966,7 +966,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
     </span>
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="required-stack"
   >
@@ -1124,7 +1124,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
     invalid
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="invalid-stack"
   >
@@ -1288,7 +1288,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
     disabled
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="disabled-stack"
   >
@@ -1452,7 +1452,7 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
     jsxLabels
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="jsxLabels-stack"
   >
@@ -1634,7 +1634,7 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
     chakraProps
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="chakraProps-stack"
   >
@@ -1792,7 +1792,7 @@ exports[`Checkbox renders the UI snapshot correctly 12`] = `
     otherProps
   </legend>
   <div
-    className="chakra-stack css-19s3t1h"
+    className="chakra-stack css-1hdbc19"
     data-testid="checkbox-group"
     id="otherProps-stack"
   >
