@@ -118,12 +118,12 @@ const flattenTokens = (
   return result;
 };
 
-// Read and flatten a Figma token export.
+// Read and parse a raw Figma token export file.
 const readTokenFile = (
   collection: string,
   filename: string
 ): FigmaTokenTree => {
-  // ex: "src/theme/v5-tokens/spacing/mobile-small.tokens.json"
+  // ex: "src/theme/v5-tokens/spacing/space.tokens.json"
   const filePath = path.join(sourceDir, collection, filename);
 
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -224,35 +224,97 @@ const buildNestedTokens = (
   current[parts.at(-1) as string] = value;
 };
 
-function buildResponsiveTokens(
+// Read a single token file and build a nested token tree from it.
+// Used for every category except `responsive/`, which is the only one
+// still split across multiple (breakpoint) files.
+const buildTokens = (
   collection: string,
+  filename: string,
   tokenType = "dimension",
   prefix = ""
-): DesignTokens {
-  // Find all breakpoint files for this collection.
-  // This allows different collections to have different breakpoints.
-  const collectionDir = path.join(sourceDir, collection);
+): DesignTokens => {
+  const values = resolveTokens(
+    flattenTokens(readTokenFile(collection, filename))
+  );
 
-  const breakpoints = fs
-    .readdirSync(collectionDir)
-    .filter((file) => file.endsWith(".tokens.json"))
-    .map((file) => file.replace(".tokens.json", ""));
+  const result: NestedObject = {};
+
+  for (const [tokenPath, value] of Object.entries(values)) {
+    if (!tokenPath.startsWith(prefix)) continue;
+
+    buildNestedTokens(result, tokenPath, {
+      $type: tokenType,
+      $value: value,
+    });
+  }
+
+  return result as DesignTokens;
+};
+
+const isTokenLeaf = (value: unknown): boolean =>
+  !!value && typeof value === "object" && "$value" in value;
+
+// Merge a nested token tree (eg breakpoint-specific overrides) into
+// another, mutating `target` in place. Shared branches are merged
+// recursively; leaf tokens in `source` take precedence over any in
+// `target`. A leaf colliding with a group at the same path is treated as
+// a data bug (eg a path typo) rather than an intentional override, so
+// that case throws instead of silently replacing one with the other.
+const mergeNestedTokens = (
+  target: NestedObject,
+  source: NestedObject
+): void => {
+  for (const [key, value] of Object.entries(source)) {
+    const existing = target[key];
+
+    if (existing === undefined) {
+      target[key] = value;
+      continue;
+    }
+
+    const existingIsLeaf = isTokenLeaf(existing);
+    const valueIsLeaf = isTokenLeaf(value);
+
+    if (existingIsLeaf && valueIsLeaf) {
+      target[key] = value;
+    } else if (!existingIsLeaf && !valueIsLeaf) {
+      mergeNestedTokens(existing as NestedObject, value as NestedObject);
+    } else {
+      throw new Error(
+        `Cannot merge token override at "${key}": a single value and a ` +
+          "group of values both exist at this path."
+      );
+    }
+  }
+};
+
+/**
+ * A handful of spacing/font-size/line-height tokens vary by breakpoint.
+ * Those live under `responsive/` as one file per breakpoint (mobile/
+ * tablet/desktop), each containing only the overridden token paths,
+ * nested under "spacing"/"text" keys that match the base files' shape.
+ * Per-token, compare the resolved value across all 3 breakpoints: if
+ * identical in all, emit a single value; if it differs, emit an object
+ * keyed by breakpoint name.
+ */
+function buildResponsiveOverrides(tokenType = "dimension"): NestedObject {
+  // Listed in mobile-first order, since this also determines the key
+  // order of any resulting breakpoint-keyed objects.
+  const breakpoints = ["mobile", "tablet", "desktop"];
 
   // Create one flattened, fully resolved token map per breakpoint.
   const byBreakpoint: Record<string, FlatTokenMap> = Object.fromEntries(
     breakpoints.map((breakpoint) => [
       breakpoint,
       resolveTokens(
-        flattenTokens(readTokenFile(collection, `${breakpoint}.tokens.json`))
+        flattenTokens(readTokenFile("responsive", `${breakpoint}.tokens.json`))
       ),
     ])
   );
 
   // Collect every unique token path across all breakpoints.
   const allPaths = new Set(
-    Object.values(byBreakpoint)
-      .flatMap((tokens) => Object.keys(tokens))
-      .filter((path) => path.startsWith(prefix))
+    Object.values(byBreakpoint).flatMap((tokens) => Object.keys(tokens))
   );
 
   const result: NestedObject = {};
@@ -292,7 +354,7 @@ function buildResponsiveTokens(
     }
   }
 
-  return result as DesignTokens;
+  return result;
 }
 
 // Convert dimension values from numbers to CSS pixel strings.
@@ -352,30 +414,34 @@ async function generate(
   console.log(`Generated ${filename}`);
 }
 
+// A handful of spacing/font-size/line-height tokens vary by breakpoint;
+// read those overrides once so they can be merged into the base trees below.
+const responsiveOverrides = buildResponsiveOverrides();
+
 // Generate spacing tokens.
-const space = buildResponsiveTokens("spacing");
-await generate(space, "space", "space.ts", "v5-tokens/spacing/*.tokens.json");
+const space = buildTokens("spacing", "space.tokens.json");
+mergeNestedTokens(
+  space as NestedObject,
+  responsiveOverrides.spacing as NestedObject
+);
+// Drop the old, superseded container/grid values kept around under
+// "deprecated" in the source file.
+delete (space as NestedObject).deprecated;
+await generate(
+  space,
+  "space",
+  "space.ts",
+  "v5-tokens/{spacing,responsive}/*.tokens.json"
+);
 
 // Generate size tokens.
-const sizes = buildResponsiveTokens("size");
+const sizes = buildTokens("size", "size.tokens.json");
 await generate(sizes, "sizes", "sizes.ts", "v5-tokens/size/*.tokens.json");
 
 // Generate radius tokens.
-const radii = resolveTokens(
-  flattenTokens(readTokenFile("radius", "radius.tokens.json"))
-);
-
-const radiusTokens: NestedObject = {};
-
-for (const [tokenPath, value] of Object.entries(radii)) {
-  buildNestedTokens(radiusTokens, tokenPath, {
-    $type: "dimension",
-    $value: value,
-  });
-}
-
+const radiusTokens = buildTokens("radius", "radius.tokens.json");
 await generate(
-  radiusTokens as DesignTokens,
+  radiusTokens,
   "radii",
   "radii.ts",
   "v5-tokens/radius/radius.tokens.json"
@@ -413,24 +479,55 @@ await generate(
 // Generate typography tokens.
 const typographyTokens = {
   fonts: (
-    buildResponsiveTokens("text", "string", "font-family.") as NestedObject
+    buildTokens(
+      "text",
+      "text.tokens.json",
+      "string",
+      "font-family."
+    ) as NestedObject
   ).fontFamily,
   fontSizes: (
-    buildResponsiveTokens("text", "dimension", "font-size.") as NestedObject
+    buildTokens(
+      "text",
+      "text.tokens.json",
+      "dimension",
+      "font-size."
+    ) as NestedObject
   ).fontSize,
   fontWeights: (
-    buildResponsiveTokens("text", "number", "font-weight.") as NestedObject
+    buildTokens(
+      "text",
+      "text.tokens.json",
+      "number",
+      "font-weight."
+    ) as NestedObject
   ).fontWeight,
   lineHeights: (
-    buildResponsiveTokens("text", "dimension", "line-height.") as NestedObject
+    buildTokens(
+      "text",
+      "text.tokens.json",
+      "dimension",
+      "line-height."
+    ) as NestedObject
   ).lineHeight,
 } as DesignTokens;
+
+// Merge in the font-size/line-height tokens that vary by breakpoint.
+const responsiveText = responsiveOverrides.text as NestedObject;
+mergeNestedTokens(
+  (typographyTokens as NestedObject).fontSizes as NestedObject,
+  responsiveText.fontSize as NestedObject
+);
+mergeNestedTokens(
+  (typographyTokens as NestedObject).lineHeights as NestedObject,
+  responsiveText.lineHeight as NestedObject
+);
 
 await generate(
   typographyTokens,
   "typography",
   "typography.ts",
-  "v5-tokens/text/*.tokens.json"
+  "v5-tokens/{text,responsive}/*.tokens.json"
 );
 
 // Generate color tokens.

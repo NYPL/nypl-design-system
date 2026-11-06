@@ -1,4 +1,4 @@
-// Generated file from v5-tokens/text/*.tokens.json. Do not edit manually.
+// Generated file from v5-tokens/{text,responsive}/*.tokens.json. Do not edit manually.
 export const typography = {
   fonts: {
     base: "Open Sans",
@@ -18,14 +18,8 @@ export const typography = {
       modest: "16px",
       medium: "20px",
       moderate: "24px",
-      large: {
-        default: "32px",
-        mobile: "28px",
-      },
-      giant: {
-        default: "40px",
-        mobile: "32px",
-      },
+      large: "32px",
+      giant: "40px",
     },
     accordion: {
       default: "16px",
@@ -55,18 +49,9 @@ export const typography = {
       modest: "16px",
       medium: "20px",
       moderate: "24px",
-      large: {
-        default: "32px",
-        mobile: "28px",
-      },
-      giant: {
-        default: "40px",
-        mobile: "32px",
-      },
-      display: {
-        default: "56px",
-        mobile: "44px",
-      },
+      large: "32px",
+      giant: "40px",
+      display: "56px",
     },
     label: {
       primary: "12px",
@@ -99,6 +84,21 @@ export const typography = {
     },
     tag: {
       default: "16px",
+    },
+    large: {
+      mobile: "28px",
+      tablet: "32px",
+      desktop: "32px",
+    },
+    giant: {
+      mobile: "32px",
+      tablet: "40px",
+      desktop: "40px",
+    },
+    display: {
+      mobile: "44px",
+      tablet: "56px",
+      desktop: "56px",
     },
   },
   fontWeights: {
@@ -158,14 +158,8 @@ export const typography = {
       modest: "22px",
       medium: "28px",
       moderate: "32px",
-      large: {
-        default: "40px",
-        mobile: "36px",
-      },
-      giant: {
-        default: "48px",
-        mobile: "40px",
-      },
+      large: "40px",
+      giant: "48px",
     },
     badge: {
       default: "16px",
@@ -183,18 +177,9 @@ export const typography = {
       modest: "22px",
       medium: "28px",
       moderate: "32px",
-      large: {
-        default: "40px",
-        mobile: "36px",
-      },
-      giant: {
-        default: "48px",
-        mobile: "40px",
-      },
-      display: {
-        default: "64px",
-        mobile: "52px",
-      },
+      large: "40px",
+      giant: "48px",
+      display: "64px",
     },
     label: {
       primary: "16px",
@@ -214,6 +199,21 @@ export const typography = {
       primary: "28px",
       secondary: "22px",
       tertiary: "20px",
+    },
+    large: {
+      mobile: "36px",
+      tablet: "40px",
+      desktop: "40px",
+    },
+    giant: {
+      mobile: "40px",
+      tablet: "48px",
+      desktop: "48px",
+    },
+    display: {
+      mobile: "52px",
+      tablet: "64px",
+      desktop: "64px",
     },
   },
 } as const;
