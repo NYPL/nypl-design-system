@@ -19,19 +19,17 @@ const FeedbackBox = defineMultiStyleConfig({
       fontFamily: "v5.base",
       // TO DO v5: this doesn't correspond to a notification variant color
       background: "v5.surface.subtle.informative.emphasis !important",
-      borderRadius: "4px",
+      borderRadius: "v5.soft",
       padding: "4px 16px",
     },
     closeButton: {
-      /** This is overriding the default min-height value in order to keep the
-       * button spacing symmetrical. */
-      minHeight: "40px",
-      minWidth: "40px",
-      right: "xs",
+      minHeight: "32px",
+      minWidth: "32px",
+      right: "8px",
+      top: "4px",
       p: "0",
       position: "absolute",
       span: screenreaderOnly(),
-      top: "xs",
     },
     drawerBody: {
       borderLeft: { base: undefined, md: "1px solid" },
@@ -39,8 +37,7 @@ const FeedbackBox = defineMultiStyleConfig({
         base: undefined,
         md: "v5.border.prominent.neutral.default",
       },
-      paddingTop: "m",
-      paddingBottom: "m",
+      py: "v5.feedbackBox.container.paddingY",
     },
     drawerContent: {
       marginStart: "auto",
@@ -50,7 +47,7 @@ const FeedbackBox = defineMultiStyleConfig({
       },
     },
     drawerHeader: {
-      alignItems: "baseline",
+      alignItems: "center",
       background: "v5.surface.subtle.neutral.default",
       borderBottomWidth: "1px",
       borderLeftWidth: { base: undefined, md: "1px" },
@@ -61,11 +58,11 @@ const FeedbackBox = defineMultiStyleConfig({
       display: "flex",
       fontSize: "v5.body",
       fontWeight: "v5.semibold",
-      px: "m",
-      paddingTop: "s",
-      paddingBottom: "s",
+      px: "v5.feedbackBox.header.paddingX",
+      py: "v5.feedbackBox.header.paddingY",
       p: {
         marginBottom: "0",
+        py: "4px",
       },
     },
     openButton: {
@@ -78,6 +75,7 @@ const FeedbackBox = defineMultiStyleConfig({
         zIndex: "10000 !important",
       },
     },
+    // TO DO v5: revisit with RadioGroup
     radioGroup: {
       ".ds-radioGroup-stack": {
         flexDirection: { base: "column", md: "row" },
