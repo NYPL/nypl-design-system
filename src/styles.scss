@@ -1,7 +1,5 @@
 // Better style reset
 @import "normalize.css/normalize";
-// System fonts
-@import "system-font-css/_system-font.scss";
 // The `react-datepicker` styles. We'll compile and minimize it ourselves.
 @import "react-datepicker/src/stylesheets/datepicker.scss";
 
