@@ -105,9 +105,9 @@ export const WithControls: Story = {
   },
   play: async () => {
     expect(
-      screen.queryByRole("textbox", { name: /comment/i })
+      screen.queryByRole("textsbox", { name: /comment/i })
     ).not.toBeInTheDocument();
-    const button = screen.getByRole("button", { name: "Feedback" });
+    const button = screen.getByRole("button", { name: "Help and feedback" });
     await userEvent.click(button);
     expect(screen.getByLabelText("Correction")).not.toBeChecked();
     await userEvent.click(screen.getByLabelText("Correction"));
