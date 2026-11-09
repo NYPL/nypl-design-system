@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updates the spacing between the icon and the left side of the component.",
+    ],
+  },
+  {
     date: "2026-10-15",
     version: "4.5.2",
     type: "Update",

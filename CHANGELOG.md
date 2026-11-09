@@ -15,6 +15,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Updates
 
+- Updates `Banner` component to reduce the spacing between the icon and the left side of the component.
 - Updates `@types/jest`, `jest`, `prettier`, `ts-jest`, and `vite` npm packages.
 - Updates `toBeCalled` to `toHaveBeenCalled` and `toBeCalledTimes` to `toHaveBeenCalledTimes` in a few unit tests.
 
