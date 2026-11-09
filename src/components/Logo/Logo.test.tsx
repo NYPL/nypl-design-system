@@ -95,14 +95,14 @@ describe("Logo", () => {
       .create(<Logo id="test-logo" name="nyplFullBlack" />)
       .toJSON();
     const withCustomSize = renderer
-      .create(<Logo id="test-logo-size" name="nyplFullBlack" size="large" />)
+      .create(<Logo id="test-logo-size" name="nyplFullBlack" size="lg" />)
       .toJSON();
     const withCustomSizeBasedOnHeight = renderer
       .create(
         <Logo
           id="test-logo-size"
           name="nyplFullBlack"
-          size="large"
+          size="lg"
           sizeBasedOn="height"
         />
       )

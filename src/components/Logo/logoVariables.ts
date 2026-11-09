@@ -39,11 +39,9 @@ export const logoNamesArray = [
   "treasuresColor",
   "treasuresColorNegative",
 ] as const;
-export const logoSizesArray = [
-  "default",
-  "xxsmall",
-  "xsmall",
-  "small",
-  "medium",
-  "large",
-] as const;
+// prettier-ignore
+export type LogoNames = typeof logoNamesArray[number];
+
+export const logoSizesArray = ["sm", "md", "lg", "xl", "2xl", "3xl"] as const;
+// prettier-ignore
+export type LogoSizes = typeof logoSizesArray[number];
