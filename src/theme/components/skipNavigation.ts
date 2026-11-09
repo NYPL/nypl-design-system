@@ -18,14 +18,14 @@ const SkipNavigation = defineStyleConfig({
 
       // Only display when the user focuses on the links.
       _focus: {
-        borderRadius: "v5.softer",
+        borderRadius: "v5.soft",
         height: "auto",
         left: "1rem",
         paddingX: "v5.skipNavigation.paddingX",
         paddingY: "v5.skipNavigation.paddingY",
         top: "1rem",
         width: "auto",
-        // Remove default outline offset for activefocused state.
+        // Remove default outline offset for activeFocus state.
         outlineOffset: "0px",
       },
     },
