@@ -11,7 +11,12 @@ import React, { forwardRef } from "react";
 import { DimensionTypes } from "../../helpers/types";
 
 import logoSvgs from "./LogoSvgs";
-import { LogoNames, LogoSizes } from "./logoVariables";
+import { logoNamesArray, logoSizesArray } from "./logoVariables";
+
+// prettier-ignore
+export type LogoNames = typeof logoNamesArray[number];
+// prettier-ignore
+export type LogoSizes = typeof logoSizesArray[number];
 
 export interface LogoProps extends Pick<
   BoxProps,
