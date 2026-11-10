@@ -60,6 +60,10 @@ const baseStyleControl = defineStyle({
       color: "v5.checkbox.icon.default",
     },
   },
+  _focus: {
+    boxShadow: "none",
+    outlineColor: "v5.inputShared.border.focus",
+  },
   _indeterminate: {
     borderColor: "v5.checkbox.border.selected",
     bg: "v5.checkbox.bg.selected.default",
