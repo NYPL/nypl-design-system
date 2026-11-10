@@ -18,8 +18,16 @@ export const typography = {
       modest: "16px",
       medium: "20px",
       moderate: "24px",
-      large: "32px",
-      giant: "40px",
+      large: {
+        mobile: "28px",
+        tablet: "32px",
+        desktop: "32px",
+      },
+      giant: {
+        mobile: "32px",
+        tablet: "40px",
+        desktop: "40px",
+      },
     },
     accordion: {
       default: "16px",
@@ -49,9 +57,21 @@ export const typography = {
       modest: "16px",
       medium: "20px",
       moderate: "24px",
-      large: "32px",
-      giant: "40px",
-      display: "56px",
+      large: {
+        mobile: "28px",
+        tablet: "32px",
+        desktop: "32px",
+      },
+      giant: {
+        mobile: "32px",
+        tablet: "40px",
+        desktop: "40px",
+      },
+      display: {
+        mobile: "44px",
+        tablet: "56px",
+        desktop: "56px",
+      },
     },
     label: {
       primary: "12px",
@@ -158,8 +178,16 @@ export const typography = {
       modest: "22px",
       medium: "28px",
       moderate: "32px",
-      large: "40px",
-      giant: "48px",
+      large: {
+        mobile: "36px",
+        tablet: "40px",
+        desktop: "40px",
+      },
+      giant: {
+        mobile: "40px",
+        tablet: "48px",
+        desktop: "48px",
+      },
     },
     badge: {
       default: "16px",
@@ -177,9 +205,21 @@ export const typography = {
       modest: "22px",
       medium: "28px",
       moderate: "32px",
-      large: "40px",
-      giant: "48px",
-      display: "64px",
+      large: {
+        mobile: "36px",
+        tablet: "40px",
+        desktop: "40px",
+      },
+      giant: {
+        mobile: "40px",
+        tablet: "48px",
+        desktop: "48px",
+      },
+      display: {
+        mobile: "52px",
+        tablet: "64px",
+        desktop: "64px",
+      },
     },
     label: {
       primary: "16px",

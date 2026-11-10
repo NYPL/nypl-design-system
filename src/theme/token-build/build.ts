@@ -225,27 +225,103 @@ const buildNestedTokens = (
 };
 
 // Read a single token file and build a nested token tree from it.
+/**
+ * Figma resolves a token that aliases a variable in another collection
+ * down to a single literal value, keeping the alias itself only as
+ * metadata (`$extensions["com.figma.aliasData"]`) rather than as a
+ * `"{...}"` reference string (which `resolveTokens` could otherwise
+ * follow). That causes us to lose values for any token that aliases a
+ * `responsive` collection variable.
+ *
+ * This walks the raw token tree and returns a map to the aliased variable
+ *  within the `responsive` collection (eg "hero.background.paddingY" ->
+ * "container.paddingX"), so `buildTokens` can look up the real value.
+ */
+const flattenResponsiveAliasTargets = (
+  object: FigmaTokenTree,
+  prefix = "",
+  result: Record<string, string> = {}
+): Record<string, string> => {
+  for (const [key, value] of Object.entries(object)) {
+    if (key.startsWith("$")) continue;
+
+    const tokenPath = prefix ? `${prefix}.${key}` : key;
+
+    if (value && typeof value === "object" && "$value" in value) {
+      const aliasData = (value as FigmaToken).$extensions?.[
+        "com.figma.aliasData"
+      ] as
+        | { targetVariableName?: string; targetVariableSetName?: string }
+        | undefined;
+
+      if (
+        aliasData?.targetVariableSetName === "responsive" &&
+        aliasData.targetVariableName
+      ) {
+        // eg "spacing/container/padding-x" -> "container.paddingX"
+        // (the leading segment is just the collection name, already
+        // known from context, so it's dropped).
+        const [, ...segments] = aliasData.targetVariableName.split("/");
+
+        result[tokenPath] = segments.map(kebabToCamelCase).join(".");
+      }
+    } else if (value && typeof value === "object") {
+      flattenResponsiveAliasTargets(value as FigmaTokenTree, tokenPath, result);
+    }
+  }
+
+  return result;
+};
+
+// Look up a dot-separated path (eg "container.paddingX") in a nested
+// object, returning undefined if any segment along the way is missing.
+const getNestedValue = (
+  object: NestedObject | undefined,
+  dotPath: string
+): unknown => {
+  let current: unknown = object;
+
+  for (const part of dotPath.split(".")) {
+    if (!current || typeof current !== "object") return undefined;
+
+    current = (current as NestedObject)[part];
+  }
+
+  return current;
+};
+
+// Read a single token file and build a nested token tree from it.
 // Used for every category except `responsive/`, which is the only one
-// still split across multiple (breakpoint) files.
+// split across multiple (breakpoint) files.
+//
+// `responsiveOverrides` are any values required from the `responsive`
+// collection.
 const buildTokens = (
   collection: string,
   filename: string,
   tokenType = "dimension",
-  prefix = ""
+  prefix = "",
+  responsiveOverrides?: NestedObject
 ): DesignTokens => {
-  const values = resolveTokens(
-    flattenTokens(readTokenFile(collection, filename))
-  );
+  const rawTree = readTokenFile(collection, filename);
+  const values = resolveTokens(flattenTokens(rawTree));
+  const responsiveAliasTargets = flattenResponsiveAliasTargets(rawTree);
 
   const result: NestedObject = {};
 
   for (const [tokenPath, value] of Object.entries(values)) {
     if (!tokenPath.startsWith(prefix)) continue;
 
-    buildNestedTokens(result, tokenPath, {
-      $type: tokenType,
-      $value: value,
-    });
+    const aliasTarget = responsiveAliasTargets[tokenPath];
+    const responsiveValue = aliasTarget
+      ? getNestedValue(responsiveOverrides, aliasTarget)
+      : undefined;
+
+    buildNestedTokens(
+      result,
+      tokenPath,
+      responsiveValue ?? { $type: tokenType, $value: value }
+    );
   }
 
   return result as DesignTokens;
@@ -419,7 +495,13 @@ async function generate(
 const responsiveOverrides = buildResponsiveOverrides();
 
 // Generate spacing tokens.
-const space = buildTokens("spacing", "space.tokens.json");
+const space = buildTokens(
+  "spacing",
+  "space.tokens.json",
+  "dimension",
+  "",
+  responsiveOverrides.spacing as NestedObject
+);
 mergeNestedTokens(
   space as NestedObject,
   responsiveOverrides.spacing as NestedObject
@@ -491,7 +573,8 @@ const typographyTokens = {
       "text",
       "text.tokens.json",
       "dimension",
-      "font-size."
+      "font-size.",
+      responsiveOverrides.text as NestedObject
     ) as NestedObject
   ).fontSize,
   fontWeights: (
@@ -507,7 +590,8 @@ const typographyTokens = {
       "text",
       "text.tokens.json",
       "dimension",
-      "line-height."
+      "line-height.",
+      responsiveOverrides.text as NestedObject
     ) as NestedObject
   ).lineHeight,
 } as DesignTokens;

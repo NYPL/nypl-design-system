@@ -151,7 +151,11 @@ export const space = {
     },
     row: {
       paddingY: "24px",
-      paddingX: "48px",
+      paddingX: {
+        mobile: "20px",
+        tablet: "24px",
+        desktop: "48px",
+      },
     },
   },
   helperText: {
@@ -159,10 +163,18 @@ export const space = {
   },
   hero: {
     background: {
-      paddingY: "48px",
+      paddingY: {
+        mobile: "20px",
+        tablet: "24px",
+        desktop: "48px",
+      },
     },
     container: {
-      paddingX: "48px",
+      paddingX: {
+        mobile: "20px",
+        tablet: "24px",
+        desktop: "48px",
+      },
       paddingY: "0px",
     },
     content: {
@@ -224,7 +236,11 @@ export const space = {
     paddingY: "32px",
   },
   pageHeading: {
-    paddingX: "48px",
+    paddingX: {
+      mobile: "20px",
+      tablet: "24px",
+      desktop: "48px",
+    },
     paddingY: "32px",
     paddingYMobile: "24px",
   },
