@@ -558,16 +558,37 @@ await generate(
   "v5-tokens/breakpoint/breakpoint.tokens.json"
 );
 
+// Figma's FONT_FAMILY variable type has no concept of a CSS fallback stack,
+// so font-family tokens only ever contain the primary typeface name and the
+// fallbacks are appended here.
+const fontFallbacks: Record<string, string> = {
+  base: "Arial, sans-serif",
+  headingDefault: "Arial, sans-serif",
+  headingAlternate: "serif",
+  monospace: "monospace",
+};
+
+const fontFamily = (
+  buildTokens(
+    "text",
+    "text.tokens.json",
+    "string",
+    "font-family."
+  ) as NestedObject
+).fontFamily as Record<string, { $type: string; $value: string }>;
+
+const fonts = Object.fromEntries(
+  Object.entries(fontFamily).map(([name, token]) => [
+    name,
+    fontFallbacks[name]
+      ? { ...token, $value: `${token.$value}, ${fontFallbacks[name]}` }
+      : token,
+  ])
+);
+
 // Generate typography tokens.
 const typographyTokens = {
-  fonts: (
-    buildTokens(
-      "text",
-      "text.tokens.json",
-      "string",
-      "font-family."
-    ) as NestedObject
-  ).fontFamily,
+  fonts,
   fontSizes: (
     buildTokens(
       "text",
