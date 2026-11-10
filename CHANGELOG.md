@@ -8,7 +8,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
-## 4.6.0 (November 5, 2026)
+## 4.6.0 (November 10, 2026)
 
 ### Adds
 
