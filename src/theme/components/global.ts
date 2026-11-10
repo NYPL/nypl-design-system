@@ -19,9 +19,6 @@ const activeFocus = (darkMode = false) => ({
   outline: "2px solid",
   outlineOffset: "2px",
   outlineColor: darkMode ? "dark.ui.focus" : "v5.inputShared.border.focus",
-  _dark: {
-    outlineColor: "dark.ui.focus",
-  },
 });
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {

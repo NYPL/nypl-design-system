@@ -19,6 +19,7 @@ const SkipNavigation = defineStyleConfig({
       // Only display when the user focuses on the links.
       _focus: {
         borderRadius: "v5.soft",
+        boxShadow: "0 0 0 8px var(--nypl-colors-v5-surface-page) ",
         height: "auto",
         left: "1rem",
         paddingX: "v5.skipNavigation.paddingX",
