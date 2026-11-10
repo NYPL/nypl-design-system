@@ -468,7 +468,7 @@ export const FeedbackBox: ChakraComponent<
                         key="confirmationWrapper"
                         margin="auto"
                         tabIndex={-1}
-                        gap="20px"
+                        gap="v5.feedbackBox.container.gap"
                         textAlign="center"
                         ref={focusRef}
                       >
@@ -520,7 +520,7 @@ export const FeedbackBox: ChakraComponent<
                         margin="auto"
                         tabIndex={-1}
                         textAlign="center"
-                        gap="20px"
+                        gap="v5.feedbackBox.container.gap"
                         ref={focusRef}
                       >
                         <Icon

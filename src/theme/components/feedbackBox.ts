@@ -14,17 +14,15 @@ const { defineMultiStyleConfig, definePartsStyle } =
 
 const FeedbackBox = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
-    fontFamily: "v5.base",
     notification: {
-      fontFamily: "v5.base",
       // TO DO v5: this doesn't correspond to a notification variant color
-      background: "v5.surface.subtle.informative.emphasis !important",
+      background: "v5.surface.subtle.informative.default !important",
       borderRadius: "v5.soft",
       padding: "4px 16px",
     },
     closeButton: {
-      minHeight: "32px",
-      minWidth: "32px",
+      minHeight: "v5.form.height.sm",
+      minWidth: "v5.form.height.sm",
       right: "8px",
       top: "4px",
       p: "0",
@@ -53,7 +51,6 @@ const FeedbackBox = defineMultiStyleConfig({
       borderLeftWidth: { base: undefined, md: "1px" },
       borderColor: "v5.border.prominent.neutral.default",
       borderTopWidth: "1px",
-      fontFamily: "v5.base",
       color: "v5.text.heading.default",
       display: "flex",
       fontSize: "v5.body",
@@ -62,6 +59,7 @@ const FeedbackBox = defineMultiStyleConfig({
       py: "v5.feedbackBox.header.paddingY",
       p: {
         marginBottom: "0",
+        // TO DO v5: revisit with global text styles
         py: "4px",
       },
     },
