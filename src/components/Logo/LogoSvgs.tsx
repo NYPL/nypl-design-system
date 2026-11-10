@@ -8,12 +8,6 @@ import googlePlayBlack from "../../../icons/svg/logo-google-play-black.svg";
 import lpaColor from "../../../icons/svg/logo-lpa-color.svg";
 import lpaBlack from "../../../icons/svg/logo-lpa-black.svg";
 import lpaWhite from "../../../icons/svg/logo-lpa-white.svg";
-import nycdoeBlack from "../../../icons/svg/logo-nycdoe-black.svg";
-import nycdoeColor from "../../../icons/svg/logo-nycdoe-color.svg";
-import nycdoeWhite from "../../../icons/svg/logo-nycdoe-white.svg";
-import nycpsBlack from "../../../icons/svg/logo-nycps-black.svg";
-import nycpsColor from "../../../icons/svg/logo-nycps-color.svg";
-import nycpsWhite from "../../../icons/svg/logo-nycps-white.svg";
 import nyplFullBlack from "../../../icons/svg/logo-nypl-full-black.svg";
 import nyplFullWhite from "../../../icons/svg/logo-nypl-full-white.svg";
 import nyplLionBlack from "../../../icons/svg/logo-nypl-lion-black.svg";
@@ -49,12 +43,6 @@ export default {
   lpaBlack,
   lpaColor,
   lpaWhite,
-  nycdoeBlack,
-  nycdoeColor,
-  nycdoeWhite,
-  nycpsBlack,
-  nycpsColor,
-  nycpsWhite,
   nyplFullBlack,
   nyplFullWhite,
   nyplLionBlack,
