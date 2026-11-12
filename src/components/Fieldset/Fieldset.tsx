@@ -3,6 +3,7 @@ import {
   BoxProps,
   chakra,
   ChakraComponent,
+  SystemStyleObject,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -42,11 +43,27 @@ export const Fieldset: ChakraComponent<
         isRequired = false,
         legendText,
         showRequiredLabel = true,
+        __css: cssOverride,
         ...rest
       },
       ref?
     ) => {
       const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
+      // `cssOverride` is any `__css` passed in by a consumer (e.g. to tweak
+      // `legend` spacing). It's merged with, rather than replacing, this
+      // component's own `styles` so that the base `fieldset`/`legend`
+      // styles (including the `isLegendHidden` screen-reader-only behavior)
+      // aren't lost when a consumer provides their own `__css`. `__css` is
+      // typed as a flat `SystemStyleObject`, so it's cast here to allow
+      // looking up the nested `legend` key.
+      const legendOverride = (
+        cssOverride as unknown as Record<string, SystemStyleObject> | undefined
+      )?.legend;
+      const mergedCss = {
+        ...styles,
+        ...cssOverride,
+        legend: { ...styles.legend, ...legendOverride },
+      };
 
       return (
         <Box
@@ -54,7 +71,7 @@ export const Fieldset: ChakraComponent<
           id={id}
           data-testid="ds-fieldset"
           ref={ref}
-          __css={styles}
+          __css={mergedCss}
           {...rest}
         >
           <legend>
