@@ -1,10 +1,10 @@
 // Generated file from v5-tokens/text/*.tokens.json. Do not edit manually.
 export const typography = {
   fonts: {
-    base: "Open Sans",
-    headingDefault: "Open Sans",
-    headingAlternate: "Merriweather",
-    monospace: "Courier New",
+    base: "Open Sans, Arial, sans-serif",
+    headingDefault: "Open Sans, Arial, sans-serif",
+    headingAlternate: "Merriweather, serif",
+    monospace: "Courier New, monospace",
   },
   fontSizes: {
     body: "16px",
