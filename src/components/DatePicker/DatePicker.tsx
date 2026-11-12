@@ -6,7 +6,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { useState, forwardRef, useRef } from "react";
-import ReactDatePicker from "react-datepicker";
+import * as ReactDatePickerModule from "react-datepicker";
 
 import Fieldset from "../Fieldset/Fieldset";
 import { FormRow, FormField } from "../Form/Form";
@@ -18,6 +18,47 @@ import TextInput, {
   TextInputRefType,
 } from "../TextInput/TextInput";
 import { useSafeId } from "../../hooks/useSafeId";
+
+// NOTE: AI-generated comment below. This fixes an issue importing DS v4.5.4+
+// in Turbine.
+
+// `react-datepicker` ships as a CommonJS module with `exports.default` set to
+// the actual component (plus other named exports) and `exports.__esModule`
+// set to `true`. A plain default import
+// (`import ReactDatePicker from "react-datepicker"`) relies on the consuming
+// bundler/runtime to unwrap that `.default` for us, which is not guaranteed:
+// Node's native ESM/CJS interop, Jest's CJS interop, and this library's own
+// Rollup build can all bind the default import to the *whole* CJS
+// `module.exports` object instead of the component, causing
+// "Element type is invalid" errors when rendering (notably during SSR).
+//
+// Importing the namespace and unwrapping `.default` ourselves handles most
+// cases, but Node's *native* ESM/CJS interop (unlike bundlers/Babel) does not
+// honor the `__esModule` convention: for `import * as ns from "cjsPkg"`, Node
+// always sets `ns.default` to the *entire* CJS `module.exports` object, which
+// itself still has the real component under its own `.default` property. So
+// we may need to unwrap `.default` up to twice, checking `__esModule` at each
+// step to decide whether a further unwrap is needed.
+const unwrapCjsDefault = <T,>(mod: unknown): T => {
+  let current = mod as { default?: unknown; __esModule?: boolean };
+  // Follow `.default` while the current value still looks like an
+  // __esModule-flagged CJS module (i.e. there's another level to unwrap).
+  while (
+    current &&
+    typeof current === "object" &&
+    current.__esModule &&
+    current.default &&
+    typeof current.default === "object" &&
+    (current.default as { __esModule?: boolean }).__esModule
+  ) {
+    current = current.default as { default?: unknown; __esModule?: boolean };
+  }
+  return (current?.default ?? current) as T;
+};
+
+const ReactDatePicker: typeof ReactDatePickerModule.default = unwrapCjsDefault<
+  typeof ReactDatePickerModule.default
+>(ReactDatePickerModule);
 
 interface ReactDatePickerAttrs {
   popperClassName: string;
@@ -32,7 +73,7 @@ interface ReactDatePickerAttrs {
 }
 
 export const datePickerTypesArray = ["full", "month", "year"] as const;
-export type DatePickerTypes = typeof datePickerTypesArray[number];
+export type DatePickerTypes = (typeof datePickerTypesArray)[number];
 
 // The object shape for the DatePicker's start and end date state values.
 export interface FullDateType {
@@ -52,8 +93,7 @@ interface DateRangeRowProps extends BoxProps {
 // Interface used by the `div` or `fieldset` parent wrapper element.
 // Internal use only.
 interface DatePickerWrapperProps
-  extends Omit<BoxProps, "onChange">,
-    DateRangeRowProps {
+  extends Omit<BoxProps, "onChange">, DateRangeRowProps {
   /** Adds the 'required' property to the input element(s). */
   isRequired?: boolean;
   /** Passed to the `TextInput` component to render a label associated with an input field. */
@@ -81,8 +121,10 @@ export interface CustomTextInputProps extends Partial<InputProps> {
 }
 
 // Main interface for the exported DS DatePicker component.
-export interface DatePickerProps
-  extends Omit<DatePickerWrapperProps, "onChange"> {
+export interface DatePickerProps extends Omit<
+  DatePickerWrapperProps,
+  "onChange"
+> {
   /** The date format to display. Defaults to "yyyy-MM-dd".
    * Must be in ISO-8601 format. */
   dateFormat?: string;
@@ -302,13 +344,13 @@ export const DatePicker: ChakraComponent<
     const initStartDate = initialDate
       ? new Date(initialDate)
       : initialDate === ""
-      ? null
-      : new Date();
+        ? null
+        : new Date();
     const initEndDate = initialDateTo
       ? new Date(initialDateTo)
       : initialDateTo === ""
-      ? null
-      : new Date();
+        ? null
+        : new Date();
     const startDateInputRef = useRef(null);
     const endDateInputRef = useRef(null);
 
