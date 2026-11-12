@@ -9,6 +9,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 ### 5.0.0 (TBD)
 
 - Adds v5 design tokens to repo. [ISW-6210](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6210)
+- Updates `HorizontalRule` styles to align with v5 designs. [ISW-6253](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6253)
 
 ## Prerelease
 
