@@ -20,7 +20,7 @@ const meta: Meta<typeof Logo> = {
     size: {
       control: { type: "select" },
       options: logoSizesArray,
-      table: { defaultValue: { summary: "medium" } },
+      table: { defaultValue: { summary: "3xl" } },
     },
     sizeBasedOn: {
       control: { type: "radio" },
@@ -45,7 +45,7 @@ export const WithControls: Story = {
   args: {
     decorative: true,
     name: "nyplFullBlack",
-    size: "large",
+    size: "3xl",
     sizeBasedOn: "width",
     title: undefined,
   },
@@ -79,7 +79,7 @@ const logoRow = (logo, opts: any = {}) => {
   // We'll use this setup function to render all the logos in a list item.
   // Some logos display better with a dark background.
   const styles: any = { textAlign: "center" };
-  const { size = "large", displayValue, sizeBasedOn = "width" } = opts;
+  const { size = "3xl", displayValue, sizeBasedOn = "width" } = opts;
   let key = logo;
 
   if (logo.indexOf("White") !== -1 || logo.indexOf("Negative") !== -1) {
@@ -88,7 +88,7 @@ const logoRow = (logo, opts: any = {}) => {
     styles.paddingBottom = "var(--nypl-space-l)";
     styles.paddingTop = "var(--nypl-space-l)";
   }
-  if (size !== "large") {
+  if (size !== "3xl") {
     key += `-${size}`;
   }
 
@@ -106,12 +106,12 @@ const sizes = [];
 const sizesBasedOnHeight = [];
 const logoNameValues = logoNamesArray;
 const logoSizeValues = [
-  { size: "default", display: "default (100%)" },
-  { size: "xxsmall", display: "xxsmall (64px)" },
-  { size: "xsmall", display: "xsmall (96px)" },
-  { size: "small", display: "small (165px)" },
-  { size: "medium", display: "medium (225px)" },
-  { size: "large", display: "large (360px)" },
+  { size: "sm", display: "sm (32px)" },
+  { size: "md", display: "md (64px)" },
+  { size: "lg", display: "lg (96px)" },
+  { size: "xl", display: "xl (160px)" },
+  { size: "2xl", display: "2xl (240px)" },
+  { size: "3xl", display: "3xl (360px)" },
 ];
 for (const logo in logoNameValues) {
   logos.push(
@@ -152,7 +152,7 @@ export const AllLogos: Story = {
 
 export const CustomLogos: Story = {
   args: {
-    size: "large",
+    size: "3xl",
   },
   render: (args) => (
     <Logo {...args}>

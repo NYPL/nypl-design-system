@@ -13,11 +13,15 @@ import { DimensionTypes } from "../../helpers/types";
 import logoSvgs from "./LogoSvgs";
 import { logoNamesArray, logoSizesArray } from "./logoVariables";
 
+// prettier-ignore
 export type LogoNames = typeof logoNamesArray[number];
+// prettier-ignore
 export type LogoSizes = typeof logoSizesArray[number];
 
-export interface LogoProps
-  extends Pick<BoxProps, "id" | "className" | keyof ChakraProps> {
+export interface LogoProps extends Pick<
+  BoxProps,
+  "id" | "className" | keyof ChakraProps
+> {
   /** Logos designated as decorative will be ignored by screenreaders. False
    * by default. */
   decorative?: boolean;
@@ -53,7 +57,7 @@ export const Logo: ChakraComponent<
       decorative = false,
       id,
       name,
-      size = "medium",
+      size = "3xl",
       sizeBasedOn = "width",
       title = `${name} logo`,
       ...rest
