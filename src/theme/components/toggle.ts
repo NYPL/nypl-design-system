@@ -26,103 +26,99 @@ interface SwitchStyleProps extends StyleFunctionProps {
 const $width = cssVar("switch-track-width");
 const $height = cssVar("switch-track-height");
 
-const toggleBaseStyle = toggleDefinePartsStyle(
-  ({ isDisabled, size }: ToggleBaseStyle) => ({
-    label: {
-      alignItems: "start",
-      display: "flex",
-      width: "fit-content",
-    },
-    helperErrorText: {
-      marginStart: size === "default" ? "xxl" : "xl",
-      fontStyle: isDisabled ? "italic" : null,
-    },
-  })
-);
+const toggleBaseStyle = toggleDefinePartsStyle(({ size }: ToggleBaseStyle) => ({
+  label: {
+    alignItems: "start",
+    display: "flex",
+    width: "fit-content",
+  },
+  helperErrorText: {
+    color: "v5.text.helper",
+    // TODO
+    // "v5.density.condensed" 8px + width of track
+    marginStart: size === "default" ? "58px" : "42px",
+  },
+}));
 const switchBaseStyle = switchDefinePartsStyle(
   ({ size }: SwitchStyleProps) => ({
     alignItems: "start",
     track: {
-      backgroundColor: "ui.gray.semi-dark",
+      backgroundColor: "v5.toggle.bg.default",
       border: "1px solid",
-      borderColor: "ui.gray.semi-dark",
-      p: "1px",
+      borderColor: "v5.toggle.border.default",
+      p: "0",
+      width: size === "lg" ? "48px" : "32px",
+      height: size === "lg" ? "24px" : "16px",
       _checked: {
-        bg: "ui.link.primary",
-        borderColor: "ui.link.primary",
-        opacity: 1,
+        bg: "v5.toggle.bg.selected.default",
+        borderColor: "v5.toggle.border.selected",
+        _disabled: {
+          bg: "v5.toggle.bg.disabled",
+          borderColor: "v5.toggle.border.disabled",
+        },
       },
       _invalid: {
-        bg: "inherit",
-        borderColor: "ui.error.primary",
-        "> span": {
-          bg: "ui.error.primary",
-        },
+        borderColor: "v5.toggle.border.error",
       },
       _disabled: {
-        bg: "ui.gray.medium",
-        borderColor: "ui.gray.medium",
-        _checked: {
-          opacity: 0.4,
-        },
+        bg: "v5.toggle.bg.disabled",
+        borderColor: "v5.toggle.border.disabled",
+        opacity: 1,
       },
       _focus: {
         outline: "2px solid",
-        outlineColor: "ui.focus",
+        outlineColor: "v5.inputShared.border.focus",
         outlineOffset: "2px",
         zIndex: "9999",
       },
-      _dark: {
-        bgColor: "ui.gray.semi-dark",
-        borderColor: "ui.gray.semi-dark",
+      _hover: {
+        borderColor: "v5.toggle.border.hover",
         _checked: {
-          bg: "dark.ui.link.primary",
-          borderColor: "dark.ui.link.primary",
-        },
-        _invalid: {
-          bg: "inherit",
-          borderColor: "dark.ui.error.primary",
-          "> span": {
-            bg: "dark.ui.error.primary",
-          },
+          borderColor: "v5.toggle.border.selected",
         },
         _disabled: {
-          bg: "dark.ui.disabled.secondary",
-          borderColor: "dark.ui.disabled.secondary",
-          opacity: 1,
-          // These are styles for the thumb. _isDisabled was not working within the `thumb` part.
-          ".chakra-switch__thumb": {
-            bgColor: "dark.ui.disabled.primary",
-          },
+          borderColor: "v5.toggle.border.disabled",
         },
-        _focus: {
-          outlineColor: "dark.ui.focus",
+        _invalid: {
+          borderColor: "v5.toggle.border.error",
         },
       },
     },
     label: {
-      fontSize: "desktop.label.label1",
-      marginStart: "xs",
-      marginTop: size === "lg" ? "xxxs" : null,
+      marginStart: "v5.density.condensed",
       _disabled: {
-        color: "ui.gray.dark",
-        fontStyle: "italic",
+        color: "v5.text.disabled",
       },
       _invalid: {
-        color: "ui.error.primary",
-      },
-      _dark: {
-        _disabled: {
-          color: "dark.ui.disabled.primary",
-        },
-        _invalid: {
-          color: "dark.ui.error.primary",
-        },
+        color: "v5.toggle.label.error",
       },
     },
     thumb: {
-      _dark: {
-        bgColor: "dark.ui.bg.default",
+      mt: size === "lg" ? "4px" : "3px",
+      ml: size === "lg" ? "2px" : "1px",
+      width: size === "lg" ? "16px" : "10px",
+      height: size === "lg" ? "16px" : "10px",
+      bg: "v5.toggle.icon.default",
+      _hover: {
+        bg: "v5.toggle.icon.hover",
+      },
+      _checked: {
+        bg: "v5.toggle.icon.selected",
+        _hover: {
+          bg: "v5.toggle.icon.selected",
+        },
+        _disabled: {
+          bg: "v5.toggle.icon.disabled",
+        },
+        _invalid: {
+          bg: "v5.toggle.icon.selected",
+        },
+      },
+      _disabled: {
+        bg: "v5.toggle.icon.disabled",
+      },
+      _invalid: {
+        bg: "v5.toggle.icon.error",
       },
     },
   })
@@ -149,9 +145,6 @@ const Switch = switchDefineMultiStyleConfig({
         [$height.variable]: "1.5rem",
       },
     }),
-  },
-  defaultProps: {
-    colorScheme: "white",
   },
 });
 
