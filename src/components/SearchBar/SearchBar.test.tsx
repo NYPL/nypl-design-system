@@ -459,6 +459,18 @@ describe("SearchBar", () => {
         />
       )
       .toJSON();
+    const withSelectAndPrependText = renderer
+      .create(
+        <SearchBar
+          helperText={helperText}
+          id="withSelectAndPrependText"
+          labelText={labelText}
+          onSubmit={jest.fn()}
+          selectProps={{ ...selectProps, prependText: "Prepend Text" }}
+          textInputProps={textInputProps}
+        />
+      )
+      .toJSON();
     const withoutHelperText = renderer
       .create(
         <SearchBar
@@ -589,6 +601,7 @@ describe("SearchBar", () => {
 
     expect(basic).toMatchSnapshot();
     expect(withSelect).toMatchSnapshot();
+    expect(withSelectAndPrependText).toMatchSnapshot();
     expect(withoutHelperText).toMatchSnapshot();
     expect(withClearButton).toMatchSnapshot();
     expect(invalidState).toMatchSnapshot();

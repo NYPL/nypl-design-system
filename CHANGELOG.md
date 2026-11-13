@@ -8,6 +8,10 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ## Prerelease
 
+### Adds
+
+- Adds the `prependText` prop to the `Select` and `SearchBar` components.
+
 ## 4.6.0 (November 10, 2026)
 
 ### Adds

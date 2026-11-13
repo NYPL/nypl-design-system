@@ -35,6 +35,7 @@ import { changelogData } from "./selectChangelogData";
 - [Errored](#errored)
 - [Disabled](#disabled)
 - [Autocomplete](#autocomplete)
+- [Prepend text](#prepend-text)
 - [Getting select input value](#getting-select-input-value)
 - [Changelog](#changelog)
 
@@ -128,6 +129,14 @@ can be used to show or hide the "required" text within the `label` element.
 The `Select` component can accept all HTML `autocomplete` values.
 
 <Canvas of={SelectStories.AutoComplete} />
+
+## Prepend text
+
+Pass a value to the `prependText` prop to prepend a string to the label of the
+currently selected option. This is applied when the component first loads and
+whenever the selected option changes.
+
+<Canvas of={SelectStories.WithPrependText} />
 
 ## Getting select input value
 
