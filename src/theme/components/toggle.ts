@@ -31,7 +31,7 @@ const toggleBaseStyle = toggleDefinePartsStyle(
       width: "fit-content",
     },
     helperErrorText: {
-       marginStart: size === "default" ? "xxl" : "xl",
+      marginStart: size === "default" ? "xxl" : "xl",
       fontStyle: isDisabled ? "italic" : null,
     },
   })
@@ -104,7 +104,7 @@ const switchBaseStyle = switchDefinePartsStyle(() => ({
       },
       _disabled: {
         bg: "v5.toggle.icon.disabled",
-      }
+      },
     },
     _disabled: {
       bg: "v5.toggle.icon.disabled",
@@ -113,7 +113,7 @@ const switchBaseStyle = switchDefinePartsStyle(() => ({
       bg: "v5.toggle.icon.error",
       _hover: {
         bg: "v5.toggle.icon.error",
-      }
+      },
     },
   },
 }));
