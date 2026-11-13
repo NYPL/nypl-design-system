@@ -3,6 +3,10 @@ import { StyleFunctionProps } from "@chakra-ui/system";
 import { cssVar } from "@chakra-ui/theme-tools";
 
 import { ToggleSizes } from "../../components/Toggle/Toggle";
+import {
+  checkboxRadioHelperErrorTextStyles,
+  checkboxRadioLabelStyles,
+} from "./global";
 
 // This function creates a set of function that helps us
 // create multipart component styles.
@@ -34,8 +38,9 @@ const toggleBaseStyle = toggleDefinePartsStyle(
       width: "fit-content",
     },
     helperErrorText: {
-      marginStart: size === "default" ? "xxl" : "xl",
+      marginStart: size === "default" ? "v5.density.spacious" : "v5.density.open",
       fontStyle: isDisabled ? "italic" : null,
+      ...checkboxRadioHelperErrorTextStyles,
     },
   })
 );
@@ -43,90 +48,73 @@ const switchBaseStyle = switchDefinePartsStyle(
   ({ size }: SwitchStyleProps) => ({
     alignItems: "start",
     track: {
-      backgroundColor: "ui.gray.semi-dark",
+      backgroundColor: "v5.toggle.bg.default",
       border: "1px solid",
-      borderColor: "ui.gray.semi-dark",
+      borderColor: "v5.toggle.border.default",
       p: "1px",
+      transitionProperty: "box-shadow",
+      transitionDuration: "normal",
       _checked: {
-        bg: "ui.link.primary",
-        borderColor: "ui.link.primary",
+        bg: "v5.toggle.bg.selected.default",
+        borderColor: "v5.toggle.border.selected",
         opacity: 1,
       },
       _invalid: {
         bg: "inherit",
-        borderColor: "ui.error.primary",
+        borderColor: "v5.toggle.border.error",
         "> span": {
-          bg: "ui.error.primary",
+          bg: "v5.toggle.icon.error",
         },
       },
       _disabled: {
-        bg: "ui.gray.medium",
-        borderColor: "ui.gray.medium",
+        bg: "v5.toggle.bg.disabled",
+        borderColor: "v5.toggle.border.disabled",
         _checked: {
-          opacity: 0.4,
+          opacity: 1,
         },
       },
       _focus: {
         outline: "2px solid",
-        outlineColor: "ui.focus",
+        outlineColor: "v5.inputShared.border.focus",
         outlineOffset: "2px",
         zIndex: "9999",
       },
-      _dark: {
-        bgColor: "ui.gray.semi-dark",
-        borderColor: "ui.gray.semi-dark",
+      _hover: {
+        borderColor: "v5.toggle.border.hover",
         _checked: {
-          bg: "dark.ui.link.primary",
-          borderColor: "dark.ui.link.primary",
-        },
-        _invalid: {
-          bg: "inherit",
-          borderColor: "dark.ui.error.primary",
-          "> span": {
-            bg: "dark.ui.error.primary",
-          },
+          borderColor: "v5.toggle.border.selected",
         },
         _disabled: {
-          bg: "dark.ui.disabled.secondary",
-          borderColor: "dark.ui.disabled.secondary",
-          opacity: 1,
-          // These are styles for the thumb. _isDisabled was not working within the `thumb` part.
-          ".chakra-switch__thumb": {
-            bgColor: "dark.ui.disabled.primary",
-          },
+          borderColor: "v5.toggle.border.disabled",
         },
-        _focus: {
-          outlineColor: "dark.ui.focus",
+        _invalid: {
+          borderColor: "v5.toggle.border.error",
         },
       },
     },
     label: {
-      fontSize: "desktop.label.label1",
-      marginStart: "xs",
-      marginTop: size === "lg" ? "xxxs" : null,
-      _disabled: {
-        color: "ui.gray.dark",
-        fontStyle: "italic",
-      },
+      ...checkboxRadioLabelStyles,
+      marginStart: "v5.density.condensed",
+      marginTop: size === "lg" ? "0" : null,
       _invalid: {
-        color: "ui.error.primary",
-      },
-      _dark: {
-        _disabled: {
-          color: "dark.ui.disabled.primary",
-        },
-        _invalid: {
-          color: "dark.ui.error.primary",
-        },
+        color: "v5.toggle.label.error",
       },
     },
     thumb: {
-      _dark: {
-        bgColor: "dark.ui.bg.default",
+      bg: "v5.toggle.icon.default",
+      _checked: {
+        bg: "v5.toggle.icon.selected",
+      },
+      _disabled: {
+        bg: "v5.toggle.icon.disabled",
+      },
+      _invalid: {
+        bg: "v5.toggle.icon.error",
       },
     },
   })
 );
+
 
 const Switch = switchDefineMultiStyleConfig({
   baseStyle: switchBaseStyle,
