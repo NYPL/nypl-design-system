@@ -2,7 +2,7 @@ import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { checkboxRadioGroupStyles } from "./global";
 
 const { defineMultiStyleConfig, definePartsStyle } =
-  createMultiStyleConfigHelpers(["helperErrorText"]);
+  createMultiStyleConfigHelpers(["helperErrorText", "label"]);
 
 const CheckboxGroup = defineMultiStyleConfig({
   baseStyle: definePartsStyle(({ isFullWidth = false }) => ({

@@ -85,7 +85,7 @@ const checkboxRadioHoverStyles = {
 };
 const checkboxRadioGroupStyles = (isFullWidth = false) => ({
   helperErrorText: {
-    marginTop: "xs",
+    marginTop: "6px",
   },
   label: {
     display: "flex",
