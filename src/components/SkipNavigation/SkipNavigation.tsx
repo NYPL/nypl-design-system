@@ -46,7 +46,7 @@ export const SkipNavigation: ChakraComponent<
           <List inline noStyling variant="ul">
             <li>
               <Link href={target} isUnderlined={false}>
-                Skip to Main Content
+                Skip to content
               </Link>
             </li>
             <li>

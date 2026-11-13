@@ -8,24 +8,28 @@ const SkipNavigation = defineStyleConfig({
     },
     // Don't display links by default...
     a: {
-      backgroundColor: "ui.white",
+      backgroundColor: "v5.surface.page",
       height: "1px",
       left: "-10000px",
       overflow: "hidden",
       position: "absolute",
       top: "auto",
       width: "1px",
+
       // Only display when the user focuses on the links.
       _focus: {
+        borderRadius: "v5.soft",
+        boxShadow:
+          "0 0 0 var(--nypl-radii-v5-softer) var(--nypl-colors-v5-surface-page) ",
+        transitionProperty: "none",
         height: "auto",
-        left: "1rem",
-        paddingX: "inset.narrow",
-        paddingY: "inset.extranarrow",
-        top: "1rem",
+        left: "1.25rem",
+        paddingX: "v5.skipNavigation.paddingX",
+        paddingY: "v5.skipNavigation.paddingY",
+        top: "1.25rem",
         width: "auto",
-      },
-      _dark: {
-        backgroundColor: "dark.ui.bg.page",
+        // Remove default outline offset for activeFocus state.
+        outlineOffset: "0px",
       },
     },
   }),
