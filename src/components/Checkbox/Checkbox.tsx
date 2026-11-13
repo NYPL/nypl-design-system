@@ -26,7 +26,8 @@ interface CheckboxIconProps {
 }
 
 export interface CheckboxProps
-  extends Pick<BoxProps, keyof ChakraProps>,
+  extends
+    Pick<BoxProps, keyof ChakraProps>,
     CheckboxIconProps,
     Omit<InputHTMLAttributes<HTMLInputElement>, "color" | "height" | "width"> {
   /** Optional string to populate the HelperErrorText for standard state */
@@ -61,7 +62,7 @@ function CheckboxIcon(props: CheckboxIconProps) {
   const { isIndeterminate, isChecked } = props;
 
   return isChecked || isIndeterminate ? (
-    <Icon name="utilityCheck" sx={{ fill: "currentColor" }} />
+    <Icon name="check" sx={{ fill: "currentColor" }} />
   ) : null;
 }
 
@@ -132,7 +133,6 @@ export const Checkbox: ChakraComponent<
             : {
                 defaultChecked: false,
               })}
-          __css={styles.base}
           {...ariaAttributes}
         >
           {showLabel && labelText}
