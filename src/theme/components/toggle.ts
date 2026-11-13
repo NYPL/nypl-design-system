@@ -3,10 +3,6 @@ import { StyleFunctionProps } from "@chakra-ui/system";
 import { cssVar } from "@chakra-ui/theme-tools";
 
 import { ToggleSizes } from "../../components/Toggle/Toggle";
-import {
-  checkboxRadioHelperErrorTextStyles,
-  checkboxRadioLabelStyles,
-} from "./global";
 
 // This function creates a set of function that helps us
 // create multipart component styles.
@@ -23,9 +19,6 @@ interface ToggleBaseStyle extends StyleFunctionProps {
   isDisabled: boolean;
   size: ToggleSizes;
 }
-interface SwitchStyleProps extends StyleFunctionProps {
-  size: string;
-}
 
 const $width = cssVar("switch-track-width");
 const $height = cssVar("switch-track-height");
@@ -38,83 +31,92 @@ const toggleBaseStyle = toggleDefinePartsStyle(
       width: "fit-content",
     },
     helperErrorText: {
-      marginStart:
-        size === "default" ? "v5.density.spacious" : "v5.density.open",
+       marginStart: size === "default" ? "xxl" : "xl",
       fontStyle: isDisabled ? "italic" : null,
-      ...checkboxRadioHelperErrorTextStyles,
     },
   })
 );
-const switchBaseStyle = switchDefinePartsStyle(
-  ({ size }: SwitchStyleProps) => ({
-    alignItems: "start",
-    track: {
-      backgroundColor: "v5.toggle.bg.default",
-      border: "1px solid",
-      borderColor: "v5.toggle.border.default",
-      p: "1px",
-      transitionProperty: "box-shadow",
-      transitionDuration: "normal",
-      _checked: {
-        bg: "v5.toggle.bg.selected.default",
-        borderColor: "v5.toggle.border.selected",
-        opacity: 1,
-      },
-      _invalid: {
-        bg: "inherit",
-        borderColor: "v5.toggle.border.error",
-        "> span": {
-          bg: "v5.toggle.icon.error",
-        },
-      },
+
+const switchBaseStyle = switchDefinePartsStyle(() => ({
+  alignItems: "start",
+  track: {
+    backgroundColor: "v5.toggle.bg.default",
+    border: "1px solid",
+    borderColor: "v5.toggle.border.default",
+    p: "1px",
+    _checked: {
+      bg: "v5.toggle.bg.selected.default",
+      borderColor: "v5.toggle.border.selected",
       _disabled: {
         bg: "v5.toggle.bg.disabled",
         borderColor: "v5.toggle.border.disabled",
-        _checked: {
-          opacity: 1,
-        },
-      },
-      _focus: {
-        outline: "2px solid",
-        outlineColor: "v5.inputShared.border.focus",
-        outlineOffset: "2px",
-        zIndex: "9999",
-      },
-      _hover: {
-        borderColor: "v5.toggle.border.hover",
-        _checked: {
-          borderColor: "v5.toggle.border.selected",
-        },
-        _disabled: {
-          borderColor: "v5.toggle.border.disabled",
-        },
-        _invalid: {
-          borderColor: "v5.toggle.border.error",
-        },
       },
     },
-    label: {
-      ...checkboxRadioLabelStyles,
-      marginStart: "v5.density.condensed",
-      marginTop: size === "lg" ? "0" : null,
-      _invalid: {
-        color: "v5.toggle.label.error",
-      },
+    _invalid: {
+      bg: "inherit",
+      borderColor: "v5.toggle.border.error",
     },
-    thumb: {
-      bg: "v5.toggle.icon.default",
+    _disabled: {
+      bg: "v5.toggle.bg.disabled",
+      borderColor: "v5.toggle.border.disabled",
+      opacity: 1,
+    },
+    _focus: {
+      outline: "2px solid",
+      outlineColor: "v5.inputShared.border.focus",
+      outlineOffset: "2px",
+      zIndex: "9999",
+    },
+    _hover: {
+      borderColor: "v5.toggle.border.hover",
       _checked: {
+        borderColor: "v5.toggle.border.selected",
+      },
+      _disabled: {
+        borderColor: "v5.toggle.border.disabled",
+      },
+      _invalid: {
+        borderColor: "v5.toggle.border.error",
+      },
+    },
+  },
+  label: {
+    marginStart: "v5.density.condensed",
+    _disabled: {
+      color: "v5.text.disabled",
+    },
+    _invalid: {
+      color: "v5.toggle.label.error",
+    },
+  },
+  thumb: {
+    m: "2px",
+    width: "20px",
+    height: "20px",
+    bg: "v5.toggle.icon.default",
+    _hover: {
+      bg: "v5.toggle.icon.hover",
+    },
+    _checked: {
+      bg: "v5.toggle.icon.selected",
+      _hover: {
         bg: "v5.toggle.icon.selected",
       },
       _disabled: {
         bg: "v5.toggle.icon.disabled",
-      },
-      _invalid: {
-        bg: "v5.toggle.icon.error",
-      },
+      }
     },
-  })
-);
+    _disabled: {
+      bg: "v5.toggle.icon.disabled",
+    },
+    _invalid: {
+      bg: "v5.toggle.icon.error",
+      _hover: {
+        bg: "v5.toggle.icon.error",
+      }
+    },
+  },
+}));
 
 const Switch = switchDefineMultiStyleConfig({
   baseStyle: switchBaseStyle,
@@ -137,9 +139,6 @@ const Switch = switchDefineMultiStyleConfig({
         [$height.variable]: "1.5rem",
       },
     }),
-  },
-  defaultProps: {
-    colorScheme: "white",
   },
 });
 
