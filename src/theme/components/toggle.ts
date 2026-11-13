@@ -26,21 +26,19 @@ interface SwitchStyleProps extends StyleFunctionProps {
 const $width = cssVar("switch-track-width");
 const $height = cssVar("switch-track-height");
 
-const toggleBaseStyle = toggleDefinePartsStyle(
-  ({ size }: ToggleBaseStyle) => ({
-    label: {
-      alignItems: "start",
-      display: "flex",
-      width: "fit-content",
-    },
-    helperErrorText: {
-      color: "v5.text.helper",
-      // TODO
-      // "v5.density.condensed" 8px + width of track
-      marginStart: size === "default" ? "58px": "42px",
-    },
-  })
-);
+const toggleBaseStyle = toggleDefinePartsStyle(({ size }: ToggleBaseStyle) => ({
+  label: {
+    alignItems: "start",
+    display: "flex",
+    width: "fit-content",
+  },
+  helperErrorText: {
+    color: "v5.text.helper",
+    // TODO
+    // "v5.density.condensed" 8px + width of track
+    marginStart: size === "default" ? "58px" : "42px",
+  },
+}));
 const switchBaseStyle = switchDefinePartsStyle(
   ({ size }: SwitchStyleProps) => ({
     alignItems: "start",
@@ -49,8 +47,8 @@ const switchBaseStyle = switchDefinePartsStyle(
       border: "1px solid",
       borderColor: "v5.toggle.border.default",
       p: "0",
-      width: size === "lg" ? "48px": "32px",
-      height: size === "lg" ? "24px": "16px",
+      width: size === "lg" ? "48px" : "32px",
+      height: size === "lg" ? "24px" : "16px",
       _checked: {
         bg: "v5.toggle.bg.selected.default",
         borderColor: "v5.toggle.border.selected",
@@ -98,8 +96,8 @@ const switchBaseStyle = switchDefinePartsStyle(
     thumb: {
       mt: size === "lg" ? "4px" : "3px",
       ml: size === "lg" ? "2px" : "1px",
-      width: size === "lg" ? "16px": "10px",
-      height: size === "lg" ? "16px": "10px",
+      width: size === "lg" ? "16px" : "10px",
+      height: size === "lg" ? "16px" : "10px",
       bg: "v5.toggle.icon.default",
       _hover: {
         bg: "v5.toggle.icon.hover",
@@ -114,7 +112,7 @@ const switchBaseStyle = switchDefinePartsStyle(
         },
         _invalid: {
           bg: "v5.toggle.icon.selected",
-        }
+        },
       },
       _disabled: {
         bg: "v5.toggle.icon.disabled",
