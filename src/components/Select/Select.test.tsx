@@ -338,12 +338,13 @@ describe("Select", () => {
         {baseOptions}
       </Select>
     );
-    const select = screen.getByRole("combobox");
+    const select = screen.getByRole("combobox") as HTMLSelectElement;
 
     expect(select).toHaveTextContent("Sort by: Red");
 
     fireEvent.change(select, { target: { value: "green" } });
 
+    expect(select.value).toBe("green");
     expect(select).toHaveTextContent("Sort by: Green");
     expect(select).not.toHaveTextContent("Sort by: Red");
   });

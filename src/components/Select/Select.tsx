@@ -154,10 +154,10 @@ export const Select: ChakraComponent<
       // component is first rendered so that `prependText` can be applied
       // to it immediately.
       const getInitialSelectedValue = (): string | undefined => {
-        if (onChange) {
+        if (onChange && value !== undefined) {
           return value as string;
         }
-        if (defaultValue !== undefined) {
+        if (!onChange && defaultValue !== undefined) {
           return defaultValue;
         }
         const options = flattenOptions(children);
@@ -264,7 +264,11 @@ export const Select: ChakraComponent<
             React.OptionHTMLAttributes<HTMLOptionElement>
           >;
           const optionValue = getOptionValue(optionElement);
-          if (String(optionValue) !== String(selectedValue)) {
+          if (
+            isOpen ||
+            selectedValue === undefined ||
+            String(optionValue) !== String(selectedValue)
+          ) {
             return node;
           }
           return React.cloneElement(
@@ -273,8 +277,9 @@ export const Select: ChakraComponent<
             `${prependText}${optionElement.props.children}`
           );
         });
-      const renderedChildren =
-        prependText && !isOpen ? mapOptions(children) : children;
+      // Map children when `prependText` is set to keep `option` elements
+      // keys stable keys and not remounted.
+      const renderedChildren = prependText ? mapOptions(children) : children;
 
       useEffect(() => {
         if (labelPosition === "inline") {
@@ -291,7 +296,7 @@ export const Select: ChakraComponent<
       // components since it may be updated externally, outside of the
       // `onChange` callback.
       useEffect(() => {
-        if (onChange && prependText) {
+        if (onChange && prependText && value !== undefined) {
           setSelectedValue(value as string);
         }
       }, [value, onChange, prependText]);
