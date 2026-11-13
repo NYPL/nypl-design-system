@@ -38,7 +38,8 @@ const toggleBaseStyle = toggleDefinePartsStyle(
       width: "fit-content",
     },
     helperErrorText: {
-      marginStart: size === "default" ? "v5.density.spacious" : "v5.density.open",
+      marginStart:
+        size === "default" ? "v5.density.spacious" : "v5.density.open",
       fontStyle: isDisabled ? "italic" : null,
       ...checkboxRadioHelperErrorTextStyles,
     },
@@ -114,7 +115,6 @@ const switchBaseStyle = switchDefinePartsStyle(
     },
   })
 );
-
 
 const Switch = switchDefineMultiStyleConfig({
   baseStyle: switchBaseStyle,
