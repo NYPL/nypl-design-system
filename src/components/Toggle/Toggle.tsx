@@ -80,7 +80,7 @@ export const Toggle: ChakraComponent<
       ...rest
     } = props;
     const mainId = useSafeId(id);
-    const styles = useMultiStyleConfig("Toggle", { isDisabled, size });
+    const styles = useMultiStyleConfig("Toggle", { size });
     const switchStyles = useStyleConfig("Switch", { size });
     const footnote = isInvalid ? invalidText : helperText;
     const ariaAttributes = getAriaAttrs({

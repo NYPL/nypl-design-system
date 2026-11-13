@@ -19,104 +19,112 @@ interface ToggleBaseStyle extends StyleFunctionProps {
   isDisabled: boolean;
   size: ToggleSizes;
 }
+interface SwitchStyleProps extends StyleFunctionProps {
+  size: string;
+}
 
 const $width = cssVar("switch-track-width");
 const $height = cssVar("switch-track-height");
 
 const toggleBaseStyle = toggleDefinePartsStyle(
-  ({ isDisabled, size }: ToggleBaseStyle) => ({
+  ({ size }: ToggleBaseStyle) => ({
     label: {
       alignItems: "start",
       display: "flex",
       width: "fit-content",
     },
     helperErrorText: {
-      marginStart: size === "default" ? "xxl" : "xl",
-      fontStyle: isDisabled ? "italic" : null,
+      color: "v5.text.helper",
+      // TODO
+      // "v5.density.condensed" 8px + width of track
+      marginStart: size === "default" ? "58px": "42px",
     },
   })
 );
-
-const switchBaseStyle = switchDefinePartsStyle(() => ({
-  alignItems: "start",
-  track: {
-    backgroundColor: "v5.toggle.bg.default",
-    border: "1px solid",
-    borderColor: "v5.toggle.border.default",
-    p: "1px",
-    _checked: {
-      bg: "v5.toggle.bg.selected.default",
-      borderColor: "v5.toggle.border.selected",
-      _disabled: {
-        bg: "v5.toggle.bg.disabled",
-        borderColor: "v5.toggle.border.disabled",
-      },
-    },
-    _invalid: {
-      bg: "inherit",
-      borderColor: "v5.toggle.border.error",
-    },
-    _disabled: {
-      bg: "v5.toggle.bg.disabled",
-      borderColor: "v5.toggle.border.disabled",
-      opacity: 1,
-    },
-    _focus: {
-      outline: "2px solid",
-      outlineColor: "v5.inputShared.border.focus",
-      outlineOffset: "2px",
-      zIndex: "9999",
-    },
-    _hover: {
-      borderColor: "v5.toggle.border.hover",
+const switchBaseStyle = switchDefinePartsStyle(
+  ({ size }: SwitchStyleProps) => ({
+    alignItems: "start",
+    track: {
+      backgroundColor: "v5.toggle.bg.default",
+      border: "1px solid",
+      borderColor: "v5.toggle.border.default",
+      p: "0",
+      width: size === "lg" ? "48px": "32px",
+      height: size === "lg" ? "24px": "16px",
       _checked: {
+        bg: "v5.toggle.bg.selected.default",
         borderColor: "v5.toggle.border.selected",
-      },
-      _disabled: {
-        borderColor: "v5.toggle.border.disabled",
+        _disabled: {
+          bg: "v5.toggle.bg.disabled",
+          borderColor: "v5.toggle.border.disabled",
+        },
       },
       _invalid: {
         borderColor: "v5.toggle.border.error",
       },
-    },
-  },
-  label: {
-    marginStart: "v5.density.condensed",
-    _disabled: {
-      color: "v5.text.disabled",
-    },
-    _invalid: {
-      color: "v5.toggle.label.error",
-    },
-  },
-  thumb: {
-    m: "2px",
-    width: "20px",
-    height: "20px",
-    bg: "v5.toggle.icon.default",
-    _hover: {
-      bg: "v5.toggle.icon.hover",
-    },
-    _checked: {
-      bg: "v5.toggle.icon.selected",
+      _disabled: {
+        bg: "v5.toggle.bg.disabled",
+        borderColor: "v5.toggle.border.disabled",
+        opacity: 1,
+      },
+      _focus: {
+        outline: "2px solid",
+        outlineColor: "v5.inputShared.border.focus",
+        outlineOffset: "2px",
+        zIndex: "9999",
+      },
       _hover: {
+        borderColor: "v5.toggle.border.hover",
+        _checked: {
+          borderColor: "v5.toggle.border.selected",
+        },
+        _disabled: {
+          borderColor: "v5.toggle.border.disabled",
+        },
+        _invalid: {
+          borderColor: "v5.toggle.border.error",
+        },
+      },
+    },
+    label: {
+      marginStart: "v5.density.condensed",
+      _disabled: {
+        color: "v5.text.disabled",
+      },
+      _invalid: {
+        color: "v5.toggle.label.error",
+      },
+    },
+    thumb: {
+      mt: size === "lg" ? "4px" : "3px",
+      ml: size === "lg" ? "2px" : "1px",
+      width: size === "lg" ? "16px": "10px",
+      height: size === "lg" ? "16px": "10px",
+      bg: "v5.toggle.icon.default",
+      _hover: {
+        bg: "v5.toggle.icon.hover",
+      },
+      _checked: {
         bg: "v5.toggle.icon.selected",
+        _hover: {
+          bg: "v5.toggle.icon.selected",
+        },
+        _disabled: {
+          bg: "v5.toggle.icon.disabled",
+        },
+        _invalid: {
+          bg: "v5.toggle.icon.selected",
+        }
       },
       _disabled: {
         bg: "v5.toggle.icon.disabled",
       },
-    },
-    _disabled: {
-      bg: "v5.toggle.icon.disabled",
-    },
-    _invalid: {
-      bg: "v5.toggle.icon.error",
-      _hover: {
+      _invalid: {
         bg: "v5.toggle.icon.error",
       },
     },
-  },
-}));
+  })
+);
 
 const Switch = switchDefineMultiStyleConfig({
   baseStyle: switchBaseStyle,
