@@ -21,6 +21,7 @@ const SkipNavigation = defineStyleConfig({
         borderRadius: "v5.soft",
         boxShadow:
           "0 0 0 var(--nypl-radii-v5-softer) var(--nypl-colors-v5-surface-page) ",
+        transitionProperty: "none",
         height: "auto",
         left: "1rem",
         paddingX: "v5.skipNavigation.paddingX",
