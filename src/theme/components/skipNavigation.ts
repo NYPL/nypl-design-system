@@ -23,10 +23,10 @@ const SkipNavigation = defineStyleConfig({
           "0 0 0 var(--nypl-radii-v5-softer) var(--nypl-colors-v5-surface-page) ",
         transitionProperty: "none",
         height: "auto",
-        left: "1rem",
+        left: "1.25rem",
         paddingX: "v5.skipNavigation.paddingX",
         paddingY: "v5.skipNavigation.paddingY",
-        top: "1rem",
+        top: "1.25rem",
         width: "auto",
         // Remove default outline offset for activeFocus state.
         outlineOffset: "0px",
