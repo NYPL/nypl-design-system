@@ -316,22 +316,26 @@ export const GetUncontrolledInputValue: Story = {
 function WithPrependTextExamples() {
   const [value, setValue] = useState("call-number");
   const onChange = (e) => setValue(e.target.value);
-  const options = <>
-    <option value="keyword">Keyword</option>
-    <option value="title">Title</option>
-    <option value="author-contributor">
-      Author or contributor or assistant
-    </option>
-    <option value="journal-title">Journal Title</option>
-    <option value="call-number">Call Number</option>
-    <option value="unique-identifier">Unique Identifier</option>
-    <option value="subject">Subject</option>
-    <option value="query">Query</option>
-  </>;
+  const options = (
+    <>
+      <option value="keyword">Keyword</option>
+      <option value="title">Title</option>
+      <option value="author-contributor">
+        Author or contributor or assistant
+      </option>
+      <option value="journal-title">Journal Title</option>
+      <option value="call-number">Call Number</option>
+      <option value="unique-identifier">Unique Identifier</option>
+      <option value="subject">Subject</option>
+      <option value="query">Query</option>
+    </>
+  );
 
   return (
     <VStack align="stretch" spacing={8}>
-      <Heading as="h3" level="h3">Uncontrolled</Heading>
+      <Heading as="h3" level="h3">
+        Uncontrolled
+      </Heading>
       <Select
         defaultValue="title"
         helperText="The selected option's label is prefixed with 'Category: '"
@@ -342,7 +346,9 @@ function WithPrependTextExamples() {
       >
         {options}
       </Select>
-      <Heading as="h3" level="h3">Controlled</Heading>
+      <Heading as="h3" level="h3">
+        Controlled
+      </Heading>
       <Select
         helperText="The selected option's label is prefixed with 'Category: '"
         id="prepend-text-controlled-example"
