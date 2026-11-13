@@ -8,27 +8,23 @@ const global = {
   // styles for the `body` element
   body: {
     boxSizing: "border-box",
-    bg: "ui.white",
-    color: "ui.typography.body",
-    fontFamily: "body",
-    fontSize: "desktop.body.body1",
-    fontWeight: "body.body1",
-    lineHeight: "1.5",
+    bg: "v5.surface.page",
+    color: "v5.text.body.default",
+    fontFamily: "v5.base",
+    fontSize: "v5.body",
+    fontWeight: "v5.body",
+    lineHeight: "v5.body",
     overflowX: "hidden",
-    _dark: {
-      bg: "dark.ui.bg.page",
-      color: "dark.ui.typography.body",
-    },
   },
   // styles for the `a` element
   a: {
-    color: "ui.link.primary",
+    color: "v5.link.primary.default",
   },
   b: {
-    fontWeight: "bold",
+    fontWeight: "v5.bold",
   },
   strong: {
-    fontWeight: "bold",
+    fontWeight: "v5.bold",
   },
   svg: {
     display: "inline",
