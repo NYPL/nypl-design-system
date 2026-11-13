@@ -4,6 +4,7 @@ import { screenreaderOnly } from "./globalMixins";
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers([
     "closeButton",
+    "notification",
     "drawerBody",
     "drawerContent",
     "drawerHeader",
@@ -13,60 +14,53 @@ const { defineMultiStyleConfig, definePartsStyle } =
 
 const FeedbackBox = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
+    notification: {
+      // TO DO v5: this doesn't correspond to a notification variant color
+      background: "v5.surface.subtle.informative.default !important",
+      borderRadius: "v5.soft",
+      padding: "4px 16px",
+    },
     closeButton: {
-      /** This is overriding the default min-height value in order to keep the
-       * button spacing symmetrical. */
-      minHeight: "40px",
-      minWidth: "40px",
-      right: "xs",
+      minHeight: "v5.form.height.sm",
+      minWidth: "v5.form.height.sm",
+      right: "8px",
+      top: "4px",
       p: "0",
       position: "absolute",
       span: screenreaderOnly(),
-      top: "xs",
-      _dark: {
-        svg: {
-          fill: "dark.ui.typography.heading",
-        },
-      },
     },
     drawerBody: {
       borderLeft: { base: undefined, md: "1px solid" },
-      borderColor: { base: undefined, md: "ui.border.default" },
-      paddingTop: "m",
-      paddingBottom: "m",
-      _dark: {
-        background: "dark.ui.bg.page",
-        borderColor: { base: undefined, md: "dark.ui.border.default" },
+      borderColor: {
+        base: undefined,
+        md: "v5.border.prominent.neutral.default",
       },
+      py: "v5.feedbackBox.container.paddingY",
     },
     drawerContent: {
       marginStart: "auto",
-      width: { base: "100%", md: "375px" },
+      width: { base: "100%", md: "400px" },
       aside: {
-        color: "ui.typography.heading",
-        _dark: { color: "dark.ui.typography.heading" },
+        color: "v5.text.heading.default",
       },
     },
     drawerHeader: {
-      alignItems: "baseline",
-      background: "ui.bg.hover",
+      alignItems: "center",
+      background: "v5.surface.subtle.neutral.default",
       borderBottomWidth: "1px",
       borderLeftWidth: { base: undefined, md: "1px" },
+      borderColor: "v5.border.prominent.neutral.default",
       borderTopWidth: "1px",
-      color: "ui.typography.heading",
+      color: "v5.text.heading.default",
       display: "flex",
-      fontSize: "desktop.body.body1",
-      fontWeight: "medium",
-      px: "m",
-      paddingTop: "s",
-      paddingBottom: "s",
+      fontSize: "v5.body",
+      fontWeight: "v5.semibold",
+      px: "v5.feedbackBox.header.paddingX",
+      py: "v5.feedbackBox.header.paddingY",
       p: {
         marginBottom: "0",
-      },
-      _dark: {
-        background: "dark.ui.bg.hover",
-        borderColor: "dark.ui.border.default",
-        color: "dark.ui.typography.heading",
+        // TO DO v5: revisit with global text styles
+        py: "4px",
       },
     },
     openButton: {
@@ -76,10 +70,10 @@ const FeedbackBox = defineMultiStyleConfig({
       right: "0",
       zIndex: "10000",
       _focus: {
-        boxShadow: "0 0 0 6px var(--nypl-colors-ui-white) !important",
         zIndex: "10000 !important",
       },
     },
+    // TO DO v5: revisit with RadioGroup
     radioGroup: {
       ".ds-radioGroup-stack": {
         flexDirection: { base: "column", md: "row" },
