@@ -75,6 +75,10 @@ Reservoir components (`Button`, `TextInput`, and optional `Select`)
 The labels for the `Select` and `TextInput` components are not visible, but
 `aria-label`s are used to make these children components accessible.
 
+Whenever the `Select` component is enabled through `selectProps`, the
+`selectProps.prependText` prop should be used to set a persistent visual
+label for the selected option.
+
 The `SearchBar`, along with any other search/filter functionality, must be wrapped
 in a container with role="search", for a screenreader to recognize it correctly.
 See [search in "ARIA Landmarks"](../?path=/docs/accessibility-guide-aria-landmarks--docs#search).
