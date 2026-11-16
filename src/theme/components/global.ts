@@ -27,8 +27,6 @@ const activeFocus = (darkMode = false) => ({
 const checkboxRadioLabelStyles = {
   color: "v5.text.body.default",
   userSelect: "none",
-  fontFamily: "v5.base",
-  fontWeight: "v5.body",
   marginBottom: "0",
   marginStart: "v5.density.condensed",
   width: "100%",

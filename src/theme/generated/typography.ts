@@ -1,10 +1,10 @@
-// Generated file from v5-tokens/text/*.tokens.json. Do not edit manually.
+// Generated file from v5-tokens/{text,responsive}/*.tokens.json. Do not edit manually.
 export const typography = {
   fonts: {
-    base: "Open Sans",
-    headingDefault: "Open Sans",
-    headingAlternate: "Merriweather",
-    monospace: "Courier New",
+    base: "Open Sans, Arial, sans-serif",
+    headingDefault: "Open Sans, Arial, sans-serif",
+    headingAlternate: "Merriweather, serif",
+    monospace: "Courier New, monospace",
   },
   fontSizes: {
     body: "16px",
@@ -19,12 +19,14 @@ export const typography = {
       medium: "20px",
       moderate: "24px",
       large: {
-        default: "32px",
         mobile: "28px",
+        tablet: "32px",
+        desktop: "32px",
       },
       giant: {
-        default: "40px",
         mobile: "32px",
+        tablet: "40px",
+        desktop: "40px",
       },
     },
     accordion: {
@@ -56,16 +58,19 @@ export const typography = {
       medium: "20px",
       moderate: "24px",
       large: {
-        default: "32px",
         mobile: "28px",
+        tablet: "32px",
+        desktop: "32px",
       },
       giant: {
-        default: "40px",
         mobile: "32px",
+        tablet: "40px",
+        desktop: "40px",
       },
       display: {
-        default: "56px",
         mobile: "44px",
+        tablet: "56px",
+        desktop: "56px",
       },
     },
     label: {
@@ -99,6 +104,21 @@ export const typography = {
     },
     tag: {
       default: "16px",
+    },
+    large: {
+      mobile: "28px",
+      tablet: "32px",
+      desktop: "32px",
+    },
+    giant: {
+      mobile: "32px",
+      tablet: "40px",
+      desktop: "40px",
+    },
+    display: {
+      mobile: "44px",
+      tablet: "56px",
+      desktop: "56px",
     },
   },
   fontWeights: {
@@ -159,12 +179,14 @@ export const typography = {
       medium: "28px",
       moderate: "32px",
       large: {
-        default: "40px",
         mobile: "36px",
+        tablet: "40px",
+        desktop: "40px",
       },
       giant: {
-        default: "48px",
         mobile: "40px",
+        tablet: "48px",
+        desktop: "48px",
       },
     },
     badge: {
@@ -184,16 +206,19 @@ export const typography = {
       medium: "28px",
       moderate: "32px",
       large: {
-        default: "40px",
         mobile: "36px",
+        tablet: "40px",
+        desktop: "40px",
       },
       giant: {
-        default: "48px",
         mobile: "40px",
+        tablet: "48px",
+        desktop: "48px",
       },
       display: {
-        default: "64px",
         mobile: "52px",
+        tablet: "64px",
+        desktop: "64px",
       },
     },
     label: {
@@ -214,6 +239,21 @@ export const typography = {
       primary: "28px",
       secondary: "22px",
       tertiary: "20px",
+    },
+    large: {
+      mobile: "36px",
+      tablet: "40px",
+      desktop: "40px",
+    },
+    giant: {
+      mobile: "40px",
+      tablet: "48px",
+      desktop: "48px",
+    },
+    display: {
+      mobile: "52px",
+      tablet: "64px",
+      desktop: "64px",
     },
   },
 } as const;
