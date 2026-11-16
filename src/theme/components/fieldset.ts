@@ -15,16 +15,9 @@ const Fieldset = defineStyleConfig({
       border: 0,
       padding: 0,
       legend: {
-        color: "ui.typography.heading",
-        mb: "legend.default",
+        mb: "legend.default", // TODO: v5.inputShared.label.marginBottom
         ...labelLegendText,
         ...screenreaderStyles,
-        span: {
-          fontWeight: "regular",
-        },
-        _dark: {
-          color: "dark.ui.typography.heading",
-        },
       },
     };
   }),

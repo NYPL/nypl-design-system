@@ -8,8 +8,18 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### 5.0.0 (TBD)
 
+### Adds
+
 - Adds v5 design tokens to repo. [ISW-6210](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6210)
+
+### Updates
+
 - Updates `Checkbox` styles to align with v5 designs. [ISW-6247](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6247)
+- Updates `Fieldset` styles to align with v5 designs. [ISW-6312](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6312)
+
+### Fixes
+
+- Fixes bug in `Fieldset` which caused CSS overrides to completely overwrite base styles. [ISW-6312](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6312)
 
 ## Prerelease
 

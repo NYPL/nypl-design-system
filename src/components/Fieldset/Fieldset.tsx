@@ -3,9 +3,14 @@ import {
   BoxProps,
   chakra,
   ChakraComponent,
+  SystemStyleObject,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
+
+type FieldsetCssOverride = SystemStyleObject & {
+  legend?: SystemStyleObject;
+};
 
 export interface FieldsetProps extends BoxProps {
   /** Flag to show or hide the text in the `legend` element. False by default. */
@@ -47,6 +52,9 @@ export const Fieldset: ChakraComponent<
       ref?
     ) => {
       const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
+      const { __css: cssOverride, ...restProps } = rest as FieldsetProps & {
+        __css?: FieldsetCssOverride;
+      };
 
       return (
         <Box
@@ -54,8 +62,14 @@ export const Fieldset: ChakraComponent<
           id={id}
           data-testid="ds-fieldset"
           ref={ref}
-          __css={styles}
-          {...rest}
+          __css={
+            {
+              ...styles,
+              ...cssOverride,
+              legend: { ...styles.legend, ...cssOverride?.legend },
+            } as SystemStyleObject
+          }
+          {...restProps}
         >
           <legend>
             {legendText}
