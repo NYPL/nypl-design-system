@@ -49,11 +49,12 @@ export const Fieldset: ChakraComponent<
       ref?
     ) => {
       const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
-      // `cssOverride` is any `__css` passed in by a consumer. It's merged with,
-      // rather than replacing, this component's own `styles.
+
       const legendOverride = (
         cssOverride as unknown as Record<string, SystemStyleObject> | undefined
       )?.legend;
+
+      // Merging any style overrides from the consumer with the default styles
       const mergedCss = {
         ...styles,
         ...cssOverride,
