@@ -90,16 +90,6 @@ const baseStyleControl = defineStyle({
   },
 });
 
-// // Style object for the Checkbox's label
-const baseStyleLabel = defineStyle({
-  cursor: "pointer",
-  verticalAlign: "top",
-  ...checkboxRadioLabelStyles,
-  _invalid: {
-    color: "v5.checkbox.label.error",
-  },
-});
-
 // Chakra's default Checkbox theme defines a `sizes` map (sm/md/lg) that sets
 // `label.fontSize`. Since `sizes` merges on top of `baseStyle`, we need to
 // set our own sizes object to override theirs.
@@ -109,7 +99,7 @@ const sizes = {
   lg: definePartsStyle({ label: { fontSize: "v5.body" } }),
 };
 
-const baseStyle = definePartsStyle({
+const baseStyle = definePartsStyle(({ isFullWidth = false }) => ({
   container: {
     alignItems: "center",
     position: "relative",
@@ -137,8 +127,15 @@ const baseStyle = definePartsStyle({
   helperErrorText: checkboxRadioHelperErrorTextStyles,
   icon: baseStyleIcon,
   // Controls the font-size of the label only.
-  label: baseStyleLabel,
-});
+  label: {
+    cursor: "pointer",
+    verticalAlign: "top",
+    ...checkboxRadioLabelStyles(isFullWidth),
+    _invalid: {
+      color: "v5.checkbox.label.error",
+    },
+  },
+}));
 
 const Checkbox = defineMultiStyleConfig({
   baseStyle,

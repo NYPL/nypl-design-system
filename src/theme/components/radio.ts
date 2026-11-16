@@ -122,7 +122,9 @@ const baseStyle = {
 const radioBaseStyle = definePartsStyle({
   // Chakra-inserted elements in the Chakra Radio component
   control: baseStyle.control,
-  label: checkboxRadioLabelStyles,
+  // `RadioGroup`'s `isFullWidth` isn't wired through yet, so preserve the
+  // existing always-full-width behavior for now.
+  label: checkboxRadioLabelStyles(true),
   container: {},
   // Custom element in the DS Radio component.
   helperErrorText: checkboxRadioHelperErrorTextStyles,

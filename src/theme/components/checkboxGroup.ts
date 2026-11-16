@@ -1,13 +1,14 @@
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
-import { checkboxRadioGroupStyles } from "./global";
 
 const { defineMultiStyleConfig, definePartsStyle } =
-  createMultiStyleConfigHelpers(["helperErrorText", "label"]);
+  createMultiStyleConfigHelpers(["helperErrorText"]);
 
 const CheckboxGroup = defineMultiStyleConfig({
-  baseStyle: definePartsStyle(({ isFullWidth = false }) => ({
-    ...checkboxRadioGroupStyles(isFullWidth),
-  })),
+  baseStyle: definePartsStyle({
+    helperErrorText: {
+      marginTop: "6px", // TODO: Replace with v5.inputShared.helperText.marginTop
+    },
+  }),
 });
 
 export default CheckboxGroup;

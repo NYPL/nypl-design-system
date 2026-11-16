@@ -110,15 +110,16 @@ export const CheckboxGroup: ChakraComponent<
       const checkboxGroupContextValue = useMemo(
         () => ({
           isDisabled,
+          isFullWidth,
           isInvalid,
           isRequired,
           name,
         }),
-        [isDisabled, isInvalid, isRequired, name]
+        [isDisabled, isFullWidth, isInvalid, isRequired, name]
       );
 
       // Get the Chakra-based styles for the custom elements in this component.
-      const styles = useMultiStyleConfig("CheckboxGroup", { isFullWidth });
+      const styles = useMultiStyleConfig("CheckboxGroup", {});
 
       return (
         <Fieldset

@@ -2,6 +2,7 @@ import { createContext, useContext } from "react";
 
 interface CheckboxGroupContextValue {
   isDisabled: boolean;
+  isFullWidth: boolean;
   isInvalid: boolean;
   isRequired: boolean;
   name: string;

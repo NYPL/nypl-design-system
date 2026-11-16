@@ -91,8 +91,10 @@ export const Checkbox: ChakraComponent<
       ...rest
     } = props;
     const mainId = useSafeId(id);
-    const styles = useMultiStyleConfig("Checkbox", {});
     const groupProps = useCheckboxGroup();
+    const styles = useMultiStyleConfig("Checkbox", {
+      isFullWidth: groupProps?.isFullWidth ?? false,
+    });
     const footnote = isInvalid ? invalidText : helperText;
     // Use Chakra's default indeterminate icon.
     const icon = !isIndeterminate ? <CheckboxIcon /> : undefined;
