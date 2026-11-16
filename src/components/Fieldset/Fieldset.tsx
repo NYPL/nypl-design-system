@@ -8,10 +8,6 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
-type FieldsetCssOverride = SystemStyleObject & {
-  legend?: SystemStyleObject;
-};
-
 export interface FieldsetProps extends BoxProps {
   /** Flag to show or hide the text in the `legend` element. False by default. */
   isLegendHidden?: boolean;
@@ -47,13 +43,21 @@ export const Fieldset: ChakraComponent<
         isRequired = false,
         legendText,
         showRequiredLabel = true,
+        __css: cssOverride,
         ...rest
       },
       ref?
     ) => {
       const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
-      const { __css: cssOverride, ...restProps } = rest as FieldsetProps & {
-        __css?: FieldsetCssOverride;
+      // `cssOverride` is any `__css` passed in by a consumer. It's merged with,
+      // rather than replacing, this component's own `styles.
+      const legendOverride = (
+        cssOverride as unknown as Record<string, SystemStyleObject> | undefined
+      )?.legend;
+      const mergedCss = {
+        ...styles,
+        ...cssOverride,
+        legend: { ...styles.legend, ...legendOverride },
       };
 
       return (
@@ -62,14 +66,8 @@ export const Fieldset: ChakraComponent<
           id={id}
           data-testid="ds-fieldset"
           ref={ref}
-          __css={
-            {
-              ...styles,
-              ...cssOverride,
-              legend: { ...styles.legend, ...cssOverride?.legend },
-            } as SystemStyleObject
-          }
-          {...restProps}
+          __css={mergedCss}
+          {...rest}
         >
           <legend>
             {legendText}
