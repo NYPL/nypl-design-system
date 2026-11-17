@@ -21,17 +21,14 @@ const { defineMultiStyleConfig, definePartsStyle } =
   ]);
 
 const element = {
-  borderRadius: "2px",
+  borderRadius: "v5.faint",
   boxSizing: "border-box",
-  marginBottom: "xs",
+  marginBottom: "v5.xs",
 };
 const borderRules = {
   border: "1px solid",
-  borderColor: "ui.gray.x-light-cool",
-  padding: "s",
-  _dark: {
-    borderColor: "ui.gray.xx-dark",
-  },
+  borderColor: "v5.border.subtle.neutral.muted",
+  padding: "v5.s",
 };
 const imagePaddingBottomStyles = {
   landscape: "50%",
@@ -64,19 +61,19 @@ const SkeletonLoader = defineMultiStyleConfig({
           ...borderStyles,
         },
         button: {
-          borderRadius: "20px",
+          borderRadius: "v5.button.rounded",
           height: "40px",
           maxWidth: "160px",
           overflow: "hidden",
           width: "100%",
         },
         container: {
-          marginTop: "s",
+          marginTop: "v5.s",
           width: "100%",
         },
         content: {
           ...element,
-          height: "20px",
+          height: "16px",
         },
         heading: {
           ...element,
@@ -84,7 +81,6 @@ const SkeletonLoader = defineMultiStyleConfig({
         },
         image: {
           ...element,
-          boxSizing: "border-box",
           flexShrink: "0",
           height: "0",
           overflow: "hidden",
@@ -93,15 +89,12 @@ const SkeletonLoader = defineMultiStyleConfig({
           width: "100%",
         },
         loader: {
-          borderRadius: "2px",
-          bg: "ui.gray.light-cool",
+          borderRadius: "v5.faint",
+          bg: "v5.surface.subtle.neutral.default",
           animation: `${fade()} 1000ms cubic-bezier(0.25, -0.5, 1, 0) infinite`,
-          _dark: {
-            bg: "dark.ui.bg.hover",
-          },
         },
         section: {
-          marginBottom: "s",
+          marginBottom: "v5.s",
           _last: {
             marginBottom: "0",
           },
@@ -120,7 +113,7 @@ const SkeletonLoader = defineMultiStyleConfig({
           margin: { md: "0" },
         },
         container: {
-          marginStart: showImage ? { md: "m" } : null,
+          marginStart: showImage ? { md: "v5.m" } : null,
           marginTop: { md: "0" },
         },
         image: {
