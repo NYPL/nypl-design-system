@@ -92,7 +92,7 @@ const imageSizesBasedOnHeight = {
     maxHeight: "360px",
   },
 };
-const imageRatios = {
+export const imageRatios = {
   fourByThree: {
     paddingBottom: "75%",
   },

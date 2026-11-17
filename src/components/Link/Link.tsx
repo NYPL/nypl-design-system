@@ -25,10 +25,11 @@ export const linkVariantsArray = [
   "forwards",
   "standalone",
 ] as const;
-export type LinkVariants = typeof linkVariantsArray[number];
+export type LinkVariants = (typeof linkVariantsArray)[number];
 
 export interface LinkProps
-  extends Pick<BoxProps, "as" | keyof ChakraProps>,
+  extends
+    Pick<BoxProps, "as" | keyof ChakraProps>,
     Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "color"> {
   /** Used to include or remove visited state styles. Default is true. */
   hasVisitedState?: boolean;
@@ -164,6 +165,7 @@ export const Link: ChakraComponent<
       screenreaderOnlyText,
       target,
       variant = "default",
+      sx,
       ...rest
     } = props;
     // Set initial underline style for certain variants
@@ -176,8 +178,9 @@ export const Link: ChakraComponent<
     const rel = variant === "external" ? "nofollow noopener noreferrer" : null;
     const internalTarget =
       variant === "external" ? "_blank" : target ? target : null;
-    // Merge the necessary props alongside any extra props for the
-    // anchor element.
+    // Merge the necessary props alongside any extra props for the anchor
+    // element. Note that `sx` is not a part of this object and is merged
+    // directly into the `ChakraLink` component below.
     const linkProps = {
       id,
       href,
@@ -241,8 +244,7 @@ export const Link: ChakraComponent<
         as={as}
         data-testid="ds-link"
         {...linkProps}
-        sx={styles.base}
-        {...rest}
+        sx={{ ...styles.base, ...sx }}
       >
         {newChildren}
         {screenReaderOnlyElement}

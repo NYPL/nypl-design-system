@@ -30,7 +30,10 @@ interface SelectOptionsProps {
 // From the `Select` component, we only need a certain set of optional props,
 // except for `optionsData`.
 export type SelectProps = Partial<
-  Pick<InitialSelectProps, "id" | "labelText" | "name" | "onChange" | "value">
+  Pick<
+    InitialSelectProps,
+    "id" | "labelText" | "name" | "onChange" | "prependText" | "value"
+  >
 > & {
   optionsData: SelectOptionsProps[];
 };
@@ -54,7 +57,8 @@ export type TextInputProps = Pick<InitialInputProps, "labelText" | "name"> &
   >;
 
 export interface SearchBarProps
-  extends Pick<BoxProps, keyof ChakraProps>,
+  extends
+    Pick<BoxProps, keyof ChakraProps>,
     Omit<FormHTMLAttributes<HTMLFormElement>, "color"> {
   /** The onClick callback function for the `Button` component. */
   buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
@@ -145,6 +149,7 @@ export const SearchBar: ChakraComponent<
         labelText={selectProps?.labelText}
         name={selectProps?.name}
         onChange={selectProps?.onChange}
+        prependText={selectProps?.prependText}
         variant="searchbar"
         value={selectProps?.value}
         __css={styles.select}

@@ -123,10 +123,7 @@ const Banner = defineMultiStyleConfig({
       justifyContent: "flex-start",
       py: "s",
       paddingEnd: "l",
-      paddingStart: {
-        base: "s",
-        md: "l",
-      },
+      paddingStart: "s",
       position: "relative",
       width: "100%",
       a: {

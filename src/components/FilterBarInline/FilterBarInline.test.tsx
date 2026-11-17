@@ -240,7 +240,9 @@ describe("FilterBarInline", () => {
     await userEvent.click(screen.getByRole("checkbox", { name: /hammer/i }));
     expect(screen.getAllByRole("button", { name: /selected/i }).length).toBe(6);
     // click Clear All button
-    await userEvent.click(screen.getByRole("button", { name: /clear all filters/i }));
+    await userEvent.click(
+      screen.getByRole("button", { name: /clear all filters/i })
+    );
     expect(
       Object.keys(screen.findAllByRole("button", { name: /selected/i })).length
     ).toBe(0);
@@ -254,8 +256,10 @@ describe("FilterBarInline", () => {
       <FilterBarTestComponent onSubmit={mockonSubmit} id="filter-bar-test-4" />
     );
     // click Submit All button
-    await userEvent.click(screen.getByRole("button", { name: /apply filters/i }));
-    expect(mockonSubmit).toBeCalledTimes(1);
+    await userEvent.click(
+      screen.getByRole("button", { name: /apply filters/i })
+    );
+    expect(mockonSubmit).toHaveBeenCalledTimes(1);
   });
   it("renders the UI snapshots correctly", () => {
     const defaultFilterBarNoButtons = renderer
