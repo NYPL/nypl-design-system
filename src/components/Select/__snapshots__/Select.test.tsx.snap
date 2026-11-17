@@ -102,6 +102,92 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
         htmlFor="select"
         id="select-label"
       >
+        Sort by the following categories
+      </label>
+    </div>
+    <div
+      className="chakra-select__wrapper css-42b2qy"
+    >
+      <select
+        className="chakra-select css-1ik61og"
+        disabled={false}
+        id="select"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        required={false}
+      >
+        <option>
+          Sort by: Kendall
+        </option>
+        <option>
+          Shiv
+        </option>
+        <option>
+          Connor
+        </option>
+        <option>
+          Roman
+        </option>
+        <option>
+          Tom
+        </option>
+      </select>
+      <div
+        className="chakra-select__icon-wrapper css-162mkon"
+      >
+        <svg
+          aria-hidden={true}
+          className="chakra-icon chakra-select__icon css-1nreziu"
+          data-file-name="SvgArrow"
+          focusable={false}
+          id="select-select-icon"
+          role="presentation"
+          style={
+            {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
+          title="arrow icon"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="css-bl03f5"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="select-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
+</div>
+`;
+
+exports[`Select Renders the UI snapshot correctly 3`] = `
+<div
+  className="css-1u8qly9"
+  data-testid="ds-select"
+  id="select-componentWrapper"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <label
+        className="css-1xdhyk6"
+        data-testid="ds-label"
+        htmlFor="select"
+        id="select-label"
+      >
         Which Succession sibling are you?
       </label>
     </div>
@@ -169,7 +255,7 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
 </div>
 `;
 
-exports[`Select Renders the UI snapshot correctly 3`] = `
+exports[`Select Renders the UI snapshot correctly 4`] = `
 <div
   className="css-1u8qly9"
   data-testid="ds-select"
@@ -260,7 +346,7 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
 </div>
 `;
 
-exports[`Select Renders the UI snapshot correctly 4`] = `
+exports[`Select Renders the UI snapshot correctly 5`] = `
 <div
   className="css-1u8qly9"
   data-testid="ds-select"
@@ -345,94 +431,6 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
           "__html": "Remember, Logan will judge you no matter who you pick.",
         }
       }
-    />
-  </div>
-</div>
-`;
-
-exports[`Select Renders the UI snapshot correctly 5`] = `
-<div
-  className="css-1u8qly9"
-  data-testid="ds-select"
-  id="select-componentWrapper"
->
-  <div
-    className="css-0"
-  >
-    <div
-      className="css-0"
-    >
-      <label
-        className="css-1xdhyk6"
-        data-testid="ds-label"
-        htmlFor="select"
-        id="select-label"
-      >
-        Which Succession sibling are you?
-        <span>
-           (required)
-        </span>
-      </label>
-    </div>
-    <div
-      className="chakra-select__wrapper css-42b2qy"
-    >
-      <select
-        aria-required={true}
-        className="chakra-select css-1ik61og"
-        disabled={false}
-        id="select"
-        name="succession-sibling"
-        onBlur={[Function]}
-        onFocus={[Function]}
-        required={true}
-      >
-        <option>
-          Kendall
-        </option>
-        <option>
-          Shiv
-        </option>
-        <option>
-          Connor
-        </option>
-        <option>
-          Roman
-        </option>
-        <option>
-          Tom
-        </option>
-      </select>
-      <div
-        className="chakra-select__icon-wrapper css-162mkon"
-      >
-        <svg
-          aria-hidden={true}
-          className="chakra-icon chakra-select__icon css-1nreziu"
-          data-file-name="SvgArrow"
-          focusable={false}
-          id="select-select-icon"
-          role="presentation"
-          style={
-            {
-              "color": "currentColor",
-              "height": "1em",
-              "width": "1em",
-            }
-          }
-          title="arrow icon"
-        />
-      </div>
-    </div>
-  </div>
-  <div
-    className="css-bl03f5"
-    data-isinvalid={false}
-    data-testid="ds-helperErrorText"
-    id="select-helperErrorText"
-  >
-    <div
-      className="css-0"
     />
   </div>
 </div>
@@ -545,6 +543,94 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
         id="select-label"
       >
         Which Succession sibling are you?
+        <span>
+           (required)
+        </span>
+      </label>
+    </div>
+    <div
+      className="chakra-select__wrapper css-42b2qy"
+    >
+      <select
+        aria-required={true}
+        className="chakra-select css-1ik61og"
+        disabled={false}
+        id="select"
+        name="succession-sibling"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        required={true}
+      >
+        <option>
+          Kendall
+        </option>
+        <option>
+          Shiv
+        </option>
+        <option>
+          Connor
+        </option>
+        <option>
+          Roman
+        </option>
+        <option>
+          Tom
+        </option>
+      </select>
+      <div
+        className="chakra-select__icon-wrapper css-162mkon"
+      >
+        <svg
+          aria-hidden={true}
+          className="chakra-icon chakra-select__icon css-1nreziu"
+          data-file-name="SvgArrow"
+          focusable={false}
+          id="select-select-icon"
+          role="presentation"
+          style={
+            {
+              "color": "currentColor",
+              "height": "1em",
+              "width": "1em",
+            }
+          }
+          title="arrow icon"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="css-bl03f5"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="select-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
+</div>
+`;
+
+exports[`Select Renders the UI snapshot correctly 8`] = `
+<div
+  className="css-1u8qly9"
+  data-testid="ds-select"
+  id="select-componentWrapper"
+>
+  <div
+    className="css-0"
+  >
+    <div
+      className="css-0"
+    >
+      <label
+        className="css-1xdhyk6"
+        data-testid="ds-label"
+        htmlFor="select"
+        id="select-label"
+      >
+        Which Succession sibling are you?
       </label>
     </div>
     <div
@@ -612,7 +698,7 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`Select Renders the UI snapshot correctly 8`] = `
+exports[`Select Renders the UI snapshot correctly 9`] = `
 <div
   className="css-1y4kn3e"
   data-testid="ds-select"
@@ -696,7 +782,7 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
 </div>
 `;
 
-exports[`Select Renders the UI snapshot correctly 9`] = `
+exports[`Select Renders the UI snapshot correctly 10`] = `
 <div
   className="css-1u8qly9"
   data-testid="props"

@@ -282,6 +282,199 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
 <div
   className="css-awgckc"
   data-testid="ds-searchBar"
+  id="withSelectAndPrependText-componentWrapper"
+>
+  <form
+    aria-label="SearchBar label - Search for items in Animal Crossing New Horizons"
+    className="css-0"
+    id="withSelectAndPrependText-form"
+    onSubmit={[MockFunction]}
+  >
+    <div
+      className="css-1u8qly9"
+      data-select={true}
+      data-testid="ds-select"
+      id="withSelectAndPrependText-select-componentWrapper"
+    >
+      <div
+        className="css-0"
+      >
+        <div
+          className="chakra-select__wrapper css-42b2qy"
+        >
+          <select
+            aria-label="Select a category"
+            className="chakra-select css-1ik61og"
+            disabled={false}
+            id="withSelectAndPrependText-select"
+            name="selectName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+            required={false}
+            value="Songs"
+          >
+            <option
+              value="art"
+            >
+              Art
+            </option>
+            <option
+              value="bushes"
+            >
+              Bushes
+            </option>
+            <option
+              value="clothing"
+            >
+              Clothing
+            </option>
+            <option
+              value="flowers"
+            >
+              Flowers
+            </option>
+            <option
+              value="fossils"
+            >
+              Fossils
+            </option>
+            <option
+              value="fruits"
+            >
+              Fruits
+            </option>
+            <option
+              value="furniture"
+            >
+              Furniture
+            </option>
+            <option
+              value="songs"
+            >
+              Songs
+            </option>
+            <option
+              value="tools"
+            >
+              Tools
+            </option>
+            <option
+              value="villagers"
+            >
+              Villagers
+            </option>
+          </select>
+          <div
+            className="chakra-select__icon-wrapper css-162mkon"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon chakra-select__icon css-1nreziu"
+              data-file-name="SvgArrow"
+              focusable={false}
+              id="withSelectAndPrependText-select-select-icon"
+              role="presentation"
+              style={
+                {
+                  "color": "currentColor",
+                  "height": "1em",
+                  "width": "1em",
+                }
+              }
+              title="arrow icon"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="css-bl03f5"
+        data-isinvalid={false}
+        data-testid="ds-helperErrorText"
+        id="withSelectAndPrependText-select-helperErrorText"
+      />
+    </div>
+    <div
+      className="css-1ik4laa"
+    >
+      <div
+        className="ds-searchBar-textInput css-1u8qly9"
+        data-testid="ds-textInput"
+        id="withSelectAndPrependText-textInput-componentWrapper"
+      >
+        <div
+          className="css-79elbk"
+        >
+          <input
+            aria-describedby="withSelectAndPrependText-helperErrorText"
+            aria-label="Item Search"
+            autoComplete={null}
+            className="chakra-input css-0"
+            disabled={false}
+            id="withSelectAndPrependText-textInput"
+            name="textInputName"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Item Search "
+            required={false}
+            step={null}
+            type="text"
+          />
+        </div>
+        <div
+          className="css-1xdhyk6"
+          data-isinvalid={false}
+          data-testid="ds-helperErrorText"
+          id="withSelectAndPrependText-textInput-helperErrorText"
+        />
+      </div>
+      <button
+        className="chakra-button ds-searchBar-button css-1xdhyk6"
+        data-button={true}
+        data-testid="ds-button"
+        id="withSelectAndPrependText-submit-button"
+        type="submit"
+      >
+        <svg
+          aria-hidden={true}
+          className="chakra-icon css-1vgifmd"
+          data-file-name="SvgSearch"
+          focusable={false}
+          id="withSelectAndPrependText-submit-icon"
+          role="img"
+          title="search icon"
+        />
+        <span>
+          Search
+        </span>
+      </button>
+    </div>
+  </form>
+  <div
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="withSelectAndPrependText-helperErrorText"
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Search for items in Animal Crossing New Horizons",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`SearchBar renders the UI snapshot correctly 4`] = `
+<div
+  className="css-awgckc"
+  data-testid="ds-searchBar"
   id="withoutHelperText-componentWrapper"
 >
   <form
@@ -359,7 +552,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 4`] = `
+exports[`SearchBar renders the UI snapshot correctly 5`] = `
 <div
   className="css-awgckc"
   data-testid="ds-searchBar"
@@ -446,7 +639,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 5`] = `
+exports[`SearchBar renders the UI snapshot correctly 6`] = `
 <div
   className="css-awgckc"
   data-testid="ds-searchBar"
@@ -529,7 +722,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 6`] = `
+exports[`SearchBar renders the UI snapshot correctly 7`] = `
 <div
   className="css-awgckc"
   data-testid="ds-searchBar"
@@ -611,7 +804,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 7`] = `
+exports[`SearchBar renders the UI snapshot correctly 8`] = `
 <div
   className="css-awgckc"
   data-testid="ds-searchBar"
@@ -694,7 +887,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 8`] = `
+exports[`SearchBar renders the UI snapshot correctly 9`] = `
 <div
   className="css-awgckc"
   data-testid="ds-searchBar"
@@ -777,7 +970,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 9`] = `
+exports[`SearchBar renders the UI snapshot correctly 10`] = `
 <div
   className="css-awgckc"
   data-testid="ds-searchBar"
@@ -834,7 +1027,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 10`] = `
+exports[`SearchBar renders the UI snapshot correctly 11`] = `
 <div
   className="css-awgckc"
   data-testid="ds-searchBar"
@@ -890,7 +1083,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 11`] = `
+exports[`SearchBar renders the UI snapshot correctly 12`] = `
 <div
   className="css-awgckc"
   data-testid="ds-searchBar"
@@ -953,7 +1146,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 12`] = `
+exports[`SearchBar renders the UI snapshot correctly 13`] = `
 <div
   className="css-z7xmmg"
   data-testid="ds-searchBar"
@@ -1040,7 +1233,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
 </div>
 `;
 
-exports[`SearchBar renders the UI snapshot correctly 13`] = `
+exports[`SearchBar renders the UI snapshot correctly 14`] = `
 <div
   className="css-awgckc"
   data-testid="props"
