@@ -74,7 +74,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
               className="css-p6aqpp"
             >
               <fieldset
-                className="css-1u8qly9"
+                className="css-11ksel3"
                 data-testid="ds-checkboxGroup"
                 id="multiselect-test-id-checkboxGroup"
               >
@@ -728,7 +728,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
               className="css-p6aqpp"
             >
               <fieldset
-                className="css-1u8qly9"
+                className="css-11ksel3"
                 data-testid="ds-checkboxGroup"
                 id="multiselect-test-id-checkboxGroup"
               >
@@ -1382,7 +1382,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
               className="css-p6aqpp"
             >
               <fieldset
-                className="css-1u8qly9"
+                className="css-11ksel3"
                 data-testid="ds-checkboxGroup"
                 id="multiselect-test-id-checkboxGroup"
               >
@@ -2098,7 +2098,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
               className="css-p6aqpp"
             >
               <fieldset
-                className="css-1u8qly9"
+                className="css-11ksel3"
                 data-testid="ds-checkboxGroup"
                 id="multiselect-test-id-checkboxGroup"
               >

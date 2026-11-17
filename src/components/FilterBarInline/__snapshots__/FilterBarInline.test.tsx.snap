@@ -16,7 +16,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-17kb4cl"
+      className="css-iziy0y"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -101,7 +101,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="colors-checkboxGroup"
                       >
@@ -409,7 +409,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="pets-checkboxGroup"
                       >
@@ -921,7 +921,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="tools-checkboxGroup"
                       >
@@ -1392,7 +1392,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-17kb4cl"
+      className="css-iziy0y"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -1477,7 +1477,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="colors-checkboxGroup"
                       >
@@ -1785,7 +1785,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="pets-checkboxGroup"
                       >
@@ -2297,7 +2297,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="tools-checkboxGroup"
                       >
@@ -2782,7 +2782,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-17kb4cl"
+      className="css-iziy0y"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -2867,7 +2867,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="colors-checkboxGroup"
                       >
@@ -3175,7 +3175,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="pets-checkboxGroup"
                       >
@@ -3687,7 +3687,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="tools-checkboxGroup"
                       >
@@ -4172,7 +4172,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-17kb4cl"
+      className="css-iziy0y"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -4257,7 +4257,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="colors-checkboxGroup"
                       >
@@ -4565,7 +4565,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="pets-checkboxGroup"
                       >
@@ -5077,7 +5077,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
                       className="css-p6aqpp"
                     >
                       <fieldset
-                        className="css-1u8qly9"
+                        className="css-11ksel3"
                         data-testid="ds-checkboxGroup"
                         id="tools-checkboxGroup"
                       >
