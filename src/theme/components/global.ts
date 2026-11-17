@@ -42,7 +42,7 @@ const checkboxRadioControlSize = {
   h: "1.375rem",
   w: "1.375rem",
 };
-// Used in `Checkbox` and `Radio`.
+// Used in `Radio`.
 const checkboxRadioHelperErrorTextStyles = {
   mt: "6px", // TODO: Replace with v5.inputShared.helperText.marginTop
 };

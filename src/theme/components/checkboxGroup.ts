@@ -6,7 +6,7 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const CheckboxGroup = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
     helperErrorText: {
-      marginTop: "6px", // TODO: Replace with v5.inputShared.helperText.marginTop
+      marginTop: "v5.inputShared.helperText.marginTop",
     },
   }),
 });

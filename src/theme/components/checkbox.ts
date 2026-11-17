@@ -4,10 +4,7 @@ import { defineStyle } from "@chakra-ui/system";
 // @see https://github.com/chakra-ui/chakra-ui/blob/main/packages/components/theme/src/components/checkbox.ts
 // for available theme override options.
 
-import {
-  checkboxRadioHelperErrorTextStyles,
-  checkboxRadioLabelStyles,
-} from "./global";
+import { checkboxRadioLabelStyles } from "./global";
 
 // This function creates a set of function that helps us
 // create multipart component styles.
@@ -124,7 +121,9 @@ const baseStyle = definePartsStyle(() => ({
     },
   },
   control: baseStyleControl,
-  helperErrorText: checkboxRadioHelperErrorTextStyles,
+  helperErrorText: {
+    marginTop: "v5.inputShared.helperText.marginTop",
+  },
   icon: baseStyleIcon,
   // Controls the font-size of the label only.
   label: {
