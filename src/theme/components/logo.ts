@@ -10,65 +10,43 @@ const svgBase = (sizeBasedOn: "height" | "width") => {
 };
 
 const size = {
-  default: {
-    maxWidth: "100%",
+  sm: {
+    maxWidth: "v5.logo.sm",
   },
-  xxsmall: {
-    maxWidth: "64px",
+  md: {
+    maxWidth: "v5.logo.md",
   },
-  xsmall: {
-    maxWidth: "96px",
+  lg: {
+    maxWidth: "v5.logo.lg",
   },
-  small: {
-    maxWidth: "165px",
+  xl: {
+    maxWidth: "v5.logo.xl",
   },
-  medium: {
-    maxWidth: "225px",
+  "2xl": {
+    maxWidth: "v5.logo.2xl",
   },
-  large: {
-    maxWidth: "360px",
-  },
-  xlarge: {
-    maxWidth: "360px",
-  },
-  xxlarge: {
-    height: "var(--nypl-space-xl)",
-    width: "var(--nypl-space-xl)",
-  },
-  xxxlarge: {
-    height: "var(--nypl-space-xxl)",
-    width: "var(--nypl-space-xxl)",
+  "3xl": {
+    maxWidth: "v5.logo.3xl",
   },
 };
 const sizeBasedOnHeight = {
-  default: {
-    maxHeight: "100%",
+  sm: {
+    maxHeight: "v5.logo.sm",
   },
-  xxsmall: {
-    maxHeight: "64px",
+  md: {
+    maxHeight: "v5.logo.md",
   },
-  xsmall: {
-    maxHeight: "96px",
+  lg: {
+    maxHeight: "v5.logo.lg",
   },
-  small: {
-    maxHeight: "165px",
+  xl: {
+    maxHeight: "v5.logo.xl",
   },
-  medium: {
-    maxHeight: "225px",
+  "2xl": {
+    maxHeight: "v5.logo.2xl",
   },
-  large: {
-    maxHeight: "360px",
-  },
-  xlarge: {
-    maxHeight: "360px",
-  },
-  xxlarge: {
-    height: "var(--nypl-space-xl)",
-    width: "var(--nypl-space-xl)",
-  },
-  xxxlarge: {
-    height: "var(--nypl-space-xxl)",
-    width: "var(--nypl-space-xxl)",
+  "3xl": {
+    maxHeight: "v5.logo.3xl",
   },
 };
 

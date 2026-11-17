@@ -169,7 +169,9 @@ export const typography = {
   },
   lineHeights: {
     body: "24px",
-    helper: "24px",
+    body2: "21px",
+    body3: "18px",
+    helper: "20px",
     overline: "16px",
     semantic: {
       tiny: "15px",

@@ -1,5 +1,7 @@
 // Generated file from v5-tokens/color/color.tokens.json. Do not edit manually.
 export const colors = {
+  genericBlack: "#000000",
+  genericWhite: "#FFFFFF",
   fadeStart: "rgba(255, 255, 255, 0)",
   surface: {
     page: "#FFFFFF",
@@ -177,6 +179,33 @@ export const colors = {
     },
   },
   brand: {
+    subtle: {
+      lpa: {
+        muted: "#ECFBF8",
+        default: "#D1F3EE",
+        emphasis: "#9DE1D6",
+      },
+      nyplred: {
+        muted: "#FFECEC",
+        default: "#FFD1D1",
+        emphasis: "#FF9D9D",
+      },
+      research: {
+        muted: "#ECFAFB",
+        default: "#D1F2F5",
+        emphasis: "#9DDEE3",
+      },
+      schomburg: {
+        muted: "#FFF1EC",
+        default: "#FFE0D1",
+        emphasis: "#FBBD9D",
+      },
+    },
+    lpa: {
+      muted: "#69C8BA",
+      default: "#008675",
+      emphasis: "#004F45",
+    },
     nyplred: {
       muted: "#F56969",
       default: "#C60917",
@@ -187,8 +216,18 @@ export const colors = {
       default: "#00838A",
       emphasis: "#004D51",
     },
+    schomburg: {
+      muted: "#EF9D71",
+      default: "#C4622D",
+      emphasis: "#743A1B",
+    },
   },
   semantic: {
+    focus: {
+      muted: "#699FFA",
+      default: "#005FCC",
+      emphasis: "#003878",
+    },
     important: {
       muted: "#FFD269",
       default: "#F4A202",
@@ -356,6 +395,8 @@ export const colors = {
   button: {
     solid: {
       primary: {
+        icon: "#FFFFFF",
+        text: "#FFFFFF",
         bg: {
           default: "#C60917",
           hover: "#75050E",
@@ -365,19 +406,11 @@ export const colors = {
           default: "#C60917",
           hover: "#75050E",
           disabled: "#CCCCCC",
-        },
-        icon: {
-          default: "#FFFFFF",
-          hover: "#FFFFFF",
-          disabled: "#FFFFFF",
-        },
-        text: {
-          default: "#FFFFFF",
-          hover: "#FFFFFF",
-          disabled: "#FFFFFF",
         },
       },
       secondary: {
+        icon: "#FFFFFF",
+        text: "#FFFFFF",
         bg: {
           default: "#666666",
           hover: "#474747",
@@ -387,16 +420,6 @@ export const colors = {
           default: "#666666",
           hover: "#474747",
           disabled: "#CCCCCC",
-        },
-        icon: {
-          default: "#FFFFFF",
-          hover: "#FFFFFF",
-          disabled: "#FFFFFF",
-        },
-        text: {
-          default: "#FFFFFF",
-          hover: "#FFFFFF",
-          disabled: "#FFFFFF",
         },
       },
       tertiary: {
@@ -411,17 +434,17 @@ export const colors = {
           disabled: "#CCCCCC",
         },
         icon: {
-          default: "#292929",
-          hover: "#292929",
           disabled: "#FFFFFF",
+          default: "#292929",
         },
         text: {
-          default: "#292929",
-          hover: "#292929",
           disabled: "#FFFFFF",
+          default: "#292929",
         },
       },
       transactional: {
+        icon: "#FFFFFF",
+        text: "#FFFFFF",
         bg: {
           default: "#008000",
           hover: "#004C00",
@@ -431,16 +454,6 @@ export const colors = {
           default: "#008000",
           hover: "#004C00",
           disabled: "#CCCCCC",
-        },
-        icon: {
-          default: "#FFFFFF",
-          hover: "#FFFFFF",
-          disabled: "#FFFFFF",
-        },
-        text: {
-          default: "#FFFFFF",
-          hover: "#FFFFFF",
-          disabled: "#FFFFFF",
         },
       },
     },
@@ -505,6 +518,32 @@ export const colors = {
         default: "#666666",
         hover: "#474747",
         disabled: "#CCCCCC",
+      },
+    },
+    textonly: {
+      primary: {
+        icon: {
+          default: "#02729E",
+          hover: "#01435D",
+          disabled: "#CCCCCC",
+        },
+        text: {
+          default: "#02729E",
+          hover: "#01435D",
+          disabled: "#CCCCCC",
+        },
+      },
+      secondary: {
+        icon: {
+          default: "#666666",
+          hover: "#474747",
+          disabled: "#CCCCCC",
+        },
+        text: {
+          default: "#666666",
+          hover: "#474747",
+          disabled: "#CCCCCC",
+        },
       },
     },
   },
@@ -646,8 +685,11 @@ export const colors = {
       overlay: "rgba(0, 0, 0, 0.4)",
     },
   },
+  multiselect: {
+    border: "#CCCCCC",
+  },
   newsletterSignup: {
-    border: "#949494",
+    border: "#CCCCCC",
     bg: "#F6F6F6",
   },
   notification: {
@@ -786,7 +828,7 @@ export const colors = {
   },
   table: {
     border: {
-      default: "#949494",
+      default: "#CCCCCC",
     },
     heading: {
       mobile: "#666666",
@@ -801,19 +843,24 @@ export const colors = {
   },
   tag: {
     icon: {
-      default: "#666666",
-      link: "#C60917",
+      filter: "#666666",
+      explore: "#C60917",
     },
     bg: {
-      hover: "#F0F0F0",
+      filter: {
+        hover: "#F0F0F0",
+      },
+      link: {
+        hover: "#FFECEC",
+      },
     },
     border: {
-      default: "#949494",
-      link: "#C60917",
+      filter: "#949494",
+      explore: "#C60917",
     },
     text: {
-      default: "#474747",
-      link: "#C60917",
+      filter: "#474747",
+      explore: "#C60917",
     },
   },
   toggle: {
@@ -835,15 +882,15 @@ export const colors = {
         default: "#C60917",
       },
     },
+    label: {
+      error: "#A82009",
+    },
     border: {
       default: "#666666",
       hover: "#474747",
       error: "#A82009",
       selected: "#C60917",
       disabled: "#CCCCCC",
-    },
-    label: {
-      error: "#A82009",
     },
   },
   universalHeader: {
