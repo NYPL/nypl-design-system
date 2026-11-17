@@ -198,6 +198,8 @@ export type {
 } from "./components/Notification/Notification";
 export { default as Pagination } from "./components/Pagination/Pagination";
 export type { PaginationProps } from "./components/Pagination/Pagination";
+export { default as PlaceholderImage } from "./components/PlaceholderImage/PlaceholderImage";
+export type { PlaceholderImageProps } from "./components/PlaceholderImage/PlaceholderImage";
 export { default as ProgressIndicator } from "./components/ProgressIndicator/ProgressIndicator";
 export type {
   ProgressIndicatorProps,
