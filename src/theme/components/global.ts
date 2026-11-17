@@ -25,6 +25,7 @@ const activeFocus = (darkMode = false) => ({
 });
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = (isFullWidth = false) => ({
+  display: "block",
   color: "v5.text.body.default",
   userSelect: "none",
   marginBottom: "0",

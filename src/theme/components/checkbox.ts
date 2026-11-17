@@ -99,7 +99,7 @@ const sizes = {
   lg: definePartsStyle({ label: { fontSize: "v5.body" } }),
 };
 
-const baseStyle = definePartsStyle(({ isFullWidth = false }) => ({
+const baseStyle = definePartsStyle(() => ({
   container: {
     alignItems: "center",
     position: "relative",
@@ -130,16 +130,30 @@ const baseStyle = definePartsStyle(({ isFullWidth = false }) => ({
   label: {
     cursor: "pointer",
     verticalAlign: "top",
-    ...checkboxRadioLabelStyles(isFullWidth),
+    ...checkboxRadioLabelStyles(false),
     _invalid: {
       color: "v5.checkbox.label.error",
     },
   },
 }));
 
+const variants = {
+  fullWidth: definePartsStyle({
+    // The container is hardcoded by Chakra as `display: inline-flex`, which
+    // always shrinks to its content. Without an explicit width, the label's own
+    // `width: 100%` resolves as `auto`, so both the container AND the label
+    // need an explicit width for this to work.
+    container: {
+      width: "100%",
+    },
+    label: checkboxRadioLabelStyles(true),
+  }),
+};
+
 const Checkbox = defineMultiStyleConfig({
   baseStyle,
   sizes,
+  variants,
 });
 
 export default Checkbox;
