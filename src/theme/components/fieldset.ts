@@ -15,7 +15,7 @@ const Fieldset = defineStyleConfig({
       border: 0,
       padding: 0,
       legend: {
-        mb: "legend.default", // TODO: v5.inputShared.label.marginBottom
+        mb: "v5.inputShared.label.marginBottom",
         ...labelLegendText,
         ...screenreaderStyles,
       },
