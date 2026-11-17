@@ -182,6 +182,20 @@ export const space = {
       paddingY: "32px",
     },
   },
+  inputShared: {
+    group: {
+      gap: {
+        column: "12px",
+        row: "32px",
+      },
+    },
+    label: {
+      marginBottom: "8px",
+    },
+    helperText: {
+      marginTop: "6px",
+    },
+  },
   link: {
     gap: "4px",
   },
@@ -326,14 +340,14 @@ export const space = {
     paddingX: "16px",
   },
   tag: {
+    gap: "4px",
     paddingX: "12px",
     paddingY: "4px",
-    gap: {
-      icon: "4px",
-      button: "4px",
-    },
   },
   tagSet: {
+    gap: "8px",
+  },
+  select: {
     gap: "8px",
   },
   container: {

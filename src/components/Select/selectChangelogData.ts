@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "New Feature",
+    affects: ["Functionality"],
+    notes: [
+      "Added the `prependText` prop to prepend a string to the label of the currently selected option.",
+    ],
+  },
+  {
     date: "2026-06-09",
     version: "4.2.0",
     type: "Update",
