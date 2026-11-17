@@ -13,7 +13,7 @@ import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
 import { LayoutTypes } from "../../helpers/types";
-import { spacing } from "../../theme/foundations/spacing";
+import { space } from "../../theme/generated/space";
 import { useSafeId } from "../../hooks/useSafeId";
 import { CheckboxGroupContext } from "./CheckboxGroupContext";
 
@@ -93,8 +93,8 @@ export const CheckboxGroup: ChakraComponent<
       const footnote = isInvalid ? invalidText : helperText;
       const spacingProp =
         layout === "column"
-          ? spacing.input.group.default.vstack
-          : spacing.input.group.default.hstack;
+          ? space.checkboxGroup.gap.column
+          : space.checkboxGroup.gap.row;
       const checkboxProps =
         defaultValue && onChange
           ? {
@@ -110,15 +110,16 @@ export const CheckboxGroup: ChakraComponent<
       const checkboxGroupContextValue = useMemo(
         () => ({
           isDisabled,
+          isFullWidth,
           isInvalid,
           isRequired,
           name,
         }),
-        [isDisabled, isInvalid, isRequired, name]
+        [isDisabled, isFullWidth, isInvalid, isRequired, name]
       );
 
       // Get the Chakra-based styles for the custom elements in this component.
-      const styles = useMultiStyleConfig("CheckboxGroup", { isFullWidth });
+      const styles = useMultiStyleConfig("CheckboxGroup", {});
 
       return (
         <Fieldset
