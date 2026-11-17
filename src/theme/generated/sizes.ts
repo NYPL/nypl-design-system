@@ -22,6 +22,7 @@ export const sizes = {
       tabletSmall: "991px",
       mobile: "767px",
       mobileSmall: "479px",
+      default: "1360px",
     },
     textBlock: {
       maxWidth: "720px",
@@ -46,14 +47,7 @@ export const sizes = {
   },
   filterBar: {
     popup: {
-      maxWidth: {
-        desktop: "480px",
-        mobileLarge: "767px",
-        mobileSmall: "767px",
-        mobileXlarge: "767px",
-        tabletLarge: "480px",
-        tabletSmall: "480px",
-      },
+      maxWidth: "480px",
     },
   },
   form: {
