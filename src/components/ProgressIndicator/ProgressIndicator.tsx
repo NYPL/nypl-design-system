@@ -22,10 +22,12 @@ export const progressIndicatorLabelPlacementsArray = [
   "left",
 ] as const;
 
-export type ProgressIndicatorSizes = typeof progressIndicatorSizesArray[number];
-export type ProgressIndicatorTypes = typeof progressIndicatorTypesArray[number];
+export type ProgressIndicatorSizes =
+  (typeof progressIndicatorSizesArray)[number];
+export type ProgressIndicatorTypes =
+  (typeof progressIndicatorTypesArray)[number];
 export type ProgressIndicatorLabelPlacements =
-  typeof progressIndicatorLabelPlacementsArray[number];
+  (typeof progressIndicatorLabelPlacementsArray)[number];
 
 interface BaseProgressIndicatorProps extends BoxProps {
   /** Whether the `ProgressIndicator` should be linear or circular. */
@@ -56,8 +58,7 @@ interface CircularProgressIndicatorProps extends BaseProgressIndicatorProps {
 }
 
 export type ProgressIndicatorProps =
-  | LinearProgressIndicatorProps
-  | CircularProgressIndicatorProps;
+  LinearProgressIndicatorProps | CircularProgressIndicatorProps;
 
 /**
  * `ProgressIndicator` displays a progress status for any task that takes a long
@@ -114,9 +115,13 @@ export const ProgressIndicator: ChakraComponent<
       if (indicatorType === "circular") {
         return (
           <Box __css={styles.circularContainer}>
-            <ChakraCircularProgress {...progressProps} sx={styles.circular}>
+            <ChakraCircularProgress
+              {...progressProps}
+              sx={styles.circular}
+              thickness="12.5px"
+            >
               {showLabel && !isIndeterminate && size !== "small" && (
-                <ChakraCircularProgressLabel>
+                <ChakraCircularProgressLabel sx={styles.circularPercentage}>
                   {finalValue}%
                 </ChakraCircularProgressLabel>
               )}
@@ -141,6 +146,7 @@ export const ProgressIndicator: ChakraComponent<
               id={`${mainId}-label`}
               htmlFor={`${mainId}-progress`}
               mb="xxs"
+              sx={styles.linearLabel}
             >
               {labelText}
             </Label>

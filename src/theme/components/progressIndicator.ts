@@ -14,8 +14,10 @@ const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers([
     "circular",
     "circularLabel",
+    "circularPercentage",
     "linear",
     "linearContainer",
+    "linearLabel",
     "linearPercentage",
   ]);
 
@@ -46,10 +48,9 @@ const getCircularContainerFlexDir = (labelPlacement) => {
 const ProgressIndicator = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
     ({ size, labelPlacement }: ProgressIndicatorBaseStyle) => {
-      const circularLabelMargin = size === "default" ? "xs" : "xxs";
       return {
-        color: "ui.typography.heading",
-        fontSize: "v5.label.primary",
+        color: "v5.text.label",
+        fontSize: "v5.progressIndicator.percentage.linear",
         circular: {
           // Note: we have to target the SVG HTMl elements in order
           // to override the default styles.
@@ -74,11 +75,21 @@ const ProgressIndicator = defineMultiStyleConfig({
           width: "fit-content",
         },
         circularLabel: {
-          marginBottom: labelPlacement === "top" ? circularLabelMargin : 0,
-          marginLeft: labelPlacement === "right" ? circularLabelMargin : 0,
-          marginRight: labelPlacement === "left" ? circularLabelMargin : 0,
-          marginTop: labelPlacement === "bottom" ? circularLabelMargin : 0,
-          fontSize: "v5.label.primary",
+          marginBottom: labelPlacement === "top" ? "xxs" : 0,
+          marginLeft: labelPlacement === "right" ? "xxs" : 0,
+          marginRight: labelPlacement === "left" ? "xxs" : 0,
+          marginTop: labelPlacement === "bottom" ? "xxs" : 0,
+          color: "v5.text.label",
+          fontSize:
+            size === "default" ? "v5.label.primary" : "v5.label.secondary",
+          fontWeight:
+            size === "default" ? "v5.label.primary" : "v5.label.secondary",
+          lineHeight:
+            size === "default" ? "v5.label.primary" : "v5.label.secondary",
+        },
+        circularPercentage: {
+          fontSize: "v5.progressIndicator.percentage.circular",
+          lineHeight: "v5.progressIndicator.percentage.circular",
         },
         linear: {
           // Hard to target this specific element without using
@@ -97,10 +108,18 @@ const ProgressIndicator = defineMultiStyleConfig({
         linearContainer: {
           display: "flex",
           alignItems: "center",
+          height: "20px",
+        },
+        linearLabel: {
+          color: "v5.text.label",
+          fontSize: "v5.label.primary",
+          lineHeight: "v5.label.primary",
+          fontWeight: "v5.label.primary",
         },
         linearPercentage: {
           padding: "0 var(--nypl-space-xs)",
           flex: 1,
+          lineHeight: "v5.progressIndicator.percentage.linear",
         },
       };
     }
