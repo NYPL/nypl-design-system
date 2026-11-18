@@ -57,8 +57,7 @@ export type TextInputProps = Pick<InitialInputProps, "labelText" | "name"> &
   >;
 
 export interface SearchBarProps
-  extends
-    Pick<BoxProps, keyof ChakraProps>,
+  extends Pick<BoxProps, keyof ChakraProps>,
     Omit<FormHTMLAttributes<HTMLFormElement>, "color"> {
   /** The onClick callback function for the `Button` component. */
   buttonOnClick?: (event: React.MouseEvent | React.KeyboardEvent) => void;
@@ -231,7 +230,7 @@ export const SearchBar: ChakraComponent<
           __css={styles}
         >
           {selectElem}
-          <Box sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <Box __css={styles.inputRow}>
             {textInputElem}
             {buttonElem}
           </Box>
