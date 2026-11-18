@@ -20,7 +20,7 @@ import { changelogData } from "./multiSelectGroupChangelogData";
   componentName="MultiSelectGroup"
   summary="Grouping of related MultiSelect components"
   versionAdded="1.4.0"
-  versionLatest="4.0.1"
+  versionLatest="5.0.0"
 />
 
 <Canvas of={MultiSelectGroupStories.WithControls} />
@@ -31,6 +31,7 @@ import { changelogData } from "./multiSelectGroupChangelogData";
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
 - [Layout Patterns](#layout-patterns)
+- [Dividers](#dividers)
 - [Passing MultiSelect Children](#passing-multiselect-children)
 - [Close on Blur State](#close-on-blur-state)
 - [Changelog](#changelog)
@@ -78,6 +79,13 @@ On screen width under 600px width the `layout` is automatically set to "column"
 and the `multiSelectWidth` to "full".
 
 <Canvas of={MultiSelectGroupStories.LayoutPatterns} />
+
+## Dividers
+
+Set `showDividers` to `true` to render dividers. In a `"column"` layout, the divider is rendered above, and below
+the `MultiSelect` components. In a `"row"` layout, a line is rendered above and below the group.
+
+<Canvas of={MultiSelectGroupStories.WithDividers} />
 
 ## Passing MultiSelect Children
 
