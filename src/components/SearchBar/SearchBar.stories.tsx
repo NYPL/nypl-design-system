@@ -316,3 +316,35 @@ export const SearchBarValueExample: Story = {
   render: () => <SearchBarValueExampleComponent />,
   name: "TextInput and onSubmit Values",
 };
+
+function SearchBarWithPrependTextComponent() {
+  const [selectValue, setSelectValue] = useState("art");
+  const selectOnChange = (event) => setSelectValue(event.target.value);
+
+  return (
+    <SearchBar
+      helperText="The selected category's label is prefixed with 'Category: '."
+      id="prepend-text-example"
+      labelText="Search by category"
+      onSubmit={() => {}}
+      selectProps={{
+        labelText: "Select a category",
+        name: "selectName",
+        onChange: selectOnChange,
+        optionsData: optionsGroup,
+        prependText: "Category: ",
+        value: selectValue,
+      }}
+      textInputProps={{
+        labelText: "Item Search",
+        name: "textInputName",
+        placeholder: "Item Search",
+      }}
+    />
+  );
+}
+
+export const WithPrependText: Story = {
+  render: () => <SearchBarWithPrependTextComponent />,
+  name: "With Prepend Text",
+};

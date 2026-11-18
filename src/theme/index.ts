@@ -45,6 +45,7 @@ import Notification from "./components/notification";
 import NotificationContent from "./components/notificationContent";
 import NotificationHeading from "./components/notificationHeading";
 import Pagination from "./components/pagination";
+import PlaceholderImage from "./components/placeholderImage";
 import ProgressIndicator from "./components/progressIndicator";
 import Radio, { RadioWrapper } from "./components/radio";
 import RadioGroup from "./components/radioGroup";
@@ -163,6 +164,7 @@ const theme: any = {
     NotificationHeading,
     NewsletterSignup,
     Pagination,
+    PlaceholderImage,
     ProgressIndicator,
     Radio,
     RadioGroup,
