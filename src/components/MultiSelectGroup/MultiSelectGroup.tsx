@@ -1,4 +1,10 @@
-import { BoxProps, chakra, ChakraComponent, Stack } from "@chakra-ui/react";
+import {
+  BoxProps,
+  chakra,
+  ChakraComponent,
+  Stack,
+  useStyleConfig,
+} from "@chakra-ui/react";
 import React, { forwardRef } from "react";
 
 import Fieldset from "../Fieldset/Fieldset";
@@ -21,6 +27,8 @@ export interface MultiSelectGroupProps extends BoxProps {
     isBlockElement?: boolean;
     multiSelectWidth?: MultiSelectWidths;
   }) => React.ReactNode;
+  /** Renders 1px dividers between items for column or above and below the group for row. */
+  showDividers?: boolean;
   /** Is set to `true` by default and determines if the `labelText` is visible on the site. */
   showLabel?: boolean;
 }
@@ -44,11 +52,16 @@ export const MultiSelectGroup: ChakraComponent<
       labelText,
       layout = "row",
       multiSelectWidth = "full",
+      showDividers = false,
       showLabel = true,
       renderMultiSelect,
       ...rest
     } = props;
     const mainId = useSafeId(id);
+    const styles = useStyleConfig("MultiSelectGroup", {
+      variant: layout,
+      showDividers,
+    });
 
     return (
       <Fieldset
@@ -57,28 +70,22 @@ export const MultiSelectGroup: ChakraComponent<
         legendText={labelText}
         isLegendHidden={!showLabel}
         {...rest}
-        __css={{ legend: { mb: "legend.asLabel" } }}
+        __css={{ legend: { mb: "v5.density.condensed" } }}
       >
         <Stack
-          columnGap="xs"
           data-testid={`${mainId}-multiselectGroup-stack`}
           direction={{ base: "column", md: layout }}
           id={mainId}
           ref={ref}
-          rowGap="xs"
-          spacing="xs"
+          spacing={0}
           wrap={
             layout === "row" && multiSelectWidth === "fitContent"
               ? "wrap"
               : null
           }
           sx={{
+            ...styles,
             flexDirection: { base: "column", md: layout },
-            "> div": {
-              _notFirst: {
-                mx: "0",
-              },
-            },
           }}
         >
           {renderMultiSelect({
