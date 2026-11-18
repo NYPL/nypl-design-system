@@ -1,4 +1,4 @@
-// Generated file from v5-tokens/spacing/*.tokens.json. Do not edit manually.
+// Generated file from v5-tokens/{spacing,responsive}/*.tokens.json. Do not edit manually.
 export const space = {
   "3xs": "2px",
   "2xs": "4px",
@@ -9,40 +9,6 @@ export const space = {
   xl: "48px",
   "2xl": "64px",
   "3xl": "96px",
-  responsive: {
-    container: {
-      paddingX: {
-        mobileLarge: "20px",
-        mobileSmall: "20px",
-        mobileXlarge: "20px",
-        tabletLarge: "48px",
-        tabletSmall: "24px",
-      },
-    },
-    grid: {
-      condensed: {
-        mobileLarge: "8px",
-        mobileSmall: "8px",
-        mobileXlarge: "8px",
-        tabletLarge: "16px",
-        tabletSmall: "16px",
-      },
-      normal: {
-        mobileLarge: "16px",
-        mobileSmall: "16px",
-        mobileXlarge: "16px",
-        tabletLarge: "24px",
-        tabletSmall: "24px",
-      },
-      spacious: {
-        mobileLarge: "24px",
-        mobileSmall: "24px",
-        mobileXlarge: "24px",
-        tabletLarge: "32px",
-        tabletSmall: "32px",
-      },
-    },
-  },
   density: {
     touching: "0px",
     cramped: "2px",
@@ -186,11 +152,9 @@ export const space = {
     row: {
       paddingY: "24px",
       paddingX: {
-        mobileLarge: "20px",
-        mobileSmall: "20px",
-        mobileXlarge: "20px",
-        tabletLarge: "48px",
-        tabletSmall: "24px",
+        mobile: "20px",
+        tablet: "24px",
+        desktop: "48px",
       },
     },
   },
@@ -200,26 +164,36 @@ export const space = {
   hero: {
     background: {
       paddingY: {
-        mobileLarge: "20px",
-        mobileSmall: "20px",
-        mobileXlarge: "20px",
-        tabletLarge: "48px",
-        tabletSmall: "24px",
+        mobile: "20px",
+        tablet: "24px",
+        desktop: "48px",
       },
     },
     container: {
       paddingX: {
-        mobileLarge: "20px",
-        mobileSmall: "20px",
-        mobileXlarge: "20px",
-        tabletLarge: "48px",
-        tabletSmall: "24px",
+        mobile: "20px",
+        tablet: "24px",
+        desktop: "48px",
       },
       paddingY: "0px",
     },
     content: {
       paddingX: "32px",
       paddingY: "32px",
+    },
+  },
+  inputShared: {
+    group: {
+      gap: {
+        column: "12px",
+        row: "32px",
+      },
+    },
+    label: {
+      marginBottom: "8px",
+    },
+    helperText: {
+      marginTop: "6px",
     },
   },
   link: {
@@ -277,16 +251,12 @@ export const space = {
   },
   pageHeading: {
     paddingX: {
-      mobileLarge: "20px",
-      mobileSmall: "20px",
-      mobileXlarge: "20px",
-      tabletLarge: "48px",
-      tabletSmall: "24px",
+      mobile: "20px",
+      tablet: "24px",
+      desktop: "48px",
     },
-    paddingTop: "32px",
-    paddingTopMobile: "24px",
-    paddingBottom: "36px",
-    paddingBottomMobile: "28px",
+    paddingY: "32px",
+    paddingYMobile: "24px",
   },
   statusBadge: {
     gap: "4px",
@@ -370,14 +340,40 @@ export const space = {
     paddingX: "16px",
   },
   tag: {
+    gap: "4px",
     paddingX: "12px",
     paddingY: "4px",
-    gap: {
-      icon: "4px",
-      button: "4px",
-    },
   },
   tagSet: {
     gap: "8px",
+  },
+  select: {
+    gap: "8px",
+  },
+  container: {
+    paddingX: {
+      mobile: "20px",
+      tablet: "24px",
+      desktop: "48px",
+    },
+  },
+  grid: {
+    gap: {
+      condensed: {
+        mobile: "8px",
+        tablet: "12px",
+        desktop: "16px",
+      },
+      normal: {
+        mobile: "16px",
+        tablet: "20px",
+        desktop: "24px",
+      },
+      spacious: {
+        mobile: "24px",
+        tablet: "28px",
+        desktop: "32px",
+      },
+    },
   },
 } as const;
