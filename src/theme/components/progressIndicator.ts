@@ -99,7 +99,7 @@ const ProgressIndicator = defineMultiStyleConfig({
             bg: "v5.brand.nyplred.default",
           },
           flex: 25,
-          bg: "ui.gray.light-cool",
+          bg: "v5.border.subtle.neutral.emphasis",
           height: {
             base: "4px",
             md: size === "default" ? "8px" : "4px",
