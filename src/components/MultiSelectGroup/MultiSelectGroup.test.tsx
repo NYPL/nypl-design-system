@@ -272,4 +272,40 @@ describe("MulitSelectGroup Accessibility", () => {
     expect(multiSelectGroup).toMatchSnapshot();
     expect(labelHidden).toMatchSnapshot();
   });
+
+  it("renders dividers for both layouts", () => {
+    const handleChangeMock = jest.fn();
+    const renderGroup = (layout: "row" | "column", showDividers: boolean) =>
+      renderer
+        .create(
+          <MultiSelectGroup
+            id="MultiSelectGroup"
+            labelText="MultiSelectGroup example"
+            layout={layout}
+            showDividers={showDividers}
+            renderMultiSelect={() =>
+              multiSelectItems.map((multiSelectItem) => (
+                <MultiSelect
+                  key={multiSelectItem.id}
+                  id={multiSelectItem.id}
+                  items={multiSelectItem.items}
+                  selectedItems={{}}
+                  isDefaultOpen={false}
+                  isSearchable={false}
+                  isBlockElement={false}
+                  buttonText="MultiSelect"
+                  defaultItemsVisible={defaultItemsVisible}
+                  onChange={handleChangeMock}
+                  onClear={() => "onClear"}
+                />
+              ))
+            }
+          />
+        )
+        .toJSON();
+
+    expect(renderGroup("row", true)).toMatchSnapshot();
+    expect(renderGroup("column", true)).toMatchSnapshot();
+    expect(renderGroup("row", false)).not.toEqual(renderGroup("row", true));
+  });
 });
