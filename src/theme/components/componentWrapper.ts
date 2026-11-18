@@ -6,7 +6,7 @@ const ComponentWrapper = {
   parts: ["helperErrorText"],
   baseStyle: ({ hasHelperText }: ComponentWrapperProps) => ({
     helperErrorText: {
-      marginTop: hasHelperText ? "helper.default" : "0",
+      marginTop: hasHelperText ? "v5.inputShared.helperText.marginTop" : "0",
     },
   }),
 };

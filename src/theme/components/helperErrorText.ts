@@ -6,11 +6,10 @@ interface HelperErrorTextBaseStyle extends StyleFunctionProps {
 }
 const HelperErrorText = defineStyleConfig({
   baseStyle: defineStyle(({ isInvalid }: HelperErrorTextBaseStyle) => ({
-    fontSize: "desktop.helper.default",
-    color: isInvalid ? "ui.error.primary" : null,
-    _dark: {
-      color: isInvalid ? "dark.ui.error.primary" : null,
-    },
+    fontSize: "v5.helper",
+    fontWeight: "v5.helper",
+    lineHeight: "v5.helper",
+    color: isInvalid ? "v5.semantic.negative.default" : "v5.text.helper",
   })),
 });
 
