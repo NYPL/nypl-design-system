@@ -2,7 +2,7 @@ import { defineStyleConfig } from "@chakra-ui/react";
 import { defineStyle } from "@chakra-ui/system";
 
 const divider = {
-  borderColor: "v5.border.subtle.neutral.border",
+  borderColor: "v5.multiselect.border",
   borderStyle: "solid",
 };
 
