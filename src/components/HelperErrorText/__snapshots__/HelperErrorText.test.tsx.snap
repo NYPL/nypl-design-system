@@ -2,92 +2,136 @@
 
 exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-3mcprd"
   data-isinvalid={false}
   data-testid="ds-helperErrorText"
   id="basic"
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Text",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
 exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-3mcprd"
   data-isinvalid={true}
   data-testid="ds-helperErrorText"
   id="invalid"
 >
+  <svg
+    aria-hidden={true}
+    className="chakra-icon css-1i4020f"
+    data-file-name="SvgErrorFilled"
+    focusable={false}
+    role="img"
+    title="errorFilled icon"
+  />
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Text",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
 exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-3mcprd"
   data-isinvalid={true}
   data-testid="ds-helperErrorText"
   id="invalid"
 >
+  <svg
+    aria-hidden={true}
+    className="chakra-icon css-1i4020f"
+    data-file-name="SvgErrorFilled"
+    focusable={false}
+    role="img"
+    title="errorFilled icon"
+  />
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "This helper text <b>contains HTML in the string</b>.",
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "This helper text <b>contains HTML in the string</b>.",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
 exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-1xdhyk6"
+  className="css-3mcprd"
   data-isinvalid={true}
   data-testid="ds-helperErrorText"
   id="invalid"
 >
+  <svg
+    aria-hidden={true}
+    className="chakra-icon css-1i4020f"
+    data-file-name="SvgErrorFilled"
+    focusable={false}
+    role="img"
+    title="errorFilled icon"
+  />
   <div
     className="css-0"
   >
-    This helper text 
-    <b>
-      contains HTML
-    </b>
-    .
+    <div
+      className="css-0"
+    >
+      This helper text 
+      <b>
+        contains HTML
+      </b>
+      .
+    </div>
   </div>
 </div>
 `;
 
 exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
 <div
-  className="css-10g9ftz"
+  className="css-9n6f6u"
   data-isinvalid={false}
   data-testid="ds-helperErrorText"
   id="chakra"
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Text",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
@@ -95,18 +139,22 @@ exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
 <div
   aria-atomic={true}
   aria-live="polite"
-  className="css-1xdhyk6"
+  className="css-3mcprd"
   data-isinvalid={false}
   data-testid="props"
   id="props"
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Text",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
