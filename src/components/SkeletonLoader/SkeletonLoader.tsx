@@ -123,8 +123,8 @@ export const SkeletonLoader: ChakraComponent<
           {...rest}
         >
           {showImage && (
-            <ChakraSkeleton sx={styles.loader}>
-              <Box __css={{ ...styles.element, ...styles.image }} />
+            <ChakraSkeleton sx={{ ...styles.loader, ...styles.imageContainer }}>
+              <Box __css={styles.image} />
             </ChakraSkeleton>
           )}
           <Box __css={styles.container}>
