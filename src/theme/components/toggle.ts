@@ -47,8 +47,8 @@ const switchBaseStyle = switchDefinePartsStyle(
       border: "1px solid",
       borderColor: "v5.toggle.border.default",
       p: "0",
-      width: size === "lg" ? "48px" : "32px",
-      height: size === "lg" ? "24px" : "16px",
+      width: size === "lg" ? "v5.toggle.width.lg" : "v5.toggle.width.default",
+      height: size === "lg" ? "v5.toggle.height.lg" : "v5.toggle.height.default",
       _checked: {
         bg: "v5.toggle.bg.selected.default",
         borderColor: "v5.toggle.border.selected",
@@ -96,8 +96,8 @@ const switchBaseStyle = switchDefinePartsStyle(
     thumb: {
       mt: size === "lg" ? "4px" : "3px",
       ml: size === "lg" ? "2px" : "1px",
-      width: size === "lg" ? "16px" : "10px",
-      height: size === "lg" ? "16px" : "10px",
+      width: size === "lg" ? "v5.toggle.icon.width.lg" : "v5.toggle.icon.width.default",
+      height: size === "lg" ? "v5.toggle.icon.width.lg" : "v5.toggle.icon.width.default",
       bg: "v5.toggle.icon.default",
       _hover: {
         bg: "v5.toggle.icon.hover",
