@@ -50,7 +50,6 @@ const ProgressIndicator = defineMultiStyleConfig({
     ({ size, labelPlacement }: ProgressIndicatorBaseStyle) => {
       return {
         color: "v5.text.label",
-        fontSize: "v5.progressIndicator.percentage.linear",
         circular: {
           // Note: we have to target the SVG HTMl elements in order
           // to override the default styles.
@@ -117,9 +116,10 @@ const ProgressIndicator = defineMultiStyleConfig({
           fontWeight: "v5.label.primary",
         },
         linearPercentage: {
-          padding: "0 var(--nypl-space-xs)",
+          paddingLeft: "v5.xs",
           flex: 1,
           lineHeight: "v5.progressIndicator.percentage.linear",
+          fontSize: "v5.progressIndicator.percentage.linear",
         },
       };
     }
