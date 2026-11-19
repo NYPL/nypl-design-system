@@ -59,7 +59,7 @@ export const MultiSelectGroup: ChakraComponent<
     } = props;
     const mainId = useSafeId(id);
     const styles = useStyleConfig("MultiSelectGroup", {
-      variant: layout,
+      variant: { base: "column", md: layout },
       showDividers,
     });
 
@@ -74,19 +74,15 @@ export const MultiSelectGroup: ChakraComponent<
       >
         <Stack
           data-testid={`${mainId}-multiselectGroup-stack`}
-          direction={{ base: "column", md: layout }}
           id={mainId}
           ref={ref}
           spacing={0}
           wrap={
             layout === "row" && multiSelectWidth === "fitContent"
-              ? "wrap"
+              ? { base: "nowrap", md: "wrap" }
               : null
           }
-          sx={{
-            ...styles,
-            flexDirection: { base: "column", md: layout },
-          }}
+          sx={styles}
         >
           {renderMultiSelect({
             isBlockElement: layout === "column",

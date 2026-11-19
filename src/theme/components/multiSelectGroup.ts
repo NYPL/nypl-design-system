@@ -7,16 +7,9 @@ const divider = {
 };
 
 const MultiSelectGroup = defineStyleConfig({
-  baseStyle: defineStyle({
-    "> div": {
-      _notFirst: {
-        mx: "0",
-      },
-    },
-  }),
   variants: {
     column: defineStyle(({ showDividers }) => ({
-      columnGap: "v5.multiselectGroup.column.gap",
+      flexDirection: "column",
       rowGap: showDividers ? "0" : "v5.multiselectGroup.column.gap",
       ...(showDividers && {
         ...divider,
@@ -25,6 +18,7 @@ const MultiSelectGroup = defineStyleConfig({
       }),
     })),
     row: defineStyle(({ showDividers }) => ({
+      flexDirection: "row",
       columnGap: "v5.multiselectGroup.row.gap",
       rowGap: "v5.multiselectGroup.row.gap",
       ...(showDividers && {

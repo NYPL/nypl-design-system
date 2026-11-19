@@ -13,8 +13,11 @@ export const changelogData: ChangelogData[] = [
     date: "Prerelease",
     version: "5.0.0",
     type: "Update",
-    affects: ["Styles"],
-    notes: ["Updated styles to align with v5 designs."],
+    affects: ["Functionality", "Styles"],
+    notes: [
+      "Updated styles to align with v5 designs.",
+      "Adds the `showDividers` prop to render dividers.",
+    ],
   },
   {
     date: "2025-09-11",
