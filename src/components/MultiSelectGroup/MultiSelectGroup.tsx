@@ -70,7 +70,7 @@ export const MultiSelectGroup: ChakraComponent<
         legendText={labelText}
         isLegendHidden={!showLabel}
         {...rest}
-        __css={{ legend: { mb: "v5.density.condensed" } }}
+        __css={{ legend: { mb: "v5.inputShared.label.marginBottom" } }}
       >
         <Stack
           data-testid={`${mainId}-multiselectGroup-stack`}

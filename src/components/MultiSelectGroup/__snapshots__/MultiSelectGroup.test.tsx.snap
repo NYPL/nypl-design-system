@@ -2,7 +2,7 @@
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] = `
 <fieldset
-  className="css-97vh0d"
+  className="css-100ap3o"
   data-testid="ds-multiSelectGroup"
   id="MultiSelectGroup-fieldset"
 >
@@ -1352,7 +1352,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] = `
 <fieldset
-  className="css-97vh0d"
+  className="css-100ap3o"
   data-testid="ds-multiSelectGroup"
   id="MultiSelectGroup-fieldset"
 >
@@ -2702,7 +2702,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 3`] = `
 <fieldset
-  className="css-97vh0d"
+  className="css-100ap3o"
   data-testid="ds-multiSelectGroup"
   id="MultiSelectGroup-fieldset"
 >
@@ -4052,7 +4052,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 3`] =
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 4`] = `
 <fieldset
-  className="css-97vh0d"
+  className="css-100ap3o"
   data-testid="ds-multiSelectGroup"
   id="MultiSelectGroup-fieldset"
 >
