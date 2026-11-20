@@ -16,7 +16,7 @@ export const skeletonLoaderImageRatiosArray = [
   "square",
 ] as const;
 export type SkeletonLoaderImageRatios =
-  typeof skeletonLoaderImageRatiosArray[number];
+  (typeof skeletonLoaderImageRatiosArray)[number];
 
 export interface SkeletonLoaderProps extends BoxProps {
   /** Optional numeric value to control the number of lines for content
@@ -123,8 +123,8 @@ export const SkeletonLoader: ChakraComponent<
           {...rest}
         >
           {showImage && (
-            <ChakraSkeleton sx={styles.loader}>
-              <Box __css={{ ...styles.element, ...styles.image }} />
+            <ChakraSkeleton sx={{ ...styles.loader, ...styles.imageContainer }}>
+              <Box __css={styles.image} />
             </ChakraSkeleton>
           )}
           <Box __css={styles.container}>
@@ -133,7 +133,7 @@ export const SkeletonLoader: ChakraComponent<
                 {getSkeletonElements({
                   type: "heading",
                   size: headingSize,
-                  lastWidth: "80%",
+                  lastWidth: "100%",
                 })}
               </Box>
             )}
@@ -142,13 +142,13 @@ export const SkeletonLoader: ChakraComponent<
                 {getSkeletonElements({
                   type: "content",
                   size: contentSize,
-                  lastWidth: "30%",
+                  lastWidth: "25%",
                 })}
               </Box>
             )}
             {showButton && (
               <Box __css={{ ...styles.section, ...styles.button }}>
-                <ChakraSkeleton sx={styles.loader} borderRadius="20px">
+                <ChakraSkeleton sx={styles.loader}>
                   <Box __css={styles.button} />
                 </ChakraSkeleton>
               </Box>
