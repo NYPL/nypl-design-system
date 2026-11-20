@@ -88,6 +88,7 @@ export const ProgressIndicator: ChakraComponent<
     const styles = useMultiStyleConfig("ProgressIndicator", {
       size,
       labelPlacement: finalLabelPlacement,
+      showLabel,
     });
     let finalValue = value;
 

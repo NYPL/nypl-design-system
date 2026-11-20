@@ -8,6 +8,7 @@ import { StyleFunctionProps } from "@chakra-ui/system";
 interface ProgressIndicatorBaseStyle extends StyleFunctionProps {
   size: ProgressIndicatorSizes;
   labelPlacement: ProgressIndicatorLabelPlacements;
+  showLabel?: boolean;
 }
 
 const { defineMultiStyleConfig, definePartsStyle } =
@@ -47,7 +48,7 @@ const getCircularContainerFlexDir = (labelPlacement) => {
 
 const ProgressIndicator = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({ size, labelPlacement }: ProgressIndicatorBaseStyle) => {
+    ({ size, labelPlacement, showLabel }: ProgressIndicatorBaseStyle) => {
       return {
         color: "v5.text.label",
         circular: {
@@ -107,7 +108,7 @@ const ProgressIndicator = defineMultiStyleConfig({
         linearContainer: {
           display: "flex",
           alignItems: "center",
-          height: "20px",
+          height: showLabel ? "20px" : undefined,
         },
         linearLabel: {
           color: "v5.text.label",
