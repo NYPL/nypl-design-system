@@ -751,6 +751,10 @@ export const colors = {
       outline: "#CCCCCC",
     },
   },
+  progressIndicator: {
+    track: "#CCCCCC",
+    indicator: "#C60917",
+  },
   radio: {
     icon: {
       default: "#C60917",
@@ -882,15 +886,15 @@ export const colors = {
         default: "#C60917",
       },
     },
-    label: {
-      error: "#A82009",
-    },
     border: {
       default: "#666666",
       hover: "#474747",
       error: "#A82009",
       selected: "#C60917",
       disabled: "#CCCCCC",
+    },
+    label: {
+      error: "#A82009",
     },
   },
   universalHeader: {
