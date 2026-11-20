@@ -1,6 +1,7 @@
 import { keyframes } from "@chakra-ui/system";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
+import { responsiveSpacing } from "./global";
 
 interface SkeletonLoaderBaseStyle extends StyleFunctionProps {
   imageAspectRatio: keyof typeof imagePaddingBottomStyles;
@@ -24,13 +25,13 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const element = {
   borderRadius: "v5.faint",
   boxSizing: "border-box",
-  marginBottom: "v5.xs",
+  marginBottom: "v5.density.condensed",
 };
 const borderRules = {
   border: "1px solid",
   borderColor: "v5.border.subtle.neutral.emphasis",
   borderRadius: "v5.softer",
-  padding: "v5.s",
+  padding: "v5.inset.normal",
 };
 const imagePaddingBottomStyles = {
   landscape: "50%",
@@ -65,7 +66,7 @@ const SkeletonLoader = defineMultiStyleConfig({
           width: "100%",
         },
         container: {
-          marginTop: "v5.s",
+          marginTop: "v5.density.normal",
           width: "100%",
         },
         content: {
@@ -91,7 +92,7 @@ const SkeletonLoader = defineMultiStyleConfig({
           animation: `${fade()} 1000ms cubic-bezier(0.25, -0.5, 1, 0) infinite`,
         },
         section: {
-          marginBottom: "v5.s",
+          marginBottom: "v5.density.normal",
           _last: {
             marginBottom: "0",
           },
@@ -107,10 +108,7 @@ const SkeletonLoader = defineMultiStyleConfig({
     row: definePartsStyle(({ showImage }: SkeletonLoaderBaseStyle) => ({
       base: {
         alignItems: "start",
-        columnGap: {
-          md: "v5.grid.gap.normal.tablet",
-          xl: "v5.grid.gap.normal.desktop",
-        },
+        columnGap: responsiveSpacing.gridGap,
         display: { md: "grid" },
         gridTemplateColumns: { md: "repeat(12, minmax(0, 1fr))" },
       },
