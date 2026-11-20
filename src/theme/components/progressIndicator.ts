@@ -63,7 +63,7 @@ const ProgressIndicator = defineMultiStyleConfig({
                 stroke: "ui.gray.light-cool",
               },
               _last: {
-                stroke: "v5.brand.nyplred.default",
+                stroke: "v5.progressIndicator.indicator",
               },
             },
           },
@@ -96,19 +96,24 @@ const ProgressIndicator = defineMultiStyleConfig({
           // "Progress" as the key name in index.ts
           borderRadius: "v5.round",
           "> div": {
-            bg: "v5.brand.nyplred.default",
+            bg: "v5.progressIndicator.indicator",
           },
           flex: 25,
           bg: "v5.border.subtle.neutral.emphasis",
           height: {
-            base: "4px",
-            md: size === "default" ? "8px" : "4px",
+            base: "v5.progressIndicator.linear.trackHeight.sm",
+            md:
+              size === "default"
+                ? "v5.progressIndicator.linear.trackHeight.default"
+                : "v5.progressIndicator.linear.trackHeight.sm",
           },
         },
         linearContainer: {
           display: "flex",
           alignItems: "center",
-          height: showLabel ? "20px" : undefined,
+          height: showLabel
+            ? "v5.progressIndicator.linear.containerHeight"
+            : undefined,
         },
         linearLabel: {
           color: "v5.text.label",
