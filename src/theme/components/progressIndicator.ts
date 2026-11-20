@@ -60,7 +60,7 @@ const ProgressIndicator = defineMultiStyleConfig({
             display: "block",
             circle: {
               _first: {
-                stroke: "ui.gray.light-cool",
+                stroke: "v5.progressIndicator.track",
               },
               _last: {
                 stroke: "v5.progressIndicator.indicator",
@@ -72,13 +72,16 @@ const ProgressIndicator = defineMultiStyleConfig({
           alignItems: "center",
           display: "flex",
           flexDirection: getCircularContainerFlexDir(labelPlacement),
+          gap: `v5.progressIndicator.circular.gap.${
+            size === "default" ? "default" : "sm"
+          }.${
+            labelPlacement === "left" || labelPlacement === "right"
+              ? "row"
+              : "column"
+          }`,
           width: "fit-content",
         },
         circularLabel: {
-          marginBottom: labelPlacement === "top" ? "xxs" : 0,
-          marginLeft: labelPlacement === "right" ? "xxs" : 0,
-          marginRight: labelPlacement === "left" ? "xxs" : 0,
-          marginTop: labelPlacement === "bottom" ? "xxs" : 0,
           color: "v5.text.label",
           fontSize:
             size === "default" ? "v5.label.primary" : "v5.label.secondary",
@@ -111,6 +114,7 @@ const ProgressIndicator = defineMultiStyleConfig({
         linearContainer: {
           display: "flex",
           alignItems: "center",
+          gap: "v5.progressIndicator.linear.gap",
           height: showLabel
             ? "v5.progressIndicator.linear.containerHeight"
             : undefined,
@@ -122,7 +126,6 @@ const ProgressIndicator = defineMultiStyleConfig({
           fontWeight: "v5.label.primary",
         },
         linearPercentage: {
-          paddingLeft: "v5.xs",
           flex: 1,
           lineHeight: "v5.progressIndicator.percentage.linear",
           fontSize: "v5.progressIndicator.percentage.linear",
