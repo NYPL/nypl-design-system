@@ -104,11 +104,11 @@ const ProgressIndicator = defineMultiStyleConfig({
           flex: 25,
           bg: "v5.border.subtle.neutral.emphasis",
           height: {
-            base: "v5.progressIndicator.linear.trackHeight.sm",
+            base: "v5.progressIndicator.linear.track.height.sm",
             md:
               size === "default"
-                ? "v5.progressIndicator.linear.trackHeight.default"
-                : "v5.progressIndicator.linear.trackHeight.sm",
+                ? "v5.progressIndicator.linear.track.height.default"
+                : "v5.progressIndicator.linear.track.height.sm",
           },
         },
         linearContainer: {
@@ -116,7 +116,7 @@ const ProgressIndicator = defineMultiStyleConfig({
           alignItems: "center",
           gap: "v5.progressIndicator.linear.gap",
           height: showLabel
-            ? "v5.progressIndicator.linear.containerHeight"
+            ? "v5.progressIndicator.linear.container.height"
             : undefined,
         },
         linearLabel: {
