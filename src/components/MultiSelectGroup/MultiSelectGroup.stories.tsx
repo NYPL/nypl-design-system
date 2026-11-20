@@ -322,6 +322,58 @@ const MultiSelectGroupLayoutStory = () => {
 };
 MultiSelectGroupLayoutStory.displayName = "MultiSelectGroupLayoutStory";
 
+const MultiSelectGroupDividersStory = () => {
+  const { onChange, onMixedStateChange, onClear, selectedItems } =
+    useMultiSelect();
+
+  return (
+    <VStack align="stretch" spacing="l">
+      {(
+        [
+          ["row", "Row with dividers"],
+          ["column", "Column with dividers"],
+        ] as const
+      ).map(([layout, labelText]) => (
+        <MultiSelectGroup
+          id={`${layout}-dividers`}
+          key={layout}
+          labelText={labelText}
+          layout={layout}
+          multiSelectWidth="fitContent"
+          showDividers
+          renderMultiSelect={({ isBlockElement, multiSelectWidth }) =>
+            multiSelectItems.map((multiSelect) => {
+              const id = `${multiSelect.id}-${layout}-dividers`;
+              return (
+                <MultiSelect
+                  buttonText="MultiSelect"
+                  defaultItemsVisible={defaultItemsVisible}
+                  id={id}
+                  isBlockElement={isBlockElement}
+                  items={multiSelect.items}
+                  key={id}
+                  onChange={(e) => onChange(e.target.id, id)}
+                  onMixedStateChange={(e) =>
+                    onMixedStateChange({
+                      parentId: e.target.id,
+                      multiSelectId: id,
+                      items: multiSelect.items,
+                    })
+                  }
+                  onClear={() => onClear(id)}
+                  selectedItems={selectedItems}
+                  width={multiSelectWidth}
+                />
+              );
+            })
+          }
+        />
+      ))}
+    </VStack>
+  );
+};
+MultiSelectGroupDividersStory.displayName = "MultiSelectGroupDividersStory";
+
 const meta: Meta<typeof MultiSelectGroup> = {
   title: "Components/Form Elements/MultiSelectGroup",
   component: MultiSelectGroup,
@@ -335,6 +387,9 @@ const meta: Meta<typeof MultiSelectGroup> = {
       control: { type: "radio" },
       options: multiSelectWidthsArray,
       table: { defaultValue: { summary: "default" } },
+    },
+    showDividers: {
+      table: { defaultValue: { summary: "false" } },
     },
     showLabel: {
       table: { defaultValue: { summary: "true" } },
@@ -354,6 +409,7 @@ export const WithControls: Story = {
     labelText: "Label Text",
     layout: "row",
     multiSelectWidth: "fitContent",
+    showDividers: false,
     showLabel: true,
   },
   render: (args) => <MultiSelectGroupStory {...args} />,
@@ -378,4 +434,8 @@ export const closeOnBlurState: Story = {
 // The following are additional MultiSelectGroup example Stories.
 export const LayoutPatterns: Story = {
   render: (_args) => <MultiSelectGroupLayoutStory />,
+};
+
+export const WithDividers: Story = {
+  render: (_args) => <MultiSelectGroupDividersStory />,
 };
