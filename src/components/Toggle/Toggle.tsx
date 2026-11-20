@@ -16,10 +16,11 @@ import { getAriaAttrs } from "../../utils/utils";
 import { useSafeId } from "../../hooks/useSafeId";
 
 export const toggleSizesArray = ["default", "small"] as const;
-export type ToggleSizes = typeof toggleSizesArray[number];
+export type ToggleSizes = (typeof toggleSizesArray)[number];
 
 export interface ToggleProps
-  extends Pick<BoxProps, keyof ChakraProps>,
+  extends
+    Pick<BoxProps, keyof ChakraProps>,
     Omit<
       InputHTMLAttributes<HTMLInputElement>,
       "color" | "height" | "size" | "width"
@@ -80,7 +81,7 @@ export const Toggle: ChakraComponent<
       ...rest
     } = props;
     const mainId = useSafeId(id);
-    const styles = useMultiStyleConfig("Toggle", { isDisabled, size });
+    const styles = useMultiStyleConfig("Toggle", { size });
     const switchStyles = useStyleConfig("Switch", { size });
     const footnote = isInvalid ? invalidText : helperText;
     const ariaAttributes = getAriaAttrs({

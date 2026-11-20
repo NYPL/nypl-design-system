@@ -126,20 +126,39 @@ export const Layouts: Story = {
           Grouped
         </Heading>
         <Toggle defaultChecked={true} id="layout1" labelText="On" />
-        <Toggle defaultChecked={true} id="layout2" labelText="On" />
+        <Toggle defaultChecked={false} id="layout2" labelText="Off" />
         <Toggle defaultChecked={true} id="layout3" labelText="On" />
-        <Toggle defaultChecked={true} id="layout4" labelText="On" />
-        <Toggle defaultChecked={true} id="layout5" labelText="On" />
+        <Toggle defaultChecked={false} id="layout4" labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
         <Heading level="h3" size="heading6">
           With Helper Text
         </Heading>
         <Toggle
+          defaultChecked={false}
+          helperText="Component Helper Text"
+          id="helper-text"
+          labelText="Off"
+          size="small"
+        />
+        <Toggle
           defaultChecked={true}
           helperText="Component Helper Text"
           id="helper-text"
           labelText="On"
+          size="small"
+        />
+        <Toggle
+          defaultChecked={true}
+          helperText="Component Helper Text"
+          id="helper-text"
+          labelText="On"
+        />
+        <Toggle
+          defaultChecked={false}
+          helperText="Component Helper Text"
+          id="helper-text"
+          labelText="Off"
         />
       </VStack>
     </SimpleGrid>
