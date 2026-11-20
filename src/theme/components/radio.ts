@@ -4,7 +4,7 @@ import {
   activeFocus,
   checkboxRadioLabelStyles,
   checkboxRadioControlSize,
-  checkboxRadioHelperErrorTextStyle,
+  checkboxRadioHelperErrorTextStyles,
   screenreaderOnly,
   checkboxRadioHoverStyles,
 } from "./global";
@@ -125,7 +125,7 @@ const radioBaseStyle = definePartsStyle({
   label: checkboxRadioLabelStyles,
   container: {},
   // Custom element in the DS Radio component.
-  helperErrorText: checkboxRadioHelperErrorTextStyle,
+  helperErrorText: checkboxRadioHelperErrorTextStyles,
   hiddenLabel: screenreaderOnly(),
 });
 

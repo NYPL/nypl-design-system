@@ -7,14 +7,11 @@ interface HorizontalRuleBaseStyle extends StyleFunctionProps {
 
 const HorizontalRule = defineStyleConfig({
   baseStyle: defineStyle((props: HorizontalRuleBaseStyle) => ({
-    bg: "ui.bg.hover",
+    bg: "v5.border.subtle.neutral.emphasis",
     border: "0",
     height: "2px",
     marginStart: props.align === "left" ? 0 : "auto",
     marginEnd: props.align === "right" ? 0 : "auto",
-    _dark: {
-      bg: "dark.ui.bg.active",
-    },
   })),
 });
 

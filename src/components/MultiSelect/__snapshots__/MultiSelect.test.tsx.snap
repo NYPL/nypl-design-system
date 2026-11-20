@@ -92,7 +92,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     id="dogs-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -160,7 +160,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     id="cats-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -228,7 +228,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     id="cars-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       data-disabled=""
                       onClick={[Function]}
                     >
@@ -299,7 +299,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     id="colors-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -367,7 +367,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     id="red-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -435,7 +435,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     id="blue-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -503,7 +503,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     id="plants-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -571,7 +571,7 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     id="furniture-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -746,7 +746,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     id="dogs-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -814,7 +814,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     id="cats-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -882,7 +882,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     id="cars-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       data-disabled=""
                       onClick={[Function]}
                     >
@@ -953,7 +953,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     id="colors-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -1021,7 +1021,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     id="red-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -1089,7 +1089,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     id="blue-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -1157,7 +1157,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     id="plants-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -1225,7 +1225,7 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     id="furniture-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -1400,7 +1400,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     id="dogs-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -1468,7 +1468,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     id="cats-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -1536,7 +1536,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     id="cars-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       data-disabled=""
                       onClick={[Function]}
                     >
@@ -1607,7 +1607,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     id="colors-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -1706,7 +1706,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     id="red-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       data-checked=""
                       onClick={[Function]}
                     >
@@ -1751,10 +1751,10 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                         <svg
                           aria-hidden={true}
                           className="chakra-icon css-12vjkgh"
-                          data-file-name="SvgUtilityCheck"
+                          data-file-name="SvgCheck"
                           focusable={false}
                           role="img"
-                          title="utilityCheck icon"
+                          title="check icon"
                         />
                       </span>
                       <span
@@ -1786,7 +1786,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     id="blue-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -1854,7 +1854,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     id="plants-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -1922,7 +1922,7 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     id="furniture-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -2116,7 +2116,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     id="dogs-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -2184,7 +2184,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     id="cats-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -2252,7 +2252,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     id="cars-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       data-disabled=""
                       onClick={[Function]}
                     >
@@ -2323,7 +2323,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     id="colors-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       data-checked=""
                       onClick={[Function]}
                     >
@@ -2368,10 +2368,10 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         <svg
                           aria-hidden={true}
                           className="chakra-icon css-12vjkgh"
-                          data-file-name="SvgUtilityCheck"
+                          data-file-name="SvgCheck"
                           focusable={false}
                           role="img"
-                          title="utilityCheck icon"
+                          title="check icon"
                         />
                       </span>
                       <span
@@ -2403,7 +2403,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     id="red-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       data-checked=""
                       onClick={[Function]}
                     >
@@ -2448,10 +2448,10 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         <svg
                           aria-hidden={true}
                           className="chakra-icon css-12vjkgh"
-                          data-file-name="SvgUtilityCheck"
+                          data-file-name="SvgCheck"
                           focusable={false}
                           role="img"
-                          title="utilityCheck icon"
+                          title="check icon"
                         />
                       </span>
                       <span
@@ -2483,7 +2483,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     id="blue-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       data-checked=""
                       onClick={[Function]}
                     >
@@ -2528,10 +2528,10 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                         <svg
                           aria-hidden={true}
                           className="chakra-icon css-12vjkgh"
-                          data-file-name="SvgUtilityCheck"
+                          data-file-name="SvgCheck"
                           focusable={false}
                           role="img"
-                          title="utilityCheck icon"
+                          title="check icon"
                         />
                       </span>
                       <span
@@ -2563,7 +2563,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     id="plants-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input
@@ -2631,7 +2631,7 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     id="furniture-componentWrapper"
                   >
                     <label
-                      className="chakra-checkbox css-0"
+                      className="chakra-checkbox css-1elxtiq"
                       onClick={[Function]}
                     >
                       <input

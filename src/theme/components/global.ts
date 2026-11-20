@@ -18,33 +18,21 @@ const activeFocus = (darkMode = false) => ({
   boxShadow: "none",
   outline: "2px solid",
   outlineOffset: "2px",
-  outlineColor: darkMode ? "dark.ui.focus" : "ui.focus",
-  _dark: {
-    outlineColor: "dark.ui.focus",
-  },
+  outlineColor: darkMode ? "dark.ui.focus" : "v5.inputShared.border.focus",
 });
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
+  color: "v5.text.body.default",
   userSelect: "none",
-  fontWeight: "body.default",
   marginBottom: "0",
-  marginStart: "xs",
+  marginStart: "v5.density.condensed",
   width: "100%",
   _disabled: {
-    color: "ui.gray.dark",
+    color: "v5.text.disabled",
     opacity: 1,
-    fontStyle: "italic",
   },
   _invalid: {
     color: "ui.error.primary",
-  },
-  _dark: {
-    _disabled: {
-      color: "dark.ui.disabled.primary",
-    },
-    _invalid: {
-      color: "dark.ui.error.primary",
-    },
   },
 };
 // Custom values not in the spacing theme.
@@ -54,12 +42,8 @@ const checkboxRadioControlSize = {
   w: "1.375rem",
 };
 // Used in `Checkbox` and `Radio`.
-const checkboxRadioHelperErrorTextStyle = {
-  marginStart: "30px", // calc(22px + var(--nypl-space-xs))
-  _disabled: {
-    color: "ui.gray.dark",
-    fontStyle: "italic",
-  },
+const checkboxRadioHelperErrorTextStyles = {
+  mt: "6px",
 };
 // General hover styles for Checkbox and Radio
 const checkboxRadioHoverStyles = {
@@ -155,13 +139,31 @@ const responsiveSpacing = {
   gridGap: { base: "s", md: "m", xl: "l" },
   margin: { base: "s", md: "m", xl: "s" },
   padding: { base: "s", md: "m", xl: "s" },
+  // v5 values
+  containerPaddingX: {
+    base: "v5.responsive.container.paddingX.mobileSmall",
+    lg: "v5.responsive.container.paddingX.tabletSmall",
+    xl: "v5.responsive.container.paddingX.tabletLarge",
+  },
+  gridCondensed: {
+    base: "v5.responsive.grid.condensed.mobileSmall",
+    lg: "v5.responsive.grid.condensed.tabletSmall",
+  },
+  gridNormal: {
+    base: "v5.responsive.grid.normal.mobileSmall",
+    lg: "v5.responsive.grid.normal.tabletSmall",
+  },
+  gridSpacious: {
+    base: "v5.responsive.grid.spacious.mobileSmall",
+    lg: "v5.responsive.grid.spacious.tabletSmall",
+  },
 };
 
 export {
   activeFocus,
   checkboxRadioControlSize,
   checkboxRadioGroupStyles,
-  checkboxRadioHelperErrorTextStyle,
+  checkboxRadioHelperErrorTextStyles,
   checkboxRadioHoverStyles,
   checkboxRadioLabelStyles,
   customFocusColor,
