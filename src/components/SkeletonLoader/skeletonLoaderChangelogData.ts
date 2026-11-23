@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "Update",
     affects: ["Styles"],
     notes: [
-      "Updated styles to align with v5 designs.",
+      "Updates styles to align with v5 designs.",
       "Updates content line height to 16px, the last content line width to 25%, and the last heading line width to 100%.",
       "Removes dark mode styles.",
     ],

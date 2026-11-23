@@ -77,7 +77,8 @@ export const SkeletonLoader: ChakraComponent<
         isBordered,
         imageAspectRatio,
         showImage,
-        variant: layout,
+        // Always use the column layout below the md breakpoint.
+        variant: { base: "column", md: layout },
       });
 
       /**
@@ -88,7 +89,7 @@ export const SkeletonLoader: ChakraComponent<
       const getSkeletonElements = ({
         type,
         size = 1,
-        lastWidth = "80%",
+        lastWidth = "100%",
       }: {
         type: string;
         size?: number;
@@ -127,13 +128,12 @@ export const SkeletonLoader: ChakraComponent<
               <Box __css={styles.image} />
             </ChakraSkeleton>
           )}
-          <Box __css={styles.container}>
+          <Box __css={styles.contentContainer}>
             {showHeading && (
               <Box __css={styles.section}>
                 {getSkeletonElements({
                   type: "heading",
                   size: headingSize,
-                  lastWidth: "100%",
                 })}
               </Box>
             )}

@@ -13,8 +13,8 @@ const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers([
     "base",
     "button",
-    "container",
     "content",
+    "contentContainer",
     "heading",
     "image",
     "imageContainer",
@@ -65,7 +65,7 @@ const SkeletonLoader = defineMultiStyleConfig({
           overflow: "hidden",
           width: "100%",
         },
-        container: {
+        contentContainer: {
           marginTop: "v5.density.normal",
           width: "100%",
         },
@@ -101,7 +101,9 @@ const SkeletonLoader = defineMultiStyleConfig({
     }
   ),
   variants: {
-    // From the md breakpoint up, the row layout uses a 12-column grid: the
+    // The component only applies the row variant from the md breakpoint up
+    // (it always uses the column layout below md), so these styles don't
+    // need their own breakpoints. The row layout uses a 12-column grid: the
     // image spans 4 columns and the content spans the remaining 8 (or all
     // 12 when there's no image). The image height comes from its aspect
     // ratio, so it scales with the column width.
@@ -109,23 +111,23 @@ const SkeletonLoader = defineMultiStyleConfig({
       base: {
         alignItems: "start",
         columnGap: responsiveSpacing.gridGap,
-        display: { md: "grid" },
-        gridTemplateColumns: { md: "repeat(12, minmax(0, 1fr))" },
+        display: "grid",
+        gridTemplateColumns: "repeat(12, minmax(0, 1fr))",
       },
       button: {
-        margin: { md: "0" },
+        margin: "0",
       },
-      container: {
-        gridColumn: { md: showImage ? "span 8" : "1 / -1" },
-        marginTop: { md: "0" },
+      contentContainer: {
+        gridColumn: showImage ? "span 8" : "1 / -1",
+        marginTop: "0",
       },
       image: {
         // A grid item doesn't collapse its child's margin, so remove it to
         // keep the image skeleton at its true aspect ratio.
-        marginBottom: { md: "0" },
+        marginBottom: "0",
       },
       imageContainer: {
-        gridColumn: { md: "span 4" },
+        gridColumn: "span 4",
       },
     })),
   },
