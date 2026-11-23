@@ -15,8 +15,8 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `HorizontalRule` styles to align with v5 designs. [ISW-6253](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6253)
 - Updates `MultiSelectGroup` styles to align with v5 designs. [ISW-6293](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6293)
 - Updates `SearchBar` styles to align with v5 designs. [ISW-6257](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6257)
-- Updates `Label` styles to align with v5 designs. [ISW-6257](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6257)
-- Updates the `Label` component to add primary, secondary, tertiary, and quaternary variants.",
+- Updates `Label` styles to align with v5 designs. [ISW-6335](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6335)
+- Updates the `Label` component to add primary, secondary, tertiary, and quaternary variants. [ISW-6335](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6335)",
 
 ## Prerelease
 
