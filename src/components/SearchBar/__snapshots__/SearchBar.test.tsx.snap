@@ -13,7 +13,7 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
@@ -216,7 +216,7 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
       </div>
     </div>
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
@@ -421,7 +421,7 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
       </div>
     </div>
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
@@ -516,7 +516,7 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
@@ -605,7 +605,7 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
@@ -700,7 +700,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
@@ -815,7 +815,7 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
@@ -905,7 +905,7 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
@@ -996,7 +996,7 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
@@ -1094,7 +1094,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -1154,7 +1154,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -1221,7 +1221,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -1275,7 +1275,7 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
@@ -1370,7 +1370,7 @@ exports[`SearchBar renders the UI snapshot correctly 14`] = `
     onSubmit={[MockFunction]}
   >
     <div
-      className="css-1ik4laa"
+      className="css-0"
     >
       <div
         className="ds-searchBar-textInput css-1u8qly9"
