@@ -340,7 +340,10 @@ export const FeedbackBox: ChakraComponent<
                   {/* Initial form Screen */}
                   {isFormView && (
                     <>
-                      <VStack className="feedback-body" spacing="s">
+                      <VStack
+                        className="feedback-body"
+                        spacing="v5.feedbackBox.container.gap"
+                      >
                         {(notificationElement || descriptionElement) && (
                           <>
                             {notificationElement}
