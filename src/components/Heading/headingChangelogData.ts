@@ -12,7 +12,7 @@ export const changelogData: ChangelogData[] = [
   {
     date: "Prerelease",
     version: "Prerelease",
-    type: "New Feature",
+    type: "Update",
     affects: ["Functionality", "Styles"],
     notes: [
       "Updates styles to v5.",

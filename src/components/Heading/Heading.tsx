@@ -30,7 +30,6 @@ export type HeadingLevels = (typeof headingLevelsArray)[number];
 export const headingVariantsArray = ["default", "alternate"] as const;
 export type HeadingVariants = (typeof headingVariantsArray)[number];
 
-
 export interface HeadingProps extends BoxProps {
   /** Optional prop used to show capitalized text */
   isCapitalized?: boolean;
