@@ -1142,7 +1142,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
   id="withDescription-componentWrapper"
 >
   <p
-    className="chakra-text css-1a45e1q"
+    className="chakra-text css-1jamp0j"
     data-testid="ds-text"
   >
     A description
@@ -1209,7 +1209,7 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
     A Heading
   </h2>
   <p
-    className="chakra-text css-1a45e1q"
+    className="chakra-text css-1jamp0j"
     data-testid="ds-text"
   >
     A description

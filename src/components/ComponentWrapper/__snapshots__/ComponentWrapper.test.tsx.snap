@@ -14,7 +14,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
     heading text
   </h2>
   <p
-    className="chakra-text css-1a45e1q"
+    className="chakra-text css-1jamp0j"
     data-testid="ds-text"
   >
     description text
@@ -84,7 +84,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
     heading text
   </h2>
   <p
-    className="chakra-text css-1a45e1q"
+    className="chakra-text css-1jamp0j"
     data-testid="ds-text"
   >
     description text

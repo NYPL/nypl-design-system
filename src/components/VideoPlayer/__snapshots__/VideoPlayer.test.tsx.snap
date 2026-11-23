@@ -75,7 +75,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
       VideoPlayer Heading
     </h2>
     <p
-      className="chakra-text css-1a45e1q"
+      className="chakra-text css-1jamp0j"
       data-testid="ds-text"
     >
       VideoPlayer description
@@ -149,7 +149,7 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
       VideoPlayer Heading
     </h2>
     <p
-      className="chakra-text css-1a45e1q"
+      className="chakra-text css-1jamp0j"
       data-testid="ds-text"
     >
       VideoPlayer description
