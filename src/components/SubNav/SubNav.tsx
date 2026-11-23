@@ -13,8 +13,8 @@ import List from "../List/List";
 import useScrollFadeStyles from "../../hooks/useScrollFadeStyles";
 import { bgColorsArray, highlightColorsArray } from "../../theme/sharedTypes";
 
-export type actionBackgroundColors = typeof bgColorsArray[number];
-export type highlightColors = typeof highlightColorsArray[number];
+export type actionBackgroundColors = (typeof bgColorsArray)[number];
+export type highlightColors = (typeof highlightColorsArray)[number];
 
 export interface SubNavProps extends BoxProps {
   /**

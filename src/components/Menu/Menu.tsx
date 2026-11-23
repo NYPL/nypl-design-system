@@ -306,8 +306,9 @@ export const Menu: ChakraComponent<
         <Box data-testid="ds-menu" id={id} ref={ref} {...rest}>
           <ChakraMenu
             initialFocusRef={selected ? initialRef : null}
-            // Fixed positioning lets the list escape clipping by scrollable
-            // parents, such as the `SubNav` primaryActions section.
+            // Avoids the list menu from being clipped when it is inside a
+            // container with overflow set, e.g. SubNav's scrollable
+            // `primaryActions` section.
             strategy="fixed"
           >
             {({ isOpen }) => (
