@@ -58,6 +58,12 @@ export const sizes = {
       xl: "56px",
     },
   },
+  helperText: {
+    icon: {
+      width: "20px",
+      height: "20px",
+    },
+  },
   hero: {
     default: {
       minHeight: {
@@ -119,6 +125,27 @@ export const sizes = {
       height: {
         default: "40px",
         compact: "24px",
+      },
+    },
+  },
+  progressIndicator: {
+    linear: {
+      track: {
+        height: {
+          default: "8px",
+          sm: "4px",
+        },
+      },
+      container: {
+        height: "20px",
+      },
+    },
+    circular: {
+      track: {
+        width: {
+          default: "6px",
+          sm: "3px",
+        },
       },
     },
   },
