@@ -16,17 +16,18 @@ const FeedbackBox = defineMultiStyleConfig({
   baseStyle: definePartsStyle({
     notification: {
       // TO DO v5: this doesn't correspond to a notification variant color
-      background: "v5.surface.subtle.informative.default !important",
+      background: "v5.surface.subtle.informative.default",
       borderRadius: "v5.soft",
       padding: "4px 16px",
+      width: "100%",
     },
     closeButton: {
+      height: "v5.form.height.sm",
+      width: "v5.form.height.sm",
       minHeight: "v5.form.height.sm",
       minWidth: "v5.form.height.sm",
-      right: "8px",
-      top: "4px",
+      marginInlineStart: "auto",
       p: "0",
-      position: "absolute",
       span: screenreaderOnly(),
     },
     drawerBody: {
@@ -55,12 +56,11 @@ const FeedbackBox = defineMultiStyleConfig({
       display: "flex",
       fontSize: "v5.body",
       fontWeight: "v5.semibold",
-      px: "v5.feedbackBox.header.paddingX",
+      paddingLeft: "v5.feedbackBox.header.paddingX",
+      paddingRight: "v5.inset.tight",
       py: "v5.feedbackBox.header.paddingY",
       p: {
         marginBottom: "0",
-        // TO DO v5: revisit with global text styles
-        py: "4px",
       },
     },
     openButton: {

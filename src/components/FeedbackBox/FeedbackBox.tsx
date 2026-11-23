@@ -183,7 +183,6 @@ export const FeedbackBox: ChakraComponent<
             isCentered
             notificationContent={notificationText}
             showIcon={false}
-            width="100%"
             sx={styles.notification}
           />
         ) : undefined;
@@ -197,7 +196,7 @@ export const FeedbackBox: ChakraComponent<
         <FormField>
           <Link
             href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-            fontSize="desktop.caption"
+            fontSize="v5.helper"
             isUnderlined={false}
             variant="external"
             width="fit-content"
@@ -298,31 +297,30 @@ export const FeedbackBox: ChakraComponent<
             <DrawerOverlay />
 
             <DrawerContent sx={styles.drawerContent}>
-              <Button
-                id={`${mainId}-feedback-close`}
-                onClick={closeAndResetForm}
-                sx={styles.closeButton}
-                // TO DO v5: text variant hover color?
-                variant="text"
-              >
-                <Icon
-                  // TO DO v5: color token => button.icononly.icon.default
-                  color="ui.black"
-                  // TO DO v5: icon => "dash"
-                  name="minus"
-                  // TO DO v5: size token => "icon.sm"
-                  size="xsmall"
-                />
-                <span>Close {title}</span>
-              </Button>
               <DrawerHeader sx={styles.drawerHeader}>
                 <Text data-testid="title">{title}</Text>
+                <Button
+                  id={`${mainId}-feedback-close`}
+                  onClick={closeAndResetForm}
+                  sx={styles.closeButton}
+                  // TO DO v5: text variant hover color?
+                  variant="text"
+                >
+                  <Icon
+                    // TO DO v5: color token => button.icononly.icon.default
+                    color="ui.black"
+                    // TO DO v5: icon => "dash"
+                    name="minus"
+                    // TO DO v5: size token => "icon.sm"
+                    size="xsmall"
+                  />
+                  <span>Close {title}</span>
+                </Button>
               </DrawerHeader>
 
               <DrawerBody sx={styles.drawerBody}>
                 <Form
                   noValidate
-                  gap="grid.s"
                   id={`${mainId}-feedback-form`}
                   onSubmit={internalOnSubmit}
                   sx={{
@@ -485,13 +483,15 @@ export const FeedbackBox: ChakraComponent<
                             Thank you for submitting your feedback.
                           </Text>
                           {showEmailField && (
-                            <Text mt="s">
+                            <Text mt="v5.density.normal">
                               If you asked a question and provided an email,
                               allow us a few days to respond.
                             </Text>
                           )}
                           {confirmationText ? (
-                            <Text mt="s">{confirmationText}</Text>
+                            <Text mt="v5.density.normal">
+                              {confirmationText}
+                            </Text>
                           ) : undefined}
                         </div>
                       </Box>

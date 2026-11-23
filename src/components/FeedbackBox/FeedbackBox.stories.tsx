@@ -55,7 +55,7 @@ const FeedbackBoxWithControls = (args) => {
   return (
     <Box maxHeight="200px" overflowY="auto">
       <Box height="400px" bgColor="v5.surface.page" width="100%">
-        <Heading level="h3" m="s">
+        <Heading level="h3" m="v5.inset.normal">
           surface.page
         </Heading>
       </Box>
@@ -105,7 +105,7 @@ export const WithControls: Story = {
   },
   play: async () => {
     expect(
-      screen.queryByRole("textsbox", { name: /comment/i })
+      screen.queryByRole("textbox", { name: /comment/i })
     ).not.toBeInTheDocument();
     const button = screen.getByRole("button", { name: "Help and feedback" });
     await userEvent.click(button);
