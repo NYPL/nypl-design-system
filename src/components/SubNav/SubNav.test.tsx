@@ -197,4 +197,3 @@ describe("SubNavLink", () => {
     expect(button).toHaveStyle({ border: "1px solid" });
   });
 });
-
