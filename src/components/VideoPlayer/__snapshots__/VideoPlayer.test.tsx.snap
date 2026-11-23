@@ -68,14 +68,14 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
     id="video-player-with-text-componentWrapper"
   >
     <h2
-      className="chakra-heading css-1uhtpq1"
+      className="chakra-heading css-1a45e1q"
       data-testid="ds-heading"
       id="video-player-with-text-heading"
     >
       VideoPlayer Heading
     </h2>
     <p
-      className="chakra-text css-ap6r8h"
+      className="chakra-text css-1a45e1q"
       data-testid="ds-text"
     >
       VideoPlayer description
@@ -142,14 +142,14 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     id="video-player-with-text-componentWrapper"
   >
     <h2
-      className="chakra-heading css-1uhtpq1"
+      className="chakra-heading css-1a45e1q"
       data-testid="ds-heading"
       id="video-player-with-text-heading"
     >
       VideoPlayer Heading
     </h2>
     <p
-      className="chakra-text css-ap6r8h"
+      className="chakra-text css-1a45e1q"
       data-testid="ds-text"
     >
       VideoPlayer description

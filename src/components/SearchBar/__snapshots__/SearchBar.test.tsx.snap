@@ -1081,7 +1081,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
   id="withHeading-componentWrapper"
 >
   <h2
-    className="chakra-heading css-1uhtpq1"
+    className="chakra-heading css-1a45e1q"
     data-testid="ds-heading"
     id="withHeading-heading"
   >
@@ -1142,7 +1142,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
   id="withDescription-componentWrapper"
 >
   <p
-    className="chakra-text css-ap6r8h"
+    className="chakra-text css-1a45e1q"
     data-testid="ds-text"
   >
     A description
@@ -1202,14 +1202,14 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
   id="withHeadingAndDescription-componentWrapper"
 >
   <h2
-    className="chakra-heading css-1uhtpq1"
+    className="chakra-heading css-1a45e1q"
     data-testid="ds-heading"
     id="withHeadingAndDescription-heading"
   >
     A Heading
   </h2>
   <p
-    className="chakra-text css-ap6r8h"
+    className="chakra-text css-1a45e1q"
     data-testid="ds-text"
   >
     A description
