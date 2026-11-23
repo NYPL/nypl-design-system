@@ -12,6 +12,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Checkbox` styles to align with v5 designs. [ISW-6247](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6247)
 - Updates `SkipNavigation` styles to align with v5 designs. [ISW-6259](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6259)
 - Updates `Logo` component styles to align with v5 designs. [ISW-6292](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6292)
+- Updates `SkeletonLoader` styles to align with v5 designs. [ISW-6258](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6258)
 - Updates `HorizontalRule` styles to align with v5 designs. [ISW-6253](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6253)
 - Updates `MultiSelectGroup` styles to align with v5 designs. [ISW-6293](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6293)
 - Updates `SearchBar` styles to align with v5 designs. [ISW-6257](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6257)
