@@ -10,6 +10,10 @@ import React, { forwardRef } from "react";
 
 import Link from "../Link/Link";
 import Text from "../Text/Text";
+import {
+  HeadingLevels,
+  HeadingSizes,
+} from "@nypl/design-system-react-components";
 
 export const headingSizesArray = [
   "display1",
@@ -24,8 +28,8 @@ export const headingSizesArray = [
 ] as const;
 export const headingLevelsArray = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
 
-export type HeadingSizes = typeof headingSizesArray[number];
-export type HeadingLevels = typeof headingLevelsArray[number];
+export const headingVariantsArray = ["default", "alternate"] as const;
+export type HeadingVariants = (typeof headingVariantsArray)[number];
 
 export interface HeadingProps extends BoxProps {
   /** Optional prop used to show capitalized text */
@@ -50,6 +54,9 @@ export interface HeadingProps extends BoxProps {
    * `Heading`, a child `<a>` element is created and the heading text becomes an
    * active link */
   url?: string;
+  /** Optional variant. The "alternate" variant changes only the font of the
+   * heading text; the overline and subtitle are not affected. */
+  variant?: HeadingVariants;
   /** Optional className for the URL when the `url` prop is passed */
   urlClass?: string;
 }
@@ -94,12 +101,14 @@ export const Heading: ChakraComponent<
         text,
         url,
         urlClass,
+        variant: headingVariant = "default",
         ...rest
       } = props;
       const finalLevel = getMappedLevel(level);
       const variant = size ? size : level;
       const styles = useMultiStyleConfig("Heading", {
         variant,
+        isAlternate: headingVariant === "alternate",
         isCapitalized,
         isUppercase,
         isLowercase,

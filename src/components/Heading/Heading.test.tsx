@@ -250,6 +250,15 @@ describe("Heading", () => {
     expect(withOverlineAndSubtitle).toMatchSnapshot();
   });
 
+  it("renders the alternate variant without changing the structure", () => {
+    render(
+      <Heading overline="Overline" text="Alternate" variant="alternate" />
+    );
+
+    expect(screen.getByTestId("ds-heading")).toHaveTextContent("Alternate");
+    expect(screen.getByText("Overline")).toBeInTheDocument();
+  });
+
   it("passes a ref to the heading element", () => {
     const ref = React.createRef<HTMLHeadingElement>();
     const { container } = render(

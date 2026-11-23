@@ -19,7 +19,7 @@ import { changelogData } from "./headingChangelogData";
   componentName="Heading"
   summary="Renders a native HTML heading element in different sizes and styles"
   versionAdded="0.0.4"
-  versionLatest="4.0.0"
+  versionLatest="5.0.0"
 />
 
 <Canvas of={HeadingStories.WithControls} />
@@ -147,6 +147,21 @@ Guide](./?path=/docs/style-guide-typography--docs#size-options).
 />
 
 <Canvas of={HeadingStories.SizeStyles} />
+
+## Alternate variant
+
+The `variant` prop can be set to `"alternate"` to render the heading text in the
+alternate heading font. The overline and subtitle elements keep their default
+font.
+
+<Source
+  code={`
+  <Heading variant="alternate" text="Lorem ipsum dolor" />
+`}
+  language="tsx"
+/>
+
+<Canvas of={HeadingStories.AlternateVariant} />
 
 ## Overline and subtitle
 

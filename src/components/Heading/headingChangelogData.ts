@@ -10,6 +10,16 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "New Feature",
+    affects: ["Functionality", "Styles"],
+    notes: [
+      'Updates styles to v5.',
+      'Adds the `variant` prop with an "alternate" value that applies the alternate heading font to the heading text only.',
+    ],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",

@@ -174,8 +174,9 @@ const variants = {
 
 const Heading = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({ isCapitalized, isUppercase, isLowercase }) => ({
+    ({ isAlternate, isCapitalized, isUppercase, isLowercase }) => ({
       base: {
+        fontFamily: isAlternate ? "v5.headingAlternate" : undefined,
         "a:only-child": {
           ...baseLinkStyles,
           textDecoration: "none",
