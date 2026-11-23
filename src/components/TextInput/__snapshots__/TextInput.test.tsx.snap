@@ -38,7 +38,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 1`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -86,7 +90,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -134,7 +142,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -178,7 +190,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -216,7 +232,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 5`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -265,12 +285,16 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Custom helper text",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Custom helper text",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;
@@ -319,13 +343,29 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 7`] = `
     id="myTextInput-helperErrorText"
   >
     <div
+      className="css-1pg8bi"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-3u73el"
+        data-file-name="SvgErrorFilled"
+        focusable={false}
+        role="img"
+        title="errorFilled icon"
+      />
+    </div>
+    <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "There is an error related to this field.",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "There is an error related to this field.",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;
@@ -373,7 +413,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 8`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -417,7 +461,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 9`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -461,7 +509,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 10`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -505,7 +557,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 11`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -549,7 +605,11 @@ exports[`UI Snapshots renders the text input UI snapshot correctly 12`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;

@@ -26,7 +26,11 @@ exports[`AudioPlay Snapshots Renders the errored AudioPlayer UI 1`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -69,12 +73,16 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  1`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Audio Player helper text.",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Audio Player helper text.",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;
@@ -113,7 +121,11 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  2`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -144,7 +156,11 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  3`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -183,7 +199,11 @@ exports[`AudioPlay Snapshots Renders the well formatted AudioPlayer UI  4`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;

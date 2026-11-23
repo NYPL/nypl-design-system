@@ -332,7 +332,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -698,7 +702,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -1043,7 +1051,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -1387,7 +1399,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -1725,7 +1741,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -2063,7 +2083,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>

@@ -78,7 +78,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
               >
                 <div
                   className="css-0"
-                />
+                >
+                  <div
+                    className="css-0"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -143,7 +147,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
               >
                 <div
                   className="css-0"
-                />
+                >
+                  <div
+                    className="css-0"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -158,7 +166,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </fieldset>
 </div>
@@ -242,7 +254,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
               >
                 <div
                   className="css-0"
-                />
+                >
+                  <div
+                    className="css-0"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -307,7 +323,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
               >
                 <div
                   className="css-0"
-                />
+                >
+                  <div
+                    className="css-0"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -322,7 +342,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </fieldset>
 </div>
@@ -406,7 +430,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
               >
                 <div
                   className="css-0"
-                />
+                >
+                  <div
+                    className="css-0"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -471,7 +499,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
               >
                 <div
                   className="css-0"
-                />
+                >
+                  <div
+                    className="css-0"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -486,7 +518,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </fieldset>
 </div>
@@ -571,13 +607,29 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 id="invalid-datePicker-start-textInput-helperErrorText"
               >
                 <div
+                  className="css-1pg8bi"
+                >
+                  <svg
+                    aria-hidden={true}
+                    className="chakra-icon css-3u73el"
+                    data-file-name="SvgErrorFilled"
+                    focusable={false}
+                    role="img"
+                    title="errorFilled icon"
+                  />
+                </div>
+                <div
                   className="css-0"
-                  dangerouslySetInnerHTML={
-                    {
-                      "__html": "Please select a valid date.",
+                >
+                  <div
+                    className="css-0"
+                    dangerouslySetInnerHTML={
+                      {
+                        "__html": "Please select a valid date.",
+                      }
                     }
-                  }
-                />
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -643,13 +695,29 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 id="invalid-datePicker-end-textInput-helperErrorText"
               >
                 <div
+                  className="css-1pg8bi"
+                >
+                  <svg
+                    aria-hidden={true}
+                    className="chakra-icon css-3u73el"
+                    data-file-name="SvgErrorFilled"
+                    focusable={false}
+                    role="img"
+                    title="errorFilled icon"
+                  />
+                </div>
+                <div
                   className="css-0"
-                  dangerouslySetInnerHTML={
-                    {
-                      "__html": "Please select a valid date.",
+                >
+                  <div
+                    className="css-0"
+                    dangerouslySetInnerHTML={
+                      {
+                        "__html": "Please select a valid date.",
+                      }
                     }
-                  }
-                />
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -664,12 +732,16 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
     >
       <div
         className="css-0"
-        dangerouslySetInnerHTML={
-          {
-            "__html": "Note that the Library may be closed on Sundays.",
+      >
+        <div
+          className="css-0"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Note that the Library may be closed on Sundays.",
+            }
           }
-        }
-      />
+        />
+      </div>
     </div>
   </fieldset>
 </div>
@@ -753,7 +825,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               >
                 <div
                   className="css-0"
-                />
+                >
+                  <div
+                    className="css-0"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -818,7 +894,11 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
               >
                 <div
                   className="css-0"
-                />
+                >
+                  <div
+                    className="css-0"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -833,12 +913,16 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
     >
       <div
         className="css-0"
-        dangerouslySetInnerHTML={
-          {
-            "__html": "Note that the Library may be closed on Sundays.",
+      >
+        <div
+          className="css-0"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "Note that the Library may be closed on Sundays.",
+            }
           }
-        }
-      />
+        />
+      </div>
     </div>
   </fieldset>
 </div>
@@ -909,7 +993,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
           >
             <div
               className="css-0"
-            />
+            >
+              <div
+                className="css-0"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -920,7 +1008,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 1`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="basic-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -981,7 +1073,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
           >
             <div
               className="css-0"
-            />
+            >
+              <div
+                className="css-0"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -992,7 +1088,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 2`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="no-label-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1061,7 +1161,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
           >
             <div
               className="css-0"
-            />
+            >
+              <div
+                className="css-0"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -1072,7 +1176,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 3`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="custom-format-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1142,13 +1250,29 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             id="invalid-datePicker-start-textInput-helperErrorText"
           >
             <div
+              className="css-1pg8bi"
+            >
+              <svg
+                aria-hidden={true}
+                className="chakra-icon css-3u73el"
+                data-file-name="SvgErrorFilled"
+                focusable={false}
+                role="img"
+                title="errorFilled icon"
+              />
+            </div>
+            <div
               className="css-0"
-              dangerouslySetInnerHTML={
-                {
-                  "__html": "Please select a valid date.",
+            >
+              <div
+                className="css-0"
+                dangerouslySetInnerHTML={
+                  {
+                    "__html": "Please select a valid date.",
+                  }
                 }
-              }
-            />
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -1159,7 +1283,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="invalid-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1229,12 +1357,16 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
           >
             <div
               className="css-0"
-              dangerouslySetInnerHTML={
-                {
-                  "__html": "Note that the Library may be closed on Sundays.",
+            >
+              <div
+                className="css-0"
+                dangerouslySetInnerHTML={
+                  {
+                    "__html": "Note that the Library may be closed on Sundays.",
+                  }
                 }
-              }
-            />
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -1245,7 +1377,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 5`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="disabled-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1315,12 +1451,16 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
           >
             <div
               className="css-0"
-              dangerouslySetInnerHTML={
-                {
-                  "__html": "Note that the Library may be closed on Sundays.",
+            >
+              <div
+                className="css-0"
+                dangerouslySetInnerHTML={
+                  {
+                    "__html": "Note that the Library may be closed on Sundays.",
+                  }
                 }
-              }
-            />
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -1331,7 +1471,11 @@ exports[`DatePicker Single input renders the UI snapshot correctly 6`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="chakra-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;
 
@@ -1401,12 +1545,16 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
           >
             <div
               className="css-0"
-              dangerouslySetInnerHTML={
-                {
-                  "__html": "Note that the Library may be closed on Sundays.",
+            >
+              <div
+                className="css-0"
+                dangerouslySetInnerHTML={
+                  {
+                    "__html": "Note that the Library may be closed on Sundays.",
+                  }
                 }
-              }
-            />
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -1417,6 +1565,10 @@ exports[`DatePicker Single input renders the UI snapshot correctly 7`] = `
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="props-helperErrorText"
-  />
+  >
+    <div
+      className="css-0"
+    />
+  </div>
 </div>
 `;

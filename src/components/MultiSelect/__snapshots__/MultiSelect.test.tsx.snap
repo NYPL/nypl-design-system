@@ -151,7 +151,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -219,7 +223,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -290,7 +298,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -358,7 +370,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -426,7 +442,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -494,7 +514,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -562,7 +586,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -630,7 +658,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -642,7 +674,11 @@ exports[`MultiSelect should render the UI snapshot correctly 1`] = `
                 >
                   <div
                     className="css-0"
-                  />
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </div>
               </fieldset>
             </div>
@@ -805,7 +841,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -873,7 +913,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -944,7 +988,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1012,7 +1060,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1080,7 +1132,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1148,7 +1204,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1216,7 +1276,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1284,7 +1348,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1296,7 +1364,11 @@ exports[`MultiSelect should render the UI snapshot correctly 2`] = `
                 >
                   <div
                     className="css-0"
-                  />
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </div>
               </fieldset>
             </div>
@@ -1459,7 +1531,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1527,7 +1603,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1598,7 +1678,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1697,7 +1781,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1777,7 +1865,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1845,7 +1937,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1913,7 +2009,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -1981,7 +2081,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1993,7 +2097,11 @@ exports[`MultiSelect should render the UI snapshot correctly 3`] = `
                 >
                   <div
                     className="css-0"
-                  />
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </div>
               </fieldset>
             </div>
@@ -2175,7 +2283,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2243,7 +2355,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2314,7 +2430,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2394,7 +2514,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2474,7 +2598,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2554,7 +2682,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2622,7 +2754,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div
@@ -2690,7 +2826,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                     >
                       <div
                         className="css-0"
-                      />
+                      >
+                        <div
+                          className="css-0"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2702,7 +2842,11 @@ exports[`MultiSelect should render the UI snapshot correctly 4`] = `
                 >
                   <div
                     className="css-0"
-                  />
+                  >
+                    <div
+                      className="css-0"
+                    />
+                  </div>
                 </div>
               </fieldset>
             </div>

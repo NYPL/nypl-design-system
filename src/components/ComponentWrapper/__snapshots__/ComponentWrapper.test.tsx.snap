@@ -23,7 +23,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 1`] = `
     children elements
   </div>
   <div
-    className="css-3mcprd"
+    className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="id-helperErrorText"
@@ -54,7 +54,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 2`] = `
     children elements
   </div>
   <div
-    className="css-3mcprd"
+    className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="id-helperErrorText"
@@ -93,19 +93,23 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 3`] = `
     children elements
   </div>
   <div
-    className="css-3mcprd"
+    className="css-1xdhyk6"
     data-isinvalid={true}
     data-testid="ds-helperErrorText"
     id="id-helperErrorText"
   >
-    <svg
-      aria-hidden={true}
-      className="chakra-icon css-1i4020f"
-      data-file-name="SvgErrorFilled"
-      focusable={false}
-      role="img"
-      title="errorFilled icon"
-    />
+    <div
+      className="css-1pg8bi"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-3u73el"
+        data-file-name="SvgErrorFilled"
+        focusable={false}
+        role="img"
+        title="errorFilled icon"
+      />
+    </div>
     <div
       className="css-0"
     >
@@ -132,7 +136,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 4`] = `
     children elements
   </div>
   <div
-    className="css-3mcprd"
+    className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="chakra-helperErrorText"
@@ -158,7 +162,7 @@ exports[`ComponentWrapper Renders the UI snapshot correctly 5`] = `
     children elements
   </div>
   <div
-    className="css-3mcprd"
+    className="css-1xdhyk6"
     data-isinvalid={false}
     data-testid="ds-helperErrorText"
     id="props-helperErrorText"

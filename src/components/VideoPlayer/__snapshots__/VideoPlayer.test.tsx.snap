@@ -31,7 +31,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <noscript>
@@ -96,12 +100,16 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
     >
       <div
         className="css-0"
-        dangerouslySetInnerHTML={
-          {
-            "__html": "VideoPlayer helper test.",
+      >
+        <div
+          className="css-0"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "VideoPlayer helper test.",
+            }
           }
-        }
-      />
+        />
+      </div>
     </div>
   </div>
   <noscript>
@@ -165,12 +173,16 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     >
       <div
         className="css-0"
-        dangerouslySetInnerHTML={
-          {
-            "__html": "VideoPlayer helper test.",
+      >
+        <div
+          className="css-0"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "VideoPlayer helper test.",
+            }
           }
-        }
-      />
+        />
+      </div>
     </div>
   </div>
   <noscript>
@@ -253,7 +265,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <noscript>
@@ -305,7 +321,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <noscript>

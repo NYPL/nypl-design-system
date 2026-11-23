@@ -62,7 +62,11 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -141,7 +145,11 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -242,7 +250,11 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -309,7 +321,11 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -378,8 +394,24 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
     id="checkbox-invalid-helperErrorText"
   >
     <div
+      className="css-1pg8bi"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-3u73el"
+        data-file-name="SvgErrorFilled"
+        focusable={false}
+        role="img"
+        title="errorFilled icon"
+      />
+    </div>
+    <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -449,7 +481,11 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -529,7 +565,11 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -596,7 +636,11 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -663,7 +707,11 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;

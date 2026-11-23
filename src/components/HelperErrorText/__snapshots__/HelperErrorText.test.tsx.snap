@@ -2,7 +2,7 @@
 
 exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
 <div
-  className="css-3mcprd"
+  className="css-1xdhyk6"
   data-isinvalid={false}
   data-testid="ds-helperErrorText"
   id="basic"
@@ -24,19 +24,23 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
 
 exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
 <div
-  className="css-3mcprd"
+  className="css-1xdhyk6"
   data-isinvalid={true}
   data-testid="ds-helperErrorText"
   id="invalid"
 >
-  <svg
-    aria-hidden={true}
-    className="chakra-icon css-1i4020f"
-    data-file-name="SvgErrorFilled"
-    focusable={false}
-    role="img"
-    title="errorFilled icon"
-  />
+  <div
+    className="css-1pg8bi"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-3u73el"
+      data-file-name="SvgErrorFilled"
+      focusable={false}
+      role="img"
+      title="errorFilled icon"
+    />
+  </div>
   <div
     className="css-0"
   >
@@ -54,19 +58,23 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
 
 exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
 <div
-  className="css-3mcprd"
+  className="css-1xdhyk6"
   data-isinvalid={true}
   data-testid="ds-helperErrorText"
   id="invalid"
 >
-  <svg
-    aria-hidden={true}
-    className="chakra-icon css-1i4020f"
-    data-file-name="SvgErrorFilled"
-    focusable={false}
-    role="img"
-    title="errorFilled icon"
-  />
+  <div
+    className="css-1pg8bi"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-3u73el"
+      data-file-name="SvgErrorFilled"
+      focusable={false}
+      role="img"
+      title="errorFilled icon"
+    />
+  </div>
   <div
     className="css-0"
   >
@@ -84,19 +92,23 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
 
 exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
 <div
-  className="css-3mcprd"
+  className="css-1xdhyk6"
   data-isinvalid={true}
   data-testid="ds-helperErrorText"
   id="invalid"
 >
-  <svg
-    aria-hidden={true}
-    className="chakra-icon css-1i4020f"
-    data-file-name="SvgErrorFilled"
-    focusable={false}
-    role="img"
-    title="errorFilled icon"
-  />
+  <div
+    className="css-1pg8bi"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-3u73el"
+      data-file-name="SvgErrorFilled"
+      focusable={false}
+      role="img"
+      title="errorFilled icon"
+    />
+  </div>
   <div
     className="css-0"
   >
@@ -115,7 +127,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
 
 exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
 <div
-  className="css-9n6f6u"
+  className="css-10g9ftz"
   data-isinvalid={false}
   data-testid="ds-helperErrorText"
   id="chakra"
@@ -139,7 +151,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
 <div
   aria-atomic={true}
   aria-live="polite"
-  className="css-3mcprd"
+  className="css-1xdhyk6"
   data-isinvalid={false}
   data-testid="props"
   id="props"
