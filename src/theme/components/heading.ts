@@ -156,9 +156,6 @@ const Heading = defineMultiStyleConfig({
       },
       defaultColorStyle: {
         color: "ui.typography.heading",
-        _dark: {
-          color: "dark.ui.typography.heading",
-        },
       },
     })
   ),
