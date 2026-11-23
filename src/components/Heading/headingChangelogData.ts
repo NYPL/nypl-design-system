@@ -15,7 +15,7 @@ export const changelogData: ChangelogData[] = [
     type: "New Feature",
     affects: ["Functionality", "Styles"],
     notes: [
-      'Updates styles to v5.',
+      "Updates styles to v5.",
       'Adds the `variant` prop with an "alternate" value that applies the alternate heading font to the heading text only.',
     ],
   },

@@ -10,10 +10,6 @@ import React, { forwardRef } from "react";
 
 import Link from "../Link/Link";
 import Text from "../Text/Text";
-import {
-  HeadingLevels,
-  HeadingSizes,
-} from "@nypl/design-system-react-components";
 
 export const headingSizesArray = [
   "display1",
@@ -30,6 +26,9 @@ export const headingLevelsArray = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
 
 export const headingVariantsArray = ["default", "alternate"] as const;
 export type HeadingVariants = (typeof headingVariantsArray)[number];
+
+export type HeadingSizes = (typeof headingSizesArray)[number];
+export type HeadingLevels = (typeof headingLevelsArray)[number];
 
 export interface HeadingProps extends BoxProps {
   /** Optional prop used to show capitalized text */
