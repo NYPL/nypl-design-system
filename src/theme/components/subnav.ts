@@ -193,14 +193,14 @@ const SubNav = subNavDefineMultiStyleConfig({
         primaryActions: {
           ...ulStyles,
           width: "100%",
-          button: {
+          "li > button": {
             color: defaultColor("light"),
             ...primaryActionsStyles,
             _dark: {
               color: defaultColor("dark"),
             },
           },
-          a: {
+          "li > a": {
             color: defaultColor("light"),
             ...primaryActionsStyles,
             _dark: {
@@ -212,14 +212,14 @@ const SubNav = subNavDefineMultiStyleConfig({
           ...ulStyles,
           width: "fit-content",
           whiteSpace: "nowrap",
-          button: {
+          "li > button": {
             color: highlightOrLinkColor("light"),
             ...secondaryActionsStyles,
             _dark: {
               color: highlightOrLinkColor("dark"),
             },
           },
-          a: {
+          "li > a": {
             color: highlightOrLinkColor("light"),
             ...secondaryActionsStyles,
             _dark: {

@@ -4,9 +4,11 @@ import Heading from "../Heading/Heading";
 import Hero from "../Hero/Hero";
 import Icon from "../Icons/Icon";
 import SkeletonLoader from "../SkeletonLoader/SkeletonLoader";
+import Menu from "../Menu/Menu";
 
 import SubNav, { SubNavButton, SubNavLink } from "./SubNav";
 import { bgColorsArray, highlightColorsArray } from "../../theme/sharedTypes";
+import { defaultListItems } from "../Menu/menuTestData";
 
 const meta: Meta<typeof SubNav> = {
   title: "Components/Navigation/SubNav",
@@ -492,6 +494,14 @@ export const Placement: Story = {
             <SubNavLink href="#browse" id="subnav-placement-browse">
               Browse the catalog
             </SubNavLink>
+            <li>
+              <Menu
+                showLabel={false}
+                id="subnav-menu-filter"
+                labelText="Filters"
+                listItemsData={defaultListItems}
+              />
+            </li>
           </>
         }
         secondaryActions={
@@ -512,6 +522,14 @@ export const Placement: Story = {
               <Icon name="actionIdentityFilled" size="medium" />
               My account
             </SubNavLink>
+            <li>
+              <Menu
+                showLabel={false}
+                id="subnav-menu-filter"
+                labelText="Filters"
+                listItemsData={defaultListItems}
+              />
+            </li>
           </>
         }
       />
@@ -528,5 +546,59 @@ export const Placement: Story = {
   ),
 };
 
+export const WithMenuChild: Story = {
+  render: () => {
+    return (
+      <SubNav
+        primaryActions={
+          <>
+            <SubNavButton
+              id="subnav-with-menu-primary-action-1"
+              screenreaderOnlyText="for the NYPL Research Catalog"
+              onClick={() => console.log("Search clicked")}
+            >
+              <Icon name="search" size="medium" />
+              Search
+            </SubNavButton>
+            <SubNavLink
+              id="subnav-with-menu-primary-action-2"
+              screenreaderOnlyText="for the NYPL Research Catalog"
+              href="#browse"
+            >
+              Browse
+            </SubNavLink>
+            <SubNavButton
+              id="subnav-with-menu-primary-action-3"
+              screenreaderOnlyText="for the NYPL Research Catalog"
+              onClick={() => console.log("Advanced Search clicked")}
+            >
+              Advanced Search
+            </SubNavButton>
+            <li>
+              <Menu
+                showLabel={false}
+                id="subnav-menu-filter"
+                labelText="Filters"
+                listItemsData={defaultListItems}
+              />
+            </li>
+          </>
+        }
+        secondaryActions={
+          <SubNavButton
+            id="subnav-with-menu-secondary-action-1"
+            screenreaderOnlyText="for NYPL.org"
+            onClick={() => console.log("My account clicked")}
+            isOutlined
+          >
+            <Icon name="actionIdentityFilled" size="medium" />
+          </SubNavButton>
+        }
+      />
+    );
+  },
+};
+
 export default meta;
 type Story = StoryObj<typeof SubNav>;
+

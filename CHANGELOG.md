@@ -10,7 +10,12 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### Adds
 
-- Adds the `prependText` prop to the `Select` and `SearchBar` components.
+- Adds the `prependText` prop to the `Select` and `SearchBar` components. [ISW-6122](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6122)
+
+### Updates
+
+- Updates and scopes `SubNav` children styles so they only affect `SubNavLink` and `SubNavButton` [ISW-6162](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6162)
+- Updates the position of the `Menu`'s children menu so it doesn't get clipped by its parent. [ISW-6162](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6162)
 
 ## 4.6.0 (November 10, 2026)
 

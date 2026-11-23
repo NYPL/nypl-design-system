@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Fixes the position so the menu is not clipped by its parent container.",
+    ],
+  },
+  {
     date: "2026-09-21",
     version: "4.5.1",
     type: "Update",

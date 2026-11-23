@@ -305,7 +305,12 @@ export const Menu: ChakraComponent<
       const initialRef = useRef();
       return (
         <Box data-testid="ds-menu" id={id} ref={ref} {...rest}>
-          <ChakraMenu initialFocusRef={selected ? initialRef : null}>
+          <ChakraMenu
+            initialFocusRef={selected ? initialRef : null}
+            // Fixed positioning lets the list escape clipping by scrollable
+            // parents, such as the `SubNav` primaryActions section.
+            strategy="fixed"
+          >
             {({ isOpen }) => (
               <Flex
                 flexDirection={

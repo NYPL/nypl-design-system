@@ -21,7 +21,7 @@ import { changelogData } from "./subNavChangelogData";
   componentName="SubNav"
   summary="Renders a group of secondary navigation and action items"
   versionAdded="3.5.0"
-  versionLatest="4.0.3"
+  versionLatest="Prerelease"
 />
 
 <Canvas of={SubNavStories.WithControls} />
@@ -36,6 +36,7 @@ import { changelogData } from "./subNavChangelogData";
 - [Outlined item](#outlined-item)
 - [Using icons](#using-icons)
 - [Custom colors](#custom-colors)
+- [Custom components](#custom-components)
 - [Horizontal scrolling](#horizontal-scrolling)
 - [Placement](#placement)
 - [Changelog](#changelog)
@@ -327,6 +328,45 @@ highlight color and `section.education.primary-05` for the background color.
 />
 
 <Canvas of={SubNavStories.CustomColors} />
+
+## Custom components
+
+If a custom component needs to render as a child other than `SubNavLink` or
+`SubNavButton`, wrap the element or component in an `<li>` element.
+
+For example, the `Menu` component is a commonly used component within `SubNav`
+and can be set in either `primaryActions` or `secondaryActions`:
+
+<Source
+  code={`
+  <SubNav
+    // subnav props
+    primaryActions={
+      <>
+        <SubNavButton
+          id="subnav-with-menu-primary-action-3"
+          screenreaderOnlyText="for the NYPL Research Catalog"
+          onClick={() => console.log("Advanced Search clicked")}
+        >
+          Advanced Search
+        </SubNavButton>
+        <li>
+          <Menu
+            showLabel={false}
+            id="subnav-menu-filter"
+            labelText="Filters"
+            listItemsData={defaultListItems}
+          />
+        </li>
+      </>
+    }
+    secondaryActions={...}
+  </SubNav>
+`}
+  language="tsx"
+/>
+
+<Canvas of={SubNavStories.WithMenuChild} />
 
 ## Horizontal scrolling
 
