@@ -53,15 +53,6 @@ const SearchBar = defineMultiStyleConfig({
     ".ds-searchBar-textInput": {
       flexGrow: 1,
     },
-    ".ds-searchBar-button": {
-      minWidth: "44px",
-      lineHeight: "1.70",
-      marginBottom: "auto",
-      gap: "v5.button.lg.gap",
-      " > svg": {
-        margin: 0,
-      },
-    },
     inputRow: {
       display: "flex",
       flexDirection: "row",
