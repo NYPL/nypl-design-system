@@ -1,7 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import Label from "./Label";
+import Label, { labelVariantsArray } from "./Label";
 
 const meta: Meta<typeof Label> = {
   title: "Components/Form Elements/Label",
@@ -19,6 +19,11 @@ const meta: Meta<typeof Label> = {
       description: "Only used for Storybook",
       table: { category: "Storybook Only" },
     },
+    variant: {
+      control: { type: "select" },
+      options: labelVariantsArray,
+      table: { defaultValue: { summary: "primary" } },
+    },
   },
 };
 
@@ -33,6 +38,7 @@ export const WithControls: Story = {
   args: {
     isRequired: false,
     text: "A label for a villager.",
+    variant: "primary",
   },
   render: (args: any) => (
     <Label htmlFor="id-of-input-element" {...args}>
@@ -45,6 +51,24 @@ export const WithControls: Story = {
 };
 
 // The following are additional Accordion example Stories.
+export const SizeVariants: Story = {
+  render: () => (
+    <VStack gap="s">
+      <Label htmlFor="label-id1" id="primary">
+        Label text
+      </Label>
+      <Label htmlFor="label-id2" id="primary" variant="secondary">
+        Label text
+      </Label>
+      <Label htmlFor="label-id3" id="primary" variant="tertiary">
+        Label text
+      </Label>
+      <Label htmlFor="label-id4" id="primary" variant="quaternary">
+        Label text
+      </Label>
+    </VStack>
+  ),
+};
 export const RequiredState: Story = {
   render: () => (
     <VStack>

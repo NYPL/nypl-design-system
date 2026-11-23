@@ -6,15 +6,38 @@ interface LabelBaseStyle extends StyleFunctionProps {
   isInlined: boolean;
 }
 
+// Variant styles
+const primary = defineStyle({
+  ...labelLegendText,
+});
+const secondary = defineStyle({
+  fontSize: "v5.label.form.secondary",
+  fontWeight: "v5.label.form",
+  lineHeight: "v5.label.form.secondary",
+});
+const tertiary = defineStyle({
+  fontSize: "v5.label.primary",
+  fontWeight: "v5.label.primary",
+  lineHeight: "v5.label.primary",
+});
+const quaternary = defineStyle({
+  fontSize: "v5.label.secondary",
+  fontWeight: "v5.label.secondary",
+  lineHeight: "v5.label.secondary",
+});
+
 const Label = defineStyleConfig({
   baseStyle: defineStyle((props: LabelBaseStyle) => ({
-    ...labelLegendText,
+    ...primary,
     flex: props.isInlined ? "1" : null,
     whiteSpace: props.isInlined ? "nowrap" : null,
-    span: {
-      fontWeight: "regular",
-    },
   })),
+  // Available variants:
+  variants: {
+    secondary,
+    tertiary,
+    quaternary,
+  },
 });
 
 export default Label;

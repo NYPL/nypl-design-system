@@ -27,6 +27,7 @@ import { changelogData } from "./labelChangelogData";
 - [Overview](#overview)
 - [Component Props](#component-props)
 - [Accessibility](#accessibility)
+- [Size variants](#size-variants)
 - [isRequired helper text](#isrequired-helper-text)
 - [requiredLabelText to customize required label](#requiredlabeltext-to-customize-required-label)
 - [Changelog](#changelog)
@@ -51,13 +52,20 @@ that the label is associated with. This is the proper way to label inputs
 so that screenreaders can read the label, without the use of the `aria-label`
 attribute on the input element.
 
-Note: All form-related Reservoir components already implement this `Label`
-component so there is no need to use this component unless you are building
-a new form-related input component.
+Note: All form-related Reservoir components already implement the `primary`
+variant of the `Label` component, so there is no need to use this component
+unless you are building a new form-related input component.
 
 Resources:
 
 - [WebAIM Creating Accessible Forms](https://webaim.org/techniques/forms/advanced)
+
+## Size variants
+
+The `Label` component offers four size variants, but form elements typically use
+the `"primary"` variant for consistency.
+
+<Canvas of={LabelStories.SizeVariants} />
 
 ## isRequired helper text
 
