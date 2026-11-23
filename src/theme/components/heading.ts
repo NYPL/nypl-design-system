@@ -59,93 +59,57 @@ export const headings = {
   }),
   heading3: definePartsStyle({
     base: {
-      fontSize: {
-        base: "v5.heading.moderate.mobile",
-        md: "v5.heading.moderate.tablet",
-      },
+      fontSize: "v5.heading.moderate",
       fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: {
-        base: "v5.heading.moderate.mobile",
-        md: "v5.heading.moderate.tablet",
-      },
+      lineHeight: "v5.heading.moderate",
       width: "auto",
       a: { textUnderlineOffset: "4px" },
     },
   }),
   heading4: definePartsStyle({
     base: {
-      fontSize: {
-        base: "v5.heading.medium.mobile",
-        md: "v5.heading.medium.tablet",
-      },
+      fontSize: "v5.heading.medium",
       fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: {
-        base: "v5.heading.medium.mobile",
-        md: "v5.heading.medium.tablet",
-      },
+      lineHeight: "v5.heading.medium",
       width: "auto",
       a: { textUnderlineOffset: "3px" },
     },
   }),
   heading5: definePartsStyle({
     base: {
-      fontSize: {
-        base: "v5.heading.modest.mobile",
-        md: "v5.heading.modest.tablet",
-      },
+      fontSize: "v5.heading.modest",
       fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: {
-        base: "v5.heading.modest.mobile",
-        md: "v5.heading.modest.tablet",
-      },
+      lineHeight: "v5.heading.modest",
       width: "auto",
     },
   }),
   heading6: definePartsStyle({
     base: {
-      fontSize: {
-        base: "v5.heading.small.mobile",
-        md: "v5.heading.small.tablet",
-      },
+      fontSize: "v5.heading.small",
       fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: {
-        base: "v5.heading.small.mobile",
-        md: "v5.heading.small.tablet",
-      },
+      lineHeight: "v5.heading.small",
       width: "auto",
     },
   }),
   heading7: definePartsStyle({
     base: {
-      fontSize: {
-        base: "v5.heading.small.mobile",
-        md: "v5.heading.small.tablet",
-      },
+      fontSize: "v5.heading.small",
       fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: {
-        base: "v5.heading.small.mobile",
-        md: "v5.heading.small.tablet",
-      },
+      lineHeight: "v5.heading.small",
       width: "auto",
     },
   }),
   heading8: definePartsStyle({
     base: {
-      fontSize: {
-        base: "v5.heading.small.mobile",
-        md: "v5.heading.small.tablet",
-      },
+      fontSize: "v5.heading.small",
       fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: {
-        base: "v5.heading.small.mobile",
-        md: "v5.heading.small.tablet",
-      },
+      lineHeight: "v5.heading.small",
       width: "auto",
     },
   }),
