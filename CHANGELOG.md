@@ -14,6 +14,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `Logo` component styles to align with v5 designs. [ISW-6292](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6292)
 - Updates `HorizontalRule` styles to align with v5 designs. [ISW-6253](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6253)
 - Updates `MultiSelectGroup` styles to align with v5 designs. [ISW-6293](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6293)
+- Updates `SearchBar` styles to align with v5 designs. [ISW-6257](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6257)
 
 ## Prerelease
 
