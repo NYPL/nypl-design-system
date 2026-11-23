@@ -49,6 +49,12 @@ const getCircularContainerFlexDir = (labelPlacement) => {
 const ProgressIndicator = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
     ({ size, labelPlacement, showLabel }: ProgressIndicatorBaseStyle) => {
+      const gapSize = size === "default" ? "default" : "sm";
+      const gapDirection =
+        labelPlacement === "left" || labelPlacement === "right"
+          ? "row"
+          : "column";
+
       return {
         color: "v5.text.label",
         circular: {
@@ -72,13 +78,7 @@ const ProgressIndicator = defineMultiStyleConfig({
           alignItems: "center",
           display: "flex",
           flexDirection: getCircularContainerFlexDir(labelPlacement),
-          gap: `v5.progressIndicator.circular.gap.${
-            size === "default" ? "default" : "sm"
-          }.${
-            labelPlacement === "left" || labelPlacement === "right"
-              ? "row"
-              : "column"
-          }`,
+          gap: `v5.progressIndicator.circular.gap.${gapSize}.${gapDirection}`,
           width: "fit-content",
         },
         circularLabel: {
