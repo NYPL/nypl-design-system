@@ -214,62 +214,45 @@ describe("MulitSelectGroup Accessibility", () => {
 
   it("renders the UI snapshots correctly", () => {
     const handleChangeMock = jest.fn();
-    const multiSelectGroup = renderer
-      .create(
-        <MultiSelectGroup
-          id="MultiSelectGroup"
-          multiSelectWidth="full"
-          labelText="MultiSelectGroup example"
-          showLabel={true}
-          renderMultiSelect={() => {
-            return multiSelectItems.map((multiSelectItem) => (
-              <MultiSelect
-                key={multiSelectItem.id}
-                id={multiSelectItem.id}
-                items={multiSelectItem.items}
-                selectedItems={{}}
-                isDefaultOpen={false}
-                isSearchable={false}
-                isBlockElement={false}
-                buttonText="MultiSelect"
-                defaultItemsVisible={defaultItemsVisible}
-                onChange={handleChangeMock}
-                onClear={() => "onClear"}
-              />
-            ));
-          }}
-        />
-      )
-      .toJSON();
-    const labelHidden = renderer
-      .create(
-        <MultiSelectGroup
-          id="MultiSelectGroup"
-          multiSelectWidth="full"
-          labelText="MultiSelectGroup example"
-          showLabel={false}
-          renderMultiSelect={() => {
-            return multiSelectItems.map((multiSelectItem) => (
-              <MultiSelect
-                key={multiSelectItem.id}
-                id={multiSelectItem.id}
-                items={multiSelectItem.items}
-                selectedItems={{}}
-                isDefaultOpen={false}
-                isSearchable={false}
-                isBlockElement={false}
-                buttonText="MultiSelect"
-                defaultItemsVisible={defaultItemsVisible}
-                onChange={handleChangeMock}
-                onClear={() => "onClear"}
-              />
-            ));
-          }}
-        />
-      )
-      .toJSON();
+    const renderGroup = (
+      props: Partial<React.ComponentProps<typeof MultiSelectGroup>> = {}
+    ) =>
+      renderer
+        .create(
+          <MultiSelectGroup
+            id="MultiSelectGroup"
+            multiSelectWidth="full"
+            labelText="MultiSelectGroup example"
+            showLabel={true}
+            renderMultiSelect={() =>
+              multiSelectItems.map((multiSelectItem) => (
+                <MultiSelect
+                  key={multiSelectItem.id}
+                  id={multiSelectItem.id}
+                  items={multiSelectItem.items}
+                  selectedItems={{}}
+                  isDefaultOpen={false}
+                  isSearchable={false}
+                  isBlockElement={false}
+                  buttonText="MultiSelect"
+                  defaultItemsVisible={defaultItemsVisible}
+                  onChange={handleChangeMock}
+                  onClear={() => "onClear"}
+                />
+              ))
+            }
+            {...props}
+          />
+        )
+        .toJSON();
 
-    expect(multiSelectGroup).toMatchSnapshot();
-    expect(labelHidden).toMatchSnapshot();
+    expect(renderGroup()).toMatchSnapshot();
+    expect(renderGroup({ showLabel: false })).toMatchSnapshot();
+    expect(
+      renderGroup({ layout: "row", showDividers: true })
+    ).toMatchSnapshot();
+    expect(
+      renderGroup({ layout: "column", showDividers: true })
+    ).toMatchSnapshot();
   });
 });

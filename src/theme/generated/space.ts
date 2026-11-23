@@ -9,27 +9,59 @@ export const space = {
   xl: "48px",
   "2xl": "64px",
   "3xl": "96px",
+  page: {
+    maxWidth: "1360px",
+    paddingX: {
+      mobile: "20px",
+      tablet: "24px",
+      desktop: "48px",
+    },
+    content: {
+      paddingTop: "40px",
+      paddingBottom: "64px",
+    },
+    section: {
+      columnGap: {
+        mobile: "16px",
+        tablet: "20px",
+        desktop: "24px",
+      },
+      rowGap: {
+        inside: "16px",
+        outside: {
+          half: "24px",
+          default: "48px",
+        },
+      },
+    },
+  },
   density: {
+    normal: "16px",
     touching: "0px",
     cramped: "2px",
     tight: "4px",
     condensed: "8px",
-    normal: "16px",
     open: "24px",
     spacious: "32px",
     expansive: "40px",
     airy: "48px",
   },
   layout: {
-    crushed: "16px",
     cramped: "24px",
+    normal: "48px",
+    crushed: "16px",
     tight: "32px",
     condensed: "40px",
-    normal: "48px",
     open: "56px",
     spacious: "64px",
     expansive: "80px",
     airy: "96px",
+  },
+  text: {
+    paragraph: {
+      body: "16px",
+      helper: "8px",
+    },
   },
   inset: {
     crushed: "2px",
@@ -159,6 +191,7 @@ export const space = {
     },
   },
   helperText: {
+    gap: "8px",
     paragraphSpacing: "8px",
   },
   hero: {
@@ -180,6 +213,20 @@ export const space = {
     content: {
       paddingX: "32px",
       paddingY: "32px",
+    },
+  },
+  inputShared: {
+    group: {
+      gap: {
+        column: "12px",
+        row: "32px",
+      },
+    },
+    label: {
+      marginBottom: "8px",
+    },
+    helperText: {
+      marginTop: "6px",
     },
   },
   link: {
@@ -271,6 +318,23 @@ export const space = {
     paddingX: "20px",
     paddingY: "16px",
   },
+  progressIndicator: {
+    linear: {
+      gap: "8px",
+    },
+    circular: {
+      gap: {
+        default: {
+          column: "4px",
+          row: "8px",
+        },
+        sm: {
+          column: "4px",
+          row: "4px",
+        },
+      },
+    },
+  },
   radioGroup: {
     gap: {
       column: "12px",
@@ -326,14 +390,14 @@ export const space = {
     paddingX: "16px",
   },
   tag: {
+    gap: "4px",
     paddingX: "12px",
     paddingY: "4px",
-    gap: {
-      icon: "4px",
-      button: "4px",
-    },
   },
   tagSet: {
+    gap: "8px",
+  },
+  select: {
     gap: "8px",
   },
   container: {
@@ -345,6 +409,11 @@ export const space = {
   },
   grid: {
     gap: {
+      tight: {
+        mobile: "4px",
+        tablet: "6px",
+        desktop: "8px",
+      },
       condensed: {
         mobile: "8px",
         tablet: "12px",

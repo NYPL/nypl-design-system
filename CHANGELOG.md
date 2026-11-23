@@ -11,16 +11,39 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Adds v5 design tokens to repo. [ISW-6210](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6210)
 - Updates `Checkbox` styles to align with v5 designs. [ISW-6247](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6247)
 - Updates `FeedbackBox` styles to align with v5 designs. [ISW-6250](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6250)
+- Updates `SkipNavigation` styles to align with v5 designs. [ISW-6259](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6259)
+- Updates `Logo` component styles to align with v5 designs. [ISW-6292](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6292)
+- Updates `HorizontalRule` styles to align with v5 designs. [ISW-6253](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6253)
+- Updates `MultiSelectGroup` styles to align with v5 designs. [ISW-6293](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6293)
+- Updates `SearchBar` styles to align with v5 designs. [ISW-6257](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6257)
 
 ## Prerelease
 
 ### Adds
 
-- Adds interaction tests for the List component UL and DL variants.
+- Adds the `prependText` prop to the `Select` and `SearchBar` components.
+
+## 4.6.0 (November 10, 2026)
+
+### Adds
+
+- Adds interaction tests for the `List` component UL and DL variants.
+- Adds the `PlaceholderImage` component.
+
+### Updates
+
+- Updates the `Banner` component to reduce the spacing between the icon and the left side of the component.
+- Updates `@types/jest`, `jest`, `prettier`, `ts-jest`, and `vite` npm packages.
+- Updates `toBeCalled` to `toHaveBeenCalled` and `toBeCalledTimes` to `toHaveBeenCalledTimes` in a few unit tests.
+
+### Removes
+
+- Removes the `system-font-css` npm package.
 
 ### Fixes
 
 - Fixes a `List` component issue where empty children threw warning messages and did not render the component.
+- Fixes a bug in the `Link` component that did not easily allow the `sx` or style props to appropriately update the component.
 
 ## 4.5.3 (October 28, 2026)
 

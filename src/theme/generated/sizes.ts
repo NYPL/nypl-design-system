@@ -58,6 +58,12 @@ export const sizes = {
       xl: "56px",
     },
   },
+  helperText: {
+    icon: {
+      width: "20px",
+      height: "20px",
+    },
+  },
   hero: {
     default: {
       minHeight: {
@@ -99,7 +105,7 @@ export const sizes = {
       minHeight: "48px",
     },
   },
-  multiSelect: {
+  multiselect: {
     height: "64px",
     dropdown: {
       maxWidth: "320px",
@@ -122,6 +128,27 @@ export const sizes = {
       },
     },
   },
+  progressIndicator: {
+    linear: {
+      track: {
+        height: {
+          default: "8px",
+          sm: "4px",
+        },
+      },
+      container: {
+        height: "20px",
+      },
+    },
+    circular: {
+      track: {
+        width: {
+          default: "6px",
+          sm: "3px",
+        },
+      },
+    },
+  },
   tab: {
     height: "56px",
   },
@@ -132,5 +159,21 @@ export const sizes = {
   },
   tag: {
     height: "32px",
+  },
+  toggle: {
+    icon: {
+      width: {
+        default: "10px",
+        lg: "16px",
+      },
+    },
+    width: {
+      default: "32px",
+      lg: "48px",
+    },
+    height: {
+      default: "16px",
+      lg: "24px",
+    },
   },
 } as const;

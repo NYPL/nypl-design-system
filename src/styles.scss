@@ -3,8 +3,6 @@
 
 // Better style reset
 @import "normalize.css/normalize";
-// System fonts
-@import "system-font-css/_system-font.scss";
 // v5 web fonts
 @include meta.load-css("@fontsource/open-sans/400.css");
 @include meta.load-css("@fontsource/open-sans/500.css");

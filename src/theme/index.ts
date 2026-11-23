@@ -38,12 +38,14 @@ import Logo from "./components/logo";
 import Menu from "./components/menu";
 import Modal from "./components/modal";
 import MultiSelect from "./components/multiSelect";
+import MultiSelectGroup from "./components/multiSelectGroup";
 import MultiSelectItemsCountButton from "./components/multiSelectItemsCountButton";
 import NewsletterSignup from "./components/newsletterSignup";
 import Notification from "./components/notification";
 import NotificationContent from "./components/notificationContent";
 import NotificationHeading from "./components/notificationHeading";
 import Pagination from "./components/pagination";
+import PlaceholderImage from "./components/placeholderImage";
 import ProgressIndicator from "./components/progressIndicator";
 import Radio, { RadioWrapper } from "./components/radio";
 import RadioGroup from "./components/radioGroup";
@@ -155,12 +157,14 @@ const theme: any = {
     Menu,
     Modal,
     MultiSelect,
+    MultiSelectGroup,
     MultiSelectItemsCountButton,
     Notification,
     NotificationContent,
     NotificationHeading,
     NewsletterSignup,
     Pagination,
+    PlaceholderImage,
     ProgressIndicator,
     Radio,
     RadioGroup,
