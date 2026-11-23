@@ -16,7 +16,7 @@ export interface HelperErrorTextProps extends BoxProps {
   /** Offers the ability to render or not render the content passed in
    * the `text` prop; `true` by default. */
   isRenderedText?: boolean;
-  /** The text to display. */
+  /** REQUIRED: The text to display. */
   text: HelperErrorTextType;
 }
 
@@ -46,23 +46,17 @@ export const HelperErrorText: ChakraComponent<
       };
 
       return (
-        <Box
-          display="inline-flex"
-          alignItems="center"
-          gap="v5.density.condensed"
-          {...props}
-        >
+        <Box display="flex" gap="v5.helperText.gap" {...props}>
           {isInvalid ? (
-            <Icon
-              // TO DO v5: color="inputShared.icon.error"
-              color="ui.error.primary"
-              // TO DO v5?: name="???"
-              name="errorFilled"
-              // TO DO v5: size="icon.md"
-              width="20px"
-              height="20px"
-              margin="2px"
-            />
+            <Box height="20px">
+              <Icon
+                // TO DO v5: color="inputShared.icon.error"
+                color="ui.error.primary"
+                name="errorFilled"
+                // TO DO v5: size="icon.md"
+                size="default"
+              />
+            </Box>
           ) : null}
           <Box>
             {isRenderedText ? (

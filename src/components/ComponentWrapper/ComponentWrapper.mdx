@@ -1,0 +1,78 @@
+import { ArgTypes, Canvas, Meta } from "@storybook/addon-docs/blocks";
+
+import * as ComponentWrapperStories from "./ComponentWrapper.stories";
+import { changelogData } from "./componentWrapperChangelogData";
+import ComponentChangelogTable from "../../utils/ComponentChangelogTable";
+import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+
+<Meta of={ComponentWrapperStories} />
+
+<ComponentDocsHeader
+  category="Content Display"
+  componentName="ComponentWrapper"
+  summary="Helper component that adds a heading, description, and helper or invalid text around a component"
+  versionAdded="0.25.2"
+  versionLatest="5.0.0"
+/>
+
+<Canvas of={ComponentWrapperStories.WithControls} />
+
+## Table of contents
+
+- [Overview](#overview)
+- [Component props](#component-props)
+- [Heading and description](#heading-and-description)
+- [Invalid state](#invalid-state)
+- [Hidden helper text](#hidden-helper-text)
+- [JSX text](#jsx-text)
+- [Changelog](#changelog)
+
+## Overview
+
+`ComponentWrapper` is a helper component intended for internal Reservoir Design
+System (DS) use. It gives components such as `Checkbox`, `Select`, `TextInput`,
+and `SearchBar` a consistent DOM structure: an optional heading, an optional
+description, the wrapped children, and a `HelperErrorText` component.
+
+The `HelperErrorText` container always renders, even when no helper or invalid
+text is passed. This guarantees `aria-describedby` references never point to an
+element that does not exist and that dynamic text updates are announced.
+
+## Component props
+
+`ComponentWrapper` composes a Chakra `Box` component, so you may pass any Chakra
+`Box` props, as well as the props below.
+
+<ArgTypes of={ComponentWrapperStories.WithControls} />
+
+## Heading and description
+
+Use `headingText` to render a `Heading` above the children and `descriptionText`
+to render a `Text` paragraph between the heading and the children.
+
+<Canvas of={ComponentWrapperStories.HeadingAndDescription} />
+
+## Invalid state
+
+Set `isInvalid` to `true` to render `invalidText` instead of `helperText`, with
+the invalid styling and icon from `HelperErrorText`.
+
+<Canvas of={ComponentWrapperStories.InvalidState} />
+
+## Hidden helper text
+
+Set `showHelperInvalidText` to `false` to hide the helper or invalid text. The
+`HelperErrorText` container still renders in the DOM.
+
+<Canvas of={ComponentWrapperStories.HiddenHelperText} />
+
+## JSX text
+
+`descriptionText`, `headingText`, `helperText`, and `invalidText` accept either a
+string or a JSX element.
+
+<Canvas of={ComponentWrapperStories.JSXText} />
+
+## Changelog
+
+<ComponentChangelogTable changelogData={changelogData} />

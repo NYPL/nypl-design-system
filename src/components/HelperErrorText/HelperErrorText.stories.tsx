@@ -9,11 +9,12 @@ const meta: Meta<typeof HelperErrorText> = {
   title: "Components/Content Display/HelperErrorText",
   component: HelperErrorText,
   argTypes: {
+    text: { control: false },
     isInvalid: {
       table: { defaultValue: { summary: "false" } },
     },
     isRenderedText: {
-      table: { defaultValue: { summary: "false" } },
+      table: { defaultValue: { summary: "true" } },
     },
   },
 };
