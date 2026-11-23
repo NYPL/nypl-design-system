@@ -145,7 +145,8 @@ describe("SubNavButton", () => {
     render(<SubNavButton id="1">Default Button</SubNavButton>);
     const button = screen.getByText("Default Button");
     expect(button).toBeInTheDocument();
-    expect(button).not.toHaveClass("selectedItem"); // Should not have the "selectedItem" class
+    // Should not have the "selectedItem" class
+    expect(button).not.toHaveClass("ds-subNav-selectedItem");
   });
 
   it("applies selectedItem class when isSelected is true", () => {
@@ -156,7 +157,7 @@ describe("SubNavButton", () => {
     );
     const button = screen.getByText("Selected Button");
     // Should have "ds-subNav-selectedItem" class
-    expect(button).toHaveClass("ds-subNav-selectedItem");
+    expect(button).toHaveClass("ds-subNav-button", "ds-subNav-selectedItem");
   });
 });
 
@@ -169,7 +170,8 @@ describe("SubNavLink", () => {
     );
     const button = screen.getByText("Default Link");
     expect(button).toBeInTheDocument();
-    expect(button).not.toHaveClass("selectedItem"); // Should not have the "selectedItem" class
+    // Should not have the "selectedItem" class
+    expect(button).not.toHaveClass("ds-subNav-selectedItem");
   });
 
   it("applies selectedItem class when isSelected is true", () => {
@@ -180,7 +182,7 @@ describe("SubNavLink", () => {
     );
     const button = screen.getByText("Selected Link");
     // Should have "ds-subNav-selectedItem" class
-    expect(button).toHaveClass("ds-subNav-selectedItem");
+    expect(button).toHaveClass("ds-subNav-link", "ds-subNav-selectedItem");
   });
 
   it("applies outlined styles when isOutlined is true", () => {
