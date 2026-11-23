@@ -176,7 +176,7 @@ const Heading = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
     ({ isAlternate, isCapitalized, isUppercase, isLowercase }) => ({
       base: {
-        fontFamily: isAlternate ? "v5.headingAlternate" : undefined,
+        fontFamily: isAlternate ? "v5.headingAlternate" : "v5.headingDefault",
         "a:only-child": {
           ...baseLinkStyles,
           textDecoration: "none",
