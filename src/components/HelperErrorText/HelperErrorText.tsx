@@ -46,14 +46,13 @@ export const HelperErrorText: ChakraComponent<
       };
 
       return (
-        <Box display="flex" gap="v5.helperText.gap" {...props}>
+        <Box {...props}>
           {isInvalid ? (
             <Box height="20px">
               <Icon
                 // TO DO v5: color="inputShared.icon.error"
                 color="ui.error.primary"
                 name="errorFilled"
-                // TO DO v5: size="icon.md"
                 size="default"
               />
             </Box>

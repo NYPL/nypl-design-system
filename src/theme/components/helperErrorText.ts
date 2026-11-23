@@ -10,6 +10,10 @@ const HelperErrorText = defineStyleConfig({
     fontWeight: "v5.helper",
     lineHeight: "v5.helper",
     color: isInvalid ? "v5.semantic.negative.default" : "v5.text.helper",
+    ...(isInvalid && {
+      display: "flex",
+      gap: "v5.helperText.gap",
+    }),
   })),
 });
 
