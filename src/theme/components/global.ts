@@ -3,22 +3,19 @@ export { screenreaderOnly, wrapperStyles } from "./globalMixins";
 
 /** Reusable component styles. */
 
-const customFocusColor = (focusColor, focusColorDark) => ({
+const customFocusColor = (focusColor) => ({
   boxShadow: "none",
   outline: "2px solid",
   outlineOffset: "2px",
   outlineColor: focusColor,
   zIndex: "9999",
-  _dark: {
-    outlineColor: focusColorDark,
-  },
 });
 // Used in `Select` and `TextInput`.
-const activeFocus = (darkMode = false) => ({
+const activeFocus = () => ({
   boxShadow: "none",
   outline: "2px solid",
   outlineOffset: "2px",
-  outlineColor: darkMode ? "dark.ui.focus" : "v5.inputShared.border.focus",
+  outlineColor: "v5.inputShared.border.focus",
 });
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
@@ -32,7 +29,7 @@ const checkboxRadioLabelStyles = {
     opacity: 1,
   },
   _invalid: {
-    color: "ui.error.primary",
+    color: "v5.text.error",
   },
 };
 // Custom values not in the spacing theme.
@@ -43,8 +40,9 @@ const checkboxRadioControlSize = {
 };
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioHelperErrorTextStyles = {
-  mt: "6px",
+  mt: "v5.inputShared.helperText.marginTop",
 };
+/** TODO: remove checkboxRadioHoverStyles once Radio has been updated to v5 styles */
 // General hover styles for Checkbox and Radio
 const checkboxRadioHoverStyles = {
   _hover: {
@@ -62,27 +60,11 @@ const checkboxRadioHoverStyles = {
         borderColor: "ui.error.primary",
       },
     },
-    _dark: {
-      span: {
-        _first: {
-          borderColor: "dark.ui.border.hover",
-        },
-        _checked: {
-          borderColor: "dark.ui.focus",
-        },
-        _disabled: {
-          borderColor: "dark.ui.disabled.secondary",
-        },
-        _invalid: {
-          borderColor: "dark.ui.error.primary",
-        },
-      },
-    },
   },
 };
 const checkboxRadioGroupStyles = (isFullWidth = false) => ({
   helperErrorText: {
-    marginTop: "xs",
+    mt: "v5.inputShared.helperText.marginTop",
   },
   label: {
     display: "flex",
@@ -108,52 +90,59 @@ const labelLegendText = {
 
 // Used for the disabled state of Select and TextInput
 const selectTextInputDisabledStyles = {
-  bg: "ui.disabled.secondary",
-  borderColor: "ui.disabled.primary",
-  color: "ui.gray.dark",
+  bg: "v5.inputShared.bg.disabled",
+  borderColor: "v5.inputShared.border.disabled",
+  color: "v5.text.disabled",
   opacity: "1",
-  _dark: {
-    bg: "dark.ui.bg.default",
-    borderColor: "dark.ui.disabled.secondary",
-    color: "dark.ui.disabled.primary",
-  },
 };
 // Used for the focus state of Select and TextInput
 const selectTextInputFocusStyles = {
   ...activeFocus(),
-  borderColor: "ui.focus",
-  _dark: {
-    ...activeFocus(true),
-    borderColor: "dark.ui.focus",
-  },
+  borderColor: "v5.inputShared.border.focus",
 };
+/** TODO: `textMargin` is only used in `StructuredContent`. Remove `textMargin` once `StructuredContent` is removed. */
 // Used for p, ul, and ol
 const textMargin = {
   margin: "0",
-  marginBottom: "s",
+  marginBottom: "v5.text.paragraph.body",
 };
 // Used for responsive spacing values
 const responsiveSpacing = {
-  gridGap: { base: "s", md: "m", xl: "l" },
-  margin: { base: "s", md: "m", xl: "s" },
-  padding: { base: "s", md: "m", xl: "s" },
+  gridGap: {
+    base: "v5.grid.gap.normal.mobile",
+    md: "v5.grid.gap.normal.tablet",
+    xl: "v5.grid.gap.normal.desktop",
+  },
+  margin: {
+    base: "v5.container.paddingX.mobile",
+    md: "v5.container.paddingX.tablet",
+    xl: "v5.container.paddingX.desktop",
+  },
+  padding: {
+    base: "v5.container.paddingX.mobile",
+    md: "v5.container.paddingX.tablet",
+    xl: "v5.container.paddingX.desktop",
+  },
   // v5 values
   containerPaddingX: {
-    base: "v5.responsive.container.paddingX.mobileSmall",
-    lg: "v5.responsive.container.paddingX.tabletSmall",
-    xl: "v5.responsive.container.paddingX.tabletLarge",
+    base: "v5.container.paddingX.mobile",
+    md: "v5.container.paddingX.tablet",
+    xl: "v5.container.paddingX.desktop",
   },
-  gridCondensed: {
-    base: "v5.responsive.grid.condensed.mobileSmall",
-    lg: "v5.responsive.grid.condensed.tabletSmall",
+  gridGapCondensed: {
+    base: "v5.grid.gap.condensed.mobile",
+    md: "v5.grid.gap.condensed.tablet",
+    xl: "v5.grid.gap.condensed.desktop",
   },
-  gridNormal: {
-    base: "v5.responsive.grid.normal.mobileSmall",
-    lg: "v5.responsive.grid.normal.tabletSmall",
+  gridGapNormal: {
+    base: "v5.grid.gap.normal.mobile",
+    md: "v5.grid.gap.normal.tablet",
+    xl: "v5.grid.gap.normal.desktop",
   },
-  gridSpacious: {
-    base: "v5.responsive.grid.spacious.mobileSmall",
-    lg: "v5.responsive.grid.spacious.tabletSmall",
+  gridGapSpacious: {
+    base: "v5.grid.gap.spacious.mobile",
+    md: "v5.grid.gap.spacious.tablet",
+    xl: "v5.grid.gap.spacious.desktop",
   },
 };
 

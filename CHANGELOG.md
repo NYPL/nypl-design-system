@@ -17,6 +17,7 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `SearchBar` styles to align with v5 designs. [ISW-6257](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6257)
 - Updates `Label` styles to align with v5 designs. [ISW-6335](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6335)
 - Updates the `Label` component to add primary, secondary, tertiary, and quaternary variants. [ISW-6335](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6335)",
+- Updates the global styles and the `useResponsiveSpacing` hook to use v5 design tokens. [ISW-6333](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6333)
 
 ## Prerelease
 

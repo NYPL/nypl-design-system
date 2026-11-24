@@ -12,9 +12,9 @@ function useResponsiveSpacing() {
     responsivePadding: responsiveSpacing.padding,
     // v5 responsive spacing values
     responsiveContainerPaddingX: responsiveSpacing.containerPaddingX,
-    responsiveGridCondensed: responsiveSpacing.gridCondensed,
-    responsiveGridNormal: responsiveSpacing.gridNormal,
-    responsiveGridSpacious: responsiveSpacing.gridSpacious,
+    responsiveGridGapCondensed: responsiveSpacing.gridGapCondensed,
+    responsiveGridGapNormal: responsiveSpacing.gridGapNormal,
+    responsiveGridGapSpacious: responsiveSpacing.gridGapSpacious,
   };
 }
 
