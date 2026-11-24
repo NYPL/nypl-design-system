@@ -6,7 +6,7 @@ interface LabelBaseStyle extends StyleFunctionProps {
   isInlined: boolean;
 }
 
-// Variant styles
+// Style definitions for variants
 const primary = defineStyle({
   ...labelLegendText,
 });
@@ -27,12 +27,13 @@ const quaternary = defineStyle({
 });
 
 const Label = defineStyleConfig({
+  // The base style is used by both Label and Fieldset
   baseStyle: defineStyle((props: LabelBaseStyle) => ({
     ...primary,
     flex: props.isInlined ? "1" : null,
     whiteSpace: props.isInlined ? "nowrap" : null,
   })),
-  // Available variants:
+  // The additional variants are only used by Label
   variants: {
     secondary,
     tertiary,

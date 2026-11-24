@@ -57,13 +57,13 @@ export const SizeVariants: Story = {
       <Label htmlFor="label-id1" id="primary">
         Label text
       </Label>
-      <Label htmlFor="label-id2" id="primary" variant="secondary">
+      <Label htmlFor="label-id2" id="secondary" variant="secondary">
         Label text
       </Label>
-      <Label htmlFor="label-id3" id="primary" variant="tertiary">
+      <Label htmlFor="label-id3" id="tertiary" variant="tertiary">
         Label text
       </Label>
-      <Label htmlFor="label-id4" id="primary" variant="quaternary">
+      <Label htmlFor="label-id4" id="quaternary" variant="quaternary">
         Label text
       </Label>
     </VStack>
