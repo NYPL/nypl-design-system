@@ -231,7 +231,7 @@ export const SearchBar: ChakraComponent<
           __css={styles}
         >
           {selectElem}
-          <Box sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
+          <Box __css={styles.inputRow}>
             {textInputElem}
             {buttonElem}
           </Box>
