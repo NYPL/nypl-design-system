@@ -2,7 +2,7 @@
 
 exports[`Checkbox renders the UI snapshot correctly 1`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="ds-checkboxGroup"
   id="column"
 >
@@ -160,7 +160,7 @@ exports[`Checkbox renders the UI snapshot correctly 1`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 2`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="ds-checkboxGroup"
   id="row"
 >
@@ -318,7 +318,7 @@ exports[`Checkbox renders the UI snapshot correctly 2`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 3`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="ds-checkboxGroup"
   id="noLabel"
 >
@@ -476,7 +476,7 @@ exports[`Checkbox renders the UI snapshot correctly 3`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 4`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="ds-checkboxGroup"
   id="helperText"
 >
@@ -639,7 +639,7 @@ exports[`Checkbox renders the UI snapshot correctly 4`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 5`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="ds-checkboxGroup"
   id="invalidText"
 >
@@ -797,7 +797,7 @@ exports[`Checkbox renders the UI snapshot correctly 5`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 6`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="ds-checkboxGroup"
   id="noRequiredLabel"
 >
@@ -955,7 +955,7 @@ exports[`Checkbox renders the UI snapshot correctly 6`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 7`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="ds-checkboxGroup"
   id="required"
 >
@@ -1116,7 +1116,7 @@ exports[`Checkbox renders the UI snapshot correctly 7`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 8`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="ds-checkboxGroup"
   id="invalid"
 >
@@ -1280,7 +1280,7 @@ exports[`Checkbox renders the UI snapshot correctly 8`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 9`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="ds-checkboxGroup"
   id="disabled"
 >
@@ -1444,7 +1444,7 @@ exports[`Checkbox renders the UI snapshot correctly 9`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 10`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="ds-checkboxGroup"
   id="jsxLabels"
 >
@@ -1626,7 +1626,7 @@ exports[`Checkbox renders the UI snapshot correctly 10`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 11`] = `
 <fieldset
-  className="css-2bbtg1"
+  className="css-1ikiblw"
   data-testid="ds-checkboxGroup"
   id="chakraProps"
 >
@@ -1784,7 +1784,7 @@ exports[`Checkbox renders the UI snapshot correctly 11`] = `
 
 exports[`Checkbox renders the UI snapshot correctly 12`] = `
 <fieldset
-  className="css-1u8qly9"
+  className="css-11ksel3"
   data-testid="props"
   id="otherProps"
 >
