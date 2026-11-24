@@ -588,7 +588,7 @@ export const WithMenuChild: Story = {
         }
         secondaryActions={
           <>
-          <li>
+            <li>
               <a
                 aria-label="User guide"
                 href="https://libguides.nypl.org/researchcatalog/"
@@ -598,7 +598,7 @@ export const WithMenuChild: Story = {
                 style={{
                   color: "#006166",
                   display: "inline-flex",
-                  position: "relative"
+                  position: "relative",
                 }}
               >
                 <Icon name="actionLightbulb" size="medium" fill="#006166" />
