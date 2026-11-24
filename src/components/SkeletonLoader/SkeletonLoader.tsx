@@ -16,7 +16,7 @@ export const skeletonLoaderImageRatiosArray = [
   "square",
 ] as const;
 export type SkeletonLoaderImageRatios =
-  typeof skeletonLoaderImageRatiosArray[number];
+  (typeof skeletonLoaderImageRatiosArray)[number];
 
 export interface SkeletonLoaderProps extends BoxProps {
   /** Optional numeric value to control the number of lines for content
@@ -77,7 +77,8 @@ export const SkeletonLoader: ChakraComponent<
         isBordered,
         imageAspectRatio,
         showImage,
-        variant: layout,
+        // Always use the column layout below the md breakpoint.
+        variant: { base: "column", md: layout },
       });
 
       /**
@@ -88,7 +89,7 @@ export const SkeletonLoader: ChakraComponent<
       const getSkeletonElements = ({
         type,
         size = 1,
-        lastWidth = "80%",
+        lastWidth = "100%",
       }: {
         type: string;
         size?: number;
@@ -123,17 +124,16 @@ export const SkeletonLoader: ChakraComponent<
           {...rest}
         >
           {showImage && (
-            <ChakraSkeleton sx={styles.loader}>
-              <Box __css={{ ...styles.element, ...styles.image }} />
+            <ChakraSkeleton sx={{ ...styles.loader, ...styles.imageContainer }}>
+              <Box __css={styles.image} />
             </ChakraSkeleton>
           )}
-          <Box __css={styles.container}>
+          <Box __css={styles.contentContainer}>
             {showHeading && (
               <Box __css={styles.section}>
                 {getSkeletonElements({
                   type: "heading",
                   size: headingSize,
-                  lastWidth: "80%",
                 })}
               </Box>
             )}
@@ -142,13 +142,13 @@ export const SkeletonLoader: ChakraComponent<
                 {getSkeletonElements({
                   type: "content",
                   size: contentSize,
-                  lastWidth: "30%",
+                  lastWidth: "25%",
                 })}
               </Box>
             )}
             {showButton && (
               <Box __css={{ ...styles.section, ...styles.button }}>
-                <ChakraSkeleton sx={styles.loader} borderRadius="20px">
+                <ChakraSkeleton sx={styles.loader}>
                   <Box __css={styles.button} />
                 </ChakraSkeleton>
               </Box>

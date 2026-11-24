@@ -28,15 +28,14 @@ const $height = cssVar("switch-track-height");
 
 const toggleBaseStyle = toggleDefinePartsStyle(({ size }: ToggleBaseStyle) => ({
   label: {
-    alignItems: "start",
+    alignItems: "center",
     display: "flex",
     width: "fit-content",
   },
   helperErrorText: {
-    color: "v5.text.helper",
     // TODO
     // "v5.density.condensed" 8px + width of track
-    marginStart: size === "default" ? "58px" : "42px",
+    marginStart: size === "sm" ? "42px" : "58px",
   },
 }));
 const switchBaseStyle = switchDefinePartsStyle(
@@ -47,9 +46,9 @@ const switchBaseStyle = switchDefinePartsStyle(
       border: "1px solid",
       borderColor: "v5.toggle.border.default",
       p: "0",
-      width: size === "lg" ? "v5.toggle.width.lg" : "v5.toggle.width.default",
+      width: size === "sm" ? "v5.toggle.width.default" : "v5.toggle.width.lg",
       height:
-        size === "lg" ? "v5.toggle.height.lg" : "v5.toggle.height.default",
+        size === "sm" ?  "v5.toggle.height.default" : "v5.toggle.height.lg",
       _checked: {
         bg: "v5.toggle.bg.selected.default",
         borderColor: "v5.toggle.border.selected",
@@ -64,7 +63,6 @@ const switchBaseStyle = switchDefinePartsStyle(
       _disabled: {
         bg: "v5.toggle.bg.disabled",
         borderColor: "v5.toggle.border.disabled",
-        opacity: 1,
       },
       _focus: {
         outline: "2px solid",
@@ -95,16 +93,16 @@ const switchBaseStyle = switchDefinePartsStyle(
       },
     },
     thumb: {
-      mt: size === "lg" ? "4px" : "3px",
-      ml: size === "lg" ? "2px" : "1px",
+      mt: size === "sm" ? "3px" : "4px",
+      ml: size === "sm" ? "1px" : "2px",
       width:
-        size === "lg"
-          ? "v5.toggle.icon.width.lg"
-          : "v5.toggle.icon.width.default",
+        size === "sm"
+          ? "v5.toggle.icon.width.default"
+          : "v5.toggle.icon.width.lg",
       height:
-        size === "lg"
-          ? "v5.toggle.icon.width.lg"
-          : "v5.toggle.icon.width.default",
+        size === "sm"
+          ? "v5.toggle.icon.width.default"
+          : "v5.toggle.icon.width.lg",
       bg: "v5.toggle.icon.default",
       _hover: {
         bg: "v5.toggle.icon.hover",
@@ -159,7 +157,7 @@ const Toggle = toggleDefineMultiStyleConfig({
   baseStyle: toggleBaseStyle,
   // Default values
   defaultProps: {
-    size: "lg",
+    size: "sm",
   },
 });
 

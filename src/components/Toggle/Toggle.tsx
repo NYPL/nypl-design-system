@@ -6,7 +6,6 @@ import {
   ChakraProps,
   Switch,
   useMultiStyleConfig,
-  useStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef, InputHTMLAttributes } from "react";
 
@@ -15,7 +14,7 @@ import { HelperErrorTextType } from "../HelperErrorText/HelperErrorText";
 import { getAriaAttrs } from "../../utils/utils";
 import { useSafeId } from "../../hooks/useSafeId";
 
-export const toggleSizesArray = ["default", "small"] as const;
+export const toggleSizesArray = ["lg", "sm"] as const;
 export type ToggleSizes = (typeof toggleSizesArray)[number];
 
 export interface ToggleProps
@@ -77,12 +76,11 @@ export const Toggle: ChakraComponent<
       labelText,
       name,
       onChange = onChangeDefault,
-      size = "default",
+      size = "sm",
       ...rest
     } = props;
     const mainId = useSafeId(id);
     const styles = useMultiStyleConfig("Toggle", { size });
-    const switchStyles = useStyleConfig("Switch", { size });
     const footnote = isInvalid ? invalidText : helperText;
     const ariaAttributes = getAriaAttrs({
       footnote,
@@ -110,7 +108,7 @@ export const Toggle: ChakraComponent<
             isRequired={isRequired}
             name={name || "default"}
             ref={ref}
-            size={size === "default" ? "lg" : "sm"}
+            size={size}
             lineHeight="1.5"
             {...(isChecked !== undefined
               ? {
@@ -121,7 +119,6 @@ export const Toggle: ChakraComponent<
                   defaultChecked,
                 })}
             {...ariaAttributes}
-            __css={switchStyles}
           >
             {labelText}
           </Switch>

@@ -2,7 +2,7 @@
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] = `
 <fieldset
-  className="css-100ap3o"
+  className="css-sfxsg2"
   data-testid="ds-multiSelectGroup"
   id="MultiSelectGroup-fieldset"
 >
@@ -87,7 +87,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="colors-checkboxGroup"
                   >
@@ -395,7 +395,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="pets-checkboxGroup"
                   >
@@ -907,7 +907,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="tools-checkboxGroup"
                   >
@@ -1352,7 +1352,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 1`] =
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] = `
 <fieldset
-  className="css-100ap3o"
+  className="css-sfxsg2"
   data-testid="ds-multiSelectGroup"
   id="MultiSelectGroup-fieldset"
 >
@@ -1437,7 +1437,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="colors-checkboxGroup"
                   >
@@ -1745,7 +1745,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="pets-checkboxGroup"
                   >
@@ -2257,7 +2257,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="tools-checkboxGroup"
                   >
@@ -2702,7 +2702,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 2`] =
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 3`] = `
 <fieldset
-  className="css-100ap3o"
+  className="css-sfxsg2"
   data-testid="ds-multiSelectGroup"
   id="MultiSelectGroup-fieldset"
 >
@@ -2787,7 +2787,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 3`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="colors-checkboxGroup"
                   >
@@ -3095,7 +3095,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 3`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="pets-checkboxGroup"
                   >
@@ -3607,7 +3607,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 3`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="tools-checkboxGroup"
                   >
@@ -4052,7 +4052,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 3`] =
 
 exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 4`] = `
 <fieldset
-  className="css-100ap3o"
+  className="css-sfxsg2"
   data-testid="ds-multiSelectGroup"
   id="MultiSelectGroup-fieldset"
 >
@@ -4137,7 +4137,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 4`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="colors-checkboxGroup"
                   >
@@ -4445,7 +4445,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 4`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="pets-checkboxGroup"
                   >
@@ -4957,7 +4957,7 @@ exports[`MulitSelectGroup Accessibility renders the UI snapshots correctly 4`] =
                   className="css-p6aqpp"
                 >
                   <fieldset
-                    className="css-1u8qly9"
+                    className="css-11ksel3"
                     data-testid="ds-checkboxGroup"
                     id="tools-checkboxGroup"
                   >
