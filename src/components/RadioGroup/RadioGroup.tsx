@@ -12,7 +12,7 @@ import React, { forwardRef, useMemo } from "react";
 import HelperErrorText, {
   HelperErrorTextType,
 } from "../HelperErrorText/HelperErrorText";
-import { spacing } from "../../theme/foundations/spacing";
+import { space } from "../../theme/generated/space";
 import { LayoutTypes } from "../../helpers/types";
 import { RadioGroupContext } from "./RadioGroupContext";
 
@@ -90,7 +90,10 @@ export const RadioGroup: ChakraComponent<
       const footnote: HelperErrorTextType = isInvalid
         ? invalidText
         : helperText;
-      const spacingProp = layout === "column" ? spacing.s : spacing.l;
+      const spacingProp =
+        layout === "column"
+          ? space.radioGroup.gap.column
+          : space.radioGroup.gap.row;
       // Get the Chakra-based styles for the custom elements in this component.
       const styles = useMultiStyleConfig("RadioGroup", {
         isFullWidth,
