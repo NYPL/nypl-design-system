@@ -13,8 +13,8 @@ import List from "../List/List";
 import useScrollFadeStyles from "../../hooks/useScrollFadeStyles";
 import { bgColorsArray, highlightColorsArray } from "../../theme/sharedTypes";
 
-export type actionBackgroundColors = typeof bgColorsArray[number];
-export type highlightColors = typeof highlightColorsArray[number];
+export type actionBackgroundColors = (typeof bgColorsArray)[number];
+export type highlightColors = (typeof highlightColorsArray)[number];
 
 export interface SubNavProps extends BoxProps {
   /**
@@ -75,7 +75,9 @@ export const SubNavButton: React.FC<
       <Button
         aria-current={isSelected ? "page" : null}
         variant="text"
-        className={isSelected ? "ds-subNav-selectedItem" : ""}
+        className={`ds-subNav-button${
+          isSelected ? " ds-subNav-selectedItem" : ""
+        }`}
         id={id}
         onClick={onClick}
         screenreaderOnlyText={screenreaderOnlyText}
@@ -104,7 +106,9 @@ export const SubNavLink: React.FC<React.PropsWithChildren<SubNavLinkProps>> = ({
     <li>
       <Link
         aria-current={isSelected ? "page" : null}
-        className={isSelected ? "ds-subNav-selectedItem" : ""}
+        className={`ds-subNav-link${
+          isSelected ? " ds-subNav-selectedItem" : ""
+        }`}
         href={href}
         id={id}
         isUnderlined={false}

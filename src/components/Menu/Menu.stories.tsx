@@ -44,7 +44,7 @@ const meta: Meta<typeof Menu> = {
 export default meta;
 type Story = StoryObj<typeof Menu>;
 
-const defaultListItems: ListItemsData[] = [
+export const defaultListItems: ListItemsData[] = [
   {
     type: "action",
     id: "item-title-1",

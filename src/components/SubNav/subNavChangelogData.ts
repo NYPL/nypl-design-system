@@ -10,6 +10,15 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "Prerelease",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Scopes `SubNavLink` and `SubNavButton` styles so other children elements and components are not affected.",
+    ],
+  },
+  {
     date: "2025-10-08",
     version: "4.0.3",
     type: "Update",

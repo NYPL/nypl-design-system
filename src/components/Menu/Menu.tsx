@@ -118,8 +118,7 @@ export const Menu: ChakraComponent<
           customHandler(id);
         }
         const selectedItem = listItemsData?.find((item) => item.id === id) as
-          | ActionItem
-          | GroupItem;
+          ActionItem | GroupItem;
         setSelected(selectedItem);
       };
 
@@ -224,8 +223,8 @@ export const Menu: ChakraComponent<
             labelAsAriaLabel
               ? labelText
               : selected
-              ? `${labelText}: ${selected.label}`
-              : labelText
+                ? `${labelText}: ${selected.label}`
+                : labelText
           }
           backgroundColor={isOpen ? "ui.link.primary-05 !important" : "unset"}
         >
@@ -305,7 +304,13 @@ export const Menu: ChakraComponent<
       const initialRef = useRef();
       return (
         <Box data-testid="ds-menu" id={id} ref={ref} {...rest}>
-          <ChakraMenu initialFocusRef={selected ? initialRef : null}>
+          <ChakraMenu
+            initialFocusRef={selected ? initialRef : null}
+            // Avoids the list menu from being clipped when it is inside a
+            // container with overflow set, e.g. SubNav's scrollable
+            // `primaryActions` section.
+            strategy="fixed"
+          >
             {({ isOpen }) => (
               <Flex
                 flexDirection={
