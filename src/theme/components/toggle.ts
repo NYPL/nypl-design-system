@@ -48,7 +48,7 @@ const switchBaseStyle = switchDefinePartsStyle(
       p: "0",
       width: size === "sm" ? "v5.toggle.width.default" : "v5.toggle.width.lg",
       height:
-        size === "sm" ?  "v5.toggle.height.default" : "v5.toggle.height.lg",
+        size === "sm" ? "v5.toggle.height.default" : "v5.toggle.height.lg",
       _checked: {
         bg: "v5.toggle.bg.selected.default",
         borderColor: "v5.toggle.border.selected",
