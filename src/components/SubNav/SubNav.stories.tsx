@@ -550,6 +550,8 @@ export const WithMenuChild: Story = {
   render: () => {
     return (
       <SubNav
+        actionBackgroundColor="section.research.primary-05"
+        highlightColor="section.research.secondary"
         primaryActions={
           <>
             <SubNavButton
@@ -585,14 +587,33 @@ export const WithMenuChild: Story = {
           </>
         }
         secondaryActions={
-          <SubNavButton
-            id="subnav-with-menu-secondary-action-1"
-            screenreaderOnlyText="for NYPL.org"
-            onClick={() => console.log("My account clicked")}
-            isOutlined
-          >
-            <Icon name="actionIdentityFilled" size="medium" />
-          </SubNavButton>
+          <>
+          <li>
+              <a
+                aria-label="User guide"
+                href="https://libguides.nypl.org/researchcatalog/"
+                id="subnav-user-guide"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "#006166",
+                  display: "inline-flex",
+                  position: "relative"
+                }}
+              >
+                <Icon name="actionLightbulb" size="medium" fill="#006166" />
+                User guide
+              </a>
+            </li>
+            <SubNavButton
+              id="subnav-with-menu-secondary-action-1"
+              screenreaderOnlyText="for NYPL.org"
+              onClick={() => console.log("My account clicked")}
+              isOutlined
+            >
+              <Icon name="actionIdentityFilled" size="medium" />
+            </SubNavButton>
+          </>
         }
       />
     );
