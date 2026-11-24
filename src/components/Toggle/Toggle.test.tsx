@@ -174,7 +174,6 @@ describe("Toggle", () => {
     expect(isDisabled).toMatchSnapshot();
     expect(small).toMatchSnapshot();
     expect(large).toMatchSnapshot();
-    f;
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
