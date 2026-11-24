@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
 <div
@@ -2739,7 +2739,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
       </div>
     </fieldset>
     <div
-      className="chakra-stack css-11okbqf"
+      className="chakra-stack css-hi4ls"
       data-testid="ds-buttonGroup"
     >
       <button
@@ -4129,7 +4129,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
       </div>
     </fieldset>
     <div
-      className="chakra-stack css-11okbqf"
+      className="chakra-stack css-hi4ls"
       data-testid="ds-buttonGroup"
     >
       <button
@@ -5519,7 +5519,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
       </div>
     </fieldset>
     <div
-      className="chakra-stack css-11okbqf"
+      className="chakra-stack css-hi4ls"
       data-testid="ds-buttonGroup"
     >
       <button
