@@ -3,6 +3,7 @@ import {
   BoxProps,
   chakra,
   ChakraComponent,
+  SystemStyleObject,
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import React, { forwardRef } from "react";
@@ -42,11 +43,23 @@ export const Fieldset: ChakraComponent<
         isRequired = false,
         legendText,
         showRequiredLabel = true,
+        __css: cssOverride,
         ...rest
       },
       ref?
     ) => {
       const styles = useMultiStyleConfig("Fieldset", { isLegendHidden });
+
+      const legendOverride = (
+        cssOverride as unknown as Record<string, SystemStyleObject> | undefined
+      )?.legend;
+
+      // Merging any style overrides from the consumer with the default styles
+      const mergedCss = {
+        ...styles,
+        ...cssOverride,
+        legend: { ...styles.legend, ...legendOverride },
+      };
 
       return (
         <Box
@@ -54,7 +67,7 @@ export const Fieldset: ChakraComponent<
           id={id}
           data-testid="ds-fieldset"
           ref={ref}
-          __css={styles}
+          __css={mergedCss}
           {...rest}
         >
           <legend>

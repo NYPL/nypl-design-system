@@ -8,15 +8,27 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 
 ### 5.0.0 (TBD)
 
+### Adds
+
 - Adds v5 design tokens to repo. [ISW-6210](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6210)
+
+### Updates
+
 - Updates `Checkbox` styles to align with v5 designs. [ISW-6247](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6247)
 - Updates `SkipNavigation` styles to align with v5 designs. [ISW-6259](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6259)
 - Updates `Logo` component styles to align with v5 designs. [ISW-6292](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6292)
+- Updates `ProgressIndicator` component styles to align with v5 designs. [ISW-6254](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6254)
+- Updates `SkeletonLoader` styles to align with v5 designs. [ISW-6258](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6258)
 - Updates `HorizontalRule` styles to align with v5 designs. [ISW-6253](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6253)
 - Updates `MultiSelectGroup` styles to align with v5 designs. [ISW-6293](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6293)
 - Updates `SearchBar` styles to align with v5 designs. [ISW-6257](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6257)
+- Updates `Fieldset` styles to align with v5 designs. [ISW-6312](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6312)
 - Updates `Label` styles to align with v5 designs. [ISW-6335](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6335)
 - Updates the `Label` component to add primary, secondary, tertiary, and quaternary variants. [ISW-6335](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6335)",
+
+### Fixes
+
+- Fixes bug in `Fieldset` which caused CSS overrides to completely overwrite base styles. [ISW-6312](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6312)
 
 ## Prerelease
 

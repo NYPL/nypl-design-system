@@ -10,6 +10,17 @@ import { ChangelogData } from "../../utils/ComponentChangelogTable";
 
 export const changelogData: ChangelogData[] = [
   {
+    date: "Prerelease",
+    version: "5.0.0",
+    type: "Update",
+    affects: ["Styles"],
+    notes: [
+      "Updates styles to align with v5 designs.",
+      "Updates content line height to 16px, the last content line width to 25%, and the last heading line width to 100%.",
+      "Removes dark mode styles.",
+    ],
+  },
+  {
     date: "2025-08-11",
     version: "4.0.0",
     type: "Update",
