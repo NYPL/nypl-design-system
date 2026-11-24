@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioGroup renders the UI snapshot correctly 1`] = `
 <div
@@ -18,7 +18,7 @@ exports[`RadioGroup renders the UI snapshot correctly 1`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
@@ -185,7 +185,7 @@ exports[`RadioGroup renders the UI snapshot correctly 2`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-1478f2b"
+      className="chakra-stack ds-radioGroup-stack css-5kz7rn"
     >
       <div
         className="css-1u8qly9"
@@ -352,7 +352,7 @@ exports[`RadioGroup renders the UI snapshot correctly 3`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
@@ -519,7 +519,7 @@ exports[`RadioGroup renders the UI snapshot correctly 4`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
@@ -691,7 +691,7 @@ exports[`RadioGroup renders the UI snapshot correctly 5`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
@@ -858,7 +858,7 @@ exports[`RadioGroup renders the UI snapshot correctly 6`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
@@ -1030,7 +1030,7 @@ exports[`RadioGroup renders the UI snapshot correctly 7`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
@@ -1199,7 +1199,7 @@ exports[`RadioGroup renders the UI snapshot correctly 8`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
@@ -1374,7 +1374,7 @@ exports[`RadioGroup renders the UI snapshot correctly 9`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
@@ -1549,7 +1549,7 @@ exports[`RadioGroup renders the UI snapshot correctly 10`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
@@ -1740,7 +1740,7 @@ exports[`RadioGroup renders the UI snapshot correctly 11`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
@@ -1907,7 +1907,7 @@ exports[`RadioGroup renders the UI snapshot correctly 12`] = `
     role="radiogroup"
   >
     <div
-      className="chakra-stack ds-radioGroup-stack css-19s3t1h"
+      className="chakra-stack ds-radioGroup-stack css-1hdbc19"
     >
       <div
         className="css-1u8qly9"
