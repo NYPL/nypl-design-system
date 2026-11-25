@@ -2,7 +2,7 @@
 
 exports[`ButtonGroup Snapshot renders the UI snapshot correctly 1`] = `
 <div
-  className="chakra-stack css-11okbqf"
+  className="chakra-stack css-hi4ls"
   data-testid="ds-buttonGroup"
 >
   <button
@@ -26,7 +26,7 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 1`] = `
 
 exports[`ButtonGroup Snapshot renders the UI snapshot correctly 2`] = `
 <div
-  className="chakra-stack css-11okbqf"
+  className="chakra-stack css-hi4ls"
   data-testid="ds-buttonGroup"
 >
   <button
@@ -50,7 +50,7 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 2`] = `
 
 exports[`ButtonGroup Snapshot renders the UI snapshot correctly 3`] = `
 <div
-  className="chakra-stack css-1mha6zh"
+  className="chakra-stack css-9fmh9x"
   data-testid="ds-buttonGroup"
 >
   <button
@@ -74,7 +74,7 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 3`] = `
 
 exports[`ButtonGroup Snapshot renders the UI snapshot correctly 4`] = `
 <div
-  className="chakra-stack css-apzk22"
+  className="chakra-stack css-1wg9cj4"
   data-testid="ds-buttonGroup"
 >
   <button
@@ -98,7 +98,7 @@ exports[`ButtonGroup Snapshot renders the UI snapshot correctly 4`] = `
 
 exports[`ButtonGroup Snapshot renders the UI snapshot correctly 5`] = `
 <div
-  className="chakra-stack css-11okbqf"
+  className="chakra-stack css-hi4ls"
   data-testid="testid"
 >
   <button

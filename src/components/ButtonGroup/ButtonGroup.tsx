@@ -11,7 +11,7 @@ import { LayoutTypes } from "../../helpers/types";
 import { ButtonGroupContext } from "./ButtonGroupContext";
 
 export const buttonGroupWidthsArray = ["default", "full"] as const;
-export type ButtonGroupWidths = typeof buttonGroupWidthsArray[number];
+export type ButtonGroupWidths = (typeof buttonGroupWidthsArray)[number];
 
 export interface ButtonGroupProps extends BoxProps {
   /** Sets the width to "default" (for "fit-content") or "full". */
@@ -55,7 +55,7 @@ export const ButtonGroup: ChakraComponent<
           id={id}
           ref={ref}
           // Always set the spacing to "8px".
-          spacing="xs"
+          spacing="v5.xs"
           sx={styles}
           {...rest}
         >
