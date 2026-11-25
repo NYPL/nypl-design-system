@@ -12,7 +12,7 @@ import useResponsiveSpacing from "../hooks/useResponsiveSpacing";
   componentName="useResponsiveSpacing"
   summary="Provides responsive spacing values that align with NYPL design standards"
   versionAdded="4.0.0"
-  versionLatest="4.0.0"
+  versionLatest="5.0.0"
 />
 
 <Source
@@ -25,6 +25,10 @@ import useResponsiveSpacing from "../hooks/useResponsiveSpacing";
     responsiveGap,
     responsiveMargin,
     responsivePadding,
+    containerPaddingX,
+    gridGapCondensed,
+    gridGapNormal,
+    gridGapSpacious,
   } = useResponsiveSpacing();
 `}
   language="tsx"
@@ -54,8 +58,8 @@ The `responsiveGap` object is intended to be used as the gap values for
 repeating grids and table.
 
 - Mobile: `1rem` (16px)
-- Tablet: `1.5rem` (24px)
-- Desktop: `2rem` (32px)
+- Tablet: `1.25rem` (20px)
+- Desktop: `1.5rem` (24px)
 
 <Source
   code={`
@@ -87,9 +91,9 @@ potentially touch the edge of the browser window. The values for each object are
 the same, but separate objects have been provided to enable the use of the
 object that aligns semantically with spacing methods used in consuming apps.
 
-- Mobile: `1rem` (16px)
+- Mobile: `1.25rem` (20px)
 - Tablet: `1.5rem` (24px)
-- Desktop: `1rem` (16px)
+- Desktop: `3rem` (48px)
 
 <Source
   code={`
