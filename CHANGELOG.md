@@ -23,7 +23,9 @@ Currently, this repo is in Prerelease. When it is released, this project will ad
 - Updates `MultiSelectGroup` styles to align with v5 designs. [ISW-6293](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6293)
 - Updates `SearchBar` styles to align with v5 designs. [ISW-6257](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6257)
 - Updates `Fieldset` styles to align with v5 designs. [ISW-6312](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6312)
-- Updates `ButtonGroup` styles to align with v5 designs. [ISW-6211](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6211)
+- Updates `Label` styles to align with v5 designs. [ISW-6335](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6335)
+- Updates the `Label` component to add primary, secondary, tertiary, and quaternary variants. [ISW-6335](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6335)",
+- Updates `ButtonGroup` styles to align with v5 designs. [ISW-6221](https://newyorkpubliclibrary.atlassian.net/browse/ISW-6221)
 
 ### Fixes
 
