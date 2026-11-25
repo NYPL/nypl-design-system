@@ -16,7 +16,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-iziy0y"
+      className="css-sfxsg2"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -24,7 +24,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 1`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-5sy232"
+        className="chakra-stack css-165casq"
         data-testid="MultiSelectGroup-multiselectGroup-stack"
         id="MultiSelectGroup"
       >
@@ -1392,7 +1392,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-iziy0y"
+      className="css-sfxsg2"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -1400,7 +1400,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 2`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-5sy232"
+        className="chakra-stack css-165casq"
         data-testid="MultiSelectGroup-multiselectGroup-stack"
         id="MultiSelectGroup"
       >
@@ -2782,7 +2782,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-iziy0y"
+      className="css-sfxsg2"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -2790,7 +2790,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 3`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-5sy232"
+        className="chakra-stack css-165casq"
         data-testid="MultiSelectGroup-multiselectGroup-stack"
         id="MultiSelectGroup"
       >
@@ -4172,7 +4172,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
     className="chakra-stack css-ucbec2"
   >
     <fieldset
-      className="css-iziy0y"
+      className="css-sfxsg2"
       data-testid="ds-multiSelectGroup"
       id="MultiSelectGroup-fieldset"
     >
@@ -4180,7 +4180,7 @@ exports[`FilterBarInline renders the UI snapshots correctly 4`] = `
         MultiSelectGroup example
       </legend>
       <div
-        className="chakra-stack css-5sy232"
+        className="chakra-stack css-165casq"
         data-testid="MultiSelectGroup-multiselectGroup-stack"
         id="MultiSelectGroup"
       >

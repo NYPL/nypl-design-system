@@ -8,14 +8,17 @@ import { StyleFunctionProps } from "@chakra-ui/system";
 interface ProgressIndicatorBaseStyle extends StyleFunctionProps {
   size: ProgressIndicatorSizes;
   labelPlacement: ProgressIndicatorLabelPlacements;
+  showLabel?: boolean;
 }
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers([
     "circular",
     "circularLabel",
+    "circularPercentage",
     "linear",
     "linearContainer",
+    "linearLabel",
     "linearPercentage",
   ]);
 
@@ -45,14 +48,15 @@ const getCircularContainerFlexDir = (labelPlacement) => {
 
 const ProgressIndicator = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({ size, labelPlacement }: ProgressIndicatorBaseStyle) => {
-      const circularLabelMargin = size === "default" ? "xs" : "xxs";
+    ({ size, labelPlacement, showLabel }: ProgressIndicatorBaseStyle) => {
+      const gapSize = size === "default" ? "default" : "sm";
+      const gapDirection =
+        labelPlacement === "left" || labelPlacement === "right"
+          ? "row"
+          : "column";
+
       return {
-        color: "ui.typography.heading",
-        fontSize: "desktop.body.body2",
-        _dark: {
-          color: "dark.ui.typography.heading",
-        },
+        color: "v5.text.label",
         circular: {
           // Note: we have to target the SVG HTMl elements in order
           // to override the default styles.
@@ -62,14 +66,10 @@ const ProgressIndicator = defineMultiStyleConfig({
             display: "block",
             circle: {
               _first: {
-                stroke: "ui.gray.light-cool",
-                _dark: {
-                  stroke: "dark.ui.bg.hover",
-                },
+                stroke: "v5.progressIndicator.track",
               },
               _last: {
-                stroke: "ui.link.primary",
-                _dark: { stroke: "dark.ui.link.primary" },
+                stroke: "v5.progressIndicator.indicator",
               },
             },
           },
@@ -78,45 +78,57 @@ const ProgressIndicator = defineMultiStyleConfig({
           alignItems: "center",
           display: "flex",
           flexDirection: getCircularContainerFlexDir(labelPlacement),
+          gap: `v5.progressIndicator.circular.gap.${gapSize}.${gapDirection}`,
           width: "fit-content",
         },
         circularLabel: {
-          marginBottom: labelPlacement === "top" ? circularLabelMargin : 0,
-          marginLeft: labelPlacement === "right" ? circularLabelMargin : 0,
-          marginRight: labelPlacement === "left" ? circularLabelMargin : 0,
-          marginTop: labelPlacement === "bottom" ? circularLabelMargin : 0,
+          color: "v5.text.label",
           fontSize:
-            size === "default"
-              ? "desktop.label.label1"
-              : "desktop.label.label2",
+            size === "default" ? "v5.label.primary" : "v5.label.secondary",
+          fontWeight:
+            size === "default" ? "v5.label.primary" : "v5.label.secondary",
+          lineHeight:
+            size === "default" ? "v5.label.primary" : "v5.label.secondary",
+        },
+        circularPercentage: {
+          fontSize: "v5.progressIndicator.percentage.circular",
+          lineHeight: "v5.progressIndicator.percentage.circular",
         },
         linear: {
           // Hard to target this specific element without using
           // "Progress" as the key name in index.ts
+          borderRadius: "v5.round",
           "> div": {
-            bg: "ui.link.primary",
-            _dark: {
-              bg: "dark.ui.link.primary",
-            },
+            bg: "v5.progressIndicator.indicator",
           },
           flex: 25,
-          bg: "ui.gray.light-cool",
+          bg: "v5.border.subtle.neutral.emphasis",
           height: {
-            base: "4px",
-            md: size === "default" ? "8px" : "4px",
-          },
-          _dark: {
-            bg: "dark.ui.bg.hover",
-            color: "dark.ui.typography.heading",
+            base: "v5.progressIndicator.linear.track.height.sm",
+            md:
+              size === "default"
+                ? "v5.progressIndicator.linear.track.height.default"
+                : "v5.progressIndicator.linear.track.height.sm",
           },
         },
         linearContainer: {
           display: "flex",
           alignItems: "center",
+          gap: "v5.progressIndicator.linear.gap",
+          height: showLabel
+            ? "v5.progressIndicator.linear.container.height"
+            : undefined,
+        },
+        linearLabel: {
+          color: "v5.text.label",
+          fontSize: "v5.label.primary",
+          lineHeight: "v5.label.primary",
+          fontWeight: "v5.label.primary",
         },
         linearPercentage: {
-          padding: "0 var(--nypl-space-xs)",
           flex: 1,
+          lineHeight: "v5.progressIndicator.percentage.linear",
+          fontSize: "v5.progressIndicator.percentage.linear",
         },
       };
     }
