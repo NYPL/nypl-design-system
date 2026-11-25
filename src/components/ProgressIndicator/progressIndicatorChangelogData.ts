@@ -14,7 +14,10 @@ export const changelogData: ChangelogData[] = [
     version: "5.0.0",
     type: "Update",
     affects: ["Styles"],
-    notes: ["Updates component styles to align with v5 designs."],
+    notes: [
+      "Updates component styles to align with v5 designs.",
+      "Update component to use new `Label` variants.",
+    ],
   },
   {
     date: "2025-08-11",
