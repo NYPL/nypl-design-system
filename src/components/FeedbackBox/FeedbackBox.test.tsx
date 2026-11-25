@@ -15,7 +15,7 @@ describe("FeedbackBox Accessibility", () => {
   it("passes axe accessibility when closed", async () => {
     const onSubmit = jest.fn();
     const { container } = render(
-      <FeedbackBox title="Help and Feeback" onSubmit={onSubmit} />
+      <FeedbackBox title="Help and Feedback" onSubmit={onSubmit} />
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -23,12 +23,12 @@ describe("FeedbackBox Accessibility", () => {
   it("passes axe accessibility when opened", async () => {
     const onSubmit = jest.fn();
     const { container } = render(
-      <FeedbackBox title="Help and Feeback" onSubmit={onSubmit} />
+      <FeedbackBox title="Help and Feedback" onSubmit={onSubmit} />
     );
 
     expect(screen.queryByText(/Comment/i)).not.toBeInTheDocument();
 
-    await userEvent.click(screen.getByText("Help and Feeback"));
+    await userEvent.click(screen.getByText("Help and Feedback"));
     // Just to make sure the dialog is opened.
     expect(screen.getByText(/Comment/i)).toBeInTheDocument();
     expect(await axe(container)).toHaveNoViolations();
@@ -321,7 +321,9 @@ describe("FeedbackBox", () => {
     );
 
     // Open the dialog.
-    await userEvent.click(screen.queryByRole("button", { name: "Help and feedback" }));
+    await userEvent.click(
+      screen.queryByRole("button", { name: "Help and feedback" })
+    );
 
     const button = screen.queryByRole("button", { name: "Try again" });
     expect(

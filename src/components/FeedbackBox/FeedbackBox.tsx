@@ -8,7 +8,6 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
-  useColorModeValue,
   useDisclosure,
   useMultiStyleConfig,
   VStack,
@@ -142,7 +141,6 @@ export const FeedbackBox: ChakraComponent<
       const maxCommentCharacters = 500;
       const initMinHeight = 165;
       const initTemplateRows = "auto 1fr";
-      const iconColor = useColorModeValue(null, "dark.ui.typography.body");
       const minHeightWithCategory = 235;
       const minHeightWithEmail = 275;
       const minHeightWithCategoryAndEmail = 345;
@@ -185,24 +183,12 @@ export const FeedbackBox: ChakraComponent<
             isCentered
             notificationContent={notificationText}
             showIcon={false}
-            p="0"
-            sx={{
-              // The padding of the Notification is smaller than
-              // the initial one.
-              "> div": {
-                py: "xs",
-              },
-            }}
-            width="100%"
+            sx={styles.notification}
           />
         ) : undefined;
-      const descriptionColor = useColorModeValue(
-        "ui.typography.heading",
-        "dark.ui.typography.heading"
-      );
       const descriptionElement =
         isFormView && descriptionText ? (
-          <Text color={descriptionColor} fontWeight="medium">
+          <Text color="v5.text.heading.default" fontWeight="v5.semibold">
             {descriptionText}
           </Text>
         ) : undefined;
@@ -210,7 +196,7 @@ export const FeedbackBox: ChakraComponent<
         <FormField>
           <Link
             href="https://www.nypl.org/help/about-nypl/legal-notices/privacy-policy"
-            fontSize="desktop.caption"
+            fontSize="v5.helper"
             isUnderlined={false}
             variant="external"
             width="fit-content"
@@ -311,22 +297,31 @@ export const FeedbackBox: ChakraComponent<
             <DrawerOverlay />
 
             <DrawerContent sx={styles.drawerContent}>
-              <Button
-                id={`${mainId}-feedback-close`}
-                onClick={closeAndResetForm}
-                sx={styles.closeButton}
-                variant="text"
-              >
-                <Icon color="ui.black" name="minus" size="medium" />
-                <span>Close {title}</span>
-              </Button>
               <DrawerHeader sx={styles.drawerHeader}>
                 <Text data-testid="title">{title}</Text>
+                <Button
+                  id={`${mainId}-feedback-close`}
+                  onClick={closeAndResetForm}
+                  sx={styles.closeButton}
+                  // TO DO v5: text variant hover color?
+                  variant="text"
+                >
+                  <Icon
+                    // TO DO v5: color token => button.icononly.icon.default
+                    color="ui.black"
+                    // TO DO v5: icon => "dash"
+                    name="minus"
+                    // TO DO v5: size token => "icon.sm"
+                    size="xsmall"
+                  />
+                  <span>Close {title}</span>
+                </Button>
               </DrawerHeader>
 
               <DrawerBody sx={styles.drawerBody}>
                 <Form
                   noValidate
+                  // TO DO v5: form spacing token
                   gap="grid.s"
                   id={`${mainId}-feedback-form`}
                   onSubmit={internalOnSubmit}
@@ -347,7 +342,10 @@ export const FeedbackBox: ChakraComponent<
                   {/* Initial form Screen */}
                   {isFormView && (
                     <>
-                      <VStack className="feedback-body" spacing="s">
+                      <VStack
+                        className="feedback-body"
+                        spacing="v5.feedbackBox.container.gap"
+                      >
                         {(notificationElement || descriptionElement) && (
                           <>
                             {notificationElement}
@@ -410,7 +408,7 @@ export const FeedbackBox: ChakraComponent<
                                 setFinalIsInvalidComment(false);
                               }
                             }}
-                            placeholder="Enter your question or feedback here"
+                            placeholder="Enter your comment or feedback here"
                             ref={commentInputRef}
                             type="textarea"
                           />
@@ -473,26 +471,34 @@ export const FeedbackBox: ChakraComponent<
                         key="confirmationWrapper"
                         margin="auto"
                         tabIndex={-1}
+                        gap="v5.feedbackBox.container.gap"
                         textAlign="center"
                         ref={focusRef}
                       >
                         <Icon
-                          color={iconColor}
-                          name="actionCheckCircleFilled"
-                          size="large"
+                          // TO DO v5: color token => "accent.positive.default"
+                          color="ui.success.primary"
+                          // TO DO v5: icon => "check"
+                          name="check"
+                          // TO DO v5: size token => "icon.xl"
+                          size="xxlarge"
                         />
-                        <Text fontWeight="medium">
-                          Thank you for submitting your feedback.
-                        </Text>
-                        {showEmailField && (
-                          <Text mt="s">
-                            If you asked a question and provided an email, allow
-                            us a few days to respond.
+                        <div>
+                          <Text fontWeight="v5.semibold">
+                            Thank you for submitting your feedback.
                           </Text>
-                        )}
-                        {confirmationText ? (
-                          <Text mt="s">{confirmationText}</Text>
-                        ) : undefined}
+                          {showEmailField && (
+                            <Text mt="v5.density.normal">
+                              If you asked a question and provided an email,
+                              allow us a few days to respond.
+                            </Text>
+                          )}
+                          {confirmationText ? (
+                            <Text mt="v5.density.normal">
+                              {confirmationText}
+                            </Text>
+                          ) : undefined}
+                        </div>
                       </Box>
                       {privacyPolicyField}
                       <FormField>
@@ -514,20 +520,24 @@ export const FeedbackBox: ChakraComponent<
                     <>
                       <Box
                         className="feedback-body response"
-                        color="ui.error.primary"
+                        color="v5.semantic.negative.default"
                         key="errorWrapper"
                         margin="auto"
                         tabIndex={-1}
                         textAlign="center"
+                        gap="v5.feedbackBox.container.gap"
                         ref={focusRef}
                       >
                         <Icon
+                          // TO DO v5: color token => "accent.negative.default"
                           color="ui.error.primary"
+                          // TO DO v5: icon => "error"
                           name="errorFilled"
-                          size="large"
+                          // TO DO v5: size token => "icon.xl"
+                          size="xxlarge"
                         />
-                        <Text fontWeight="medium">
-                          Oops! Something went wrong. An error occured while
+                        <Text fontWeight="v5.semibold">
+                          Oops! Something went wrong. An error occurred while
                           processing your feedback.
                         </Text>
                       </Box>
