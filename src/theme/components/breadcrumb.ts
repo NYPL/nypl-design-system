@@ -22,7 +22,7 @@ const blogs = defineStyle({
         color: "dark.ui.typography.heading",
       },
     },
-    _focus: customFocusColor("ui.black", "dark.ui.typography.body"),
+    _focus: customFocusColor("ui.black"),
   },
   "li:last-child": {
     ".chakra-breadcrumb__link": {
@@ -69,7 +69,7 @@ const digitalCollections = defineStyle({
         color: "ui.white",
       },
     },
-    _focus: customFocusColor("ui.black", "dark.ui.typography.body"),
+    _focus: customFocusColor("ui.black"),
   },
   "li:last-child": {
     ".chakra-breadcrumb__link": {
@@ -141,7 +141,7 @@ const Breadcrumb = defineStyleConfig({
         color: "ui.gray.light-cool",
         textDecoration: "none",
       },
-      _focus: customFocusColor("ui.white", "dark.ui.typography.heading"),
+      _focus: customFocusColor("ui.white"),
     },
     "li:last-child": {
       fontWeight: {

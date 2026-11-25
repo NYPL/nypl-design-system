@@ -5,7 +5,6 @@ import { activeFocus } from "../components/global";
  * page when the `DSProvider` component is used.
  */
 const global = {
-  // styles for the `body` element
   body: {
     boxSizing: "border-box",
     bg: "v5.surface.page",
@@ -16,7 +15,6 @@ const global = {
     lineHeight: "v5.body",
     overflowX: "hidden",
   },
-  // styles for the `a` element
   a: {
     color: "v5.link.primary.default",
   },
@@ -31,15 +29,12 @@ const global = {
   },
   "button, select, input, textarea": {
     "&:not([disabled])": {
-      _focus: { ...activeFocus(), zIndex: 9999 },
+      _focus: { ...activeFocus, zIndex: 9999 },
     },
   },
   "iframe, [tabindex], [href], [contentEditable='true']": {
-    _focus: activeFocus(),
+    _focus: activeFocus,
   },
-  // p: textMargin,
-  // ul: textMargin,
-  // ol: textMargin,
   "*, *::before, &::after": {
     boxSizing: "inherit",
   },

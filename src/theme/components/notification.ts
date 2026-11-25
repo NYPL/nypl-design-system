@@ -58,10 +58,7 @@ const baseStyle = definePartsStyle(
         },
         _focus: {
           // This pseudo-class selector is needed for overriding Chakra styles
-          [":not([disabled])"]: customFocusColor(
-            "ui.typography.heading",
-            "dark.ui.typography.heading"
-          ),
+          [":not([disabled])"]: customFocusColor("ui.typography.heading"),
         },
         _hover: {
           bg: "inherit",

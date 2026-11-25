@@ -2,6 +2,7 @@ import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { Meta, Source } from "@storybook/addon-docs/blocks";
 
 import ComponentDocsHeader from "../../utils/components/ComponentDocsHeader";
+import { responsiveSpacing } from "../../theme/components/global";
 
 <Meta title="Components/Chakra Exports/Layout/Grid" />
 
@@ -25,7 +26,7 @@ Details about available props and related child components can be found on Chakr
 
 {
 
-<Grid templateColumns="repeat(5, 1fr)" gap="grid.default" mb="s">
+<Grid templateColumns="repeat(5, 1fr)" gap={responsiveSpacing.gridGapNormal} mb="s">
   <Box w="100%" h="20" bg="brand.primary" />
   <Box w="100%" h="20" bg="brand.secondary" />
   <Box w="100%" h="20" bg="brand.primary" />
@@ -51,7 +52,7 @@ instead of an even distribution. To achieve this, you can pass the `colSpan` and
   height="200px"
   templateRows="repeat(2, 1fr)"
   templateColumns="repeat(5, 1fr)"
-  gap="grid.default"
+  gap={responsiveSpacing.gridGapNormal}
 >
   <GridItem rowSpan={2} colSpan={1} bg="ui.link.primary" />
   <GridItem colSpan={2} bg="ui.success.primary" />
@@ -66,7 +67,7 @@ instead of an even distribution. To achieve this, you can pass the `colSpan` and
     height="200px"
     templateRows="repeat(2, 1fr)"
     templateColumns="repeat(5, 1fr)"
-    gap="grid.default"
+    gap={responsiveSpacing.gridGapNormal}
   >
     <GridItem rowSpan={2} colSpan={1} bg="ui.link.primary" />
     <GridItem colSpan={2} bg="ui.success.primary" />
