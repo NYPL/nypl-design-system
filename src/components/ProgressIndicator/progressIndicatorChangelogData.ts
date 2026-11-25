@@ -16,7 +16,7 @@ export const changelogData: ChangelogData[] = [
     affects: ["Styles"],
     notes: [
       "Updates component styles to align with v5 designs.",
-      "Update component to use new `Label` variants.",
+      "Updates component to use `Label` variants.",
     ],
   },
   {
