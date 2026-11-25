@@ -393,6 +393,85 @@ exports[`Toggle Renders the UI snapshot correctly 5`] = `
 
 exports[`Toggle Renders the UI snapshot correctly 6`] = `
 <div
+  className="css-1u8qly9"
+  data-testid="ds-toggle"
+  id="Toggle-disabled-componentWrapper"
+>
+  <div
+    className="css-0"
+  >
+    <label
+      className="chakra-switch css-18x0has"
+      data-disabled=""
+      onClick={[Function]}
+    >
+      <input
+        aria-disabled={true}
+        aria-invalid={false}
+        checked={false}
+        className="chakra-switch__input"
+        disabled={true}
+        id="Toggle-disabled"
+        name="default"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        required={false}
+        style={
+          {
+            "border": "0",
+            "clip": "rect(0, 0, 0, 0)",
+            "height": "1px",
+            "margin": "-1px",
+            "overflow": "hidden",
+            "padding": "0",
+            "position": "absolute",
+            "whiteSpace": "nowrap",
+            "width": "1px",
+          }
+        }
+        type="checkbox"
+      />
+      <span
+        aria-hidden={true}
+        className="chakra-switch__track css-14qxnv8"
+        data-disabled=""
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+      >
+        <span
+          className="chakra-switch__thumb css-0"
+          data-disabled=""
+        />
+      </span>
+      <span
+        className="chakra-switch__label css-1y8kf23"
+        data-disabled=""
+        onMouseDown={[Function]}
+      >
+        Test Label
+      </span>
+    </label>
+  </div>
+  <div
+    className="css-1xdhyk6"
+    data-isinvalid={false}
+    data-testid="ds-helperErrorText"
+    id="Toggle-disabled-helperErrorText"
+  >
+    <div
+      className="css-0"
+    />
+  </div>
+</div>
+`;
+
+exports[`Toggle Renders the UI snapshot correctly 7`] = `
+<div
   className="css-7zjd3y"
   data-testid="ds-toggle"
   id="chakra-componentWrapper"
@@ -466,7 +545,7 @@ exports[`Toggle Renders the UI snapshot correctly 6`] = `
 </div>
 `;
 
-exports[`Toggle Renders the UI snapshot correctly 7`] = `
+exports[`Toggle Renders the UI snapshot correctly 8`] = `
 <div
   className="css-1u8qly9"
   data-testid="props"

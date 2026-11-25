@@ -17,7 +17,7 @@ const meta: Meta<typeof Toggle> = {
     size: {
       control: { type: "radio" },
       options: toggleSizesArray,
-      table: { defaultValue: { summary: "default" } },
+      table: { defaultValue: { summary: "sm" } },
     },
   },
 };
@@ -41,13 +41,13 @@ export const WithControls: Story = {
     labelText: "Test Label",
     name: "toggle-1",
     onChange: undefined,
-    size: "default",
+    size: "sm",
   },
   render: (args) => <Toggle {...args} />,
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/qShodlfNCJHb8n03IFyApM/Main?node-id=31581%3A302",
+      url: "https://www.figma.com/design/tR5I1IaS3LlmUrH4lhVDtI/Reservoir-Visual-Design-Library-v2--components?node-id=89-339&m=dev",
     },
     jest: ["Toggle.test.tsx"],
   },
@@ -59,22 +59,22 @@ export const Sizes: Story = {
     <SimpleGrid columns={2}>
       <VStack align="left" spacing="s">
         <Heading level="h3" size="heading6">
-          Default
+          Small (Default)
         </Heading>
         <Toggle defaultChecked={true} id="default-checked" labelText="On" />
         <Toggle id="default" labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
         <Heading level="h3" size="heading6">
-          Small
+          Large
         </Heading>
         <Toggle
           defaultChecked={true}
           id="small-checked"
-          size="small"
+          size="lg"
           labelText="On"
         />
-        <Toggle id="default-small" size="small" labelText="Off" />
+        <Toggle id="default-small" size="lg" labelText="Off" />
       </VStack>
     </SimpleGrid>
   ),
@@ -126,20 +126,39 @@ export const Layouts: Story = {
           Grouped
         </Heading>
         <Toggle defaultChecked={true} id="layout1" labelText="On" />
-        <Toggle defaultChecked={true} id="layout2" labelText="On" />
+        <Toggle defaultChecked={false} id="layout2" labelText="Off" />
         <Toggle defaultChecked={true} id="layout3" labelText="On" />
-        <Toggle defaultChecked={true} id="layout4" labelText="On" />
-        <Toggle defaultChecked={true} id="layout5" labelText="On" />
+        <Toggle defaultChecked={false} id="layout4" labelText="Off" />
       </VStack>
       <VStack align="left" spacing="s">
         <Heading level="h3" size="heading6">
           With Helper Text
         </Heading>
         <Toggle
+          defaultChecked={false}
+          helperText="Component Helper Text"
+          id="helper-text"
+          labelText="Off"
+        />
+        <Toggle
           defaultChecked={true}
           helperText="Component Helper Text"
           id="helper-text"
           labelText="On"
+        />
+        <Toggle
+          defaultChecked={true}
+          helperText="Component Helper Text"
+          id="helper-text"
+          labelText="On"
+          size="lg"
+        />
+        <Toggle
+          defaultChecked={false}
+          helperText="Component Helper Text"
+          id="helper-text"
+          labelText="Off"
+          size="lg"
         />
       </VStack>
     </SimpleGrid>

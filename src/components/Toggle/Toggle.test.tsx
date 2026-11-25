@@ -142,12 +142,15 @@ describe("Toggle", () => {
       .create(<Toggle id="Toggle-disabled" labelText="Test Label" isDisabled />)
       .toJSON();
     const small = renderer
+      .create(<Toggle id="Toggle-disabled" labelText="Test Label" isDisabled />)
+      .toJSON();
+    const large = renderer
       .create(
         <Toggle
           id="Toggle-disabled"
           labelText="Test Label"
           isDisabled
-          size="small"
+          size="lg"
         />
       )
       .toJSON();
@@ -170,6 +173,7 @@ describe("Toggle", () => {
     expect(isInvalid).toMatchSnapshot();
     expect(isDisabled).toMatchSnapshot();
     expect(small).toMatchSnapshot();
+    expect(large).toMatchSnapshot();
     expect(withChakraProps).toMatchSnapshot();
     expect(withOtherProps).toMatchSnapshot();
   });
