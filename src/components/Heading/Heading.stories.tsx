@@ -4,7 +4,6 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Heading, {
   headingLevelsArray,
   headingSizesArray,
-  headingVariantsArray,
 } from "./Heading";
 import Link from "../Link/Link";
 import { argsBooleanType } from "../../helpers/storybookUtils";
@@ -30,11 +29,7 @@ const meta: Meta<typeof Heading> = {
     text: { control: { type: "text" } },
     url: { control: { type: "text" } },
     urlClass: { control: false },
-    variant: {
-      control: { type: "select" },
-      options: headingVariantsArray,
-      table: { defaultValue: { summary: "default" } },
-    },
+    isAlternate: argsBooleanType(),
   },
 };
 
@@ -57,7 +52,7 @@ export const WithControls: Story = {
     text: "Default Heading",
     url: undefined,
     urlClass: undefined,
-    variant: "default",
+    isAlternate: "false",
   },
   parameters: {
     design: {
@@ -154,7 +149,7 @@ export const AlternateVariant: Story = {
         level="h1"
         size="heading1"
         text="(alternate) Lorem ipsum dolor"
-        variant="alternate"
+        isAlternate={true}
       />
       <Heading
         id="heading-alternate-lockup"
@@ -162,7 +157,7 @@ export const AlternateVariant: Story = {
         overline="Overline stays in the default font"
         subtitle="Subtitle stays in the default font"
         text="(alternate) Lorem ipsum dolor"
-        variant="alternate"
+        isAlternate={true}
       />
     </VStack>
   ),

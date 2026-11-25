@@ -27,9 +27,6 @@ export const headingLevelsArray = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
 export type HeadingSizes = (typeof headingSizesArray)[number];
 export type HeadingLevels = (typeof headingLevelsArray)[number];
 
-export const headingVariantsArray = ["default", "alternate"] as const;
-export type HeadingVariants = (typeof headingVariantsArray)[number];
-
 export interface HeadingProps extends BoxProps {
   /** Optional prop used to show capitalized text */
   isCapitalized?: boolean;
@@ -37,6 +34,9 @@ export interface HeadingProps extends BoxProps {
   isUppercase?: boolean;
   /** Optional prop used to show lower case text */
   isLowercase?: boolean;
+  /** Optional modifier to change only the font of the heading text; the
+   * overline and subtitle are not affected. */
+  isAlternate?: boolean;
   /** Optional number 1-6 used to create the `<h*>` tag; if prop is not passed,
    * `Heading` will default to `<h2>` */
   level?: HeadingLevels;
@@ -53,9 +53,6 @@ export interface HeadingProps extends BoxProps {
    * `Heading`, a child `<a>` element is created and the heading text becomes an
    * active link */
   url?: string;
-  /** Optional variant. The "alternate" variant changes only the font of the
-   * heading text; the overline and subtitle are not affected. */
-  variant?: HeadingVariants;
   /** Optional className for the URL when the `url` prop is passed */
   urlClass?: string;
 }
@@ -93,6 +90,7 @@ export const Heading: ChakraComponent<
         isCapitalized,
         isUppercase,
         isLowercase,
+        isAlternate,
         level = "h2",
         overline,
         size,
@@ -100,17 +98,16 @@ export const Heading: ChakraComponent<
         text,
         url,
         urlClass,
-        variant: headingVariant = "default",
         ...rest
       } = props;
       const finalLevel = getMappedLevel(level);
       const variant = size ? size : level;
       const styles = useMultiStyleConfig("Heading", {
         variant,
-        isAlternate: headingVariant === "alternate",
         isCapitalized,
         isUppercase,
         isLowercase,
+        isAlternate,
         url,
       });
 
@@ -152,7 +149,7 @@ export const Heading: ChakraComponent<
       );
 
       /** The sizes of the overline and subtitle elements are based on the
-       * current heading variant. The heading variants that reqwuire the larger
+       * current heading variant. The heading variants that require the larger
        * text styles are listed in the usesLargerTextSizes array. If the name of
        * the current heading variant is included in that array, then the size
        * prop of the overline and subtitle elements will be set to "overline1"
