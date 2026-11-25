@@ -81,6 +81,7 @@ const baseStyleControl = defineStyle({
   _disabled: {
     bg: "v5.checkbox.bg.disabled",
     borderColor: "v5.checkbox.border.disabled",
+    cursor: "not-allowed",
   },
   _invalid: {
     borderColor: "v5.checkbox.border.error",
@@ -96,7 +97,7 @@ const sizes = {
   lg: definePartsStyle({ label: { fontSize: "v5.body" } }),
 };
 
-const baseStyle = definePartsStyle(() => ({
+const baseStyle = definePartsStyle({
   container: {
     alignItems: "center",
     position: "relative",
@@ -134,7 +135,7 @@ const baseStyle = definePartsStyle(() => ({
       color: "v5.checkbox.label.error",
     },
   },
-}));
+});
 
 const variants = {
   fullWidth: definePartsStyle({

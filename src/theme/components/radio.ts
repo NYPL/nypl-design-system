@@ -69,7 +69,7 @@ const baseStyle = {
       bg: "ui.gray.xx-light-cool",
     },
     _focus: {
-      ...activeFocus(),
+      ...activeFocus,
       boxShadow: "outline",
     },
     _invalid: {

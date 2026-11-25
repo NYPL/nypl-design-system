@@ -59,7 +59,7 @@ type Story = StoryObj<typeof CheckboxGroup>;
 
 export const WithControls: Story = {
   args: {
-    defaultValue: ["4"],
+    defaultValue: ["3"],
     helperText: "This is the helper text for the full group.",
     invalidText: "This is the error text :(",
     isDisabled: false,
@@ -185,7 +185,7 @@ export const Disabled: Story = {
 
 export const LabelsUsingJSXElements: Story = {
   args: {
-    defaultValue: ["4"],
+    defaultValue: ["Arts"],
     helperText: "This is the helper text for the full group.",
     invalidText: "This is the error text :(",
     isDisabled: false,

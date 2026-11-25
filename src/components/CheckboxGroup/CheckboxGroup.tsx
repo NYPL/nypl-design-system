@@ -95,13 +95,15 @@ export const CheckboxGroup: ChakraComponent<
         layout === "column"
           ? space.checkboxGroup.gap.column
           : space.checkboxGroup.gap.row;
-      const checkboxProps =
-        defaultValue && onChange
-          ? {
-              defaultValue,
-              onChange,
-            }
-          : {};
+      const checkboxProps = {};
+
+      if (defaultValue.length > 0) {
+        checkboxProps["defaultValue"] = defaultValue;
+      }
+
+      if (onChange) {
+        checkboxProps["onChange"] = onChange;
+      }
 
       if (value) {
         checkboxProps["value"] = value;
