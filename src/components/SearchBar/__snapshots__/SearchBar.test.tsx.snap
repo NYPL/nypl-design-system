@@ -45,7 +45,11 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="basic-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -77,12 +81,16 @@ exports[`SearchBar renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Search for items in Animal Crossing New Horizons",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;
@@ -201,7 +209,11 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
         data-isinvalid={false}
         data-testid="ds-helperErrorText"
         id="withSelect-select-helperErrorText"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-0"
@@ -236,7 +248,11 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="withSelect-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -268,12 +284,16 @@ exports[`SearchBar renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Search for items in Animal Crossing New Horizons",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;
@@ -394,7 +414,11 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
         data-isinvalid={false}
         data-testid="ds-helperErrorText"
         id="withSelectAndPrependText-select-helperErrorText"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
     <div
       className="css-0"
@@ -429,7 +453,11 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="withSelectAndPrependText-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -461,12 +489,16 @@ exports[`SearchBar renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Search for items in Animal Crossing New Horizons",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;
@@ -515,7 +547,11 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="withoutHelperText-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -547,7 +583,11 @@ exports[`SearchBar renders the UI snapshot correctly 4`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -597,7 +637,11 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="withClearButton-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -629,12 +673,16 @@ exports[`SearchBar renders the UI snapshot correctly 5`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Search for items in Animal Crossing New Horizons",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;
@@ -685,7 +733,23 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
           data-isinvalid={true}
           data-testid="ds-helperErrorText"
           id="invalidState-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-98d3g4"
+          >
+            <svg
+              aria-hidden={true}
+              className="chakra-icon css-3u73el"
+              data-file-name="SvgErrorFilled"
+              focusable={false}
+              role="img"
+              title="errorFilled icon"
+            />
+          </div>
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -716,8 +780,24 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
     id="invalidState-helperErrorText"
   >
     <div
+      className="css-98d3g4"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-3u73el"
+        data-file-name="SvgErrorFilled"
+        focusable={false}
+        role="img"
+        title="errorFilled icon"
+      />
+    </div>
+    <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -766,7 +846,11 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="disabledState-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -799,7 +883,11 @@ exports[`SearchBar renders the UI snapshot correctly 7`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -849,7 +937,11 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="requiredState-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -882,7 +974,11 @@ exports[`SearchBar renders the UI snapshot correctly 8`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -932,7 +1028,11 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="noBrandButtonType-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -965,7 +1065,11 @@ exports[`SearchBar renders the UI snapshot correctly 9`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -977,7 +1081,7 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
   id="withHeading-componentWrapper"
 >
   <h2
-    className="chakra-heading css-1uhtpq1"
+    className="chakra-heading css-1a45e1q"
     data-testid="ds-heading"
     id="withHeading-heading"
   >
@@ -1022,7 +1126,11 @@ exports[`SearchBar renders the UI snapshot correctly 10`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -1034,7 +1142,7 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
   id="withDescription-componentWrapper"
 >
   <p
-    className="chakra-text css-ap6r8h"
+    className="chakra-text css-1jamp0j"
     data-testid="ds-text"
   >
     A description
@@ -1078,7 +1186,11 @@ exports[`SearchBar renders the UI snapshot correctly 11`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -1090,14 +1202,14 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
   id="withHeadingAndDescription-componentWrapper"
 >
   <h2
-    className="chakra-heading css-1uhtpq1"
+    className="chakra-heading css-1a45e1q"
     data-testid="ds-heading"
     id="withHeadingAndDescription-heading"
   >
     A Heading
   </h2>
   <p
-    className="chakra-text css-ap6r8h"
+    className="chakra-text css-1jamp0j"
     data-testid="ds-text"
   >
     A description
@@ -1141,7 +1253,11 @@ exports[`SearchBar renders the UI snapshot correctly 12`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -1191,7 +1307,11 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="chakra-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -1223,12 +1343,16 @@ exports[`SearchBar renders the UI snapshot correctly 13`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Search for items in Animal Crossing New Horizons",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;
@@ -1278,7 +1402,11 @@ exports[`SearchBar renders the UI snapshot correctly 14`] = `
           data-isinvalid={false}
           data-testid="ds-helperErrorText"
           id="props-textInput-helperErrorText"
-        />
+        >
+          <div
+            className="css-0"
+          />
+        </div>
       </div>
       <button
         className="chakra-button ds-searchBar-button css-1xdhyk6"
@@ -1310,12 +1438,16 @@ exports[`SearchBar renders the UI snapshot correctly 14`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Search for items in Animal Crossing New Horizons",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Search for items in Animal Crossing New Horizons",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;

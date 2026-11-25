@@ -31,7 +31,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 1`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <noscript>
@@ -64,14 +68,14 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
     id="video-player-with-text-componentWrapper"
   >
     <h2
-      className="chakra-heading css-1uhtpq1"
+      className="chakra-heading css-1a45e1q"
       data-testid="ds-heading"
       id="video-player-with-text-heading"
     >
       VideoPlayer Heading
     </h2>
     <p
-      className="chakra-text css-ap6r8h"
+      className="chakra-text css-1jamp0j"
       data-testid="ds-text"
     >
       VideoPlayer description
@@ -96,12 +100,16 @@ exports[`VideoPlayer renders the UI snapshot correctly 2`] = `
     >
       <div
         className="css-0"
-        dangerouslySetInnerHTML={
-          {
-            "__html": "VideoPlayer helper test.",
+      >
+        <div
+          className="css-0"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "VideoPlayer helper test.",
+            }
           }
-        }
-      />
+        />
+      </div>
     </div>
   </div>
   <noscript>
@@ -134,14 +142,14 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     id="video-player-with-text-componentWrapper"
   >
     <h2
-      className="chakra-heading css-1uhtpq1"
+      className="chakra-heading css-1a45e1q"
       data-testid="ds-heading"
       id="video-player-with-text-heading"
     >
       VideoPlayer Heading
     </h2>
     <p
-      className="chakra-text css-ap6r8h"
+      className="chakra-text css-1jamp0j"
       data-testid="ds-text"
     >
       VideoPlayer description
@@ -165,12 +173,16 @@ exports[`VideoPlayer renders the UI snapshot correctly 3`] = `
     >
       <div
         className="css-0"
-        dangerouslySetInnerHTML={
-          {
-            "__html": "VideoPlayer helper test.",
+      >
+        <div
+          className="css-0"
+          dangerouslySetInnerHTML={
+            {
+              "__html": "VideoPlayer helper test.",
+            }
           }
-        }
-      />
+        />
+      </div>
     </div>
   </div>
   <noscript>
@@ -253,7 +265,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 5`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <noscript>
@@ -305,7 +321,11 @@ exports[`VideoPlayer renders the UI snapshot correctly 6`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
   <noscript>

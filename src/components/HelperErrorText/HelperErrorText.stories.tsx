@@ -9,11 +9,12 @@ const meta: Meta<typeof HelperErrorText> = {
   title: "Components/Content Display/HelperErrorText",
   component: HelperErrorText,
   argTypes: {
+    text: { control: false },
     isInvalid: {
       table: { defaultValue: { summary: "false" } },
     },
     isRenderedText: {
-      table: { defaultValue: { summary: "false" } },
+      table: { defaultValue: { summary: "true" } },
     },
   },
 };
@@ -22,7 +23,7 @@ export default meta;
 type Story = StoryObj<typeof HelperErrorText>;
 
 /**
- * Main Story for the HelperErrorText component. This must contains the `args`
+ * Main Story for the HelperErrorText component. This must contain the `args`
  * and `parameters` properties in this object.
  */
 export const WithControls: Story = {
@@ -33,7 +34,7 @@ export const WithControls: Story = {
   parameters: {
     design: {
       type: "figma",
-      url: "",
+      url: "https://www.figma.com/design/tR5I1IaS3LlmUrH4lhVDtI/Reservoir-Visual-Design-Library-v2--components?node-id=509-43868&m=dev",
     },
     jest: ["HelperErrorText.test.tsx"],
   },

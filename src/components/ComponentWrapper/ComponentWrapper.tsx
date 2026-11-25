@@ -53,7 +53,7 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
         id,
         title: headingText,
         additionalStyles: {
-          mb: "heading.default",
+          mb: "v5.inputShared.label.marginBottom",
         },
       });
 
@@ -67,7 +67,7 @@ export const ComponentWrapper: React.FC<React.PropsWithChildren<any>> = chakra(
         >
           {finalHeadingText}
           {descriptionText && (
-            <Text mb="paragraph.default">{descriptionText}</Text>
+            <Text mb="v5.text.paragraph.body">{descriptionText}</Text>
           )}
           {children}
           <HelperErrorText

@@ -9,12 +9,16 @@ exports[`HelperErrorText Renders the UI snapshot correctly 1`] = `
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Text",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
@@ -26,13 +30,29 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
   id="invalid"
 >
   <div
+    className="css-98d3g4"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-3u73el"
+      data-file-name="SvgErrorFilled"
+      focusable={false}
+      role="img"
+      title="errorFilled icon"
+    />
+  </div>
+  <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Text",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
@@ -44,13 +64,29 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
   id="invalid"
 >
   <div
+    className="css-98d3g4"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-3u73el"
+      data-file-name="SvgErrorFilled"
+      focusable={false}
+      role="img"
+      title="errorFilled icon"
+    />
+  </div>
+  <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "This helper text <b>contains HTML in the string</b>.",
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "This helper text <b>contains HTML in the string</b>.",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
@@ -62,13 +98,29 @@ exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
   id="invalid"
 >
   <div
+    className="css-98d3g4"
+  >
+    <svg
+      aria-hidden={true}
+      className="chakra-icon css-3u73el"
+      data-file-name="SvgErrorFilled"
+      focusable={false}
+      role="img"
+      title="errorFilled icon"
+    />
+  </div>
+  <div
     className="css-0"
   >
-    This helper text 
-    <b>
-      contains HTML
-    </b>
-    .
+    <div
+      className="css-0"
+    >
+      This helper text 
+      <b>
+        contains HTML
+      </b>
+      .
+    </div>
   </div>
 </div>
 `;
@@ -82,12 +134,16 @@ exports[`HelperErrorText Renders the UI snapshot correctly 5`] = `
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Text",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;
 
@@ -102,11 +158,15 @@ exports[`HelperErrorText Renders the UI snapshot correctly 6`] = `
 >
   <div
     className="css-0"
-    dangerouslySetInnerHTML={
-      {
-        "__html": "Text",
+  >
+    <div
+      className="css-0"
+      dangerouslySetInnerHTML={
+        {
+          "__html": "Text",
+        }
       }
-    }
-  />
+    />
+  </div>
 </div>
 `;

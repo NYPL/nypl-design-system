@@ -6,6 +6,7 @@ import {
   useMultiStyleConfig,
 } from "@chakra-ui/react";
 import { forwardRef } from "react";
+import Icon from "../Icons/Icon";
 
 export type HelperErrorTextType = string | JSX.Element;
 
@@ -46,13 +47,25 @@ export const HelperErrorText: ChakraComponent<
 
       return (
         <Box {...props}>
-          {isRenderedText ? (
-            typeof text === "string" ? (
-              <Box dangerouslySetInnerHTML={{ __html: text }} />
-            ) : (
-              <Box>{text}</Box>
-            )
+          {isInvalid ? (
+            <Box height="v5.helperText.icon.height">
+              <Icon
+                // TO DO v5: color="inputShared.icon.error"
+                color="ui.error.primary"
+                name="errorFilled"
+                size="default"
+              />
+            </Box>
           ) : null}
+          <Box>
+            {isRenderedText ? (
+              typeof text === "string" ? (
+                <Box dangerouslySetInnerHTML={{ __html: text }} />
+              ) : (
+                <Box>{text}</Box>
+              )
+            ) : null}
+          </Box>
         </Box>
       );
     }

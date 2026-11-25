@@ -332,7 +332,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 1`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -698,7 +702,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 2`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -717,7 +725,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
     id="alphabet-filter-componentWrapper"
   >
     <h2
-      className="chakra-heading css-1uhtpq1"
+      className="chakra-heading css-1a45e1q"
       data-testid="ds-heading"
       id="alphabet-filter-heading"
     >
@@ -1043,7 +1051,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 3`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -1062,7 +1074,7 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
     id="alphabet-filter-componentWrapper"
   >
     <p
-      className="chakra-text css-ap6r8h"
+      className="chakra-text css-1jamp0j"
       data-testid="ds-text"
     >
       This is description text.
@@ -1387,7 +1399,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 4`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -1725,7 +1741,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 5`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>
@@ -2063,7 +2083,11 @@ exports[`AlphabetFilter Snapshot Renders the UI snapshot correctly 6`] = `
     >
       <div
         className="css-0"
-      />
+      >
+        <div
+          className="css-0"
+        />
+      </div>
     </div>
   </div>
 </nav>

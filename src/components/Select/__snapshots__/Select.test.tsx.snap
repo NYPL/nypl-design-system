@@ -79,7 +79,11 @@ exports[`Select Renders the UI snapshot correctly 1`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -165,7 +169,11 @@ exports[`Select Renders the UI snapshot correctly 2`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -250,7 +258,11 @@ exports[`Select Renders the UI snapshot correctly 3`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -335,13 +347,29 @@ exports[`Select Renders the UI snapshot correctly 4`] = `
     id="select-helperErrorText"
   >
     <div
+      className="css-98d3g4"
+    >
+      <svg
+        aria-hidden={true}
+        className="chakra-icon css-3u73el"
+        data-file-name="SvgErrorFilled"
+        focusable={false}
+        role="img"
+        title="errorFilled icon"
+      />
+    </div>
+    <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Tom doesn't count as a sibling :(.",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Tom doesn't count as a sibling :(.",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;
@@ -426,12 +454,16 @@ exports[`Select Renders the UI snapshot correctly 5`] = `
   >
     <div
       className="css-0"
-      dangerouslySetInnerHTML={
-        {
-          "__html": "Remember, Logan will judge you no matter who you pick.",
+    >
+      <div
+        className="css-0"
+        dangerouslySetInnerHTML={
+          {
+            "__html": "Remember, Logan will judge you no matter who you pick.",
+          }
         }
-      }
-    />
+      />
+    </div>
   </div>
 </div>
 `;
@@ -519,7 +551,11 @@ exports[`Select Renders the UI snapshot correctly 6`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -607,7 +643,11 @@ exports[`Select Renders the UI snapshot correctly 7`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -693,7 +733,11 @@ exports[`Select Renders the UI snapshot correctly 8`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -777,7 +821,11 @@ exports[`Select Renders the UI snapshot correctly 9`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -861,7 +909,11 @@ exports[`Select Renders the UI snapshot correctly 10`] = `
   >
     <div
       className="css-0"
-    />
+    >
+      <div
+        className="css-0"
+      />
+    </div>
   </div>
 </div>
 `;
