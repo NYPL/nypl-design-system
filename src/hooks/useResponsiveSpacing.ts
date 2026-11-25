@@ -10,6 +10,10 @@ function useResponsiveSpacing() {
     responsiveGap: responsiveSpacing.gridGap,
     responsiveMargin: responsiveSpacing.margin,
     responsivePadding: responsiveSpacing.padding,
+    responsiveContainerPaddingX: responsiveSpacing.containerPaddingX,
+    responsiveGridGapCondensed: responsiveSpacing.gridGapCondensed,
+    responsiveGridGapNormal: responsiveSpacing.gridGapNormal,
+    responsiveGridGapSpacious: responsiveSpacing.gridGapSpacious,
   };
 }
 

@@ -7,7 +7,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 1`] = `
   id="basic"
 >
   <fieldset
-    className="css-1xdhyk6"
+    className="css-8bp933"
     data-testid="ds-fieldset"
     id="basic-fieldset"
   >
@@ -171,7 +171,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 2`] = `
   id="no-label"
 >
   <fieldset
-    className="css-1xdhyk6"
+    className="css-8bp933"
     data-testid="ds-fieldset"
     id="no-label-fieldset"
   >
@@ -335,7 +335,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 3`] = `
   id="custom-format"
 >
   <fieldset
-    className="css-1xdhyk6"
+    className="css-8bp933"
     data-testid="ds-fieldset"
     id="custom-format-fieldset"
   >
@@ -499,7 +499,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
   id="invalid"
 >
   <fieldset
-    className="css-1xdhyk6"
+    className="css-8bp933"
     data-testid="ds-fieldset"
     id="invalid-fieldset"
   >
@@ -682,7 +682,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 5`] = `
   id="disabled"
 >
   <fieldset
-    className="css-1xdhyk6"
+    className="css-8bp933"
     data-testid="ds-fieldset"
     id="disabled-fieldset"
   >
