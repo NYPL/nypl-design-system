@@ -11,12 +11,12 @@ const customFocusColor = (focusColor) => ({
   zIndex: "9999",
 });
 // Used in `Select` and `TextInput`.
-const activeFocus = () => ({
+const activeFocus = {
   boxShadow: "none",
   outline: "2px solid",
   outlineOffset: "2px",
   outlineColor: "v5.inputShared.border.focus",
-});
+};
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioLabelStyles = {
   color: "v5.text.body.default",
@@ -97,7 +97,7 @@ const selectTextInputDisabledStyles = {
 };
 // Used for the focus state of Select and TextInput
 const selectTextInputFocusStyles = {
-  ...activeFocus(),
+  ...activeFocus,
   borderColor: "v5.inputShared.border.focus",
 };
 /** TODO: `textMargin` is only used in `StructuredContent`. Remove `textMargin` once `StructuredContent` is removed. */

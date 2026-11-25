@@ -10,7 +10,6 @@ function useResponsiveSpacing() {
     responsiveGap: responsiveSpacing.gridGap,
     responsiveMargin: responsiveSpacing.margin,
     responsivePadding: responsiveSpacing.padding,
-    // v5 responsive spacing values
     responsiveContainerPaddingX: responsiveSpacing.containerPaddingX,
     responsiveGridGapCondensed: responsiveSpacing.gridGapCondensed,
     responsiveGridGapNormal: responsiveSpacing.gridGapNormal,

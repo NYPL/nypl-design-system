@@ -782,7 +782,7 @@ const TagSetExplore = defineStyleConfig({
       textUnderlineOffset: "2px",
       ...linkUnderlineStyles,
       ...transitionStyles,
-      _focusWithin: activeFocus(),
+      _focusWithin: activeFocus,
       a: {
         border: "0",
         _focus: {
