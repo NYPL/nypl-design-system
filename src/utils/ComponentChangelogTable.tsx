@@ -39,6 +39,7 @@ export const ComponentChangelogTable = (
             year: "numeric",
             month: "short",
             day: "numeric",
+            timeZone: "UTC",
           });
     const affectsFormatted = affects.sort().join(", ");
     const notesItems = notes.map((item, i) => <li key={i}>{item}</li>);

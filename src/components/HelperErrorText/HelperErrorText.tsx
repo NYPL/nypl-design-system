@@ -48,7 +48,7 @@ export const HelperErrorText: ChakraComponent<
       return (
         <Box {...props}>
           {isInvalid ? (
-            <Box height="20px">
+            <Box height="v5.helperText.icon.height">
               <Icon
                 // TO DO v5: color="inputShared.icon.error"
                 color="ui.error.primary"
