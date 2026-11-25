@@ -1,7 +1,10 @@
 import { VStack } from "@chakra-ui/react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import Heading, { headingLevelsArray, headingSizesArray } from "./Heading";
+import Heading, {
+  headingLevelsArray,
+  headingSizesArray,
+} from "./Heading";
 import Link from "../Link/Link";
 import { argsBooleanType } from "../../helpers/storybookUtils";
 
@@ -26,6 +29,7 @@ const meta: Meta<typeof Heading> = {
     text: { control: { type: "text" } },
     url: { control: { type: "text" } },
     urlClass: { control: false },
+    isAlternate: argsBooleanType(),
   },
 };
 
@@ -48,6 +52,7 @@ export const WithControls: Story = {
     text: "Default Heading",
     url: undefined,
     urlClass: undefined,
+    isAlternate: "false",
   },
   parameters: {
     design: {
@@ -130,6 +135,29 @@ export const SizeStyles: Story = {
         level="h1"
         size="heading8"
         text="(heading8) Lorem ipsum dolor"
+      />
+    </VStack>
+  ),
+};
+
+export const AlternateVariant: Story = {
+  name: "Alternate Variant",
+  render: () => (
+    <VStack align="left" spacing="l">
+      <Heading
+        id="heading-alternate"
+        level="h1"
+        size="heading1"
+        text="(alternate) Lorem ipsum dolor"
+        isAlternate={true}
+      />
+      <Heading
+        id="heading-alternate-lockup"
+        level="h2"
+        overline="Overline stays in the default font"
+        subtitle="Subtitle stays in the default font"
+        text="(alternate) Lorem ipsum dolor"
+        isAlternate={true}
       />
     </VStack>
   ),

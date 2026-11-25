@@ -12,12 +12,15 @@ export const headings = {
   display1: definePartsStyle({
     base: {
       fontSize: {
-        base: "mobile.heading.display1",
-        md: "desktop.heading.display1",
+        base: "v5.heading.display.mobile",
+        md: "v5.heading.display.tablet",
       },
-      fontWeight: "heading.display1",
+      fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: { base: "1.15", md: "1.10" },
+      lineHeight: {
+        base: "v5.heading.display.mobile",
+        md: "v5.heading.display.tablet",
+      },
       width: "auto",
       a: { textUnderlineOffset: "7px" },
     },
@@ -25,12 +28,15 @@ export const headings = {
   heading1: definePartsStyle({
     base: {
       fontSize: {
-        base: "mobile.heading.heading1",
-        md: "desktop.heading.heading1",
+        base: "v5.heading.giant.mobile",
+        md: "v5.heading.giant.tablet",
       },
-      fontWeight: "heading.heading1",
+      fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: { base: "1.20", md: "1.15" },
+      lineHeight: {
+        base: "v5.heading.giant.mobile",
+        md: "v5.heading.giant.tablet",
+      },
       width: "auto",
       a: { textUnderlineOffset: "6px" },
     },
@@ -38,87 +44,72 @@ export const headings = {
   heading2: definePartsStyle({
     base: {
       fontSize: {
-        base: "mobile.heading.heading2",
-        md: "desktop.heading.heading2",
+        base: "v5.heading.large.mobile",
+        md: "v5.heading.large.tablet",
       },
-      fontWeight: "heading.heading2",
+      fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: { base: "1.25", md: "1.20" },
+      lineHeight: {
+        base: "v5.heading.large.mobile",
+        md: "v5.heading.large.tablet",
+      },
       width: "auto",
       a: { textUnderlineOffset: "5px" },
     },
   }),
   heading3: definePartsStyle({
     base: {
-      fontSize: {
-        base: "mobile.heading.heading3",
-        md: "desktop.heading.heading3",
-      },
-      fontWeight: "heading.heading3",
+      fontSize: "v5.heading.moderate",
+      fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: { base: "1.30", md: "1.25" },
+      lineHeight: "v5.heading.moderate",
       width: "auto",
       a: { textUnderlineOffset: "4px" },
     },
   }),
   heading4: definePartsStyle({
     base: {
-      fontSize: {
-        base: "mobile.heading.heading4",
-        md: "desktop.heading.heading4",
-      },
-      fontWeight: "heading.heading4",
+      fontSize: "v5.heading.medium",
+      fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: { base: "1.35", md: "1.30" },
+      lineHeight: "v5.heading.medium",
       width: "auto",
       a: { textUnderlineOffset: "3px" },
     },
   }),
   heading5: definePartsStyle({
     base: {
-      fontSize: {
-        base: "mobile.heading.heading5",
-        md: "desktop.heading.heading5",
-      },
-      fontWeight: "heading.heading5",
+      fontSize: "v5.heading.modest",
+      fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: { base: "1.40", md: "1.35" },
+      lineHeight: "v5.heading.modest",
       width: "auto",
     },
   }),
   heading6: definePartsStyle({
     base: {
-      fontSize: {
-        base: "mobile.heading.heading6",
-        md: "desktop.heading.heading6",
-      },
-      fontWeight: "heading.heading6",
+      fontSize: "v5.heading.small",
+      fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: { base: "1.45", md: "1.40" },
+      lineHeight: "v5.heading.small",
       width: "auto",
     },
   }),
   heading7: definePartsStyle({
     base: {
-      fontSize: {
-        base: "mobile.heading.heading7",
-        md: "desktop.heading.heading7",
-      },
-      fontWeight: "heading.heading7",
+      fontSize: "v5.heading.small",
+      fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: { base: "1.50", md: "1.45" },
+      lineHeight: "v5.heading.small",
       width: "auto",
     },
   }),
   heading8: definePartsStyle({
     base: {
-      fontSize: {
-        base: "mobile.heading.heading8",
-        md: "desktop.heading.heading8",
-      },
-      fontWeight: "heading.heading8",
+      fontSize: "v5.heading.small",
+      fontWeight: "v5.heading",
       letterSpacing: "0",
-      lineHeight: "1.50", // The lineHeight value is the same for mobile and desktop because the fontSize value is the same for mobile and desktop.
+      lineHeight: "v5.heading.small",
       width: "auto",
     },
   }),
@@ -147,8 +138,9 @@ const variants = {
 
 const Heading = defineMultiStyleConfig({
   baseStyle: definePartsStyle(
-    ({ isCapitalized, isUppercase, isLowercase }) => ({
+    ({ isAlternate, isCapitalized, isUppercase, isLowercase }) => ({
       base: {
+        fontFamily: isAlternate ? "v5.headingAlternate" : "v5.headingDefault",
         "a:only-child": {
           ...baseLinkStyles,
           textDecoration: "none",
@@ -157,16 +149,13 @@ const Heading = defineMultiStyleConfig({
         textTransform: isCapitalized
           ? "capitalize"
           : isUppercase
-          ? "uppercase"
-          : isLowercase
-          ? "lowercase"
-          : null,
+            ? "uppercase"
+            : isLowercase
+              ? "lowercase"
+              : null,
       },
       defaultColorStyle: {
         color: "ui.typography.heading",
-        _dark: {
-          color: "dark.ui.typography.heading",
-        },
       },
     })
   ),

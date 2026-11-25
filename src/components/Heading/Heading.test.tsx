@@ -4,6 +4,7 @@ import * as React from "react";
 import renderer from "react-test-renderer";
 
 import Heading from "./Heading";
+import DSProvider from "../../theme/provider";
 
 describe("Heading Accessibility", () => {
   it("passes axe accessibility test as standalone heading element", async () => {
@@ -248,6 +249,37 @@ describe("Heading", () => {
     expect(withOverline).toMatchSnapshot();
     expect(withSubtitle).toMatchSnapshot();
     expect(withOverlineAndSubtitle).toMatchSnapshot();
+  });
+
+  it("applies the alternate font only to the heading text", () => {
+    const { rerender } = render(
+      <DSProvider>
+        <Heading overline="Overline" subtitle="Subtitle" text="Heading text" />
+      </DSProvider>
+    );
+    const fontOf = (text: string) =>
+      window.getComputedStyle(screen.getByText(text)).fontFamily;
+
+    const defaultHeadingFont = fontOf("Heading text");
+    const overlineFont = fontOf("Overline");
+    const subtitleFont = fontOf("Subtitle");
+
+    rerender(
+      <DSProvider>
+        <Heading
+          overline="Overline"
+          subtitle="Subtitle"
+          text="Heading text"
+          variant="alternate"
+        />
+      </DSProvider>
+    );
+
+    expect(fontOf("Heading text")).not.toEqual(defaultHeadingFont);
+    expect(fontOf("Heading text")).toContain("headingAlternate");
+    expect(defaultHeadingFont).toContain("headingDefault");
+    expect(fontOf("Overline")).toEqual(overlineFont);
+    expect(fontOf("Subtitle")).toEqual(subtitleFont);
   });
 
   it("passes a ref to the heading element", () => {
