@@ -4,6 +4,7 @@ import {
 } from "../../components/ProgressIndicator/ProgressIndicator";
 import { createMultiStyleConfigHelpers } from "@chakra-ui/styled-system";
 import { StyleFunctionProps } from "@chakra-ui/system";
+import Label from "./label";
 
 interface ProgressIndicatorBaseStyle extends StyleFunctionProps {
   size: ProgressIndicatorSizes;
@@ -83,12 +84,9 @@ const ProgressIndicator = defineMultiStyleConfig({
         },
         circularLabel: {
           color: "v5.text.label",
-          fontSize:
-            size === "default" ? "v5.label.primary" : "v5.label.secondary",
-          fontWeight:
-            size === "default" ? "v5.label.primary" : "v5.label.secondary",
-          lineHeight:
-            size === "default" ? "v5.label.primary" : "v5.label.secondary",
+          ...(size === "default"
+            ? Label.variants.tertiary
+            : Label.variants.quaternary),
         },
         circularPercentage: {
           fontSize: "v5.progressIndicator.percentage.circular",
@@ -121,9 +119,7 @@ const ProgressIndicator = defineMultiStyleConfig({
         },
         linearLabel: {
           color: "v5.text.label",
-          fontSize: "v5.label.primary",
-          lineHeight: "v5.label.primary",
-          fontWeight: "v5.label.primary",
+          ...Label.variants.tertiary,
         },
         linearPercentage: {
           flex: 1,
