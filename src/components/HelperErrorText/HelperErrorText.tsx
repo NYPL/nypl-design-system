@@ -16,7 +16,7 @@ export interface HelperErrorTextProps extends BoxProps {
   /** Offers the ability to render or not render the content passed in
    * the `text` prop; `true` by default. */
   isRenderedText?: boolean;
-  /** REQUIRED: The text to display. */
+  /** The text to display. */
   text: HelperErrorTextType;
 }
 

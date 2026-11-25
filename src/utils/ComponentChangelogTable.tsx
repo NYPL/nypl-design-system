@@ -7,7 +7,7 @@ export const affectTypesArray = [
   "Functionality",
   "Styles",
 ] as const;
-export type AffectTypes = typeof affectTypesArray[number];
+export type AffectTypes = (typeof affectTypesArray)[number];
 
 export interface ChangelogData {
   /** Date of the release; format yyyy-mm-dd; when adding new entry during development, set value as "Prerelease" */
