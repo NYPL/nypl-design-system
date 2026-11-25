@@ -59,7 +59,7 @@ type Story = StoryObj<typeof CheckboxGroup>;
 
 export const WithControls: Story = {
   args: {
-    defaultValue: ["4"],
+    defaultValue: ["3"],
     helperText: "This is the helper text for the full group.",
     invalidText: "This is the error text :(",
     isDisabled: false,
@@ -184,13 +184,24 @@ export const Disabled: Story = {
 };
 
 export const LabelsUsingJSXElements: Story = {
-  render: () => (
-    <CheckboxGroup
-      id="full-width"
-      isFullWidth
-      labelText="Checkbox Group"
-      name="checkbox-example"
-    >
+  args: {
+    defaultValue: ["Arts"],
+    helperText: "This is the helper text for the full group.",
+    invalidText: "This is the error text :(",
+    isDisabled: false,
+    isFullWidth: true,
+    isInvalid: false,
+    isRequired: false,
+    labelText: "Checkbox Group",
+    layout: "column",
+    name: "checkbox-example",
+    onChange: undefined,
+    showHelperInvalidText: true,
+    showLabel: true,
+    showRequiredLabel: true,
+  },
+  render: (args) => (
+    <CheckboxGroup id="full-width" {...args}>
       <Checkbox
         labelText={
           <Flex>

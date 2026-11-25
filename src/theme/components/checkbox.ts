@@ -4,10 +4,7 @@ import { defineStyle } from "@chakra-ui/system";
 // @see https://github.com/chakra-ui/chakra-ui/blob/main/packages/components/theme/src/components/checkbox.ts
 // for available theme override options.
 
-import {
-  checkboxRadioHelperErrorTextStyles,
-  checkboxRadioLabelStyles,
-} from "./global";
+import { checkboxRadioLabelStyles } from "./global";
 
 // This function creates a set of function that helps us
 // create multipart component styles.
@@ -84,19 +81,10 @@ const baseStyleControl = defineStyle({
   _disabled: {
     bg: "v5.checkbox.bg.disabled",
     borderColor: "v5.checkbox.border.disabled",
+    cursor: "not-allowed",
   },
   _invalid: {
     borderColor: "v5.checkbox.border.error",
-  },
-});
-
-// // Style object for the Checkbox's label
-const baseStyleLabel = defineStyle({
-  cursor: "pointer",
-  verticalAlign: "top",
-  ...checkboxRadioLabelStyles,
-  _invalid: {
-    color: "v5.checkbox.label.error",
   },
 });
 
@@ -134,15 +122,38 @@ const baseStyle = definePartsStyle({
     },
   },
   control: baseStyleControl,
-  helperErrorText: checkboxRadioHelperErrorTextStyles,
+  helperErrorText: {
+    marginTop: "v5.inputShared.helperText.marginTop",
+  },
   icon: baseStyleIcon,
   // Controls the font-size of the label only.
-  label: baseStyleLabel,
+  label: {
+    cursor: "pointer",
+    verticalAlign: "top",
+    ...checkboxRadioLabelStyles(false),
+    _invalid: {
+      color: "v5.checkbox.label.error",
+    },
+  },
 });
+
+const variants = {
+  fullWidth: definePartsStyle({
+    // The container is hardcoded by Chakra as `display: inline-flex`, which
+    // always shrinks to its content. Without an explicit width, the label's own
+    // `width: 100%` resolves as `auto`, so both the container AND the label
+    // need an explicit width for this to work.
+    container: {
+      width: "100%",
+    },
+    label: checkboxRadioLabelStyles(true),
+  }),
+};
 
 const Checkbox = defineMultiStyleConfig({
   baseStyle,
   sizes,
+  variants,
 });
 
 export default Checkbox;

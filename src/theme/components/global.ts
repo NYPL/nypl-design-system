@@ -18,27 +18,29 @@ const activeFocus = {
   outlineColor: "v5.inputShared.border.focus",
 };
 // Used in `Checkbox` and `Radio`.
-const checkboxRadioLabelStyles = {
+const checkboxRadioLabelStyles = (isFullWidth = false) => ({
+  display: "block",
   color: "v5.text.body.default",
   userSelect: "none",
   marginBottom: "0",
   marginStart: "v5.density.condensed",
-  width: "100%",
+  width: isFullWidth ? "100%" : "fit-content",
   _disabled: {
     color: "v5.text.disabled",
+    cursor: "not-allowed",
     opacity: 1,
   },
   _invalid: {
     color: "v5.text.error",
   },
-};
+});
 // Custom values not in the spacing theme.
 // Used in `Checkbox` and `Radio`.
 const checkboxRadioControlSize = {
   h: "1.375rem",
   w: "1.375rem",
 };
-// Used in `Checkbox` and `Radio`.
+// Used in `Radio`.
 const checkboxRadioHelperErrorTextStyles = {
   mt: "v5.inputShared.helperText.marginTop",
 };
@@ -62,15 +64,6 @@ const checkboxRadioHoverStyles = {
     },
   },
 };
-const checkboxRadioGroupStyles = (isFullWidth = false) => ({
-  helperErrorText: {
-    mt: "v5.inputShared.helperText.marginTop",
-  },
-  label: {
-    display: "flex",
-    width: isFullWidth ? "100%" : "fit-content",
-  },
-});
 // Default sizes used throughout the codebase.
 const defaultElementSizes = {
   mobileFieldHeight: "44px",
@@ -149,7 +142,6 @@ const responsiveSpacing = {
 export {
   activeFocus,
   checkboxRadioControlSize,
-  checkboxRadioGroupStyles,
   checkboxRadioHelperErrorTextStyles,
   checkboxRadioHoverStyles,
   checkboxRadioLabelStyles,
