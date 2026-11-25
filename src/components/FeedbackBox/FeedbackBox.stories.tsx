@@ -59,6 +59,11 @@ const FeedbackBoxWithControls = (args) => {
           surface.page
         </Heading>
       </Box>
+      <Box height="400px" bgColor="v5.genericBlack" width="100%">
+        <Heading level="h3" color="v5.genericWhite" m="v5.inset.normal">
+          genericBlack
+        </Heading>
+      </Box>
       <FeedbackBox
         {...args}
         hiddenFields={hiddenFields}

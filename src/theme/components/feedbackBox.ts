@@ -71,6 +71,7 @@ const FeedbackBox = defineMultiStyleConfig({
       zIndex: "10000",
       _focus: {
         zIndex: "10000 !important",
+        boxShadow: "0 0 0 6px var(--nypl-colors-v5-genericWhite) !important",
       },
     },
     // TO DO v5: revisit with RadioGroup

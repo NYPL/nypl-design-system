@@ -321,6 +321,8 @@ export const FeedbackBox: ChakraComponent<
               <DrawerBody sx={styles.drawerBody}>
                 <Form
                   noValidate
+                  // TO DO v5: form spacing token
+                  gap="grid.s"
                   id={`${mainId}-feedback-form`}
                   onSubmit={internalOnSubmit}
                   sx={{
