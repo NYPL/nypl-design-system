@@ -8,8 +8,17 @@ import {
 } from "@chakra-ui/react";
 import React, { forwardRef, LabelHTMLAttributes } from "react";
 
+export const labelVariantsArray = [
+  "primary",
+  "secondary",
+  "tertiary",
+  "quaternary",
+] as const;
+export type LabelVariants = (typeof labelVariantsArray)[number];
+
 export interface LabelProps
-  extends Pick<BoxProps, keyof ChakraProps>,
+  extends
+    Pick<BoxProps, keyof ChakraProps>,
     Omit<LabelHTMLAttributes<HTMLLabelElement>, "color"> {
   /** Controls whether the label should be inline with the input it goes with.
    * This prop should only be used internally. */
@@ -20,6 +29,8 @@ export interface LabelProps
   /** Allows the '(required)' text to be changed for language purposes
    * Note: Parenthesis will be added automatically by the component */
   requiredLabelText?: string;
+  /** Used to control how the `Label` component will be rendered. */
+  variant?: LabelVariants;
 }
 
 /**
@@ -41,9 +52,10 @@ export const Label: ChakraComponent<
       isInlined = false,
       isRequired = false,
       requiredLabelText,
+      variant = "primary",
       ...rest
     } = props;
-    const styles = useStyleConfig("Label", { isInlined });
+    const styles = useStyleConfig("Label", { isInlined, variant });
 
     return (
       <Box as="label" data-testid="ds-label" ref={ref} __css={styles} {...rest}>

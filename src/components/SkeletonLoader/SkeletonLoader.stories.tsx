@@ -78,11 +78,11 @@ export const GridExample: Story = {
 export const ListExample: Story = {
   render: () => (
     <SimpleGrid columns={1}>
-      <SkeletonLoader layout="row" showImage={false} />
-      <SkeletonLoader layout="row" showImage={false} />
-      <SkeletonLoader layout="row" showImage={false} />
-      <SkeletonLoader layout="row" showImage={false} />
-      <SkeletonLoader layout="row" showImage={false} />
+      <SkeletonLoader layout="row" imageAspectRatio="landscape" showImage />
+      <SkeletonLoader layout="row" imageAspectRatio="landscape" showImage />
+      <SkeletonLoader layout="row" imageAspectRatio="landscape" showImage />
+      <SkeletonLoader layout="row" imageAspectRatio="landscape" showImage />
+      <SkeletonLoader layout="row" imageAspectRatio="landscape" showImage />
     </SimpleGrid>
   ),
 };
