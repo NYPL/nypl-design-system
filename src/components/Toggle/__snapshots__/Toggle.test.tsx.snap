@@ -235,7 +235,7 @@ exports[`Toggle Renders the UI snapshot correctly 3`] = `
     id="Toggle-invalid-helperErrorText"
   >
     <div
-      className="css-1pg8bi"
+      className="css-98d3g4"
     >
       <svg
         aria-hidden={true}

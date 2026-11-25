@@ -607,7 +607,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 id="invalid-datePicker-start-textInput-helperErrorText"
               >
                 <div
-                  className="css-1pg8bi"
+                  className="css-98d3g4"
                 >
                   <svg
                     aria-hidden={true}
@@ -695,7 +695,7 @@ exports[`DatePicker Date Range renders the UI snapshot correctly 4`] = `
                 id="invalid-datePicker-end-textInput-helperErrorText"
               >
                 <div
-                  className="css-1pg8bi"
+                  className="css-98d3g4"
                 >
                   <svg
                     aria-hidden={true}
@@ -1250,7 +1250,7 @@ exports[`DatePicker Single input renders the UI snapshot correctly 4`] = `
             id="invalid-datePicker-start-textInput-helperErrorText"
           >
             <div
-              className="css-1pg8bi"
+              className="css-98d3g4"
             >
               <svg
                 aria-hidden={true}

@@ -105,7 +105,7 @@ exports[`NewsletterSignup Snapshots Renders the bad email UI snapshot correctly 
               id="test-id-textInput-helperErrorText"
             >
               <div
-                className="css-1pg8bi"
+                className="css-98d3g4"
               >
                 <svg
                   aria-hidden={true}

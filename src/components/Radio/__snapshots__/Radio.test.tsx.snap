@@ -282,7 +282,7 @@ exports[`Radio Button renders the UI snapshot correctly 4`] = `
     id="radio-invalid-helperErrorText"
   >
     <div
-      className="css-1pg8bi"
+      className="css-98d3g4"
     >
       <svg
         aria-hidden={true}

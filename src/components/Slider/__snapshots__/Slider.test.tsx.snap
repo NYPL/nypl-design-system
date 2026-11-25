@@ -267,7 +267,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         id="errored-textInput-start-helperErrorText"
       >
         <div
-          className="css-1pg8bi"
+          className="css-98d3g4"
         >
           <svg
             aria-hidden={true}
@@ -421,7 +421,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
         id="errored-textInput-end-helperErrorText"
       >
         <div
-          className="css-1pg8bi"
+          className="css-98d3g4"
         >
           <svg
             aria-hidden={true}
@@ -445,7 +445,7 @@ exports[`Slider Range Slider renders the UI snapshot correctly 2`] = `
     id="errored-helperErrorText"
   >
     <div
-      className="css-1pg8bi"
+      className="css-98d3g4"
     >
       <svg
         aria-hidden={true}
@@ -1648,7 +1648,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
         id="errored-textInput-end-helperErrorText"
       >
         <div
-          className="css-1pg8bi"
+          className="css-98d3g4"
         >
           <svg
             aria-hidden={true}
@@ -1672,7 +1672,7 @@ exports[`Slider Single Slider renders the UI snapshot correctly 2`] = `
     id="errored-helperErrorText"
   >
     <div
-      className="css-1pg8bi"
+      className="css-98d3g4"
     >
       <svg
         aria-hidden={true}

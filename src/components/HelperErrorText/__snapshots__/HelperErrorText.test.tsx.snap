@@ -30,7 +30,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 2`] = `
   id="invalid"
 >
   <div
-    className="css-1pg8bi"
+    className="css-98d3g4"
   >
     <svg
       aria-hidden={true}
@@ -64,7 +64,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 3`] = `
   id="invalid"
 >
   <div
-    className="css-1pg8bi"
+    className="css-98d3g4"
   >
     <svg
       aria-hidden={true}
@@ -98,7 +98,7 @@ exports[`HelperErrorText Renders the UI snapshot correctly 4`] = `
   id="invalid"
 >
   <div
-    className="css-1pg8bi"
+    className="css-98d3g4"
   >
     <svg
       aria-hidden={true}

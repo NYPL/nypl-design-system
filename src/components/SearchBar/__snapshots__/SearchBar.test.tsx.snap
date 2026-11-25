@@ -735,7 +735,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
           id="invalidState-textInput-helperErrorText"
         >
           <div
-            className="css-1pg8bi"
+            className="css-98d3g4"
           >
             <svg
               aria-hidden={true}
@@ -780,7 +780,7 @@ exports[`SearchBar renders the UI snapshot correctly 6`] = `
     id="invalidState-helperErrorText"
   >
     <div
-      className="css-1pg8bi"
+      className="css-98d3g4"
     >
       <svg
         aria-hidden={true}
